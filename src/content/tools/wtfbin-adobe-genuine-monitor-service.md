@@ -2,26 +2,30 @@
 trust_level: community
 id: wtfbin-adobe-genuine-monitor-service
 namespace: wtf:bin:adobe-genuine-monitor-service
-name: "Adobe Genuine Monitor Service"
-description: "A little LSASS, as a treat"
-version: "1.0.0"
+name: Adobe Genuine Monitor Service
+description: A little LSASS, as a treat
+version: 1.0.0
 capabilities:
-  - credential.dump.lsass
+- credential.dump.lsass
 platforms:
-  - windows
+- windows
 techniques:
-  - credential-access
+- credential-access
 execution:
-  template: "Adobe Genuine Monitor Service"
+  template: Adobe Genuine Monitor Service
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/17"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/adobe-genuine-monitor-service/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/17
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/adobe-genuine-monitor-service/
+features:
+- process-manip
+- streaming
 ---
+
 examples:
   - description: "Execute Adobe Genuine Monitor Service and observe the unusual behavior"
     command: "Adobe Genuine Monitor Service"

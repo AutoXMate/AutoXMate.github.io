@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-appwiz-cpl
 namespace: windows:dllhijack:appwiz-cpl
 name: appwiz.cpl.dll
-description: "appwiz.cpl.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: appwiz.cpl.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "appwiz.cpl.dll"
+  template: appwiz.cpl.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://www.hexacorn.com/blog/2024/01/06/1-little-known-secret-of-fondue-exe/"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/appwiz-cpl.html"
+- label: Reference
+  url: https://www.hexacorn.com/blog/2024/01/06/1-little-known-secret-of-fondue-exe/
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/appwiz-cpl.html
+features:
+- file-system
 ---
+
 examples:
   - description: "Place malicious appwiz.cpl.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\appwiz.cpl.dll\""

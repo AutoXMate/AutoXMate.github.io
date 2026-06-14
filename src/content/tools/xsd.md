@@ -2,7 +2,9 @@
 id: windows-download-xsd
 namespace: windows:download:xsd
 name: xsd
-description: 'XML Schema Definition Tool included with the Windows Software Development Kit (SDK). Located at: C:\Program Files (x86)\Microsoft SDKs\Windows\<version>\bin\NETFX <version> Tools\xsd.exe.'
+description: 'XML Schema Definition Tool included with the Windows Software Development
+  Kit (SDK). Located at: C:\Program Files (x86)\Microsoft SDKs\Windows\<version>\bin\NETFX
+  <version> Tools\xsd.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - xsd
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
 execution:
   template: xsd
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server (It will download a remote payload and place it in INetCache)
+- description: Downloads payload from remote server (It will download a remote payload
+    and place it in INetCache)
   command: xsd.exe {REMOTEURL}
 references: []
 techniques:
@@ -67,7 +74,6 @@ install:
   commands:
   - choco install xsd
 ---
-
 
 # xsd
 

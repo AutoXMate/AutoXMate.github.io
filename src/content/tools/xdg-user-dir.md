@@ -2,7 +2,7 @@
 id: system-desktop-xdg-user-dir
 namespace: system:desktop:xdg-user-dir
 name: xdg-user-dir
-description: "Query XDG user directory paths; can spawn a shell."
+description: Query XDG user directory paths; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - xdg-user-dir
 parameters: []
-features: []
+features:
+- interactive
+- process-manip
+- requires-root
 execution:
   template: xdg-user-dir
   sandbox: execFile
@@ -65,7 +68,6 @@ install:
   commands:
   - apt-get install -y xdg-utils
 ---
-
 
 # xdg-user-dir
 

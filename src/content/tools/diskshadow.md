@@ -2,7 +2,9 @@
 id: windows-execution-diskshadow
 namespace: windows:execution:diskshadow
 name: diskshadow
-description: 'Diskshadow.exe is a tool that exposes the functionality offered by the volume shadow copy Service (VSS). Located at: C:\Windows\System32\diskshadow.exe; C:\Windows\SysWOW64\diskshadow.exe.'
+description: 'Diskshadow.exe is a tool that exposes the functionality offered by the
+  volume shadow copy Service (VSS). Located at: C:\Windows\System32\diskshadow.exe;
+  C:\Windows\SysWOW64\diskshadow.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +44,11 @@ resource_profile:
 allowed-tools:
 - diskshadow
 parameters: []
-features: []
+features:
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: diskshadow
   sandbox: execFile
@@ -50,9 +56,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute commands using diskshadow.exe from a prepared diskshadow script. (Use diskshadow to exfiltrate data from VSS such as NTDS.dit)
+- description: Execute commands using diskshadow.exe from a prepared diskshadow script.
+    (Use diskshadow to exfiltrate data from VSS such as NTDS.dit)
   command: diskshadow.exe /s {PATH:.txt}
-- description: Execute commands using diskshadow.exe to spawn child process (Use diskshadow to bypass defensive counter measures)
+- description: Execute commands using diskshadow.exe to spawn child process (Use diskshadow
+    to bypass defensive counter measures)
   command: diskshadow> exec {PATH:.exe}
 references:
 - label: ''
@@ -79,7 +87,6 @@ install:
   commands:
   - choco install diskshadow
 ---
-
 
 # diskshadow
 

@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - ntdsutil
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: ntdsutil
   sandbox: execFile
@@ -73,7 +75,6 @@ install:
   commands:
   - choco install ntdsutil
 ---
-
 
 # ntdsutil
 

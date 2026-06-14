@@ -2,7 +2,7 @@
 id: web-cache-varnishncsa
 namespace: web:cache:varnishncsa
 name: varnishncsa
-description: "Varnish log viewer in NCSA format; can read arbitrary files."
+description: Varnish log viewer in NCSA format; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - varnishncsa
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: varnishncsa
   sandbox: execFile
@@ -65,7 +67,6 @@ install:
   commands:
   - apt-get install -y varnish
 ---
-
 
 # varnishncsa
 

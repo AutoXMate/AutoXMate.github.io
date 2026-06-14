@@ -2,61 +2,70 @@
 trust_level: community
 id: darkiros-responder
 namespace: darkiros:tool:responder
-name: "responder"
-description: "Responder - Launch"
-version: "1.0.0"
+name: responder
+description: Responder - Launch
+version: 1.0.0
 capabilities:
-  - credential.discovery.reconnaissance
-  - network.intercept.mitm
-  - utility.generic
+- credential.discovery.reconnaissance
+- network.intercept.mitm
+- utility.generic
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - collection
-  - discovery
-  - execution
+- collection
+- discovery
+- execution
 execution:
-  template: "responder"
+  template: responder
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Responder - Launch"
-    command: "responder -I [interface]"
-  - description: "Responder - Launch analyze mode (no poisoning)"
-    command: "responder -I [interface] -A"
-  - description: "Responder - Launch with wpad file"
-    command: "respond -I [interface] --wpad"
-  - description: "Responder - http on"
-    command: "sed -i 's/HTTP = Off/HTTP = On/g' /opt/tools/Responder/Responder.conf && cat /opt/tools/Responder/Responder.conf | grep --color=never 'HTTP ='"
-  - description: "Responder - http off"
-    command: "sed -i 's/HTTP = On/HTTP = Off/g' /opt/tools/Responder/Responder.conf && cat /opt/tools/Responder/Responder.conf | grep --color=never 'HTTP ='"
-  - description: "Responder - smb on"
-    command: "sed -i 's/SMB = Off/SMB = On/g' /opt/tools/Responder/Responder.conf && cat /opt/tools/Responder/Responder.conf | grep --color=never 'SMB ='"
-  - description: "Responder - smb off"
-    command: "sed -i 's/SMB = On/SMB = Off/g' /opt/tools/Responder/Responder.conf && cat /opt/tools/Responder/Responder.conf | grep --color=never 'SMB ='"
-  - description: "Responder - challenge set"
-    command: "sed -i 's/Challenge =.*$/Challenge = <challenge>/g' /opt/tools/Responder/Responder.conf && cat /opt/tools/Responder/Responder.conf | grep --color=never 'Challenge ='"
-  - description: "Responder - challenge reset"
-    command: "sed -i 's/Challenge =.*$/Challenge = /g' /opt/tools/Responder/Responder.conf && cat /opt/tools/Responder/Responder.conf | grep --color=never 'Challenge ='"
-  - description: "multirelay attack - user filtered (previous disable HTTP and SMB in Responder.conf)"
-    command: "multirelay -t [ip] -u [user1] [user2]"
-  - description: "multirelay attack - all user (previous disable HTTP and SMB in Responder.conf)"
-    command: "multirelay -t [ip] -u all"
+- description: Responder - Launch
+  command: responder -I [interface]
+- description: Responder - Launch analyze mode (no poisoning)
+  command: responder -I [interface] -A
+- description: Responder - Launch with wpad file
+  command: respond -I [interface] --wpad
+- description: Responder - http on
+  command: sed -i 's/HTTP = Off/HTTP = On/g' /opt/tools/Responder/Responder.conf &&
+    cat /opt/tools/Responder/Responder.conf | grep --color=never 'HTTP ='
+- description: Responder - http off
+  command: sed -i 's/HTTP = On/HTTP = Off/g' /opt/tools/Responder/Responder.conf &&
+    cat /opt/tools/Responder/Responder.conf | grep --color=never 'HTTP ='
+- description: Responder - smb on
+  command: sed -i 's/SMB = Off/SMB = On/g' /opt/tools/Responder/Responder.conf &&
+    cat /opt/tools/Responder/Responder.conf | grep --color=never 'SMB ='
+- description: Responder - smb off
+  command: sed -i 's/SMB = On/SMB = Off/g' /opt/tools/Responder/Responder.conf &&
+    cat /opt/tools/Responder/Responder.conf | grep --color=never 'SMB ='
+- description: Responder - challenge set
+  command: sed -i 's/Challenge =.*$/Challenge = <challenge>/g' /opt/tools/Responder/Responder.conf
+    && cat /opt/tools/Responder/Responder.conf | grep --color=never 'Challenge ='
+- description: Responder - challenge reset
+  command: sed -i 's/Challenge =.*$/Challenge = /g' /opt/tools/Responder/Responder.conf
+    && cat /opt/tools/Responder/Responder.conf | grep --color=never 'Challenge ='
+- description: multirelay attack - user filtered (previous disable HTTP and SMB in
+    Responder.conf)
+  command: multirelay -t [ip] -u [user1] [user2]
+- description: multirelay attack - all user (previous disable HTTP and SMB in Responder.conf)
+  command: multirelay -t [ip] -u all
 references:
-  - label: "Source"
-    url: "https://github.com/lgandx/Responder"
-  - label: "Darkiros"
-    url: "https://darkiros.github.io/commands.html"
+- label: Source
+  url: https://github.com/lgandx/Responder
+- label: Darkiros
+  url: https://darkiros.github.io/commands.html
 items:
-  - Hash
-  - Password
+- Hash
+- Password
 services:
-  - LLMNR
-  - NBT-NS
-  - MDNS
-  - SMB
-  - HTTP
+- LLMNR
+- NBT-NS
+- MDNS
+- SMB
+- HTTP
+features:
+- network-intensive
 ---
 
 # responder

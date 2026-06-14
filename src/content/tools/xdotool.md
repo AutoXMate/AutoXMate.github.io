@@ -2,7 +2,8 @@
 id: system-x-xdotool
 namespace: system:x:xdotool
 name: xdotool
-description: "Simulate X11 keyboard/mouse input programmatically; can read arbitrary files."
+description: Simulate X11 keyboard/mouse input programmatically; can read arbitrary
+  files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,11 @@ resource_profile:
 allowed-tools:
 - xdotool
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- requires-root
 execution:
   template: xdotool
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y xdotool
 ---
-
 
 # xdotool
 

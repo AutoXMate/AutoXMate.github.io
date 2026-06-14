@@ -1,32 +1,37 @@
 ---
 id: windows-kernel-capcom
 namespace: windows:kernel:capcom
-name: "capcom.sys"
-description: "Elevate privileges"
-author: "Michael Haag"
-version: "1.0.0"
+name: capcom.sys
+description: Elevate privileges
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create capcom.sys binPath=C:\\windows\\temp\\capcom.sys type=kernel && sc.exe start capcom.sys"
+  template: sc.exe create capcom.sys binPath=C:\windows\temp\capcom.sys type=kernel
+    && sc.exe start capcom.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load capcom.sys kernel driver"
-    commands:
-      - "sc.exe create capcom.sys binPath=C:\\windows\\temp\\capcom.sys type=kernel && sc.exe start capcom.sys"
+- method: custom
+  description: Load capcom.sys kernel driver
+  commands:
+  - sc.exe create capcom.sys binPath=C:\windows\temp\capcom.sys type=kernel && sc.exe
+    start capcom.sys
 references:
-  - label: "Reference"
-    url: "https://github.com/elastic/protections-artifacts/search?q=VulnDriver"
+- label: Reference
+  url: https://github.com/elastic/protections-artifacts/search?q=VulnDriver
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create capcom.sys binPath=C:\\\\windows\\\\temp\\\\capcom.sys type=kernel && sc.exe start capcom.sys"

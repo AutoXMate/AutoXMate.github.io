@@ -2,7 +2,8 @@
 id: windows-recon-psr
 namespace: windows:recon:psr
 name: psr
-description: 'Windows Problem Steps Recorder, used to record screen and clicks. Located at: c:\windows\system32\psr.exe; c:\windows\syswow64\psr.exe.'
+description: 'Windows Problem Steps Recorder, used to record screen and clicks. Located
+  at: c:\windows\system32\psr.exe; c:\windows\syswow64\psr.exe.'
 author: Leon Rodenko
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - psr
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: psr
   sandbox: execFile
@@ -49,7 +54,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Record a user screen without creating a GUI. You should use "psr.exe /stop" to stop recording and create output file. (Can be used to take screenshots of the user environment)
+- description: Record a user screen without creating a GUI. You should use "psr.exe
+    /stop" to stop recording and create output file. (Can be used to take screenshots
+    of the user environment)
   command: psr.exe /start /output {PATH_ABSOLUTE:.zip} /sc 1 /gui 0
 references:
 - label: 51722.windows-problem-steps-recorder-psr-quick-and
@@ -72,7 +79,6 @@ install:
   commands:
   - choco install psr
 ---
-
 
 # psr
 

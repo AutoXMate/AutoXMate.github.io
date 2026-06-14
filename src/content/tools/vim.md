@@ -2,7 +2,8 @@
 id: editor-vim-vim
 namespace: editor:vim:vim
 name: vim
-description: "Vim text editor; can execute arbitrary commands and read/write files via embedded interpreters."
+description: Vim text editor; can execute arbitrary commands and read/write files
+  via embedded interpreters.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,12 @@ resource_profile:
 allowed-tools:
 - vim
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: vim
   sandbox: execFile
@@ -70,7 +76,6 @@ install:
   commands:
   - apt-get install -y vim
 ---
-
 
 # vim
 

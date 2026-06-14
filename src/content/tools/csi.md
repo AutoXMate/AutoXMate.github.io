@@ -2,7 +2,9 @@
 id: windows-execution-csi
 namespace: windows:execution:csi
 name: csi
-description: 'Command line interface included with Visual Studio. Located at: c:\Program Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Roslyn\csi.exe; c:\Program Files (x86)\Microsoft Web Tools\Packages\Microsoft.Net.Compilers.X.Y.Z\tools\csi.exe.'
+description: 'Command line interface included with Visual Studio. Located at: c:\Program
+  Files (x86)\Microsoft Visual Studio\2017\Community\MSBuild\15.0\Bin\Roslyn\csi.exe;
+  c:\Program Files (x86)\Microsoft Web Tools\Packages\Microsoft.Net.Compilers.X.Y.Z\tools\csi.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - csi
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: csi
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use csi.exe to run unsigned C# code. (Local execution of unsigned C# code.)
+- description: Use csi.exe to run unsigned C# code. (Local execution of unsigned C#
+    code.)
   command: csi.exe {PATH:.cs}
 references:
 - label: '781208810723549188'
@@ -78,7 +85,6 @@ install:
   commands:
   - choco install csi
 ---
-
 
 # csi
 

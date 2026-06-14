@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-srclient
 namespace: windows:dllhijack:srclient
 name: srclient.dll
-description: "srclient.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: srclient.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "srclient.dll"
+  template: srclient.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://blog.vonahi.io/srclient-dll-hijacking/"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/srclient.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://blog.vonahi.io/srclient-dll-hijacking/
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/srclient.html
+features:
+- remote
 ---
+
 examples:
   - description: "Place malicious srclient.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\srclient.dll\""

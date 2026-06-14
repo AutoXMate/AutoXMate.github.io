@@ -3,33 +3,36 @@ trust_level: community
 id: windows-dllhijack-dismapi
 namespace: windows:dllhijack:dismapi
 name: dismapi.dll
-description: "dismapi.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: dismapi.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "dismapi.dll"
+  template: dismapi.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/dismapi.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/dismapi.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious dismapi.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\dismapi.dll\""

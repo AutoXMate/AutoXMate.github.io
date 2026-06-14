@@ -2,7 +2,9 @@
 id: windows-execution-mpiexec
 namespace: windows:execution:mpiexec
 name: mpiexec
-description: 'Command-line tool for running Message Passing Interface (MPI) applications. Located at: C:\Program Files\Microsoft MPI\Bin\mpiexec.exe; C:\Program Files (x86)\Microsoft MPI\Bin\mpiexec.exe.'
+description: 'Command-line tool for running Message Passing Interface (MPI) applications.
+  Located at: C:\Program Files\Microsoft MPI\Bin\mpiexec.exe; C:\Program Files (x86)\Microsoft
+  MPI\Bin\mpiexec.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,12 @@ resource_profile:
 allowed-tools:
 - mpiexec
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: mpiexec
   sandbox: execFile
@@ -49,7 +56,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes a command via MPI command-line tool. (Executes commands under a trusted, Microsoft signed binary.)
+- description: Executes a command via MPI command-line tool. (Executes commands under
+    a trusted, Microsoft signed binary.)
   command: mpiexec.exe {CMD}
 references:
 - label: mpiexec
@@ -66,7 +74,6 @@ install:
   commands:
   - choco install mpiexec
 ---
-
 
 # mpiexec
 

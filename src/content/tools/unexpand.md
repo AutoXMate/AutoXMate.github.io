@@ -2,7 +2,7 @@
 id: system-text-unexpand
 namespace: system:text:unexpand
 name: unexpand
-description: "Convert spaces to tabs; can spawn a shell."
+description: Convert spaces to tabs; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - unexpand
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: unexpand
   sandbox: execFile
@@ -64,7 +69,6 @@ install:
   commands:
   - apt-get install -y coreutils
 ---
-
 
 # unexpand
 

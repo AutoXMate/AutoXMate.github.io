@@ -1,29 +1,34 @@
 ---
 id: windows-kernel-rtcore64
 namespace: windows:kernel:rtcore64
-name: "RTCore64.sys"
-description: "Elevate privileges"
-author: "Nasreddine Bencherchali"
-version: "1.0.0"
+name: RTCore64.sys
+description: Elevate privileges
+author: Nasreddine Bencherchali
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create RTCore64.sys binPath=C:\\windows\\temp\\RTCore64.sys type=kernel && sc.exe start RTCore64.sys"
+  template: sc.exe create RTCore64.sys binPath=C:\windows\temp\RTCore64.sys type=kernel
+    && sc.exe start RTCore64.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load RTCore64.sys kernel driver"
-    commands:
-      - "sc.exe create RTCore64.sys binPath=C:\\windows\\temp\\RTCore64.sys type=kernel && sc.exe start RTCore64.sys"
+- method: custom
+  description: Load RTCore64.sys kernel driver
+  commands:
+  - sc.exe create RTCore64.sys binPath=C:\windows\temp\RTCore64.sys type=kernel &&
+    sc.exe start RTCore64.sys
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create RTCore64.sys binPath=C:\\\\windows\\\\temp\\\\RTCore64.sys type=kernel && sc.exe start RTCore64.sys"

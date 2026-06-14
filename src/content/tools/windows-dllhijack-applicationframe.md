@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-applicationframe
 namespace: windows:dllhijack:applicationframe
 name: applicationframe.dll
-description: "applicationframe.dll — Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: applicationframe.dll — Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "applicationframe.dll"
+  template: applicationframe.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/applicationframe.html"
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/applicationframe.html
+features:
+- pipes-stdout
 ---
+
 examples:
   - description: "Place malicious applicationframe.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\applicationframe.dll\""

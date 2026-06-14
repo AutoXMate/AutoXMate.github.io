@@ -41,7 +41,10 @@ resource_profile:
 allowed-tools:
 - pcwrun
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: pcwrun
   sandbox: execFile
@@ -49,9 +52,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Open the target .EXE file with the Program Compatibility Wizard. (Proxy execution of binary)
+- description: Open the target .EXE file with the Program Compatibility Wizard. (Proxy
+    execution of binary)
   command: Pcwrun.exe {PATH_ABSOLUTE:.exe}
-- description: Leverage the MSDT follina vulnerability through Pcwrun to execute arbitrary commands and binaries. Note that this specific technique will not work on a patched system with the June 2022 Windows Security update. (Proxy execution of binary)
+- description: Leverage the MSDT follina vulnerability through Pcwrun to execute arbitrary
+    commands and binaries. Note that this specific technique will not work on a patched
+    system with the June 2022 Windows Security update. (Proxy execution of binary)
   command: Pcwrun.exe /../../$(calc).exe
 references:
 - label: '991335019833708544'
@@ -73,7 +79,6 @@ install:
   commands:
   - choco install pcwrun
 ---
-
 
 # pcwrun
 

@@ -2,7 +2,9 @@
 id: archive-tar-tar
 namespace: archive:tar:tar
 name: tar
-description: GNU tape archiver; can read/write files, transfer data, and spawn shells via checkpoint actions Can also download files, read arbitrary files, write to arbitrary files, spawn an interactive shell, upload files.
+description: GNU tape archiver; can read/write files, transfer data, and spawn shells
+  via checkpoint actions Can also download files, read arbitrary files, write to arbitrary
+  files, spawn an interactive shell, upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -47,7 +49,14 @@ resource_profile:
 allowed-tools:
 - tar
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- interactive
+- local
+- network-intensive
+- process-manip
+- requires-root
 execution:
   template: tar
   sandbox: execFile
@@ -91,7 +100,6 @@ install:
   commands:
   - apt-get install -y tar
 ---
-
 
 # tar
 

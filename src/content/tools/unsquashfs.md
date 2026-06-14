@@ -2,7 +2,7 @@
 id: system-file-unsquashfs
 namespace: system:file:unsquashfs
 name: unsquashfs
-description: "Extract SquashFS filesystem images; can read arbitrary files."
+description: Extract SquashFS filesystem images; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - unsquashfs
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
 execution:
   template: unsquashfs
   sandbox: execFile
@@ -66,7 +69,6 @@ install:
   commands:
   - apt-get install -y squashfs-tools
 ---
-
 
 # unsquashfs
 

@@ -2,7 +2,8 @@
 id: windows-execution-register-cimprovider
 namespace: windows:execution:register-cimprovider
 name: register-cimprovider
-description: 'Used to register new wmi providers Located at: C:\Windows\System32\Register-cimprovider.exe; C:\Windows\SysWOW64\Register-cimprovider.exe.'
+description: 'Used to register new wmi providers Located at: C:\Windows\System32\Register-cimprovider.exe;
+  C:\Windows\SysWOW64\Register-cimprovider.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - register-cimprovider
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: register-cimprovider
   sandbox: execFile
@@ -70,7 +73,6 @@ install:
   commands:
   - choco install register-cimprovider
 ---
-
 
 # register-cimprovider
 

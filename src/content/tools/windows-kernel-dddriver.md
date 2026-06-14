@@ -1,34 +1,42 @@
 ---
 id: windows-kernel-dddriver
 namespace: windows:kernel:dddriver
-name: "DDDriver.sys"
-description: "DDDriver.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers repository. The driver exposes dangerous kernel primitives to usermode."
-author: "Michael Haag"
-version: "1.0.0"
+name: DDDriver.sys
+description: DDDriver.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers
+  repository. The driver exposes dangerous kernel primitives to usermode.
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create DDDriver binPath=C:\\windows\\temp\\DDDriver.sys type=kernel && sc.exe start DDDriver"
+  template: sc.exe create DDDriver binPath=C:\windows\temp\DDDriver.sys type=kernel
+    && sc.exe start DDDriver
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load DDDriver.sys kernel driver"
-    commands:
-      - "sc.exe create DDDriver binPath=C:\\windows\\temp\\DDDriver.sys type=kernel && sc.exe start DDDriver"
+- method: custom
+  description: Load DDDriver.sys kernel driver
+  commands:
+  - sc.exe create DDDriver binPath=C:\windows\temp\DDDriver.sys type=kernel && sc.exe
+    start DDDriver
 references:
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/325"
-  - label: "Reference"
-    url: "https://github.com/KeServiceDescriptorTable/vulnerable-drivers"
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/325
+- label: Reference
+  url: https://github.com/KeServiceDescriptorTable/vulnerable-drivers
+features:
+- file-system
+- process-manip
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create DDDriver binPath=C:\\\\windows\\\\temp\\\\DDDriver.sys type=kernel && sc.exe start DDDriver"

@@ -1,29 +1,34 @@
 ---
 id: windows-kernel-capcom2
 namespace: windows:kernel:capcom2
-name: "capcom2.sys"
-description: "Confirmed vulnerable driver from Microsoft Block List"
-author: "Michael Haag"
-version: "1.0.0"
+name: capcom2.sys
+description: Confirmed vulnerable driver from Microsoft Block List
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: ""
+  template: ''
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 detections:
-  - type: other
+- type: other
 references:
-  - label: "Reference"
-    url: "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+- label: Reference
+  url: https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c
+features:
+- file-system
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create capcom2.sys binPath=C:\\windows\\temp\\capcom2.sys type=kernel && sc.exe start capcom2.sys"

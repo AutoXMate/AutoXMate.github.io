@@ -2,7 +2,7 @@
 id: system-x-xmodmap
 namespace: system:x:xmodmap
 name: xmodmap
-description: "Modifier key and pointer mapping in X11; can read arbitrary files."
+description: Modifier key and pointer mapping in X11; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - xmodmap
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
 execution:
   template: xmodmap
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y x11-utils
 ---
-
 
 # xmodmap
 

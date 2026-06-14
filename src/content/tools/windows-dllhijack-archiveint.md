@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-archiveint
 namespace: windows:dllhijack:archiveint
 name: archiveint.dll
-description: "archiveint.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: archiveint.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "archiveint.dll"
+  template: archiveint.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/archiveint.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/archiveint.html
+features:
+- file-system
 ---
+
 examples:
   - description: "Place malicious archiveint.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\archiveint.dll\""

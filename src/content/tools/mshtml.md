@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - mshtml
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: mshtml
   sandbox: execFile
@@ -49,7 +51,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: 'Invoke an HTML Application via mshta.exe (note: pops a security warning and a print dialogue box). (Launch an HTA application.)'
+- description: 'Invoke an HTML Application via mshta.exe (note: pops a security warning
+    and a print dialogue box). (Launch an HTA application.)'
   command: rundll32.exe Mshtml.dll,PrintHTML {PATH_ABSOLUTE:.hta}
 references:
 - label: '998567549670477824'
@@ -70,7 +73,6 @@ install:
   commands:
   - choco install mshtml
 ---
-
 
 # mshtml
 

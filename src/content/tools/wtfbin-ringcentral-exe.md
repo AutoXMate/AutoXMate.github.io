@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-ringcentral-exe
 namespace: wtf:bin:ringcentral-exe
-name: "RingCentral.exe"
-description: "How to look like malware, by RingCentral"
-version: "1.0.0"
+name: RingCentral.exe
+description: How to look like malware, by RingCentral
+version: 1.0.0
 capabilities:
-  - security.execution.script
+- security.execution.script
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "RingCentral.exe"
+  template: RingCentral.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/WidespreadPandemic/RingCentral_WTFBin"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/ringcentral-exe/"
+- label: Documentation
+  url: https://github.com/WidespreadPandemic/RingCentral_WTFBin
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/ringcentral-exe/
+features:
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute RingCentral.exe and observe the unusual behavior"
     command: "RingCentral.exe"

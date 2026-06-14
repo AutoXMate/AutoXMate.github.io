@@ -2,7 +2,7 @@
 id: network-ssh-ssh-keygen
 namespace: network:ssh:ssh-keygen
 name: ssh-keygen
-description: "SSH key generation and management; can read and write files."
+description: SSH key generation and management; can read and write files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - ssh-keygen
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
 execution:
   template: ssh-keygen
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y openssh-client
 ---
-
 
 # ssh-keygen
 

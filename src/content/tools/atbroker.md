@@ -2,7 +2,8 @@
 id: windows-execution-atbroker
 namespace: windows:execution:atbroker
 name: atbroker
-description: 'Helper binary for Assistive Technology (AT) Located at: C:\Windows\System32\Atbroker.exe; C:\Windows\SysWOW64\Atbroker.exe.'
+description: 'Helper binary for Assistive Technology (AT) Located at: C:\Windows\System32\Atbroker.exe;
+  C:\Windows\SysWOW64\Atbroker.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - atbroker
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: atbroker
   sandbox: execFile
@@ -49,7 +52,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Start a registered Assistive Technology (AT). (Executes code defined in registry for a new AT. Modifications must be made to the system registry to either register or modify an existing Assistive Technology (AT) service entry.)
+- description: Start a registered Assistive Technology (AT). (Executes code defined
+    in registry for a new AT. Modifications must be made to the system registry to
+    either register or modify an existing Assistive Technology (AT) service entry.)
   command: ATBroker.exe /start malware
 references:
 - label: ''
@@ -76,7 +81,6 @@ install:
   commands:
   - choco install atbroker
 ---
-
 
 # atbroker
 

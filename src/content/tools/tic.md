@@ -2,7 +2,7 @@
 id: system-terminal-tic
 namespace: system:terminal:tic
 name: tic
-description: "Terminal information compiler; can read arbitrary files."
+description: Terminal information compiler; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - tic
 parameters: []
-features: []
+features:
+- file-system
+- local
+- process-manip
 execution:
   template: tic
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y ncurses-bin
 ---
-
 
 # tic
 

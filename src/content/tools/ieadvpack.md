@@ -2,7 +2,8 @@
 id: windows-execution-ieadvpack
 namespace: windows:execution:ieadvpack
 name: ieadvpack
-description: 'INF installer for Internet Explorer. Has much of the same functionality as advpack.dll. Located at: c:\windows\system32\ieadvpack.dll; c:\windows\syswow64\ieadvpack.dll.'
+description: 'INF installer for Internet Explorer. Has much of the same functionality
+  as advpack.dll. Located at: c:\windows\system32\ieadvpack.dll; c:\windows\syswow64\ieadvpack.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - ieadvpack
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: ieadvpack
   sandbox: execFile
@@ -50,15 +54,22 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll in the .inf file by calling an information file directive (section name specified). (Run local or remote script(let) code through INF file specification.)
+- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll
+    in the .inf file by calling an information file directive (section name specified).
+    (Run local or remote script(let) code through INF file specification.)
   command: rundll32.exe ieadvpack.dll,LaunchINFSection {PATH_ABSOLUTE:.inf},DefaultInstall_SingleUser,1,
-- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll in the .inf file by calling an information file directive (DefaultInstall section implied). (Run local or remote script(let) code through INF file specification.)
+- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll
+    in the .inf file by calling an information file directive (DefaultInstall section
+    implied). (Run local or remote script(let) code through INF file specification.)
   command: rundll32.exe ieadvpack.dll,LaunchINFSection {PATH_ABSOLUTE:.inf},,1,
-- description: Launch a DLL payload by calling the RegisterOCX function. (Load a DLL payload.)
+- description: Launch a DLL payload by calling the RegisterOCX function. (Load a DLL
+    payload.)
   command: rundll32.exe ieadvpack.dll,RegisterOCX {PATH:.dll}
-- description: Launch an executable by calling the RegisterOCX function. (Run an executable payload.)
+- description: Launch an executable by calling the RegisterOCX function. (Run an executable
+    payload.)
   command: rundll32.exe ieadvpack.dll,RegisterOCX {PATH:.exe}
-- description: Launch command line by calling the RegisterOCX function. (Run an executable payload.)
+- description: Launch command line by calling the RegisterOCX function. (Run an executable
+    payload.)
   command: rundll32 ieadvpack.dll, RegisterOCX {CMD}
 references:
 - label: ''
@@ -83,7 +94,6 @@ install:
   commands:
   - choco install ieadvpack
 ---
-
 
 # ieadvpack
 

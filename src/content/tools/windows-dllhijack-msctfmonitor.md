@@ -3,31 +3,34 @@ trust_level: community
 id: windows-dllhijack-msctfmonitor
 namespace: windows:dllhijack:msctfmonitor
 name: msctfmonitor.dll
-description: "msctfmonitor.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: msctfmonitor.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "msctfmonitor.dll"
+  template: msctfmonitor.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/msctfmonitor.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/msctfmonitor.html
+features:
+- streaming
 ---
+
 examples:
   - description: "Place malicious msctfmonitor.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\msctfmonitor.dll\""

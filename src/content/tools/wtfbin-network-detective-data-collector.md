@@ -2,28 +2,32 @@
 trust_level: community
 id: wtfbin-network-detective-data-collector
 namespace: wtf:bin:network-detective-data-collector
-name: "Network Detective Data Collector (nddc.exe)"
-description: "WMIExec-ish NDCC"
-version: "1.0.0"
+name: Network Detective Data Collector (nddc.exe)
+description: WMIExec-ish NDCC
+version: 1.0.0
 capabilities:
-  - network.transfer.generic
-  - security.execution.impacket
+- network.transfer.generic
+- security.execution.impacket
 platforms:
-  - windows
+- windows
 techniques:
-  - exfiltration
-  - execution
+- exfiltration
+- execution
 execution:
-  template: "Network Detective Data Collector"
+  template: Network Detective Data Collector
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/5"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/network-detective-data-collector/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/5
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/network-detective-data-collector/
+features:
+- network-intensive
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute Network Detective Data Collector (nddc.exe) and observe the unusual behavior"
     command: "Network Detective Data Collector"

@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-easeus-spaceman-exe
 namespace: wtf:bin:easeus-spaceman-exe
-name: "EaseUS spaceman.exe"
-description: "EaseUS and bizarre Scheduled Tasks"
-version: "1.0.0"
+name: EaseUS spaceman.exe
+description: EaseUS and bizarre Scheduled Tasks
+version: 1.0.0
 capabilities:
-  - security.persistence.scheduled-task
+- security.persistence.scheduled-task
 platforms:
-  - windows
+- windows
 techniques:
-  - persistence
+- persistence
 execution:
-  template: "EaseUS spaceman.exe"
+  template: EaseUS spaceman.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://answers.microsoft.com/en-us/windows/forum/all/windows-10-spacemanexe/c60c4d6b-0bca-49e3-8054-68213efbd67a"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/easeus-spaceman-exe/"
+- label: Documentation
+  url: https://answers.microsoft.com/en-us/windows/forum/all/windows-10-spacemanexe/c60c4d6b-0bca-49e3-8054-68213efbd67a
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/easeus-spaceman-exe/
+features:
+- batch
 ---
+
 examples:
   - description: "Execute EaseUS spaceman.exe and observe the unusual behavior"
     command: "EaseUS spaceman.exe"

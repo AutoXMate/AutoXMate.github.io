@@ -2,7 +2,8 @@
 id: windows-execution-ttdinject
 namespace: windows:execution:ttdinject
 name: ttdinject
-description: 'Used by Windows 1809 and newer to Debug Time Travel (Underlying call of tttracer.exe) Located at: C:\Windows\System32\ttdinject.exe; C:\Windows\Syswow64\ttdinject.exe.'
+description: 'Used by Windows 1809 and newer to Debug Time Travel (Underlying call
+  of tttracer.exe) Located at: C:\Windows\System32\ttdinject.exe; C:\Windows\Syswow64\ttdinject.exe.'
 author: Maxime Nadeau
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - ttdinject
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: ttdinject
   sandbox: execFile
@@ -49,10 +53,15 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute a program using ttdinject.exe. Requires administrator privileges. A log file will be created in tmp.run. The log file can be changed, but the length (7) has to be updated. (Spawn process using other binary)
+- description: Execute a program using ttdinject.exe. Requires administrator privileges.
+    A log file will be created in tmp.run. The log file can be changed, but the length
+    (7) has to be updated. (Spawn process using other binary)
   command: TTDInject.exe /ClientParams "7 tmp.run 0 0 0 0 0 0 0 0 0 0" /Launch "{PATH:.exe}"
-- description: Execute a program using ttdinject.exe. Requires administrator privileges. A log file will be created in tmp.run. The log file can be changed, but the length (7) has to be updated. (Spawn process using other binary)
-  command: ttdinject.exe /ClientScenario TTDRecorder /ddload 0 /ClientParams "7 tmp.run 0 0 0 0 0 0 0 0 0 0" /launch "{PATH:.exe}"
+- description: Execute a program using ttdinject.exe. Requires administrator privileges.
+    A log file will be created in tmp.run. The log file can be changed, but the length
+    (7) has to be updated. (Spawn process using other binary)
+  command: ttdinject.exe /ClientScenario TTDRecorder /ddload 0 /ClientParams "7 tmp.run
+    0 0 0 0 0 0 0 0 0 0" /launch "{PATH:.exe}"
 references:
 - label: '1196333160470138880'
   url: https://twitter.com/Oddvarmoe/status/1196333160470138880
@@ -69,14 +78,15 @@ detections:
 - type: ioc
   description: Parent child relationship. Ttdinject.exe parent for executed command
 - type: ioc
-  description: Multiple queries made to the IFEO registry key of an untrusted executable (Ex. "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\payload.exe") from the ttdinject.exe process
+  description: Multiple queries made to the IFEO registry key of an untrusted executable
+    (Ex. "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\payload.exe")
+    from the ttdinject.exe process
 install:
 - method: choco
   package_name: ttdinject
   commands:
   - choco install ttdinject
 ---
-
 
 # ttdinject
 

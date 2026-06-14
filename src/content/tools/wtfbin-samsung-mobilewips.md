@@ -2,26 +2,30 @@
 trust_level: community
 id: wtfbin-samsung-mobilewips
 namespace: wtf:bin:samsung-mobilewips
-name: "Samsung MobileWips"
-description: "Bizarre DNS requests on Samsung phones"
-version: "1.0.0"
+name: Samsung MobileWips
+description: Bizarre DNS requests on Samsung phones
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - execution
+- execution
 execution:
-  template: "Samsung MobileWips"
+  template: Samsung MobileWips
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/27"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/samsung-mobilewips/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/27
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/samsung-mobilewips/
+features:
+- pipes-stdin
+- process-manip
 ---
+
 examples:
   - description: "Run the binary and monitor DNS exfiltration"
     command: "Samsung MobileWips"

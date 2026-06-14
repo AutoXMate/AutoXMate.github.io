@@ -2,7 +2,10 @@
 id: windows-execution-applauncher
 namespace: windows:execution:applauncher
 name: applauncher
-description: 'User Experience Virtualization tool that launches applications under monitoring to capture and synchronize user settings. Located at: C:\Program Files\Windows Kits\10\Microsoft User Experience Virtualization\Management\AppLauncher.exe; C:\Program Files (x86)\Windows Kits\10\Microsoft User Experience Virtualization\Management\AppLauncher.exe.'
+description: 'User Experience Virtualization tool that launches applications under
+  monitoring to capture and synchronize user settings. Located at: C:\Program Files\Windows
+  Kits\10\Microsoft User Experience Virtualization\Management\AppLauncher.exe; C:\Program
+  Files (x86)\Windows Kits\10\Microsoft User Experience Virtualization\Management\AppLauncher.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +44,12 @@ resource_profile:
 allowed-tools:
 - applauncher
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: applauncher
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launches an executable via User Experience Virtualization tool. (Executes an executable under a trusted, Microsoft signed binary.)
+- description: Launches an executable via User Experience Virtualization tool. (Executes
+    an executable under a trusted, Microsoft signed binary.)
   command: AppLauncher.exe {PATH_ABSOLUTE:.exe}
 references:
 - label: uev-getting-started
@@ -66,7 +75,6 @@ install:
   commands:
   - choco install applauncher
 ---
-
 
 # applauncher
 

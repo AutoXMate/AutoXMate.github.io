@@ -2,7 +2,7 @@
 id: system-kernel-sysctl
 namespace: system:kernel:sysctl
 name: sysctl
-description: "Configure kernel parameters at runtime; can read and write files."
+description: Configure kernel parameters at runtime; can read and write files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +44,11 @@ resource_profile:
 allowed-tools:
 - sysctl
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: sysctl
   sandbox: execFile
@@ -68,7 +72,6 @@ install:
   commands:
   - apt-get install -y procps
 ---
-
 
 # sysctl
 

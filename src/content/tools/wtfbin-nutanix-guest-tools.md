@@ -2,26 +2,30 @@
 trust_level: community
 id: wtfbin-nutanix-guest-tools
 namespace: wtf:bin:nutanix-guest-tools
-name: "Nutanix Guest Tools"
-description: "Yet another base64-loving process"
-version: "1.0.0"
+name: Nutanix Guest Tools
+description: Yet another base64-loving process
+version: 1.0.0
 capabilities:
-  - security.obfuscation.base64
+- security.obfuscation.base64
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
+- defense-evasion
 execution:
-  template: "Nutanix Guest Tools"
+  template: Nutanix Guest Tools
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/46"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/nutanix-guest-tools/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/46
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/nutanix-guest-tools/
+features:
+- pipes-stdout
+- process-manip
 ---
+
 examples:
   - description: "Execute Nutanix Guest Tools and observe the unusual behavior"
     command: "Nutanix Guest Tools"

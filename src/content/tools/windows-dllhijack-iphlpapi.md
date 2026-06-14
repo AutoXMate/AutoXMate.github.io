@@ -3,47 +3,51 @@ trust_level: community
 id: windows-dllhijack-iphlpapi
 namespace: windows:dllhijack:iphlpapi
 name: iphlpapi.dll
-description: "iphlpapi.dll — Sideloading, Search Order, Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: iphlpapi.dll — Sideloading, Search Order, Environment Variable hijacking
+  (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "iphlpapi.dll"
+  template: iphlpapi.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "Reference"
-    url: "https://twitter.com/SBousseaden/status/1550903546916311043"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://twitter.com/AndrewOliveau/status/1682185200862625792"
-  - label: "Reference"
-    url: "https://x00.zip/playing-with-process-handles/"
-  - label: "Reference"
-    url: "https://twitter.com/BSummerz/status/1860045985919205645"
-  - label: "Reference"
-    url: "https://ctrlaltintel.com/research/FudCrypt-analysis-1/"
-  - label: "Reference"
-    url: "https://learn.microsoft.com/en-us/answers/questions/f46df9f8-a9bb-4d1d-a11c-c0f6d02454b6/onedrivesetupexe-is-a-malware-autoupdate-without"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/iphlpapi.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: Reference
+  url: https://twitter.com/SBousseaden/status/1550903546916311043
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://twitter.com/AndrewOliveau/status/1682185200862625792
+- label: Reference
+  url: https://x00.zip/playing-with-process-handles/
+- label: Reference
+  url: https://twitter.com/BSummerz/status/1860045985919205645
+- label: Reference
+  url: https://ctrlaltintel.com/research/FudCrypt-analysis-1/
+- label: Reference
+  url: https://learn.microsoft.com/en-us/answers/questions/f46df9f8-a9bb-4d1d-a11c-c0f6d02454b6/onedrivesetupexe-is-a-malware-autoupdate-without
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/iphlpapi.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious iphlpapi.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\iphlpapi.dll\""

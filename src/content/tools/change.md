@@ -2,7 +2,8 @@
 id: windows-execution-change
 namespace: windows:execution:change
 name: change
-description: 'Remote Desktop Services MultiUser Change Utility Located at: c:\windows\system32\change.exe; c:\windows\syswow64\change.exe.'
+description: 'Remote Desktop Services MultiUser Change Utility Located at: c:\windows\system32\change.exe;
+  c:\windows\syswow64\change.exe.'
 author: Idan Lerman
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - change
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: change
   sandbox: execFile
@@ -49,7 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Once executed, `change.exe` will execute `chgusr.exe` in the same folder. Thus, if `change.exe` is copied to a folder and an arbitrary executable is renamed to `chgusr.exe`, `change.exe` will spawn it. Instead of `user`, it is also possible to use `port` or `logon` as command-line option. (Execute an arbitrary executable via trusted system executable.)
+- description: Once executed, `change.exe` will execute `chgusr.exe` in the same folder.
+    Thus, if `change.exe` is copied to a folder and an arbitrary executable is renamed
+    to `chgusr.exe`, `change.exe` will spawn it. Instead of `user`, it is also possible
+    to use `port` or `logon` as command-line option. (Execute an arbitrary executable
+    via trusted system executable.)
   command: change.exe user
 references: []
 techniques:
@@ -59,14 +68,14 @@ mitre_ids:
 - T1218
 detections:
 - type: ioc
-  description: change.exe being executed and executes a child process outside of its normal path of c:\windows\system32\ or c:\windows\syswow64\
+  description: change.exe being executed and executes a child process outside of its
+    normal path of c:\windows\system32\ or c:\windows\syswow64\
 install:
 - method: choco
   package_name: change
   commands:
   - choco install change
 ---
-
 
 # change
 

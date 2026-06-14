@@ -2,7 +2,8 @@
 id: windows-execution-write
 namespace: windows:execution:write
 name: write
-description: 'Windows Write Located at: C:\Windows\write.exe; C:\Windows\System32\write.exe; C:\Windows\SysWOW64\write.exe.'
+description: 'Windows Write Located at: C:\Windows\write.exe; C:\Windows\System32\write.exe;
+  C:\Windows\SysWOW64\write.exe.'
 author: Michal Belzak
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - write
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdin
+- pipes-stdout
 execution:
   template: write
   sandbox: execFile
@@ -49,7 +53,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes a binary provided in default value of `HKCU\Software\Microsoft\Windows\CurrentVersion\App Paths\wordpad.exe`. (Execute binary through legitimate proxy. This might be utilized to confuse detection solutions that rely on parent-child relationships.)
+- description: Executes a binary provided in default value of `HKCU\Software\Microsoft\Windows\CurrentVersion\App
+    Paths\wordpad.exe`. (Execute binary through legitimate proxy. This might be utilized
+    to confuse detection solutions that rely on parent-child relationships.)
   command: write.exe
 references:
 - label: b8c5ff7c2bd0fb2b385cc2fdd119874b
@@ -70,7 +76,6 @@ install:
   commands:
   - choco install write
 ---
-
 
 # write
 

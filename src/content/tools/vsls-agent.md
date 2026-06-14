@@ -2,7 +2,8 @@
 id: windows-execution-vsls-agent
 namespace: windows:execution:vsls-agent
 name: vsls-agent
-description: 'Agent for Visual Studio Live Share (Code Collaboration) Located at: c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe.'
+description: 'Agent for Visual Studio Live Share (Code Collaboration) Located at:
+  c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\Extensions\Microsoft\LiveShare\Agent\vsls-agent.exe.'
 author: Jimmy (@bohops)
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - vsls-agent
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: vsls-agent
   sandbox: execFile
@@ -49,7 +54,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Load a library payload using the --agentExtensionPath parameter (32-bit) (Execute proxied payload with Microsoft signed binary)
+- description: Load a library payload using the --agentExtensionPath parameter (32-bit)
+    (Execute proxied payload with Microsoft signed binary)
   command: vsls-agent.exe --agentExtensionPath {PATH_ABSOLUTE:.dll}
 references:
 - label: '1583916360404729857'
@@ -68,7 +74,6 @@ install:
   commands:
   - choco install vsls-agent
 ---
-
 
 # vsls-agent
 

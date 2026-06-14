@@ -4,69 +4,69 @@ namespace: container:orchestrate:compose
 name: docker-compose
 description: Multi-container orchestration tool for defining and running complex Docker
   application stacks.
-author: "Repository Maintainers"
-version: "1.0.0"
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - container.orchestrate.compose
-  - container.orchestrate.stack
-  - container.service.manage
-  - container.network.multi
-  - container.storage.volume
-  - container.logs.tail
+- container.orchestrate.compose
+- container.orchestrate.stack
+- container.service.manage
+- container.network.multi
+- container.storage.volume
+- container.logs.tail
 platforms:
-  - linux
-  - macos
-  - windows
+- linux
+- macos
+- windows
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies:
-  - docker
+- docker
 related_tools:
-  - docker
-  - docker-swarm
-  - kubernetes
-  - podman-compose
+- docker
+- docker-swarm
+- kubernetes
+- podman-compose
 artifacts:
-  - type: container.image.oci
-    description: Built container image
-    mime: application/vnd.oci.image.manifest.v1+json
-    trust_level: verified
-  - type: container.runtime.logs
-    description: Container service logs
-    mime: text/plain
-    trust_level: verified
-  - type: container.stack.config
-    description: Docker Compose stack configuration
-    mime: application/x-yaml
-    trust_level: verified
+- type: container.image.oci
+  description: Built container image
+  mime: application/vnd.oci.image.manifest.v1+json
+  trust_level: verified
+- type: container.runtime.logs
+  description: Container service logs
+  mime: text/plain
+  trust_level: verified
+- type: container.stack.config
+  description: Docker Compose stack configuration
+  mime: application/x-yaml
+  trust_level: verified
 workflow_edges:
   produces:
-    - compose-stack
-    - service-logs
+  - compose-stack
+  - service-logs
   consumes:
-    - compose-file
-    - container-image
+  - compose-file
+  - container-image
 contract:
   inputs:
-    - type: container.stack.composefile
-      description: Docker Compose YAML file
-      mime: application/x-yaml
-    - type: container.image.oci
-      description: Container images to use in the stack
+  - type: container.stack.composefile
+    description: Docker Compose YAML file
+    mime: application/x-yaml
+  - type: container.image.oci
+    description: Container images to use in the stack
   outputs:
-    - type: container.stack.running
-      description: Running container stack
-    - type: container.runtime.logs
-      description: Aggregated service logs
-      mime: text/plain
+  - type: container.stack.running
+    description: Running container stack
+  - type: container.runtime.logs
+    description: Aggregated service logs
+    mime: text/plain
   side_effects:
-    - network_traffic
-    - filesystem_write
-    - process_spawn
+  - network_traffic
+  - filesystem_write
+  - process_spawn
   resource_cost:
     cpu: medium
     memory_mb: 128
@@ -78,115 +78,118 @@ resource_profile:
   network: medium
   disk_io: medium
 allowed-tools:
-  - docker-compose
-  - docker compose
-  - Bash
-  - execFile
+- docker-compose
+- docker compose
+- Bash
+- execFile
 parameters:
-  - name: all-resources
-    type: string
-    required: false
-    description: "Include all resources, even those not"
-    aliases:
-      - --all-resources
-  - name: ansi
-    type: string
-    required: false
-    description: "Control when to print ANSI control"
-    aliases:
-      - --ansi
-  - name: compatibility
-    type: string
-    required: false
-    description: "Run compose in backward compatibility mode"
-    aliases:
-      - --compatibility
-  - name: dry-run
-    type: string
-    required: false
-    description: "Execute command in dry run mode"
-    aliases:
-      - --dry-run
-  - name: env-file
-    type: string
-    required: false
-    description: "Specify an alternate environment file"
-    aliases:
-      - --env-file
-  - name: file
-    type: string
-    required: false
-    description: "Compose configuration files"
-    aliases:
-      - -f
-      - --file
-  - name: parallel
-    type: string
-    required: false
-    description: "Control max parallelism, -1 for"
-    aliases:
-      - --parallel
-  - name: profile
-    type: file
-    required: false
-    description: "Specify a profile to enable"
-    aliases:
-      - --profile
-  - name: progress
-    type: string
-    required: false
-    description: "Set type of progress output (auto"
-    aliases:
-      - --progress
-  - name: project-directory
-    type: file
-    required: false
-    description: "Specify an alternate working directory"
-    aliases:
-      - --project-directory
-  - name: project-name
-    type: string
-    required: false
-    description: "Project name"
-    aliases:
-      - -p
-      - --project-name
+- name: all-resources
+  type: string
+  required: false
+  description: Include all resources, even those not
+  aliases:
+  - --all-resources
+- name: ansi
+  type: string
+  required: false
+  description: Control when to print ANSI control
+  aliases:
+  - --ansi
+- name: compatibility
+  type: string
+  required: false
+  description: Run compose in backward compatibility mode
+  aliases:
+  - --compatibility
+- name: dry-run
+  type: string
+  required: false
+  description: Execute command in dry run mode
+  aliases:
+  - --dry-run
+- name: env-file
+  type: string
+  required: false
+  description: Specify an alternate environment file
+  aliases:
+  - --env-file
+- name: file
+  type: string
+  required: false
+  description: Compose configuration files
+  aliases:
+  - -f
+  - --file
+- name: parallel
+  type: string
+  required: false
+  description: Control max parallelism, -1 for
+  aliases:
+  - --parallel
+- name: profile
+  type: file
+  required: false
+  description: Specify a profile to enable
+  aliases:
+  - --profile
+- name: progress
+  type: string
+  required: false
+  description: Set type of progress output (auto
+  aliases:
+  - --progress
+- name: project-directory
+  type: file
+  required: false
+  description: Specify an alternate working directory
+  aliases:
+  - --project-directory
+- name: project-name
+  type: string
+  required: false
+  description: Project name
+  aliases:
+  - -p
+  - --project-name
 execution:
-  template: "docker-compose {all-resources} {ansi} {compatibility} {dry-run} {env-file}"
+  template: docker-compose {all-resources} {ansi} {compatibility} {dry-run} {env-file}
   sandbox: execFile
   timeout_seconds: 300
   shell: false
 examples:
-  - description: "Start all services in background"
-    command: "docker-compose up -d"
-  - description: "Build and start services"
-    command: "docker-compose up -d --build"
-  - description: "View running services"
-    command: "docker-compose ps"
-  - description: "Tail logs from all services"
-    command: "docker-compose logs -f"
-  - description: "Execute command in a running service"
-    command: "docker-compose exec web bash"
-  - description: "Stop and remove all resources"
-    command: "docker-compose down -v"
+- description: Start all services in background
+  command: docker-compose up -d
+- description: Build and start services
+  command: docker-compose up -d --build
+- description: View running services
+  command: docker-compose ps
+- description: Tail logs from all services
+  command: docker-compose logs -f
+- description: Execute command in a running service
+  command: docker-compose exec web bash
+- description: Stop and remove all resources
+  command: docker-compose down -v
 references:
-  - label: "Docker Compose documentation"
-    url: "https://docs.docker.com/compose/"
-  - label: "Compose file reference"
-    url: "https://docs.docker.com/compose/compose-file/"
+- label: Docker Compose documentation
+  url: https://docs.docker.com/compose/
+- label: Compose file reference
+  url: https://docs.docker.com/compose/compose-file/
 techniques:
-  - lateral-movement
+- lateral-movement
 install:
-    - method: apt
-      package_name: "docker-compose"
-      commands:
-        - "apt-get install -y docker-compose"
-    - method: brew
-      package_name: "docker-compose"
-      commands:
-        - "brew install docker-compose"
+- method: apt
+  package_name: docker-compose
+  commands:
+  - apt-get install -y docker-compose
+- method: brew
+  package_name: docker-compose
+  commands:
+  - brew install docker-compose
+features:
+- network-intensive
+- pipes-stdout
+- process-manip
 ---
-
 
 # Docker Compose — Multi-Container Orchestration
 

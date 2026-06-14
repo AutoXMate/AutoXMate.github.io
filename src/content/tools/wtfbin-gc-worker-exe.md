@@ -2,26 +2,30 @@
 trust_level: community
 id: wtfbin-gc-worker-exe
 namespace: wtf:bin:gc-worker-exe
-name: "gc_worker.exe"
-description: "Base64-encoded PowerShell from Azure's own agent!"
-version: "1.0.0"
+name: gc_worker.exe
+description: Base64-encoded PowerShell from Azure's own agent!
+version: 1.0.0
 capabilities:
-  - security.execution.powershell
+- security.execution.powershell
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "gc_worker.exe"
+  template: gc_worker.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/41"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/gc-worker-exe/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/41
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/gc-worker-exe/
+features:
+- interactive
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute gc_worker.exe and observe the unusual behavior"
     command: "gc_worker.exe"

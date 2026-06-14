@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-bloodhound-exe
 namespace: wtf:bin:bloodhound-exe
-name: "Bloodhound.exe"
-description: "Not the Bloodhound you're thinking of"
-version: "1.0.0"
+name: Bloodhound.exe
+description: Not the Bloodhound you're thinking of
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "Bloodhound.exe"
+  template: Bloodhound.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/14"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/bloodhound-exe/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/14
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/bloodhound-exe/
+features:
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute Bloodhound.exe and observe the unusual behavior"
     command: "Bloodhound.exe"

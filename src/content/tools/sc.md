@@ -2,7 +2,8 @@
 id: windows-ads-sc
 namespace: windows:ads:sc
 name: sc
-description: 'Used by Windows to manage services Located at: C:\Windows\System32\sc.exe; C:\Windows\SysWOW64\sc.exe.'
+description: 'Used by Windows to manage services Located at: C:\Windows\System32\sc.exe;
+  C:\Windows\SysWOW64\sc.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,13 @@ resource_profile:
 allowed-tools:
 - sc
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- streaming
 execution:
   template: sc
   sandbox: execFile
@@ -49,10 +56,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Creates a new service and executes the file stored in the ADS. (Execute binary file hidden inside an alternate data stream)
-  command: sc create evilservice binPath="\"c:\\ADS\\file.txt:cmd.exe\" /c echo works > \"c:\ADS\works.txt\"" DisplayName= "evilservice" start= auto\ & sc start evilservice
-- description: Modifies an existing service and executes the file stored in the ADS. (Execute binary file hidden inside an alternate data stream)
-  command: sc config {ExistingServiceName} binPath="\"c:\\ADS\\file.txt:cmd.exe\" /c echo works > \"c:\ADS\works.txt\"" & sc start {ExistingServiceName}
+- description: Creates a new service and executes the file stored in the ADS. (Execute
+    binary file hidden inside an alternate data stream)
+  command: sc create evilservice binPath="\"c:\\ADS\\file.txt:cmd.exe\" /c echo works
+    > \"c:\ADS\works.txt\"" DisplayName= "evilservice" start= auto\ & sc start evilservice
+- description: Modifies an existing service and executes the file stored in the ADS.
+    (Execute binary file hidden inside an alternate data stream)
+  command: sc config {ExistingServiceName} binPath="\"c:\\ADS\\file.txt:cmd.exe\"
+    /c echo works > \"c:\ADS\works.txt\"" & sc start {ExistingServiceName}
 references:
 - label: ''
   url: https://oddvar.moe/2018/04/11/putting-data-in-alternate-data-streams-and-how-to-execute-it-part-2/
@@ -81,7 +92,6 @@ install:
   commands:
   - choco install sc
 ---
-
 
 # sc
 

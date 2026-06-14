@@ -2,7 +2,10 @@
 id: windows-execution-acccheckconsole
 namespace: windows:execution:acccheckconsole
 name: acccheckconsole
-description: 'Verifies UI accessibility requirements Located at: C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x86\AccChecker\AccCheckConsole.exe; C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64\AccChecker\AccCheckConsole.exe; C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\arm\AccChecker\AccCheckConsole.exe.'
+description: 'Verifies UI accessibility requirements Located at: C:\Program Files
+  (x86)\Windows Kits\10\bin\10.0.22000.0\x86\AccChecker\AccCheckConsole.exe; C:\Program
+  Files (x86)\Windows Kits\10\bin\10.0.22000.0\x64\AccChecker\AccCheckConsole.exe;
+  C:\Program Files (x86)\Windows Kits\10\bin\10.0.22000.0\arm\AccChecker\AccCheckConsole.exe.'
 author: bohops
 version: 1.0.0
 capabilities:
@@ -42,7 +45,12 @@ resource_profile:
 allowed-tools:
 - acccheckconsole
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: acccheckconsole
   sandbox: execFile
@@ -50,9 +58,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Load a managed DLL in the context of AccCheckConsole.exe. The -window switch value can be set to an arbitrary active window name. (Local execution of managed code from assembly DLL.)
+- description: Load a managed DLL in the context of AccCheckConsole.exe. The -window
+    switch value can be set to an arbitrary active window name. (Local execution of
+    managed code from assembly DLL.)
   command: AccCheckConsole.exe -window "Untitled - Notepad" {PATH_ABSOLUTE:.dll}
-- description: Load a managed DLL in the context of AccCheckConsole.exe. The -window switch value can be set to an arbitrary active window name. (Local execution of managed code to bypass AppLocker.)
+- description: Load a managed DLL in the context of AccCheckConsole.exe. The -window
+    switch value can be set to an arbitrary active window name. (Local execution of
+    managed code to bypass AppLocker.)
   command: AccCheckConsole.exe -window "Untitled - Notepad" {PATH_ABSOLUTE:.dll}
 references:
 - label: 2444129419c8acf837aedda5f0e7f340
@@ -77,7 +89,6 @@ install:
   commands:
   - choco install acccheckconsole
 ---
-
 
 # acccheckconsole
 

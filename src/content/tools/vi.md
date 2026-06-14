@@ -2,7 +2,7 @@
 id: editor-vi-vi
 namespace: editor:vi:vi
 name: vi
-description: "Vi text editor; can execute commands, read/write files, and spawn shells."
+description: Vi text editor; can execute commands, read/write files, and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -45,7 +45,13 @@ resource_profile:
 allowed-tools:
 - vi
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: vi
   sandbox: execFile
@@ -85,7 +91,6 @@ install:
   commands:
   - apt-get install -y vim
 ---
-
 
 # vi
 

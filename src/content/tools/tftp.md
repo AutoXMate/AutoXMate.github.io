@@ -2,7 +2,7 @@
 id: network-ftp-tftp
 namespace: network:ftp:tftp
 name: tftp
-description: "Trivial File Transfer Protocol client; can transfer files and spawn shells."
+description: Trivial File Transfer Protocol client; can transfer files and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +44,13 @@ resource_profile:
 allowed-tools:
 - tftp
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- process-manip
+- remote
 execution:
   template: tftp
   sandbox: execFile
@@ -72,7 +78,6 @@ install:
   commands:
   - apt-get install -y tftp-hpa
 ---
-
 
 # tftp
 

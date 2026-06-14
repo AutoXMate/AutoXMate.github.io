@@ -2,7 +2,7 @@
 id: dev-debug-valgrind
 namespace: dev:debug:valgrind
 name: valgrind
-description: "Memory debugging and profiling tool; can read arbitrary files."
+description: Memory debugging and profiling tool; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - valgrind
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- requires-root
 execution:
   template: valgrind
   sandbox: execFile
@@ -65,7 +69,6 @@ install:
   commands:
   - apt-get install -y valgrind
 ---
-
 
 # valgrind
 

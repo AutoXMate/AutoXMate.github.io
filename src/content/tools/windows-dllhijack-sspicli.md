@@ -3,39 +3,42 @@ trust_level: community
 id: windows-dllhijack-sspicli
 namespace: windows:dllhijack:sspicli
 name: sspicli.dll
-description: "sspicli.dll — Sideloading, Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: sspicli.dll — Sideloading, Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "sspicli.dll"
+  template: sspicli.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://lab52.io/blog/analyzing-notdoor-inside-apt28s-expanding-arsenal/"
-  - label: "Reference"
-    url: "https://www.legit4n6.com/OneDrive-SSPICLI-dll-Side-Loading-Proof-of-Concept-264d60e66daf80caa347f437baf5edf3"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/sspicli.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://lab52.io/blog/analyzing-notdoor-inside-apt28s-expanding-arsenal/
+- label: Reference
+  url: https://www.legit4n6.com/OneDrive-SSPICLI-dll-Side-Loading-Proof-of-Concept-264d60e66daf80caa347f437baf5edf3
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/sspicli.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious sspicli.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\sspicli.dll\""

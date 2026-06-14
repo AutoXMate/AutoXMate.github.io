@@ -3,26 +3,30 @@ trust_level: community
 id: argument-injection-psql
 namespace: argument:injection:psql
 name: psql
-description: "Argument injection via psql"
-version: "1.0.0"
+description: Argument injection via psql
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - execution
+- execution
 execution:
-  template: "psql"
+  template: psql
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "The `--output` argument pipes data through external commands when the value is prefixed with `|`."
-    command: "psql -o'|id>/tmp/foo'
-"
+- description: The `--output` argument pipes data through external commands when the
+    value is prefixed with `|`.
+  command: 'psql -o''|id>/tmp/foo'' '
 references:
-  - label: "GTFOArgs"
-    url: "https://gtfoargs.github.io/gtfoargs/psql/"
+- label: GTFOArgs
+  url: https://gtfoargs.github.io/gtfoargs/psql/
+features:
+- pipes-stdin
+- process-manip
+- stealth
 ---
 
 # psql

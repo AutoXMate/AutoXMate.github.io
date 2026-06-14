@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-classicexplorer32
 namespace: windows:dllhijack:classicexplorer32
 name: classicexplorer32.dll
-description: "classicexplorer32.dll — Sideloading hijacking (Classic Shell)"
-author: "Pokhlebin Maxim"
-version: "1.0.0"
+description: classicexplorer32.dll — Sideloading hijacking (Classic Shell)
+author: Pokhlebin Maxim
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "classicexplorer32.dll"
+  template: classicexplorer32.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://blogs.blackberry.com/en/2022/12/mustang-panda-uses-the-russian-ukrainian-war-to-attack-europe-and-asia-pacific-targets"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/classicexplorer32.html"
+- label: Reference
+  url: https://blogs.blackberry.com/en/2022/12/mustang-panda-uses-the-russian-ukrainian-war-to-attack-europe-and-asia-pacific-targets
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/classicexplorer32.html
+features:
+- interactive
 ---
+
 examples:
   - description: "Place malicious classicexplorer32.dll in the search order location"
     command: "copy malicious.dll \"%PROGRAMFILES%\\Classic Shell\\classicexplorer32.dll\""

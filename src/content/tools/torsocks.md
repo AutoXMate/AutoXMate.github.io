@@ -2,7 +2,7 @@
 id: network-proxy-torsocks
 namespace: network:proxy:torsocks
 name: torsocks
-description: "Run commands through Tor (legacy wrapper); can spawn a shell."
+description: Run commands through Tor (legacy wrapper); can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - torsocks
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- process-manip
+- remote
+- requires-root
 execution:
   template: torsocks
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y tor
 ---
-
 
 # torsocks
 

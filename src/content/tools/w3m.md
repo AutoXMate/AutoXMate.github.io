@@ -2,7 +2,7 @@
 id: web-browser-w3m
 namespace: web:browser:w3m
 name: w3m
-description: "Text-based web browser; can read arbitrary files."
+description: Text-based web browser; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - w3m
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
 execution:
   template: w3m
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y w3m
 ---
-
 
 # w3m
 

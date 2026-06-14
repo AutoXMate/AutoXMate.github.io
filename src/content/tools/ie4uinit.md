@@ -2,7 +2,8 @@
 id: windows-execution-ie4uinit
 namespace: windows:execution:ie4uinit
 name: ie4uinit
-description: 'Executes commands from a specially prepared ie4uinit.inf file. Located at: c:\windows\system32\ie4uinit.exe; c:\windows\sysWOW64\ie4uinit.exe; c:\windows\system32\ieuinit.inf.'
+description: 'Executes commands from a specially prepared ie4uinit.inf file. Located
+  at: c:\windows\system32\ie4uinit.exe; c:\windows\sysWOW64\ie4uinit.exe; c:\windows\system32\ieuinit.inf.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,12 @@ resource_profile:
 allowed-tools:
 - ie4uinit
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: ie4uinit
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes commands from a specially prepared ie4uinit.inf file. (Get code execution by copy files to another location)
+- description: Executes commands from a specially prepared ie4uinit.inf file. (Get
+    code execution by copy files to another location)
   command: ie4uinit.exe -BaseSettings
 references:
 - label: ''
@@ -72,7 +79,6 @@ install:
   commands:
   - choco install ie4uinit
 ---
-
 
 # ie4uinit
 

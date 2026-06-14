@@ -2,7 +2,8 @@
 id: windows-compile-ilasm
 namespace: windows:compile:ilasm
 name: ilasm
-description: 'used for compile c# code into dll or exe. Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\ilasm.exe; C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ilasm.exe.'
+description: 'used for compile c# code into dll or exe. Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\ilasm.exe;
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ilasm.exe.'
 author: Hai vaknin (lux)
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - ilasm
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: ilasm
   sandbox: execFile
@@ -49,9 +52,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Binary file used by .NET to compile C#/intermediate (IL) code to .exe (Compile attacker code on system. Bypass defensive counter measures.)
+- description: Binary file used by .NET to compile C#/intermediate (IL) code to .exe
+    (Compile attacker code on system. Bypass defensive counter measures.)
   command: ilasm.exe {PATH_ABSOLUTE:.txt} /exe
-- description: Binary file used by .NET to compile C#/intermediate (IL) code to dll (A description of the usecase)
+- description: Binary file used by .NET to compile C#/intermediate (IL) code to dll
+    (A description of the usecase)
   command: ilasm.exe {PATH_ABSOLUTE:.txt} /dll
 references:
 - label: hello_world.txt
@@ -63,7 +68,8 @@ mitre_ids:
 - T1127
 detections:
 - type: ioc
-  description: Ilasm may not be used often in production environments (such as on endpoints)
+  description: Ilasm may not be used often in production environments (such as on
+    endpoints)
 - type: sigma
   url: https://github.com/SigmaHQ/sigma/blob/bea6f18d350d9c9fdc067f93dde0e9b11cc22dc2/rules/windows/process_creation/proc_creation_win_lolbin_ilasm.yml
 install:
@@ -72,7 +78,6 @@ install:
   commands:
   - choco install ilasm
 ---
-
 
 # ilasm
 

@@ -2,7 +2,8 @@
 id: windows-execution-odbcconf
 namespace: windows:execution:odbcconf
 name: odbcconf
-description: 'Used in Windows for managing ODBC connections Located at: C:\Windows\System32\odbcconf.exe; C:\Windows\SysWOW64\odbcconf.exe.'
+description: 'Used in Windows for managing ODBC connections Located at: C:\Windows\System32\odbcconf.exe;
+  C:\Windows\SysWOW64\odbcconf.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - odbcconf
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: odbcconf
   sandbox: execFile
@@ -49,15 +54,19 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute DllRegisterServer from DLL specified. (Execute a DLL file using technique that can evade defensive counter measures)
+- description: Execute DllRegisterServer from DLL specified. (Execute a DLL file using
+    technique that can evade defensive counter measures)
   command: odbcconf /a {REGSVR {PATH_ABSOLUTE:.dll}}
-- description: Install a driver and load the DLL. Requires administrator privileges. (Execute dll file using technique that can evade defensive counter measures)
+- description: Install a driver and load the DLL. Requires administrator privileges.
+    (Execute dll file using technique that can evade defensive counter measures)
   command: 'odbcconf INSTALLDRIVER "lolbas-project|Driver={PATH_ABSOLUTE:.dll}|APILevel=2"
 
     odbcconf configsysdsn "lolbas-project" "DSN=lolbas-project"
 
     '
-- description: Load DLL specified in target .RSP file. See the Code Sample section for an example .RSP file. (Execute dll file using technique that can evade defensive counter measures)
+- description: Load DLL specified in target .RSP file. See the Code Sample section
+    for an example .RSP file. (Execute dll file using technique that can evade defensive
+    counter measures)
   command: odbcconf -f {PATH:.rsp}
 references:
 - label: 6ef02ce3fd623483137b45f65017352b
@@ -86,7 +95,6 @@ install:
   commands:
   - choco install odbcconf
 ---
-
 
 # odbcconf
 

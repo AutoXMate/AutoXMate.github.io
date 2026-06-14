@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-wptsextensions
 namespace: windows:dllhijack:wptsextensions
 name: wptsextensions.dll
-description: "wptsextensions.dll — Phantom hijacking (Microsoft)"
-author: "k4nfr3"
-version: "1.0.0"
+description: wptsextensions.dll — Phantom hijacking (Microsoft)
+author: k4nfr3
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "wptsextensions.dll"
+  template: wptsextensions.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "http://remoteawesomethoughts.blogspot.com/2019/05/windows-10-task-schedulerservice.html"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/wptsextensions.html"
+- label: Reference
+  url: http://remoteawesomethoughts.blogspot.com/2019/05/windows-10-task-schedulerservice.html
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/wptsextensions.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious wptsextensions.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\wptsextensions.dll\""

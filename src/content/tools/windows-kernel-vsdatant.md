@@ -1,32 +1,41 @@
 ---
 id: windows-kernel-vsdatant
 namespace: windows:kernel:vsdatant
-name: "vsdatant.sys"
-description: "Check Point ZoneAlarm driver (vsdatant.sys) abused in BYOVD attacks to gain kernel privileges and bypass protections such as Memory Integrity."
-author: "Kyaw Pyiyt Htet"
-version: "1.0.0"
+name: vsdatant.sys
+description: Check Point ZoneAlarm driver (vsdatant.sys) abused in BYOVD attacks to
+  gain kernel privileges and bypass protections such as Memory Integrity.
+author: Kyaw Pyiyt Htet
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create vsdatant binPath=C:\\Windows\\Temp\\vsdatant.sys type=kernel && sc.exe start vsdatant"
+  template: sc.exe create vsdatant binPath=C:\Windows\Temp\vsdatant.sys type=kernel
+    && sc.exe start vsdatant
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load vsdatant.sys kernel driver"
-    commands:
-      - "sc.exe create vsdatant binPath=C:\\Windows\\Temp\\vsdatant.sys type=kernel && sc.exe start vsdatant"
+- method: custom
+  description: Load vsdatant.sys kernel driver
+  commands:
+  - sc.exe create vsdatant binPath=C:\Windows\Temp\vsdatant.sys type=kernel && sc.exe
+    start vsdatant
 references:
-  - label: "Reference"
-    url: "https://venaksecurity.com/2025/03/20/cybercriminals-exploit-checkpoints-driver-in-a-byovd-attack/"
+- label: Reference
+  url: https://venaksecurity.com/2025/03/20/cybercriminals-exploit-checkpoints-driver-in-a-byovd-attack/
+features:
+- file-system
+- pipes-stdin
+- requires-root
+- stealth
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create vsdatant binPath=C:\\\\Windows\\\\Temp\\\\vsdatant.sys type=kernel && sc.exe start vsdatant"

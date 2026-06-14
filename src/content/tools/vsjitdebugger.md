@@ -2,7 +2,8 @@
 id: windows-execution-vsjitdebugger
 namespace: windows:execution:vsjitdebugger
 name: vsjitdebugger
-description: 'Just-In-Time (JIT) debugger included with Visual Studio Located at: c:\windows\system32\vsjitdebugger.exe.'
+description: 'Just-In-Time (JIT) debugger included with Visual Studio Located at:
+  c:\windows\system32\vsjitdebugger.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - vsjitdebugger
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: vsjitdebugger
   sandbox: execFile
@@ -49,7 +52,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes specified executable as a subprocess of Vsjitdebugger.exe. (Execution of local PE file as a subprocess of Vsjitdebugger.exe.)
+- description: Executes specified executable as a subprocess of Vsjitdebugger.exe.
+    (Execution of local PE file as a subprocess of Vsjitdebugger.exe.)
   command: Vsjitdebugger.exe {PATH:.exe}
 references:
 - label: '990758590020452353'
@@ -68,7 +72,6 @@ install:
   commands:
   - choco install vsjitdebugger
 ---
-
 
 # vsjitdebugger
 

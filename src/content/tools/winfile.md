@@ -2,7 +2,8 @@
 id: windows-execution-winfile
 namespace: windows:execution:winfile
 name: winfile
-description: 'Windows File Manager executable Located at: C:\Windows\System32\winfile.exe; C:\Windows\winfile.exe; C:\Program Files\WinFile\winfile.exe.'
+description: 'Windows File Manager executable Located at: C:\Windows\System32\winfile.exe;
+  C:\Windows\winfile.exe; C:\Program Files\WinFile\winfile.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - winfile
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: winfile
   sandbox: execFile
@@ -49,7 +54,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute an executable file with WinFile as a parent process. (Performs execution of specified file, can be used as a defense evasion)
+- description: Execute an executable file with WinFile as a parent process. (Performs
+    execution of specified file, can be used as a defense evasion)
   command: winfile.exe {PATH:.exe}
 references:
 - label: winfile
@@ -66,7 +72,6 @@ install:
   commands:
   - choco install winfile
 ---
-
 
 # winfile
 

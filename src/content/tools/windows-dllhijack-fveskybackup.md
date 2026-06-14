@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-fveskybackup
 namespace: windows:dllhijack:fveskybackup
 name: fveskybackup.dll
-description: "fveskybackup.dll — Sideloading hijacking (Microsoft)"
-author: "Chris Spehn"
-version: "1.0.0"
+description: fveskybackup.dll — Sideloading hijacking (Microsoft)
+author: Chris Spehn
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "fveskybackup.dll"
+  template: fveskybackup.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/fveskybackup.html"
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/fveskybackup.html
+features:
+- file-system
 ---
+
 examples:
   - description: "Place malicious fveskybackup.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\fveskybackup.dll\""

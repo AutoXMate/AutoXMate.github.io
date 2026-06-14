@@ -2,7 +2,9 @@
 id: windows-execution-cdb
 namespace: windows:execution:cdb
 name: cdb
-description: 'Debugging tool included with Windows Debugging Tools. Located at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\cdb.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\cdb.exe.'
+description: 'Debugging tool included with Windows Debugging Tools. Located at: C:\Program
+  Files (x86)\Windows Kits\10\Debuggers\x64\cdb.exe; C:\Program Files (x86)\Windows
+  Kits\10\Debuggers\x86\cdb.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - cdb
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: cdb
   sandbox: execFile
@@ -49,15 +55,19 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch 64-bit shellcode from the specified .wds file using cdb.exe. (Local execution of assembly shellcode.)
+- description: Launch 64-bit shellcode from the specified .wds file using cdb.exe.
+    (Local execution of assembly shellcode.)
   command: cdb.exe -cf {PATH:.wds} -o notepad.exe
-- description: Attaching to any process and executing shell commands. (Run a shell command under a trusted Microsoft signed binary)
+- description: Attaching to any process and executing shell commands. (Run a shell
+    command under a trusted Microsoft signed binary)
   command: 'cdb.exe -pd -pn {process_name}
 
     .shell {CMD}
 
     '
-- description: Execute arbitrary commands and binaries using a debugging script (see Resources section for a sample file). (Run commands under a trusted Microsoft signed binary)
+- description: Execute arbitrary commands and binaries using a debugging script (see
+    Resources section for a sample file). (Run commands under a trusted Microsoft
+    signed binary)
   command: cdb.exe -c {PATH:.txt} "{CMD}"
 references:
 - label: windbg-cdb-shellcode-runner.html
@@ -90,7 +100,6 @@ install:
   commands:
   - choco install cdb
 ---
-
 
 # cdb
 

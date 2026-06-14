@@ -2,7 +2,8 @@
 id: system-daemon-systemd-run
 namespace: system:daemon:systemd-run
 name: systemd-run
-description: "Run commands in transient systemd services; can execute arbitrary commands and spawn shells."
+description: Run commands in transient systemd services; can execute arbitrary commands
+  and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,11 @@ resource_profile:
 allowed-tools:
 - systemd-run
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: systemd-run
   sandbox: execFile
@@ -70,7 +75,6 @@ install:
   commands:
   - apt-get install -y systemd
 ---
-
 
 # systemd-run
 

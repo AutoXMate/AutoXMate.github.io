@@ -2,7 +2,8 @@
 id: system-taskwarrior-task
 namespace: system:taskwarrior:task
 name: task
-description: "Taskwarrior task management tool; can read and write files and spawn shells."
+description: Taskwarrior task management tool; can read and write files and spawn
+  shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,12 @@ resource_profile:
 allowed-tools:
 - task
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- process-manip
+- requires-root
 execution:
   template: task
   sandbox: execFile
@@ -65,7 +71,6 @@ install:
   commands:
   - apt-get install -y task
 ---
-
 
 # task
 

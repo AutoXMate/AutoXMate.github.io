@@ -2,7 +2,7 @@
 id: system-search-egrep
 namespace: system:search:egrep
 name: egrep
-description: "Extended grep for pattern searching in files; can read arbitrary files."
+description: Extended grep for pattern searching in files; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - egrep
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
 execution:
   template: egrep
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y grep
 ---
-
 
 # egrep
 

@@ -41,7 +41,10 @@ resource_profile:
 allowed-tools:
 - sqlps
 parameters: []
-features: []
+features:
+- pipes-stdin
+- process-manip
+- remote
 execution:
   template: sqlps
   sandbox: execFile
@@ -60,7 +63,6 @@ install:
   commands:
   - choco install sqlps
 ---
-
 
 # sqlps
 

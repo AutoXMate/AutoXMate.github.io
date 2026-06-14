@@ -2,26 +2,31 @@
 trust_level: community
 id: wtfbin-ccm-exe
 namespace: wtf:bin:ccm-exe
-name: "CCM.exe (SCCM)"
-description: "Windows Config Manager CCM.exe runs b64-encoded powershell"
-version: "1.0.0"
+name: CCM.exe (SCCM)
+description: Windows Config Manager CCM.exe runs b64-encoded powershell
+version: 1.0.0
 capabilities:
-  - security.execution.powershell
+- security.execution.powershell
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "CCM.exe"
+  template: CCM.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://docs.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-deploy-scripts"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/ccm-exe/"
+- label: Documentation
+  url: https://docs.microsoft.com/en-us/mem/configmgr/apps/deploy-use/create-deploy-scripts
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/ccm-exe/
+features:
+- interactive
+- pipes-stdin
+- process-manip
 ---
+
 examples:
   - description: "Execute CCM.exe (SCCM) and observe the unusual behavior"
     command: "CCM.exe"

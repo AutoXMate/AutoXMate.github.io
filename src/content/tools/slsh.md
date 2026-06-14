@@ -2,7 +2,8 @@
 id: dev-lang-slsh
 namespace: dev:lang:slsh
 name: slsh
-description: "S-Lang scripting language interpreter; can execute commands and spawn shells."
+description: S-Lang scripting language interpreter; can execute commands and spawn
+  shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,11 @@ resource_profile:
 allowed-tools:
 - slsh
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: slsh
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y slsh
 ---
-
 
 # slsh
 

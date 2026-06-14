@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-securityhealthservice-exe-unprotects-lsa
 namespace: wtf:bin:securityhealthservice-exe-unprotects-lsa
-name: "SecurityHealthService.exe unprotects LSA"
-description: "Who needs protection? Not LSA!"
-version: "1.0.0"
+name: SecurityHealthService.exe unprotects LSA
+description: Who needs protection? Not LSA!
+version: 1.0.0
 capabilities:
-  - credential.dump.lsass
+- credential.dump.lsass
 platforms:
-  - windows
+- windows
 techniques:
-  - credential-access
+- credential-access
 execution:
-  template: "SecurityHealthService.exe unprotects LSA"
+  template: SecurityHealthService.exe unprotects LSA
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/44"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/securityhealthservice-exe-unprotects-lsa/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/44
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/securityhealthservice-exe-unprotects-lsa/
+features:
+- process-manip
 ---
+
 examples:
   - description: "Execute SecurityHealthService.exe unprotects LSA and observe the unusual behavior"
     command: "SecurityHealthService.exe unprotects LSA"

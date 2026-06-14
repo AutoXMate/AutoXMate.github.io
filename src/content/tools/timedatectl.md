@@ -2,7 +2,7 @@
 id: system-time-timedatectl
 namespace: system:time:timedatectl
 name: timedatectl
-description: "Control system time and date settings; can spawn a shell."
+description: Control system time and date settings; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - timedatectl
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
 execution:
   template: timedatectl
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y systemd
 ---
-
 
 # timedatectl
 

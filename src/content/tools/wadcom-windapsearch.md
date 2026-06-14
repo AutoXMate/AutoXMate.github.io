@@ -2,32 +2,37 @@
 trust_level: community
 id: wadcom-windapsearch
 namespace: wadcom:tool:windapsearch
-name: "windapsearch"
-description: "windapsearch enumerates users, groups, and computers from a Windows domain through LDAP queries. The following command enumerates all 3 of the above mentioned using provided credentials."
-version: "1.0.0"
+name: windapsearch
+description: windapsearch enumerates users, groups, and computers from a Windows domain
+  through LDAP queries. The following command enumerates all 3 of the above mentioned
+  using provided credentials.
+version: 1.0.0
 capabilities:
-  - directory.enumerate.ldap
+- directory.enumerate.ldap
 platforms:
-  - linux
+- linux
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "windapsearch"
+  template: windapsearch
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Command execution"
-    command: "python3 windapsearch --dc-ip 10.10.10.1 -u test.local\\\\john -p password123 -U -G --da -m \"Remote Desktop Users\" -C -r"
+- description: Command execution
+  command: python3 windapsearch --dc-ip 10.10.10.1 -u test.local\\john -p password123
+    -U -G --da -m "Remote Desktop Users" -C -r
 references:
-  - label: "Reference 1"
-    url: "https://github.com/ropnop/windapsearch"
-  - label: "Reference 2"
-    url: "https://www.attackdebris.com/?p=470"
+- label: Reference 1
+  url: https://github.com/ropnop/windapsearch
+- label: Reference 2
+  url: https://www.attackdebris.com/?p=470
 items:
-  - NoCreds
+- NoCreds
 services:
-  - LDAP
+- LDAP
+features:
+- process-manip
 ---
 
 # windapsearch

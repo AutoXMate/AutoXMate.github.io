@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - workfolders
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: workfolders
   sandbox: execFile
@@ -49,9 +51,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute `control.exe` in the current working directory (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
+- description: Execute `control.exe` in the current working directory (Can be used
+    to evade defensive countermeasures or to hide as a persistence mechanism)
   command: WorkFolders
-- description: '`WorkFolders` attempts to execute `control.exe`. By modifying the default value of the App Paths registry key for `control.exe` in `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\control.exe`, an attacker can achieve proxy execution. (Proxy execution of a malicious payload via App Paths registry hijacking.)'
+- description: '`WorkFolders` attempts to execute `control.exe`. By modifying the
+    default value of the App Paths registry key for `control.exe` in `HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\App
+    Paths\control.exe`, an attacker can achieve proxy execution. (Proxy execution
+    of a malicious payload via App Paths registry hijacking.)'
   command: WorkFolders
 references:
 - label: ''
@@ -69,14 +75,14 @@ detections:
 - type: ioc
   description: WorkFolders.exe should not be run on a normal workstation
 - type: ioc
-  description: Registry modification to HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\control.exe
+  description: Registry modification to HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\App
+    Paths\control.exe
 install:
 - method: choco
   package_name: workfolders
   commands:
   - choco install workfolders
 ---
-
 
 # workfolders
 

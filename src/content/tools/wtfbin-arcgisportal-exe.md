@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-arcgisportal-exe
 namespace: wtf:bin:arcgisportal-exe
-name: "ArcGISPortal.exe"
-description: "Not just bad guys run `whoami`"
-version: "1.0.0"
+name: ArcGISPortal.exe
+description: Not just bad guys run `whoami`
+version: 1.0.0
 capabilities:
-  - credential.discovery.whoami
+- credential.discovery.whoami
 platforms:
-  - windows
+- windows
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "ArcGISPortal.exe"
+  template: ArcGISPortal.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/28"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/arcgisportal-exe/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/28
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/arcgisportal-exe/
+features:
+- process-manip
 ---
+
 examples:
   - description: "Execute ArcGISPortal.exe and observe the unusual behavior"
     command: "ArcGISPortal.exe"

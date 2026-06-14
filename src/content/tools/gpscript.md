@@ -2,7 +2,8 @@
 id: windows-execution-gpscript
 namespace: windows:execution:gpscript
 name: gpscript
-description: 'Used by group policy to process scripts Located at: C:\Windows\System32\gpscript.exe; C:\Windows\SysWOW64\gpscript.exe.'
+description: 'Used by group policy to process scripts Located at: C:\Windows\System32\gpscript.exe;
+  C:\Windows\SysWOW64\gpscript.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - gpscript
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: gpscript
   sandbox: execFile
@@ -49,9 +53,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes logon scripts configured in Group Policy. (Add local group policy logon script to execute file and hide from defensive counter measures)
+- description: Executes logon scripts configured in Group Policy. (Add local group
+    policy logon script to execute file and hide from defensive counter measures)
   command: Gpscript /logon
-- description: Executes startup scripts configured in Group Policy (Add local group policy logon script to execute file and hide from defensive counter measures)
+- description: Executes startup scripts configured in Group Policy (Add local group
+    policy logon script to execute file and hide from defensive counter measures)
   command: Gpscript /startup
 references:
 - label: ''
@@ -74,7 +80,6 @@ install:
   commands:
   - choco install gpscript
 ---
-
 
 # gpscript
 

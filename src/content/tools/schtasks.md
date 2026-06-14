@@ -2,7 +2,8 @@
 id: windows-execution-schtasks
 namespace: windows:execution:schtasks
 name: schtasks
-description: 'Schedule periodic tasks Located at: c:\windows\system32\schtasks.exe; c:\windows\syswow64\schtasks.exe.'
+description: 'Schedule periodic tasks Located at: c:\windows\system32\schtasks.exe;
+  c:\windows\syswow64\schtasks.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - schtasks
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: schtasks
   sandbox: execFile
@@ -49,9 +52,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Create a recurring task to execute every minute. (Create a recurring task to keep reverse shell session(s) alive)
+- description: Create a recurring task to execute every minute. (Create a recurring
+    task to keep reverse shell session(s) alive)
   command: schtasks /create /sc minute /mo 1 /tn "Reverse shell" /tr "{CMD}"
-- description: Create a scheduled task on a remote computer for persistence/lateral movement (Create a remote task to run daily relative to the the time of creation)
+- description: Create a scheduled task on a remote computer for persistence/lateral
+    movement (Create a remote task to run daily relative to the the time of creation)
   command: schtasks /create /s targetmachine /tn "MyTask" /tr "{CMD}" /sc daily
 references:
 - label: ''
@@ -75,7 +80,6 @@ install:
   commands:
   - choco install schtasks
 ---
-
 
 # schtasks
 

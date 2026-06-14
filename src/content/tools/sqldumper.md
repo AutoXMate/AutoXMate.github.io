@@ -2,7 +2,10 @@
 id: windows-credential-sqldumper
 namespace: windows:credential:sqldumper
 name: sqldumper
-description: 'Debugging utility included with Microsoft SQL. Located at: C:\Program Files\Microsoft SQL Server\90\Shared\SQLDumper.exe; C:\Program Files (x86)\Microsoft Office\root\vfs\ProgramFilesX86\Microsoft Analysis\AS OLEDB\140\SQLDumper.exe; C:\Program Files\Microsoft Power BI Desktop\bin\SqlDumper.exe.'
+description: 'Debugging utility included with Microsoft SQL. Located at: C:\Program
+  Files\Microsoft SQL Server\90\Shared\SQLDumper.exe; C:\Program Files (x86)\Microsoft
+  Office\root\vfs\ProgramFilesX86\Microsoft Analysis\AS OLEDB\140\SQLDumper.exe; C:\Program
+  Files\Microsoft Power BI Desktop\bin\SqlDumper.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +44,13 @@ resource_profile:
 allowed-tools:
 - sqldumper
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
+- process-manip
+- remote
+- requires-root
 execution:
   template: sqldumper
   sandbox: execFile
@@ -49,9 +58,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Dump process by PID and create a dump file (Appears to create a dump file called SQLDmprXXXX.mdmp). (Dump process using PID.)
+- description: Dump process by PID and create a dump file (Appears to create a dump
+    file called SQLDmprXXXX.mdmp). (Dump process using PID.)
   command: sqldumper.exe 464 0 0x0110
-- description: 0x01100:40 flag will create a Mimikatz compatible dump file. (Dump LSASS.exe to Mimikatz compatible dump using PID.)
+- description: 0x01100:40 flag will create a Mimikatz compatible dump file. (Dump
+    LSASS.exe to Mimikatz compatible dump using PID.)
   command: sqldumper.exe 540 0 0x01100:40
 references:
 - label: '910969424215232518'
@@ -78,7 +89,6 @@ install:
   commands:
   - choco install sqldumper
 ---
-
 
 # sqldumper
 

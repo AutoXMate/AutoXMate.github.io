@@ -2,7 +2,8 @@
 id: windows-download-cmdl32
 namespace: windows:download:cmdl32
 name: cmdl32
-description: 'Microsoft Connection Manager Auto-Download Located at: C:\Windows\System32\cmdl32.exe; C:\Windows\SysWOW64\cmdl32.exe.'
+description: 'Microsoft Connection Manager Auto-Download Located at: C:\Windows\System32\cmdl32.exe;
+  C:\Windows\SysWOW64\cmdl32.exe.'
 author: Elliot Killick
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - cmdl32
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdout
+- remote
 execution:
   template: cmdl32
   sandbox: execFile
@@ -49,7 +53,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Download a file from the web address specified in the configuration file. The downloaded file will be in %TMP% under the name VPNXXXX.tmp where "X" denotes a random number or letter. (Download file from Internet)
+- description: Download a file from the web address specified in the configuration
+    file. The downloaded file will be in %TMP% under the name VPNXXXX.tmp where "X"
+    denotes a random number or letter. (Download file from Internet)
   command: cmdl32 /vpn /lan %cd%\config
 references:
 - label: '151'
@@ -75,7 +81,6 @@ install:
   commands:
   - choco install cmdl32
 ---
-
 
 # cmdl32
 

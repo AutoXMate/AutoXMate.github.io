@@ -2,7 +2,7 @@
 id: package-zypper-zypper
 namespace: package:zypper:zypper
 name: zypper
-description: "openSUSE/SLES package manager; can execute commands and spawn shells."
+description: openSUSE/SLES package manager; can execute commands and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - zypper
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: zypper
   sandbox: execFile
@@ -71,7 +75,6 @@ install:
   commands:
   - apt-get install -y zypper
 ---
-
 
 # zypper
 

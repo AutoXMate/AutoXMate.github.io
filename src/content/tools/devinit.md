@@ -2,7 +2,9 @@
 id: windows-execution-devinit
 namespace: windows:execution:devinit
 name: devinit
-description: 'Visual Studio 2019 tool Located at: C:\Program Files\Microsoft Visual Studio\<version>\Community\Common7\Tools\devinit\devinit.exe; C:\Program Files (x86)\Microsoft Visual Studio\<version>\Community\Common7\Tools\devinit\devinit.exe.'
+description: 'Visual Studio 2019 tool Located at: C:\Program Files\Microsoft Visual
+  Studio\<version>\Community\Common7\Tools\devinit\devinit.exe; C:\Program Files (x86)\Microsoft
+  Visual Studio\<version>\Community\Common7\Tools\devinit\devinit.exe.'
 author: mr.d0x
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - devinit
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: devinit
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads an MSI file to C:\Windows\Installer and then installs it. (Executes code from a (remote) MSI file.)
+- description: Downloads an MSI file to C:\Windows\Installer and then installs it.
+    (Executes code from a (remote) MSI file.)
   command: devinit.exe run -t msi-install -i {REMOTEURL:.msi}
 references:
 - label: '1460815932402679809'
@@ -68,7 +75,6 @@ install:
   commands:
   - choco install devinit
 ---
-
 
 # devinit
 

@@ -2,7 +2,7 @@
 id: compression-gzip-zcat
 namespace: compression:gzip:zcat
 name: zcat
-description: "Decompress gzipped files to stdout; can read arbitrary files."
+description: Decompress gzipped files to stdout; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - zcat
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- local
+- pipes-stdout
 execution:
   template: zcat
   sandbox: execFile
@@ -64,7 +68,6 @@ install:
   commands:
   - apt-get install -y gzip
 ---
-
 
 # zcat
 

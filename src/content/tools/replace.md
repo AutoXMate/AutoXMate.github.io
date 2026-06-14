@@ -2,7 +2,8 @@
 id: windows-download-replace
 namespace: windows:download:replace
 name: replace
-description: 'Used to replace file with another file Located at: C:\Windows\System32\replace.exe; C:\Windows\SysWOW64\replace.exe.'
+description: 'Used to replace file with another file Located at: C:\Windows\System32\replace.exe;
+  C:\Windows\SysWOW64\replace.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,12 @@ resource_profile:
 allowed-tools:
 - replace
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: replace
   sandbox: execFile
@@ -76,7 +82,6 @@ install:
   commands:
   - choco install replace
 ---
-
 
 # replace
 

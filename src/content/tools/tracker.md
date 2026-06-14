@@ -42,7 +42,10 @@ resource_profile:
 allowed-tools:
 - tracker
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: tracker
   sandbox: execFile
@@ -50,9 +53,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use tracker.exe to proxy execution of an arbitrary DLL into another process. Since tracker.exe is also signed it can be used to bypass application whitelisting solutions. (Injection of locally stored DLL file into target process.)
+- description: Use tracker.exe to proxy execution of an arbitrary DLL into another
+    process. Since tracker.exe is also signed it can be used to bypass application
+    whitelisting solutions. (Injection of locally stored DLL file into target process.)
   command: Tracker.exe /d {PATH:.dll} /c C:\Windows\write.exe
-- description: Use tracker.exe to proxy execution of an arbitrary DLL into another process. Since tracker.exe is also signed it can be used to bypass application whitelisting solutions. (Injection of locally stored DLL file into target process.)
+- description: Use tracker.exe to proxy execution of an arbitrary DLL into another
+    process. Since tracker.exe is also signed it can be used to bypass application
+    whitelisting solutions. (Injection of locally stored DLL file into target process.)
   command: Tracker.exe /d {PATH:.dll} /c C:\Windows\write.exe
 references:
 - label: '793151392185589760'
@@ -73,7 +80,6 @@ install:
   commands:
   - choco install tracker
 ---
-
 
 # tracker
 

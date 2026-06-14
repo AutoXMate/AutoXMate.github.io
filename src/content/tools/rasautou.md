@@ -41,7 +41,10 @@ resource_profile:
 allowed-tools:
 - rasautou
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: rasautou
   sandbox: execFile
@@ -49,7 +52,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Loads the target .DLL specified in -d and executes the export specified in -p. Options removed in Windows 10. (Execute DLL code)
+- description: Loads the target .DLL specified in -d and executes the export specified
+    in -p. Options removed in Windows 10. (Execute DLL code)
   command: rasautou -d {PATH:.dll} -p export_name -a a -e e
 references:
 - label: DueDLLigence
@@ -72,7 +76,6 @@ install:
   commands:
   - choco install rasautou
 ---
-
 
 # rasautou
 

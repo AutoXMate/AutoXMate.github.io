@@ -2,7 +2,8 @@
 id: windows-execution-infdefaultinstall
 namespace: windows:execution:infdefaultinstall
 name: infdefaultinstall
-description: 'Binary used to perform installation based on content inside inf files Located at: C:\Windows\System32\Infdefaultinstall.exe; C:\Windows\SysWOW64\Infdefaultinstall.exe.'
+description: 'Binary used to perform installation based on content inside inf files
+  Located at: C:\Windows\System32\Infdefaultinstall.exe; C:\Windows\SysWOW64\Infdefaultinstall.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - infdefaultinstall
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: infdefaultinstall
   sandbox: execFile
@@ -49,7 +54,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes SCT script using scrobj.dll from a command in entered into a specially prepared INF file. (Code execution)
+- description: Executes SCT script using scrobj.dll from a command in entered into
+    a specially prepared INF file. (Code execution)
   command: InfDefaultInstall.exe {PATH:.inf}
 references:
 - label: '911997635455852544'
@@ -74,7 +80,6 @@ install:
   commands:
   - choco install infdefaultinstall
 ---
-
 
 # infdefaultinstall
 

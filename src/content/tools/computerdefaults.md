@@ -2,7 +2,9 @@
 id: windows-uacbypass-computerdefaults
 namespace: windows:uacbypass:computerdefaults
 name: computerdefaults
-description: 'ComputerDefaults.exe is a Windows system utility for managing default applications for tasks like web browsing, emailing, and media playback. Located at: C:\Windows\System32\ComputerDefaults.exe; C:\Windows\SysWOW64\ComputerDefaults.exe.'
+description: 'ComputerDefaults.exe is a Windows system utility for managing default
+  applications for tasks like web browsing, emailing, and media playback. Located
+  at: C:\Windows\System32\ComputerDefaults.exe; C:\Windows\SysWOW64\ComputerDefaults.exe.'
 author: Eron Clarke
 version: 1.0.0
 capabilities:
@@ -42,7 +44,10 @@ resource_profile:
 allowed-tools:
 - computerdefaults
 parameters: []
-features: []
+features:
+- pipes-stdout
+- requires-root
+- stealth
 execution:
   template: computerdefaults
   sandbox: execFile
@@ -50,7 +55,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Upon execution, ComputerDefaults.exe checks two registry values at HKEY_CURRENT_USER\Software\Classes\ms-settings\Shell\open\command; if these are set by an attacker, the set command will be executed as a high-integrity process without a UAC prompt being displayed to the user. See 'resources' for which registry keys/values to set. (Execute a binary or script as a high-integrity process without a UAC prompt.)
+- description: Upon execution, ComputerDefaults.exe checks two registry values at
+    HKEY_CURRENT_USER\Software\Classes\ms-settings\Shell\open\command; if these are
+    set by an attacker, the set command will be executed as a high-integrity process
+    without a UAC prompt being displayed to the user. See 'resources' for which registry
+    keys/values to set. (Execute a binary or script as a high-integrity process without
+    a UAC prompt.)
   command: ComputerDefaults.exe
 references:
 - label: 812547525107bd138a1a839118a3a44b
@@ -74,7 +84,6 @@ install:
   commands:
   - choco install computerdefaults
 ---
-
 
 # computerdefaults
 

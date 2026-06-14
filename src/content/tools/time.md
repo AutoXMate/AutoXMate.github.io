@@ -2,7 +2,7 @@
 id: system-time-time
 namespace: system:time:time
 name: time
-description: "Measure command execution time; can spawn a shell."
+description: Measure command execution time; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - time
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: time
   sandbox: execFile
@@ -65,7 +69,6 @@ install:
   commands:
   - apt-get install -y time
 ---
-
 
 # time
 

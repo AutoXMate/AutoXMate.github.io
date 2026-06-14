@@ -2,7 +2,8 @@
 id: windows-execution-control
 namespace: windows:execution:control
 name: control
-description: 'Binary used to launch controlpanel items in Windows Located at: C:\Windows\System32\control.exe; C:\Windows\SysWOW64\control.exe.'
+description: 'Binary used to launch controlpanel items in Windows Located at: C:\Windows\System32\control.exe;
+  C:\Windows\SysWOW64\control.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,12 @@ resource_profile:
 allowed-tools:
 - control
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: control
   sandbox: execFile
@@ -51,9 +57,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute evil.dll which is stored in an Alternate Data Stream (ADS). (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
+- description: Execute evil.dll which is stored in an Alternate Data Stream (ADS).
+    (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
   command: control.exe {PATH_ABSOLUTE}:evil.dll
-- description: Execute .cpl file. A CPL is a DLL file with CPlApplet export function) (Use to execute code and bypass application whitelisting)
+- description: Execute .cpl file. A CPL is a DLL file with CPlApplet export function)
+    (Use to execute code and bypass application whitelisting)
   command: control.exe {PATH_ABSOLUTE:.cpl}
 references:
 - label: ''
@@ -94,7 +102,6 @@ install:
   commands:
   - choco install control
 ---
-
 
 # control
 

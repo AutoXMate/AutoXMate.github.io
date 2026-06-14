@@ -2,7 +2,8 @@
 id: dev-opencode-opencode
 namespace: dev:opencode:opencode
 name: opencode
-description: "File manager/launcher for Haiku OS; can execute commands and leverage sqlite3."
+description: File manager/launcher for Haiku OS; can execute commands and leverage
+  sqlite3.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,11 @@ resource_profile:
 allowed-tools:
 - opencode
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: opencode
   sandbox: execFile
@@ -68,7 +73,6 @@ install:
   commands:
   - apt-get install -y opencode
 ---
-
 
 # opencode
 

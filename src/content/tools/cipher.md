@@ -2,7 +2,8 @@
 id: windows-tamper-cipher
 namespace: windows:tamper:cipher
 name: cipher
-description: 'File Encryption Utility Located at: c:\windows\system32\cipher.exe; c:\windows\syswow64\cipher.exe.'
+description: 'File Encryption Utility Located at: c:\windows\system32\cipher.exe;
+  c:\windows\syswow64\cipher.exe.'
 author: Adetutu Ogunsowo
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - cipher
 parameters: []
-features: []
+features:
+- encryption
+- file-system
+- local
+- pipes-stdout
 execution:
   template: cipher
   sandbox: execFile
@@ -51,7 +56,8 @@ global_vars: {}
 examples:
 - description: Zero out a file (Can be used to forensically erase a file.)
   command: cipher /w:{PATH_ABSOLUTE:folder}
-- description: Encrypt a file (Can be used to impair defences by e.g. encrypting a critical EDR solution file.)
+- description: Encrypt a file (Can be used to impair defences by e.g. encrypting a
+    critical EDR solution file.)
   command: cipher.exe /e {PATH_ABSOLUTE}
 references:
 - label: ''
@@ -73,7 +79,6 @@ install:
   commands:
   - choco install cipher
 ---
-
 
 # cipher
 

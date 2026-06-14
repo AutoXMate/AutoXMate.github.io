@@ -41,7 +41,10 @@ resource_profile:
 allowed-tools:
 - wlrmdr
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdin
+- pipes-stdout
 execution:
   template: wlrmdr
   sandbox: execFile
@@ -49,7 +52,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute executable with wlrmdr.exe as parent process (Use wlrmdr as a proxy binary to evade defensive countermeasures)
+- description: Execute executable with wlrmdr.exe as parent process (Use wlrmdr as
+    a proxy binary to evade defensive countermeasures)
   command: wlrmdr.exe -s 3600 -f 0 -t _ -m _ -a 11 -u {PATH:.exe}
 references:
 - label: '1493963591745220608'
@@ -76,7 +80,6 @@ install:
   commands:
   - choco install wlrmdr
 ---
-
 
 # wlrmdr
 

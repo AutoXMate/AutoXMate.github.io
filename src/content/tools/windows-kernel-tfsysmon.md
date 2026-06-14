@@ -1,32 +1,37 @@
 ---
 id: windows-kernel-tfsysmon
 namespace: windows:kernel:tfsysmon
-name: "TfSysMon.sys"
-description: "Elevate privileges"
-author: "rahulwt"
-version: "1.0.0"
+name: TfSysMon.sys
+description: Elevate privileges
+author: rahulwt
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: community
 execution:
-  template: "sc.exe create TfSysMon.sys binPath=C:\\windows\\temp\\TfSysMon.sys type=kernel && sc.exe start TfSysMon.sys"
+  template: sc.exe create TfSysMon.sys binPath=C:\windows\temp\TfSysMon.sys type=kernel
+    && sc.exe start TfSysMon.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load TfSysMon.sys kernel driver"
-    commands:
-      - "sc.exe create TfSysMon.sys binPath=C:\\windows\\temp\\TfSysMon.sys type=kernel && sc.exe start TfSysMon.sys"
+- method: custom
+  description: Load TfSysMon.sys kernel driver
+  commands:
+  - sc.exe create TfSysMon.sys binPath=C:\windows\temp\TfSysMon.sys type=kernel &&
+    sc.exe start TfSysMon.sys
 references:
-  - label: "Reference"
-    url: "https://github.com/BlackSnufkin/BYOVD/tree/main/TfSysMon-Killer"
+- label: Reference
+  url: https://github.com/BlackSnufkin/BYOVD/tree/main/TfSysMon-Killer
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create TfSysMon.sys binPath=C:\\\\windows\\\\temp\\\\TfSysMon.sys type=kernel && sc.exe start TfSysMon.sys"

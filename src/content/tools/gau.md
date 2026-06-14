@@ -2,51 +2,52 @@
 id: security-web-gau
 namespace: security:web:gau
 name: gau
-description: Get All URLs (gau) fetches known URLs from AlienVault's OTX, WayBack Machine, and other public archives for passive endpoint discovery.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Get All URLs (gau) fetches known URLs from AlienVault's OTX, WayBack
+  Machine, and other public archives for passive endpoint discovery.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - web.discovery.endpoint
-  - web.archive.url
-  - security.recon.passive
-  - web.enumeration.parameter
+- web.discovery.endpoint
+- web.archive.url
+- security.recon.passive
+- web.enumeration.parameter
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - waybackurls
-  - paramspider
-  - katana
-  - arjun
+- waybackurls
+- paramspider
+- katana
+- arjun
 artifacts:
-  - type: crawl.txt
-    description: Collected historical URLs
-    mime: text/plain
-    trust_level: verified
+- type: crawl.txt
+  description: Collected historical URLs
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - url-list
-    - endpoint-list
+  - url-list
+  - endpoint-list
   consumes:
-    - target-domain
+  - target-domain
 contract:
   inputs:
-    - type: network.target.domain
-      description: Target domain to gather URLs for
+  - type: network.target.domain
+    description: Target domain to gather URLs for
   outputs:
-    - type: crawl.txt
-      description: Aggregated list of historical URLs from multiple sources
-      mime: text/plain
+  - type: crawl.txt
+    description: Aggregated list of historical URLs from multiple sources
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 32
@@ -58,90 +59,91 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - gau
-  - Bash
-  - execFile
+- gau
+- Bash
+- execFile
 parameters:
-  - name: flag-o
-    type: string
-    required: false
-    description: "Output file path"
-    aliases:
-      - -o
-      - --output
-  - name: flag-providers
-    type: string
-    required: false
-    description: "Comma-separated list of providers (wayback,otx,commoncrawl)"
-    aliases:
-      - -p
-      - --providers
-  - name: flag-subdomains
-    type: boolean
-    required: false
-    description: "Include subdomain URLs"
-    alises:
-      - -s
-      - --subdomains
-  - name: flag-blacklist
-    type: string
-    required: false
-    description: "File extensions to exclude"
-    aliases:
-      - -b
-      - --blacklist
-  - name: flag-threads
-    type: integer
-    required: false
-    description: "Number of concurrent threads"
-    aliases:
-      - -t
-      - --threads
-  - name: flag-verbose
-    type: boolean
-    required: false
-    description: "Verbose output"
-    aliases:
-      - -v
-      - --verbose
+- name: flag-o
+  type: string
+  required: false
+  description: Output file path
+  aliases:
+  - -o
+  - --output
+- name: flag-providers
+  type: string
+  required: false
+  description: Comma-separated list of providers (wayback,otx,commoncrawl)
+  aliases:
+  - -p
+  - --providers
+- name: flag-subdomains
+  type: boolean
+  required: false
+  description: Include subdomain URLs
+  alises:
+  - -s
+  - --subdomains
+- name: flag-blacklist
+  type: string
+  required: false
+  description: File extensions to exclude
+  aliases:
+  - -b
+  - --blacklist
+- name: flag-threads
+  type: integer
+  required: false
+  description: Number of concurrent threads
+  aliases:
+  - -t
+  - --threads
+- name: flag-verbose
+  type: boolean
+  required: false
+  description: Verbose output
+  aliases:
+  - -v
+  - --verbose
 execution:
-  template: "gau {target} {flags}"
+  template: gau {target} {flags}
   sandbox: execFile
   timeout_seconds: 120
   shell: false
 examples:
-  - description: "Fetch all URLs for a domain"
-    command: gau example.com
-  - description: "Fetch URLs including subdomains"
-    command: gau --subdomains example.com
-  - description: "Fetch from specific providers only"
-    command: gau --providers wayback,otx example.com
-  - description: "Exclude common file extensions"
-    command: gau --blacklist png,jpg,gif,css example.com
-  - description: "Multiple domains from stdin"
-    command: cat domains.txt | gau --subdomains
-  - description: "Pipeline to probe live hosts"
-    command: gau example.com | sort -u | httpx -status-code -title
+- description: Fetch all URLs for a domain
+  command: gau example.com
+- description: Fetch URLs including subdomains
+  command: gau --subdomains example.com
+- description: Fetch from specific providers only
+  command: gau --providers wayback,otx example.com
+- description: Exclude common file extensions
+  command: gau --blacklist png,jpg,gif,css example.com
+- description: Multiple domains from stdin
+  command: cat domains.txt | gau --subdomains
+- description: Pipeline to probe live hosts
+  command: gau example.com | sort -u | httpx -status-code -title
 references:
-  - label: "gau GitHub"
-    url: "https://github.com/lc/gau"
+- label: gau GitHub
+  url: https://github.com/lc/gau
 phase: recon
 techniques:
-  - recon
-  - discovery
+- recon
+- discovery
 items:
-  - NoCreds
+- NoCreds
 services: []
 attack_types:
-  - Enumeration
-  - Discovery
+- Enumeration
+- Discovery
 install:
-    - method: go
-      repo_url: "github.com/lc/gau"
-      commands:
-        - "go install github.com/lc/gau/v2/cmd/gau@latest"
+- method: go
+  repo_url: github.com/lc/gau
+  commands:
+  - go install github.com/lc/gau/v2/cmd/gau@latest
+features:
+- file-system
 ---
-
 
 # gau — Get All URLs
 

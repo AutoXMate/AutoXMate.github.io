@@ -1,34 +1,47 @@
 ---
 id: windows-kernel-trixx
 namespace: windows:kernel:trixx
-name: "TRIXX.sys"
-description: "TRIXX.sys is a shared utility kernel driver distributed by TechPowerUp LLC with Sapphire TRIXX and GPU-Z. The driver provides completely unrestricted hardware access from usermode through 16+ IOCTLs with zero validation on hardware parameters, including arbitrary port I/O read/write, arbitrary PCI configuration space read/write via HalGetBusDataByOffset/HalSetBusDataByOffset, MMIO BAR mapping via MmMapIoSpace, and MMIO read/write through mapped BARs. Physical memory read/write is achievable b..."
-author: "Michael Haag"
-version: "1.0.0"
+name: TRIXX.sys
+description: TRIXX.sys is a shared utility kernel driver distributed by TechPowerUp
+  LLC with Sapphire TRIXX and GPU-Z. The driver provides completely unrestricted hardware
+  access from usermode through 16+ IOCTLs with zero validation on hardware parameters,
+  including arbitrary port I/O read/write, arbitrary PCI configuration space read/write
+  via HalGetBusDataByOffset/HalSetBusDataByOffset, MMIO BAR mapping via MmMapIoSpace,
+  and MMIO read/write through mapped BARs. Physical memory read/write is achievable
+  b...
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create TRIXX binPath=C:\\windows\\temp\\TRIXX.sys type=kernel && sc.exe start TRIXX"
+  template: sc.exe create TRIXX binPath=C:\windows\temp\TRIXX.sys type=kernel && sc.exe
+    start TRIXX
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load TRIXX.sys kernel driver"
-    commands:
-      - "sc.exe create TRIXX binPath=C:\\windows\\temp\\TRIXX.sys type=kernel && sc.exe start TRIXX"
+- method: custom
+  description: Load TRIXX.sys kernel driver
+  commands:
+  - sc.exe create TRIXX binPath=C:\windows\temp\TRIXX.sys type=kernel && sc.exe start
+    TRIXX
 references:
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/291"
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/320"
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/291
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/320
+features:
+- file-system
+- network-intensive
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create TRIXX binPath=C:\\\\windows\\\\temp\\\\TRIXX.sys type=kernel && sc.exe start TRIXX"

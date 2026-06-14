@@ -3,35 +3,38 @@ trust_level: community
 id: windows-dllhijack-pdh
 namespace: windows:dllhijack:pdh
 name: pdh.dll
-description: "pdh.dll — Sideloading, Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: pdh.dll — Sideloading, Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "pdh.dll"
+  template: pdh.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/pdh.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/pdh.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious pdh.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\pdh.dll\""

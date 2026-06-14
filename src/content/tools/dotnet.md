@@ -2,7 +2,8 @@
 id: dev-dotnet-dotnet
 namespace: dev:dotnet:dotnet
 name: dotnet
-description: .NET CLI; can execute arbitrary code and spawn shells Can also read arbitrary files, spawn an interactive shell.
+description: .NET CLI; can execute arbitrary code and spawn shells Can also read arbitrary
+  files, spawn an interactive shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,13 @@ resource_profile:
 allowed-tools:
 - dotnet
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: dotnet
   sandbox: execFile
@@ -73,7 +80,6 @@ install:
   commands:
   - apt-get install -y dotnet-sdk
 ---
-
 
 # dotnet
 

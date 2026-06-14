@@ -1,24 +1,27 @@
 ---
 id: windows-kernel-ace-base
 namespace: windows:kernel:ace-base
-name: "ACE-BASE.sys"
-description: "Allows privilege escalation from regular user to System or PPL"
-author: "Defence Tech security"
-version: "1.0.0"
+name: ACE-BASE.sys
+description: Allows privilege escalation from regular user to System or PPL
+author: Defence Tech security
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: community
 execution:
-  template: ""
+  template: ''
   sandbox: execFile
   timeout_seconds: 30
   shell: true
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create ACE-BASE.sys binPath=C:\\windows\\temp\\ACE-BASE.sys type=kernel && sc.exe start ACE-BASE.sys"

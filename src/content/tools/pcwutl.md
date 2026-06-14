@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - pcwutl
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: pcwutl
   sandbox: execFile
@@ -49,7 +51,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch executable by calling the LaunchApplication function. (Launch an executable.)
+- description: Launch executable by calling the LaunchApplication function. (Launch
+    an executable.)
   command: rundll32.exe pcwutl.dll,LaunchApplication {PATH:.exe}
 references:
 - label: '989617817849876488'
@@ -72,7 +75,6 @@ install:
   commands:
   - choco install pcwutl
 ---
-
 
 # pcwutl
 

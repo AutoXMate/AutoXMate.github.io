@@ -2,7 +2,8 @@
 id: windows-copy-colorcpl
 namespace: windows:copy:colorcpl
 name: colorcpl
-description: 'Binary that handles color management Located at: C:\Windows\System32\colorcpl.exe; C:\Windows\SysWOW64\colorcpl.exe.'
+description: 'Binary that handles color management Located at: C:\Windows\System32\colorcpl.exe;
+  C:\Windows\SysWOW64\colorcpl.exe.'
 author: Arjan Onwezen
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - colorcpl
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
 execution:
   template: colorcpl
   sandbox: execFile
@@ -49,7 +53,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Copies the referenced file to C:\Windows\System32\spool\drivers\color\. (Copies file(s) to a subfolder of a generally trusted folder (c:\Windows\System32), which can be used to hide files or make them blend into the environment.)
+- description: Copies the referenced file to C:\Windows\System32\spool\drivers\color\.
+    (Copies file(s) to a subfolder of a generally trusted folder (c:\Windows\System32),
+    which can be used to hide files or make them blend into the environment.)
   command: colorcpl {PATH}
 references:
 - label: '1480468728324231172'
@@ -70,7 +76,6 @@ install:
   commands:
   - choco install colorcpl
 ---
-
 
 # colorcpl
 

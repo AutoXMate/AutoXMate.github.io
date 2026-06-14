@@ -2,7 +2,8 @@
 id: windows-execution-reset
 namespace: windows:execution:reset
 name: reset
-description: 'Remote Desktop Services Reset Utility Located at: c:\windows\system32\reset.exe; c:\windows\syswow64\reset.exe.'
+description: 'Remote Desktop Services Reset Utility Located at: c:\windows\system32\reset.exe;
+  c:\windows\syswow64\reset.exe.'
 author: Matan Bahar
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - reset
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: reset
   sandbox: execFile
@@ -49,7 +54,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Once executed, `reset.exe` will execute `rwinsta.exe` in the same folder. Thus, if `reset.exe` is copied to a folder and an arbitrary executable is renamed to `rwinsta.exe`, `reset.exe` will spawn it. (Execute an arbitrary executable via trusted system executable.)
+- description: Once executed, `reset.exe` will execute `rwinsta.exe` in the same folder.
+    Thus, if `reset.exe` is copied to a folder and an arbitrary executable is renamed
+    to `rwinsta.exe`, `reset.exe` will spawn it. (Execute an arbitrary executable
+    via trusted system executable.)
   command: reset.exe session
 references: []
 techniques:
@@ -59,14 +67,14 @@ mitre_ids:
 - T1218
 detections:
 - type: ioc
-  description: reset.exe being executed and executes rwinsta.exe outside of its normal path of c:\windows\system32\ or c:\windows\syswow64\
+  description: reset.exe being executed and executes rwinsta.exe outside of its normal
+    path of c:\windows\system32\ or c:\windows\syswow64\
 install:
 - method: choco
   package_name: reset
   commands:
   - choco install reset
 ---
-
 
 # reset
 

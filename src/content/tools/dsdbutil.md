@@ -2,7 +2,10 @@
 id: windows-credential-dsdbutil
 namespace: windows:credential:dsdbutil
 name: dsdbutil
-description: 'Dsdbutil is a command-line tool that is built into Windows Server. It is available if you have the AD LDS server role installed. Can be used as a command line utility to export Active Directory. Located at: C:\Windows\System32\dsdbutil.exe; C:\Windows\SysWOW64\dsdbutil.exe.'
+description: 'Dsdbutil is a command-line tool that is built into Windows Server. It
+  is available if you have the AD LDS server role installed. Can be used as a command
+  line utility to export Active Directory. Located at: C:\Windows\System32\dsdbutil.exe;
+  C:\Windows\SysWOW64\dsdbutil.exe.'
 author: Ekitji
 version: 1.0.0
 capabilities:
@@ -42,7 +45,10 @@ resource_profile:
 allowed-tools:
 - dsdbutil
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: dsdbutil
   sandbox: execFile
@@ -50,16 +56,23 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: dsdbutil supports VSS snapshot creation (Snapshoting of Active Directory NTDS.dit database)
+- description: dsdbutil supports VSS snapshot creation (Snapshoting of Active Directory
+    NTDS.dit database)
   command: dsdbutil.exe "activate instance ntds" "snapshot" "create" "quit" "quit"
-- description: Mounting the snapshot with its GUID (Mounting the snapshot to access the ntds.dit with `copy c:\<Snap Volume>\windows\ntds\ntds.dit c:\users\administrator\desktop\ntds.dit.bak`)
-  command: dsdbutil.exe "activate instance ntds" "snapshot" "mount {GUID}" "quit" "quit"
+- description: Mounting the snapshot with its GUID (Mounting the snapshot to access
+    the ntds.dit with `copy c:\<Snap Volume>\windows\ntds\ntds.dit c:\users\administrator\desktop\ntds.dit.bak`)
+  command: dsdbutil.exe "activate instance ntds" "snapshot" "mount {GUID}" "quit"
+    "quit"
 - description: Deletes the mount of the snapshot (Deletes the snapshot)
-  command: dsdbutil.exe "activate instance ntds" "snapshot" "delete {GUID}" "quit" "quit"
-- description: Mounting with snapshot identifier (Mounting the snapshot identifier 1 and accessing it with `copy c:\<Snap Volume>\windows\ntds\ntds.dit c:\users\administrator\desktop\ntds.dit.bak`)
-  command: dsdbutil.exe "activate instance ntds" "snapshot" "create" "list all" "mount 1" "quit" "quit"
+  command: dsdbutil.exe "activate instance ntds" "snapshot" "delete {GUID}" "quit"
+    "quit"
+- description: Mounting with snapshot identifier (Mounting the snapshot identifier
+    1 and accessing it with `copy c:\<Snap Volume>\windows\ntds\ntds.dit c:\users\administrator\desktop\ntds.dit.bak`)
+  command: dsdbutil.exe "activate instance ntds" "snapshot" "create" "list all" "mount
+    1" "quit" "quit"
 - description: Deletes the mount of the snapshot (deletes the snapshot)
-  command: dsdbutil.exe "activate instance ntds" "snapshot" "list all" "delete 1" "quit" "quit"
+  command: dsdbutil.exe "activate instance ntds" "snapshot" "list all" "delete 1"
+    "quit" "quit"
 references:
 - label: 88561ca40998e83deb3d1da90289e358
   url: https://gist.github.com/bohops/88561ca40998e83deb3d1da90289e358
@@ -88,7 +101,6 @@ install:
   commands:
   - choco install dsdbutil
 ---
-
 
 # dsdbutil
 

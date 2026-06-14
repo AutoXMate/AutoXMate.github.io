@@ -2,33 +2,35 @@
 trust_level: community
 id: darkiros-drupwn
 namespace: darkiros:tool:drupwn
-name: "drupwn"
-description: "Scan drupal web site with drupwn"
-version: "1.0.0"
+name: drupwn
+description: Scan drupal web site with drupwn
+version: 1.0.0
 capabilities:
-  - credential.discovery.reconnaissance
+- credential.discovery.reconnaissance
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "drupwn"
+  template: drupwn
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Scan drupal web site with drupwn"
-    command: "drupwn --users --nodes --modules --dfiles --themes enum [url]"
+- description: Scan drupal web site with drupwn
+  command: drupwn --users --nodes --modules --dfiles --themes enum [url]
 references:
-  - label: "Source"
-    url: "https://github.com/immunIT/drupwn"
-  - label: "Darkiros"
-    url: "https://darkiros.github.io/commands.html"
+- label: Source
+  url: https://github.com/immunIT/drupwn
+- label: Darkiros
+  url: https://darkiros.github.io/commands.html
 items:
-  - NoCreds
+- NoCreds
 services:
-  - HTTP
-  - HTTPS
+- HTTP
+- HTTPS
+features:
+- network-intensive
 ---
 
 # drupwn

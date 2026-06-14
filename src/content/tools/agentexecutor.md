@@ -2,7 +2,8 @@
 id: windows-execution-agentexecutor
 namespace: windows:execution:agentexecutor
 name: agentexecutor
-description: 'Intune Management Extension included on Intune Managed Devices Located at: C:\Program Files (x86)\Microsoft Intune Management Extension\AgentExecutor.exe.'
+description: 'Intune Management Extension included on Intune Managed Devices Located
+  at: C:\Program Files (x86)\Microsoft Intune Management Extension\AgentExecutor.exe.'
 author: Eleftherios Panos
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - agentexecutor
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: agentexecutor
   sandbox: execFile
@@ -49,10 +54,16 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Spawns powershell.exe and executes a provided powershell script with ExecutionPolicy Bypass argument (Execute unsigned powershell scripts)
-  command: AgentExecutor.exe -powershell "{PATH_ABSOLUTE:.ps1}" "{PATH_ABSOLUTE:.1.log}" "{PATH_ABSOLUTE:.2.log}" "{PATH_ABSOLUTE:.3.log}" 60000 "C:\Windows\SysWOW64\WindowsPowerShell\v1.0" 0 1
-- description: If we place a binary named powershell.exe in the specified folder path, agentexecutor.exe will execute it successfully (Execute a provided EXE)
-  command: AgentExecutor.exe -powershell "{PATH_ABSOLUTE:.ps1}" "{PATH_ABSOLUTE:.1.log}" "{PATH_ABSOLUTE:.2.log}" "{PATH_ABSOLUTE:.3.log}" 60000 "{PATH_ABSOLUTE:folder}" 0 1
+- description: Spawns powershell.exe and executes a provided powershell script with
+    ExecutionPolicy Bypass argument (Execute unsigned powershell scripts)
+  command: AgentExecutor.exe -powershell "{PATH_ABSOLUTE:.ps1}" "{PATH_ABSOLUTE:.1.log}"
+    "{PATH_ABSOLUTE:.2.log}" "{PATH_ABSOLUTE:.3.log}" 60000 "C:\Windows\SysWOW64\WindowsPowerShell\v1.0"
+    0 1
+- description: If we place a binary named powershell.exe in the specified folder path,
+    agentexecutor.exe will execute it successfully (Execute a provided EXE)
+  command: AgentExecutor.exe -powershell "{PATH_ABSOLUTE:.ps1}" "{PATH_ABSOLUTE:.1.log}"
+    "{PATH_ABSOLUTE:.2.log}" "{PATH_ABSOLUTE:.3.log}" 60000 "{PATH_ABSOLUTE:folder}"
+    0 1
 references: []
 techniques:
 - execution
@@ -70,7 +81,6 @@ install:
   commands:
   - choco install agentexecutor
 ---
-
 
 # agentexecutor
 

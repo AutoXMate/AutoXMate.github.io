@@ -2,7 +2,7 @@
 id: system-text-troff
 namespace: system:text:troff
 name: troff
-description: "Typeset documents using troff format; can read arbitrary files."
+description: Typeset documents using troff format; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - troff
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: troff
   sandbox: execFile
@@ -64,7 +66,6 @@ install:
   commands:
   - apt-get install -y groff
 ---
-
 
 # troff
 

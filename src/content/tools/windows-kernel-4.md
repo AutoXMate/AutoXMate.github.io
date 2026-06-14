@@ -1,34 +1,46 @@
 ---
 id: windows-kernel-4
 namespace: windows:kernel:4
-name: "4.sys"
-description: "SentinelOne has observed prominent threat actors abusing legitimately signed Microsoft drivers in active intrusions into telecommunication, BPO, MSSP, and financial services businesses.
-Investigations into these intrusions led to the discovery of POORTRY and STONESTOP malware, part of a small toolkit designed to terminate AV and EDR processes.
-We first reported our discovery to Microsoft’s Security Response Center (MSRC) in October 2022 and received an official case number (75361). Today, MSR..."
-author: "Michael Haag"
-version: "1.0.0"
+name: 4.sys
+description: SentinelOne has observed prominent threat actors abusing legitimately
+  signed Microsoft drivers in active intrusions into telecommunication, BPO, MSSP,
+  and financial services businesses. Investigations into these intrusions led to the
+  discovery of POORTRY and STONESTOP malware, part of a small toolkit designed to
+  terminate AV and EDR processes. We first reported our discovery to Microsoft’s Security
+  Response Center (MSRC) in October 2022 and received an official case number (75361).
+  Today, MSR...
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create 4.sys binPath=C:\\windows\\temp\\4.sys type=kernel && sc.exe start 4.sys"
+  template: sc.exe create 4.sys binPath=C:\windows\temp\4.sys type=kernel && sc.exe
+    start 4.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load 4.sys kernel driver"
-    commands:
-      - "sc.exe create 4.sys binPath=C:\\windows\\temp\\4.sys type=kernel && sc.exe start 4.sys"
+- method: custom
+  description: Load 4.sys kernel driver
+  commands:
+  - sc.exe create 4.sys binPath=C:\windows\temp\4.sys type=kernel && sc.exe start
+    4.sys
 references:
-  - label: "Reference"
-    url: "https://www.sentinelone.com/labs/driving-through-defenses-targeted-attacks-leverage-signed-malicious-microsoft-drivers/"
+- label: Reference
+  url: https://www.sentinelone.com/labs/driving-through-defenses-targeted-attacks-leverage-signed-malicious-microsoft-drivers/
+features:
+- file-system
+- pipes-stdout
+- process-manip
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create 4.sys binPath=C:\\\\windows\\\\temp\\\\4.sys type=kernel && sc.exe start 4.sys"

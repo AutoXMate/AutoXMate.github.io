@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - imewdbld
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdout
 execution:
   template: imewdbld
   sandbox: execFile
@@ -49,7 +51,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: IMEWDBLD.exe attempts to load a dictionary file, if provided a URL as an argument, it will download the file served at by that URL and save it to INetCache. (Download file from Internet)
+- description: IMEWDBLD.exe attempts to load a dictionary file, if provided a URL
+    as an argument, it will download the file served at by that URL and save it to
+    INetCache. (Download file from Internet)
   command: C:\Windows\System32\IME\SHARED\IMEWDBLD.exe {REMOTEURL}
 references:
 - label: '1367493406835040265'
@@ -67,7 +71,6 @@ install:
   commands:
   - choco install imewdbld
 ---
-
 
 # imewdbld
 

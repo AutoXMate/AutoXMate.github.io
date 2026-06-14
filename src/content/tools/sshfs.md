@@ -2,7 +2,8 @@
 id: network-ssh-sshfs
 namespace: network:ssh:sshfs
 name: sshfs
-description: "Mount remote filesystems over SSH; can read, write, and manage remote files."
+description: Mount remote filesystems over SSH; can read, write, and manage remote
+  files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -46,7 +47,14 @@ resource_profile:
 allowed-tools:
 - sshfs
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- pipes-stdin
+- remote
+- requires-root
 execution:
   template: sshfs
   sandbox: execFile
@@ -84,7 +92,6 @@ install:
   commands:
   - apt-get install -y sshfs
 ---
-
 
 # sshfs
 

@@ -2,7 +2,8 @@
 id: windows-execution-vsdiagnostics
 namespace: windows:execution:vsdiagnostics
 name: vsdiagnostics
-description: 'Command-line tool used for performing diagnostics. Located at: C:\Program Files\Microsoft Visual Studio\2022\Community\Team Tools\DiagnosticsHub\Collector\VSDiagnostics.exe.'
+description: 'Command-line tool used for performing diagnostics. Located at: C:\Program
+  Files\Microsoft Visual Studio\2022\Community\Team Tools\DiagnosticsHub\Collector\VSDiagnostics.exe.'
 author: Bobby Cooke
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - vsdiagnostics
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: vsdiagnostics
   sandbox: execFile
@@ -49,9 +54,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Starts a collection session with sessionID 1 and calls kernelbase.CreateProcessW to launch specified executable. (Proxy execution of binary)
+- description: Starts a collection session with sessionID 1 and calls kernelbase.CreateProcessW
+    to launch specified executable. (Proxy execution of binary)
   command: VSDiagnostics.exe start 1 /launch:{PATH:.exe}
-- description: Starts a collection session with sessionID 2 and calls kernelbase.CreateProcessW to launch specified executable. Arguments specified in launchArgs are passed to CreateProcessW. (Proxy execution of binary with arguments)
+- description: Starts a collection session with sessionID 2 and calls kernelbase.CreateProcessW
+    to launch specified executable. Arguments specified in launchArgs are passed to
+    CreateProcessW. (Proxy execution of binary with arguments)
   command: VSDiagnostics.exe start 2 /launch:{PATH:.exe} /launchArgs:"{CMD:args}"
 references:
 - label: '1679200664013135872'
@@ -70,7 +78,6 @@ install:
   commands:
   - choco install vsdiagnostics
 ---
-
 
 # vsdiagnostics
 

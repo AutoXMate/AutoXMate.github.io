@@ -2,7 +2,8 @@
 id: windows-credential-reg
 namespace: windows:credential:reg
 name: reg
-description: 'Used to manipulate the registry Located at: C:\Windows\System32\reg.exe; C:\Windows\SysWOW64\reg.exe.'
+description: 'Used to manipulate the registry Located at: C:\Windows\System32\reg.exe;
+  C:\Windows\SysWOW64\reg.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,12 @@ resource_profile:
 allowed-tools:
 - reg
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: reg
   sandbox: execFile
@@ -51,10 +57,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Export the target Registry key and save it to the specified .REG file within an Alternate data stream. (Hide/plant registry information in Alternate data stream for later use)
+- description: Export the target Registry key and save it to the specified .REG file
+    within an Alternate data stream. (Hide/plant registry information in Alternate
+    data stream for later use)
   command: reg export HKLM\SOFTWARE\Microsoft\Evilreg {PATH_ABSOLUTE}:evilreg.reg
-- description: Dump registry hives (SAM, SYSTEM, SECURITY) to retrieve password hashes and key material (Dump credentials from the Security Account Manager (SAM))
-  command: reg save HKLM\SECURITY {PATH_ABSOLUTE:.1.bak} && reg save HKLM\SYSTEM {PATH_ABSOLUTE:.2.bak} && reg save HKLM\SAM {PATH_ABSOLUTE:.3.bak}
+- description: Dump registry hives (SAM, SYSTEM, SECURITY) to retrieve password hashes
+    and key material (Dump credentials from the Security Account Manager (SAM))
+  command: reg save HKLM\SECURITY {PATH_ABSOLUTE:.1.bak} && reg save HKLM\SYSTEM {PATH_ABSOLUTE:.2.bak}
+    && reg save HKLM\SAM {PATH_ABSOLUTE:.3.bak}
 references:
 - label: cdd2d0d0ec9abb686f0e89306e277b8f
   url: https://gist.github.com/api0cradle/cdd2d0d0ec9abb686f0e89306e277b8f
@@ -85,7 +95,6 @@ install:
   commands:
   - choco install reg
 ---
-
 
 # reg
 

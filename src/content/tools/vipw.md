@@ -2,7 +2,7 @@
 id: system-auth-vipw
 namespace: system:auth:vipw
 name: vipw
-description: "Edit password file with safe locking; can spawn a shell."
+description: Edit password file with safe locking; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - vipw
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: vipw
   sandbox: execFile
@@ -64,7 +69,6 @@ install:
   commands:
   - apt-get install -y shadow-utils
 ---
-
 
 # vipw
 

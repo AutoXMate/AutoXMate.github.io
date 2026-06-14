@@ -4,58 +4,58 @@ namespace: security:ad:ldapsearch
 name: ldapsearch
 description: LDAP directory search tool for querying Active Directory to enumerate
   users, groups, computers, organizational units, and domain policies.
-author: "Repository Maintainers"
-version: "1.0.0"
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - security.ad.enum.users
-  - security.ad.enum.groups
-  - security.ad.enum.computers
-  - security.ad.enum.ous
-  - security.ad.enum.gpos
-  - security.ad.ldap.query
+- security.ad.enum.users
+- security.ad.enum.groups
+- security.ad.enum.computers
+- security.ad.enum.ous
+- security.ad.enum.gpos
+- security.ad.ldap.query
 platforms:
-  - linux
-  - cross-platform
+- linux
+- cross-platform
 risk_level: high
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - impacket
-  - windapsearch
-  - ad-ldap-enum
+- impacket
+- windapsearch
+- ad-ldap-enum
 phase: exploitation
 techniques:
-  - credential-access
-  - discovery
-  - lateral-movement
+- credential-access
+- discovery
+- lateral-movement
 items:
-  - NoCreds
-  - Hash
+- NoCreds
+- Hash
 services:
-  - LDAP
+- LDAP
 attack_types:
-  - Enumeration
-  - CredentialAccess
-  - LateralMovement
+- Enumeration
+- CredentialAccess
+- LateralMovement
 contract:
   inputs:
-    - type: network.target.uri
-      description: LDAP server URI (ldap:// or ldaps://)
-    - type: credential.binddn
-      description: Distinguished name for LDAP bind
-    - type: credential.password
-      description: Password for LDAP bind
-    - type: ldap.basedn
-      description: Base DN for search scope
+  - type: network.target.uri
+    description: LDAP server URI (ldap:// or ldaps://)
+  - type: credential.binddn
+    description: Distinguished name for LDAP bind
+  - type: credential.password
+    description: Password for LDAP bind
+  - type: ldap.basedn
+    description: Base DN for search scope
   outputs:
-    - type: security.ad.enum.results
-      description: LDAP query results in LDIF format
+  - type: security.ad.enum.results
+    description: LDAP query results in LDIF format
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 16
@@ -67,108 +67,108 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - ldapsearch
+- ldapsearch
 parameters:
-  - name: simple
-    type: boolean
-    required: false
-    default_value: false
-    description: "Use simple authentication (not SASL)"
-    aliases:
-      - -x
-      - --simple
-  - name: uri
-    type: string
-    required: false
-    description: "LDAP server URI (ldap://host:port)"
-    aliases:
-      - -H
-      - --uri
-  - name: bind-dn
-    type: string
-    required: false
-    description: "Distinguished name to bind as"
-    aliases:
-      - -D
-      - --bind-dn
-  - name: password
-    type: string
-    required: false
-    description: "Password for LDAP bind"
-    aliases:
-      - -w
-      - --password
-  - name: base-dn
-    type: string
-    required: false
-    description: "Base DN for search"
-    aliases:
-      - -b
-      - --base-dn
-  - name: scope
-    type: string
-    required: false
-    default_value: sub
-    description: "Search scope (base, one, sub, children)"
-    aliases:
-      - -s
-      - --scope
-  - name: filter
-    type: string
-    required: false
-    default_value: "(objectClass=*)"
-    description: "LDAP search filter"
-    aliases:
-      - -f
-      - --filter
-  - name: format
-    type: boolean
-    required: false
-    default_value: false
-    description: "LDIF format with comments only"
-    aliases:
-      - -LLL
-  - name: time-limit
-    type: integer
-    required: false
-    default_value: 0
-    description: "Time limit in seconds for search"
-    aliases:
-      - -l
-      - --time-limit
-  - name: size-limit
-    type: integer
-    required: false
-    default_value: 0
-    description: "Maximum number of entries to return"
-    aliases:
-      - -z
-      - --size-limit
-  - name: host
-    type: string
-    required: false
-    description: "LDAP server hostname"
-    aliases:
-      - -h
-      - --host
-  - name: port
-    type: integer
-    required: false
-    default_value: 389
-    description: "LDAP server port"
-    aliases:
-      - -p
-      - --port
-  - name: starttls
-    type: boolean
-    required: false
-    default_value: false
-    description: "Use STARTTLS to upgrade to TLS"
-    aliases:
-      - -Z
-      - --starttls
+- name: simple
+  type: boolean
+  required: false
+  default_value: false
+  description: Use simple authentication (not SASL)
+  aliases:
+  - -x
+  - --simple
+- name: uri
+  type: string
+  required: false
+  description: LDAP server URI (ldap://host:port)
+  aliases:
+  - -H
+  - --uri
+- name: bind-dn
+  type: string
+  required: false
+  description: Distinguished name to bind as
+  aliases:
+  - -D
+  - --bind-dn
+- name: password
+  type: string
+  required: false
+  description: Password for LDAP bind
+  aliases:
+  - -w
+  - --password
+- name: base-dn
+  type: string
+  required: false
+  description: Base DN for search
+  aliases:
+  - -b
+  - --base-dn
+- name: scope
+  type: string
+  required: false
+  default_value: sub
+  description: Search scope (base, one, sub, children)
+  aliases:
+  - -s
+  - --scope
+- name: filter
+  type: string
+  required: false
+  default_value: (objectClass=*)
+  description: LDAP search filter
+  aliases:
+  - -f
+  - --filter
+- name: format
+  type: boolean
+  required: false
+  default_value: false
+  description: LDIF format with comments only
+  aliases:
+  - -LLL
+- name: time-limit
+  type: integer
+  required: false
+  default_value: 0
+  description: Time limit in seconds for search
+  aliases:
+  - -l
+  - --time-limit
+- name: size-limit
+  type: integer
+  required: false
+  default_value: 0
+  description: Maximum number of entries to return
+  aliases:
+  - -z
+  - --size-limit
+- name: host
+  type: string
+  required: false
+  description: LDAP server hostname
+  aliases:
+  - -h
+  - --host
+- name: port
+  type: integer
+  required: false
+  default_value: 389
+  description: LDAP server port
+  aliases:
+  - -p
+  - --port
+- name: starttls
+  type: boolean
+  required: false
+  default_value: false
+  description: Use STARTTLS to upgrade to TLS
+  aliases:
+  - -Z
+  - --starttls
 execution:
-  template: "ldapsearch -x -H {uri} -b {base-dn}"
+  template: ldapsearch -x -H {uri} -b {base-dn}
   sandbox: execFile
   timeout_seconds: 60
   shell: false
@@ -176,30 +176,38 @@ global_vars:
   uri: string
   base-dn: string
 examples:
-  - description: "Anonymous LDAP query to retrieve base DSE"
-    command: ldapsearch -x -H ldap://10.10.10.1 -b "" -s base
-  - description: "Enumerate all users in the domain"
-    command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b dc=evilcorp,dc=local "(objectClass=user)"
-  - description: "Enumerate all domain groups"
-    command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b dc=evilcorp,dc=local "(objectClass=group)"
-  - description: "Find domain admins group members"
-    command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b dc=evilcorp,dc=local "(&(objectClass=group)(cn=Domain Admins))" member
-  - description: "Enumerate all computers in the domain"
-    command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b dc=evilcorp,dc=local "(objectClass=computer)"
-  - description: "Search for users with SPNs (kerberoast target)"
-    command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b dc=evilcorp,dc=local "(&(objectClass=user)(servicePrincipalName=*))" servicePrincipalName
-  - description: "Find users with Kerberos pre-auth disabled (AS-REP roast)"
-    command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b dc=evilcorp,dc=local "(&(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=4194304))" samaccountname
+- description: Anonymous LDAP query to retrieve base DSE
+  command: ldapsearch -x -H ldap://10.10.10.1 -b "" -s base
+- description: Enumerate all users in the domain
+  command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b
+    dc=evilcorp,dc=local "(objectClass=user)"
+- description: Enumerate all domain groups
+  command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b
+    dc=evilcorp,dc=local "(objectClass=group)"
+- description: Find domain admins group members
+  command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b
+    dc=evilcorp,dc=local "(&(objectClass=group)(cn=Domain Admins))" member
+- description: Enumerate all computers in the domain
+  command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b
+    dc=evilcorp,dc=local "(objectClass=computer)"
+- description: Search for users with SPNs (kerberoast target)
+  command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b
+    dc=evilcorp,dc=local "(&(objectClass=user)(servicePrincipalName=*))" servicePrincipalName
+- description: Find users with Kerberos pre-auth disabled (AS-REP roast)
+  command: ldapsearch -x -H ldap://10.10.10.1 -D jdoe@evilcorp.local -w Pass123 -b
+    dc=evilcorp,dc=local "(&(objectClass=user)(userAccountControl:1.2.840.113556.1.4.803:=4194304))"
+    samaccountname
 references:
-  - label: "OpenLDAP ldapsearch man page"
-    url: "https://www.openldap.org/software/man.cgi?query=ldapsearch"
+- label: OpenLDAP ldapsearch man page
+  url: https://www.openldap.org/software/man.cgi?query=ldapsearch
 install:
-    - method: apt
-      package_name: "ldap-utils"
-      commands:
-        - "apt-get install -y ldap-utils"
+- method: apt
+  package_name: ldap-utils
+  commands:
+  - apt-get install -y ldap-utils
+features:
+- process-manip
 ---
-
 
 # ldapsearch — LDAP Directory Query Tool
 

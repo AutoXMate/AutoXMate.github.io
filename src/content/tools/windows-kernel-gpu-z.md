@@ -1,32 +1,37 @@
 ---
 id: windows-kernel-gpu-z
 namespace: windows:kernel:gpu-z
-name: "GPU-Z.sys"
-description: "Utilized in RealBlindingEDR. "
-author: "goosvorbook"
-version: "1.0.0"
+name: GPU-Z.sys
+description: 'Utilized in RealBlindingEDR. '
+author: goosvorbook
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create GPU-Z.sys binPath=C:\\windows\\temp\\GPU-Z.sys type=kernel && sc.exe start GPU-Z.sys"
+  template: sc.exe create GPU-Z.sys binPath=C:\windows\temp\GPU-Z.sys type=kernel
+    && sc.exe start GPU-Z.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load GPU-Z.sys kernel driver"
-    commands:
-      - "sc.exe create GPU-Z.sys binPath=C:\\windows\\temp\\GPU-Z.sys type=kernel && sc.exe start GPU-Z.sys"
+- method: custom
+  description: Load GPU-Z.sys kernel driver
+  commands:
+  - sc.exe create GPU-Z.sys binPath=C:\windows\temp\GPU-Z.sys type=kernel && sc.exe
+    start GPU-Z.sys
 references:
-  - label: "Reference"
-    url: "https://github.com/myzxcg/RealBlindingEDR/"
+- label: Reference
+  url: https://github.com/myzxcg/RealBlindingEDR/
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create GPU-Z.sys binPath=C:\\\\windows\\\\temp\\\\GPU-Z.sys type=kernel && sc.exe start GPU-Z.sys"

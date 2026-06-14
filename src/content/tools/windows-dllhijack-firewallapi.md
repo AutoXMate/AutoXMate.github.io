@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-firewallapi
 namespace: windows:dllhijack:firewallapi
 name: firewallapi.dll
-description: "firewallapi.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: firewallapi.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "firewallapi.dll"
+  template: firewallapi.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/firewallapi.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/firewallapi.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious firewallapi.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\firewallapi.dll\""

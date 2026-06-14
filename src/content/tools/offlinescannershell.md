@@ -2,7 +2,8 @@
 id: windows-execution-offlinescannershell
 namespace: windows:execution:offlinescannershell
 name: offlinescannershell
-description: 'Windows Defender Offline Shell Located at: C:\Program Files\Windows Defender\Offline\OfflineScannerShell.exe.'
+description: 'Windows Defender Offline Shell Located at: C:\Program Files\Windows
+  Defender\Offline\OfflineScannerShell.exe.'
 author: Elliot Killick
 version: 1.0.0
 capabilities:
@@ -41,7 +42,13 @@ resource_profile:
 allowed-tools:
 - offlinescannershell
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: offlinescannershell
   sandbox: execFile
@@ -49,7 +56,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute mpclient.dll library in the current working directory (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
+- description: Execute mpclient.dll library in the current working directory (Can
+    be used to evade defensive countermeasures or to hide as a persistence mechanism)
   command: OfflineScannerShell
 references: []
 techniques:
@@ -68,7 +76,6 @@ install:
   commands:
   - choco install offlinescannershell
 ---
-
 
 # offlinescannershell
 

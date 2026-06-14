@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-logmein-and-cscript
 namespace: wtf:bin:logmein-and-cscript
-name: "LogMeIn and CScript"
-description: "Who doesn't love CScript?"
-version: "1.0.0"
+name: LogMeIn and CScript
+description: Who doesn't love CScript?
+version: 1.0.0
 capabilities:
-  - security.execution.script
+- security.execution.script
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "LogMeIn and CScript"
+  template: LogMeIn and CScript
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://community.logmein.com/t5/LogMeIn-Central-Discussions/Why-AVfilter-js-running-in-my-logMein-client-machines/td-p/255466"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/logmein-and-cscript/"
+- label: Documentation
+  url: https://community.logmein.com/t5/LogMeIn-Central-Discussions/Why-AVfilter-js-running-in-my-logMein-client-machines/td-p/255466
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/logmein-and-cscript/
+features:
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute LogMeIn and CScript and observe the unusual behavior"
     command: "LogMeIn and CScript"

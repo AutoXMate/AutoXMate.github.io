@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-vsstrace
 namespace: windows:dllhijack:vsstrace
 name: vsstrace.dll
-description: "vsstrace.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: vsstrace.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "vsstrace.dll"
+  template: vsstrace.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/vsstrace.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/vsstrace.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious vsstrace.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\vsstrace.dll\""

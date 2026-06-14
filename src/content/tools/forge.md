@@ -2,7 +2,8 @@
 id: dev-foundry-forge
 namespace: dev:foundry:forge
 name: forge
-description: "Foundry framework for Ethereum smart contract development; can spawn a shell via build scripts."
+description: Foundry framework for Ethereum smart contract development; can spawn
+  a shell via build scripts.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,10 @@ resource_profile:
 allowed-tools:
 - forge
 parameters: []
-features: []
+features:
+- interactive
+- process-manip
+- requires-root
 execution:
   template: forge
   sandbox: execFile
@@ -71,7 +75,6 @@ install:
   commands:
   - apt-get install -y forge
 ---
-
 
 # forge
 

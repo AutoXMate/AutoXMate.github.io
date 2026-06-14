@@ -2,7 +2,8 @@
 id: windows-execution-powershell
 namespace: windows:execution:powershell
 name: powershell
-description: 'Powershell.exe is a a task-based command-line shell built on .NET. Located at: C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe; C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe.'
+description: 'Powershell.exe is a a task-based command-line shell built on .NET. Located
+  at: C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe; C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe.'
 author: Everyone
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - powershell
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: powershell
   sandbox: execFile
@@ -49,11 +53,17 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Set the execution policy to bypass and execute a PowerShell script without warning (Execute PowerShell cmdlets, .NET code, and just about anything else your heart desires)
+- description: Set the execution policy to bypass and execute a PowerShell script
+    without warning (Execute PowerShell cmdlets, .NET code, and just about anything
+    else your heart desires)
   command: powershell.exe -ep bypass -file c:\path\to\a\script.ps1
-- description: Set the execution policy to bypass and execute a PowerShell command (Execute PowerShell cmdlets, .NET code, and just about anything else your heart desires)
+- description: Set the execution policy to bypass and execute a PowerShell command
+    (Execute PowerShell cmdlets, .NET code, and just about anything else your heart
+    desires)
   command: powershell.exe -ep bypass -command "Invoke-AllTheThings..."
-- description: Set the execution policy to bypass and execute a very malicious PowerShell encoded command (Execute PowerShell cmdlets, .NET code, and just about anything else your heart desires)
+- description: Set the execution policy to bypass and execute a very malicious PowerShell
+    encoded command (Execute PowerShell cmdlets, .NET code, and just about anything
+    else your heart desires)
   command: powershell.exe -ep bypass -ec IgBXAGUAIAA8ADMAIABMAE8ATABCAEEAUwAiAA==
 references:
 - label: about_powershell_exe?view=powershell-5.1
@@ -73,7 +83,6 @@ install:
   commands:
   - choco install powershell
 ---
-
 
 # powershell
 

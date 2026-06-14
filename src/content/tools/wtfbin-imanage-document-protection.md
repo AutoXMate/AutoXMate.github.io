@@ -2,26 +2,31 @@
 trust_level: community
 id: wtfbin-imanage-document-protection
 namespace: wtf:bin:imanage-document-protection
-name: "iManage Document Protection"
-description: "Random file extensions from iManage"
-version: "1.0.0"
+name: iManage Document Protection
+description: Random file extensions from iManage
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "iManage Document Protection"
+  template: iManage Document Protection
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/39"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/imanage-document-protection/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/39
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/imanage-document-protection/
+features:
+- file-system
+- local
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute iManage Document Protection and observe the unusual behavior"
     command: "iManage Document Protection"

@@ -2,7 +2,8 @@
 id: windows-execution-dxcap
 namespace: windows:execution:dxcap
 name: dxcap
-description: 'DirectX diagnostics/debugger included with Visual Studio. Located at: C:\Windows\System32\dxcap.exe; C:\Windows\SysWOW64\dxcap.exe.'
+description: 'DirectX diagnostics/debugger included with Visual Studio. Located at:
+  C:\Windows\System32\dxcap.exe; C:\Windows\SysWOW64\dxcap.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - dxcap
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: dxcap
   sandbox: execFile
@@ -49,9 +52,15 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch specified executable as a subprocess of dxcap.exe. Note that you should have write permissions in the current working directory for the command to succeed; alternatively, add '-file c:\path\to\writable\location.ext' as first argument. (Local execution of a process as a subprocess of dxcap.exe)
+- description: Launch specified executable as a subprocess of dxcap.exe. Note that
+    you should have write permissions in the current working directory for the command
+    to succeed; alternatively, add '-file c:\path\to\writable\location.ext' as first
+    argument. (Local execution of a process as a subprocess of dxcap.exe)
   command: Dxcap.exe -c {PATH_ABSOLUTE:.exe}
-- description: Once executed, `dxcap.exe` will execute `xperf.exe` in the same folder. Thus, if `dxcap.exe` is copied to a folder and an arbitrary executable is renamed to `xperf.exe`, `dxcap.exe` will spawn it. (Execute an arbitrary executable via trusted system executable.)
+- description: Once executed, `dxcap.exe` will execute `xperf.exe` in the same folder.
+    Thus, if `dxcap.exe` is copied to a folder and an arbitrary executable is renamed
+    to `xperf.exe`, `dxcap.exe` will spawn it. (Execute an arbitrary executable via
+    trusted system executable.)
   command: dxcap.exe -usage
 references:
 - label: '992008180904419328'
@@ -69,14 +78,14 @@ detections:
 - type: ioc
   description: dxcap.exe spawning Xperf.exe
 - type: ioc
-  description: Xperf.exe executing from unusual directories (if not running from ADK path)
+  description: Xperf.exe executing from unusual directories (if not running from ADK
+    path)
 install:
 - method: choco
   package_name: dxcap
   commands:
   - choco install dxcap
 ---
-
 
 # dxcap
 

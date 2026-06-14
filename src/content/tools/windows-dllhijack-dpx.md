@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-dpx
 namespace: windows:dllhijack:dpx
 name: dpx.dll
-description: "dpx.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: dpx.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "dpx.dll"
+  template: dpx.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/dpx.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/dpx.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious dpx.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\dpx.dll\""

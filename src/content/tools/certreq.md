@@ -2,7 +2,8 @@
 id: windows-download-certreq
 namespace: windows:download:certreq
 name: certreq
-description: 'Used for requesting and managing certificates Located at: C:\Windows\System32\certreq.exe; C:\Windows\SysWOW64\certreq.exe.'
+description: 'Used for requesting and managing certificates Located at: C:\Windows\System32\certreq.exe;
+  C:\Windows\SysWOW64\certreq.exe.'
 author: David Middlehurst
 version: 1.0.0
 capabilities:
@@ -42,7 +43,11 @@ resource_profile:
 allowed-tools:
 - certreq
 parameters: []
-features: []
+features:
+- encryption
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: certreq
   sandbox: execFile
@@ -50,9 +55,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Send the specified file (penultimate argument) to the specified URL via HTTP POST and save the response to the specified txt file (last argument). (Download file from Internet)
+- description: Send the specified file (penultimate argument) to the specified URL
+    via HTTP POST and save the response to the specified txt file (last argument).
+    (Download file from Internet)
   command: CertReq -Post -config {REMOTEURL} {PATH_ABSOLUTE} {PATH:.txt}
-- description: Send the specified file (last argument) to the specified URL via HTTP POST and show response in terminal. (Upload)
+- description: Send the specified file (last argument) to the specified URL via HTTP
+    POST and show response in terminal. (Upload)
   command: CertReq -Post -config {REMOTEURL} {PATH_ABSOLUTE}
 references:
 - label: certreq
@@ -74,7 +82,6 @@ install:
   commands:
   - choco install certreq
 ---
-
 
 # certreq
 

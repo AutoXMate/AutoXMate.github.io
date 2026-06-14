@@ -2,37 +2,38 @@
 id: system-debug-apport-cli
 namespace: system:debug:apport-cli
 name: apport-cli
-description: Ubuntu crash report handler that can spawn a pager (less) to read arbitrary files.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Ubuntu crash report handler that can spawn a pager (less) to read arbitrary
+  files.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - security.privilege-escalation.shell
-  - system.file.read
+- security.privilege-escalation.shell
+- system.file.read
 platforms:
-  - linux
+- linux
 risk_level: medium
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - less
-  - systemctl
+- less
+- systemctl
 artifacts: []
 workflow_edges:
   produces:
-    - file-content
+  - file-content
   consumes: []
 contract:
   inputs: []
   outputs:
-    - type: process.output
-      description: File content via pager
-      mime: text/plain
+  - type: process.output
+    description: File content via pager
+    mime: text/plain
   side_effects:
-    - process_spawn
+  - process_spawn
   resource_cost:
     cpu: low
     memory_mb: 8
@@ -44,43 +45,50 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - apport-cli
-  - Bash
-  - execFile
+- apport-cli
+- Bash
+- execFile
 parameters:
-  - name: f
-    type: string
-    required: false
-    description: "Report a problem"
-    aliases:
-      - -f
-features: []
+- name: f
+  type: string
+  required: false
+  description: Report a problem
+  aliases:
+  - -f
+features:
+- file-system
+- interactive
+- local
+- pipes-stdout
+- process-manip
+- requires-root
 execution:
-  template: "apport-cli {f}"
+  template: apport-cli {f}
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 global_vars: {}
 examples:
-  - description: Spawn less pager via crash report interface to read files
-    command: |-
-      apport-cli -f
-      1
-      2
-      v
-references:
-  - label: "Apport documentation"
-    url: "https://wiki.ubuntu.com/Apport"
-techniques:
-  - privilege-escalation
-  - execution
-install:
-    - method: apt
-      package_name: "apport"
-      commands:
-        - "apt-get install -y apport"
----
+- description: Spawn less pager via crash report interface to read files
+  command: 'apport-cli -f
 
+    1
+
+    2
+
+    v'
+references:
+- label: Apport documentation
+  url: https://wiki.ubuntu.com/Apport
+techniques:
+- privilege-escalation
+- execution
+install:
+- method: apt
+  package_name: apport
+  commands:
+  - apt-get install -y apport
+---
 
 # apport-cli — Ubuntu Crash Report Handler
 

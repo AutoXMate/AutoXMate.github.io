@@ -2,7 +2,7 @@
 id: network-sniff-tshark
 namespace: network:sniff:tshark
 name: tshark
-description: "Wireshark CLI network protocol analyzer; can spawn a shell."
+description: Wireshark CLI network protocol analyzer; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - tshark
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdin
+- process-manip
 execution:
   template: tshark
   sandbox: execFile
@@ -66,7 +70,6 @@ install:
   commands:
   - apt-get install -y tshark
 ---
-
 
 # tshark
 

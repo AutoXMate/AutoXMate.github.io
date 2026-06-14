@@ -2,7 +2,7 @@
 id: network-socket-ss
 namespace: network:socket:ss
 name: ss
-description: "Socket statistics utility; can read remote files via TCP."
+description: Socket statistics utility; can read remote files via TCP.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - ss
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- remote
 execution:
   template: ss
   sandbox: execFile
@@ -64,7 +68,6 @@ install:
   commands:
   - apt-get install -y iproute2
 ---
-
 
 # ss
 

@@ -2,7 +2,9 @@
 id: windows-execution-launch-vsdevshell
 namespace: windows:execution:launch-vsdevshell
 name: launch-vsdevshell
-description: 'Locates and imports a Developer PowerShell module and calls the Enter-VsDevShell cmdlet Located at: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Launch-VsDevShell.ps1; C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1.'
+description: 'Locates and imports a Developer PowerShell module and calls the Enter-VsDevShell
+  cmdlet Located at: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\Launch-VsDevShell.ps1;
+  C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\Tools\Launch-VsDevShell.ps1.'
 author: Nasreddine Bencherchali
 version: 1.0.0
 capabilities:
@@ -41,7 +43,13 @@ resource_profile:
 allowed-tools:
 - launch-vsdevshell
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: launch-vsdevshell
   sandbox: execFile
@@ -49,10 +57,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute binaries from the context of the signed script using the "VsWherePath" flag. (Proxy execution)
+- description: Execute binaries from the context of the signed script using the "VsWherePath"
+    flag. (Proxy execution)
   command: powershell -ep RemoteSigned -f .\Launch-VsDevShell.ps1 -VsWherePath {PATH_ABSOLUTE:.exe}
-- description: Execute binaries and commands from the context of the signed script using the "VsInstallationPath" flag. (Proxy execution)
-  command: powershell -ep RemoteSigned -f .\Launch-VsDevShell.ps1 -VsInstallationPath "/../../../../../; {PATH:.exe} ;"
+- description: Execute binaries and commands from the context of the signed script
+    using the "VsInstallationPath" flag. (Proxy execution)
+  command: powershell -ep RemoteSigned -f .\Launch-VsDevShell.ps1 -VsInstallationPath
+    "/../../../../../; {PATH:.exe} ;"
 references:
 - label: '1535981653239255040'
   url: https://twitter.com/nas_bench/status/1535981653239255040
@@ -70,7 +81,6 @@ install:
   commands:
   - choco install launch-vsdevshell
 ---
-
 
 # launch-vsdevshell
 

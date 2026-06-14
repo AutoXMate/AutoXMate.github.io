@@ -2,7 +2,9 @@
 id: windows-execution-appvlp
 namespace: windows:execution:appvlp
 name: appvlp
-description: 'Application Virtualization Utility Included with Microsoft Office 2016 Located at: C:\Program Files\Microsoft Office\root\client\appvlp.exe; C:\Program Files (x86)\Microsoft Office\root\client\appvlp.exe.'
+description: 'Application Virtualization Utility Included with Microsoft Office 2016
+  Located at: C:\Program Files\Microsoft Office\root\client\appvlp.exe; C:\Program
+  Files (x86)\Microsoft Office\root\client\appvlp.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +43,13 @@ resource_profile:
 allowed-tools:
 - appvlp
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- remote
+- requires-root
 execution:
   template: appvlp
   sandbox: execFile
@@ -49,10 +57,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes .bat file through AppVLP.exe (Execution of BAT file hosted on Webdav server.)
+- description: Executes .bat file through AppVLP.exe (Execution of BAT file hosted
+    on Webdav server.)
   command: AppVLP.exe {PATH_SMB:.bat}
-- description: Executes powershell.exe as a subprocess of AppVLP.exe and run the respective PS command. (Local execution of process bypassing Attack Surface Reduction (ASR).)
-  command: AppVLP.exe powershell.exe -c "$e=New-Object -ComObject shell.application;$e.ShellExecute('{PATH:.exe}','', '', 'open', 1)"
+- description: Executes powershell.exe as a subprocess of AppVLP.exe and run the respective
+    PS command. (Local execution of process bypassing Attack Surface Reduction (ASR).)
+  command: AppVLP.exe powershell.exe -c "$e=New-Object -ComObject shell.application;$e.ShellExecute('{PATH:.exe}','',
+    '', 'open', 1)"
 references:
 - label: Code-Execution
   url: https://github.com/MoooKitty/Code-Execution
@@ -76,7 +87,6 @@ install:
   commands:
   - choco install appvlp
 ---
-
 
 # appvlp
 

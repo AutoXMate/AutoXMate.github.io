@@ -2,7 +2,8 @@
 id: windows-ads-regini
 namespace: windows:ads:regini
 name: regini
-description: 'Used to manipulate the registry Located at: C:\Windows\System32\regini.exe; C:\Windows\SysWOW64\regini.exe.'
+description: 'Used to manipulate the registry Located at: C:\Windows\System32\regini.exe;
+  C:\Windows\SysWOW64\regini.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,12 @@ resource_profile:
 allowed-tools:
 - regini
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: regini
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Write registry keys from data inside the Alternate data stream. (Write to registry)
+- description: Write registry keys from data inside the Alternate data stream. (Write
+    to registry)
   command: regini.exe {PATH}:hidden.ini
 references:
 - label: cdd2d0d0ec9abb686f0e89306e277b8f
@@ -71,7 +78,6 @@ install:
   commands:
   - choco install regini
 ---
-
 
 # regini
 

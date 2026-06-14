@@ -2,7 +2,8 @@
 id: windows-execution-syssetup
 namespace: windows:execution:syssetup
 name: syssetup
-description: 'Windows NT System Setup Located at: c:\windows\system32\syssetup.dll; c:\windows\syswow64\syssetup.dll.'
+description: 'Windows NT System Setup Located at: c:\windows\system32\syssetup.dll;
+  c:\windows\syswow64\syssetup.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - syssetup
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: syssetup
   sandbox: execFile
@@ -50,9 +54,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll in the .inf file by calling an information file directive (section name specified). (Run local or remote script(let) code through INF file specification (Note May pop an error window).)
+- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll
+    in the .inf file by calling an information file directive (section name specified).
+    (Run local or remote script(let) code through INF file specification (Note May
+    pop an error window).)
   command: rundll32 syssetup.dll,SetupInfObjectInstallAction DefaultInstall 128 {PATH_ABSOLUTE:.inf}
-- description: Launch an executable file via the SetupInfObjectInstallAction function and .inf file section directive. (Load an executable payload.)
+- description: Launch an executable file via the SetupInfObjectInstallAction function
+    and .inf file section directive. (Load an executable payload.)
   command: rundll32 syssetup.dll,SetupInfObjectInstallAction DefaultInstall 128 {PATH_ABSOLUTE:.inf}
 references:
 - label: '994392481927258113'
@@ -79,7 +87,6 @@ install:
   commands:
   - choco install syssetup
 ---
-
 
 # syssetup
 

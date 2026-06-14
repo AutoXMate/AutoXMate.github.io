@@ -2,7 +2,7 @@
 id: system-ui-whiptail
 namespace: system:ui:whiptail
 name: whiptail
-description: "Display dialog boxes from shell scripts; can spawn a shell."
+description: Display dialog boxes from shell scripts; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - whiptail
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdout
+- process-manip
 execution:
   template: whiptail
   sandbox: execFile
@@ -64,7 +69,6 @@ install:
   commands:
   - apt-get install -y whiptail
 ---
-
 
 # whiptail
 

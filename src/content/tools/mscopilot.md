@@ -41,7 +41,11 @@ resource_profile:
 allowed-tools:
 - mscopilot
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: mscopilot
   sandbox: execFile
@@ -49,8 +53,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: '`mscopilot.exe` will spawn the provided command. Parent `mscopilot.exe` process needs to be killed to avoid command being executed an infinite number of times. (Executes a process under a trusted Microsoft signed binary)'
-  command: mscopilot.exe --no-startup-window --disable-gpu-sandbox --gpu-launcher="{CMD} && taskkill /f /im mscopilot.exe &&"
+- description: '`mscopilot.exe` will spawn the provided command. Parent `mscopilot.exe`
+    process needs to be killed to avoid command being executed an infinite number
+    of times. (Executes a process under a trusted Microsoft signed binary)'
+  command: mscopilot.exe --no-startup-window --disable-gpu-sandbox --gpu-launcher="{CMD}
+    && taskkill /f /im mscopilot.exe &&"
 references:
 - label: tour-de-mscopilot
   url: https://github.com/4n4s4zi/tour-de-mscopilot
@@ -66,7 +73,6 @@ install:
   commands:
   - choco install mscopilot
 ---
-
 
 # mscopilot
 

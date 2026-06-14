@@ -2,26 +2,31 @@
 trust_level: community
 id: wtfbin-adobe-cc-setup
 namespace: wtf:bin:adobe-cc-setup
-name: "Adobe CC Setup"
-description: "Adobe performs...process injection??"
-version: "1.0.0"
+name: Adobe CC Setup
+description: Adobe performs...process injection??
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.process-injection
+- security.defenseevasion.process-injection
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
+- defense-evasion
 execution:
-  template: "Adobe CC Setup"
+  template: Adobe CC Setup
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/71"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/adobe-cc-setup/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/71
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/adobe-cc-setup/
+features:
+- file-system
+- process-manip
+- stealth
 ---
+
 examples:
   - description: "Execute Adobe CC Setup and observe the unusual behavior"
     command: "Adobe CC Setup"

@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-msedge
 namespace: windows:dllhijack:msedge
 name: msedge.dll
-description: "msedge.dll — Sideloading hijacking (Microsoft)"
-author: "Swachchhanda Shrawan Poudel"
-version: "1.0.0"
+description: msedge.dll — Sideloading hijacking (Microsoft)
+author: Swachchhanda Shrawan Poudel
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "msedge.dll"
+  template: msedge.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://securelist.com/apt41-in-africa/116986/"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/msedge.html"
+- label: Reference
+  url: https://securelist.com/apt41-in-africa/116986/
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/msedge.html
+features:
+- pipes-stdin
 ---
+
 examples:
   - description: "Place malicious msedge.dll in the search order location"
     command: "copy malicious.dll \"%PROGRAMFILES%\\Microsoft\\Edge\\Application\\%VERSION%\\msedge.dll\""

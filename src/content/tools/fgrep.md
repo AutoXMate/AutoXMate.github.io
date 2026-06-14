@@ -2,7 +2,7 @@
 id: system-search-fgrep
 namespace: system:search:fgrep
 name: fgrep
-description: "Fixed-string grep for literal pattern searching; can read arbitrary files."
+description: Fixed-string grep for literal pattern searching; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - fgrep
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
 execution:
   template: fgrep
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y grep
 ---
-
 
 # fgrep
 

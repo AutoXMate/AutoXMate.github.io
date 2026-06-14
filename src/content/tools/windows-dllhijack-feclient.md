@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-feclient
 namespace: windows:dllhijack:feclient
 name: feclient.dll
-description: "feclient.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: feclient.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "feclient.dll"
+  template: feclient.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/feclient.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/feclient.html
+features:
+- remote
 ---
+
 examples:
   - description: "Place malicious feclient.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\feclient.dll\""

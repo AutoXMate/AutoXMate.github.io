@@ -2,7 +2,8 @@
 id: network-ftp-ftp
 namespace: network:ftp:ftp
 name: ftp
-description: File Transfer Protocol client; can transfer files and spawn shells Can also download files, spawn an interactive shell, upload files.
+description: File Transfer Protocol client; can transfer files and spawn shells Can
+  also download files, spawn an interactive shell, upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -45,7 +46,14 @@ resource_profile:
 allowed-tools:
 - ftp
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- process-manip
+- remote
+- requires-root
 execution:
   template: ftp
   sandbox: execFile
@@ -79,7 +87,6 @@ install:
   commands:
   - apt-get install -y ftp
 ---
-
 
 # ftp
 

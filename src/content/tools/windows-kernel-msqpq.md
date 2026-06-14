@@ -1,32 +1,39 @@
 ---
 id: windows-kernel-msqpq
 namespace: windows:kernel:msqpq
-name: "MSqPq.sys"
-description: "BlackCat Ransomware Deploys New Signed Kernel Driver. BlackCat ransomware incident that occurred in February 2023."
-author: "Guus Verbeek"
-version: "1.0.0"
+name: MSqPq.sys
+description: BlackCat Ransomware Deploys New Signed Kernel Driver. BlackCat ransomware
+  incident that occurred in February 2023.
+author: Guus Verbeek
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create MSqPq.sys binPath=C:\\windows\\temp\\MSqPq.sys type=kernel && sc.exe start MSqPq.sys"
+  template: sc.exe create MSqPq.sys binPath=C:\windows\temp\MSqPq.sys type=kernel
+    && sc.exe start MSqPq.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load MSqPq.sys kernel driver"
-    commands:
-      - "sc.exe create MSqPq.sys binPath=C:\\windows\\temp\\MSqPq.sys type=kernel && sc.exe start MSqPq.sys"
+- method: custom
+  description: Load MSqPq.sys kernel driver
+  commands:
+  - sc.exe create MSqPq.sys binPath=C:\windows\temp\MSqPq.sys type=kernel && sc.exe
+    start MSqPq.sys
 references:
-  - label: "Reference"
-    url: "https://www.trendmicro.com/en_us/research/23/e/blackcat-ransomware-deploys-new-signed-kernel-driver.html"
+- label: Reference
+  url: https://www.trendmicro.com/en_us/research/23/e/blackcat-ransomware-deploys-new-signed-kernel-driver.html
+features:
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create MSqPq.sys binPath=C:\\\\windows\\\\temp\\\\MSqPq.sys type=kernel && sc.exe start MSqPq.sys"

@@ -2,7 +2,8 @@
 id: windows-credential-rdrleakdiag
 namespace: windows:credential:rdrleakdiag
 name: rdrleakdiag
-description: 'Microsoft Windows resource leak diagnostic tool Located at: c:\windows\system32\rdrleakdiag.exe; c:\Windows\SysWOW64\rdrleakdiag.exe.'
+description: 'Microsoft Windows resource leak diagnostic tool Located at: c:\windows\system32\rdrleakdiag.exe;
+  c:\Windows\SysWOW64\rdrleakdiag.exe.'
 author: John Dwyer
 version: 1.0.0
 capabilities:
@@ -41,7 +42,8 @@ resource_profile:
 allowed-tools:
 - rdrleakdiag
 parameters: []
-features: []
+features:
+- pipes-stdout
 execution:
   template: rdrleakdiag
   sandbox: execFile
@@ -49,11 +51,15 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Dump process by PID and create a dump file (creates files called `minidump_<PID>.dmp` and `results_<PID>.hlk`). (Dump process by PID.)
+- description: Dump process by PID and create a dump file (creates files called `minidump_<PID>.dmp`
+    and `results_<PID>.hlk`). (Dump process by PID.)
   command: rdrleakdiag.exe /p 940 /o {PATH_ABSOLUTE:folder} /fullmemdmp /wait 1
-- description: Dump LSASS process by PID and create a dump file (creates files called `minidump_<PID>.dmp` and `results_<PID>.hlk`). (Dump LSASS process.)
+- description: Dump LSASS process by PID and create a dump file (creates files called
+    `minidump_<PID>.dmp` and `results_<PID>.hlk`). (Dump LSASS process.)
   command: rdrleakdiag.exe /p 832 /o {PATH_ABSOLUTE:folder} /fullmemdmp /wait 1
-- description: After dumping a process using `/wait 1`, subsequent dumps must use `/snap` (creates files called `minidump_<PID>.dmp` and `results_<PID>.hlk`). (Dump LSASS process mutliple times.)
+- description: After dumping a process using `/wait 1`, subsequent dumps must use
+    `/snap` (creates files called `minidump_<PID>.dmp` and `results_<PID>.hlk`). (Dump
+    LSASS process mutliple times.)
   command: rdrleakdiag.exe /p 832 /o {PATH_ABSOLUTE:folder} /fullmemdmp /snap
 references:
 - label: 1299071304805560321?s=21
@@ -80,7 +86,6 @@ install:
   commands:
   - choco install rdrleakdiag
 ---
-
 
 # rdrleakdiag
 

@@ -2,7 +2,8 @@
 id: windows-execution-mavinject
 namespace: windows:execution:mavinject
 name: mavinject
-description: 'Used by App-v in Windows Located at: C:\Windows\System32\mavinject.exe; C:\Windows\SysWOW64\mavinject.exe.'
+description: 'Used by App-v in Windows Located at: C:\Windows\System32\mavinject.exe;
+  C:\Windows\SysWOW64\mavinject.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,13 @@ resource_profile:
 allowed-tools:
 - mavinject
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- stealth
+- streaming
 execution:
   template: mavinject
   sandbox: execFile
@@ -51,9 +58,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Inject evil.dll into a process with PID 3110. (Inject dll file into running process)
+- description: Inject evil.dll into a process with PID 3110. (Inject dll file into
+    running process)
   command: MavInject.exe 3110 /INJECTRUNNING {PATH_ABSOLUTE:.dll}
-- description: Inject file.dll stored as an Alternate Data Stream (ADS) into a process with PID 4172 (Inject dll file into running process)
+- description: Inject file.dll stored as an Alternate Data Stream (ADS) into a process
+    with PID 4172 (Inject dll file into running process)
   command: Mavinject.exe 4172 /INJECTRUNNING {PATH_ABSOLUTE}:file.dll
 references:
 - label: '941315826107510784'
@@ -79,7 +88,6 @@ install:
   commands:
   - choco install mavinject
 ---
-
 
 # mavinject
 

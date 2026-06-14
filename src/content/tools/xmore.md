@@ -2,7 +2,7 @@
 id: system-x-xmore
 namespace: system:x:xmore
 name: xmore
-description: "X11 text file browser; can read arbitrary files."
+description: X11 text file browser; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - xmore
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: xmore
   sandbox: execFile
@@ -64,7 +66,6 @@ install:
   commands:
   - apt-get install -y x11-utils
 ---
-
 
 # xmore
 

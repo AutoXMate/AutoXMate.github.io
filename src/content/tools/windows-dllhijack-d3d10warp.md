@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-d3d10warp
 namespace: windows:dllhijack:d3d10warp
 name: d3d10warp.dll
-description: "d3d10warp.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: d3d10warp.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "d3d10warp.dll"
+  template: d3d10warp.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/d3d10warp.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/d3d10warp.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious d3d10warp.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\d3d10warp.dll\""

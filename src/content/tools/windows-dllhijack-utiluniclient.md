@@ -3,29 +3,33 @@ trust_level: community
 id: windows-dllhijack-utiluniclient
 namespace: windows:dllhijack:utiluniclient
 name: utiluniclient.dll
-description: "utiluniclient.dll — Phantom hijacking (Trend Micro)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: utiluniclient.dll — Phantom hijacking (Trend Micro)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "utiluniclient.dll"
+  template: utiluniclient.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://safebreach.com/blog/2019/trend-micro-security-16-dll-search-order-hijacking-and-potential-abuses/"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/utiluniclient.html"
+- label: Reference
+  url: https://safebreach.com/blog/2019/trend-micro-security-16-dll-search-order-hijacking-and-potential-abuses/
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/utiluniclient.html
+features:
+- remote
+- requires-root
 ---
+
 examples:
   - description: "Place malicious utiluniclient.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\utiluniclient.dll\""

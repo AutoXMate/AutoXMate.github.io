@@ -2,7 +2,7 @@
 id: network-vpn-wg-quick
 namespace: network:vpn:wg-quick
 name: wg-quick
-description: "Quick setup for WireGuard VPN tunnels; can spawn a shell."
+description: Quick setup for WireGuard VPN tunnels; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - wg-quick
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- process-manip
+- requires-root
 execution:
   template: wg-quick
   sandbox: execFile
@@ -74,7 +78,6 @@ install:
   commands:
   - apt-get install -y wireguard-tools
 ---
-
 
 # wg-quick
 

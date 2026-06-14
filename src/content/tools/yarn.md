@@ -2,7 +2,7 @@
 id: dev-node-yarn
 namespace: dev:node:yarn
 name: yarn
-description: "Fast, reliable Node.js package manager; can execute arbitrary scripts."
+description: Fast, reliable Node.js package manager; can execute arbitrary scripts.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - yarn
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: yarn
   sandbox: execFile
@@ -73,7 +77,6 @@ install:
   commands:
   - apt-get install -y yarn
 ---
-
 
 # yarn
 

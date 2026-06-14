@@ -1,32 +1,37 @@
 ---
 id: windows-kernel-d4
 namespace: windows:kernel:d4
-name: "d4.sys"
-description: "Elevate privileges"
-author: "Michael Haag"
-version: "1.0.0"
+name: d4.sys
+description: Elevate privileges
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: community
 execution:
-  template: "sc.exe create d4.sys binPath=C:\\windows\\temp\\d4.sys type=kernel && sc.exe start d4.sys"
+  template: sc.exe create d4.sys binPath=C:\windows\temp\d4.sys type=kernel && sc.exe
+    start d4.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load d4.sys kernel driver"
-    commands:
-      - "sc.exe create d4.sys binPath=C:\\windows\\temp\\d4.sys type=kernel && sc.exe start d4.sys"
+- method: custom
+  description: Load d4.sys kernel driver
+  commands:
+  - sc.exe create d4.sys binPath=C:\windows\temp\d4.sys type=kernel && sc.exe start
+    d4.sys
 references:
-  - label: "Reference"
-    url: "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+- label: Reference
+  url: https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create d4.sys binPath=C:\\\\windows\\\\temp\\\\d4.sys type=kernel && sc.exe start d4.sys"

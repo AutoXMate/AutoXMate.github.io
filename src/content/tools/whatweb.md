@@ -2,50 +2,51 @@
 id: security-web-whatweb
 namespace: security:web:whatweb
 name: whatweb
-description: Next-generation web server fingerprinting tool that identifies CMS platforms, frameworks, and technologies.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Next-generation web server fingerprinting tool that identifies CMS platforms,
+  frameworks, and technologies.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - web.fingerprint
-  - web.discovery.technology
-  - web.recon.cms
-  - security.fingerprint.http
+- web.fingerprint
+- web.discovery.technology
+- web.recon.cms
+- security.fingerprint.http
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - wappalyzer
-  - builtwith
-  - nikto
+- wappalyzer
+- builtwith
+- nikto
 artifacts:
-  - type: web.fingerprint.report
-    description: Technology fingerprint results
-    mime: text/plain
-    trust_level: verified
+- type: web.fingerprint.report
+  description: Technology fingerprint results
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - fingerprint-results
-    - technology-stack
+  - fingerprint-results
+  - technology-stack
   consumes:
-    - target-url
+  - target-url
 contract:
   inputs:
-    - type: web.target.url
-      description: Target URL to fingerprint
+  - type: web.target.url
+    description: Target URL to fingerprint
   outputs:
-    - type: web.fingerprint.results
-      description: List of detected technologies
-      mime: text/plain
+  - type: web.fingerprint.results
+    description: List of detected technologies
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 64
@@ -57,141 +58,145 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - whatweb
-  - Bash
-  - execFile
+- whatweb
+- Bash
+- execFile
 parameters:
-  - name: url
-    type: string
-    required: true
-    description: "Target URL to fingerprint"
-    aliases:
-      - -u
-  - name: verbose
-    type: boolean
-    required: false
-    description: "Verbose output including all plugins (-v)"
-    aliases:
-      - -v
-  - name: aggression
-    type: integer
-    required: false
-    description: "Aggression level 1-5 (-a)"
-    default_value: "1"
-    aliases:
-      - -a
-  - name: log-verbose
-    type: string
-    required: false
-    description: "Log verbose output to file (-l)"
-    aliases:
-      - -l
-  - name: output
-    type: string
-    required: false
-    description: "Output file (-o)"
-    aliases:
-      - -o
-  - name: user-agent
-    type: string
-    required: false
-    description: "Custom User-Agent header (-U)"
-    aliases:
-      - -U
-  - name: input-file
-    type: string
-    required: false
-    description: "Read targets from file (-i)"
-    aliases:
-      - -i
-  - name: threads
-    type: integer
-    required: false
-    description: "Number of threads (-t)"
-    default_value: "1"
-    aliases:
-      - -t
-  - name: proxy
-    type: string
-    required: false
-    description: "Proxy URL (--proxy)"
-    aliases:
-      - --proxy
-  - name: cookie
-    type: string
-    required: false
-    description: "Cookie string (--cookie)"
-    aliases:
-      - --cookie
-  - name: header
-    type: string
-    required: false
-    description: "Custom HTTP header (--header)"
-    aliases:
-      - --header
-  - name: plugins
-    type: string
-    required: false
-    description: "List of plugins to run (--plugins)"
-    aliases:
-      - --plugins
-  - name: quiet
-    type: boolean
-    required: false
-    description: "Do not display brief banner (--quiet)"
-    aliases:
-      - --quiet
-  - name: no-errors
-    type: boolean
-    required: false
-    description: "Suppress error messages (--no-errors)"
-    aliases:
-      - --no-errors
-  - name: color
-    type: boolean
-    required: false
-    description: "Enable color output (--color)"
-    aliases:
-      - --color
+- name: url
+  type: string
+  required: true
+  description: Target URL to fingerprint
+  aliases:
+  - -u
+- name: verbose
+  type: boolean
+  required: false
+  description: Verbose output including all plugins (-v)
+  aliases:
+  - -v
+- name: aggression
+  type: integer
+  required: false
+  description: Aggression level 1-5 (-a)
+  default_value: '1'
+  aliases:
+  - -a
+- name: log-verbose
+  type: string
+  required: false
+  description: Log verbose output to file (-l)
+  aliases:
+  - -l
+- name: output
+  type: string
+  required: false
+  description: Output file (-o)
+  aliases:
+  - -o
+- name: user-agent
+  type: string
+  required: false
+  description: Custom User-Agent header (-U)
+  aliases:
+  - -U
+- name: input-file
+  type: string
+  required: false
+  description: Read targets from file (-i)
+  aliases:
+  - -i
+- name: threads
+  type: integer
+  required: false
+  description: Number of threads (-t)
+  default_value: '1'
+  aliases:
+  - -t
+- name: proxy
+  type: string
+  required: false
+  description: Proxy URL (--proxy)
+  aliases:
+  - --proxy
+- name: cookie
+  type: string
+  required: false
+  description: Cookie string (--cookie)
+  aliases:
+  - --cookie
+- name: header
+  type: string
+  required: false
+  description: Custom HTTP header (--header)
+  aliases:
+  - --header
+- name: plugins
+  type: string
+  required: false
+  description: List of plugins to run (--plugins)
+  aliases:
+  - --plugins
+- name: quiet
+  type: boolean
+  required: false
+  description: Do not display brief banner (--quiet)
+  aliases:
+  - --quiet
+- name: no-errors
+  type: boolean
+  required: false
+  description: Suppress error messages (--no-errors)
+  aliases:
+  - --no-errors
+- name: color
+  type: boolean
+  required: false
+  description: Enable color output (--color)
+  aliases:
+  - --color
 execution:
-  template: "whatweb {target} -v"
+  template: whatweb {target} -v
   sandbox: execFile
   timeout_seconds: 120
   shell: false
 global_vars:
   target: url
 examples:
-  - description: "Basic fingerprint scan"
-    command: whatweb example.com
-  - description: "Verbose output with all plugins"
-    command: whatweb example.com -v
-  - description: "Aggressive scan with level 3"
-    command: whatweb example.com -a 3
-  - description: "Scan multiple targets from file"
-    command: whatweb -i targets.txt
-  - description: "Output results to file"
-    command: whatweb example.com -o report.txt
+- description: Basic fingerprint scan
+  command: whatweb example.com
+- description: Verbose output with all plugins
+  command: whatweb example.com -v
+- description: Aggressive scan with level 3
+  command: whatweb example.com -a 3
+- description: Scan multiple targets from file
+  command: whatweb -i targets.txt
+- description: Output results to file
+  command: whatweb example.com -o report.txt
 references:
-  - label: "WhatWeb GitHub"
-    url: "https://github.com/urbanadventurer/WhatWeb"
-  - label: "WhatWeb documentation"
-    url: "https://github.com/urbanadventurer/WhatWeb/wiki"
+- label: WhatWeb GitHub
+  url: https://github.com/urbanadventurer/WhatWeb
+- label: WhatWeb documentation
+  url: https://github.com/urbanadventurer/WhatWeb/wiki
 phase: enumeration
 techniques:
-  - recon
-  - recon
+- recon
+- recon
 items:
-  - NoCreds
+- NoCreds
 services: []
 attack_types:
-  - Enumeration
+- Enumeration
 install:
-    - method: apt
-      package_name: "whatweb"
-      commands:
-        - "apt-get install -y whatweb"
+- method: apt
+  package_name: whatweb
+  commands:
+  - apt-get install -y whatweb
+features:
+- file-system
+- network-intensive
+- pipes-stdout
+- remote
 ---
-
 
 # WhatWeb — Web Fingerprinting Tool
 

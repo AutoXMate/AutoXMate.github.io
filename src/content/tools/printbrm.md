@@ -43,7 +43,13 @@ resource_profile:
 allowed-tools:
 - printbrm
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: printbrm
   sandbox: execFile
@@ -51,9 +57,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Create a ZIP file from a folder in a remote drive (Exfiltrate the contents of a remote folder on a UNC share into a zip file)
+- description: Create a ZIP file from a folder in a remote drive (Exfiltrate the contents
+    of a remote folder on a UNC share into a zip file)
   command: PrintBrm -b -d {PATH_SMB:folder} -f {PATH_ABSOLUTE:.zip}
-- description: Extract the contents of a ZIP file stored in an Alternate Data Stream (ADS) and store it in a folder (Decompress and extract a ZIP file stored on an alternate data stream to a new folder)
+- description: Extract the contents of a ZIP file stored in an Alternate Data Stream
+    (ADS) and store it in a folder (Decompress and extract a ZIP file stored on an
+    alternate data stream to a new folder)
   command: PrintBrm -r -f {PATH_ABSOLUTE}:hidden.zip -d {PATH_ABSOLUTE:folder}
 references:
 - label: '1404117015447670800'
@@ -75,7 +84,6 @@ install:
   commands:
   - choco install printbrm
 ---
-
 
 # printbrm
 

@@ -3,39 +3,42 @@ trust_level: community
 id: windows-dllhijack-winmm
 namespace: windows:dllhijack:winmm
 name: winmm.dll
-description: "winmm.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: winmm.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "winmm.dll"
+  template: winmm.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securelist.com/wastedlocker-technical-analysis/97944/"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://ctrlaltintel.com/research/FudCrypt-analysis-1/"
-  - label: "Reference"
-    url: "https://support.zoom.com/hc/en/article?sysparm_article=KB0064484"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/winmm.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securelist.com/wastedlocker-technical-analysis/97944/
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://ctrlaltintel.com/research/FudCrypt-analysis-1/
+- label: Reference
+  url: https://support.zoom.com/hc/en/article?sysparm_article=KB0064484
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/winmm.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious winmm.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\winmm.dll\""

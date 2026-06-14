@@ -2,7 +2,8 @@
 id: virtualization-libvirt-virsh
 namespace: virtualization:libvirt:virsh
 name: virsh
-description: "Libvirt shell for managing virtual machines; can execute commands and spawn shells."
+description: Libvirt shell for managing virtual machines; can execute commands and
+  spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,12 @@ resource_profile:
 allowed-tools:
 - virsh
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: virsh
   sandbox: execFile
@@ -53,9 +59,23 @@ execution:
 global_vars: {}
 examples:
 - description: Execute arbitrary commands (sudo)
-  command: "cat >/path/to/temp-file.xml <<EOF\n<domain type='kvm'>\n  <name>x</name>\n  <os>\n    <type arch='x86_64'>hvm</type>\n  </os>\n  <memory unit='KiB'>1</memory>\n  <devices>\n    <interface type='ethernet'>\n      <script path='/path/to/command'/>\n    </interface>\n  </devices>\n</domain>\nEOF\nvirsh -c qemu:///system create /path/to/temp-file.xml\nvirsh -c qemu:///system destroy x"
+  command: "cat >/path/to/temp-file.xml <<EOF\n<domain type='kvm'>\n  <name>x</name>\n\
+    \  <os>\n    <type arch='x86_64'>hvm</type>\n  </os>\n  <memory unit='KiB'>1</memory>\n\
+    \  <devices>\n    <interface type='ethernet'>\n      <script path='/path/to/command'/>\n\
+    \    </interface>\n  </devices>\n</domain>\nEOF\nvirsh -c qemu:///system create\
+    \ /path/to/temp-file.xml\nvirsh -c qemu:///system destroy x"
 - description: Write to arbitrary files (sudo, unprivileged)
-  command: "echo DATA >/path/to/temp-file\n\ncat >/path/to/temp-file.xml <<EOF\n<volume type='file'>\n  <name>y</name>\n  <key>/path/to/output-dir/output-file</key>\n  <source>\n  </source>\n  <capacity unit='bytes'>5</capacity>\n  <allocation unit='bytes'>4096</allocation>\n  <physical unit='bytes'>5</physical>\n  <target>\n    <path>/path/to/output-dir/output-file</path>\n    <format type='raw'/>\n    <permissions>\n      <mode>0600</mode>\n      <owner>0</owner>\n      <group>0</group>\n    </permissions>\n  </target>\n</volume>\nEOF\n\nvirsh -c qemu:///system pool-create-as x dir --target /path/to/output-dir/\nvirsh -c qemu:///system vol-create --pool x --file /path/to/temp-file.xml\nvirsh -c qemu:///system vol-upload --pool x /path/to/output-dir/output-file /path/to/temp-file\nvirsh -c qemu:///system pool-destroy x"
+  command: "echo DATA >/path/to/temp-file\n\ncat >/path/to/temp-file.xml <<EOF\n<volume\
+    \ type='file'>\n  <name>y</name>\n  <key>/path/to/output-dir/output-file</key>\n\
+    \  <source>\n  </source>\n  <capacity unit='bytes'>5</capacity>\n  <allocation\
+    \ unit='bytes'>4096</allocation>\n  <physical unit='bytes'>5</physical>\n  <target>\n\
+    \    <path>/path/to/output-dir/output-file</path>\n    <format type='raw'/>\n\
+    \    <permissions>\n      <mode>0600</mode>\n      <owner>0</owner>\n      <group>0</group>\n\
+    \    </permissions>\n  </target>\n</volume>\nEOF\n\nvirsh -c qemu:///system pool-create-as\
+    \ x dir --target /path/to/output-dir/\nvirsh -c qemu:///system vol-create --pool\
+    \ x --file /path/to/temp-file.xml\nvirsh -c qemu:///system vol-upload --pool x\
+    \ /path/to/output-dir/output-file /path/to/temp-file\nvirsh -c qemu:///system\
+    \ pool-destroy x"
 - description: Write to arbitrary files (sudo, unprivileged)
   command: 'virsh -c qemu:///system pool-create-as x dir --target /path/to/dir/
 
@@ -75,7 +95,6 @@ install:
   commands:
   - apt-get install -y libvirt-clients
 ---
-
 
 # virsh
 

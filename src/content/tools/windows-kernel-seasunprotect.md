@@ -1,29 +1,39 @@
 ---
 id: windows-kernel-seasunprotect
 namespace: windows:kernel:seasunprotect
-name: "SeasunProtect.sys"
-description: "Northwave Cyber Security contributed this driver based on in-house research. The driver has a CVSSv3 score of 8.8, indicating a privilege escalation impact. This vulnerability could potentially be exploited for privilege escalation or other malicious activities."
-author: "Northwave Cyber Security"
-version: "1.0.0"
+name: SeasunProtect.sys
+description: Northwave Cyber Security contributed this driver based on in-house research.
+  The driver has a CVSSv3 score of 8.8, indicating a privilege escalation impact.
+  This vulnerability could potentially be exploited for privilege escalation or other
+  malicious activities.
+author: Northwave Cyber Security
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create SeasunProtect binPath=C:\\windows\\temp\\SeasunProtect.sys type=kernel && sc.exe start SeasunProtect"
+  template: sc.exe create SeasunProtect binPath=C:\windows\temp\SeasunProtect.sys
+    type=kernel && sc.exe start SeasunProtect
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load SeasunProtect.sys kernel driver"
-    commands:
-      - "sc.exe create SeasunProtect binPath=C:\\windows\\temp\\SeasunProtect.sys type=kernel && sc.exe start SeasunProtect"
+- method: custom
+  description: Load SeasunProtect.sys kernel driver
+  commands:
+  - sc.exe create SeasunProtect binPath=C:\windows\temp\SeasunProtect.sys type=kernel
+    && sc.exe start SeasunProtect
+features:
+- pipes-stdin
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create SeasunProtect binPath=C:\\\\windows\\\\temp\\\\SeasunProtect.sys type=kernel && sc.exe start SeasunProtect"

@@ -2,7 +2,9 @@
 id: windows-execution-pixtool
 namespace: windows:execution:pixtool
 name: pixtool
-description: 'Command line utility for taking and analyzing PIX GPU captures. Located at: C:\Program Files\Microsoft PIX\pixtool.exe; C:\Program Files (x86)\Microsoft PIX\pixtool.exe.'
+description: 'Command line utility for taking and analyzing PIX GPU captures. Located
+  at: C:\Program Files\Microsoft PIX\pixtool.exe; C:\Program Files (x86)\Microsoft
+  PIX\pixtool.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - pixtool
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: pixtool
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launches an executable via PIX command-line utility. (Executes an executable under a trusted, Microsoft signed binary.)
+- description: Launches an executable via PIX command-line utility. (Executes an executable
+    under a trusted, Microsoft signed binary.)
   command: pixtool.exe launch {PATH_ABSOLUTE:.exe}
 references:
 - label: ''
@@ -66,7 +73,6 @@ install:
   commands:
   - choco install pixtool
 ---
-
 
 # pixtool
 

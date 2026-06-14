@@ -2,7 +2,9 @@
 id: windows-bypass-wfc
 namespace: windows:bypass:wfc
 name: wfc
-description: 'The Workflow Command-line Compiler tool is included with the Windows Software Development Kit (SDK). Located at: C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.8 Tools\wfc.exe.'
+description: 'The Workflow Command-line Compiler tool is included with the Windows
+  Software Development Kit (SDK). Located at: C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX
+  4.8 Tools\wfc.exe.'
 author: Jimmy (@bohops)
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - wfc
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
+- stealth
 execution:
   template: wfc
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute arbitrary C# code embedded in a XOML file. (Execute proxied payload with Microsoft signed binary to bypass WDAC policies)
+- description: Execute arbitrary C# code embedded in a XOML file. (Execute proxied
+    payload with Microsoft signed binary to bypass WDAC policies)
   command: wfc.exe {PATH_ABSOLUTE:.xoml}
 references:
 - label: ''
@@ -71,7 +78,6 @@ install:
   commands:
   - choco install wfc
 ---
-
 
 # wfc
 

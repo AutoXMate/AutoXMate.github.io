@@ -1,29 +1,34 @@
 ---
 id: windows-kernel-jokercontroller
 namespace: windows:kernel:jokercontroller
-name: "jokercontroller.sys"
-description: "Confirmed vulnerable driver from Microsoft Block List"
-author: "Michael Haag"
-version: "1.0.0"
+name: jokercontroller.sys
+description: Confirmed vulnerable driver from Microsoft Block List
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: ""
+  template: ''
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 detections:
-  - type: other
+- type: other
 references:
-  - label: "Reference"
-    url: "https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c"
+- label: Reference
+  url: https://gist.github.com/mgraeber-rc/1bde6a2a83237f17b463d051d32e802c
+features:
+- file-system
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create jokercontroller.sys binPath=C:\\windows\\temp\\jokercontroller.sys type=kernel && sc.exe start jokercontroller.sys"

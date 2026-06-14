@@ -2,7 +2,7 @@
 id: system-taskwarrior-tasksh
 namespace: system:taskwarrior:tasksh
 name: tasksh
-description: "Taskwarrior interactive shell; can spawn a shell."
+description: Taskwarrior interactive shell; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - tasksh
 parameters: []
-features: []
+features:
+- interactive
+- process-manip
+- requires-root
 execution:
   template: tasksh
   sandbox: execFile
@@ -67,7 +70,6 @@ install:
   commands:
   - apt-get install -y tasksh
 ---
-
 
 # tasksh
 

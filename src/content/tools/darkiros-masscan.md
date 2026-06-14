@@ -2,32 +2,34 @@
 trust_level: community
 id: darkiros-masscan
 namespace: darkiros:tool:masscan
-name: "masscan"
-description: "masscan - scan all port"
-version: "1.0.0"
+name: masscan
+description: masscan - scan all port
+version: 1.0.0
 capabilities:
-  - credential.discovery.reconnaissance
+- credential.discovery.reconnaissance
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "masscan"
+  template: masscan
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "masscan - scan all port"
-    command: "masscan -p1-65535 [ip] -e [interface] --rate 1000"
+- description: masscan - scan all port
+  command: masscan -p1-65535 [ip] -e [interface] --rate 1000
 references:
-  - label: "Source"
-    url: "https://github.com/robertdavidgraham/masscan"
-  - label: "Darkiros"
-    url: "https://darkiros.github.io/commands.html"
+- label: Source
+  url: https://github.com/robertdavidgraham/masscan
+- label: Darkiros
+  url: https://darkiros.github.io/commands.html
 items:
-  - NoCreds
+- NoCreds
 services:
-  - DNS
+- DNS
+features:
+- network-intensive
 ---
 
 # masscan

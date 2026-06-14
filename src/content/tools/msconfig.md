@@ -2,7 +2,10 @@
 id: windows-execution-msconfig
 namespace: windows:execution:msconfig
 name: msconfig
-description: 'MSConfig is a troubleshooting tool which is used to temporarily disable or re-enable software, device drivers or Windows services that run during startup process to help the user determine the cause of a problem with Windows Located at: C:\Windows\System32\msconfig.exe.'
+description: 'MSConfig is a troubleshooting tool which is used to temporarily disable
+  or re-enable software, device drivers or Windows services that run during startup
+  process to help the user determine the cause of a problem with Windows Located at:
+  C:\Windows\System32\msconfig.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +44,12 @@ resource_profile:
 allowed-tools:
 - msconfig
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: msconfig
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes command embeded in crafted c:\windows\system32\mscfgtlc.xml. (Code execution using Msconfig.exe)
+- description: Executes command embeded in crafted c:\windows\system32\mscfgtlc.xml.
+    (Code execution using Msconfig.exe)
   command: Msconfig.exe -5
 references:
 - label: '991314564896690177'
@@ -72,7 +81,6 @@ install:
   commands:
   - choco install msconfig
 ---
-
 
 # msconfig
 

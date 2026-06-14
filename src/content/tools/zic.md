@@ -2,7 +2,7 @@
 id: system-timezone-zic
 namespace: system:timezone:zic
 name: zic
-description: "Time zone compiler; can read arbitrary files."
+description: Time zone compiler; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - zic
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
 execution:
   template: zic
   sandbox: execFile
@@ -68,7 +71,6 @@ install:
   commands:
   - apt-get install -y tzdata
 ---
-
 
 # zic
 

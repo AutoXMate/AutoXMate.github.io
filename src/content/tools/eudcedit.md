@@ -2,7 +2,8 @@
 id: windows-uacbypass-eudcedit
 namespace: windows:uacbypass:eudcedit
 name: eudcedit
-description: 'Private Character Editor Windows Utility Located at: c:\windows\system32\eudcedit.exe; c:\windows\syswow64\eudcedit.exe.'
+description: 'Private Character Editor Windows Utility Located at: c:\windows\system32\eudcedit.exe;
+  c:\windows\syswow64\eudcedit.exe.'
 author: Matan Bahar
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - eudcedit
 parameters: []
-features: []
+features:
+- pipes-stdout
+- requires-root
+- stealth
 execution:
   template: eudcedit
   sandbox: execFile
@@ -50,7 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Once executed, the Private Charecter Editor will be opened - click OK, then click File -> Font Links. In the next window choose the option "Link with Selected Fonts" and click on Save As, then in the opened enter the command you want to execute. (Execute a binary or script as a high-integrity process without a UAC prompt.)
+- description: Once executed, the Private Charecter Editor will be opened - click
+    OK, then click File -> Font Links. In the next window choose the option "Link
+    with Selected Fonts" and click on Save As, then in the opened enter the command
+    you want to execute. (Execute a binary or script as a high-integrity process without
+    a UAC prompt.)
   command: eudcedit
 references:
 - label: windows-fonts-exploitation-in-2025-bypassing-uac-w
@@ -68,7 +76,6 @@ install:
   commands:
   - choco install eudcedit
 ---
-
 
 # eudcedit
 

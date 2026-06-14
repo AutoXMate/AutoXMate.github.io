@@ -1,32 +1,39 @@
 ---
 id: windows-kernel-kapchelper-x64
 namespace: windows:kernel:kapchelper-x64
-name: "KApcHelper_x64.sys"
-description: "Vulnerable driving using the stolen Nvidia Certificate."
-author: "Guus Verbeek"
-version: "1.0.0"
+name: KApcHelper_x64.sys
+description: Vulnerable driving using the stolen Nvidia Certificate.
+author: Guus Verbeek
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create KApcHelper_x64.sys binPath=C:\\windows\\temp\\KApcHelper_x64.sys type=kernel && sc.exe start KApcHelper_x64.sys"
+  template: sc.exe create KApcHelper_x64.sys binPath=C:\windows\temp\KApcHelper_x64.sys
+    type=kernel && sc.exe start KApcHelper_x64.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load KApcHelper_x64.sys kernel driver"
-    commands:
-      - "sc.exe create KApcHelper_x64.sys binPath=C:\\windows\\temp\\KApcHelper_x64.sys type=kernel && sc.exe start KApcHelper_x64.sys"
+- method: custom
+  description: Load KApcHelper_x64.sys kernel driver
+  commands:
+  - sc.exe create KApcHelper_x64.sys binPath=C:\windows\temp\KApcHelper_x64.sys type=kernel
+    && sc.exe start KApcHelper_x64.sys
 references:
-  - label: "Reference"
-    url: "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware"
+- label: Reference
+  url: https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware
+features:
+- encryption
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create KApcHelper_x64.sys binPath=C:\\\\windows\\\\temp\\\\KApcHelper_x64.sys type=kernel && sc.exe start KApcHelper_x64.sys"

@@ -3,31 +3,34 @@ trust_level: community
 id: windows-dllhijack-edputil
 namespace: windows:dllhijack:edputil
 name: edputil.dll
-description: "edputil.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: edputil.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "edputil.dll"
+  template: edputil.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://twitter.com/Max_Mal_/status/1658566665003585545"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/edputil.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://twitter.com/Max_Mal_/status/1658566665003585545
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/edputil.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious edputil.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\edputil.dll\""

@@ -2,7 +2,7 @@
 id: network-ssh-sshpass
 namespace: network:ssh:sshpass
 name: sshpass
-description: "Non-interactive SSH password authentication; can spawn a shell."
+description: Non-interactive SSH password authentication; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - sshpass
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdout
+- process-manip
+- requires-root
 execution:
   template: sshpass
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y sshpass
 ---
-
 
 # sshpass
 

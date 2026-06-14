@@ -2,51 +2,52 @@
 id: security-web-waybackurls
 namespace: security:web:waybackurls
 name: waybackurls
-description: Tool for fetching historical URLs from the Wayback Machine archive for discovering endpoints, parameters, and attack surface of target domains.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Tool for fetching historical URLs from the Wayback Machine archive for
+  discovering endpoints, parameters, and attack surface of target domains.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - web.discovery.endpoint
-  - web.archive.url
-  - security.recon.passive
-  - web.enumeration.parameter
+- web.discovery.endpoint
+- web.archive.url
+- security.recon.passive
+- web.enumeration.parameter
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - gau
-  - paramspider
-  - katana
-  - arjun
+- gau
+- paramspider
+- katana
+- arjun
 artifacts:
-  - type: crawl.txt
-    description: Historical URLs from Wayback Machine
-    mime: text/plain
-    trust_level: verified
+- type: crawl.txt
+  description: Historical URLs from Wayback Machine
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - url-list
-    - endpoint-list
+  - url-list
+  - endpoint-list
   consumes:
-    - target-domain
+  - target-domain
 contract:
   inputs:
-    - type: network.target.domain
-      description: Target domain to fetch URLs for
+  - type: network.target.domain
+    description: Target domain to fetch URLs for
   outputs:
-    - type: crawl.txt
-      description: List of discovered historical URLs
-      mime: text/plain
+  - type: crawl.txt
+    description: List of discovered historical URLs
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 32
@@ -58,65 +59,67 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - waybackurls
-  - Bash
-  - execFile
+- waybackurls
+- Bash
+- execFile
 parameters:
-  - name: dates
-    type: boolean
-    required: false
-    description: "Include timestamp for each URL"
-    aliases:
-      - -dates
-  - name: no-subs
-    type: boolean
-    required: false
-    description: "Exclude subdomain URLs"
-    aliases:
-      - -no-subs
-  - name: flag-s
-    type: string
-    required: false
-    description: "File containing list of domains"
-    aliases:
-      - -s
-      - --subs
+- name: dates
+  type: boolean
+  required: false
+  description: Include timestamp for each URL
+  aliases:
+  - -dates
+- name: no-subs
+  type: boolean
+  required: false
+  description: Exclude subdomain URLs
+  aliases:
+  - -no-subs
+- name: flag-s
+  type: string
+  required: false
+  description: File containing list of domains
+  aliases:
+  - -s
+  - --subs
 execution:
-  template: "waybackurls {target} {flags}"
+  template: waybackurls {target} {flags}
   sandbox: execFile
   timeout_seconds: 60
   shell: false
 examples:
-  - description: "Fetch all historical URLs for a domain"
-    command: waybackurls example.com
-  - description: "Fetch URLs and include dates"
-    command: waybackurls -dates example.com
-  - description: "Fetch URLs from multiple domains"
-    command: cat domains.txt | waybackurls
-  - description: "Filter for JavaScript files"
-    command: waybackurls example.com | grep "\.js$"
-  - description: "Filter for parameters"
-    command: waybackurls example.com | grep "?.*="
+- description: Fetch all historical URLs for a domain
+  command: waybackurls example.com
+- description: Fetch URLs and include dates
+  command: waybackurls -dates example.com
+- description: Fetch URLs from multiple domains
+  command: cat domains.txt | waybackurls
+- description: Filter for JavaScript files
+  command: waybackurls example.com | grep "\.js$"
+- description: Filter for parameters
+  command: waybackurls example.com | grep "?.*="
 references:
-  - label: "waybackurls GitHub"
-    url: "https://github.com/tomnomnom/waybackurls"
+- label: waybackurls GitHub
+  url: https://github.com/tomnomnom/waybackurls
 phase: recon
 techniques:
-  - recon
-  - discovery
+- recon
+- discovery
 items:
-  - NoCreds
+- NoCreds
 services: []
 attack_types:
-  - Enumeration
-  - Discovery
+- Enumeration
+- Discovery
 install:
-    - method: go
-      repo_url: "github.com/tomnomnom/waybackurls"
-      commands:
-        - "go install github.com/tomnomnom/waybackurls@latest"
+- method: go
+  repo_url: github.com/tomnomnom/waybackurls
+  commands:
+  - go install github.com/tomnomnom/waybackurls@latest
+features:
+- compression
+- file-system
 ---
-
 
 # waybackurls — Wayback Machine URL Fetcher
 

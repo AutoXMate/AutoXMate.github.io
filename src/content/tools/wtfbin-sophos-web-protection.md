@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-sophos-web-protection
 namespace: wtf:bin:sophos-web-protection
-name: "Sophos Web Protection (sophosxl.net)"
-description: "Do you like giant DNS queries? Sophos does"
-version: "1.0.0"
+name: Sophos Web Protection (sophosxl.net)
+description: Do you like giant DNS queries? Sophos does
+version: 1.0.0
 capabilities:
-  - network.exfiltration.dns
+- network.exfiltration.dns
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - exfiltration
+- exfiltration
 execution:
-  template: "Sophos Web Protection"
+  template: Sophos Web Protection
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://support.sophos.com/support/s/article/KB-000034570?language=en_US"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/sophos-web-protection/"
+- label: Documentation
+  url: https://support.sophos.com/support/s/article/KB-000034570?language=en_US
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/sophos-web-protection/
+features:
+- network-intensive
 ---
+
 examples:
   - description: "Run the binary and monitor DNS exfiltration"
     command: "Sophos Web Protection"

@@ -2,7 +2,8 @@
 id: windows-execution-bitsadmin
 namespace: windows:execution:bitsadmin
 name: bitsadmin
-description: 'Used for managing background intelligent transfer Located at: C:\Windows\System32\bitsadmin.exe; C:\Windows\SysWOW64\bitsadmin.exe.'
+description: 'Used for managing background intelligent transfer Located at: C:\Windows\System32\bitsadmin.exe;
+  C:\Windows\SysWOW64\bitsadmin.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -46,7 +47,13 @@ resource_profile:
 allowed-tools:
 - bitsadmin
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: bitsadmin
   sandbox: execFile
@@ -54,14 +61,28 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Create a bitsadmin job named 1, add cmd.exe to the job, configure the job to run the target command from an Alternate data stream, then resume and complete the job. (Performs execution of specified file in the alternate data stream, can be used as a defensive evasion or persistence technique.)
-  command: bitsadmin /create 1 bitsadmin /addfile 1 c:\windows\system32\cmd.exe c:\data\playfolder\cmd.exe bitsadmin /SetNotifyCmdLine 1 c:\data\playfolder\1.txt:cmd.exe NULL bitsadmin /RESUME 1 bitsadmin /complete 1
-- description: Create a bitsadmin job named 1, add cmd.exe to the job, configure the job to run the target command, then resume and complete the job. (Download file from Internet)
-  command: bitsadmin /create 1 bitsadmin /addfile 1 https://live.sysinternals.com/autoruns.exe c:\data\playfolder\autoruns.exe bitsadmin /RESUME 1 bitsadmin /complete 1
+- description: Create a bitsadmin job named 1, add cmd.exe to the job, configure the
+    job to run the target command from an Alternate data stream, then resume and complete
+    the job. (Performs execution of specified file in the alternate data stream, can
+    be used as a defensive evasion or persistence technique.)
+  command: bitsadmin /create 1 bitsadmin /addfile 1 c:\windows\system32\cmd.exe c:\data\playfolder\cmd.exe
+    bitsadmin /SetNotifyCmdLine 1 c:\data\playfolder\1.txt:cmd.exe NULL bitsadmin
+    /RESUME 1 bitsadmin /complete 1
+- description: Create a bitsadmin job named 1, add cmd.exe to the job, configure the
+    job to run the target command, then resume and complete the job. (Download file
+    from Internet)
+  command: bitsadmin /create 1 bitsadmin /addfile 1 https://live.sysinternals.com/autoruns.exe
+    c:\data\playfolder\autoruns.exe bitsadmin /RESUME 1 bitsadmin /complete 1
 - description: Command for copying cmd.exe to another folder (Copy file)
-  command: bitsadmin /create 1 & bitsadmin /addfile 1 c:\windows\system32\cmd.exe c:\data\playfolder\cmd.exe & bitsadmin /RESUME 1 & bitsadmin /Complete 1 & bitsadmin /reset
-- description: One-liner that creates a bitsadmin job named 1, add cmd.exe to the job, configure the job to run the target command, then resume and complete the job. (Execute binary file specified. Can be used as a defensive evasion.)
-  command: bitsadmin /create 1 & bitsadmin /addfile 1 c:\windows\system32\cmd.exe c:\data\playfolder\cmd.exe & bitsadmin /SetNotifyCmdLine 1 c:\data\playfolder\cmd.exe NULL & bitsadmin /RESUME 1 & bitsadmin /Reset
+  command: bitsadmin /create 1 & bitsadmin /addfile 1 c:\windows\system32\cmd.exe
+    c:\data\playfolder\cmd.exe & bitsadmin /RESUME 1 & bitsadmin /Complete 1 & bitsadmin
+    /reset
+- description: One-liner that creates a bitsadmin job named 1, add cmd.exe to the
+    job, configure the job to run the target command, then resume and complete the
+    job. (Execute binary file specified. Can be used as a defensive evasion.)
+  command: bitsadmin /create 1 & bitsadmin /addfile 1 c:\windows\system32\cmd.exe
+    c:\data\playfolder\cmd.exe & bitsadmin /SetNotifyCmdLine 1 c:\data\playfolder\cmd.exe
+    NULL & bitsadmin /RESUME 1 & bitsadmin /Reset
 references:
 - label: windows-attacks-at-is-the-new-black-26672679
   url: https://www.slideshare.net/chrisgates/windows-attacks-at-is-the-new-black-26672679
@@ -101,7 +122,6 @@ install:
   commands:
   - choco install bitsadmin
 ---
-
 
 # bitsadmin
 

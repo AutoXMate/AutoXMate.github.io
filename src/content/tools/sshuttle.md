@@ -2,7 +2,7 @@
 id: network-vpn-sshuttle
 namespace: network:vpn:sshuttle
 name: sshuttle
-description: "Transparent VPN over SSH; can execute remote commands."
+description: Transparent VPN over SSH; can execute remote commands.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,13 @@ resource_profile:
 allowed-tools:
 - sshuttle
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdin
+- process-manip
+- remote
+- requires-root
 execution:
   template: sshuttle
   sandbox: execFile
@@ -65,7 +71,6 @@ install:
   commands:
   - apt-get install -y sshuttle
 ---
-
 
 # sshuttle
 

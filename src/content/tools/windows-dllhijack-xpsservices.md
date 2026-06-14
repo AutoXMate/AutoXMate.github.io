@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-xpsservices
 namespace: windows:dllhijack:xpsservices
 name: xpsservices.dll
-description: "xpsservices.dll — Sideloading hijacking (Microsoft)"
-author: "Chris Spehn"
-version: "1.0.0"
+description: xpsservices.dll — Sideloading hijacking (Microsoft)
+author: Chris Spehn
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "xpsservices.dll"
+  template: xpsservices.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/xpsservices.html"
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/xpsservices.html
+features:
+- process-manip
 ---
+
 examples:
   - description: "Place malicious xpsservices.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\xpsservices.dll\""

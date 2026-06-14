@@ -2,7 +2,10 @@
 id: windows-download-gfxdownloadwrapper
 namespace: windows:download:gfxdownloadwrapper
 name: gfxdownloadwrapper
-description: 'Remote file download used by the Intel Graphics Control Panel, receives as first parameter a URL and a destination file path. Located at: c:\windows\system32\driverstore\filerepository\64kb6472.inf_amd64_3daef03bbe98572b\GfxDownloadWrapper.exe; c:\windows\system32\driverstore\filerepository\cui_comp.inf_amd64_0e9c57ae3396e055\GfxDownloadWrapper.exe; c:\windows\system32\driverstore\filerepository\cui_comp.inf_amd64_209bd95d56b1ac2d\GfxDownloadWrapper.exe.'
+description: 'Remote file download used by the Intel Graphics Control Panel, receives
+  as first parameter a URL and a destination file path. Located at: c:\windows\system32\driverstore\filerepository\64kb6472.inf_amd64_3daef03bbe98572b\GfxDownloadWrapper.exe;
+  c:\windows\system32\driverstore\filerepository\cui_comp.inf_amd64_0e9c57ae3396e055\GfxDownloadWrapper.exe;
+  c:\windows\system32\driverstore\filerepository\cui_comp.inf_amd64_209bd95d56b1ac2d\GfxDownloadWrapper.exe.'
 author: Jesus Galvez
 version: 1.0.0
 capabilities:
@@ -41,7 +44,13 @@ resource_profile:
 allowed-tools:
 - gfxdownloadwrapper
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: gfxdownloadwrapper
   sandbox: execFile
@@ -49,8 +58,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: GfxDownloadWrapper.exe downloads the content that returns URL and writes it to the file DESTINATION FILE PATH. The binary is signed by "Microsoft Windows Hardware", "Compatibility Publisher", "Microsoft Windows Third Party Component CA 2012", "Microsoft Time-Stamp PCA 2010", "Microsoft Time-Stamp Service". (Download file from internet)
-  command: C:\Windows\System32\DriverStore\FileRepository\igdlh64.inf_amd64_[0-9]+\GfxDownloadWrapper.exe "URL" "DESTINATION FILE"
+- description: GfxDownloadWrapper.exe downloads the content that returns URL and writes
+    it to the file DESTINATION FILE PATH. The binary is signed by "Microsoft Windows
+    Hardware", "Compatibility Publisher", "Microsoft Windows Third Party Component
+    CA 2012", "Microsoft Time-Stamp PCA 2010", "Microsoft Time-Stamp Service". (Download
+    file from internet)
+  command: C:\Windows\System32\DriverStore\FileRepository\igdlh64.inf_amd64_[0-9]+\GfxDownloadWrapper.exe
+    "URL" "DESTINATION FILE"
 references:
 - label: ''
   url: https://www.sothis.tech/author/jgalvez/
@@ -69,7 +83,6 @@ install:
   commands:
   - choco install gfxdownloadwrapper
 ---
-
 
 # gfxdownloadwrapper
 

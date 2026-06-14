@@ -2,7 +2,8 @@
 id: windows-execution-forfiles
 namespace: windows:execution:forfiles
 name: forfiles
-description: 'Selects and executes a command on a file or set of files. This command is useful for batch processing. Located at: C:\Windows\System32\forfiles.exe; C:\Windows\SysWOW64\forfiles.exe.'
+description: 'Selects and executes a command on a file or set of files. This command
+  is useful for batch processing. Located at: C:\Windows\System32\forfiles.exe; C:\Windows\SysWOW64\forfiles.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,14 @@ resource_profile:
 allowed-tools:
 - forfiles
 parameters: []
-features: []
+features:
+- batch
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- streaming
 execution:
   template: forfiles
   sandbox: execFile
@@ -51,9 +59,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes specified command since there is a match for notepad.exe in the c:\windows\System32 folder. (Use forfiles to start a new process to evade defensive counter measures)
+- description: Executes specified command since there is a match for notepad.exe in
+    the c:\windows\System32 folder. (Use forfiles to start a new process to evade
+    defensive counter measures)
   command: forfiles /p c:\windows\system32 /m notepad.exe /c "{CMD}"
-- description: Executes the evil.exe Alternate Data Stream (AD) since there is a match for notepad.exe in the c:\windows\system32 folder. (Use forfiles to start a new process from a binary hidden in an alternate data stream)
+- description: Executes the evil.exe Alternate Data Stream (AD) since there is a match
+    for notepad.exe in the c:\windows\system32 folder. (Use forfiles to start a new
+    process from a binary hidden in an alternate data stream)
   command: forfiles /p c:\windows\system32 /m notepad.exe /c "{PATH_ABSOLUTE}:evil.exe"
 references:
 - label: '896049052642533376'
@@ -77,7 +89,6 @@ install:
   commands:
   - choco install forfiles
 ---
-
 
 # forfiles
 

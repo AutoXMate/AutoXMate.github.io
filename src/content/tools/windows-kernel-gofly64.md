@@ -1,32 +1,48 @@
 ---
 id: windows-kernel-gofly64
 namespace: windows:kernel:gofly64
-name: "GoFly64.sys"
-description: "GoFly64.sys is a WFP (Windows Filtering Platform) network filter driver signed by a Chinese software company (南京偲言睿网络科技有限公司 / Nanjing Siyanrui Network Technology) that exposes 20+ IOCTLs to usermode with no authentication. The most critical primitive is IOCTL 0x12227A which opens any process by PID via ZwOpenProcess and terminates it via ZwTerminateProcess, enabling kernel-level EDR/AV process killing. Additional capabilities include WFP-based network traffic interception and packet injection..."
-author: "Michael Haag"
-version: "1.0.0"
+name: GoFly64.sys
+description: GoFly64.sys is a WFP (Windows Filtering Platform) network filter driver
+  signed by a Chinese software company (南京偲言睿网络科技有限公司 / Nanjing Siyanrui Network Technology)
+  that exposes 20+ IOCTLs to usermode with no authentication. The most critical primitive
+  is IOCTL 0x12227A which opens any process by PID via ZwOpenProcess and terminates
+  it via ZwTerminateProcess, enabling kernel-level EDR/AV process killing. Additional
+  capabilities include WFP-based network traffic interception and packet injection...
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create GoFly64 binPath=C:\\windows\\temp\\GoFly64.sys type=kernel && sc.exe start GoFly64"
+  template: sc.exe create GoFly64 binPath=C:\windows\temp\GoFly64.sys type=kernel
+    && sc.exe start GoFly64
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load GoFly64.sys kernel driver"
-    commands:
-      - "sc.exe create GoFly64 binPath=C:\\windows\\temp\\GoFly64.sys type=kernel && sc.exe start GoFly64"
+- method: custom
+  description: Load GoFly64.sys kernel driver
+  commands:
+  - sc.exe create GoFly64 binPath=C:\windows\temp\GoFly64.sys type=kernel && sc.exe
+    start GoFly64
 references:
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/299"
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/299
+features:
+- file-system
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- requires-root
+- stealth
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create GoFly64 binPath=C:\\\\windows\\\\temp\\\\GoFly64.sys type=kernel && sc.exe start GoFly64"

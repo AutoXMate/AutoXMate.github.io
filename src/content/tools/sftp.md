@@ -2,7 +2,8 @@
 id: network-ssh-sftp
 namespace: network:ssh:sftp
 name: sftp
-description: SSH File Transfer Protocol client; can transfer files and spawn shells Can also download files, spawn an interactive shell, upload files.
+description: SSH File Transfer Protocol client; can transfer files and spawn shells
+  Can also download files, spawn an interactive shell, upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -45,7 +46,14 @@ resource_profile:
 allowed-tools:
 - sftp
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- process-manip
+- remote
+- requires-root
 execution:
   template: sftp
   sandbox: execFile
@@ -79,7 +87,6 @@ install:
   commands:
   - apt-get install -y openssh-client
 ---
-
 
 # sftp
 

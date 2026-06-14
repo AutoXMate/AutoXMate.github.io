@@ -2,38 +2,39 @@
 id: math-bc
 namespace: math:calc:bc
 name: bc
-description: Arbitrary precision calculator language that can read files via -s flag, leaking content as errors.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Arbitrary precision calculator language that can read files via -s flag,
+  leaking content as errors.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - system.file.read
-  - math.calculate
+- system.file.read
+- math.calculate
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools: []
 artifacts: []
 workflow_edges:
   produces:
-    - file-content
+  - file-content
   consumes:
-    - input-file
+  - input-file
 contract:
   inputs:
-    - type: system.file.path
-      description: Path to file to read
+  - type: system.file.path
+    description: Path to file to read
   outputs:
-    - type: system.file.content
-      description: File content leaked as error messages
-      mime: text/plain
+  - type: system.file.content
+    description: File content leaked as error messages
+    mime: text/plain
   side_effects: []
   resource_cost:
     cpu: low
@@ -46,40 +47,41 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - bc
-  - Bash
-  - execFile
+- bc
+- Bash
+- execFile
 parameters:
-  - name: s
-    type: string
-    required: false
-    description: "Load file and suppress normal output"
-    aliases:
-      - -s
-features: []
+- name: s
+  type: string
+  required: false
+  description: Load file and suppress normal output
+  aliases:
+  - -s
+features:
+- file-system
+- local
 execution:
-  template: "bc {s}"
+  template: bc {s}
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 global_vars: {}
 examples:
-  - description: Read arbitrary file via -s flag, content appears as error messages
-    command: |-
-      bc -s /path/to/input-file
-      quit
-references:
-  - label: "bc man page"
-    url: "https://man7.org/linux/man-pages/man1/bc.1.html"
-techniques:
-  - collection
-install:
-    - method: apt
-      package_name: "bc"
-      commands:
-        - "apt-get install -y bc"
----
+- description: Read arbitrary file via -s flag, content appears as error messages
+  command: 'bc -s /path/to/input-file
 
+    quit'
+references:
+- label: bc man page
+  url: https://man7.org/linux/man-pages/man1/bc.1.html
+techniques:
+- collection
+install:
+- method: apt
+  package_name: bc
+  commands:
+  - apt-get install -y bc
+---
 
 # bc — Calculator Language
 

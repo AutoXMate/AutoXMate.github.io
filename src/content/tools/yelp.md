@@ -2,7 +2,7 @@
 id: system-help-yelp
 namespace: system:help:yelp
 name: yelp
-description: "GNOME help viewer; can read arbitrary files."
+description: GNOME help viewer; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - yelp
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: yelp
   sandbox: execFile
@@ -64,7 +66,6 @@ install:
   commands:
   - apt-get install -y yelp
 ---
-
 
 # yelp
 

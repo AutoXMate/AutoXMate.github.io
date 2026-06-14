@@ -2,7 +2,7 @@
 id: system-text-zsoelim
 namespace: system:text:zsoelim
 name: zsoelim
-description: "Resolve .so requests in compressed groff files; can read arbitrary files."
+description: Resolve .so requests in compressed groff files; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - zsoelim
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- local
+- pipes-stdin
 execution:
   template: zsoelim
   sandbox: execFile
@@ -64,7 +68,6 @@ install:
   commands:
   - apt-get install -y groff
 ---
-
 
 # zsoelim
 

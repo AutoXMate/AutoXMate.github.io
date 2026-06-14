@@ -2,31 +2,38 @@
 trust_level: community
 id: wadcom-finduncommonshares
 namespace: wadcom:tool:finduncommonshares
-name: "FindUncommonShares"
-description: "The script FindUncommonShares.py is a Python equivalent of PowerView's Invoke-ShareFinder.ps1 allowing to quickly find uncommon shares in vast Windows Domains."
-version: "1.0.0"
+name: FindUncommonShares
+description: The script FindUncommonShares.py is a Python equivalent of PowerView's
+  Invoke-ShareFinder.ps1 allowing to quickly find uncommon shares in vast Windows
+  Domains.
+version: 1.0.0
 capabilities:
-  - network.enumerate.shares
+- network.enumerate.shares
 platforms:
-  - windows
-  - linux
+- windows
+- linux
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "finduncommonshares"
+  template: finduncommonshares
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Command execution"
-    command: "python3 FindUncommonShares.py -u 'john' -d 'TEST.local' -p 'password123' --dc-ip 10.10.10.1"
+- description: Command execution
+  command: python3 FindUncommonShares.py -u 'john' -d 'TEST.local' -p 'password123'
+    --dc-ip 10.10.10.1
 references:
-  - label: "Reference 1"
-    url: "https://github.com/p0dalirius/FindUncommonShares"
+- label: Reference 1
+  url: https://github.com/p0dalirius/FindUncommonShares
 items:
-  - NoCreds
+- NoCreds
 services:
-  - SMB
+- SMB
+features:
+- interactive
+- network-intensive
+- process-manip
 ---
 
 # FindUncommonShares

@@ -2,7 +2,9 @@
 id: windows-execution-microsoft-nodejstools-pressanykey
 namespace: windows:execution:microsoft-nodejstools-pressanykey
 name: microsoft-nodejstools-pressanykey
-description: 'Part of the NodeJS Visual Studio tools. Located at: C:\Program Files\Microsoft Visual Studio\<version>\Community\Common7\IDE\Extensions\Microsoft\NodeJsTools\NodeJsTools\Microsoft.NodejsTools.PressAnyKey.exe; C:\Program Files (x86)\Microsoft Visual Studio\<version>\Community\Common7\IDE\Extensions\Microsoft\NodeJsTools\NodeJsTools\Microsoft.NodejsTools.PressAnyKey.exe.'
+description: 'Part of the NodeJS Visual Studio tools. Located at: C:\Program Files\Microsoft
+  Visual Studio\<version>\Community\Common7\IDE\Extensions\Microsoft\NodeJsTools\NodeJsTools\Microsoft.NodejsTools.PressAnyKey.exe;
+  C:\Program Files (x86)\Microsoft Visual Studio\<version>\Community\Common7\IDE\Extensions\Microsoft\NodeJsTools\NodeJsTools\Microsoft.NodejsTools.PressAnyKey.exe.'
 author: mr.d0x
 version: 1.0.0
 capabilities:
@@ -41,7 +43,12 @@ resource_profile:
 allowed-tools:
 - microsoft-nodejstools-pressanykey
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: microsoft-nodejstools-pressanykey
   sandbox: execFile
@@ -49,7 +56,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch specified executable as a subprocess of Microsoft.NodejsTools.PressAnyKey.exe. (Spawn a new process via Microsoft.NodejsTools.PressAnyKey.exe.)
+- description: Launch specified executable as a subprocess of Microsoft.NodejsTools.PressAnyKey.exe.
+    (Spawn a new process via Microsoft.NodejsTools.PressAnyKey.exe.)
   command: Microsoft.NodejsTools.PressAnyKey.exe normal 1 {PATH:.exe}
 references:
 - label: '1463526834918854661'
@@ -70,7 +78,6 @@ install:
   commands:
   - choco install microsoft-nodejstools-pressanykey
 ---
-
 
 # microsoft-nodejstools-pressanykey
 

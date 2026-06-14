@@ -2,7 +2,7 @@
 id: compression-xz-xz
 namespace: compression:xz:xz
 name: xz
-description: "General-purpose data compression utility; can read arbitrary files."
+description: General-purpose data compression utility; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - xz
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- local
 execution:
   template: xz
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y xz-utils
 ---
-
 
 # xz
 

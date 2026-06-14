@@ -3,26 +3,29 @@ trust_level: community
 id: argument-injection-env
 namespace: argument:injection:env
 name: env
-description: "Argument injection via env"
-version: "1.0.0"
+description: Argument injection via env
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - execution
+- execution
 execution:
-  template: "env"
+  template: env
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "The `--split-string` parameter accepts multiple additional arguments. The first positional argument without an `=` executes as a command."
-    command: "env '--split-string=sh -c \"id > /tmp/pwned\"' foo
-"
+- description: The `--split-string` parameter accepts multiple additional arguments.
+    The first positional argument without an `=` executes as a command.
+  command: 'env ''--split-string=sh -c "id > /tmp/pwned"'' foo '
 references:
-  - label: "GTFOArgs"
-    url: "https://gtfoargs.github.io/gtfoargs/env/"
+- label: GTFOArgs
+  url: https://gtfoargs.github.io/gtfoargs/env/
+features:
+- pipes-stdin
+- stealth
 ---
 
 # env

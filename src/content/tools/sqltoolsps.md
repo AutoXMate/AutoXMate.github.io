@@ -2,7 +2,9 @@
 id: windows-execution-sqltoolsps
 namespace: windows:execution:sqltoolsps
 name: sqltoolsps
-description: 'Tool included with Microsoft SQL that loads SQL Server cmdlts. A replacement for sqlps.exe. Successor to sqlps.exe in SQL Server 2016+. Located at: C:\Program files (x86)\Microsoft SQL Server\130\Tools\Binn\sqlps.exe.'
+description: 'Tool included with Microsoft SQL that loads SQL Server cmdlts. A replacement
+  for sqlps.exe. Successor to sqlps.exe in SQL Server 2016+. Located at: C:\Program
+  files (x86)\Microsoft SQL Server\130\Tools\Binn\sqlps.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +43,13 @@ resource_profile:
 allowed-tools:
 - sqltoolsps
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: sqltoolsps
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Run a SQL Server PowerShell mini-console without Module and ScriptBlock Logging. (Execute PowerShell command.)
+- description: Run a SQL Server PowerShell mini-console without Module and ScriptBlock
+    Logging. (Execute PowerShell command.)
   command: SQLToolsPS.exe -noprofile -command Start-Process {PATH:.exe}
 references:
 - label: '993298228840992768'
@@ -72,7 +81,6 @@ install:
   commands:
   - choco install sqltoolsps
 ---
-
 
 # sqltoolsps
 

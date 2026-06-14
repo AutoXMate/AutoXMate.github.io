@@ -44,7 +44,13 @@ resource_profile:
 allowed-tools:
 - winget
 parameters: []
-features: []
+features:
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- stealth
 execution:
   template: winget
   sandbox: execFile
@@ -52,11 +58,25 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: 'Downloads a file from the web address specified in .yml file and executes it on the system. Local manifest setting must be enabled in winget for it to work: `winget settings --enable LocalManifestFiles` (Download and execute an arbitrary file from the internet)'
+- description: 'Downloads a file from the web address specified in .yml file and executes
+    it on the system. Local manifest setting must be enabled in winget for it to work:
+    `winget settings --enable LocalManifestFiles` (Download and execute an arbitrary
+    file from the internet)'
   command: winget.exe install --manifest {PATH:.yml}
-- description: 'Download and install any software from the Microsoft Store using its name or Store ID, even if the Microsoft Store App itself is blocked on the machine. For example, use "Sysinternals Suite" or `9p7knl5rwt25` for obtaining ProcDump, PsExec via the Sysinternals Suite. Note: a Microsoft account is required for this. (Download and install software from Microsoft Store, even if Microsoft Store App is blocked)'
+- description: 'Download and install any software from the Microsoft Store using its
+    name or Store ID, even if the Microsoft Store App itself is blocked on the machine.
+    For example, use "Sysinternals Suite" or `9p7knl5rwt25` for obtaining ProcDump,
+    PsExec via the Sysinternals Suite. Note: a Microsoft account is required for this.
+    (Download and install software from Microsoft Store, even if Microsoft Store App
+    is blocked)'
   command: winget.exe install --accept-package-agreements -s msstore {name or ID}
-- description: 'Download and install any software from the Microsoft Store using its name or Store ID, even if the Microsoft Store App itself is blocked on the machine, and even if AppLocker is active on the machine. For example, use "Sysinternals Suite" or `9p7knl5rwt25` for obtaining ProcDump, PsExec via the Sysinternals Suite. Note: a Microsoft account is required for this. (Download and install software from Microsoft Store, even if Microsoft Store App is blocked, and AppLocker is activated on the machine)'
+- description: 'Download and install any software from the Microsoft Store using its
+    name or Store ID, even if the Microsoft Store App itself is blocked on the machine,
+    and even if AppLocker is active on the machine. For example, use "Sysinternals
+    Suite" or `9p7knl5rwt25` for obtaining ProcDump, PsExec via the Sysinternals Suite.
+    Note: a Microsoft account is required for this. (Download and install software
+    from Microsoft Store, even if Microsoft Store App is blocked, and AppLocker is
+    activated on the machine)'
   command: winget.exe install --accept-package-agreements -s msstore {name or ID}
 references:
 - label: New-Year-New-LOLBAS.html
@@ -86,7 +106,6 @@ install:
   commands:
   - choco install winget
 ---
-
 
 # winget
 

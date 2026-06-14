@@ -2,7 +2,7 @@
 id: encode-uuencode-uuencode
 namespace: encode:uuencode:uuencode
 name: uuencode
-description: "Encode binary files for email transmission; can read arbitrary files."
+description: Encode binary files for email transmission; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - uuencode
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: uuencode
   sandbox: execFile
@@ -64,7 +66,6 @@ install:
   commands:
   - apt-get install -y sharutils
 ---
-
 
 # uuencode
 

@@ -2,7 +2,8 @@
 id: windows-ads-findstr
 namespace: windows:ads:findstr
 name: findstr
-description: 'Write to ADS, discover, or download files with Findstr.exe Located at: C:\Windows\System32\findstr.exe; C:\Windows\SysWOW64\findstr.exe.'
+description: 'Write to ADS, discover, or download files with Findstr.exe Located at:
+  C:\Windows\System32\findstr.exe; C:\Windows\SysWOW64\findstr.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -45,7 +46,13 @@ resource_profile:
 allowed-tools:
 - findstr
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: findstr
   sandbox: execFile
@@ -53,13 +60,21 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Searches for the string W3AllLov3LolBas, since it does not exist (/V) the specified .exe file is written to an Alternate Data Stream (ADS) of the specified target file. (Add a file to an alternate data stream to hide from defensive counter measures)
+- description: Searches for the string W3AllLov3LolBas, since it does not exist (/V)
+    the specified .exe file is written to an Alternate Data Stream (ADS) of the specified
+    target file. (Add a file to an alternate data stream to hide from defensive counter
+    measures)
   command: findstr /V /L W3AllLov3LolBas {PATH_ABSOLUTE:.exe} > {PATH_ABSOLUTE}:file.exe
-- description: Searches for the string W3AllLov3LolBas, since it does not exist (/V) file.exe is written to an Alternate Data Stream (ADS) of the file.txt file. (Add a file to an alternate data stream from a webdav server to hide from defensive counter measures)
+- description: Searches for the string W3AllLov3LolBas, since it does not exist (/V)
+    file.exe is written to an Alternate Data Stream (ADS) of the file.txt file. (Add
+    a file to an alternate data stream from a webdav server to hide from defensive
+    counter measures)
   command: findstr /V /L W3AllLov3LolBas {PATH_SMB:.exe} > {PATH_ABSOLUTE}:file.exe
-- description: Search for stored password in Group Policy files stored on SYSVOL. (Find credentials stored in cpassword attrbute)
+- description: Search for stored password in Group Policy files stored on SYSVOL.
+    (Find credentials stored in cpassword attrbute)
   command: findstr /S /I cpassword \\sysvol\policies\*.xml
-- description: Searches for the string W3AllLov3LolBas, since it does not exist (/V) file.exe is downloaded to the target file. (Download/Copy file from webdav server)
+- description: Searches for the string W3AllLov3LolBas, since it does not exist (/V)
+    file.exe is downloaded to the target file. (Download/Copy file from webdav server)
   command: findstr /V /L W3AllLov3LolBas {PATH_SMB:.exe} > {PATH_ABSOLUTE:.exe}
 references:
 - label: ''
@@ -83,7 +98,6 @@ install:
   commands:
   - choco install findstr
 ---
-
 
 # findstr
 

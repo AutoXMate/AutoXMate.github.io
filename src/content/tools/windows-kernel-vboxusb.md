@@ -1,29 +1,34 @@
 ---
 id: windows-kernel-vboxusb
 namespace: windows:kernel:vboxusb
-name: "VBoxUSB.Sys"
-description: "Elevate privileges"
-author: "Nasreddine Bencherchali"
-version: "1.0.0"
+name: VBoxUSB.Sys
+description: Elevate privileges
+author: Nasreddine Bencherchali
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create VBoxUSB.sys binPath=C:\\windows\\temp\\VBoxUSB.Sys type=kernel && sc.exe start VBoxUSB.Sys"
+  template: sc.exe create VBoxUSB.sys binPath=C:\windows\temp\VBoxUSB.Sys type=kernel
+    && sc.exe start VBoxUSB.Sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load VBoxUSB.Sys kernel driver"
-    commands:
-      - "sc.exe create VBoxUSB.sys binPath=C:\\windows\\temp\\VBoxUSB.Sys type=kernel && sc.exe start VBoxUSB.Sys"
+- method: custom
+  description: Load VBoxUSB.Sys kernel driver
+  commands:
+  - sc.exe create VBoxUSB.sys binPath=C:\windows\temp\VBoxUSB.Sys type=kernel && sc.exe
+    start VBoxUSB.Sys
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create VBoxUSB.sys binPath=C:\\\\windows\\\\temp\\\\VBoxUSB.Sys type=kernel && sc.exe start VBoxUSB.Sys"

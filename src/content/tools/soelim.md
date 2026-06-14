@@ -2,7 +2,7 @@
 id: system-text-soelim
 namespace: system:text:soelim
 name: soelim
-description: "Resolve .so requests in groff/troff files; can read arbitrary files."
+description: Resolve .so requests in groff/troff files; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - soelim
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: soelim
   sandbox: execFile
@@ -64,7 +66,6 @@ install:
   commands:
   - apt-get install -y groff
 ---
-
 
 # soelim
 

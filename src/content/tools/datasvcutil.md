@@ -2,7 +2,10 @@
 id: windows-upload-datasvcutil
 namespace: windows:upload:datasvcutil
 name: datasvcutil
-description: 'DataSvcUtil.exe is a command-line tool provided by WCF Data Services that consumes an Open Data Protocol (OData) feed and generates the client data service classes that are needed to access a data service from a .NET Framework client application. Located at: C:\Windows\Microsoft.NET\Framework64\v3.5\DataSvcUtil.exe.'
+description: 'DataSvcUtil.exe is a command-line tool provided by WCF Data Services
+  that consumes an Open Data Protocol (OData) feed and generates the client data service
+  classes that are needed to access a data service from a .NET Framework client application.
+  Located at: C:\Windows\Microsoft.NET\Framework64\v3.5\DataSvcUtil.exe.'
 author: Ialle Teixeira
 version: 1.0.0
 capabilities:
@@ -41,7 +44,12 @@ resource_profile:
 allowed-tools:
 - datasvcutil
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: datasvcutil
   sandbox: execFile
@@ -68,16 +76,17 @@ detections:
 - type: ioc
   description: The DataSvcUtil.exe tool is installed in the .NET Framework directory.
 - type: ioc
-  description: Preventing/Detecting DataSvcUtil with non-RFC1918 addresses by Network IPS/IDS.
+  description: Preventing/Detecting DataSvcUtil with non-RFC1918 addresses by Network
+    IPS/IDS.
 - type: ioc
-  description: Monitor process creation for non-SYSTEM and non-LOCAL SERVICE accounts launching DataSvcUtil.
+  description: Monitor process creation for non-SYSTEM and non-LOCAL SERVICE accounts
+    launching DataSvcUtil.
 install:
 - method: choco
   package_name: datasvcutil
   commands:
   - choco install datasvcutil
 ---
-
 
 # datasvcutil
 

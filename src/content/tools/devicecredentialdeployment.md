@@ -41,7 +41,8 @@ resource_profile:
 allowed-tools:
 - devicecredentialdeployment
 parameters: []
-features: []
+features:
+- pipes-stdout
 execution:
   template: devicecredentialdeployment
   sandbox: execFile
@@ -49,7 +50,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Grab the console window handle and set it to hidden (Can be used to stealthily run a console application (e.g. cmd.exe) in the background)
+- description: Grab the console window handle and set it to hidden (Can be used to
+    stealthily run a console application (e.g. cmd.exe) in the background)
   command: DeviceCredentialDeployment
 references: []
 techniques:
@@ -67,7 +69,6 @@ install:
   commands:
   - choco install devicecredentialdeployment
 ---
-
 
 # devicecredentialdeployment
 

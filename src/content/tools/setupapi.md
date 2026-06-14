@@ -2,7 +2,8 @@
 id: windows-execution-setupapi
 namespace: windows:execution:setupapi
 name: setupapi
-description: 'Windows Setup Application Programming Interface Located at: c:\windows\system32\setupapi.dll; c:\windows\syswow64\setupapi.dll.'
+description: 'Windows Setup Application Programming Interface Located at: c:\windows\system32\setupapi.dll;
+  c:\windows\syswow64\setupapi.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - setupapi
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: setupapi
   sandbox: execFile
@@ -50,9 +54,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll in the .inf file by calling an information file directive (section name specified). (Run local or remote script(let) code through INF file specification.)
+- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll
+    in the .inf file by calling an information file directive (section name specified).
+    (Run local or remote script(let) code through INF file specification.)
   command: rundll32.exe setupapi.dll,InstallHinfSection DefaultInstall 128 {PATH_ABSOLUTE:.inf}
-- description: Launch an executable file via the InstallHinfSection function and .inf file section directive. (Load an executable payload.)
+- description: Launch an executable file via the InstallHinfSection function and .inf
+    file section directive. (Load an executable payload.)
   command: rundll32.exe setupapi.dll,InstallHinfSection DefaultInstall 128 {PATH_ABSOLUTE:.inf}
 references:
 - label: evading-autoruns
@@ -79,7 +86,6 @@ install:
   commands:
   - choco install setupapi
 ---
-
 
 # setupapi
 

@@ -2,26 +2,30 @@
 trust_level: community
 id: wtfbin-cisco-jabber
 namespace: wtf:bin:cisco-jabber
-name: "Cisco Jabber"
-description: "Cisco enumerates your system"
-version: "1.0.0"
+name: Cisco Jabber
+description: Cisco enumerates your system
+version: 1.0.0
 capabilities:
-  - system.file.write
+- system.file.write
 platforms:
-  - windows
+- windows
 techniques:
-  - impact
+- impact
 execution:
-  template: "Cisco Jabber"
+  template: Cisco Jabber
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/45"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/cisco-jabber/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/45
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/cisco-jabber/
+features:
+- file-system
+- local
 ---
+
 examples:
   - description: "Execute Cisco Jabber and observe the unusual behavior"
     command: "Cisco Jabber"

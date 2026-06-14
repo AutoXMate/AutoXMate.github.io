@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-rjvplatform
 namespace: windows:dllhijack:rjvplatform
 name: rjvplatform.dll
-description: "rjvplatform.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: rjvplatform.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "rjvplatform.dll"
+  template: rjvplatform.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://twitter.com/0gtweet/status/1666716511988330499"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/rjvplatform.html"
+- label: Reference
+  url: https://twitter.com/0gtweet/status/1666716511988330499
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/rjvplatform.html
+features:
+- file-system
 ---
+
 examples:
   - description: "Place malicious rjvplatform.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\SystemResetPlatform\\rjvplatform.dll\""

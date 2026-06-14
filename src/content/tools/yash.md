@@ -2,7 +2,8 @@
 id: shell-yash-yash
 namespace: shell:yash:yash
 name: yash
-description: "POSIX-compliant shell; can execute commands, read/write files, and spawn shells."
+description: POSIX-compliant shell; can execute commands, read/write files, and spawn
+  shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,13 @@ resource_profile:
 allowed-tools:
 - yash
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: yash
   sandbox: execFile
@@ -65,7 +72,6 @@ install:
   commands:
   - apt-get install -y yash
 ---
-
 
 # yash
 

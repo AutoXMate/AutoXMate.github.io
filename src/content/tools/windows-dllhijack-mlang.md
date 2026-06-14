@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-mlang
 namespace: windows:dllhijack:mlang
 name: mlang.dll
-description: "mlang.dll — Sideloading, Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: mlang.dll — Sideloading, Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "mlang.dll"
+  template: mlang.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/mlang.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/mlang.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious mlang.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\mlang.dll\""

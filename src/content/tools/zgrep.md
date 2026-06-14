@@ -2,7 +2,7 @@
 id: system-search-zgrep
 namespace: system:search:zgrep
 name: zgrep
-description: "Search gzipped files for patterns; can read arbitrary files."
+description: Search gzipped files for patterns; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - zgrep
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- local
+- pipes-stdin
 execution:
   template: zgrep
   sandbox: execFile
@@ -64,7 +68,6 @@ install:
   commands:
   - apt-get install -y gzip
 ---
-
 
 # zgrep
 

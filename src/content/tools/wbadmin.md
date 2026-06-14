@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - wbadmin
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdout
 execution:
   template: wbadmin
   sandbox: execFile
@@ -49,10 +51,16 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Extract NTDS.dit and SYSTEM hive into backup virtual hard drive file (.vhdx) (Snapshoting of Active Directory NTDS.dit database)
-  command: wbadmin start backup -backupTarget:{PATH_ABSOLUTE:folder} -include:C:\Windows\NTDS\NTDS.dit,C:\Windows\System32\config\SYSTEM -quiet
-- description: Restore a version of NTDS.dit and SYSTEM hive into file path. The command `wbadmin get versions` can be used to find version identifiers. (Dumping of Active Directory NTDS.dit database)
-  command: wbadmin start recovery -version:<VERSIONIDENTIFIER> -recoverytarget:{PATH_ABSOLUTE:folder} -itemtype:file -items:C:\Windows\NTDS\NTDS.dit,C:\Windows\System32\config\SYSTEM -notRestoreAcl -quiet
+- description: Extract NTDS.dit and SYSTEM hive into backup virtual hard drive file
+    (.vhdx) (Snapshoting of Active Directory NTDS.dit database)
+  command: wbadmin start backup -backupTarget:{PATH_ABSOLUTE:folder} -include:C:\Windows\NTDS\NTDS.dit,C:\Windows\System32\config\SYSTEM
+    -quiet
+- description: Restore a version of NTDS.dit and SYSTEM hive into file path. The command
+    `wbadmin get versions` can be used to find version identifiers. (Dumping of Active
+    Directory NTDS.dit database)
+  command: wbadmin start recovery -version:<VERSIONIDENTIFIER> -recoverytarget:{PATH_ABSOLUTE:folder}
+    -itemtype:file -items:C:\Windows\NTDS\NTDS.dit,C:\Windows\System32\config\SYSTEM
+    -notRestoreAcl -quiet
 references:
 - label: windows-privesc-with-sebackupprivilege-65d2cd1eb96
   url: https://medium.com/r3d-buck3t/windows-privesc-with-sebackupprivilege-65d2cd1eb960
@@ -75,7 +83,6 @@ install:
   commands:
   - choco install wbadmin
 ---
-
 
 # wbadmin
 

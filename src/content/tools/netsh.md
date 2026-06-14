@@ -2,7 +2,8 @@
 id: windows-execution-netsh
 namespace: windows:execution:netsh
 name: netsh
-description: 'Netsh is a Windows tool used to manipulate network interface settings. Located at: C:\WINDOWS\System32\Netsh.exe; C:\WINDOWS\SysWOW64\Netsh.exe.'
+description: 'Netsh is a Windows tool used to manipulate network interface settings.
+  Located at: C:\WINDOWS\System32\Netsh.exe; C:\WINDOWS\SysWOW64\Netsh.exe.'
 author: Freddie Barr-Smith
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - netsh
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: netsh
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use Netsh in order to execute a .dll file and also gain persistence, every time the netsh command is called (Proxy execution of .dll)
+- description: Use Netsh in order to execute a .dll file and also gain persistence,
+    every time the netsh command is called (Proxy execution of .dll)
   command: netsh.exe add helper {PATH_ABSOLUTE:.dll}
 references:
 - label: trix.html
@@ -78,7 +83,6 @@ install:
   commands:
   - choco install netsh
 ---
-
 
 # netsh
 

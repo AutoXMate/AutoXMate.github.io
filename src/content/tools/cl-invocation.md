@@ -2,7 +2,8 @@
 id: windows-execution-cl-invocation
 namespace: windows:execution:cl-invocation
 name: cl-invocation
-description: 'Aero diagnostics script Located at: C:\Windows\diagnostics\system\AERO\CL_Invocation.ps1; C:\Windows\diagnostics\system\Audio\CL_Invocation.ps1; C:\Windows\diagnostics\system\WindowsUpdate\CL_Invocation.ps1.'
+description: 'Aero diagnostics script Located at: C:\Windows\diagnostics\system\AERO\CL_Invocation.ps1;
+  C:\Windows\diagnostics\system\Audio\CL_Invocation.ps1; C:\Windows\diagnostics\system\WindowsUpdate\CL_Invocation.ps1.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - cl-invocation
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: cl-invocation
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Import the PowerShell Diagnostic CL_Invocation script and call SyncInvoke to launch an executable. (Proxy execution)
+- description: Import the PowerShell Diagnostic CL_Invocation script and call SyncInvoke
+    to launch an executable. (Proxy execution)
   command: . C:\Windows\diagnostics\system\AERO\CL_Invocation.ps1   \nSyncInvoke {CMD}
 references: []
 techniques:
@@ -68,7 +73,6 @@ install:
   commands:
   - choco install cl-invocation
 ---
-
 
 # cl-invocation
 

@@ -2,7 +2,7 @@
 id: system-resolve-systemd-resolve
 namespace: system:resolve:systemd-resolve
 name: systemd-resolve
-description: "DNS resolver from systemd; can read arbitrary files."
+description: DNS resolver from systemd; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - systemd-resolve
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
 execution:
   template: systemd-resolve
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y systemd
 ---
-
 
 # systemd-resolve
 

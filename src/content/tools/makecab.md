@@ -2,7 +2,8 @@
 id: windows-ads-makecab
 namespace: windows:ads:makecab
 name: makecab
-description: 'Binary to package existing files into a cabinet (.cab) file Located at: C:\Windows\System32\makecab.exe; C:\Windows\SysWOW64\makecab.exe.'
+description: 'Binary to package existing files into a cabinet (.cab) file Located
+  at: C:\Windows\System32\makecab.exe; C:\Windows\SysWOW64\makecab.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -45,7 +46,13 @@ resource_profile:
 allowed-tools:
 - makecab
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: makecab
   sandbox: execFile
@@ -53,13 +60,20 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Compresses the target file into a CAB file stored in the Alternate Data Stream (ADS) of the target file. (Hide data compressed into an alternate data stream)
+- description: Compresses the target file into a CAB file stored in the Alternate
+    Data Stream (ADS) of the target file. (Hide data compressed into an alternate
+    data stream)
   command: makecab {PATH_ABSOLUTE:.exe} {PATH_ABSOLUTE}:autoruns.cab
-- description: Compresses the target file into a CAB file stored in the Alternate Data Stream (ADS) of the target file. (Hide data compressed into an alternate data stream)
+- description: Compresses the target file into a CAB file stored in the Alternate
+    Data Stream (ADS) of the target file. (Hide data compressed into an alternate
+    data stream)
   command: makecab {PATH_SMB:.exe} {PATH_ABSOLUTE}:file.cab
-- description: Download and compresses the target file and stores it in the target file. (Download file and compress into a cab file)
+- description: Download and compresses the target file and stores it in the target
+    file. (Download file and compress into a cab file)
   command: makecab {PATH_SMB:.exe} {PATH_ABSOLUTE:.cab}
-- description: Execute makecab commands as defined in the specified Diamond Definition File (.ddf); see resources for the format specification. (Bypass command-line based detections)
+- description: Execute makecab commands as defined in the specified Diamond Definition
+    File (.ddf); see resources for the format specification. (Bypass command-line
+    based detections)
   command: makecab /F {PATH:.ddf}
 references:
 - label: cdd2d0d0ec9abb686f0e89306e277b8f
@@ -93,7 +107,6 @@ install:
   commands:
   - choco install makecab
 ---
-
 
 # makecab
 

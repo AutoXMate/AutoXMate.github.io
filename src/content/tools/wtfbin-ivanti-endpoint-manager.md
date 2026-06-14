@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-ivanti-endpoint-manager
 namespace: wtf:bin:ivanti-endpoint-manager
-name: "Ivanti Endpoint Manager"
-description: "Ivanti does some weird stuff"
-version: "1.0.0"
+name: Ivanti Endpoint Manager
+description: Ivanti does some weird stuff
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "Ivanti Endpoint Manager"
+  template: Ivanti Endpoint Manager
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/22"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/ivanti-endpoint-manager/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/22
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/ivanti-endpoint-manager/
+features:
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute Ivanti Endpoint Manager and observe the unusual behavior"
     command: "Ivanti Endpoint Manager"

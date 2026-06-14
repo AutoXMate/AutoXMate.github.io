@@ -2,7 +2,7 @@
 id: archive-zip-unzip
 namespace: archive:zip:unzip
 name: unzip
-description: "Extract compressed ZIP archives; can read arbitrary files."
+description: Extract compressed ZIP archives; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - unzip
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- local
+- pipes-stdin
 execution:
   template: unzip
   sandbox: execFile
@@ -66,7 +70,6 @@ install:
   commands:
   - apt-get install -y unzip
 ---
-
 
 # unzip
 

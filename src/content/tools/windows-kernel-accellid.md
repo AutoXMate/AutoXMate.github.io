@@ -1,29 +1,39 @@
 ---
 id: windows-kernel-accellid
 namespace: windows:kernel:accellid
-name: "AccelLid.sys"
-description: "Northwave Cyber Security contributed this driver based on in-house research. The driver has a CVSSv3 score of 5.5, indicating a localdos impact. This vulnerability could potentially be exploited for privilege escalation or other malicious activities."
-author: "Northwave Cyber Security"
-version: "1.0.0"
+name: AccelLid.sys
+description: Northwave Cyber Security contributed this driver based on in-house research.
+  The driver has a CVSSv3 score of 5.5, indicating a localdos impact. This vulnerability
+  could potentially be exploited for privilege escalation or other malicious activities.
+author: Northwave Cyber Security
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create AccelLid.sys binPath=C:\\windows\\temp\\AccelLid.sys type=kernel && sc.exe start AccelLid.sys"
+  template: sc.exe create AccelLid.sys binPath=C:\windows\temp\AccelLid.sys type=kernel
+    && sc.exe start AccelLid.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load AccelLid.sys kernel driver"
-    commands:
-      - "sc.exe create AccelLid.sys binPath=C:\\windows\\temp\\AccelLid.sys type=kernel && sc.exe start AccelLid.sys"
+- method: custom
+  description: Load AccelLid.sys kernel driver
+  commands:
+  - sc.exe create AccelLid.sys binPath=C:\windows\temp\AccelLid.sys type=kernel &&
+    sc.exe start AccelLid.sys
+features:
+- local
+- pipes-stdin
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create AccelLid.sys binPath=C:\\\\windows\\\\temp\\\\AccelLid.sys type=kernel && sc.exe start AccelLid.sys"

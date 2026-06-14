@@ -2,7 +2,8 @@
 id: windows-execution-hh
 namespace: windows:execution:hh
 name: hh
-description: 'Binary used for processing chm files in Windows Located at: C:\Windows\hh.exe; C:\Windows\SysWOW64\hh.exe.'
+description: 'Binary used for processing chm files in Windows Located at: C:\Windows\hh.exe;
+  C:\Windows\SysWOW64\hh.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,13 @@ resource_profile:
 allowed-tools:
 - hh
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: hh
   sandbox: execFile
@@ -53,9 +60,11 @@ global_vars: {}
 examples:
 - description: Open the target batch script with HTML Help. (Download files from url)
   command: HH.exe {REMOTEURL:.bat}
-- description: Executes specified executable with HTML Help. (Execute process with HH.exe)
+- description: Executes specified executable with HTML Help. (Execute process with
+    HH.exe)
   command: HH.exe {PATH_ABSOLUTE:.exe}
-- description: Executes a remote .chm file which can contain commands. (Execute commands with HH.exe)
+- description: Executes a remote .chm file which can contain commands. (Execute commands
+    with HH.exe)
   command: HH.exe {REMOTEURL:.chm}
 references:
 - label: ''
@@ -86,7 +95,6 @@ install:
   commands:
   - choco install hh
 ---
-
 
 # hh
 

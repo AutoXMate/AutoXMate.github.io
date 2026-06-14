@@ -2,7 +2,9 @@
 id: windows-bypass-fsi
 namespace: windows:bypass:fsi
 name: fsi
-description: '64-bit FSharp (F#) Interpreter included with Visual Studio and DotNet Core SDK. Located at: C:\Program Files\dotnet\sdk\<version>\FSharp\fsi.exe; C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\FSharp\fsi.exe.'
+description: '64-bit FSharp (F#) Interpreter included with Visual Studio and DotNet
+  Core SDK. Located at: C:\Program Files\dotnet\sdk\<version>\FSharp\fsi.exe; C:\Program
+  Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\FSharp\fsi.exe.'
 author: Jimmy (@bohops)
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - fsi
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
+- stealth
 execution:
   template: fsi
   sandbox: execFile
@@ -49,9 +55,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute F# code via script file (Execute payload with Microsoft signed binary to bypass WDAC policies)
+- description: Execute F# code via script file (Execute payload with Microsoft signed
+    binary to bypass WDAC policies)
   command: fsi.exe {PATH:.fsscript}
-- description: Execute F# code via interactive command line (Execute payload with Microsoft signed binary to bypass WDAC policies)
+- description: Execute F# code via interactive command line (Execute payload with
+    Microsoft signed binary to bypass WDAC policies)
   command: fsi.exe
 references:
 - label: '904273264385589248'
@@ -80,7 +88,6 @@ install:
   commands:
   - choco install fsi
 ---
-
 
 # fsi
 

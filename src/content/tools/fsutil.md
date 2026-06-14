@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - fsutil
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: fsutil
   sandbox: execFile
@@ -53,9 +57,11 @@ global_vars: {}
 examples:
 - description: Zero out a file (Can be used to forensically erase a file)
   command: fsutil.exe file setZeroData offset=0 length=9999999999 {PATH_ABSOLUTE}
-- description: Delete the USN journal volume to hide file creation activity (Can be used to hide file creation activity)
+- description: Delete the USN journal volume to hide file creation activity (Can be
+    used to hide file creation activity)
   command: 'fsutil.exe usn deletejournal /d c:'
-- description: Executes a pre-planted binary named netsh.exe from the current directory. (Spawn a pre-planted executable from fsutil.exe.)
+- description: Executes a pre-planted binary named netsh.exe from the current directory.
+    (Spawn a pre-planted executable from fsutil.exe.)
   command: fsutil.exe trace decode
 references:
 - label: '1720724516324704404'
@@ -86,7 +92,6 @@ install:
   commands:
   - choco install fsutil
 ---
-
 
 # fsutil
 

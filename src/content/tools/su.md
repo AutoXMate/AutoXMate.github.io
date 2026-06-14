@@ -2,7 +2,7 @@
 id: system-auth-su
 namespace: system:auth:su
 name: su
-description: "Run commands with substitute user credentials; can spawn a shell."
+description: Run commands with substitute user credentials; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - su
 parameters: []
-features: []
+features:
+- interactive
+- process-manip
+- requires-root
 execution:
   template: su
   sandbox: execFile
@@ -65,7 +68,6 @@ install:
   commands:
   - apt-get install -y shadow-utils
 ---
-
 
 # su
 

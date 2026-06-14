@@ -2,7 +2,8 @@
 id: windows-execution-regasm
 namespace: windows:execution:regasm
 name: regasm
-description: 'Part of .NET Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\regasm.exe; C:\Windows\Microsoft.NET\Framework64\v2.0.50727\regasm.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe.'
+description: 'Part of .NET Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\regasm.exe;
+  C:\Windows\Microsoft.NET\Framework64\v2.0.50727\regasm.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\regasm.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - regasm
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: regasm
   sandbox: execFile
@@ -50,9 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Loads the target .NET DLL file and executes the RegisterClass function. (Execute code and bypass Application whitelisting)
+- description: Loads the target .NET DLL file and executes the RegisterClass function.
+    (Execute code and bypass Application whitelisting)
   command: regasm.exe {PATH:.dll}
-- description: Loads the target .DLL file and executes the UnRegisterClass function. (Execute code and bypass Application whitelisting)
+- description: Loads the target .DLL file and executes the UnRegisterClass function.
+    (Execute code and bypass Application whitelisting)
   command: regasm.exe /U {PATH:.dll}
 references:
 - label: ''
@@ -83,7 +89,6 @@ install:
   commands:
   - choco install regasm
 ---
-
 
 # regasm
 

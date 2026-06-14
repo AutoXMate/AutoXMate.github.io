@@ -2,7 +2,7 @@
 id: system-text-shuf
 namespace: system:text:shuf
 name: shuf
-description: "Generate random permutations of input lines; can read and write files."
+description: Generate random permutations of input lines; can read and write files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +44,9 @@ resource_profile:
 allowed-tools:
 - shuf
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: shuf
   sandbox: execFile
@@ -68,7 +70,6 @@ install:
   commands:
   - apt-get install -y coreutils
 ---
-
 
 # shuf
 

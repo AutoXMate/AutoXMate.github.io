@@ -2,7 +2,8 @@
 id: windows-execution-teams
 namespace: windows:execution:teams
 name: teams
-description: 'Electron runtime binary which runs the Teams application Located at: C:\Users\<username>\AppData\Local\Microsoft\Teams\current\Teams.exe.'
+description: 'Electron runtime binary which runs the Teams application Located at:
+  C:\Users\<username>\AppData\Local\Microsoft\Teams\current\Teams.exe.'
 author: Andrew Kisliakov
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - teams
 parameters: []
-features: []
+features:
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: teams
   sandbox: execFile
@@ -49,11 +54,15 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Generate JavaScript payload and package.json, and save to "%LOCALAPPDATA%\\Microsoft\\Teams\\current\\app\\" before executing. (Execute JavaScript code)
+- description: Generate JavaScript payload and package.json, and save to "%LOCALAPPDATA%\\Microsoft\\Teams\\current\\app\\"
+    before executing. (Execute JavaScript code)
   command: teams.exe
-- description: Generate JavaScript payload and package.json, archive in ASAR file and save to "%LOCALAPPDATA%\\Microsoft\\Teams\\current\\app.asar" before executing. (Execute JavaScript code)
+- description: Generate JavaScript payload and package.json, archive in ASAR file
+    and save to "%LOCALAPPDATA%\\Microsoft\\Teams\\current\\app.asar" before executing.
+    (Execute JavaScript code)
   command: teams.exe
-- description: Teams spawns cmd.exe as a child process of teams.exe and executes the ping command (Executes a process under a trusted Microsoft signed binary)
+- description: Teams spawns cmd.exe as a child process of teams.exe and executes the
+    ping command (Executes a process under a trusted Microsoft signed binary)
   command: teams.exe --disable-gpu-sandbox --gpu-launcher="{CMD} &&"
 references:
 - label: ''
@@ -67,7 +76,8 @@ detections:
 - type: ioc
   description: '%LOCALAPPDATA%\Microsoft\Teams\current\app directory created'
 - type: ioc
-  description: '%LOCALAPPDATA%\Microsoft\Teams\current\app.asar file created/modified by non-Teams installer/updater'
+  description: '%LOCALAPPDATA%\Microsoft\Teams\current\app.asar file created/modified
+    by non-Teams installer/updater'
 - type: sigma
   url: https://github.com/SigmaHQ/sigma/blob/43277f26fc1c81fc98fc79147b711189e901b757/rules/windows/process_creation/proc_creation_win_susp_electron_exeuction_proxy.yml
 install:
@@ -76,7 +86,6 @@ install:
   commands:
   - choco install teams
 ---
-
 
 # teams
 

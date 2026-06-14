@@ -2,7 +2,8 @@
 id: windows-download-appinstaller
 namespace: windows:download:appinstaller
 name: appinstaller
-description: 'Tool used for installation of AppX/MSIX applications on Windows 10 Located at: C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.11.2521.0_x64__8wekyb3d8bbwe\AppInstaller.exe.'
+description: 'Tool used for installation of AppX/MSIX applications on Windows 10 Located
+  at: C:\Program Files\WindowsApps\Microsoft.DesktopAppInstaller_1.11.2521.0_x64__8wekyb3d8bbwe\AppInstaller.exe.'
 author: Wade Hickey
 version: 1.0.0
 capabilities:
@@ -41,7 +42,13 @@ resource_profile:
 allowed-tools:
 - appinstaller
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: appinstaller
   sandbox: execFile
@@ -49,7 +56,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: AppInstaller.exe is spawned by the default handler for the URI, it attempts to load/install a package from the URL and is saved in INetCache. (Download file from Internet)
+- description: AppInstaller.exe is spawned by the default handler for the URI, it
+    attempts to load/install a package from the URL and is saved in INetCache. (Download
+    file from Internet)
   command: start ms-appinstaller://?source={REMOTEURL:.exe}
 references:
 - label: '1333900137232523264'
@@ -67,7 +76,6 @@ install:
   commands:
   - choco install appinstaller
 ---
-
 
 # appinstaller
 

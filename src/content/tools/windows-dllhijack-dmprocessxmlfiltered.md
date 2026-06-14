@@ -3,27 +3,31 @@ trust_level: community
 id: windows-dllhijack-dmprocessxmlfiltered
 namespace: windows:dllhijack:dmprocessxmlfiltered
 name: dmprocessxmlfiltered.dll
-description: "dmprocessxmlfiltered.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: dmprocessxmlfiltered.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "dmprocessxmlfiltered.dll"
+  template: dmprocessxmlfiltered.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/dmprocessxmlfiltered.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/dmprocessxmlfiltered.html
+features:
+- pipes-stdin
+- process-manip
 ---
+
 examples:
   - description: "Place malicious dmprocessxmlfiltered.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\dmprocessxmlfiltered.dll\""

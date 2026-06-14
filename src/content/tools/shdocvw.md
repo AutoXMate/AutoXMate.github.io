@@ -2,7 +2,8 @@
 id: windows-execution-shdocvw
 namespace: windows:execution:shdocvw
 name: shdocvw
-description: 'Shell Doc Object and Control Library. Located at: c:\windows\system32\shdocvw.dll; c:\windows\syswow64\shdocvw.dll.'
+description: 'Shell Doc Object and Control Library. Located at: c:\windows\system32\shdocvw.dll;
+  c:\windows\syswow64\shdocvw.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - shdocvw
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: shdocvw
   sandbox: execFile
@@ -49,7 +53,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch an executable payload via proxy through a URL (information) file by calling OpenURL. (Load an executable payload by calling a .url file with or without quotes. The .url file extension can be renamed.)
+- description: Launch an executable payload via proxy through a URL (information)
+    file by calling OpenURL. (Load an executable payload by calling a .url file with
+    or without quotes. The .url file extension can be renamed.)
   command: rundll32.exe shdocvw.dll,OpenURL {PATH_ABSOLUTE:.url}
 references:
 - label: ''
@@ -74,7 +80,6 @@ install:
   commands:
   - choco install shdocvw
 ---
-
 
 # shdocvw
 

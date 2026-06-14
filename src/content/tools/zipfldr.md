@@ -2,7 +2,8 @@
 id: windows-execution-zipfldr
 namespace: windows:execution:zipfldr
 name: zipfldr
-description: 'Compressed Folder library Located at: c:\windows\system32\zipfldr.dll; c:\windows\syswow64\zipfldr.dll.'
+description: 'Compressed Folder library Located at: c:\windows\system32\zipfldr.dll;
+  c:\windows\syswow64\zipfldr.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - zipfldr
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- pipes-stdin
+- pipes-stdout
 execution:
   template: zipfldr
   sandbox: execFile
@@ -51,7 +56,8 @@ global_vars: {}
 examples:
 - description: Launch an executable payload by calling RouteTheCall. (Launch an executable.)
   command: rundll32.exe zipfldr.dll,RouteTheCall {PATH:.exe}
-- description: Launch an executable payload by calling RouteTheCall (obfuscated). (Launch an executable.)
+- description: Launch an executable payload by calling RouteTheCall (obfuscated).
+    (Launch an executable.)
   command: rundll32.exe zipfldr.dll,RouteTheCall file://^C^:^/^W^i^n^d^o^w^s^/^s^y^s^t^e^m^3^2^/^c^a^l^c^.^e^x^e
 references:
 - label: '977848311603380224'
@@ -74,7 +80,6 @@ install:
   commands:
   - choco install zipfldr
 ---
-
 
 # zipfldr
 

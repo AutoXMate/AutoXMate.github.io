@@ -2,7 +2,7 @@
 id: network-vpn-tailscale
 namespace: network:vpn:tailscale
 name: tailscale
-description: "WireGuard-based mesh VPN client; can spawn a shell."
+description: WireGuard-based mesh VPN client; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,13 @@ resource_profile:
 allowed-tools:
 - tailscale
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: tailscale
   sandbox: execFile
@@ -64,7 +70,6 @@ install:
   commands:
   - apt-get install -y tailscale
 ---
-
 
 # tailscale
 

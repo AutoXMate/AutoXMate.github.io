@@ -1,36 +1,50 @@
 ---
 id: windows-kernel-dpmemio
 namespace: windows:kernel:dpmemio
-name: "dpmemio.sys"
-description: "ET&T Technology Co., Ltd. dpmemio.sys (ClevoECView) is a 12KB driver with only 9 imports that provides completely unrestricted arbitrary physical memory read/write and I/O port access with no authentication, no ACL, no address validation, and no size validation. MmUnmapIoSpace is not even imported, meaning every MmMapIoSpace call permanently leaks a system PTE mapping. An additional bug exists where MOVSXD sign-extension on a 32-bit UserBufferPtr provides a write-to-kernel-VA primitive. IOCTL..."
-author: "Michael Haag"
-version: "1.0.0"
+name: dpmemio.sys
+description: ET&T Technology Co., Ltd. dpmemio.sys (ClevoECView) is a 12KB driver
+  with only 9 imports that provides completely unrestricted arbitrary physical memory
+  read/write and I/O port access with no authentication, no ACL, no address validation,
+  and no size validation. MmUnmapIoSpace is not even imported, meaning every MmMapIoSpace
+  call permanently leaks a system PTE mapping. An additional bug exists where MOVSXD
+  sign-extension on a 32-bit UserBufferPtr provides a write-to-kernel-VA primitive.
+  IOCTL...
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create dpMemIO binPath=C:\\windows\\temp\\dpmemio.sys type=kernel && sc.exe start dpMemIO"
+  template: sc.exe create dpMemIO binPath=C:\windows\temp\dpmemio.sys type=kernel
+    && sc.exe start dpMemIO
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load dpmemio.sys kernel driver"
-    commands:
-      - "sc.exe create dpMemIO binPath=C:\\windows\\temp\\dpmemio.sys type=kernel && sc.exe start dpMemIO"
+- method: custom
+  description: Load dpmemio.sys kernel driver
+  commands:
+  - sc.exe create dpMemIO binPath=C:\windows\temp\dpmemio.sys type=kernel && sc.exe
+    start dpMemIO
 references:
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/288"
-  - label: "Reference"
-    url: "https://www.virustotal.com/gui/file/7cf6881e43337c288b1883fafb234146a450ff94388aee395e05e36202c5afbb"
-  - label: "Reference"
-    url: "https://www.virustotal.com/gui/file/cd631c54fe1375e4bdd2f63b58bd106066eeee267fc77b3161ceb023ab5fddda"
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/288
+- label: Reference
+  url: https://www.virustotal.com/gui/file/7cf6881e43337c288b1883fafb234146a450ff94388aee395e05e36202c5afbb
+- label: Reference
+  url: https://www.virustotal.com/gui/file/cd631c54fe1375e4bdd2f63b58bd106066eeee267fc77b3161ceb023ab5fddda
+features:
+- file-system
+- network-intensive
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create dpMemIO binPath=C:\\\\windows\\\\temp\\\\dpmemio.sys type=kernel && sc.exe start dpMemIO"

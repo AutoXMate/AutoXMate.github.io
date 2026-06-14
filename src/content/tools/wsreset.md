@@ -2,7 +2,8 @@
 id: windows-uacbypass-wsreset
 namespace: windows:uacbypass:wsreset
 name: wsreset
-description: 'Used to reset Windows Store settings according to its manifest file Located at: C:\Windows\System32\wsreset.exe.'
+description: 'Used to reset Windows Store settings according to its manifest file
+  Located at: C:\Windows\System32\wsreset.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,13 @@ resource_profile:
 allowed-tools:
 - wsreset
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- requires-root
+- stealth
 execution:
   template: wsreset
   sandbox: execFile
@@ -50,7 +57,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: During startup, wsreset.exe checks the registry value HKCU\Software\Classes\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\Shell\open\command for the command to run. Binary will be executed as a high-integrity process without a UAC prompt being displayed to the user. (Execute a binary or script as a high-integrity process without a UAC prompt.)
+- description: During startup, wsreset.exe checks the registry value HKCU\Software\Classes\AppX82a6gwre4fdg3bt635tn5ctqjf8msdd2\Shell\open\command
+    for the command to run. Binary will be executed as a high-integrity process without
+    a UAC prompt being displayed to the user. (Execute a binary or script as a high-integrity
+    process without a UAC prompt.)
   command: wsreset.exe
 references:
 - label: windows-uac-bypass
@@ -84,7 +94,6 @@ install:
   commands:
   - choco install wsreset
 ---
-
 
 # wsreset
 

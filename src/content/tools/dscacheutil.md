@@ -3,37 +3,41 @@ trust_level: community
 id: macos-discovery-dscacheutil
 namespace: macos:discovery:dscacheutil
 name: dscacheutil
-description: gather information, statistics and initiate queries to the Directory Service cache.
+description: gather information, statistics and initiate queries to the Directory
+  Service cache.
 author: Ethan Nay
-version: "1.0.0"
+version: 1.0.0
 capabilities:
-  - discovery.enumerate
+- discovery.enumerate
 platforms:
-  - macos
+- macos
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "dscacheutil"
+  template: dscacheutil
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Lookup  a user: List the user information"
-    command: "dscacheutil -q user -a name <USER_NAME>"
-  - description: "Lookup all users: List all user information"
-    command: "dscacheutil -q user"
+- description: 'Lookup  a user: List the user information'
+  command: dscacheutil -q user -a name <USER_NAME>
+- description: 'Lookup all users: List all user information'
+  command: dscacheutil -q user
 install:
-  - method: custom
-    commands:
-      - "/usr/bin/dscacheutil"
+- method: custom
+  commands:
+  - /usr/bin/dscacheutil
 detections:
-  - type: other
-    description: "No detections at time of publishing"
+- type: other
+  description: No detections at time of publishing
 references:
-  - label: "macOS/binaries/dscacheutil"
-    url: "https://macosbin.com/bin/dscacheutil"
-  - label: "dscacheutil man page"
-    url: "https://ss64.com/osx/dscacheutil.html"
+- label: macOS/binaries/dscacheutil
+  url: https://macosbin.com/bin/dscacheutil
+- label: dscacheutil man page
+  url: https://ss64.com/osx/dscacheutil.html
+features:
+- file-system
+- process-manip
 ---
 
 dscacheutil does various operations against the Directory Service cache including gathering statistics, initiating lookups, inspection, cache flush, etc.

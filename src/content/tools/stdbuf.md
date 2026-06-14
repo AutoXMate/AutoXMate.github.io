@@ -2,7 +2,7 @@
 id: system-io-stdbuf
 namespace: system:io:stdbuf
 name: stdbuf
-description: "Control standard I/O buffering; can spawn a shell."
+description: Control standard I/O buffering; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - stdbuf
 parameters: []
-features: []
+features:
+- interactive
+- process-manip
+- requires-root
 execution:
   template: stdbuf
   sandbox: execFile
@@ -65,7 +68,6 @@ install:
   commands:
   - apt-get install -y coreutils
 ---
-
 
 # stdbuf
 

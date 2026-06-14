@@ -2,7 +2,7 @@
 id: network-proxy-torify
 namespace: network:proxy:torify
 name: torify
-description: "Run commands through the Tor anonymizing network; can spawn a shell."
+description: Run commands through the Tor anonymizing network; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - torify
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- process-manip
+- remote
+- requires-root
 execution:
   template: torify
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y tor
 ---
-
 
 # torify
 

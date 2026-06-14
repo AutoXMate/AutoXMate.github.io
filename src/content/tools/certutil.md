@@ -2,7 +2,8 @@
 id: windows-download-certutil
 namespace: windows:download:certutil
 name: certutil
-description: 'Windows binary used for handling certificates Located at: C:\Windows\System32\certutil.exe; C:\Windows\SysWOW64\certutil.exe.'
+description: 'Windows binary used for handling certificates Located at: C:\Windows\System32\certutil.exe;
+  C:\Windows\SysWOW64\certutil.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -45,7 +46,14 @@ resource_profile:
 allowed-tools:
 - certutil
 parameters: []
-features: []
+features:
+- encryption
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: certutil
   sandbox: execFile
@@ -53,19 +61,27 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Download and save an executable to disk in the current folder. (Download file from Internet)
+- description: Download and save an executable to disk in the current folder. (Download
+    file from Internet)
   command: certutil.exe -urlcache -f {REMOTEURL:.exe} {PATH:.exe}
-- description: Download and save an executable to disk in the current folder when a file path is specified, or `%LOCALAPPDATA%low\Microsoft\CryptnetUrlCache\Content\<hash>` when not. (Download file from Internet)
+- description: Download and save an executable to disk in the current folder when
+    a file path is specified, or `%LOCALAPPDATA%low\Microsoft\CryptnetUrlCache\Content\<hash>`
+    when not. (Download file from Internet)
   command: certutil.exe -verifyctl -f {REMOTEURL:.exe} {PATH:.exe}
-- description: Download and save a .ps1 file to an Alternate Data Stream (ADS). (Download file from Internet and save it in an NTFS Alternate Data Stream)
+- description: Download and save a .ps1 file to an Alternate Data Stream (ADS). (Download
+    file from Internet and save it in an NTFS Alternate Data Stream)
   command: certutil.exe -urlcache -f {REMOTEURL:.ps1} {PATH_ABSOLUTE}:ttt
-- description: Download and save an executable to `%LOCALAPPDATA%low\Microsoft\CryptnetUrlCache\Content\<hash>`. (Download file from Internet)
+- description: Download and save an executable to `%LOCALAPPDATA%low\Microsoft\CryptnetUrlCache\Content\<hash>`.
+    (Download file from Internet)
   command: certutil.exe -URL {REMOTEURL:.exe}
-- description: Command to encode a file using Base64 (Encode files to evade defensive measures)
+- description: Command to encode a file using Base64 (Encode files to evade defensive
+    measures)
   command: certutil -encode {PATH} {PATH:.base64}
-- description: Command to decode a Base64 encoded file. (Decode files to evade defensive measures)
+- description: Command to decode a Base64 encoded file. (Decode files to evade defensive
+    measures)
   command: certutil -decode {PATH:.base64} {PATH}
-- description: Command to decode a hexadecimal-encoded file. (Decode files to evade defensive measures)
+- description: Command to decode a hexadecimal-encoded file. (Decode files to evade
+    defensive measures)
   command: certutil -decodehex {PATH:.hex} {PATH}
 references:
 - label: '984380793383370752'
@@ -113,7 +129,6 @@ install:
   commands:
   - choco install certutil
 ---
-
 
 # certutil
 

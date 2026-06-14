@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-nshhttp
 namespace: windows:dllhijack:nshhttp
 name: nshhttp.dll
-description: "nshhttp.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: nshhttp.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "nshhttp.dll"
+  template: nshhttp.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/nshhttp.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/nshhttp.html
+features:
+- network-intensive
 ---
+
 examples:
   - description: "Place malicious nshhttp.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\nshhttp.dll\""

@@ -2,7 +2,7 @@
 id: system-scheduler-taskset
 namespace: system:scheduler:taskset
 name: taskset
-description: "Get/set CPU affinity for processes; can spawn a shell."
+description: Get/set CPU affinity for processes; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - taskset
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- process-manip
+- requires-root
 execution:
   template: taskset
   sandbox: execFile
@@ -65,7 +69,6 @@ install:
   commands:
   - apt-get install -y util-linux
 ---
-
 
 # taskset
 

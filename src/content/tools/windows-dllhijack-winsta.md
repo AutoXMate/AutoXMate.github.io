@@ -3,35 +3,38 @@ trust_level: community
 id: windows-dllhijack-winsta
 namespace: windows:dllhijack:winsta
 name: winsta.dll
-description: "winsta.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: winsta.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "winsta.dll"
+  template: winsta.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://twitter.com/BSummerz/status/1716851156625105342"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/winsta.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://twitter.com/BSummerz/status/1716851156625105342
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/winsta.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious winsta.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\winsta.dll\""

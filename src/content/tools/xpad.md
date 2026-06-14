@@ -2,7 +2,7 @@
 id: system-notes-xpad
 namespace: system:notes:xpad
 name: xpad
-description: "Sticky note application for X11; can read arbitrary files."
+description: Sticky note application for X11; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - xpad
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
 execution:
   template: xpad
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y xpad
 ---
-
 
 # xpad
 

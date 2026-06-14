@@ -2,7 +2,8 @@
 id: network-finger-finger
 namespace: network:finger:finger
 name: finger
-description: User information lookup service; can read arbitrary files Can also download files, upload files.
+description: User information lookup service; can read arbitrary files Can also download
+  files, upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,11 @@ resource_profile:
 allowed-tools:
 - finger
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- process-manip
 execution:
   template: finger
   sandbox: execFile
@@ -68,7 +73,6 @@ install:
   commands:
   - apt-get install -y finger
 ---
-
 
 # finger
 

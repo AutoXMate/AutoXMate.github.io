@@ -2,7 +2,10 @@
 id: windows-execution-openconsole
 namespace: windows:execution:openconsole
 name: openconsole
-description: 'Console Window host for Windows Terminal Located at: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\Terminal\ServiceHub\os64\OpenConsole.exe; C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\Terminal\ServiceHub\os86\OpenConsole.exe; C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\Terminal\ServiceHub\os64\OpenConsole.exe.'
+description: 'Console Window host for Windows Terminal Located at: C:\Program Files
+  (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\Terminal\ServiceHub\os64\OpenConsole.exe;
+  C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\CommonExtensions\Microsoft\Terminal\ServiceHub\os86\OpenConsole.exe;
+  C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\Terminal\ServiceHub\os64\OpenConsole.exe.'
 author: Nasreddine Bencherchali
 version: 1.0.0
 capabilities:
@@ -41,7 +44,12 @@ resource_profile:
 allowed-tools:
 - openconsole
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: openconsole
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute specified process with OpenConsole.exe as parent process (Use OpenConsole.exe as a proxy binary to evade defensive counter-measures)
+- description: Execute specified process with OpenConsole.exe as parent process (Use
+    OpenConsole.exe as a proxy binary to evade defensive counter-measures)
   command: OpenConsole.exe {PATH:.exe}
 references:
 - label: '1537563834478645252'
@@ -70,7 +79,6 @@ install:
   commands:
   - choco install openconsole
 ---
-
 
 # openconsole
 

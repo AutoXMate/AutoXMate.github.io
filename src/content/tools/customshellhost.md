@@ -2,7 +2,8 @@
 id: windows-execution-customshellhost
 namespace: windows:execution:customshellhost
 name: customshellhost
-description: 'A host process that is used by custom shells when using Windows in Kiosk mode. Located at: C:\Windows\System32\CustomShellHost.exe.'
+description: 'A host process that is used by custom shells when using Windows in Kiosk
+  mode. Located at: C:\Windows\System32\CustomShellHost.exe.'
 author: Wietze Beukema
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - customshellhost
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: customshellhost
   sandbox: execFile
@@ -49,7 +54,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes explorer.exe (with command-line argument /NoShellRegistrationCheck) if present in the current working folder. (Can be used to evade defensive counter-measures)
+- description: Executes explorer.exe (with command-line argument /NoShellRegistrationCheck)
+    if present in the current working folder. (Can be used to evade defensive counter-measures)
   command: CustomShellHost.exe
 references:
 - label: '1381353520088113154'
@@ -72,7 +78,6 @@ install:
   commands:
   - choco install customshellhost
 ---
-
 
 # customshellhost
 

@@ -3,35 +3,38 @@ trust_level: community
 id: windows-dllhijack-wevtapi
 namespace: windows:dllhijack:wevtapi
 name: wevtapi.dll
-description: "wevtapi.dll — Sideloading, Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: wevtapi.dll — Sideloading, Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "wevtapi.dll"
+  template: wevtapi.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/wevtapi.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/wevtapi.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious wevtapi.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\wevtapi.dll\""

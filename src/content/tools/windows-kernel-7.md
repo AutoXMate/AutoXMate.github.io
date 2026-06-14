@@ -1,32 +1,38 @@
 ---
 id: windows-kernel-7
 namespace: windows:kernel:7
-name: "7.sys"
-description: "Driver categorized as POORTRY by Mandiant."
-author: "Michael Haag"
-version: "1.0.0"
+name: 7.sys
+description: Driver categorized as POORTRY by Mandiant.
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create 7.sys binPath=C:\\windows\\temp\\7.sys type=kernel && sc.exe start 7.sys"
+  template: sc.exe create 7.sys binPath=C:\windows\temp\7.sys type=kernel && sc.exe
+    start 7.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load 7.sys kernel driver"
-    commands:
-      - "sc.exe create 7.sys binPath=C:\\windows\\temp\\7.sys type=kernel && sc.exe start 7.sys"
+- method: custom
+  description: Load 7.sys kernel driver
+  commands:
+  - sc.exe create 7.sys binPath=C:\windows\temp\7.sys type=kernel && sc.exe start
+    7.sys
 references:
-  - label: "Reference"
-    url: "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware"
+- label: Reference
+  url: https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware
+features:
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create 7.sys binPath=C:\\\\windows\\\\temp\\\\7.sys type=kernel && sc.exe start 7.sys"

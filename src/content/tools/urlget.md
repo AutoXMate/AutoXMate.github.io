@@ -2,7 +2,7 @@
 id: network-transfer-urlget
 namespace: network:transfer:urlget
 name: urlget
-description: "Fetch URLs using uriparser library; can download and upload files."
+description: Fetch URLs using uriparser library; can download and upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - urlget
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
 execution:
   template: urlget
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y urlget
 ---
-
 
 # urlget
 

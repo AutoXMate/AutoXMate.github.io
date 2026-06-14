@@ -3,35 +3,35 @@ id: system-print-cupsfilter
 namespace: system:print:cupsfilter
 name: cupsfilter
 description: CUPS filter/converter, can read files via format conversion.
-author: "GTFOBins"
-version: "1.0.0"
+author: GTFOBins
+version: 1.0.0
 capabilities:
-  - system.file.read
+- system.file.read
 platforms:
-  - linux
+- linux
 risk_level: medium
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - cancel
-  - lp
+- cancel
+- lp
 artifacts: []
 workflow_edges:
   produces:
-    - file-content
+  - file-content
   consumes:
-    - file
+  - file
 contract:
   inputs:
-    - type: system.file.path
-      description: Path to input file
+  - type: system.file.path
+    description: Path to input file
   outputs:
-    - type: process.output
-      description: File content output
+  - type: process.output
+    description: File content output
   side_effects: []
   resource_cost:
     cpu: low
@@ -44,32 +44,39 @@ resource_profile:
   network: none
   disk_io: low
 allowed-tools:
-  - cupsfilter
-  - Bash
-  - execFile
+- cupsfilter
+- Bash
+- execFile
 parameters:
-  - name: input
-    type: file
-    required: false
-    description: "File to read"
-features: []
+- name: input
+  type: file
+  required: false
+  description: File to read
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
-  template: "cupsfilter -i application/octet-stream -m application/octet-stream {input}"
+  template: cupsfilter -i application/octet-stream -m application/octet-stream {input}
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 global_vars: {}
 examples:
-  - description: Read a file via cupsfilter
-    command: cupsfilter -i application/octet-stream -m application/octet-stream /path/to/input-file
+- description: Read a file via cupsfilter
+  command: cupsfilter -i application/octet-stream -m application/octet-stream /path/to/input-file
 references:
-  - label: "GTFOBins"
-    url: "https://gtfobins.github.io/gtfobins/cupsfilter/"
+- label: GTFOBins
+  url: https://gtfobins.github.io/gtfobins/cupsfilter/
 techniques:
-  - collection
+- collection
 install:
-  - method: apt
-    package_name: "cups"
-    commands:
-      - "apt-get install -y cups"
+- method: apt
+  package_name: cups
+  commands:
+  - apt-get install -y cups
 ---
+
+

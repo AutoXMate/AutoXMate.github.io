@@ -2,7 +2,8 @@
 id: windows-uacbypass-iscsicpl
 namespace: windows:uacbypass:iscsicpl
 name: iscsicpl
-description: 'Microsoft iSCSI Initiator Control Panel tool Located at: c:\windows\system32\iscsicpl.exe; c:\windows\syswow64\iscsicpl.exe.'
+description: 'Microsoft iSCSI Initiator Control Panel tool Located at: c:\windows\system32\iscsicpl.exe;
+  c:\windows\syswow64\iscsicpl.exe.'
 author: Ekitji
 version: 1.0.0
 capabilities:
@@ -42,7 +43,11 @@ resource_profile:
 allowed-tools:
 - iscsicpl
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdout
+- requires-root
+- stealth
 execution:
   template: iscsicpl
   sandbox: execFile
@@ -50,9 +55,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: c:\windows\syswow64\iscsicpl.exe has a DLL injection through `C:\Users\<username>\AppData\Local\Microsoft\WindowsApps\ISCSIEXE.dll`, resulting in UAC bypass. (Execute a custom DLL via a trusted high-integrity process without a UAC prompt.)
+- description: c:\windows\syswow64\iscsicpl.exe has a DLL injection through `C:\Users\<username>\AppData\Local\Microsoft\WindowsApps\ISCSIEXE.dll`,
+    resulting in UAC bypass. (Execute a custom DLL via a trusted high-integrity process
+    without a UAC prompt.)
   command: c:\windows\syswow64\iscsicpl.exe
-- description: Both `c:\windows\system32\iscsicpl.exe` and `c:\windows\system64\iscsicpl.exe` have UAC bypass through launching iscicpl.exe, then navigating into the Configuration tab, clicking Report, then launching your custom command. (Execute a binary or script as a high-integrity process without a UAC prompt.)
+- description: Both `c:\windows\system32\iscsicpl.exe` and `c:\windows\system64\iscsicpl.exe`
+    have UAC bypass through launching iscicpl.exe, then navigating into the Configuration
+    tab, clicking Report, then launching your custom command. (Execute a binary or
+    script as a high-integrity process without a UAC prompt.)
   command: iscsicpl.exe
 references:
 - label: iscsi-initiator-portal
@@ -76,7 +86,6 @@ install:
   commands:
   - choco install iscsicpl
 ---
-
 
 # iscsicpl
 

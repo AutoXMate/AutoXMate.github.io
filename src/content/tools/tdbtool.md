@@ -2,7 +2,7 @@
 id: database-samba-tdbtool
 namespace: database:samba:tdbtool
 name: tdbtool
-description: "Samba TDB database manipulation tool; can read and write files."
+description: Samba TDB database manipulation tool; can read and write files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - tdbtool
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- requires-root
 execution:
   template: tdbtool
   sandbox: execFile
@@ -67,7 +71,6 @@ install:
   commands:
   - apt-get install -y tdb-tools
 ---
-
 
 # tdbtool
 

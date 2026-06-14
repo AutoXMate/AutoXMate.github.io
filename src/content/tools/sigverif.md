@@ -2,7 +2,8 @@
 id: windows-execution-sigverif
 namespace: windows:execution:sigverif
 name: sigverif
-description: 'File Signature Verification utility to verify digital signatures of files Located at: C:\Windows\System32\sigverif.exe; C:\Windows\SysWOW64\sigverif.exe.'
+description: 'File Signature Verification utility to verify digital signatures of
+  files Located at: C:\Windows\System32\sigverif.exe; C:\Windows\SysWOW64\sigverif.exe.'
 author: Moshe Kaplan
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - sigverif
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: sigverif
   sandbox: execFile
@@ -49,7 +54,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch sigverif.exe GUI, click 'Advanced', specify arbitrary executable path as 'log file name', then click 'View Log' to execute the binary. (Execute arbitrary programs through a trusted Microsoft-signed binary to bypass application whitelisting.)
+- description: Launch sigverif.exe GUI, click 'Advanced', specify arbitrary executable
+    path as 'log file name', then click 'View Log' to execute the binary. (Execute
+    arbitrary programs through a trusted Microsoft-signed binary to bypass application
+    whitelisting.)
   command: sigverif.exe
 references:
 - label: '1457676633809330184'
@@ -70,7 +78,6 @@ install:
   commands:
   - choco install sigverif
 ---
-
 
 # sigverif
 

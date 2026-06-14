@@ -1,32 +1,48 @@
 ---
 id: windows-kernel-dsark64
 namespace: windows:kernel:dsark64
-name: "DsArk64.sys"
-description: "DsArk64.sys is a WHQL Microsoft-signed anti-rootkit kernel driver from Qihoo 360 Total Security. It exposes kernel-level process termination via ZwTerminateProcess from Ring 0 (kills PPL-protected processes), arbitrary kernel memory read (512 bytes), and arbitrary kernel memory write (32 bytes). The driver gates device access behind a custom Authenticode signing check that validates the calling process PE signature against Qihoo root certificates. This check is fully bypassed via process holl..."
-author: "Michael Haag"
-version: "1.0.0"
+name: DsArk64.sys
+description: DsArk64.sys is a WHQL Microsoft-signed anti-rootkit kernel driver from
+  Qihoo 360 Total Security. It exposes kernel-level process termination via ZwTerminateProcess
+  from Ring 0 (kills PPL-protected processes), arbitrary kernel memory read (512 bytes),
+  and arbitrary kernel memory write (32 bytes). The driver gates device access behind
+  a custom Authenticode signing check that validates the calling process PE signature
+  against Qihoo root certificates. This check is fully bypassed via process holl...
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create DsArk binPath=C:\\windows\\temp\\DsArk64.sys type=kernel && sc.exe start DsArk"
+  template: sc.exe create DsArk binPath=C:\windows\temp\DsArk64.sys type=kernel &&
+    sc.exe start DsArk
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load DsArk64.sys kernel driver"
-    commands:
-      - "sc.exe create DsArk binPath=C:\\windows\\temp\\DsArk64.sys type=kernel && sc.exe start DsArk"
+- method: custom
+  description: Load DsArk64.sys kernel driver
+  commands:
+  - sc.exe create DsArk binPath=C:\windows\temp\DsArk64.sys type=kernel && sc.exe
+    start DsArk
 references:
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/308"
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/308
+features:
+- encryption
+- file-system
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- requires-root
+- stealth
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create DsArk binPath=C:\\\\windows\\\\temp\\\\DsArk64.sys type=kernel && sc.exe start DsArk"

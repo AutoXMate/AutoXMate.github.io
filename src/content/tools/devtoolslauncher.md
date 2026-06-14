@@ -2,7 +2,8 @@
 id: windows-execution-devtoolslauncher
 namespace: windows:execution:devtoolslauncher
 name: devtoolslauncher
-description: 'Binary will execute specified binary. Part of VS/VScode installation. Located at: c:\windows\system32\devtoolslauncher.exe.'
+description: 'Binary will execute specified binary. Part of VS/VScode installation.
+  Located at: c:\windows\system32\devtoolslauncher.exe.'
 author: felamos
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - devtoolslauncher
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: devtoolslauncher
   sandbox: execFile
@@ -49,9 +53,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: The above binary will execute other binary. (Execute any binary with given arguments and it will call `developertoolssvc.exe`. `developertoolssvc` is actually executing the binary.)
-  command: devtoolslauncher.exe LaunchForDeploy {PATH_ABSOLUTE:.exe} "{CMD:args}" test
-- description: The above binary will execute other binary. (Execute any binary with given arguments.)
+- description: The above binary will execute other binary. (Execute any binary with
+    given arguments and it will call `developertoolssvc.exe`. `developertoolssvc`
+    is actually executing the binary.)
+  command: devtoolslauncher.exe LaunchForDeploy {PATH_ABSOLUTE:.exe} "{CMD:args}"
+    test
+- description: The above binary will execute other binary. (Execute any binary with
+    given arguments.)
   command: devtoolslauncher.exe LaunchForDebug {PATH_ABSOLUTE:.exe} "{CMD:args}" test
 references:
 - label: '1179811992841797632'
@@ -74,7 +82,6 @@ install:
   commands:
   - choco install devtoolslauncher
 ---
-
 
 # devtoolslauncher
 

@@ -1,32 +1,39 @@
 ---
 id: windows-kernel-kt2
 namespace: windows:kernel:kt2
-name: "kt2.sys"
-description: "BlackCat Ransomware Deploys New Signed Kernel Driver. BlackCat ransomware incident that occurred in February 2023."
-author: "Guus Verbeek"
-version: "1.0.0"
+name: kt2.sys
+description: BlackCat Ransomware Deploys New Signed Kernel Driver. BlackCat ransomware
+  incident that occurred in February 2023.
+author: Guus Verbeek
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: community
 execution:
-  template: "sc.exe create kt2.sys binPath=C:\\windows\\temp\\kt2.sys type=kernel && sc.exe start kt2.sys"
+  template: sc.exe create kt2.sys binPath=C:\windows\temp\kt2.sys type=kernel && sc.exe
+    start kt2.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load kt2.sys kernel driver"
-    commands:
-      - "sc.exe create kt2.sys binPath=C:\\windows\\temp\\kt2.sys type=kernel && sc.exe start kt2.sys"
+- method: custom
+  description: Load kt2.sys kernel driver
+  commands:
+  - sc.exe create kt2.sys binPath=C:\windows\temp\kt2.sys type=kernel && sc.exe start
+    kt2.sys
 references:
-  - label: "Reference"
-    url: "https://www.trendmicro.com/en_us/research/23/e/blackcat-ransomware-deploys-new-signed-kernel-driver.html"
+- label: Reference
+  url: https://www.trendmicro.com/en_us/research/23/e/blackcat-ransomware-deploys-new-signed-kernel-driver.html
+features:
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create kt2.sys binPath=C:\\\\windows\\\\temp\\\\kt2.sys type=kernel && sc.exe start kt2.sys"

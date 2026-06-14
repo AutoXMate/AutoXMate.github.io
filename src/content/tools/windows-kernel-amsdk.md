@@ -1,32 +1,41 @@
 ---
 id: windows-kernel-amsdk
 namespace: windows:kernel:amsdk
-name: "amsdk.sys"
-description: "Vulnerable WatchDog Antimalware driver used by Silver Fox APT group to load unsigned drivers and execute malicious code in kernel mode"
-author: "The Haag"
-version: "1.0.0"
+name: amsdk.sys
+description: Vulnerable WatchDog Antimalware driver used by Silver Fox APT group to
+  load unsigned drivers and execute malicious code in kernel mode
+author: The Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create amsdk binPath=C:\\windows\\temp\\amsdk.sys type=kernel && sc.exe start amsdk"
+  template: sc.exe create amsdk binPath=C:\windows\temp\amsdk.sys type=kernel && sc.exe
+    start amsdk
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load amsdk.sys kernel driver"
-    commands:
-      - "sc.exe create amsdk binPath=C:\\windows\\temp\\amsdk.sys type=kernel && sc.exe start amsdk"
+- method: custom
+  description: Load amsdk.sys kernel driver
+  commands:
+  - sc.exe create amsdk binPath=C:\windows\temp\amsdk.sys type=kernel && sc.exe start
+    amsdk
 references:
-  - label: "Reference"
-    url: "https://research.checkpoint.com/2025/silver-fox-apt-vulnerable-drivers/"
+- label: Reference
+  url: https://research.checkpoint.com/2025/silver-fox-apt-vulnerable-drivers/
+features:
+- pipes-stdin
+- process-manip
+- requires-root
+- streaming
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create amsdk binPath=C:\\\\windows\\\\temp\\\\amsdk.sys type=kernel && sc.exe start amsdk"

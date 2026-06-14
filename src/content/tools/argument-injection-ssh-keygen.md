@@ -3,26 +3,30 @@ trust_level: community
 id: argument-injection-ssh-keygen
 namespace: argument:injection:ssh-keygen
 name: ssh-keygen
-description: "Argument injection via ssh-keygen"
-version: "1.0.0"
+description: Argument injection via ssh-keygen
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - execution
+- execution
 execution:
-  template: "ssh-keygen"
+  template: ssh-keygen
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Loads a local library. See (https://seanpesce.blogspot.com/2023/03/leveraging-ssh-keygen-for-arbitrary.html)[this blog) for more information."
-    command: "ssh-keygen -D lib.so
-"
+- description: Loads a local library. See (https://seanpesce.blogspot.com/2023/03/leveraging-ssh-keygen-for-arbitrary.html)[this
+    blog) for more information.
+  command: 'ssh-keygen -D lib.so '
 references:
-  - label: "GTFOArgs"
-    url: "https://gtfoargs.github.io/gtfoargs/ssh-keygen/"
+- label: GTFOArgs
+  url: https://gtfoargs.github.io/gtfoargs/ssh-keygen/
+features:
+- network-intensive
+- pipes-stdin
+- stealth
 ---
 
 # ssh-keygen

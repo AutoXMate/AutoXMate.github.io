@@ -2,7 +2,8 @@
 id: windows-execution-settingsynchost
 namespace: windows:execution:settingsynchost
 name: settingsynchost
-description: 'Host Process for Setting Synchronization Located at: C:\Windows\System32\SettingSyncHost.exe; C:\Windows\SysWOW64\SettingSyncHost.exe.'
+description: 'Host Process for Setting Synchronization Located at: C:\Windows\System32\SettingSyncHost.exe;
+  C:\Windows\SysWOW64\SettingSyncHost.exe.'
 author: Elliot Killick
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - settingsynchost
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: settingsynchost
   sandbox: execFile
@@ -49,9 +53,16 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute file specified in %COMSPEC% (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
+- description: Execute file specified in %COMSPEC% (Can be used to evade defensive
+    countermeasures or to hide as a persistence mechanism)
   command: SettingSyncHost -LoadAndRunDiagScript {PATH:.exe}
-- description: Execute a batch script in the background (no window ever pops up) which can be subverted to running arbitrary programs by setting the current working directory to %TMP% and creating files such as reg.bat/reg.exe in that directory thereby causing them to execute instead of the ones in C:\Windows\System32. (Can be used to evade defensive countermeasures or to hide as a persistence mechanism. Additionally, effectively act as a -WindowStyle Hidden option (as there is in PowerShell) for any arbitrary batch file.)
+- description: Execute a batch script in the background (no window ever pops up) which
+    can be subverted to running arbitrary programs by setting the current working
+    directory to %TMP% and creating files such as reg.bat/reg.exe in that directory
+    thereby causing them to execute instead of the ones in C:\Windows\System32. (Can
+    be used to evade defensive countermeasures or to hide as a persistence mechanism.
+    Additionally, effectively act as a -WindowStyle Hidden option (as there is in
+    PowerShell) for any arbitrary batch file.)
   command: SettingSyncHost -LoadAndRunDiagScriptNoCab {PATH:.bat}
 references:
 - label: ''
@@ -72,7 +83,6 @@ install:
   commands:
   - choco install settingsynchost
 ---
-
 
 # settingsynchost
 

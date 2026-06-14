@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-offdmpsvc
 namespace: windows:dllhijack:offdmpsvc
 name: offdmpsvc.dll
-description: "offdmpsvc.dll — Phantom hijacking (Microsoft)"
-author: "Swachchhanda Shrawan Poudel"
-version: "1.0.0"
+description: offdmpsvc.dll — Phantom hijacking (Microsoft)
+author: Swachchhanda Shrawan Poudel
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "offdmpsvc.dll"
+  template: offdmpsvc.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://www.hexacorn.com/blog/2025/06/14/wermgr-exe-boot-offdmpsvc-dll-lolbin/"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/offdmpsvc.html"
+- label: Reference
+  url: https://www.hexacorn.com/blog/2025/06/14/wermgr-exe-boot-offdmpsvc-dll-lolbin/
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/offdmpsvc.html
+features:
+- process-manip
 ---
+
 examples:
   - description: "Place malicious offdmpsvc.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\offdmpsvc.dll\""

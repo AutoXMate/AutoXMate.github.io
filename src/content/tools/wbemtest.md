@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - wbemtest
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: wbemtest
   sandbox: execFile
@@ -49,7 +51,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute arbitary commands through WMI through a GUI managment interface for Web Based Enterprise Management testing (WBEM). Uses WMI to Create and instance of a Win32_Process WMI class with a commandline argument of the target command to spawn. Spawns a GUI so it requires interactive access. For a demo, see link to blog in resources. (Execute arbitrary commands through WMI classes)
+- description: Execute arbitary commands through WMI through a GUI managment interface
+    for Web Based Enterprise Management testing (WBEM). Uses WMI to Create and instance
+    of a Win32_Process WMI class with a commandline argument of the target command
+    to spawn. Spawns a GUI so it requires interactive access. For a demo, see link
+    to blog in resources. (Execute arbitrary commands through WMI classes)
   command: wbemtest.exe
 references:
 - label: lolbas-wbemtest.html
@@ -67,7 +73,6 @@ install:
   commands:
   - choco install wbemtest
 ---
-
 
 # wbemtest
 

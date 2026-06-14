@@ -2,27 +2,31 @@
 trust_level: community
 id: wtfbin-edge-chromium-browsers
 namespace: wtf:bin:edge-chromium-browsers
-name: "Edge/Chromium Browsers"
-description: "Bizarre sub-processes"
-version: "1.0.0"
+name: Edge/Chromium Browsers
+description: Bizarre sub-processes
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - windows
-  - linux
+- windows
+- linux
 techniques:
-  - execution
+- execution
 execution:
-  template: "Edge/Chromium Browsers"
+  template: Edge/Chromium Browsers
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://szeged.github.io/sprocket/architecture_overview.html#:~:text=Utility%20process%20is%20created%20right,also%20deals%20with%20extension%20extraction."
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/edge-chromium-browsers/"
+- label: Documentation
+  url: https://szeged.github.io/sprocket/architecture_overview.html#:~:text=Utility%20process%20is%20created%20right,also%20deals%20with%20extension%20extraction.
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/edge-chromium-browsers/
+features:
+- pipes-stdin
+- process-manip
 ---
+
 examples:
   - description: "Execute Edge/Chromium Browsers and observe the unusual behavior"
     command: "Edge/Chromium Browsers"

@@ -2,7 +2,8 @@
 id: system-file-split
 namespace: system:file:split
 name: split
-description: "Split files into fixed-size pieces; can read and write files and spawn shells."
+description: Split files into fixed-size pieces; can read and write files and spawn
+  shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -45,7 +46,12 @@ resource_profile:
 allowed-tools:
 - split
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- process-manip
+- requires-root
 execution:
   template: split
   sandbox: execFile
@@ -75,7 +81,6 @@ install:
   commands:
   - apt-get install -y coreutils
 ---
-
 
 # split
 

@@ -2,7 +2,8 @@
 id: windows-execution-iediagcmd
 namespace: windows:execution:iediagcmd
 name: iediagcmd
-description: 'Diagnostics Utility for Internet Explorer Located at: C:\Program Files\Internet Explorer\iediagcmd.exe.'
+description: 'Diagnostics Utility for Internet Explorer Located at: C:\Program Files\Internet
+  Explorer\iediagcmd.exe.'
 author: manasmbellani
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - iediagcmd
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: iediagcmd
   sandbox: execFile
@@ -49,8 +54,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes binary that is pre-planted at C:\test\system32\netsh.exe. (Spawn a pre-planted executable from iediagcmd.exe.)
-  command: set windir=c:\test& cd "C:\Program Files\Internet Explorer\" & iediagcmd.exe /out:{PATH_ABSOLUTE:.cab}
+- description: Executes binary that is pre-planted at C:\test\system32\netsh.exe.
+    (Spawn a pre-planted executable from iediagcmd.exe.)
+  command: set windir=c:\test& cd "C:\Program Files\Internet Explorer\" & iediagcmd.exe
+    /out:{PATH_ABSOLUTE:.cab}
 references:
 - label: '1507516393859731456'
   url: https://twitter.com/Hexacorn/status/1507516393859731456
@@ -72,7 +79,6 @@ install:
   commands:
   - choco install iediagcmd
 ---
-
 
 # iediagcmd
 

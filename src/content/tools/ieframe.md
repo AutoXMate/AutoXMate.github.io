@@ -2,7 +2,8 @@
 id: windows-execution-ieframe
 namespace: windows:execution:ieframe
 name: ieframe
-description: 'Internet Browser DLL for translating HTML code. Located at: c:\windows\system32\ieframe.dll; c:\windows\syswow64\ieframe.dll.'
+description: 'Internet Browser DLL for translating HTML code. Located at: c:\windows\system32\ieframe.dll;
+  c:\windows\syswow64\ieframe.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - ieframe
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: ieframe
   sandbox: execFile
@@ -49,7 +52,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch an executable payload via proxy through a(n) URL (information) file by calling OpenURL. (Load an executable payload by calling a .url file with or without quotes. The .url file extension can be renamed.)
+- description: Launch an executable payload via proxy through a(n) URL (information)
+    file by calling OpenURL. (Load an executable payload by calling a .url file with
+    or without quotes. The .url file extension can be renamed.)
   command: rundll32.exe ieframe.dll,OpenURL {PATH_ABSOLUTE:.url}
 references:
 - label: ''
@@ -74,7 +79,6 @@ install:
   commands:
   - choco install ieframe
 ---
-
 
 # ieframe
 

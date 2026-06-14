@@ -3,25 +3,30 @@ trust_level: community
 id: argument-injection-hg
 namespace: argument:injection:hg
 name: hg
-description: "Argument injection via hg"
-version: "1.0.0"
+description: Argument injection via hg
+version: 1.0.0
 capabilities:
-  - security.execution.command
-  - network.transfer.upload
+- security.execution.command
+- network.transfer.upload
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - execution
-  - exfiltration
+- execution
+- exfiltration
 execution:
-  template: "hg"
+  template: hg
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "GTFOArgs"
-    url: "https://gtfoargs.github.io/gtfoargs/hg/"
+- label: GTFOArgs
+  url: https://gtfoargs.github.io/gtfoargs/hg/
+features:
+- network-intensive
+- pipes-stdin
+- stealth
 ---
+
 examples:
   - description: "Use argument injection to execute arbitrary commands"
     command: "hg --option=\"\\\"\\$(id)\\\"\""

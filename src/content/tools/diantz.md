@@ -2,7 +2,8 @@
 id: windows-execution-diantz
 namespace: windows:execution:diantz
 name: diantz
-description: 'Binary that package existing files into a cabinet (.cab) file Located at: c:\windows\system32\diantz.exe; c:\windows\syswow64\diantz.exe.'
+description: 'Binary that package existing files into a cabinet (.cab) file Located
+  at: c:\windows\system32\diantz.exe; c:\windows\syswow64\diantz.exe.'
 author: Tamir Yehuda
 version: 1.0.0
 capabilities:
@@ -45,7 +46,13 @@ resource_profile:
 allowed-tools:
 - diantz
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: diantz
   sandbox: execFile
@@ -53,11 +60,16 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Compress a file (first argument) into a CAB file stored in the Alternate Data Stream (ADS) of the target file. (Hide data compressed into an Alternate Data Stream.)
+- description: Compress a file (first argument) into a CAB file stored in the Alternate
+    Data Stream (ADS) of the target file. (Hide data compressed into an Alternate
+    Data Stream.)
   command: diantz.exe {PATH_ABSOLUTE:.exe} {PATH_ABSOLUTE}:targetFile.cab
-- description: Download and compress a remote file and store it in a CAB file on local machine. (Download and compress into a cab file.)
+- description: Download and compress a remote file and store it in a CAB file on local
+    machine. (Download and compress into a cab file.)
   command: diantz.exe {PATH_SMB:.exe} {PATH_ABSOLUTE:.cab}
-- description: Execute diantz directives as defined in the specified Diamond Definition File (.ddf); see resources for the format specification. (Bypass command-line based detections)
+- description: Execute diantz directives as defined in the specified Diamond Definition
+    File (.ddf); see resources for the format specification. (Bypass command-line
+    based detections)
   command: diantz /f {PATH:.ddf}
 references:
 - label: diantz
@@ -87,7 +99,6 @@ install:
   commands:
   - choco install diantz
 ---
-
 
 # diantz
 

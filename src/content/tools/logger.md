@@ -2,7 +2,10 @@
 id: windows-execution-logger
 namespace: windows:execution:logger
 name: logger
-description: 'A logging configuration tool from the Windows Kits used to start and manage process logging. Located at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\logger.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\logger.exe; C:\Program Files\Windows Kits\10\Debuggers\x86\logger.exe.'
+description: 'A logging configuration tool from the Windows Kits used to start and
+  manage process logging. Located at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\logger.exe;
+  C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\logger.exe; C:\Program Files\Windows
+  Kits\10\Debuggers\x86\logger.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +44,13 @@ resource_profile:
 allowed-tools:
 - logger
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: logger
   sandbox: execFile
@@ -49,11 +58,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes the command specified after the `RUN` parameter as a child of `logger.exe`. (Executes an abitrary command via a signed binary to evade detection.)
+- description: Executes the command specified after the `RUN` parameter as a child
+    of `logger.exe`. (Executes an abitrary command via a signed binary to evade detection.)
   command: logger.exe RUN "{CMD}"
-- description: Executes the command specified after the `RUNW` parameter as a child of `logger.exe`. (Executes an abitrary command via a signed binary to evade detection.)
+- description: Executes the command specified after the `RUNW` parameter as a child
+    of `logger.exe`. (Executes an abitrary command via a signed binary to evade detection.)
   command: logger.exe RUNW "{CMD}"
-- description: Executes the command specified as a child of `logger.exe`. (Executes an abitrary command via a signed binary to evade detection.)
+- description: Executes the command specified as a child of `logger.exe`. (Executes
+    an abitrary command via a signed binary to evade detection.)
   command: logger.exe "{CMD}"
 references:
 - label: logger
@@ -70,7 +82,6 @@ install:
   commands:
   - choco install logger
 ---
-
 
 # logger
 

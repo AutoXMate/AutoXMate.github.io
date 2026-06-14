@@ -2,26 +2,32 @@
 trust_level: community
 id: wtfbin-startupscan-dll
 namespace: wtf:bin:startupscan-dll
-name: "Startupscan.dll"
-description: "Windows being sus? Inconceivable!"
-version: "1.0.0"
+name: Startupscan.dll
+description: Windows being sus? Inconceivable!
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
+- defense-evasion
 execution:
-  template: "Startupscan.dll"
+  template: Startupscan.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/49"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/startupscan-dll/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/49
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/startupscan-dll/
+features:
+- compression
+- file-system
+- network-intensive
+- process-manip
 ---
+
 examples:
   - description: "Execute Startupscan.dll and observe the unusual behavior"
     command: "Startupscan.dll"

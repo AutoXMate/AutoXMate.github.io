@@ -2,7 +2,7 @@
 id: dev-kickstart-ksshell
 namespace: dev:kickstart:ksshell
 name: ksshell
-description: "Kickstart script parser; can read arbitrary files."
+description: Kickstart script parser; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - ksshell
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- interactive
+- local
+- network-intensive
 execution:
   template: ksshell
   sandbox: execFile
@@ -64,7 +69,6 @@ install:
   commands:
   - apt-get install -y pykickstart
 ---
-
 
 # ksshell
 

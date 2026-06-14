@@ -2,7 +2,12 @@
 id: windows-execution-coregen
 namespace: windows:execution:coregen
 name: coregen
-description: 'Binary coregen.exe (Microsoft CoreCLR Native Image Generator) loads exported function GetCLRRuntimeHost from coreclr.dll or from .DLL in arbitrary path. Coregen is located within "C:\Program Files (x86)\Microsoft Silverlight\5.1.50918.0\" or another version of Silverlight. Coregen is signed by Microsoft and bundled with Microsoft Silverlight. Located at: C:\Program Files\Microsoft Silverlight\5.1.50918.0\coregen.exe; C:\Program Files (x86)\Microsoft Silverlight\5.1.50918.0\coregen.exe.'
+description: 'Binary coregen.exe (Microsoft CoreCLR Native Image Generator) loads
+  exported function GetCLRRuntimeHost from coreclr.dll or from .DLL in arbitrary path.
+  Coregen is located within "C:\Program Files (x86)\Microsoft Silverlight\5.1.50918.0\"
+  or another version of Silverlight. Coregen is signed by Microsoft and bundled with
+  Microsoft Silverlight. Located at: C:\Program Files\Microsoft Silverlight\5.1.50918.0\coregen.exe;
+  C:\Program Files (x86)\Microsoft Silverlight\5.1.50918.0\coregen.exe.'
 author: Martin Sohn Christensen
 version: 1.0.0
 capabilities:
@@ -42,7 +47,13 @@ resource_profile:
 allowed-tools:
 - coregen
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- stealth
 execution:
   template: coregen
   sandbox: execFile
@@ -50,11 +61,15 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Loads the target .DLL in arbitrary path specified with /L. (Execute DLL code)
+- description: Loads the target .DLL in arbitrary path specified with /L. (Execute
+    DLL code)
   command: coregen.exe /L {PATH_ABSOLUTE:.dll} dummy_assembly_name
-- description: Loads the coreclr.dll in the corgen.exe directory (e.g. C:\Program Files\Microsoft Silverlight\5.1.50918.0). (Execute DLL code)
+- description: Loads the coreclr.dll in the corgen.exe directory (e.g. C:\Program
+    Files\Microsoft Silverlight\5.1.50918.0). (Execute DLL code)
   command: coregen.exe dummy_assembly_name
-- description: Loads the target .DLL in arbitrary path specified with /L. Since binary is signed it can also be used to bypass application whitelisting solutions. (Execute DLL code)
+- description: Loads the target .DLL in arbitrary path specified with /L. Since binary
+    is signed it can also be used to bypass application whitelisting solutions. (Execute
+    DLL code)
   command: coregen.exe /L {PATH_ABSOLUTE:.dll} dummy_assembly_name
 references:
 - label: watch?v=75XImxOOInU
@@ -71,7 +86,8 @@ detections:
 - type: sigma
   url: https://github.com/SigmaHQ/sigma/blob/b02e3b698afbaae143ac4fb36236eb0b41122ed7/rules/windows/image_load/image_load_side_load_coregen.yml
 - type: ioc
-  description: coregen.exe loading .dll file not in "C:\Program Files (x86)\Microsoft Silverlight\5.1.50918.0\"
+  description: coregen.exe loading .dll file not in "C:\Program Files (x86)\Microsoft
+    Silverlight\5.1.50918.0\"
 - type: ioc
   description: coregen.exe loading .dll file not named coreclr.dll
 - type: ioc
@@ -86,7 +102,6 @@ install:
   commands:
   - choco install coregen
 ---
-
 
 # coregen
 

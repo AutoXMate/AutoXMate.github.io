@@ -3,26 +3,29 @@ trust_level: community
 id: argument-injection-chrome
 namespace: argument:injection:chrome
 name: chrome
-description: "Argument injection via chrome"
-version: "1.0.0"
+description: Argument injection via chrome
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - execution
+- execution
 execution:
-  template: "chrome"
+  template: chrome
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "The `--gpu-launcher` flag executes a command. This is particularly relevant for Electron applications."
-    command: "chrome '--gpu-launcher=\"id>/tmp/foo\"'
-"
+- description: The `--gpu-launcher` flag executes a command. This is particularly
+    relevant for Electron applications.
+  command: 'chrome ''--gpu-launcher="id>/tmp/foo"'' '
 references:
-  - label: "GTFOArgs"
-    url: "https://gtfoargs.github.io/gtfoargs/chrome/"
+- label: GTFOArgs
+  url: https://gtfoargs.github.io/gtfoargs/chrome/
+features:
+- pipes-stdin
+- stealth
 ---
 
 # chrome

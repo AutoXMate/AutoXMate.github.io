@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-mcafee-antivirus
 namespace: wtf:bin:mcafee-antivirus
-name: "McAfee Antivirus"
-description: "McAfee also loves big DNS queries!"
-version: "1.0.0"
+name: McAfee Antivirus
+description: McAfee also loves big DNS queries!
+version: 1.0.0
 capabilities:
-  - network.exfiltration.dns
+- network.exfiltration.dns
 platforms:
-  - windows
+- windows
 techniques:
-  - exfiltration
+- exfiltration
 execution:
-  template: "McAfee Antivirus"
+  template: McAfee Antivirus
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/33"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/mcafee-antivirus/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/33
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/mcafee-antivirus/
+features:
+- network-intensive
 ---
+
 examples:
   - description: "Run the binary and monitor DNS exfiltration"
     command: "McAfee Antivirus"

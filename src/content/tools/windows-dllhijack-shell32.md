@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-shell32
 namespace: windows:dllhijack:shell32
 name: shell32.dll
-description: "shell32.dll — Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: shell32.dll — Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "shell32.dll"
+  template: shell32.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/shell32.html"
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/shell32.html
+features:
+- interactive
 ---
+
 examples:
   - description: "Place malicious shell32.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\shell32.dll\""

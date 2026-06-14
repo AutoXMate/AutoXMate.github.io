@@ -1,34 +1,40 @@
 ---
 id: windows-kernel-afd
 namespace: windows:kernel:afd
-name: "Afd.sys"
-description: "Windows Ancillary Function Driver (Afd.sys) for WinSock is vulnerable to an Elevation of Privilege Vulnerability."
-author: "Nasreddine Bencherchali"
-version: "1.0.0"
+name: Afd.sys
+description: Windows Ancillary Function Driver (Afd.sys) for WinSock is vulnerable
+  to an Elevation of Privilege Vulnerability.
+author: Nasreddine Bencherchali
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create Afd.sys binPath=C:\\windows\\temp\\Afd.sys type=kernel && sc.exe start Afd.sys"
+  template: sc.exe create Afd.sys binPath=C:\windows\temp\Afd.sys type=kernel && sc.exe
+    start Afd.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load Afd.sys kernel driver"
-    commands:
-      - "sc.exe create Afd.sys binPath=C:\\windows\\temp\\Afd.sys type=kernel && sc.exe start Afd.sys"
+- method: custom
+  description: Load Afd.sys kernel driver
+  commands:
+  - sc.exe create Afd.sys binPath=C:\windows\temp\Afd.sys type=kernel && sc.exe start
+    Afd.sys
 references:
-  - label: "Reference"
-    url: "https://securityintelligence.com/x-force/patch-tuesday-exploit-wednesday-pwning-windows-ancillary-function-driver-winsock/"
-  - label: "Reference"
-    url: "https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-21768"
+- label: Reference
+  url: https://securityintelligence.com/x-force/patch-tuesday-exploit-wednesday-pwning-windows-ancillary-function-driver-winsock/
+- label: Reference
+  url: https://msrc.microsoft.com/update-guide/vulnerability/CVE-2023-21768
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create Afd.sys binPath=C:\\\\windows\\\\temp\\\\Afd.sys type=kernel && sc.exe start Afd.sys"

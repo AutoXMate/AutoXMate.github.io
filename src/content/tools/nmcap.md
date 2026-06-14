@@ -2,7 +2,9 @@
 id: windows-recon-nmcap
 namespace: windows:recon:nmcap
 name: nmcap
-description: 'Command-line packet capture utility from Microsoft Network Monitor 3.x. Located at: C:\Program Files\Microsoft Network Monitor 3\nmcap.exe; C:\Program Files (x86)\Microsoft Network Monitor 3\nmcap.exe.'
+description: 'Command-line packet capture utility from Microsoft Network Monitor 3.x.
+  Located at: C:\Program Files\Microsoft Network Monitor 3\nmcap.exe; C:\Program Files
+  (x86)\Microsoft Network Monitor 3\nmcap.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,12 @@ resource_profile:
 allowed-tools:
 - nmcap
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- streaming
 execution:
   template: nmcap
   sandbox: execFile
@@ -49,7 +56,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: "Start capture on all network adapters and save to specified .cap (circular) file.\nOptionally, one can add:\n- `/TerminateWhen /TimeAfter 30 seconds` to auto-terminate after a relative times (e.g. 30 seconds);\n- `/TerminateWhen /Time 04:52:00 AM 9/17/2025` to auto-terminate after a specific date/time;\n- `/TerminateWhen /KeyPress x` to terminate when a specific key is pressed.\n (Capture network traffic on windows to collect sensitive data.)"
+- description: "Start capture on all network adapters and save to specified .cap (circular)\
+    \ file.\nOptionally, one can add:\n- `/TerminateWhen /TimeAfter 30 seconds` to\
+    \ auto-terminate after a relative times (e.g. 30 seconds);\n- `/TerminateWhen\
+    \ /Time 04:52:00 AM 9/17/2025` to auto-terminate after a specific date/time;\n\
+    - `/TerminateWhen /KeyPress x` to terminate when a specific key is pressed.\n\
+    \ (Capture network traffic on windows to collect sensitive data.)"
   command: nmcap.exe /network * /capture /file {PATH_ABSOLUTE:.cap}
 references:
 - label: network-monitor-3
@@ -65,7 +77,6 @@ install:
   commands:
   - choco install nmcap
 ---
-
 
 # nmcap
 

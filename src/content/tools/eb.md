@@ -2,7 +2,8 @@
 id: system-log-eb
 namespace: system:log:eb
 name: eb
-description: "AWS Elastic Beanstalk CLI for managing environments; can read logs via journalctl."
+description: AWS Elastic Beanstalk CLI for managing environments; can read logs via
+  journalctl.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,9 @@ resource_profile:
 allowed-tools:
 - eb
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdin
 execution:
   template: eb
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y awsebcli
 ---
-
 
 # eb
 

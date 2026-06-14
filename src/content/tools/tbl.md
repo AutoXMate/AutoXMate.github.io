@@ -2,7 +2,7 @@
 id: system-text-tbl
 namespace: system:text:tbl
 name: tbl
-description: "Table preprocessor for troff; can read arbitrary files."
+description: Table preprocessor for troff; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - tbl
 parameters: []
-features: []
+features:
+- file-system
+- local
+- process-manip
 execution:
   template: tbl
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y groff
 ---
-
 
 # tbl
 

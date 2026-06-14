@@ -2,7 +2,7 @@
 id: network-ssh-ssh-keyscan
 namespace: network:ssh:ssh-keyscan
 name: ssh-keyscan
-description: "Gather SSH host public keys from remote servers."
+description: Gather SSH host public keys from remote servers.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - ssh-keyscan
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- remote
 execution:
   template: ssh-keyscan
   sandbox: execFile
@@ -64,7 +68,6 @@ install:
   commands:
   - apt-get install -y openssh-client
 ---
-
 
 # ssh-keyscan
 

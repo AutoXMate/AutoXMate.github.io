@@ -3,35 +3,38 @@ trust_level: community
 id: windows-dllhijack-d3d11
 namespace: windows:dllhijack:d3d11
 name: d3d11.dll
-description: "d3d11.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: d3d11.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "d3d11.dll"
+  template: d3d11.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://blog.amartinsec.com/blog/dllhijacking/"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/d3d11.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://blog.amartinsec.com/blog/dllhijacking/
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/d3d11.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious d3d11.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\d3d11.dll\""

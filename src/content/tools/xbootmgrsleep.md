@@ -2,7 +2,10 @@
 id: windows-execution-xbootmgrsleep
 namespace: windows:execution:xbootmgrsleep
 name: xbootmgrsleep
-description: 'Windows Performance Toolkit binary used for tracing and analyzing system performance during sleep and resume transitions. Located at: C:\Program Files\Windows Kits\10\Windows Performance Toolkit\xbootmgrsleep.exe; C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\xbootmgrsleep.exe.'
+description: 'Windows Performance Toolkit binary used for tracing and analyzing system
+  performance during sleep and resume transitions. Located at: C:\Program Files\Windows
+  Kits\10\Windows Performance Toolkit\xbootmgrsleep.exe; C:\Program Files (x86)\Windows
+  Kits\10\Windows Performance Toolkit\xbootmgrsleep.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +44,11 @@ resource_profile:
 allowed-tools:
 - xbootmgrsleep
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: xbootmgrsleep
   sandbox: execFile
@@ -49,7 +56,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute executable via XBootMgrSleep, with a 1 second (=1000 milliseconds) delay. Alternatively, it is also possible to replace the delay with any string for immediate execution. (Performs execution of specified executable, can be used as a defense evasion)
+- description: Execute executable via XBootMgrSleep, with a 1 second (=1000 milliseconds)
+    delay. Alternatively, it is also possible to replace the delay with any string
+    for immediate execution. (Performs execution of specified executable, can be used
+    as a defense evasion)
   command: xbootmgrsleep.exe 1000 {PATH:.exe}
 references:
 - label: reference
@@ -66,7 +76,6 @@ install:
   commands:
   - choco install xbootmgrsleep
 ---
-
 
 # xbootmgrsleep
 

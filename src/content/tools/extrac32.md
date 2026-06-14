@@ -2,7 +2,8 @@
 id: windows-ads-extrac32
 namespace: windows:ads:extrac32
 name: extrac32
-description: 'Extract to ADS, copy or overwrite a file with Extrac32.exe Located at: C:\Windows\System32\extrac32.exe; C:\Windows\SysWOW64\extrac32.exe.'
+description: 'Extract to ADS, copy or overwrite a file with Extrac32.exe Located at:
+  C:\Windows\System32\extrac32.exe; C:\Windows\SysWOW64\extrac32.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -44,7 +45,13 @@ resource_profile:
 allowed-tools:
 - extrac32
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: extrac32
   sandbox: execFile
@@ -52,11 +59,16 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Extracts the source CAB file into an Alternate Data Stream (ADS) of the target file. (Extract data from cab file and hide it in an alternate data stream.)
+- description: Extracts the source CAB file into an Alternate Data Stream (ADS) of
+    the target file. (Extract data from cab file and hide it in an alternate data
+    stream.)
   command: extrac32 {PATH_ABSOLUTE:.cab} {PATH_ABSOLUTE}:file.exe
-- description: Extracts the source CAB file on an unc path into an Alternate Data Stream (ADS) of the target file. (Extract data from cab file and hide it in an alternate data stream.)
+- description: Extracts the source CAB file on an unc path into an Alternate Data
+    Stream (ADS) of the target file. (Extract data from cab file and hide it in an
+    alternate data stream.)
   command: extrac32 {PATH_ABSOLUTE:.cab} {PATH_ABSOLUTE}:file.exe
-- description: Copy the source file to the destination file and overwrite it. (Download file from UNC/WEBDav)
+- description: Copy the source file to the destination file and overwrite it. (Download
+    file from UNC/WEBDav)
   command: extrac32 /Y /C {PATH_SMB} {PATH_ABSOLUTE}
 - description: Command for copying file from one folder to another (Copy file)
   command: extrac32.exe /C {PATH_ABSOLUTE:.source.exe} {PATH_ABSOLUTE:.dest.exe}
@@ -87,7 +99,6 @@ install:
   commands:
   - choco install extrac32
 ---
-
 
 # extrac32
 

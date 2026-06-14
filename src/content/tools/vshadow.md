@@ -2,7 +2,8 @@
 id: windows-execution-vshadow
 namespace: windows:execution:vshadow
 name: vshadow
-description: 'VShadow is a command-line tool that can be used to create and manage volume shadow copies. Located at: C:\Program Files (x86)\Windows Kits\10\bin\<version>\x64\vshadow.exe.'
+description: 'VShadow is a command-line tool that can be used to create and manage
+  volume shadow copies. Located at: C:\Program Files (x86)\Windows Kits\10\bin\<version>\x64\vshadow.exe.'
 author: Ayberk Halaç
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - vshadow
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: vshadow
   sandbox: execFile
@@ -49,7 +54,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes specified executable from vshadow.exe. (Performs execution of specified executable file.)
+- description: Executes specified executable from vshadow.exe. (Performs execution
+    of specified executable file.)
   command: 'vshadow.exe -nw -exec={PATH_ABSOLUTE:.exe} C:'
 references:
 - label: vshadow-tool-and-sample
@@ -70,7 +76,6 @@ install:
   commands:
   - choco install vshadow
 ---
-
 
 # vshadow
 

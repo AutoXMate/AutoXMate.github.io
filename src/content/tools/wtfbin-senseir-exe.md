@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-senseir-exe
 namespace: wtf:bin:senseir-exe
-name: "SenseIR.exe"
-description: "How much can an EDR look like malware?"
-version: "1.0.0"
+name: SenseIR.exe
+description: How much can an EDR look like malware?
+version: 1.0.0
 capabilities:
-  - security.obfuscation.base64
+- security.obfuscation.base64
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
+- defense-evasion
 execution:
-  template: "SenseIR.exe"
+  template: SenseIR.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/43"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/senseir-exe/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/43
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/senseir-exe/
+features:
+- pipes-stdout
 ---
+
 examples:
   - description: "Execute SenseIR.exe and observe the unusual behavior"
     command: "SenseIR.exe"

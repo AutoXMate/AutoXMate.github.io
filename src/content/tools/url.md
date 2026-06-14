@@ -2,7 +2,8 @@
 id: windows-execution-url
 namespace: windows:execution:url
 name: url
-description: 'Internet Shortcut Shell Extension DLL. Located at: c:\windows\system32\url.dll; c:\windows\syswow64\url.dll.'
+description: 'Internet Shortcut Shell Extension DLL. Located at: c:\windows\system32\url.dll;
+  c:\windows\syswow64\url.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - url
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: url
   sandbox: execFile
@@ -49,17 +53,22 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch a HTML application payload by calling OpenURL. (Invoke an HTML Application via mshta.exe (Default Handler).)
+- description: Launch a HTML application payload by calling OpenURL. (Invoke an HTML
+    Application via mshta.exe (Default Handler).)
   command: rundll32.exe url.dll,OpenURL {PATH_ABSOLUTE:.hta}
-- description: Launch an executable payload via proxy through a .url (information) file by calling OpenURL. (Load an executable payload by calling a .url file.)
+- description: Launch an executable payload via proxy through a .url (information)
+    file by calling OpenURL. (Load an executable payload by calling a .url file.)
   command: rundll32.exe url.dll,OpenURL {PATH_ABSOLUTE:.url}
-- description: Launch an executable by calling OpenURL. (Load an executable payload by specifying the file protocol handler (obfuscated).)
+- description: Launch an executable by calling OpenURL. (Load an executable payload
+    by specifying the file protocol handler (obfuscated).)
   command: rundll32.exe url.dll,OpenURL file://^C^:^/^W^i^n^d^o^w^s^/^s^y^s^t^e^m^3^2^/^c^a^l^c^.^e^x^e
 - description: Launch an executable by calling FileProtocolHandler. (Launch an executable.)
   command: rundll32.exe url.dll,FileProtocolHandler {PATH_ABSOLUTE:.exe}
-- description: Launch an executable by calling FileProtocolHandler. (Load an executable payload by specifying the file protocol handler (obfuscated).)
+- description: Launch an executable by calling FileProtocolHandler. (Load an executable
+    payload by specifying the file protocol handler (obfuscated).)
   command: rundll32.exe url.dll,FileProtocolHandler file://^C^:^/^W^i^n^d^o^w^s^/^s^y^s^t^e^m^3^2^/^c^a^l^c^.^e^x^e
-- description: Launch a HTML application payload by calling FileProtocolHandler. (Invoke an HTML Application via mshta.exe (Default Handler).)
+- description: Launch a HTML application payload by calling FileProtocolHandler. (Invoke
+    an HTML Application via mshta.exe (Default Handler).)
   command: rundll32.exe url.dll,FileProtocolHandler file:///C:/test/test.hta
 references:
 - label: ''
@@ -88,7 +97,6 @@ install:
   commands:
   - choco install url
 ---
-
 
 # url
 

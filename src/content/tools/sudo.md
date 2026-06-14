@@ -2,7 +2,7 @@
 id: system-auth-sudo
 namespace: system:auth:sudo
 name: sudo
-description: "Execute commands with superuser privileges; can spawn a shell."
+description: Execute commands with superuser privileges; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - sudo
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: sudo
   sandbox: execFile
@@ -65,7 +69,6 @@ install:
   commands:
   - apt-get install -y sudo
 ---
-
 
 # sudo
 

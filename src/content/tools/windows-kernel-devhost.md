@@ -1,32 +1,46 @@
 ---
 id: windows-kernel-devhost
 namespace: windows:kernel:devhost
-name: "devhost.sys"
-description: "devhost.sys is a WHQL attestation-signed kernel driver that exposes arbitrary memory read primitives to usermode. The device object at \\\\.\\devhost has no ACL beyond a device handle. At load, the driver reads IA32_LSTAR MSR to locate ntoskrnl base via backward MZ walk, then dynamically resolves APIs (including MmMapIoSpace and MmCopyMemory) using a djb2-style hash algorithm over the PE export directory. Only 11 benign imports are visible statically. The system CR3 is leaked to user-mode at Dri..."
-author: "Michael Haag"
-version: "1.0.0"
+name: devhost.sys
+description: devhost.sys is a WHQL attestation-signed kernel driver that exposes arbitrary
+  memory read primitives to usermode. The device object at \\.\devhost has no ACL
+  beyond a device handle. At load, the driver reads IA32_LSTAR MSR to locate ntoskrnl
+  base via backward MZ walk, then dynamically resolves APIs (including MmMapIoSpace
+  and MmCopyMemory) using a djb2-style hash algorithm over the PE export directory.
+  Only 11 benign imports are visible statically. The system CR3 is leaked to user-mode
+  at Dri...
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create devhost binPath=C:\\windows\\temp\\devhost.sys type=kernel && sc.exe start devhost"
+  template: sc.exe create devhost binPath=C:\windows\temp\devhost.sys type=kernel
+    && sc.exe start devhost
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load devhost.sys kernel driver"
-    commands:
-      - "sc.exe create devhost binPath=C:\\windows\\temp\\devhost.sys type=kernel && sc.exe start devhost"
+- method: custom
+  description: Load devhost.sys kernel driver
+  commands:
+  - sc.exe create devhost binPath=C:\windows\temp\devhost.sys type=kernel && sc.exe
+    start devhost
 references:
-  - label: "Reference"
-    url: "https://x.com/nextaboratory/status/1914729845602783262"
+- label: Reference
+  url: https://x.com/nextaboratory/status/1914729845602783262
+features:
+- compression
+- file-system
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create devhost binPath=C:\\\\windows\\\\temp\\\\devhost.sys type=kernel && sc.exe start devhost"

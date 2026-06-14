@@ -41,7 +41,11 @@ resource_profile:
 allowed-tools:
 - dnx
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: dnx
   sandbox: execFile
@@ -49,7 +53,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute C# code located in the specified folder via 'Program.cs' and 'Project.json' (Note - Requires dependencies) (Local execution of C# project stored in consoleapp folder.)
+- description: Execute C# code located in the specified folder via 'Program.cs' and
+    'Project.json' (Note - Requires dependencies) (Local execution of C# project stored
+    in consoleapp folder.)
   command: dnx.exe {PATH_ABSOLUTE:folder}
 references:
 - label: ''
@@ -74,7 +80,6 @@ install:
   commands:
   - choco install dnx
 ---
-
 
 # dnx
 

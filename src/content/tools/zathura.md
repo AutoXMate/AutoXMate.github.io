@@ -2,7 +2,7 @@
 id: system-pdf-zathura
 namespace: system:pdf:zathura
 name: zathura
-description: "Minimalistic PDF/document viewer; can read arbitrary files."
+description: Minimalistic PDF/document viewer; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - zathura
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdout
+- requires-root
 execution:
   template: zathura
   sandbox: execFile
@@ -67,7 +72,6 @@ install:
   commands:
   - apt-get install -y zathura
 ---
-
 
 # zathura
 

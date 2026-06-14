@@ -2,65 +2,66 @@
 id: security-ad-wmiexec
 namespace: security:ad:wmiexec
 name: wmiexec
-description: Impacket tool for semi-interactive remote command execution over Windows Management Instrumentation (WMI) without deploying services or agents.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Impacket tool for semi-interactive remote command execution over Windows
+  Management Instrumentation (WMI) without deploying services or agents.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - security.lateral.wmi
-  - security.execution.remote
-  - security.shell.remote
-  - security.ad.service.control
-  - security.credential.pth
+- security.lateral.wmi
+- security.execution.remote
+- security.shell.remote
+- security.ad.service.control
+- security.credential.pth
 platforms:
-  - linux
-  - cross-platform
+- linux
+- cross-platform
 risk_level: high
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies:
-  - python3
-  - impacket
+- python3
+- impacket
 related_tools:
-  - impacket
-  - psexec
-  - evil-winrm
-  - netexec
+- impacket
+- psexec
+- evil-winrm
+- netexec
 phase: exploitation
 techniques:
-  - execution
-  - lateral-movement
+- execution
+- lateral-movement
 items:
-  - NoCreds
-  - Hash
+- NoCreds
+- Hash
 services:
-  - SMB
-  - RPC
+- SMB
+- RPC
 attack_types:
-  - Execution
-  - LateralMovement
+- Execution
+- LateralMovement
 contract:
   inputs:
-    - type: network.target.ip
-      description: Target Windows host IP
-    - type: credential.username
-      description: Username for authentication
-    - type: credential.password
-      description: Plaintext password or NTLM hash
-    - type: domain.name
-      description: Target domain name
+  - type: network.target.ip
+    description: Target Windows host IP
+  - type: credential.username
+    description: Username for authentication
+  - type: credential.password
+    description: Plaintext password or NTLM hash
+  - type: domain.name
+    description: Target domain name
   outputs:
-    - type: command.output
-      description: Remote command execution output
-      mime: text/plain
-    - type: session.shell
-      description: Semi-interactive shell session
-      mime: text/plain
+  - type: command.output
+    description: Remote command execution output
+    mime: text/plain
+  - type: session.shell
+    description: Semi-interactive shell session
+    mime: text/plain
   side_effects:
-    - network_traffic
-    - process_spawn
+  - network_traffic
+  - process_spawn
   resource_cost:
     cpu: low
     memory_mb: 64
@@ -72,70 +73,74 @@ resource_profile:
   network: low
   disk_io: none
 allowed-tools:
-  - wmiexec
-  - impacket
-  - python3
-  - Bash
-  - execFile
+- wmiexec
+- impacket
+- python3
+- Bash
+- execFile
 parameters:
-  - name: target
-    type: string
-    required: true
-    description: "Target host in format: domain/username:password@host"
-  - name: command
-    type: string
-    required: false
-    description: "Command to execute (if omitted, opens a semi-interactive shell)"
-  - name: flag-share
-    type: string
-    required: false
-    description: "SMB share to use (default: ADMIN$)"
-    aliases:
-      - -share
-  - name: flag-nooutput
-    type: boolean
-    required: false
-    description: "Do not retrieve command output"
-    aliases:
-      - -nooutput
-  - name: flag-comspec
-    type: string
-    required: false
-    description: "Windows cmd.exe path (default: cmd.exe)"
-    aliases:
-      - -comspec
-  - name: flag-silentcommand
-    type: boolean
-    required: false
-    description: "Use silent command mode"
-    aliases:
-      - -silentcommand
+- name: target
+  type: string
+  required: true
+  description: 'Target host in format: domain/username:password@host'
+- name: command
+  type: string
+  required: false
+  description: Command to execute (if omitted, opens a semi-interactive shell)
+- name: flag-share
+  type: string
+  required: false
+  description: 'SMB share to use (default: ADMIN$)'
+  aliases:
+  - -share
+- name: flag-nooutput
+  type: boolean
+  required: false
+  description: Do not retrieve command output
+  aliases:
+  - -nooutput
+- name: flag-comspec
+  type: string
+  required: false
+  description: 'Windows cmd.exe path (default: cmd.exe)'
+  aliases:
+  - -comspec
+- name: flag-silentcommand
+  type: boolean
+  required: false
+  description: Use silent command mode
+  aliases:
+  - -silentcommand
 execution:
-  template: "python3 /usr/share/doc/python3-impacket/examples/wmiexec.py {target} {flags}"
+  template: python3 /usr/share/doc/python3-impacket/examples/wmiexec.py {target} {flags}
   sandbox: execFile
   timeout_seconds: 300
   shell: false
 examples:
-  - description: "Open a semi-interactive shell"
-    command: impacket-wmiexec domain/username:password@10.0.0.1
-  - description: "Execute a single command"
-    command: impacket-wmiexec domain/username:password@10.0.0.1 "whoami"
-  - description: "Execute command with NTLM hash (pass-the-hash)"
-    command: impacket-wmiexec -hashes LM:HASH domain/username@10.0.0.1 "whoami"
-  - description: "Run with local admin account"
-    command: impacket-wmiexec ./administrator:password@10.0.0.1
+- description: Open a semi-interactive shell
+  command: impacket-wmiexec domain/username:password@10.0.0.1
+- description: Execute a single command
+  command: impacket-wmiexec domain/username:password@10.0.0.1 "whoami"
+- description: Execute command with NTLM hash (pass-the-hash)
+  command: impacket-wmiexec -hashes LM:HASH domain/username@10.0.0.1 "whoami"
+- description: Run with local admin account
+  command: impacket-wmiexec ./administrator:password@10.0.0.1
 references:
-  - label: "Impacket GitHub"
-    url: "https://github.com/fortra/impacket"
-  - label: "wmiexec.py Documentation"
-    url: "https://www.secureauth.com/blog/impacket-wmiexec/"
+- label: Impacket GitHub
+  url: https://github.com/fortra/impacket
+- label: wmiexec.py Documentation
+  url: https://www.secureauth.com/blog/impacket-wmiexec/
 install:
-    - method: pip
-      package_name: "impacket"
-      commands:
-        - "pip install impacket"
+- method: pip
+  package_name: impacket
+  commands:
+  - pip install impacket
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- remote
 ---
-
 
 # wmiexec.py — WMI Remote Command Execution
 

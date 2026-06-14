@@ -2,7 +2,8 @@
 id: windows-copy-print
 namespace: windows:copy:print
 name: print
-description: 'Used by Windows to send files to the printer Located at: C:\Windows\System32\print.exe; C:\Windows\SysWOW64\print.exe.'
+description: 'Used by Windows to send files to the printer Located at: C:\Windows\System32\print.exe;
+  C:\Windows\SysWOW64\print.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,12 @@ resource_profile:
 allowed-tools:
 - print
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: print
   sandbox: execFile
@@ -50,11 +56,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Copy file.exe into the Alternate Data Stream (ADS) of file.txt. (Hide binary file in alternate data stream to potentially bypass defensive counter measures)
+- description: Copy file.exe into the Alternate Data Stream (ADS) of file.txt. (Hide
+    binary file in alternate data stream to potentially bypass defensive counter measures)
   command: print /D:{PATH_ABSOLUTE}:file.exe {PATH_ABSOLUTE:.exe}
 - description: Copy file from source to destination (Copy files)
   command: print /D:{PATH_ABSOLUTE:.dest.exe} {PATH_ABSOLUTE:.source.exe}
-- description: Copy File.exe from a network share to the target c:\OutFolder\outfile.exe. (Copy/Download file from remote server)
+- description: Copy File.exe from a network share to the target c:\OutFolder\outfile.exe.
+    (Copy/Download file from remote server)
   command: print /D:{PATH_ABSOLUTE:.dest.exe} {PATH_SMB:.source.exe}
 references:
 - label: '985518877076541440'
@@ -81,7 +89,6 @@ install:
   commands:
   - choco install print
 ---
-
 
 # print
 

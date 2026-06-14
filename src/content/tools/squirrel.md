@@ -2,7 +2,8 @@
 id: windows-execution-squirrel
 namespace: windows:execution:squirrel
 name: squirrel
-description: 'Binary to update the existing installed Nuget/squirrel package. Part of Microsoft Teams installation. Located at: C:\Users\<username>\AppData\Local\Microsoft\Teams\current\Squirrel.exe.'
+description: 'Binary to update the existing installed Nuget/squirrel package. Part
+  of Microsoft Teams installation. Located at: C:\Users\<username>\AppData\Local\Microsoft\Teams\current\Squirrel.exe.'
 author: Reegun J (OCBC Bank) - @reegun21
 version: 1.0.0
 capabilities:
@@ -44,7 +45,12 @@ resource_profile:
 allowed-tools:
 - squirrel
 parameters: []
-features: []
+features:
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: squirrel
   sandbox: execFile
@@ -52,15 +58,20 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: The above binary will go to url and look for RELEASES file and download the nuget package. (Download binary)
+- description: The above binary will go to url and look for RELEASES file and download
+    the nuget package. (Download binary)
   command: squirrel.exe --download {REMOTEURL}
-- description: The above binary will go to url and look for RELEASES file, download and install the nuget package. (Download and execute binary)
+- description: The above binary will go to url and look for RELEASES file, download
+    and install the nuget package. (Download and execute binary)
   command: squirrel.exe --update {REMOTEURL}
-- description: The above binary will go to url and look for RELEASES file, download and install the nuget package. (Download and execute binary)
+- description: The above binary will go to url and look for RELEASES file, download
+    and install the nuget package. (Download and execute binary)
   command: squirrel.exe --update {REMOTEURL}
-- description: The above binary will go to url and look for RELEASES file, download and install the nuget package. (Download and execute binary)
+- description: The above binary will go to url and look for RELEASES file, download
+    and install the nuget package. (Download and execute binary)
   command: squirrel.exe --updateRollback={REMOTEURL}
-- description: The above binary will go to url and look for RELEASES file, download and install the nuget package. (Download and execute binary)
+- description: The above binary will go to url and look for RELEASES file, download
+    and install the nuget package. (Download and execute binary)
   command: squirrel.exe --updateRollback={REMOTEURL}
 references:
 - label: watch?v=rOP3hnkj7ls
@@ -88,7 +99,6 @@ install:
   commands:
   - choco install squirrel
 ---
-
 
 # squirrel
 

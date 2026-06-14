@@ -1,32 +1,38 @@
 ---
 id: windows-kernel-poortry
 namespace: windows:kernel:poortry
-name: "POORTRY.sys"
-description: "Driver categorized as POORTRY by Mandiant."
-author: "Michael Haag"
-version: "1.0.0"
+name: POORTRY.sys
+description: Driver categorized as POORTRY by Mandiant.
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create POORTRY.sys binPath=C:\\windows\\temp\\POORTRY.sys type=kernel && sc.exe start POORTRY.sys"
+  template: sc.exe create POORTRY.sys binPath=C:\windows\temp\POORTRY.sys type=kernel
+    && sc.exe start POORTRY.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load POORTRY.sys kernel driver"
-    commands:
-      - "sc.exe create POORTRY.sys binPath=C:\\windows\\temp\\POORTRY.sys type=kernel && sc.exe start POORTRY.sys"
+- method: custom
+  description: Load POORTRY.sys kernel driver
+  commands:
+  - sc.exe create POORTRY.sys binPath=C:\windows\temp\POORTRY.sys type=kernel && sc.exe
+    start POORTRY.sys
 references:
-  - label: "Reference"
-    url: "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware"
+- label: Reference
+  url: https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware
+features:
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create POORTRY.sys binPath=C:\\\\windows\\\\temp\\\\POORTRY.sys type=kernel && sc.exe start POORTRY.sys"

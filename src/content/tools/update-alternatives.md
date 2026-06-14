@@ -2,7 +2,7 @@
 id: system-alternatives-update-alternatives
 namespace: system:alternatives:update-alternatives
 name: update-alternatives
-description: "Manage symbolic links for default commands; can read arbitrary files."
+description: Manage symbolic links for default commands; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - update-alternatives
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: update-alternatives
   sandbox: execFile
@@ -54,7 +56,8 @@ examples:
 - description: Write to arbitrary files (sudo, suid)
   command: 'echo DATA >/path/to/temp-file
 
-    update-alternatives --force --install /path/to/output-file x /path/to/temp-file 0'
+    update-alternatives --force --install /path/to/output-file x /path/to/temp-file
+    0'
 references:
 - label: GTFOBins
   url: https://gtfobins.github.io/gtfobins/update-alternatives/
@@ -67,7 +70,6 @@ install:
   commands:
   - apt-get install -y dpkg
 ---
-
 
 # update-alternatives
 

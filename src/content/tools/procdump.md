@@ -42,7 +42,9 @@ resource_profile:
 allowed-tools:
 - procdump
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: procdump
   sandbox: execFile
@@ -50,9 +52,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Loads the specified DLL where DLL is configured with a 'MiniDumpCallbackRoutine' exported function. Valid process must be provided as dump still created. (Performs execution of unsigned DLL.)
+- description: Loads the specified DLL where DLL is configured with a 'MiniDumpCallbackRoutine'
+    exported function. Valid process must be provided as dump still created. (Performs
+    execution of unsigned DLL.)
   command: procdump.exe -md {PATH:.dll} explorer.exe
-- description: Loads the specified DLL where configured with DLL_PROCESS_ATTACH execution, process argument can be arbitrary. (Performs execution of unsigned DLL.)
+- description: Loads the specified DLL where configured with DLL_PROCESS_ATTACH execution,
+    process argument can be arbitrary. (Performs execution of unsigned DLL.)
   command: procdump.exe -md {PATH:.dll} foobar
 references:
 - label: 1448588362382778372?s=20
@@ -83,7 +88,6 @@ install:
   commands:
   - choco install procdump
 ---
-
 
 # procdump
 

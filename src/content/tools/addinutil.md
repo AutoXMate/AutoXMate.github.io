@@ -2,7 +2,9 @@
 id: windows-execution-addinutil
 namespace: windows:execution:addinutil
 name: addinutil
-description: '.NET Tool used for updating cache files for Microsoft Office Add-Ins. Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\AddinUtil.exe; C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AddinUtil.exe; C:\Windows\Microsoft.NET\Framework\v3.5\AddInUtil.exe.'
+description: '.NET Tool used for updating cache files for Microsoft Office Add-Ins.
+  Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\AddinUtil.exe; C:\Windows\Microsoft.NET\Framework64\v4.0.30319\AddinUtil.exe;
+  C:\Windows\Microsoft.NET\Framework\v3.5\AddInUtil.exe.'
 author: Michael McKinley @MckinleyMike
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - addinutil
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: addinutil
   sandbox: execFile
@@ -49,7 +55,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: AddinUtil is executed from the directory where the 'Addins.Store' payload exists, AddinUtil will execute the 'Addins.Store' payload. (Proxy execution of malicious serialized payload)
+- description: AddinUtil is executed from the directory where the 'Addins.Store' payload
+    exists, AddinUtil will execute the 'Addins.Store' payload. (Proxy execution of
+    malicious serialized payload)
   command: C:\Windows\Microsoft.NET\Framework\v4.0.30319\AddinUtil.exe -AddinRoot:.
 references:
 - label: addinutil-lolbas.html
@@ -74,7 +82,6 @@ install:
   commands:
   - choco install addinutil
 ---
-
 
 # addinutil
 

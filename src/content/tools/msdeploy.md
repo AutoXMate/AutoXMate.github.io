@@ -2,7 +2,9 @@
 id: windows-execution-msdeploy
 namespace: windows:execution:msdeploy
 name: msdeploy
-description: 'Microsoft tool used to deploy Web Applications. Located at: C:\Program Files\IIS\Microsoft Web Deploy V2\msdeploy.exe; C:\Program Files (x86)\IIS\Microsoft Web Deploy V2\msdeploy.exe; C:\Program Files\IIS\Microsoft Web Deploy V3\msdeploy.exe.'
+description: 'Microsoft tool used to deploy Web Applications. Located at: C:\Program
+  Files\IIS\Microsoft Web Deploy V2\msdeploy.exe; C:\Program Files (x86)\IIS\Microsoft
+  Web Deploy V2\msdeploy.exe; C:\Program Files\IIS\Microsoft Web Deploy V3\msdeploy.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -44,7 +46,12 @@ resource_profile:
 allowed-tools:
 - msdeploy
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: msdeploy
   sandbox: execFile
@@ -52,9 +59,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch .bat file via msdeploy.exe. (Local execution of batch file using msdeploy.exe.)
+- description: Launch .bat file via msdeploy.exe. (Local execution of batch file using
+    msdeploy.exe.)
   command: msdeploy.exe -verb:sync -source:RunCommand -dest:runCommand="{PATH_ABSOLUTE:.bat}"
-- description: Launch .bat file via msdeploy.exe. (Local execution of batch file using msdeploy.exe.)
+- description: Launch .bat file via msdeploy.exe. (Local execution of batch file using
+    msdeploy.exe.)
   command: msdeploy.exe -verb:sync -source:RunCommand -dest:runCommand="{PATH_ABSOLUTE:.bat}"
 - description: Copy file from source to destination. (Copy file.)
   command: msdeploy.exe -verb:sync -source:filePath={PATH_ABSOLUTE:.source.ext} -dest:filePath={PATH_ABSOLUTE:.dest.ext}
@@ -80,7 +89,6 @@ install:
   commands:
   - choco install msdeploy
 ---
-
 
 # msdeploy
 

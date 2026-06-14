@@ -2,7 +2,9 @@
 id: windows-execution-adplus
 namespace: windows:execution:adplus
 name: adplus
-description: 'Debugging tool included with Windows Debugging Tools Located at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\adplus.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\adplus.exe.'
+description: 'Debugging tool included with Windows Debugging Tools Located at: C:\Program
+  Files (x86)\Windows Kits\10\Debuggers\x64\adplus.exe; C:\Program Files (x86)\Windows
+  Kits\10\Debuggers\x86\adplus.exe.'
 author: mr.d0x
 version: 1.0.0
 capabilities:
@@ -42,7 +44,11 @@ resource_profile:
 allowed-tools:
 - adplus
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: adplus
   sandbox: execFile
@@ -50,13 +56,18 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Creates a memory dump of the lsass process (Create memory dump and parse it offline)
+- description: Creates a memory dump of the lsass process (Create memory dump and
+    parse it offline)
   command: adplus.exe -hang -pn lsass.exe -o {PATH_ABSOLUTE:folder} -quiet
-- description: Execute arbitrary commands using adplus config file (see Resources section for a sample file). (Run commands under a trusted Microsoft signed binary)
+- description: Execute arbitrary commands using adplus config file (see Resources
+    section for a sample file). (Run commands under a trusted Microsoft signed binary)
   command: adplus.exe -c {PATH:.xml}
-- description: Dump process memory using adplus config file (see Resources section for a sample file). (Run commands under a trusted Microsoft signed binary)
+- description: Dump process memory using adplus config file (see Resources section
+    for a sample file). (Run commands under a trusted Microsoft signed binary)
   command: adplus.exe -c {PATH:.xml}
-- description: Execute arbitrary commands and binaries from the context of adplus. Note that providing an output directory via '-o' is required. (Run commands under a trusted Microsoft signed binary)
+- description: Execute arbitrary commands and binaries from the context of adplus.
+    Note that providing an output directory via '-o' is required. (Run commands under
+    a trusted Microsoft signed binary)
   command: adplus.exe -crash -o "{PATH_ABSOLUTE:folder}" -sc {PATH:.exe}
 references:
 - label: ''
@@ -83,7 +94,6 @@ install:
   commands:
   - choco install adplus
 ---
-
 
 # adplus
 

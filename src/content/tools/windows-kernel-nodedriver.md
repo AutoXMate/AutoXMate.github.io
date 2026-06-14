@@ -1,32 +1,39 @@
 ---
 id: windows-kernel-nodedriver
 namespace: windows:kernel:nodedriver
-name: "NodeDriver.sys"
-description: "Driver categorized as POORTRY by Mandiant."
-author: "Michael Haag"
-version: "1.0.0"
+name: NodeDriver.sys
+description: Driver categorized as POORTRY by Mandiant.
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create NodeDriver.sys binPath=C:\\windows\\temp\\NodeDriver.sys type=kernel && sc.exe start NodeDriver.sys"
+  template: sc.exe create NodeDriver.sys binPath=C:\windows\temp\NodeDriver.sys type=kernel
+    && sc.exe start NodeDriver.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load NodeDriver.sys kernel driver"
-    commands:
-      - "sc.exe create NodeDriver.sys binPath=C:\\windows\\temp\\NodeDriver.sys type=kernel && sc.exe start NodeDriver.sys"
+- method: custom
+  description: Load NodeDriver.sys kernel driver
+  commands:
+  - sc.exe create NodeDriver.sys binPath=C:\windows\temp\NodeDriver.sys type=kernel
+    && sc.exe start NodeDriver.sys
 references:
-  - label: "Reference"
-    url: "https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware"
+- label: Reference
+  url: https://www.mandiant.com/resources/blog/hunting-attestation-signed-malware
+features:
+- interactive
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create NodeDriver.sys binPath=C:\\\\windows\\\\temp\\\\NodeDriver.sys type=kernel && sc.exe start NodeDriver.sys"

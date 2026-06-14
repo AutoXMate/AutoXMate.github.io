@@ -41,7 +41,12 @@ resource_profile:
 allowed-tools:
 - regedit
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: regedit
   sandbox: execFile
@@ -49,9 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Export the target Registry key to the specified .REG file. (Hide registry data in alternate data stream)
+- description: Export the target Registry key to the specified .REG file. (Hide registry
+    data in alternate data stream)
   command: regedit /E {PATH_ABSOLUTE}:regfile.reg HKEY_CURRENT_USER\MyCustomRegKey
-- description: Import the target .REG file into the Registry. (Import hidden registry data from alternate data stream)
+- description: Import the target .REG file into the Registry. (Import hidden registry
+    data from alternate data stream)
   command: regedit {PATH_ABSOLUTE}:regfile.reg
 references:
 - label: cdd2d0d0ec9abb686f0e89306e277b8f
@@ -73,7 +80,6 @@ install:
   commands:
   - choco install regedit
 ---
-
 
 # regedit
 

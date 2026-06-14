@@ -2,7 +2,8 @@
 id: windows-ads-cscript
 namespace: windows:ads:cscript
 name: cscript
-description: 'Binary used to execute scripts in Windows Located at: C:\Windows\System32\cscript.exe; C:\Windows\SysWOW64\cscript.exe.'
+description: 'Binary used to execute scripts in Windows Located at: C:\Windows\System32\cscript.exe;
+  C:\Windows\SysWOW64\cscript.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,13 @@ resource_profile:
 allowed-tools:
 - cscript
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- streaming
 execution:
   template: cscript
   sandbox: execFile
@@ -49,7 +56,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use cscript.exe to exectute a Visual Basic script stored in an Alternate Data Stream (ADS). (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
+- description: Use cscript.exe to exectute a Visual Basic script stored in an Alternate
+    Data Stream (ADS). (Can be used to evade defensive countermeasures or to hide
+    as a persistence mechanism)
   command: cscript //e:vbscript {PATH_ABSOLUTE}:script.vbs
 references:
 - label: cdd2d0d0ec9abb686f0e89306e277b8f
@@ -87,7 +96,6 @@ install:
   commands:
   - choco install cscript
 ---
-
 
 # cscript
 

@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-d3d10-1core
 namespace: windows:dllhijack:d3d10-1core
 name: d3d10_1core.dll
-description: "d3d10_1core.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: d3d10_1core.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "d3d10_1core.dll"
+  template: d3d10_1core.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/d3d10-1core.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/d3d10-1core.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious d3d10_1core.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\d3d10_1core.dll\""

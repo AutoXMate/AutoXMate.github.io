@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - conhost
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: conhost
   sandbox: execFile
@@ -49,9 +51,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute a command line with conhost.exe as parent process (Use conhost.exe as a proxy binary to evade defensive counter-measures)
+- description: Execute a command line with conhost.exe as parent process (Use conhost.exe
+    as a proxy binary to evade defensive counter-measures)
   command: conhost.exe {CMD}
-- description: Execute a command line with conhost.exe as parent process (Specify --headless parameter to hide child process window (if applicable))
+- description: Execute a command line with conhost.exe as parent process (Specify
+    --headless parameter to hide child process window (if applicable))
   command: conhost.exe --headless {CMD}
 references:
 - label: ''
@@ -78,7 +82,6 @@ install:
   commands:
   - choco install conhost
 ---
-
 
 # conhost
 

@@ -2,7 +2,7 @@
 id: dev-tcl-wish
 namespace: dev:tcl:wish
 name: wish
-description: "Tcl/Tk GUI application shell; can inherit Tcl capabilities."
+description: Tcl/Tk GUI application shell; can inherit Tcl capabilities.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - wish
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: wish
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y tk
 ---
-
 
 # wish
 

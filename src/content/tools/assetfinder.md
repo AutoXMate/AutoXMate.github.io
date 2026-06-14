@@ -4,48 +4,48 @@ namespace: security:recon:assetfinder
 name: assetfinder
 description: Command-line tool that finds domains and subdomains potentially related
   to a given domain using passive sources.
-author: "Repository Maintainers"
-version: "1.0.0"
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - network.discovery.subdomain
-  - security.recon.passive
-  - network.discovery.domain
+- network.discovery.subdomain
+- security.recon.passive
+- network.discovery.domain
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - subfinder
-  - amass
-  - findomain
+- subfinder
+- amass
+- findomain
 artifacts:
-  - type: security.recon.domain.list
-    description: List of related domains and subdomains
-    mime: text/plain
-    trust_level: verified
+- type: security.recon.domain.list
+  description: List of related domains and subdomains
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - subdomains
-    - related-domains
+  - subdomains
+  - related-domains
   consumes:
-    - domain
+  - domain
 contract:
   inputs:
-    - type: network.target.domain
-      description: Target domain name
+  - type: network.target.domain
+    description: Target domain name
   outputs:
-    - type: security.recon.domain.list
-      description: Related domains and subdomains
-      mime: text/plain
+  - type: security.recon.domain.list
+    description: Related domains and subdomains
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 32
@@ -57,61 +57,62 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - assetfinder
-  - Bash
-  - execFile
+- assetfinder
+- Bash
+- execFile
 parameters:
-  - name: domain
-    type: string
-    required: true
-    description: "Target domain to find assets for"
-  - name: subs-only
-    type: boolean
-    required: false
-    description: "Only show subdomains, exclude related domains"
-    aliases:
-      - --subs-only
-  - name: flag-f
-    type: boolean
-    required: false
-    description: "Filter out unverified domains"
-    aliases:
-      - -f
-      - --filter
-    default_value: "false"
+- name: domain
+  type: string
+  required: true
+  description: Target domain to find assets for
+- name: subs-only
+  type: boolean
+  required: false
+  description: Only show subdomains, exclude related domains
+  aliases:
+  - --subs-only
+- name: flag-f
+  type: boolean
+  required: false
+  description: Filter out unverified domains
+  aliases:
+  - -f
+  - --filter
+  default_value: 'false'
 execution:
-  template: "assetfinder {domain}"
+  template: assetfinder {domain}
   sandbox: execFile
   timeout_seconds: 120
   shell: false
 global_vars:
   target: domain
-  domain: "example.com"
+  domain: example.com
 examples:
-  - description: "Basic domain asset discovery"
-    command: assetfinder example.com
-  - description: "Show only subdomains (exclude related domains)"
-    command: assetfinder --subs-only example.com
-  - description: "Filter output for verified domains only"
-    command: assetfinder --subs-only example.com | sort -u
+- description: Basic domain asset discovery
+  command: assetfinder example.com
+- description: Show only subdomains (exclude related domains)
+  command: assetfinder --subs-only example.com
+- description: Filter output for verified domains only
+  command: assetfinder --subs-only example.com | sort -u
 references:
-  - label: "Assetfinder GitHub"
-    url: "https://github.com/tomnomnom/assetfinder"
+- label: Assetfinder GitHub
+  url: https://github.com/tomnomnom/assetfinder
 phase: enumeration
 techniques:
-  - discovery
+- discovery
 items:
-  - NoCreds
+- NoCreds
 services: []
 attack_types:
-  - Enumeration
+- Enumeration
 install:
-    - method: go
-      repo_url: "github.com/tomnomnom/assetfinder"
-      commands:
-        - "go install github.com/tomnomnom/assetfinder@latest"
+- method: go
+  repo_url: github.com/tomnomnom/assetfinder
+  commands:
+  - go install github.com/tomnomnom/assetfinder@latest
+features:
+- network-intensive
 ---
-
 
 # Assetfinder — Domain & Subdomain Discovery
 

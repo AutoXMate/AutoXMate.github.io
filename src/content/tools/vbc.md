@@ -2,7 +2,8 @@
 id: windows-compile-vbc
 namespace: windows:compile:vbc
 name: vbc
-description: 'Binary file used for compile vbs code Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\vbc.exe; C:\Windows\Microsoft.NET\Framework\v3.5\vbc.exe; C:\Windows\Microsoft.NET\Framework\v2.0.50727\vbc.exe.'
+description: 'Binary file used for compile vbs code Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\vbc.exe;
+  C:\Windows\Microsoft.NET\Framework\v3.5\vbc.exe; C:\Windows\Microsoft.NET\Framework\v2.0.50727\vbc.exe.'
 author: Lior Adar
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - vbc
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: vbc
   sandbox: execFile
@@ -49,9 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Binary file used by .NET to compile Visual Basic code to an executable. (Compile attacker code on system. Bypass defensive counter measures.)
+- description: Binary file used by .NET to compile Visual Basic code to an executable.
+    (Compile attacker code on system. Bypass defensive counter measures.)
   command: vbc.exe /target:exe {PATH_ABSOLUTE:.vb}
-- description: Binary file used by .NET to compile Visual Basic code to an executable. (Compile attacker code on system. Bypass defensive counter measures.)
+- description: Binary file used by .NET to compile Visual Basic code to an executable.
+    (Compile attacker code on system. Bypass defensive counter measures.)
   command: vbc -reference:Microsoft.VisualBasic.dll {PATH_ABSOLUTE:.vb}
 references: []
 techniques:
@@ -70,7 +77,6 @@ install:
   commands:
   - choco install vbc
 ---
-
 
 # vbc
 

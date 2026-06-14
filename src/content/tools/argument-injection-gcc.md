@@ -3,26 +3,28 @@ trust_level: community
 id: argument-injection-gcc
 namespace: argument:injection:gcc
 name: gcc
-description: "Argument injection via gcc"
-version: "1.0.0"
+description: Argument injection via gcc
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - execution
+- execution
 execution:
-  template: "gcc"
+  template: gcc
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "The `-wrapper` argument invokes all subcommands under a wrapper program."
-    command: "gcc -wrapper /bin/sh,-s .
-"
+- description: The `-wrapper` argument invokes all subcommands under a wrapper program.
+  command: 'gcc -wrapper /bin/sh,-s . '
 references:
-  - label: "GTFOArgs"
-    url: "https://gtfoargs.github.io/gtfoargs/gcc/"
+- label: GTFOArgs
+  url: https://gtfoargs.github.io/gtfoargs/gcc/
+features:
+- pipes-stdin
+- stealth
 ---
 
 # gcc

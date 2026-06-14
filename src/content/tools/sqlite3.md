@@ -2,7 +2,8 @@
 id: database-sqlite-sqlite3
 namespace: database:sqlite:sqlite3
 name: sqlite3
-description: "SQLite3 database command-line interface; can execute queries, read/write files, and spawn shells."
+description: SQLite3 database command-line interface; can execute queries, read/write
+  files, and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -45,7 +46,13 @@ resource_profile:
 allowed-tools:
 - sqlite3
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: sqlite3
   sandbox: execFile
@@ -81,7 +88,6 @@ install:
   commands:
   - apt-get install -y sqlite3
 ---
-
 
 # sqlite3
 

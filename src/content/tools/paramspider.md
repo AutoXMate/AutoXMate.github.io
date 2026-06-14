@@ -2,52 +2,53 @@
 id: security-web-paramspider
 namespace: security:web:paramspider
 name: paramspider
-description: Tool for mining parameters from web archives to discover hidden endpoints, GET/POST parameters, and potential injection points.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Tool for mining parameters from web archives to discover hidden endpoints,
+  GET/POST parameters, and potential injection points.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - web.discovery.endpoint
-  - web.enumeration.parameter
-  - security.recon.passive
-  - web.archive.url
+- web.discovery.endpoint
+- web.enumeration.parameter
+- security.recon.passive
+- web.archive.url
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies:
-  - python3
+- python3
 related_tools:
-  - gau
-  - waybackurls
-  - arjun
-  - katana
+- gau
+- waybackurls
+- arjun
+- katana
 artifacts:
-  - type: crawl.txt
-    description: Discovered parameterized URLs
-    mime: text/plain
-    trust_level: verified
+- type: crawl.txt
+  description: Discovered parameterized URLs
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - param-list
-    - url-list
+  - param-list
+  - url-list
   consumes:
-    - target-domain
+  - target-domain
 contract:
   inputs:
-    - type: network.target.domain
-      description: Target domain to mine parameters from
+  - type: network.target.domain
+    description: Target domain to mine parameters from
   outputs:
-    - type: crawl.txt
-      description: List of URLs with discovered parameters
-      mime: text/plain
+  - type: crawl.txt
+    description: List of URLs with discovered parameters
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 64
@@ -59,88 +60,90 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - paramspider
-  - Bash
-  - execFile
+- paramspider
+- Bash
+- execFile
 parameters:
-  - name: domain
-    type: string
-    required: false
-    description: "Target domain name"
-    aliases:
-      - -d
-      - --domain
-  - name: flag-o
-    type: string
-    required: false
-    description: "Output file path"
-    aliases:
-      - -o
-      - --output
-  - name: flag-level
-    type: string
-    required: false
-    description: "Filter level (high, low)"
-    aliases:
-      - -l
-      - --level
-  - name: flag-exclude
-    type: string
-    required: false
-    description: "Exclude file extensions (comma separated)"
-    aliases:
-      - -e
-      - --exclude
-  - name: flag-priority
-    type: boolean
-    required: false
-    description: "Only show URLs with parameters"
-    aliases:
-      - -p
-      - --priority
-  - name: flag-silent
-    type: boolean
-    required: false
-    description: "Silent mode"
-    aliases:
-      - -s
-      - --silent
+- name: domain
+  type: string
+  required: false
+  description: Target domain name
+  aliases:
+  - -d
+  - --domain
+- name: flag-o
+  type: string
+  required: false
+  description: Output file path
+  aliases:
+  - -o
+  - --output
+- name: flag-level
+  type: string
+  required: false
+  description: Filter level (high, low)
+  aliases:
+  - -l
+  - --level
+- name: flag-exclude
+  type: string
+  required: false
+  description: Exclude file extensions (comma separated)
+  aliases:
+  - -e
+  - --exclude
+- name: flag-priority
+  type: boolean
+  required: false
+  description: Only show URLs with parameters
+  aliases:
+  - -p
+  - --priority
+- name: flag-silent
+  type: boolean
+  required: false
+  description: Silent mode
+  aliases:
+  - -s
+  - --silent
 execution:
-  template: "paramspider {flags} {domain}"
+  template: paramspider {flags} {domain}
   sandbox: execFile
   timeout_seconds: 120
   shell: false
 examples:
-  - description: "Mine parameters for a domain"
-    command: paramspider -d example.com
-  - description: "Mine with custom output file"
-    command: paramspider -d example.com -o results.txt
-  - description: "Exclude image file extensions"
-    command: paramspider -d example.com --exclude png,jpg,gif,css,js
-  - description: "High-level filtering for cleaner results"
-    command: paramspider -d example.com --level high --priority
-  - description: "Silent mode for pipeline"
-    command: paramspider -d example.com --silent | httpx -status-code -title
+- description: Mine parameters for a domain
+  command: paramspider -d example.com
+- description: Mine with custom output file
+  command: paramspider -d example.com -o results.txt
+- description: Exclude image file extensions
+  command: paramspider -d example.com --exclude png,jpg,gif,css,js
+- description: High-level filtering for cleaner results
+  command: paramspider -d example.com --level high --priority
+- description: Silent mode for pipeline
+  command: paramspider -d example.com --silent | httpx -status-code -title
 references:
-  - label: "ParamSpider GitHub"
-    url: "https://github.com/devanshbatham/ParamSpider"
+- label: ParamSpider GitHub
+  url: https://github.com/devanshbatham/ParamSpider
 phase: recon
 techniques:
-  - recon
-  - discovery
+- recon
+- discovery
 items:
-  - NoCreds
+- NoCreds
 services: []
 attack_types:
-  - Enumeration
-  - Discovery
+- Enumeration
+- Discovery
 install:
-    - method: pip
-      package_name: "paramspider"
-      commands:
-        - "pip install paramspider"
+- method: pip
+  package_name: paramspider
+  commands:
+  - pip install paramspider
+features:
+- file-system
+- stealth
 ---
-
 
 # ParamSpider — Web Archive Parameter Mining
 

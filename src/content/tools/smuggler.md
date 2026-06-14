@@ -2,50 +2,51 @@
 id: security-web-smuggler
 namespace: security:web:smuggler
 name: smuggler
-description: HTTP request smuggling scanner that detects and tests for CL.TE, TE.CL, and TE.TE smuggling vulnerabilities in web servers and proxies.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: HTTP request smuggling scanner that detects and tests for CL.TE, TE.CL,
+  and TE.TE smuggling vulnerabilities in web servers and proxies.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - web.smuggle.detect
-  - web.smuggle.cl-te
-  - web.smuggle.te-cl
-  - web.smuggle.te-te
+- web.smuggle.detect
+- web.smuggle.cl-te
+- web.smuggle.te-cl
+- web.smuggle.te-te
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: medium
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies:
-  - python3
+- python3
 related_tools:
-  - burpsuite
-  - nmap
-  - h2csmuggler
+- burpsuite
+- nmap
+- h2csmuggler
 artifacts:
-  - type: web.smuggling.report
-    description: Request smuggling scan results
-    mime: text/plain
-    trust_level: verified
+- type: web.smuggling.report
+  description: Request smuggling scan results
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - smuggling-scan-results
+  - smuggling-scan-results
   consumes:
-    - target-url
+  - target-url
 contract:
   inputs:
-    - type: web.target.url
-      description: Target web server URL
+  - type: web.target.url
+    description: Target web server URL
   outputs:
-    - type: web.smuggling.report
-      description: Scan results with detected smuggling vectors
-      mime: text/plain
+  - type: web.smuggling.report
+    description: Scan results with detected smuggling vectors
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 64
@@ -57,68 +58,70 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - smuggler
-  - python3
-  - Bash
-  - execFile
+- smuggler
+- python3
+- Bash
+- execFile
 parameters:
-  - name: url
-    type: string
-    required: true
-    description: "Target URL"
-    aliases:
-      - -u
-      - --url
-  - name: flag-no-color
-    type: boolean
-    required: false
-    description: "Disable colored output"
-    aliases:
-      - --no-color
-  - name: flag-timeout
-    type: integer
-    required: false
-    description: "Request timeout in seconds"
-    aliases:
-      - --timeout
-  - name: flag-methods
-    type: boolean
-    required: false
-    description: "Check HTTP method-based smuggling"
-    aliases:
-      - --methods
+- name: url
+  type: string
+  required: true
+  description: Target URL
+  aliases:
+  - -u
+  - --url
+- name: flag-no-color
+  type: boolean
+  required: false
+  description: Disable colored output
+  aliases:
+  - --no-color
+- name: flag-timeout
+  type: integer
+  required: false
+  description: Request timeout in seconds
+  aliases:
+  - --timeout
+- name: flag-methods
+  type: boolean
+  required: false
+  description: Check HTTP method-based smuggling
+  aliases:
+  - --methods
 execution:
-  template: "smuggler {flag-no-color} {flag-methods} {flag-timeout} -u {url}"
+  template: smuggler {flag-no-color} {flag-methods} {flag-timeout} -u {url}
   sandbox: execFile
   timeout_seconds: 120
   shell: false
 examples:
-  - description: "Basic smuggling scan"
-    command: smuggler -u https://example.com
-  - description: "Scan with extended timeout"
-    command: smuggler -u https://example.com --timeout 10
-  - description: "Check method-based smuggling"
-    command: smuggler -u https://example.com --methods
+- description: Basic smuggling scan
+  command: smuggler -u https://example.com
+- description: Scan with extended timeout
+  command: smuggler -u https://example.com --timeout 10
+- description: Check method-based smuggling
+  command: smuggler -u https://example.com --methods
 references:
-  - label: "Smuggler GitHub"
-    url: "https://github.com/defparam/smuggler"
+- label: Smuggler GitHub
+  url: https://github.com/defparam/smuggler
 phase: exploitation
 techniques:
-  - execution
-  - discovery
+- execution
+- discovery
 items:
-  - NoCreds
+- NoCreds
 services:
-  - HTTP
+- HTTP
 attack_types:
-  - Exploitation
+- Exploitation
 install:
-    - method: git
-      repo_url: "https://github.com/defparam/smuggler.git"
-      commands:
-        - "git clone https://github.com/defparam/smuggler.git"
+- method: git
+  repo_url: https://github.com/defparam/smuggler.git
+  commands:
+  - git clone https://github.com/defparam/smuggler.git
+features:
+- network-intensive
+- remote
 ---
-
 
 # Smuggler — HTTP Request Smuggling Scanner
 

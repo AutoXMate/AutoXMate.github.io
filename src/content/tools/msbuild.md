@@ -2,7 +2,8 @@
 id: windows-execution-msbuild
 namespace: windows:execution:msbuild
 name: msbuild
-description: 'Used to compile and execute code Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\Msbuild.exe; C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Msbuild.exe; C:\Windows\Microsoft.NET\Framework\v3.5\Msbuild.exe.'
+description: 'Used to compile and execute code Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\Msbuild.exe;
+  C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Msbuild.exe; C:\Windows\Microsoft.NET\Framework\v3.5\Msbuild.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,11 @@ resource_profile:
 allowed-tools:
 - msbuild
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- stealth
 execution:
   template: msbuild
   sandbox: execFile
@@ -50,15 +55,22 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Build and execute a C# project stored in the target XML file. (Compile and run code)
+- description: Build and execute a C# project stored in the target XML file. (Compile
+    and run code)
   command: msbuild.exe {PATH:.xml}
-- description: Build and execute a C# project stored in the target csproj file. (Compile and run code)
+- description: Build and execute a C# project stored in the target csproj file. (Compile
+    and run code)
   command: msbuild.exe {PATH:.csproj}
-- description: Executes generated Logger DLL file with TargetLogger export. (Execute DLL)
+- description: Executes generated Logger DLL file with TargetLogger export. (Execute
+    DLL)
   command: msbuild.exe /logger:TargetLogger,{PATH_ABSOLUTE:.dll};MyParameters,Foo
-- description: Execute JScript/VBScript code through XML/XSL Transformation. Requires Visual Studio MSBuild v14.0+. (Execute project file that contains XslTransformation tag parameters)
+- description: Execute JScript/VBScript code through XML/XSL Transformation. Requires
+    Visual Studio MSBuild v14.0+. (Execute project file that contains XslTransformation
+    tag parameters)
   command: msbuild.exe {PATH:.proj}
-- description: By putting any valid msbuild.exe command-line options in an RSP file and calling it as above will interpret the options as if they were passed on the command line. (Bypass command-line based detections)
+- description: By putting any valid msbuild.exe command-line options in an RSP file
+    and calling it as above will interpret the options as if they were passed on the
+    command line. (Bypass command-line based detections)
   command: msbuild.exe @{PATH:.rsp}
 references:
 - label: T1127.md
@@ -116,7 +128,6 @@ install:
   commands:
   - choco install msbuild
 ---
-
 
 # msbuild
 

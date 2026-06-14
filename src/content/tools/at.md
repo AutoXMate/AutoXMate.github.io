@@ -2,7 +2,8 @@
 id: system-scheduler-at
 namespace: system:scheduler:at
 name: at
-description: Job scheduler for one-time task execution; can execute arbitrary commands and spawn shells Can also execute arbitrary commands, spawn an interactive shell.
+description: Job scheduler for one-time task execution; can execute arbitrary commands
+  and spawn shells Can also execute arbitrary commands, spawn an interactive shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,11 @@ resource_profile:
 allowed-tools:
 - at
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: at
   sandbox: execFile
@@ -68,7 +73,6 @@ install:
   commands:
   - apt-get install -y at
 ---
-
 
 # at
 

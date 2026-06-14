@@ -2,42 +2,43 @@
 id: security-exploit-searchsploit
 namespace: security:exploit:searchsploit
 name: searchsploit
-description: Command-line search tool for the Exploit-DB archive, enabling offline searching of exploits and shellcode.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Command-line search tool for the Exploit-DB archive, enabling offline
+  searching of exploits and shellcode.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - exploit.search
-  - vulnerability.lookup
-  - exploitdb.query
+- exploit.search
+- vulnerability.lookup
+- exploitdb.query
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - metasploit
-  - exploit-db
+- metasploit
+- exploit-db
 workflow_edges:
   produces:
-    - exploit-paths
-    - exploit-details
+  - exploit-paths
+  - exploit-details
   consumes:
-    - search-term
-    - cve-id
+  - search-term
+  - cve-id
 contract:
   inputs:
-    - type: query.string
-      description: Search term or CVE ID to look up
+  - type: query.string
+    description: Search term or CVE ID to look up
   outputs:
-    - type: exploit.paths
-      description: Local file paths to matching exploits
-      mime: text/plain
+  - type: exploit.paths
+    description: Local file paths to matching exploits
+    mime: text/plain
   side_effects: []
   resource_cost:
     cpu: low
@@ -50,131 +51,134 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - searchsploit
-  - Bash
-  - execFile
+- searchsploit
+- Bash
+- execFile
 parameters:
-  - name: search-term
-    type: string
-    required: true
-    description: "Search term, CVE ID, or exploit title"
-    aliases: []
-  - name: flag-c
-    type: boolean
-    required: false
-    description: "Case-sensitive search"
-    aliases:
-      - -c
-      - --case
-  - name: flag-e
-    type: boolean
-    required: false
-    description: "Exact match search"
-    aliases:
-      - -e
-      - --exact
-  - name: flag-w
-    type: boolean
-    required: false
-    description: "Show URLs to Exploit-DB"
-    aliases:
-      - -w
-      - --www
-  - name: flag-t
-    type: string
-    required: false
-    description: "Filter by type (dos, local, remote, webapps, shellcode, poc)"
-    aliases:
-      - -t
-      - --type
-  - name: flag-p
-    type: boolean
-    required: false
-    description: "Show full path to exploit file"
-    aliases:
-      - -p
-      - --path
-  - name: flag-j
-    type: boolean
-    required: false
-    description: "Output results in JSON"
-    aliases:
-      - -j
-      - --json
-  - name: flag-id
-    type: string
-    required: false
-    description: "Show details for specific EDB-ID"
-    aliases:
-      - --id
-  - name: flag-title
-    type: boolean
-    required: false
-    description: "Display titles only"
-    aliases:
-      - --title
-  - name: flag-url
-    type: boolean
-    required: false
-    description: "Show Exploit-DB URLs (same as -w)"
-    aliases:
-      - --url
-  - name: flag-nmap
-    type: string
-    required: false
-    description: "Search using Nmap service version output"
-    aliases:
-      - --nmap
-  - name: flag-update
-    type: boolean
-    required: false
-    description: "Update exploit database"
-    aliases:
-      - --update
+- name: search-term
+  type: string
+  required: true
+  description: Search term, CVE ID, or exploit title
+  aliases: []
+- name: flag-c
+  type: boolean
+  required: false
+  description: Case-sensitive search
+  aliases:
+  - -c
+  - --case
+- name: flag-e
+  type: boolean
+  required: false
+  description: Exact match search
+  aliases:
+  - -e
+  - --exact
+- name: flag-w
+  type: boolean
+  required: false
+  description: Show URLs to Exploit-DB
+  aliases:
+  - -w
+  - --www
+- name: flag-t
+  type: string
+  required: false
+  description: Filter by type (dos, local, remote, webapps, shellcode, poc)
+  aliases:
+  - -t
+  - --type
+- name: flag-p
+  type: boolean
+  required: false
+  description: Show full path to exploit file
+  aliases:
+  - -p
+  - --path
+- name: flag-j
+  type: boolean
+  required: false
+  description: Output results in JSON
+  aliases:
+  - -j
+  - --json
+- name: flag-id
+  type: string
+  required: false
+  description: Show details for specific EDB-ID
+  aliases:
+  - --id
+- name: flag-title
+  type: boolean
+  required: false
+  description: Display titles only
+  aliases:
+  - --title
+- name: flag-url
+  type: boolean
+  required: false
+  description: Show Exploit-DB URLs (same as -w)
+  aliases:
+  - --url
+- name: flag-nmap
+  type: string
+  required: false
+  description: Search using Nmap service version output
+  aliases:
+  - --nmap
+- name: flag-update
+  type: boolean
+  required: false
+  description: Update exploit database
+  aliases:
+  - --update
 execution:
-  template: "searchsploit {search-term}"
+  template: searchsploit {search-term}
   sandbox: execFile
   timeout_seconds: 60
   shell: false
 global_vars:
-  search-term: "eternalblue"
+  search-term: eternalblue
 examples:
-  - description: "Search for EternalBlue exploits"
-    command: searchsploit eternalblue
-  - description: "Search by CVE ID"
-    command: searchsploit CVE-2021-41773
-  - description: "Exact match search"
-    command: searchsploit -e Apache 2.4.49
-  - description: "Show full local paths"
-    command: searchsploit -p 48191
-  - description: "Filter by type (webapps)"
-    command: searchsploit -t webapps Wordpress
-  - description: "Show Exploit-DB URLs and JSON output"
-    command: searchsploit -w -j eternalblue
-  - description: "Search by Nmap service version"
-    command: searchsploit --nmap file.xml
-  - description: "Update local exploit database"
-    command: searchsploit --update
+- description: Search for EternalBlue exploits
+  command: searchsploit eternalblue
+- description: Search by CVE ID
+  command: searchsploit CVE-2021-41773
+- description: Exact match search
+  command: searchsploit -e Apache 2.4.49
+- description: Show full local paths
+  command: searchsploit -p 48191
+- description: Filter by type (webapps)
+  command: searchsploit -t webapps Wordpress
+- description: Show Exploit-DB URLs and JSON output
+  command: searchsploit -w -j eternalblue
+- description: Search by Nmap service version
+  command: searchsploit --nmap file.xml
+- description: Update local exploit database
+  command: searchsploit --update
 references:
-  - label: "Exploit-DB"
-    url: "https://www.exploit-db.com/"
-  - label: "Searchsploit manual"
-    url: "https://www.exploit-db.com/searchsploit"
+- label: Exploit-DB
+  url: https://www.exploit-db.com/
+- label: Searchsploit manual
+  url: https://www.exploit-db.com/searchsploit
 phase: enumeration
 techniques:
-  - discovery
-  - enumeration
-  - recon
+- discovery
+- enumeration
+- recon
 items:
-  - NoCreds
+- NoCreds
 services: []
 attack_types:
-  - Discovery
+- Discovery
 install:
-    - method: apt
-      package_name: "exploitdb"
-      commands:
-        - "apt-get install -y exploitdb"
+- method: apt
+  package_name: exploitdb
+  commands:
+  - apt-get install -y exploitdb
+features:
+- file-system
+- interactive
 ---
 
 # SearchSploit — Exploit-DB Command-Line Search Tool

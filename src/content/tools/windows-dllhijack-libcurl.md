@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-libcurl
 namespace: windows:dllhijack:libcurl
 name: libcurl.dll
-description: "libcurl.dll — Sideloading hijacking (curl)"
-author: "Still Hsu"
-version: "1.0.0"
+description: libcurl.dll — Sideloading hijacking (curl)
+author: Still Hsu
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "libcurl.dll"
+  template: libcurl.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://www.virustotal.com/gui/file/d1e44e4224899cb160a92f4c7f4f042b10ae0ee3fc16bbe457ad32e8b1527ed5"
-  - label: "Reference"
-    url: "https://www.virustotal.com/gui/file/dd0c2d79fef0cf5e2d32dcdd661d6ba0a6e9901ffe047fad2d081bbc28daad2c"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/libcurl.html"
+- label: Reference
+  url: https://www.virustotal.com/gui/file/d1e44e4224899cb160a92f4c7f4f042b10ae0ee3fc16bbe457ad32e8b1527ed5
+- label: Reference
+  url: https://www.virustotal.com/gui/file/dd0c2d79fef0cf5e2d32dcdd661d6ba0a6e9901ffe047fad2d081bbc28daad2c
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/libcurl.html
+features:
+- network-intensive
 ---
+
 examples:
   - description: "Place malicious libcurl.dll in the search order location"
     command: "copy malicious.dll \"%PROGRAMFILES%\\Notepad++\\updater\\libcurl.dll\""

@@ -2,7 +2,9 @@
 id: windows-execution-xbootmgr
 namespace: windows:execution:xbootmgr
 name: xbootmgr
-description: 'Windows Performance Toolkit binary used to start performance traces. Located at: C:\Program Files\Windows Kits\10\Windows Performance Toolkit\xbootmgr.exe; C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\xbootmgr.exe.'
+description: 'Windows Performance Toolkit binary used to start performance traces.
+  Located at: C:\Program Files\Windows Kits\10\Windows Performance Toolkit\xbootmgr.exe;
+  C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\xbootmgr.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,12 @@ resource_profile:
 allowed-tools:
 - xbootmgr
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: xbootmgr
   sandbox: execFile
@@ -49,10 +56,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes an executable after the trace is complete using the callBack parameter. (Executes code as part of post-trace automation flow.)
-  command: xbootmgr.exe -trace "{boot|hibernate|standby|shutdown|rebootCycle}" -callBack {PATH:.exe}
-- description: Executes an executable before each trace run using the preTraceCmd parameter. (Executes code as part of pre-trace automation or staging.)
-  command: xbootmgr.exe -trace "{boot|hibernate|standby|shutdown|rebootCycle}" -preTraceCmd {PATH:.exe}
+- description: Executes an executable after the trace is complete using the callBack
+    parameter. (Executes code as part of post-trace automation flow.)
+  command: xbootmgr.exe -trace "{boot|hibernate|standby|shutdown|rebootCycle}" -callBack
+    {PATH:.exe}
+- description: Executes an executable before each trace run using the preTraceCmd
+    parameter. (Executes code as part of pre-trace automation or staging.)
+  command: xbootmgr.exe -trace "{boot|hibernate|standby|shutdown|rebootCycle}" -preTraceCmd
+    {PATH:.exe}
 references:
 - label: reference
   url: https://learn.microsoft.com/en-us/previous-versions/windows/desktop/xperf/reference
@@ -68,7 +79,6 @@ install:
   commands:
   - choco install xbootmgr
 ---
-
 
 # xbootmgr
 

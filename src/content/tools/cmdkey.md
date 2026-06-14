@@ -2,7 +2,8 @@
 id: windows-credential-cmdkey
 namespace: windows:credential:cmdkey
 name: cmdkey
-description: 'creates, lists, and deletes stored user names and passwords or credentials. Located at: C:\Windows\System32\cmdkey.exe; C:\Windows\SysWOW64\cmdkey.exe.'
+description: 'creates, lists, and deletes stored user names and passwords or credentials.
+  Located at: C:\Windows\System32\cmdkey.exe; C:\Windows\SysWOW64\cmdkey.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,8 @@ resource_profile:
 allowed-tools:
 - cmdkey
 parameters: []
-features: []
+features:
+- pipes-stdout
 execution:
   template: cmdkey
   sandbox: execFile
@@ -70,7 +72,6 @@ install:
   commands:
   - choco install cmdkey
 ---
-
 
 # cmdkey
 

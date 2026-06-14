@@ -2,7 +2,8 @@
 id: windows-execution-runscripthelper
 namespace: windows:execution:runscripthelper
 name: runscripthelper
-description: 'Execute target PowerShell script Located at: C:\Windows\WinSxS\amd64_microsoft-windows-u..ed-telemetry-client_31bf3856ad364e35_10.0.16299.15_none_c2df1bba78111118\Runscripthelper.exe; C:\Windows\WinSxS\amd64_microsoft-windows-u..ed-telemetry-client_31bf3856ad364e35_10.0.16299.192_none_ad4699b571e00c4a\Runscripthelper.exe.'
+description: 'Execute target PowerShell script Located at: C:\Windows\WinSxS\amd64_microsoft-windows-u..ed-telemetry-client_31bf3856ad364e35_10.0.16299.15_none_c2df1bba78111118\Runscripthelper.exe;
+  C:\Windows\WinSxS\amd64_microsoft-windows-u..ed-telemetry-client_31bf3856ad364e35_10.0.16299.192_none_ad4699b571e00c4a\Runscripthelper.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,14 @@ resource_profile:
 allowed-tools:
 - runscripthelper
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- interactive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: runscripthelper
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute the PowerShell script with .txt extension (Bypass constrained language mode and execute Powershell script)
+- description: Execute the PowerShell script with .txt extension (Bypass constrained
+    language mode and execute Powershell script)
   command: runscripthelper.exe surfacecheck \\?\{PATH_ABSOLUTE:.txt} {PATH_ABSOLUTE:folder}
 references:
 - label: bypassing-application-whitelisting-with-runscripth
@@ -74,7 +83,6 @@ install:
   commands:
   - choco install runscripthelper
 ---
-
 
 # runscripthelper
 

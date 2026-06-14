@@ -2,7 +2,9 @@
 id: windows-execution-remote
 namespace: windows:execution:remote
 name: remote
-description: 'Debugging tool included with Windows Debugging Tools Located at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\remote.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\remote.exe.'
+description: 'Debugging tool included with Windows Debugging Tools Located at: C:\Program
+  Files (x86)\Windows Kits\10\Debuggers\x64\remote.exe; C:\Program Files (x86)\Windows
+  Kits\10\Debuggers\x86\remote.exe.'
 author: mr.d0x
 version: 1.0.0
 capabilities:
@@ -42,7 +44,13 @@ resource_profile:
 allowed-tools:
 - remote
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- remote
+- stealth
 execution:
   template: remote
   sandbox: execFile
@@ -50,11 +58,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Spawns specified executable as a child process of remote.exe (Executes a process under a trusted Microsoft signed binary)
+- description: Spawns specified executable as a child process of remote.exe (Executes
+    a process under a trusted Microsoft signed binary)
   command: Remote.exe /s {PATH:.exe} anythinghere
-- description: Spawns specified executable as a child process of remote.exe (Executes a process under a trusted Microsoft signed binary)
+- description: Spawns specified executable as a child process of remote.exe (Executes
+    a process under a trusted Microsoft signed binary)
   command: Remote.exe /s {PATH:.exe} anythinghere
-- description: Run a remote file (Executing a remote binary without saving file to disk)
+- description: Run a remote file (Executing a remote binary without saving file to
+    disk)
   command: Remote.exe /s {PATH_SMB:.exe} anythinghere
 references:
 - label: ''
@@ -75,7 +86,6 @@ install:
   commands:
   - choco install remote
 ---
-
 
 # remote
 

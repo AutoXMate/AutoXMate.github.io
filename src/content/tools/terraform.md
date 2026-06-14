@@ -2,7 +2,7 @@
 id: dev-infra-terraform
 namespace: dev:infra:terraform
 name: terraform
-description: "Infrastructure-as-code provisioning tool; can spawn a shell."
+description: Infrastructure-as-code provisioning tool; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - terraform
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- process-manip
 execution:
   template: terraform
   sandbox: execFile
@@ -66,7 +70,6 @@ install:
   commands:
   - apt-get install -y terraform
 ---
-
 
 # terraform
 

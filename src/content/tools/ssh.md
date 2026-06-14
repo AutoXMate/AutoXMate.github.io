@@ -2,7 +2,9 @@
 id: network-ssh-ssh
 namespace: network:ssh:ssh
 name: ssh
-description: Secure Shell client; can execute remote commands, read/write files, transfer data, and spawn shells Can also download files, read arbitrary files, spawn an interactive shell, upload files.
+description: Secure Shell client; can execute remote commands, read/write files, transfer
+  data, and spawn shells Can also download files, read arbitrary files, spawn an interactive
+  shell, upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -46,7 +48,15 @@ resource_profile:
 allowed-tools:
 - ssh
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- pipes-stdin
+- process-manip
+- remote
+- requires-root
 execution:
   template: ssh
   sandbox: execFile
@@ -80,7 +90,6 @@ install:
   commands:
   - apt-get install -y openssh-client
 ---
-
 
 # ssh
 

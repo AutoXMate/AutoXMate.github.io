@@ -41,7 +41,10 @@ resource_profile:
 allowed-tools:
 - provlaunch
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: provlaunch
   sandbox: execFile
@@ -49,7 +52,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes command defined in the Registry. Requires 3 levels of the key structure containing some keywords. Such keys may be created with two reg.exe commands, e.g. `reg.exe add HKLM\SOFTWARE\Microsoft\Provisioning\Commands\LOLBin\dummy1 /v altitude /t REG_DWORD /d 0` and `reg add HKLM\SOFTWARE\Microsoft\Provisioning\Commands\LOLBin\dummy1\dummy2 /v Commandline /d calc.exe`. Registry keys are deleted after successful execution. (Executes arbitrary command)
+- description: Executes command defined in the Registry. Requires 3 levels of the
+    key structure containing some keywords. Such keys may be created with two reg.exe
+    commands, e.g. `reg.exe add HKLM\SOFTWARE\Microsoft\Provisioning\Commands\LOLBin\dummy1
+    /v altitude /t REG_DWORD /d 0` and `reg add HKLM\SOFTWARE\Microsoft\Provisioning\Commands\LOLBin\dummy1\dummy2
+    /v Commandline /d calc.exe`. Registry keys are deleted after successful execution.
+    (Executes arbitrary command)
   command: provlaunch.exe LOLBin
 references:
 - label: '1674399582162153472'
@@ -71,14 +79,14 @@ detections:
 - type: ioc
   description: c:\windows\system32\provlaunch.exe executions
 - type: ioc
-  description: Creation/existence of HKLM\SOFTWARE\Microsoft\Provisioning\Commands subkeys
+  description: Creation/existence of HKLM\SOFTWARE\Microsoft\Provisioning\Commands
+    subkeys
 install:
 - method: choco
   package_name: provlaunch
   commands:
   - choco install provlaunch
 ---
-
 
 # provlaunch
 

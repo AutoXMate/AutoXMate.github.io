@@ -2,7 +2,7 @@
 id: system-daemon-start-stop-daemon
 namespace: system:daemon:start-stop-daemon
 name: start-stop-daemon
-description: "Start and stop system daemons; can spawn a shell."
+description: Start and stop system daemons; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - start-stop-daemon
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- interactive
+- process-manip
+- requires-root
 execution:
   template: start-stop-daemon
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y dpkg
 ---
-
 
 # start-stop-daemon
 

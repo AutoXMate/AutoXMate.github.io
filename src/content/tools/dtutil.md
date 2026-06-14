@@ -2,7 +2,9 @@
 id: windows-copy-dtutil
 namespace: windows:copy:dtutil
 name: dtutil
-description: 'Microsoft command line utility used to manage SQL Server Integration Services packages. Located at: C:\Program Files\Microsoft SQL Server\<version>\DTS\Binn\dtutil.exe; C:\Program Files (x86)\Microsoft SQL Server\<version>\DTS\Binn\dtutil.exe.'
+description: 'Microsoft command line utility used to manage SQL Server Integration
+  Services packages. Located at: C:\Program Files\Microsoft SQL Server\<version>\DTS\Binn\dtutil.exe;
+  C:\Program Files (x86)\Microsoft SQL Server\<version>\DTS\Binn\dtutil.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,13 @@ resource_profile:
 allowed-tools:
 - dtutil
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: dtutil
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Copy file from source to destination (Use to copies the source file to the destination file)
+- description: Copy file from source to destination (Use to copies the source file
+    to the destination file)
   command: dtutil.exe /FILE {PATH_ABSOLUTE:.source.ext} /COPY FILE;{PATH_ABSOLUTE:.dest.ext}
 references:
 - label: dtutil-utility?view=sql-server-ver16
@@ -66,7 +75,6 @@ install:
   commands:
   - choco install dtutil
 ---
-
 
 # dtutil
 

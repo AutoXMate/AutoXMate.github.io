@@ -2,7 +2,7 @@
 id: network-ssh-tmate
 namespace: network:ssh:tmate
 name: tmate
-description: "Instant terminal sharing over SSH; can spawn a shell."
+description: Instant terminal sharing over SSH; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - tmate
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- network-intensive
+- process-manip
+- requires-root
 execution:
   template: tmate
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y tmate
 ---
-
 
 # tmate
 

@@ -41,7 +41,10 @@ resource_profile:
 allowed-tools:
 - wuauclt
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: wuauclt
   sandbox: execFile
@@ -49,7 +52,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Loads and executes DLL code on attach. (Execute dll via attach/detach methods)
+- description: Loads and executes DLL code on attach. (Execute dll via attach/detach
+    methods)
   command: wuauclt.exe /UpdateDeploymentProvider {PATH_ABSOLUTE:.dll} /RunHandlerComServer
 references:
 - label: ''
@@ -76,7 +80,6 @@ install:
   commands:
   - choco install wuauclt
 ---
-
 
 # wuauclt
 

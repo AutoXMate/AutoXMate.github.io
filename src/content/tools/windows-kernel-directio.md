@@ -1,29 +1,34 @@
 ---
 id: windows-kernel-directio
 namespace: windows:kernel:directio
-name: "DirectIo.sys"
-description: "Elevate privileges"
-author: "Nasreddine Bencherchali"
-version: "1.0.0"
+name: DirectIo.sys
+description: Elevate privileges
+author: Nasreddine Bencherchali
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create DirectIo.sys binPath=C:\\windows\\temp\\DirectIo.sys type=kernel && sc.exe start DirectIo.sys"
+  template: sc.exe create DirectIo.sys binPath=C:\windows\temp\DirectIo.sys type=kernel
+    && sc.exe start DirectIo.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load DirectIo.sys kernel driver"
-    commands:
-      - "sc.exe create DirectIo.sys binPath=C:\\windows\\temp\\DirectIo.sys type=kernel && sc.exe start DirectIo.sys"
+- method: custom
+  description: Load DirectIo.sys kernel driver
+  commands:
+  - sc.exe create DirectIo.sys binPath=C:\windows\temp\DirectIo.sys type=kernel &&
+    sc.exe start DirectIo.sys
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create DirectIo.sys binPath=C:\\\\windows\\\\temp\\\\DirectIo.sys type=kernel && sc.exe start DirectIo.sys"

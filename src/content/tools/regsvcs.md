@@ -2,7 +2,9 @@
 id: windows-execution-regsvcs
 namespace: windows:execution:regsvcs
 name: regsvcs
-description: 'Regsvcs and Regasm are Windows command-line utilities that are used to register .NET Component Object Model (COM) assemblies Located at: C:\Windows\Microsoft.NET\Framework64\v2.0.50727\RegSvcs.exe; C:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegSvcs.exe; C:\Windows\Microsoft.NET\Framework\v2.0.50727\RegSvcs.exe.'
+description: 'Regsvcs and Regasm are Windows command-line utilities that are used
+  to register .NET Component Object Model (COM) assemblies Located at: C:\Windows\Microsoft.NET\Framework64\v2.0.50727\RegSvcs.exe;
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\RegSvcs.exe; C:\Windows\Microsoft.NET\Framework\v2.0.50727\RegSvcs.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +44,10 @@ resource_profile:
 allowed-tools:
 - regsvcs
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: regsvcs
   sandbox: execFile
@@ -50,9 +55,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Loads the target .NET DLL file and executes the RegisterClass function. (Execute dll file and bypass Application whitelisting)
+- description: Loads the target .NET DLL file and executes the RegisterClass function.
+    (Execute dll file and bypass Application whitelisting)
   command: regsvcs.exe {PATH:.dll}
-- description: Loads the target .NET DLL file and executes the RegisterClass function. (Execute dll file and bypass Application whitelisting)
+- description: Loads the target .NET DLL file and executes the RegisterClass function.
+    (Execute dll file and bypass Application whitelisting)
   command: regsvcs.exe {PATH:.dll}
 references:
 - label: ''
@@ -79,7 +86,6 @@ install:
   commands:
   - choco install regsvcs
 ---
-
 
 # regsvcs
 

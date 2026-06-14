@@ -3,35 +3,38 @@ trust_level: community
 id: windows-dllhijack-wimgapi
 namespace: windows:dllhijack:wimgapi
 name: wimgapi.dll
-description: "wimgapi.dll — Phantom, Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: wimgapi.dll — Phantom, Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "wimgapi.dll"
+  template: wimgapi.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://www.hexacorn.com/blog/2015/02/23/beyond-good-ol-run-key-part-28/"
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/wimgapi.html"
+- label: Reference
+  url: https://www.hexacorn.com/blog/2015/02/23/beyond-good-ol-run-key-part-28/
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/wimgapi.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious wimgapi.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\wimgapi.dll\""

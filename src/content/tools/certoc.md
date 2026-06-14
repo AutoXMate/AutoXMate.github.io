@@ -2,7 +2,8 @@
 id: windows-execution-certoc
 namespace: windows:execution:certoc
 name: certoc
-description: 'Used for installing certificates Located at: c:\windows\system32\certoc.exe; c:\windows\syswow64\certoc.exe.'
+description: 'Used for installing certificates Located at: c:\windows\system32\certoc.exe;
+  c:\windows\syswow64\certoc.exe.'
 author: Ensar Samil
 version: 1.0.0
 capabilities:
@@ -43,7 +44,11 @@ resource_profile:
 allowed-tools:
 - certoc
 parameters: []
-features: []
+features:
+- encryption
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: certoc
   sandbox: execFile
@@ -82,7 +87,6 @@ install:
   commands:
   - choco install certoc
 ---
-
 
 # certoc
 

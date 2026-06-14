@@ -2,7 +2,7 @@
 id: system-container-unshare
 namespace: system:container:unshare
 name: unshare
-description: "Run programs in isolated Linux namespaces; can spawn a shell."
+description: Run programs in isolated Linux namespaces; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - unshare
 parameters: []
-features: []
+features:
+- interactive
+- process-manip
+- requires-root
 execution:
   template: unshare
   sandbox: execFile
@@ -65,7 +68,6 @@ install:
   commands:
   - apt-get install -y util-linux
 ---
-
 
 # unshare
 

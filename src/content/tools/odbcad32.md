@@ -2,7 +2,8 @@
 id: windows-uacbypass-odbcad32
 namespace: windows:uacbypass:odbcad32
 name: odbcad32
-description: 'ODBC Data Source Administrator to manage User/System DSNs and ODBC drivers. Located at: c:\windows\system32\odbcad32.exe; c:\windows\syswow64\odbcad32.exe.'
+description: 'ODBC Data Source Administrator to manage User/System DSNs and ODBC drivers.
+  Located at: c:\windows\system32\odbcad32.exe; c:\windows\syswow64\odbcad32.exe.'
 author: Ekitji
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - odbcad32
 parameters: []
-features: []
+features:
+- pipes-stdout
+- requires-root
+- stealth
 execution:
   template: odbcad32
   sandbox: execFile
@@ -50,7 +54,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch odbcad32.exe GUI, click 'Tracing' tab, click 'Browsing' button, enter abitrary command in the File Dialog's path, press enter. (Execute a binary as a high-integrity process without a UAC prompt.)
+- description: Launch odbcad32.exe GUI, click 'Tracing' tab, click 'Browsing' button,
+    enter abitrary command in the File Dialog's path, press enter. (Execute a binary
+    as a high-integrity process without a UAC prompt.)
   command: odbcad32.exe
 references:
 - label: living-off-the-land-and-living-above-uac-6a66738d2
@@ -68,7 +74,6 @@ install:
   commands:
   - choco install odbcad32
 ---
-
 
 # odbcad32
 

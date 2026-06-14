@@ -2,7 +2,8 @@
 id: windows-execution-tttracer
 namespace: windows:execution:tttracer
 name: tttracer
-description: 'Used by Windows 1809 and newer to Debug Time Travel Located at: C:\Windows\System32\tttracer.exe; C:\Windows\SysWOW64\tttracer.exe.'
+description: 'Used by Windows 1809 and newer to Debug Time Travel Located at: C:\Windows\System32\tttracer.exe;
+  C:\Windows\SysWOW64\tttracer.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,9 @@ resource_profile:
 allowed-tools:
 - tttracer
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: tttracer
   sandbox: execFile
@@ -50,9 +53,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute specified executable from tttracer.exe. Requires administrator privileges. (Spawn process using other binary)
+- description: Execute specified executable from tttracer.exe. Requires administrator
+    privileges. (Spawn process using other binary)
   command: tttracer.exe {PATH_ABSOLUTE:.exe}
-- description: Dumps process using tttracer.exe. Requires administrator privileges (Dump process by PID)
+- description: Dumps process using tttracer.exe. Requires administrator privileges
+    (Dump process by PID)
   command: TTTracer.exe -dumpFull -attach {PID}
 references:
 - label: '1191329746069655553'
@@ -83,7 +88,6 @@ install:
   commands:
   - choco install tttracer
 ---
-
 
 # tttracer
 

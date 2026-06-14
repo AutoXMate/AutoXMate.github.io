@@ -2,7 +2,7 @@
 id: system-text-ul
 namespace: system:text:ul
 name: ul
-description: "Underline text for terminals; can read arbitrary files."
+description: Underline text for terminals; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - ul
 parameters: []
-features: []
+features:
+- file-system
+- local
+- process-manip
 execution:
   template: ul
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y bsdmainutils
 ---
-
 
 # ul
 

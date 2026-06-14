@@ -2,33 +2,37 @@
 trust_level: community
 id: darkiros-wpscan
 namespace: darkiros:tool:wpscan
-name: "WPSCAN"
-description: "Scan wordpress web site with wpscan"
-version: "1.0.0"
+name: WPSCAN
+description: Scan wordpress web site with wpscan
+version: 1.0.0
 capabilities:
-  - credential.discovery.reconnaissance
+- credential.discovery.reconnaissance
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "wpscan"
+  template: wpscan
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Scan wordpress web site with wpscan"
-    command: "wpscan --proxy http://127.0.0.1:8080 --url [url] --disable-tls-checks -e ap,tt,cb,dbe,u1-20,m --api-token [wpscan_apitoken]"
+- description: Scan wordpress web site with wpscan
+  command: wpscan --proxy http://127.0.0.1:8080 --url [url] --disable-tls-checks -e
+    ap,tt,cb,dbe,u1-20,m --api-token [wpscan_apitoken]
 references:
-  - label: "Source"
-    url: "https://github.com/wpscanteam/wpscan"
-  - label: "Darkiros"
-    url: "https://darkiros.github.io/commands.html"
+- label: Source
+  url: https://github.com/wpscanteam/wpscan
+- label: Darkiros
+  url: https://darkiros.github.io/commands.html
 items:
-  - NoCreds
+- NoCreds
 services:
-  - HTTP
-  - HTTPS
+- HTTP
+- HTTPS
+features:
+- network-intensive
+- process-manip
 ---
 
 # WPSCAN

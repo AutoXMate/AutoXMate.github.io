@@ -2,7 +2,8 @@
 id: windows-compile-csc
 namespace: windows:compile:csc
 name: csc
-description: 'Binary file used by .NET Framework to compile C# code Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe; C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Csc.exe; C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe.'
+description: 'Binary file used by .NET Framework to compile C# code Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\Csc.exe;
+  C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Csc.exe; C:\Windows\Microsoft.NET\Framework\v3.5\csc.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - csc
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: csc
   sandbox: execFile
@@ -49,9 +54,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use csc.exe to compile C# code, targeting the .NET Framework, stored in the specified .cs file and output the compiled version to the specified .exe path. (Compile attacker code on system. Bypass defensive counter measures.)
+- description: Use csc.exe to compile C# code, targeting the .NET Framework, stored
+    in the specified .cs file and output the compiled version to the specified .exe
+    path. (Compile attacker code on system. Bypass defensive counter measures.)
   command: csc.exe -out:{PATH:.exe} {PATH:.cs}
-- description: Use csc.exe to compile C# code, targeting the .NET Framework, stored in the specified .cs file and output the compiled version to a DLL file with the same name. (Compile attacker code on system. Bypass defensive counter measures.)
+- description: Use csc.exe to compile C# code, targeting the .NET Framework, stored
+    in the specified .cs file and output the compiled version to a DLL file with the
+    same name. (Compile attacker code on system. Bypass defensive counter measures.)
   command: csc -target:library {PATH:.cs}
 references:
 - label: ''
@@ -71,14 +80,14 @@ detections:
 - type: elastic
   url: https://github.com/elastic/detection-rules/blob/82ec6ac1eeb62a1383792719a1943b551264ed16/rules/windows/defense_evasion_execution_msbuild_started_unusal_process.toml
 - type: ioc
-  description: Csc.exe should normally not run as System account unless it is used for development.
+  description: Csc.exe should normally not run as System account unless it is used
+    for development.
 install:
 - method: choco
   package_name: csc
   commands:
   - choco install csc
 ---
-
 
 # csc
 

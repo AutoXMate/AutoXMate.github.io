@@ -41,7 +41,12 @@ resource_profile:
 allowed-tools:
 - utilityfunctions
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: utilityfunctions
   sandbox: execFile
@@ -49,8 +54,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Proxy execute Managed DLL with PowerShell (Execute proxied payload with Microsoft signed binary)
-  command: powershell.exe -ep bypass -command "set-location -path c:\windows\diagnostics\system\networking; import-module .\UtilityFunctions.ps1; RegSnapin ..\..\..\..\temp\unsigned.dll;[Program.Class]::Main()"
+- description: Proxy execute Managed DLL with PowerShell (Execute proxied payload
+    with Microsoft signed binary)
+  command: powershell.exe -ep bypass -command "set-location -path c:\windows\diagnostics\system\networking;
+    import-module .\UtilityFunctions.ps1; RegSnapin ..\..\..\..\temp\unsigned.dll;[Program.Class]::Main()"
 references:
 - label: '1441003666274668546'
   url: https://twitter.com/nickvangilder/status/1441003666274668546
@@ -68,7 +75,6 @@ install:
   commands:
   - choco install utilityfunctions
 ---
-
 
 # utilityfunctions
 

@@ -2,7 +2,9 @@
 id: windows-execution-mftrace
 namespace: windows:execution:mftrace
 name: mftrace
-description: 'Trace log generation tool for Media Foundation Tools. Located at: C:\Program Files (x86)\Windows Kits\10\bin\10.0.16299.0\x86\mftrace.exe; C:\Program Files (x86)\Windows Kits\10\bin\10.0.16299.0\x64\mftrace.exe; C:\Program Files (x86)\Windows Kits\10\bin\x86\mftrace.exe.'
+description: 'Trace log generation tool for Media Foundation Tools. Located at: C:\Program
+  Files (x86)\Windows Kits\10\bin\10.0.16299.0\x86\mftrace.exe; C:\Program Files (x86)\Windows
+  Kits\10\bin\10.0.16299.0\x64\mftrace.exe; C:\Program Files (x86)\Windows Kits\10\bin\x86\mftrace.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - mftrace
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: mftrace
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch specified executable as a subprocess of Mftrace.exe. (Local execution of cmd.exe as a subprocess of Mftrace.exe.)
+- description: Launch specified executable as a subprocess of Mftrace.exe. (Local
+    execution of cmd.exe as a subprocess of Mftrace.exe.)
   command: Mftrace.exe {PATH:.exe}
 references:
 - label: '988911181422186496'
@@ -68,7 +75,6 @@ install:
   commands:
   - choco install mftrace
 ---
-
 
 # mftrace
 

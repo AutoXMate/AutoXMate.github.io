@@ -2,7 +2,7 @@
 id: system-file-shred
 namespace: system:file:shred
 name: shred
-description: "Securely delete files by overwriting them multiple times."
+description: Securely delete files by overwriting them multiple times.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - shred
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: shred
   sandbox: execFile
@@ -65,7 +67,6 @@ install:
   commands:
   - apt-get install -y coreutils
 ---
-
 
 # shred
 

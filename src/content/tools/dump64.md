@@ -2,7 +2,8 @@
 id: windows-credential-dump64
 namespace: windows:credential:dump64
 name: dump64
-description: 'Memory dump tool that comes with Microsoft Visual Studio Located at: C:\Program Files (x86)\Microsoft Visual Studio\Installer\Feedback\dump64.exe.'
+description: 'Memory dump tool that comes with Microsoft Visual Studio Located at:
+  C:\Program Files (x86)\Microsoft Visual Studio\Installer\Feedback\dump64.exe.'
 author: mr.d0x
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - dump64
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
 execution:
   template: dump64
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Creates a memory dump of the LSASS process. (Create memory dump and parse it offline to retrieve credentials.)
+- description: Creates a memory dump of the LSASS process. (Create memory dump and
+    parse it offline to retrieve credentials.)
   command: dump64.exe {PID} out.dmp
 references:
 - label: '1460597833917251595'
@@ -69,7 +74,6 @@ install:
   commands:
   - choco install dump64
 ---
-
 
 # dump64
 

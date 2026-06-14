@@ -2,7 +2,7 @@
 id: dev-typescript-tsc
 namespace: dev:typescript:tsc
 name: tsc
-description: "TypeScript compiler; can execute code and spawn shells."
+description: TypeScript compiler; can execute code and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +44,12 @@ resource_profile:
 allowed-tools:
 - tsc
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: tsc
   sandbox: execFile
@@ -68,7 +73,6 @@ install:
   commands:
   - apt-get install -y node-typescript
 ---
-
 
 # tsc
 

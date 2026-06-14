@@ -41,7 +41,12 @@ resource_profile:
 allowed-tools:
 - mscopilot-proxy
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: mscopilot-proxy
   sandbox: execFile
@@ -49,8 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: '`mscopilot_proxy.exe` will spawn the provided command. Parent `mscopilot_proxy.exe` process needs to be killed to avoid command being executed an infinite number of times. (Executes a process under a trusted Microsoft signed binary)'
-  command: mscopilot_proxy.exe --no-startup-window --disable-gpu-sandbox --gpu-launcher="cmd.exe /c calc.exe && taskkill /f /im mscopilot.exe &&"
+- description: '`mscopilot_proxy.exe` will spawn the provided command. Parent `mscopilot_proxy.exe`
+    process needs to be killed to avoid command being executed an infinite number
+    of times. (Executes a process under a trusted Microsoft signed binary)'
+  command: mscopilot_proxy.exe --no-startup-window --disable-gpu-sandbox --gpu-launcher="cmd.exe
+    /c calc.exe && taskkill /f /im mscopilot.exe &&"
 references:
 - label: tour-de-mscopilot
   url: https://github.com/4n4s4zi/tour-de-mscopilot
@@ -66,7 +74,6 @@ install:
   commands:
   - choco install mscopilot-proxy
 ---
-
 
 # mscopilot-proxy
 

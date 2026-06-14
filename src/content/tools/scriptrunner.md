@@ -2,7 +2,8 @@
 id: windows-execution-scriptrunner
 namespace: windows:execution:scriptrunner
 name: scriptrunner
-description: 'Execute binary through proxy binary to evade defensive counter measures Located at: C:\Windows\System32\scriptrunner.exe; C:\Windows\SysWOW64\scriptrunner.exe.'
+description: 'Execute binary through proxy binary to evade defensive counter measures
+  Located at: C:\Windows\System32\scriptrunner.exe; C:\Windows\SysWOW64\scriptrunner.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,12 @@ resource_profile:
 allowed-tools:
 - scriptrunner
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
+- stealth
 execution:
   template: scriptrunner
   sandbox: execFile
@@ -49,9 +55,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes executable (Execute binary through proxy binary to evade defensive counter measures)
+- description: Executes executable (Execute binary through proxy binary to evade defensive
+    counter measures)
   command: Scriptrunner.exe -appvscript {PATH:.exe}
-- description: Executes cmd file from remote server (Execute binary through proxy binary from external server to evade defensive counter measures)
+- description: Executes cmd file from remote server (Execute binary through proxy
+    binary from external server to evade defensive counter measures)
   command: ScriptRunner.exe -appvscript {PATH_SMB:.cmd}
 references:
 - label: '914800377580503040'
@@ -77,7 +85,6 @@ install:
   commands:
   - choco install scriptrunner
 ---
-
 
 # scriptrunner
 

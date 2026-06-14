@@ -2,7 +2,8 @@
 id: windows-download-devtunnel
 namespace: windows:download:devtunnel
 name: devtunnel
-description: 'Binary to enable forwarded ports on windows operating systems. Located at: C:\Users\<username>\AppData\Local\Temp\.net\devtunnel\devtunnel.exe; C:\Users\<username>\AppData\Local\Temp\DevTunnels\devtunnel.exe.'
+description: 'Binary to enable forwarded ports on windows operating systems. Located
+  at: C:\Users\<username>\AppData\Local\Temp\.net\devtunnel\devtunnel.exe; C:\Users\<username>\AppData\Local\Temp\DevTunnels\devtunnel.exe.'
 author: Kamran Saifullah
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - devtunnel
 parameters: []
-features: []
+features:
+- local
+- network-intensive
+- pipes-stdout
 execution:
   template: devtunnel
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Enabling a forwarded port for locally hosted service at port 8080 to be exposed on the internet. (Download Files, Upload Files, Data Exfiltration)
+- description: Enabling a forwarded port for locally hosted service at port 8080 to
+    be exposed on the internet. (Download Files, Upload Files, Data Exfiltration)
   command: devtunnel.exe host -p 8080
 references:
 - label: port-forwarding
@@ -77,7 +82,6 @@ install:
   commands:
   - choco install devtunnel
 ---
-
 
 # devtunnel
 

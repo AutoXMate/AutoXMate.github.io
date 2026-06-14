@@ -2,7 +2,10 @@
 id: windows-execution-windbg
 namespace: windows:execution:windbg
 name: windbg
-description: 'Windows Debugger for advanced user-mode and kernel-mode debugging. Located at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\windbg.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\windbg.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\arm\windbg.exe.'
+description: 'Windows Debugger for advanced user-mode and kernel-mode debugging. Located
+  at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\windbg.exe; C:\Program
+  Files (x86)\Windows Kits\10\Debuggers\x86\windbg.exe; C:\Program Files (x86)\Windows
+  Kits\10\Debuggers\arm\windbg.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +44,11 @@ resource_profile:
 allowed-tools:
 - windbg
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: windbg
   sandbox: execFile
@@ -49,7 +56,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launches a command line through the debugging process; optionally add `-G` to exit the debugger automatically. (Executes an executable under a trusted microsoft signed binary.)
+- description: Launches a command line through the debugging process; optionally add
+    `-G` to exit the debugger automatically. (Executes an executable under a trusted
+    microsoft signed binary.)
   command: windbg.exe -g {CMD}
 references:
 - label: windbg-command-line-options
@@ -66,7 +75,6 @@ install:
   commands:
   - choco install windbg
 ---
-
 
 # windbg
 

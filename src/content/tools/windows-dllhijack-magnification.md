@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-magnification
 namespace: windows:dllhijack:magnification
 name: magnification.dll
-description: "magnification.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: magnification.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "magnification.dll"
+  template: magnification.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/magnification.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/magnification.html
+features:
+- pipes-stdout
 ---
+
 examples:
   - description: "Place malicious magnification.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\magnification.dll\""

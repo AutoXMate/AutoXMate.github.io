@@ -2,7 +2,8 @@
 id: windows-download-desktopimgdownldr
 namespace: windows:download:desktopimgdownldr
 name: desktopimgdownldr
-description: 'Windows binary used to configure lockscreen/desktop image Located at: c:\windows\system32\desktopimgdownldr.exe.'
+description: 'Windows binary used to configure lockscreen/desktop image Located at:
+  c:\windows\system32\desktopimgdownldr.exe.'
 author: Gal Kristal
 version: 1.0.0
 capabilities:
@@ -41,7 +42,12 @@ resource_profile:
 allowed-tools:
 - desktopimgdownldr
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: desktopimgdownldr
   sandbox: execFile
@@ -49,8 +55,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads the file and sets it as the computer's lockscreen (Download arbitrary files from a web server)
-  command: set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:{REMOTEURL} /eventName:desktopimgdownldr
+- description: Downloads the file and sets it as the computer's lockscreen (Download
+    arbitrary files from a web server)
+  command: set "SYSTEMROOT=C:\Windows\Temp" && cmd /c desktopimgdownldr.exe /lockscreenurl:{REMOTEURL}
+    /eventName:desktopimgdownldr
 references:
 - label: ''
   url: https://labs.sentinelone.com/living-off-windows-land-a-new-native-file-downldr/
@@ -75,7 +83,6 @@ install:
   commands:
   - choco install desktopimgdownldr
 ---
-
 
 # desktopimgdownldr
 

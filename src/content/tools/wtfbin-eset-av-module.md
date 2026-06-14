@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-eset-av-module
 namespace: wtf:bin:eset-av-module
-name: "ESET AV Module (ekrn.exe)"
-description: "What is it with antivirus and weird DNS?"
-version: "1.0.0"
+name: ESET AV Module (ekrn.exe)
+description: What is it with antivirus and weird DNS?
+version: 1.0.0
 capabilities:
-  - network.exfiltration.dns
+- network.exfiltration.dns
 platforms:
-  - windows
+- windows
 techniques:
-  - exfiltration
+- exfiltration
 execution:
-  template: "ESET AV Module"
+  template: ESET AV Module
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/59"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/eset-av-module/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/59
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/eset-av-module/
+features:
+- network-intensive
 ---
+
 examples:
   - description: "Run the binary and monitor DNS exfiltration"
     command: "ESET AV Module"

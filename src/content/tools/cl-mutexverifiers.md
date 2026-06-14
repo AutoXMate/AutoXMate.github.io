@@ -2,7 +2,8 @@
 id: windows-execution-cl-mutexverifiers
 namespace: windows:execution:cl-mutexverifiers
 name: cl-mutexverifiers
-description: 'Proxy execution with CL_Mutexverifiers.ps1 Located at: C:\Windows\diagnostics\system\WindowsUpdate\CL_Mutexverifiers.ps1; C:\Windows\diagnostics\system\Audio\CL_Mutexverifiers.ps1; C:\Windows\diagnostics\system\WindowsUpdate\CL_Mutexverifiers.ps1.'
+description: 'Proxy execution with CL_Mutexverifiers.ps1 Located at: C:\Windows\diagnostics\system\WindowsUpdate\CL_Mutexverifiers.ps1;
+  C:\Windows\diagnostics\system\Audio\CL_Mutexverifiers.ps1; C:\Windows\diagnostics\system\WindowsUpdate\CL_Mutexverifiers.ps1.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - cl-mutexverifiers
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: cl-mutexverifiers
   sandbox: execFile
@@ -49,8 +54,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Import the PowerShell Diagnostic CL_Mutexverifiers script and call runAfterCancelProcess to launch an executable. (Proxy execution)
-  command: . C:\Windows\diagnostics\system\AERO\CL_Mutexverifiers.ps1   \nrunAfterCancelProcess {PATH:.ps1}
+- description: Import the PowerShell Diagnostic CL_Mutexverifiers script and call
+    runAfterCancelProcess to launch an executable. (Proxy execution)
+  command: . C:\Windows\diagnostics\system\AERO\CL_Mutexverifiers.ps1   \nrunAfterCancelProcess
+    {PATH:.ps1}
 references:
 - label: '995111125447577600'
   url: https://twitter.com/pabraeken/status/995111125447577600
@@ -68,7 +75,6 @@ install:
   commands:
   - choco install cl-mutexverifiers
 ---
-
 
 # cl-mutexverifiers
 

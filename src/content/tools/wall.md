@@ -2,7 +2,7 @@
 id: system-msg-wall
 namespace: system:msg:wall
 name: wall
-description: "Send messages to all logged-in users; can read arbitrary files."
+description: Send messages to all logged-in users; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,9 @@ resource_profile:
 allowed-tools:
 - wall
 parameters: []
-features: []
+features:
+- file-system
+- local
 execution:
   template: wall
   sandbox: execFile
@@ -64,7 +66,6 @@ install:
   commands:
   - apt-get install -y bsdmainutils
 ---
-
 
 # wall
 

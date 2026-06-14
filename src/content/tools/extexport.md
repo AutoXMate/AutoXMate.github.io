@@ -2,7 +2,9 @@
 id: windows-execution-extexport
 namespace: windows:execution:extexport
 name: extexport
-description: 'Load a DLL located in the c:\test folder with a specific name. Located at: C:\Program Files\Internet Explorer\Extexport.exe; C:\Program Files (x86)\Internet Explorer\Extexport.exe.'
+description: 'Load a DLL located in the c:\test folder with a specific name. Located
+  at: C:\Program Files\Internet Explorer\Extexport.exe; C:\Program Files (x86)\Internet
+  Explorer\Extexport.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - extexport
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: extexport
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Load a DLL located in the specified folder with one of the following names mozcrt19.dll, mozsqlite3.dll, or sqlite.dll. (Execute dll file)
+- description: Load a DLL located in the specified folder with one of the following
+    names mozcrt19.dll, mozsqlite3.dll, or sqlite.dll. (Execute dll file)
   command: Extexport.exe {PATH_ABSOLUTE:folder} foo bar
 references:
 - label: ''
@@ -63,14 +70,14 @@ detections:
 - type: sigma
   url: https://github.com/SigmaHQ/sigma/blob/c04bef2fbbe8beff6c7620d5d7ea6872dbe7acba/rules/windows/process_creation/proc_creation_win_lolbin_extexport.yml
 - type: ioc
-  description: Extexport.exe loads dll and is execute from other folder the original path
+  description: Extexport.exe loads dll and is execute from other folder the original
+    path
 install:
 - method: choco
   package_name: extexport
   commands:
   - choco install extexport
 ---
-
 
 # extexport
 

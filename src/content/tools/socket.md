@@ -2,7 +2,7 @@
 id: system-network-socket
 namespace: system:network:socket
 name: socket
-description: "Create TCP/UDP communication endpoints; can transfer data and spawn shells."
+description: Create TCP/UDP communication endpoints; can transfer data and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +44,13 @@ resource_profile:
 allowed-tools:
 - socket
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: socket
   sandbox: execFile
@@ -68,7 +74,6 @@ install:
   commands:
   - apt-get install -y socket
 ---
-
 
 # socket
 

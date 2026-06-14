@@ -2,7 +2,8 @@
 id: compression-zip-zip
 namespace: compression:zip:zip
 name: zip
-description: "Compress files into ZIP archives; can read files and spawn shells via test command."
+description: Compress files into ZIP archives; can read files and spawn shells via
+  test command.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,13 @@ resource_profile:
 allowed-tools:
 - zip
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- interactive
+- local
+- process-manip
+- requires-root
 execution:
   template: zip
   sandbox: execFile
@@ -71,7 +78,6 @@ install:
   commands:
   - apt-get install -y zip
 ---
-
 
 # zip
 

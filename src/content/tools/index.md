@@ -4,6 +4,7 @@ namespace: internal:meta:repository
 name: AutoXMate
 description: Dual-purpose repository for human study and machine-readable automation
 version: "1.0.0"
+capabilities: []
 execution:
   template: "echo root documentation page"
   sandbox: none

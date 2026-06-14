@@ -2,7 +2,8 @@
 id: windows-execution-verclsid
 namespace: windows:execution:verclsid
 name: verclsid
-description: 'Used to verify a COM object before it is instantiated by Windows Explorer Located at: C:\Windows\System32\verclsid.exe; C:\Windows\SysWOW64\verclsid.exe.'
+description: 'Used to verify a COM object before it is instantiated by Windows Explorer
+  Located at: C:\Windows\System32\verclsid.exe; C:\Windows\SysWOW64\verclsid.exe.'
 author: '@bohops'
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - verclsid
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: verclsid
   sandbox: execFile
@@ -49,7 +52,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Used to verify a COM object before it is instantiated by Windows Explorer (Run a COM object created in registry to evade defensive counter measures)
+- description: Used to verify a COM object before it is instantiated by Windows Explorer
+    (Run a COM object created in registry to evade defensive counter measures)
   command: verclsid.exe /S /C {CLSID}
 references:
 - label: 0598b60112eaafe6d07789f7964290d5
@@ -72,7 +76,6 @@ install:
   commands:
   - choco install verclsid
 ---
-
 
 # verclsid
 

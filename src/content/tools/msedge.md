@@ -2,7 +2,8 @@
 id: windows-download-msedge
 namespace: windows:download:msedge
 name: msedge
-description: 'Microsoft Edge browser Located at: c:\Program Files\Microsoft\Edge\Application\msedge.exe; c:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe.'
+description: 'Microsoft Edge browser Located at: c:\Program Files\Microsoft\Edge\Application\msedge.exe;
+  c:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe.'
 author: mr.d0x
 version: 1.0.0
 capabilities:
@@ -43,7 +44,12 @@ resource_profile:
 allowed-tools:
 - msedge
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: msedge
   sandbox: execFile
@@ -51,11 +57,16 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Edge will launch and download the file. A 'harmless' file extension (e.g. .txt, .zip) should be appended to avoid SmartScreen. (Download file from the internet)
+- description: Edge will launch and download the file. A 'harmless' file extension
+    (e.g. .txt, .zip) should be appended to avoid SmartScreen. (Download file from
+    the internet)
   command: msedge.exe {REMOTEURL:.exe.txt}
-- description: Edge will silently download the file. File extension should be .html and binaries should be encoded. (Download file from the internet)
-  command: msedge.exe --headless --enable-logging --disable-gpu --dump-dom "{REMOTEURL:.base64.html}" > {PATH:.b64}
-- description: Edge spawns cmd.exe as a child process of msedge.exe and executes the specified command (Executes a process under a trusted Microsoft signed binary)
+- description: Edge will silently download the file. File extension should be .html
+    and binaries should be encoded. (Download file from the internet)
+  command: msedge.exe --headless --enable-logging --disable-gpu --dump-dom "{REMOTEURL:.base64.html}"
+    > {PATH:.b64}
+- description: Edge spawns cmd.exe as a child process of msedge.exe and executes the
+    specified command (Executes a process under a trusted Microsoft signed binary)
   command: msedge.exe --disable-gpu-sandbox --gpu-launcher="{CMD} &&"
 references:
 - label: '1478116126005641220'
@@ -80,7 +91,6 @@ install:
   commands:
   - choco install msedge
 ---
-
 
 # msedge
 

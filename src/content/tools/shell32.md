@@ -2,7 +2,8 @@
 id: windows-execution-shell32
 namespace: windows:execution:shell32
 name: shell32
-description: 'Windows Shell Common Dll Located at: c:\windows\system32\shell32.dll; c:\windows\syswow64\shell32.dll.'
+description: 'Windows Shell Common Dll Located at: c:\windows\system32\shell32.dll;
+  c:\windows\syswow64\shell32.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - shell32
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
 execution:
   template: shell32
   sandbox: execFile
@@ -49,13 +53,17 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch a DLL payload by calling the Control_RunDLL function. (Load a DLL payload.)
+- description: Launch a DLL payload by calling the Control_RunDLL function. (Load
+    a DLL payload.)
   command: rundll32.exe shell32.dll,Control_RunDLL {PATH_ABSOLUTE:.dll}
-- description: Launch an executable by calling the ShellExec_RunDLL function. (Run an executable payload.)
+- description: Launch an executable by calling the ShellExec_RunDLL function. (Run
+    an executable payload.)
   command: rundll32.exe shell32.dll,ShellExec_RunDLL {PATH:.exe}
-- description: Launch command line by calling the ShellExec_RunDLL function. (Run an executable payload.)
+- description: Launch command line by calling the ShellExec_RunDLL function. (Run
+    an executable payload.)
   command: rundll32 SHELL32.DLL,ShellExec_RunDLL {PATH:.exe} {CMD:args}
-- description: Load a DLL/CPL by calling undocumented Control_RunDLLNoFallback function. (Load a DLL/CPL payload.)
+- description: Load a DLL/CPL by calling undocumented Control_RunDLLNoFallback function.
+    (Load a DLL/CPL payload.)
   command: rundll32.exe shell32.dll,#44 {PATH:.dll}
 references:
 - label: '885258886428725250'
@@ -86,7 +94,6 @@ install:
   commands:
   - choco install shell32
 ---
-
 
 # shell32
 

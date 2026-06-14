@@ -1,32 +1,37 @@
 ---
 id: windows-kernel-msrhook
 namespace: windows:kernel:msrhook
-name: "msrhook.sys"
-description: "Elevate privileges"
-author: "Michael Haag"
-version: "1.0.0"
+name: msrhook.sys
+description: Elevate privileges
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create msrhook.sys binPath=C:\\windows\\temp\\msrhook.sys type=kernel && sc.exe start msrhook.sys"
+  template: sc.exe create msrhook.sys binPath=C:\windows\temp\msrhook.sys type=kernel
+    && sc.exe start msrhook.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load msrhook.sys kernel driver"
-    commands:
-      - "sc.exe create msrhook.sys binPath=C:\\windows\\temp\\msrhook.sys type=kernel && sc.exe start msrhook.sys"
+- method: custom
+  description: Load msrhook.sys kernel driver
+  commands:
+  - sc.exe create msrhook.sys binPath=C:\windows\temp\msrhook.sys type=kernel && sc.exe
+    start msrhook.sys
 references:
-  - label: "Reference"
-    url: "https://github.com/namazso/physmem_drivers"
+- label: Reference
+  url: https://github.com/namazso/physmem_drivers
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create msrhook.sys binPath=C:\\\\windows\\\\temp\\\\msrhook.sys type=kernel && sc.exe start msrhook.sys"

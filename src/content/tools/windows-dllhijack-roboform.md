@@ -3,29 +3,32 @@ trust_level: community
 id: windows-dllhijack-roboform
 namespace: windows:dllhijack:roboform
 name: roboform.dll
-description: "roboform.dll — Sideloading hijacking (Siber Systems)"
-author: "Rick Gatenby"
-version: "1.0.0"
+description: roboform.dll — Sideloading hijacking (Siber Systems)
+author: Rick Gatenby
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "roboform.dll"
+  template: roboform.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://www.trendmicro.com/en_us/research/25/b/updated-shadowpad-malware-leads-to-ransomware-deployment.html"
-  - label: "Reference"
-    url: "https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/roboform.html"
+- label: Reference
+  url: https://www.trendmicro.com/en_us/research/25/b/updated-shadowpad-malware-leads-to-ransomware-deployment.html
+- label: Reference
+  url: https://github.com/SigmaHQ/sigma/blob/master/rules/windows/image_load/image_load_side_load_robform.yml
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/roboform.html
+features:
+- file-system
 ---
+
 examples:
   - description: "Place malicious roboform.dll in the search order location"
     command: "copy malicious.dll \"%PROGRAMFILES%\\Siber Systems\\AI RoboForm\\roboform.dll\""

@@ -1,32 +1,47 @@
 ---
 id: windows-kernel-truesight
 namespace: windows:kernel:truesight
-name: "truesight.sys"
-description: "This is a C# AV/EDR Killer using Rogue Anti-Malware Driver 3.3. This driver is not present in the loldrivers or Windows blocklist at the time of this writing. The only reason I'm making this public is because the company has already published a fix in version 3.4, and Microsoft will likely block this driver soon. This driver can be used in Windows 23H2 with HVCI enabled, loldrivers blocklist, or WDAC enabled. HVCI is designed to ensure the integrity of code executed in the kernel, but it cann..."
-author: "ph4nt0mbyt3, Michael Haag"
-version: "1.0.0"
+name: truesight.sys
+description: This is a C# AV/EDR Killer using Rogue Anti-Malware Driver 3.3. This
+  driver is not present in the loldrivers or Windows blocklist at the time of this
+  writing. The only reason I'm making this public is because the company has already
+  published a fix in version 3.4, and Microsoft will likely block this driver soon.
+  This driver can be used in Windows 23H2 with HVCI enabled, loldrivers blocklist,
+  or WDAC enabled. HVCI is designed to ensure the integrity of code executed in the
+  kernel, but it cann...
+author: ph4nt0mbyt3, Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create truesight.sys binPath=C:\\windows\\temp\\truesight.sys type=kernel && sc.exe start truesight.sys"
+  template: sc.exe create truesight.sys binPath=C:\windows\temp\truesight.sys type=kernel
+    && sc.exe start truesight.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load truesight.sys kernel driver"
-    commands:
-      - "sc.exe create truesight.sys binPath=C:\\windows\\temp\\truesight.sys type=kernel && sc.exe start truesight.sys"
+- method: custom
+  description: Load truesight.sys kernel driver
+  commands:
+  - sc.exe create truesight.sys binPath=C:\windows\temp\truesight.sys type=kernel
+    && sc.exe start truesight.sys
 references:
-  - label: "Reference"
-    url: "https://github.com/ph4nt0mbyt3/Darkside"
+- label: Reference
+  url: https://github.com/ph4nt0mbyt3/Darkside
+features:
+- file-system
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create truesight.sys binPath=C:\\\\windows\\\\temp\\\\truesight.sys type=kernel && sc.exe start truesight.sys"

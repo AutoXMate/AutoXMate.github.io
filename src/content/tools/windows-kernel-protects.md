@@ -1,32 +1,37 @@
 ---
 id: windows-kernel-protects
 namespace: windows:kernel:protects
-name: "ProtectS.sys"
-description: "Elevate privileges"
-author: "Michael Haag"
-version: "1.0.0"
+name: ProtectS.sys
+description: Elevate privileges
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create ProtectS.sys binPath=C:\\windows\\temp\\ProtectS.sys type=kernel && sc.exe start ProtectS.sys"
+  template: sc.exe create ProtectS.sys binPath=C:\windows\temp\ProtectS.sys type=kernel
+    && sc.exe start ProtectS.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load ProtectS.sys kernel driver"
-    commands:
-      - "sc.exe create ProtectS.sys binPath=C:\\windows\\temp\\ProtectS.sys type=kernel && sc.exe start ProtectS.sys"
+- method: custom
+  description: Load ProtectS.sys kernel driver
+  commands:
+  - sc.exe create ProtectS.sys binPath=C:\windows\temp\ProtectS.sys type=kernel &&
+    sc.exe start ProtectS.sys
 references:
-  - label: "Reference"
-    url: "https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules"
+- label: Reference
+  url: https://learn.microsoft.com/en-us/windows/security/threat-protection/windows-defender-application-control/microsoft-recommended-driver-block-rules
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create ProtectS.sys binPath=C:\\\\windows\\\\temp\\\\ProtectS.sys type=kernel && sc.exe start ProtectS.sys"

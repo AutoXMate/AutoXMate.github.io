@@ -1,34 +1,42 @@
 ---
 id: windows-kernel-aida64driver
 namespace: windows:kernel:aida64driver
-name: "AIDA64Driver.sys"
-description: "AIDA64Driver.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers repository. The driver exposes dangerous kernel primitives to usermode."
-author: "Michael Haag"
-version: "1.0.0"
+name: AIDA64Driver.sys
+description: AIDA64Driver.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers
+  repository. The driver exposes dangerous kernel primitives to usermode.
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create AIDA64Driver binPath=C:\\windows\\temp\\AIDA64Driver.sys type=kernel && sc.exe start AIDA64Driver"
+  template: sc.exe create AIDA64Driver binPath=C:\windows\temp\AIDA64Driver.sys type=kernel
+    && sc.exe start AIDA64Driver
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load AIDA64Driver.sys kernel driver"
-    commands:
-      - "sc.exe create AIDA64Driver binPath=C:\\windows\\temp\\AIDA64Driver.sys type=kernel && sc.exe start AIDA64Driver"
+- method: custom
+  description: Load AIDA64Driver.sys kernel driver
+  commands:
+  - sc.exe create AIDA64Driver binPath=C:\windows\temp\AIDA64Driver.sys type=kernel
+    && sc.exe start AIDA64Driver
 references:
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/325"
-  - label: "Reference"
-    url: "https://github.com/KeServiceDescriptorTable/vulnerable-drivers"
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/325
+- label: Reference
+  url: https://github.com/KeServiceDescriptorTable/vulnerable-drivers
+features:
+- file-system
+- process-manip
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create AIDA64Driver binPath=C:\\\\windows\\\\temp\\\\AIDA64Driver.sys type=kernel && sc.exe start AIDA64Driver"

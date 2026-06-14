@@ -3,35 +3,38 @@ trust_level: community
 id: windows-dllhijack-wdscore
 namespace: windows:dllhijack:wdscore
 name: wdscore.dll
-description: "wdscore.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: wdscore.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "wdscore.dll"
+  template: wdscore.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://www.hexacorn.com/blog/2023/12/30/1-little-known-secret-of-ieunatt-exe-on-win11/"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/wdscore.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://www.hexacorn.com/blog/2023/12/30/1-little-known-secret-of-ieunatt-exe-on-win11/
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/wdscore.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious wdscore.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\wdscore.dll\""

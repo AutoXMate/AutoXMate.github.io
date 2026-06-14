@@ -4,69 +4,69 @@ namespace: security:recon:maltego
 name: maltego
 description: Graphical link analysis and data mining tool for OSINT investigations,
   entity correlation, and relationship mapping.
-author: "Repository Maintainers"
-version: "1.0.0"
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - security.intel.osint
-  - security.recon.graph
-  - security.intel.correlation
-  - security.intel.link-analysis
-  - security.recon.passive
+- security.intel.osint
+- security.recon.graph
+- security.intel.correlation
+- security.intel.link-analysis
+- security.recon.passive
 platforms:
-  - linux
-  - macos
-  - windows
-  - cross-platform
+- linux
+- macos
+- windows
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - recon-ng
-  - spiderfoot
-  - theharvester
+- recon-ng
+- spiderfoot
+- theharvester
 artifacts:
-  - type: security.recon.graph
-    description: Maltego graph visualization
-    mime: application/xml
-    trust_level: verified
-  - type: security.recon.report
-    description: Maltego export report
-    mime: text/html
-    trust_level: community
+- type: security.recon.graph
+  description: Maltego graph visualization
+  mime: application/xml
+  trust_level: verified
+- type: security.recon.report
+  description: Maltego export report
+  mime: text/html
+  trust_level: community
 workflow_edges:
   produces:
-    - entity-graph
-    - relationship-map
-    - intelligence-report
+  - entity-graph
+  - relationship-map
+  - intelligence-report
   consumes:
-    - domain
-    - ip-address
-    - email
-    - person-name
+  - domain
+  - ip-address
+  - email
+  - person-name
 contract:
   inputs:
-    - type: network.target.domain
-      description: Target domain name
-    - type: network.target.ip
-      description: Target IP address
-    - type: security.target.email
-      description: Email address
-    - type: security.target.person
-      description: Person name
+  - type: network.target.domain
+    description: Target domain name
+  - type: network.target.ip
+    description: Target IP address
+  - type: security.target.email
+    description: Email address
+  - type: security.target.person
+    description: Person name
   outputs:
-    - type: security.recon.graph
-      description: Link analysis graph
-      mime: application/xml
-    - type: security.recon.report
-      description: Export report
-      mime: text/html
+  - type: security.recon.graph
+    description: Link analysis graph
+    mime: application/xml
+  - type: security.recon.report
+    description: Export report
+    mime: text/html
   side_effects:
-    - network_traffic
-    - network_traffic
+  - network_traffic
+  - network_traffic
   resource_cost:
     cpu: high
     memory_mb: 1024
@@ -78,71 +78,72 @@ resource_profile:
   network: medium
   disk_io: medium
 allowed-tools:
-  - maltego
-  - Bash
-  - execFile
+- maltego
+- Bash
+- execFile
 parameters:
-  - name: flag-g
-    type: string
-    required: false
-    description: "Run in GUI mode with specified graph file"
-    aliases:
-      - -g
-  - name: flag-c
-    type: string
-    required: false
-    description: "Run in CLI mode with specified transform"
-    aliases:
-      - -c
-  - name: flag-i
-    type: string
-    required: false
-    description: "Import configuration"
-    aliases:
-      - -i
-  - name: flag-e
-    type: string
-    required: false
-    description: "Export graph to file"
-    aliases:
-      - -e
+- name: flag-g
+  type: string
+  required: false
+  description: Run in GUI mode with specified graph file
+  aliases:
+  - -g
+- name: flag-c
+  type: string
+  required: false
+  description: Run in CLI mode with specified transform
+  aliases:
+  - -c
+- name: flag-i
+  type: string
+  required: false
+  description: Import configuration
+  aliases:
+  - -i
+- name: flag-e
+  type: string
+  required: false
+  description: Export graph to file
+  aliases:
+  - -e
 execution:
-  template: "maltego"
+  template: maltego
   sandbox: execFile
   timeout_seconds: 86400
   shell: false
 global_vars:
   target: domain
-  domain: "example.com"
+  domain: example.com
 examples:
-  - description: "Launch Maltego GUI"
-    command: maltego
-  - description: "Launch with a specific graph file"
-    command: maltego -g /path/to/graph.mtgx
-  - description: "Run a transform from the command line"
-    command: maltego -c "maltego.TransformName" -e output.mtgx
+- description: Launch Maltego GUI
+  command: maltego
+- description: Launch with a specific graph file
+  command: maltego -g /path/to/graph.mtgx
+- description: Run a transform from the command line
+  command: maltego -c "maltego.TransformName" -e output.mtgx
 references:
-  - label: "Maltego Official Site"
-    url: "https://www.maltego.com/"
-  - label: "Maltego Transform Hub"
-    url: "https://www.maltego.com/transform-hub/"
+- label: Maltego Official Site
+  url: https://www.maltego.com/
+- label: Maltego Transform Hub
+  url: https://www.maltego.com/transform-hub/
 phase: enumeration
 techniques:
-  - discovery
-  - recon
-  - enumeration
+- discovery
+- recon
+- enumeration
 items:
-  - NoCreds
+- NoCreds
 services: []
 attack_types:
-  - Enumeration
+- Enumeration
 install:
-    - method: apt
-      package_name: "maltego"
-      commands:
-        - "apt-get install -y maltego"
+- method: apt
+  package_name: maltego
+  commands:
+  - apt-get install -y maltego
+features:
+- network-intensive
 ---
-
 
 # Maltego — Link Analysis & OSINT
 

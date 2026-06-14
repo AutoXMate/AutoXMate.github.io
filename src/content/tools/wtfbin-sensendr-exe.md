@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-sensendr-exe
 namespace: wtf:bin:sensendr-exe
-name: "SenseNdr.exe"
-description: "SenseNDR base64 encoding"
-version: "1.0.0"
+name: SenseNdr.exe
+description: SenseNDR base64 encoding
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - windows
+- windows
 techniques:
-  - execution
+- execution
 execution:
-  template: "SenseNdr.exe"
+  template: SenseNdr.exe
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://github.com/mttaggart/wtfbins/issues/20"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/sensendr-exe/"
+- label: Documentation
+  url: https://github.com/mttaggart/wtfbins/issues/20
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/sensendr-exe/
+features:
+- pipes-stdin
 ---
+
 examples:
   - description: "Execute SenseNdr.exe and observe the unusual behavior"
     command: "SenseNdr.exe"

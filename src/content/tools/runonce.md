@@ -2,7 +2,8 @@
 id: windows-execution-runonce
 namespace: windows:execution:runonce
 name: runonce
-description: 'Executes a Run Once Task that has been configured in the registry Located at: C:\Windows\System32\runonce.exe; C:\Windows\SysWOW64\runonce.exe.'
+description: 'Executes a Run Once Task that has been configured in the registry Located
+  at: C:\Windows\System32\runonce.exe; C:\Windows\SysWOW64\runonce.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - runonce
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: runonce
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes a Run Once Task that has been configured in the registry. (Persistence, bypassing defensive counter measures)
+- description: Executes a Run Once Task that has been configured in the registry.
+    (Persistence, bypassing defensive counter measures)
   command: Runonce.exe /AlternateShellStartup
 references:
 - label: '990717080805789697'
@@ -76,7 +81,6 @@ install:
   commands:
   - choco install runonce
 ---
-
 
 # runonce
 

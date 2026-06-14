@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-npmproxy
 namespace: windows:dllhijack:npmproxy
 name: npmproxy.dll
-description: "npmproxy.dll — Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: npmproxy.dll — Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "npmproxy.dll"
+  template: npmproxy.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/npmproxy.html"
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/npmproxy.html
+features:
+- remote
 ---
+
 examples:
   - description: "Place malicious npmproxy.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\npmproxy.dll\""

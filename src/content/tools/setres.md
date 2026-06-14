@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - setres
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: setres
   sandbox: execFile
@@ -49,7 +51,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Sets the resolution and then launches 'choice' command from the working directory. (Executes arbitrary code)
+- description: Sets the resolution and then launches 'choice' command from the working
+    directory. (Executes arbitrary code)
   command: setres.exe -w 800 -h 600
 references:
 - label: '1583356502340870144'
@@ -74,7 +77,6 @@ install:
   commands:
   - choco install setres
 ---
-
 
 # setres
 

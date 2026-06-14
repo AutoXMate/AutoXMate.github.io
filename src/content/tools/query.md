@@ -2,7 +2,8 @@
 id: windows-execution-query
 namespace: windows:execution:query
 name: query
-description: 'Remote Desktop Services MultiUser Query Utility Located at: c:\windows\system32\query.exe; c:\windows\syswow64\query.exe.'
+description: 'Remote Desktop Services MultiUser Query Utility Located at: c:\windows\system32\query.exe;
+  c:\windows\syswow64\query.exe.'
 author: Idan Lerman
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - query
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- remote
 execution:
   template: query
   sandbox: execFile
@@ -49,7 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Once executed, `query.exe` will execute `quser.exe` in the same folder. Thus, if `query.exe` is copied to a folder and an arbitrary executable is renamed to `quser.exe`, `query.exe` will spawn it. Instead of `user`, it is also possible to use `session`, `termsession` or `process` as command-line option. (Execute an arbitrary executable via trusted system executable.)
+- description: Once executed, `query.exe` will execute `quser.exe` in the same folder.
+    Thus, if `query.exe` is copied to a folder and an arbitrary executable is renamed
+    to `quser.exe`, `query.exe` will spawn it. Instead of `user`, it is also possible
+    to use `session`, `termsession` or `process` as command-line option. (Execute
+    an arbitrary executable via trusted system executable.)
   command: query.exe user
 references: []
 techniques:
@@ -59,14 +68,14 @@ mitre_ids:
 - T1218
 detections:
 - type: ioc
-  description: query.exe being executed and executes a child process outside of its normal path of c:\windows\system32\ or c:\windows\syswow64\
+  description: query.exe being executed and executes a child process outside of its
+    normal path of c:\windows\system32\ or c:\windows\syswow64\
 install:
 - method: choco
   package_name: query
   commands:
   - choco install query
 ---
-
 
 # query
 

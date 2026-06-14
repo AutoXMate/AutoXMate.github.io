@@ -1,29 +1,34 @@
 ---
 id: windows-kernel-bs-rciow1064
 namespace: windows:kernel:bs-rciow1064
-name: "BS_RCIOW1064.sys"
-description: "Elevate privileges"
-author: "Nasreddine Bencherchali"
-version: "1.0.0"
+name: BS_RCIOW1064.sys
+description: Elevate privileges
+author: Nasreddine Bencherchali
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create BS_RCIOW1064.sys binPath=C:\\windows\\temp\\BS_RCIOW1064.sys type=kernel && sc.exe start BS_RCIOW1064.sys"
+  template: sc.exe create BS_RCIOW1064.sys binPath=C:\windows\temp\BS_RCIOW1064.sys
+    type=kernel && sc.exe start BS_RCIOW1064.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load BS_RCIOW1064.sys kernel driver"
-    commands:
-      - "sc.exe create BS_RCIOW1064.sys binPath=C:\\windows\\temp\\BS_RCIOW1064.sys type=kernel && sc.exe start BS_RCIOW1064.sys"
+- method: custom
+  description: Load BS_RCIOW1064.sys kernel driver
+  commands:
+  - sc.exe create BS_RCIOW1064.sys binPath=C:\windows\temp\BS_RCIOW1064.sys type=kernel
+    && sc.exe start BS_RCIOW1064.sys
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create BS_RCIOW1064.sys binPath=C:\\\\windows\\\\temp\\\\BS_RCIOW1064.sys type=kernel && sc.exe start BS_RCIOW1064.sys"

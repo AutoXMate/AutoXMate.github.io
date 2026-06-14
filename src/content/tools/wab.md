@@ -2,7 +2,8 @@
 id: windows-execution-wab
 namespace: windows:execution:wab
 name: wab
-description: 'Windows address book manager Located at: C:\Program Files\Windows Mail\wab.exe; C:\Program Files (x86)\Windows Mail\wab.exe.'
+description: 'Windows address book manager Located at: C:\Program Files\Windows Mail\wab.exe;
+  C:\Program Files (x86)\Windows Mail\wab.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - wab
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: wab
   sandbox: execFile
@@ -49,7 +54,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Change HKLM\Software\Microsoft\WAB\DLLPath and execute DLL of choice (Execute dll file. Bypass defensive counter measures)
+- description: Change HKLM\Software\Microsoft\WAB\DLLPath and execute DLL of choice
+    (Execute dll file. Bypass defensive counter measures)
   command: wab.exe
 references:
 - label: '991447379864932352'
@@ -72,7 +78,6 @@ install:
   commands:
   - choco install wab
 ---
-
 
 # wab
 

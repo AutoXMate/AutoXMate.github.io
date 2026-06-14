@@ -2,7 +2,8 @@
 id: windows-ads-esentutl
 namespace: windows:ads:esentutl
 name: esentutl
-description: 'Binary for working with Microsoft Joint Engine Technology (JET) database Located at: C:\Windows\System32\esentutl.exe; C:\Windows\SysWOW64\esentutl.exe.'
+description: 'Binary for working with Microsoft Joint Engine Technology (JET) database
+  Located at: C:\Windows\System32\esentutl.exe; C:\Windows\SysWOW64\esentutl.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -44,7 +45,13 @@ resource_profile:
 allowed-tools:
 - esentutl
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: esentutl
   sandbox: execFile
@@ -52,17 +59,26 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Copies the source VBS file to the destination VBS file. (Copies files from A to B)
-  command: esentutl.exe /y {PATH_ABSOLUTE:.source.vbs} /d {PATH_ABSOLUTE:.dest.vbs} /o
-- description: Copies the source EXE to an Alternate Data Stream (ADS) of the destination file. (Copy file and hide it in an alternate data stream as a defensive counter measure)
+- description: Copies the source VBS file to the destination VBS file. (Copies files
+    from A to B)
+  command: esentutl.exe /y {PATH_ABSOLUTE:.source.vbs} /d {PATH_ABSOLUTE:.dest.vbs}
+    /o
+- description: Copies the source EXE to an Alternate Data Stream (ADS) of the destination
+    file. (Copy file and hide it in an alternate data stream as a defensive counter
+    measure)
   command: esentutl.exe /y {PATH_ABSOLUTE:.exe} /d {PATH_ABSOLUTE}:file.exe /o
-- description: Copies the source Alternate Data Stream (ADS) to the destination EXE. (Extract hidden file within alternate data streams)
+- description: Copies the source Alternate Data Stream (ADS) to the destination EXE.
+    (Extract hidden file within alternate data streams)
   command: esentutl.exe /y {PATH_ABSOLUTE}:file.exe /d {PATH_ABSOLUTE:.exe} /o
-- description: Copies the remote source EXE to the destination Alternate Data Stream (ADS) of the destination file. (Copy file and hide it in an alternate data stream as a defensive counter measure)
+- description: Copies the remote source EXE to the destination Alternate Data Stream
+    (ADS) of the destination file. (Copy file and hide it in an alternate data stream
+    as a defensive counter measure)
   command: esentutl.exe /y {PATH_SMB:.exe} /d {PATH_ABSOLUTE}:file.exe /o
-- description: Copies the source EXE to the destination EXE file (Use to copy files from one unc path to another)
+- description: Copies the source EXE to the destination EXE file (Use to copy files
+    from one unc path to another)
   command: esentutl.exe /y {PATH_SMB:.source.exe} /d {PATH_SMB:.dest.exe} /o
-- description: Copies a (locked) file using Volume Shadow Copy (Copy/extract a locked file such as the AD Database)
+- description: Copies a (locked) file using Volume Shadow Copy (Copy/extract a locked
+    file such as the AD Database)
   command: esentutl.exe /y /vss c:\windows\ntds\ntds.dit /d {PATH_ABSOLUTE:.dit}
 references:
 - label: '985994639202283520'
@@ -99,7 +115,6 @@ install:
   commands:
   - choco install esentutl
 ---
-
 
 # esentutl
 

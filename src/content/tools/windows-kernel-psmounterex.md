@@ -1,32 +1,44 @@
 ---
 id: windows-kernel-psmounterex
 namespace: windows:kernel:psmounterex
-name: "psmounterex.sys"
-description: "Northwave Cyber Security contributed this driver based on in-house research. The driver has a CVSSv3 score of 8.8, indicating a privelege escalation impact. This vulnerability could potentially be exploited for privilege escalation or other malicious activities."
-author: "Northwave Cyber Security"
-version: "1.0.0"
+name: psmounterex.sys
+description: Northwave Cyber Security contributed this driver based on in-house research.
+  The driver has a CVSSv3 score of 8.8, indicating a privelege escalation impact.
+  This vulnerability could potentially be exploited for privilege escalation or other
+  malicious activities.
+author: Northwave Cyber Security
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create psmounterex binPath=C:\\windows\\temp\\psmounterex.sys type=kernel && sc.exe start psmounterex"
+  template: sc.exe create psmounterex binPath=C:\windows\temp\psmounterex.sys type=kernel
+    && sc.exe start psmounterex
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load psmounterex.sys kernel driver"
-    commands:
-      - "sc.exe create psmounterex binPath=C:\\windows\\temp\\psmounterex.sys type=kernel && sc.exe start psmounterex"
+- method: custom
+  description: Load psmounterex.sys kernel driver
+  commands:
+  - sc.exe create psmounterex binPath=C:\windows\temp\psmounterex.sys type=kernel
+    && sc.exe start psmounterex
 references:
-  - label: "Reference"
-    url: "https://northwave-cybersecurity.com/exploiting-enterprise-backup-software-for-privilege-escalation-part-one"
+- label: Reference
+  url: https://northwave-cybersecurity.com/exploiting-enterprise-backup-software-for-privilege-escalation-part-one
+features:
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create psmounterex binPath=C:\\\\windows\\\\temp\\\\psmounterex.sys type=kernel && sc.exe start psmounterex"

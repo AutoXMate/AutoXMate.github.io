@@ -2,7 +2,9 @@
 id: windows-execution-intellitrace
 namespace: windows:execution:intellitrace
 name: intellitrace
-description: 'Visual Studio command-line tool for collecting and managing diagnostic trace files. Located at: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\IntelliTrace\IntelliTrace.exe; C:\Program Files (x86)\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\IntelliTrace\IntelliTrace.exe.'
+description: 'Visual Studio command-line tool for collecting and managing diagnostic
+  trace files. Located at: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\IntelliTrace\IntelliTrace.exe;
+  C:\Program Files (x86)\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\IntelliTrace\IntelliTrace.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - intellitrace
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: intellitrace
   sandbox: execFile
@@ -49,8 +55,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launches an executable via Visual Studio command line utility. (Executes an executable under a trusted microsoft signed binary.)
-  command: IntelliTrace.exe launch /cp:"collectionplan.xml" /f:"c:\users\public\log" "C:\Windows\System32\calc.exe"
+- description: Launches an executable via Visual Studio command line utility. (Executes
+    an executable under a trusted microsoft signed binary.)
+  command: IntelliTrace.exe launch /cp:"collectionplan.xml" /f:"c:\users\public\log"
+    "C:\Windows\System32\calc.exe"
 references:
 - label: intellitrace
   url: https://learn.microsoft.com/en-us/visualstudio/debugger/intellitrace
@@ -66,7 +74,6 @@ install:
   commands:
   - choco install intellitrace
 ---
-
 
 # intellitrace
 

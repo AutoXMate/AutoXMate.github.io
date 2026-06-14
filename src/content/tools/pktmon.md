@@ -2,7 +2,8 @@
 id: windows-recon-pktmon
 namespace: windows:recon:pktmon
 name: pktmon
-description: 'Capture Network Packets on the windows 10 with October 2018 Update or later. Located at: c:\windows\system32\pktmon.exe; c:\windows\syswow64\pktmon.exe.'
+description: 'Capture Network Packets on the windows 10 with October 2018 Update or
+  later. Located at: c:\windows\system32\pktmon.exe; c:\windows\syswow64\pktmon.exe.'
 author: Derek Johnson
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - pktmon
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdout
 execution:
   template: pktmon
   sandbox: execFile
@@ -49,9 +52,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Will start a packet capture and store log file as PktMon.etl. Use pktmon.exe stop (use this a built in network sniffer on windows 10 to capture senstive traffic)
+- description: Will start a packet capture and store log file as PktMon.etl. Use pktmon.exe
+    stop (use this a built in network sniffer on windows 10 to capture senstive traffic)
   command: pktmon.exe start --etw
-- description: Select Desired ports for packet capture (Look for interesting traffic such as telent or FTP)
+- description: Select Desired ports for packet capture (Look for interesting traffic
+    such as telent or FTP)
   command: pktmon.exe filter add -p 445
 references:
 - label: ''
@@ -71,7 +76,6 @@ install:
   commands:
   - choco install pktmon
 ---
-
 
 # pktmon
 

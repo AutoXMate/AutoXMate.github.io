@@ -2,7 +2,8 @@
 id: windows-execution-advpack
 namespace: windows:execution:advpack
 name: advpack
-description: 'Utility for installing software and drivers with rundll32.exe Located at: c:\windows\system32\advpack.dll; c:\windows\syswow64\advpack.dll.'
+description: 'Utility for installing software and drivers with rundll32.exe Located
+  at: c:\windows\system32\advpack.dll; c:\windows\syswow64\advpack.dll.'
 author: LOLBAS Team
 version: 1.0.0
 capabilities:
@@ -42,7 +43,11 @@ resource_profile:
 allowed-tools:
 - advpack
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
+- stealth
 execution:
   template: advpack
   sandbox: execFile
@@ -50,15 +55,22 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll in the .inf file by calling an information file directive (section name specified). (Run local or remote script(let) code through INF file specification.)
+- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll
+    in the .inf file by calling an information file directive (section name specified).
+    (Run local or remote script(let) code through INF file specification.)
   command: rundll32.exe advpack.dll,LaunchINFSection {PATH:.inf},DefaultInstall_SingleUser,1,
-- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll in the .inf file by calling an information file directive (DefaultInstall section implied). (Run local or remote script(let) code through INF file specification.)
+- description: Execute the specified (local or remote) .wsh/.sct script with scrobj.dll
+    in the .inf file by calling an information file directive (DefaultInstall section
+    implied). (Run local or remote script(let) code through INF file specification.)
   command: rundll32.exe advpack.dll,LaunchINFSection {PATH:.inf},,1,
-- description: Launch a DLL payload by calling the RegisterOCX function. (Load a DLL payload.)
+- description: Launch a DLL payload by calling the RegisterOCX function. (Load a DLL
+    payload.)
   command: rundll32.exe advpack.dll,RegisterOCX {PATH:.dll}
-- description: Launch an executable by calling the RegisterOCX function. (Run an executable payload.)
+- description: Launch an executable by calling the RegisterOCX function. (Run an executable
+    payload.)
   command: rundll32.exe advpack.dll,RegisterOCX {PATH:.exe}
-- description: Launch command line by calling the RegisterOCX function. (Run an executable payload.)
+- description: Launch command line by calling the RegisterOCX function. (Run an executable
+    payload.)
   command: rundll32 advpack.dll, RegisterOCX {CMD}
 references:
 - label: ''
@@ -85,7 +97,6 @@ install:
   commands:
   - choco install advpack
 ---
-
 
 # advpack
 

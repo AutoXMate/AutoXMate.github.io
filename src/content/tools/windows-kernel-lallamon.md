@@ -1,34 +1,42 @@
 ---
 id: windows-kernel-lallamon
 namespace: windows:kernel:lallamon
-name: "Lallamon.sys"
-description: "Lallamon.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers repository. The driver exposes dangerous kernel primitives to usermode."
-author: "Michael Haag"
-version: "1.0.0"
+name: Lallamon.sys
+description: Lallamon.sys is a vulnerable kernel driver from the KeServiceDescriptorTable/vulnerable-drivers
+  repository. The driver exposes dangerous kernel primitives to usermode.
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create Lallamon binPath=C:\\windows\\temp\\Lallamon.sys type=kernel && sc.exe start Lallamon"
+  template: sc.exe create Lallamon binPath=C:\windows\temp\Lallamon.sys type=kernel
+    && sc.exe start Lallamon
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load Lallamon.sys kernel driver"
-    commands:
-      - "sc.exe create Lallamon binPath=C:\\windows\\temp\\Lallamon.sys type=kernel && sc.exe start Lallamon"
+- method: custom
+  description: Load Lallamon.sys kernel driver
+  commands:
+  - sc.exe create Lallamon binPath=C:\windows\temp\Lallamon.sys type=kernel && sc.exe
+    start Lallamon
 references:
-  - label: "Reference"
-    url: "https://github.com/magicsword-io/LOLDrivers/issues/325"
-  - label: "Reference"
-    url: "https://github.com/KeServiceDescriptorTable/vulnerable-drivers"
+- label: Reference
+  url: https://github.com/magicsword-io/LOLDrivers/issues/325
+- label: Reference
+  url: https://github.com/KeServiceDescriptorTable/vulnerable-drivers
+features:
+- file-system
+- process-manip
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create Lallamon binPath=C:\\\\windows\\\\temp\\\\Lallamon.sys type=kernel && sc.exe start Lallamon"

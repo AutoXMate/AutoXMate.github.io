@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - pnputil
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: pnputil
   sandbox: execFile
@@ -66,7 +68,6 @@ install:
   commands:
   - choco install pnputil
 ---
-
 
 # pnputil
 

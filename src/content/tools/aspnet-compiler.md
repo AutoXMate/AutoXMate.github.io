@@ -2,7 +2,8 @@
 id: windows-bypass-aspnet-compiler
 namespace: windows:bypass:aspnet-compiler
 name: aspnet-compiler
-description: 'ASP.NET Compilation Tool Located at: c:\Windows\Microsoft.NET\Framework\v4.0.30319\aspnet_compiler.exe; c:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_compiler.exe.'
+description: 'ASP.NET Compilation Tool Located at: c:\Windows\Microsoft.NET\Framework\v4.0.30319\aspnet_compiler.exe;
+  c:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_compiler.exe.'
 author: Jimmy (@bohops)
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - aspnet-compiler
 parameters: []
-features: []
+features:
+- pipes-stdout
+- stealth
 execution:
   template: aspnet-compiler
   sandbox: execFile
@@ -49,8 +52,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute C# code with the Build Provider and proper folder structure in place. (Execute proxied payload with Microsoft signed binary to bypass application control solutions)
-  command: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_compiler.exe -v none -p C:\users\cpl.internal\desktop\asptest\ -f C:\users\cpl.internal\desktop\asptest\none -u
+- description: Execute C# code with the Build Provider and proper folder structure
+    in place. (Execute proxied payload with Microsoft signed binary to bypass application
+    control solutions)
+  command: C:\Windows\Microsoft.NET\Framework64\v4.0.30319\aspnet_compiler.exe -v
+    none -p C:\users\cpl.internal\desktop\asptest\ -f C:\users\cpl.internal\desktop\asptest\none
+    -u
 references:
 - label: ''
   url: https://ijustwannared.team/2020/08/01/the-curious-case-of-aspnet_compiler-exe/
@@ -71,7 +78,6 @@ install:
   commands:
   - choco install aspnet-compiler
 ---
-
 
 # aspnet-compiler
 

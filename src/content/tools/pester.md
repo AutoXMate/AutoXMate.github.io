@@ -41,7 +41,12 @@ resource_profile:
 allowed-tools:
 - pester
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: pester
   sandbox: execFile
@@ -49,9 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute code using Pester. The third parameter can be anything. The fourth is the payload. (Proxy execution)
+- description: Execute code using Pester. The third parameter can be anything. The
+    fourth is the payload. (Proxy execution)
   command: Pester.bat [/help|?|-?|/?] "$null; {CMD}"
-- description: Execute code using Pester. Example here executes specified executable. (Proxy execution)
+- description: Execute code using Pester. Example here executes specified executable.
+    (Proxy execution)
   command: Pester.bat ;{PATH:.exe}
 references:
 - label: '993383596244258816'
@@ -74,7 +81,6 @@ install:
   commands:
   - choco install pester
 ---
-
 
 # pester
 

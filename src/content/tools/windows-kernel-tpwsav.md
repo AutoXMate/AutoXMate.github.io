@@ -1,32 +1,44 @@
 ---
 id: windows-kernel-tpwsav
 namespace: windows:kernel:tpwsav
-name: "TPwSav.sys"
-description: "A driver associated with Toshiba laptops power saving functionality allows arbitary one byte reading and writing mapped physical addresses. Blackpoint Cyber's SOC observed this driver being used as part of a custom EDRSandblast malware to blind EDR prior to Qilin ransomware deployment."
-author: "Robel Campbell"
-version: "1.0.0"
+name: TPwSav.sys
+description: A driver associated with Toshiba laptops power saving functionality allows
+  arbitary one byte reading and writing mapped physical addresses. Blackpoint Cyber's
+  SOC observed this driver being used as part of a custom EDRSandblast malware to
+  blind EDR prior to Qilin ransomware deployment.
+author: Robel Campbell
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create TPwSav.sys binPath=C:\\windows\\temp\\TPwSav.sys type=kernel && sc.exe start TPwSav.sys"
+  template: sc.exe create TPwSav.sys binPath=C:\windows\temp\TPwSav.sys type=kernel
+    && sc.exe start TPwSav.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load TPwSav.sys kernel driver"
-    commands:
-      - "sc.exe create TPwSav.sys binPath=C:\\windows\\temp\\TPwSav.sys type=kernel && sc.exe start TPwSav.sys"
+- method: custom
+  description: Load TPwSav.sys kernel driver
+  commands:
+  - sc.exe create TPwSav.sys binPath=C:\windows\temp\TPwSav.sys type=kernel && sc.exe
+    start TPwSav.sys
 references:
-  - label: "Reference"
-    url: "https://blackpointcyber.com/resources/blog/qilin-ransomware-and-the-hidden-dangers-of-byovd/"
+- label: Reference
+  url: https://blackpointcyber.com/resources/blog/qilin-ransomware-and-the-hidden-dangers-of-byovd/
+features:
+- compression
+- file-system
+- pipes-stdin
+- process-manip
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create TPwSav.sys binPath=C:\\\\windows\\\\temp\\\\TPwSav.sys type=kernel && sc.exe start TPwSav.sys"

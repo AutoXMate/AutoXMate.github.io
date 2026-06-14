@@ -2,7 +2,7 @@
 id: dev-vm-vagrant
 namespace: dev:vm:vagrant
 name: vagrant
-description: "Development environment virtualization tool; can spawn a shell."
+description: Development environment virtualization tool; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - vagrant
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
 execution:
   template: vagrant
   sandbox: execFile
@@ -66,7 +69,6 @@ install:
   commands:
   - apt-get install -y vagrant
 ---
-
 
 # vagrant
 

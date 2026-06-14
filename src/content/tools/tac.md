@@ -2,7 +2,7 @@
 id: system-file-tac
 namespace: system:file:tac
 name: tac
-description: "Concatenate and print files in reverse order; can read arbitrary files."
+description: Concatenate and print files in reverse order; can read arbitrary files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - tac
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
 execution:
   template: tac
   sandbox: execFile
@@ -64,7 +67,6 @@ install:
   commands:
   - apt-get install -y coreutils
 ---
-
 
 # tac
 

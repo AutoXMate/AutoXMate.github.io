@@ -2,7 +2,9 @@
 id: windows-execution-appcert
 namespace: windows:execution:appcert
 name: appcert
-description: 'Windows App Certification Kit command-line tool. Located at: C:\Program Files (x86)\Windows Kits\10\App Certification Kit\appcert.exe; C:\Program Files\Windows Kits\10\App Certification Kit\appcert.exe.'
+description: 'Windows App Certification Kit command-line tool. Located at: C:\Program
+  Files (x86)\Windows Kits\10\App Certification Kit\appcert.exe; C:\Program Files\Windows
+  Kits\10\App Certification Kit\appcert.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - appcert
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: appcert
   sandbox: execFile
@@ -49,10 +55,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute an executable file via the Windows App Certification Kit command-line tool. (Performs execution of specified file, can be used as a defense evasion)
-  command: appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.exe} -reportoutputpath {PATH_ABSOLUTE:.xml}
-- description: Install an MSI file via an msiexec instance spawned via appcert.exe as parent process. (Execute custom made MSI file with malicious code)
-  command: appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.msi} -setupcommandline /q -reportoutputpath {PATH_ABSOLUTE:.xml}
+- description: Execute an executable file via the Windows App Certification Kit command-line
+    tool. (Performs execution of specified file, can be used as a defense evasion)
+  command: appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.exe} -reportoutputpath
+    {PATH_ABSOLUTE:.xml}
+- description: Install an MSI file via an msiexec instance spawned via appcert.exe
+    as parent process. (Execute custom made MSI file with malicious code)
+  command: appcert.exe test -apptype desktop -setuppath {PATH_ABSOLUTE:.msi} -setupcommandline
+    /q -reportoutputpath {PATH_ABSOLUTE:.xml}
 references:
 - label: using-the-windows-app-certification-kit
   url: https://learn.microsoft.com/windows/win32/win_cert/using-the-windows-app-certification-kit
@@ -69,7 +79,6 @@ install:
   commands:
   - choco install appcert
 ---
-
 
 # appcert
 

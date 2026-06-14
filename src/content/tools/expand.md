@@ -2,7 +2,8 @@
 id: system-file-expand
 namespace: system:file:expand
 name: expand
-description: Convert tabs to spaces; can read arbitrary files Can also read arbitrary files.
+description: Convert tabs to spaces; can read arbitrary files Can also read arbitrary
+  files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +44,10 @@ resource_profile:
 allowed-tools:
 - expand
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
 execution:
   template: expand
   sandbox: execFile
@@ -64,7 +68,6 @@ install:
   commands:
   - apt-get install -y coreutils
 ---
-
 
 # expand
 

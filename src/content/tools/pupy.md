@@ -2,61 +2,63 @@
 id: security-exploit-pupy
 namespace: security:exploit:pupy
 name: pupy
-description: Cross-platform remote administration and post-exploitation framework written in Python, supporting in-memory execution, multiple transports, and extensible modules.
-author: "Repository Maintainers"
-version: "1.0.0"
+description: Cross-platform remote administration and post-exploitation framework
+  written in Python, supporting in-memory execution, multiple transports, and extensible
+  modules.
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - agent.communication
-  - command.control.c2
-  - post.exploitation
-  - remote.administration
-  - inmemory.execution
+- agent.communication
+- command.control.c2
+- post.exploitation
+- remote.administration
+- inmemory.execution
 platforms:
-  - linux
-  - windows
-  - macos
-  - cross-platform
+- linux
+- windows
+- macos
+- cross-platform
 risk_level: high
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies:
-  - python3
+- python3
 related_tools:
-  - sliver
-  - empire
-  - merlin
-  - metasploit
+- sliver
+- empire
+- merlin
+- metasploit
 workflow_edges:
   produces:
-    - agent-session
-    - c2-listener
-    - harvested-credentials
+  - agent-session
+  - c2-listener
+  - harvested-credentials
   consumes:
-    - target-ip
-    - target-port
-    - payload-type
+  - target-ip
+  - target-port
+  - payload-type
 contract:
   inputs:
-    - type: network.target.ip
-      description: Pupy server bind address
-    - type: network.port.number
-      description: Listener port
-    - type: payload.type
-      description: Payload type (Windows/Linux/Android)
+  - type: network.target.ip
+    description: Pupy server bind address
+  - type: network.port.number
+    description: Listener port
+  - type: payload.type
+    description: Payload type (Windows/Linux/Android)
   outputs:
-    - type: agent.session
-      description: Pupy agent session
-      mime: application/octet-stream
-    - type: credential.data
-      description: Extracted credentials
-      mime: text/plain
+  - type: agent.session
+    description: Pupy agent session
+    mime: application/octet-stream
+  - type: credential.data
+    description: Extracted credentials
+    mime: text/plain
   side_effects:
-    - network_traffic
-    - process_spawn
-    - filesystem_write
+  - network_traffic
+  - process_spawn
+  - filesystem_write
   resource_cost:
     cpu: medium
     memory_mb: 128
@@ -68,72 +70,77 @@ resource_profile:
   network: high
   disk_io: low
 allowed-tools:
-  - pupy
-  - python3
-  - Bash
-  - execFile
+- pupy
+- python3
+- Bash
+- execFile
 parameters:
-  - name: flag-l
-    type: string
-    required: false
-    description: "Listener bind address"
-    aliases:
-      - -l
-      - --listen
-  - name: flag-p
-    type: integer
-    required: false
-    description: "Listener port"
-    aliases:
-      - -p
-      - --port
-  - name: flag-t
-    type: string
-    required: false
-    description: "Transport type (ssl, http, https, dns, rsa)"
-    aliases:
-      - -t
-      - --transport
-  - name: flag-s
-    type: string
-    required: false
-    description: "Script or module to execute"
-    aliases:
-      - -s
-      - --script
+- name: flag-l
+  type: string
+  required: false
+  description: Listener bind address
+  aliases:
+  - -l
+  - --listen
+- name: flag-p
+  type: integer
+  required: false
+  description: Listener port
+  aliases:
+  - -p
+  - --port
+- name: flag-t
+  type: string
+  required: false
+  description: Transport type (ssl, http, https, dns, rsa)
+  aliases:
+  - -t
+  - --transport
+- name: flag-s
+  type: string
+  required: false
+  description: Script or module to execute
+  aliases:
+  - -s
+  - --script
 execution:
-  template: "pupysh {flags}"
+  template: pupysh {flags}
   sandbox: execFile
   timeout_seconds: 3600
   shell: false
 examples:
-  - description: "Start Pupy server"
-    command: pupysh
-  - description: "Generate Windows payload with SSL transport"
-    command: pupy --transport ssl -l 0.0.0.0 -p 8443
-  - description: "Generate Android payload"
-    command: pupy --transport ssl -l 0.0.0.0 -p 8443 --platform android
+- description: Start Pupy server
+  command: pupysh
+- description: Generate Windows payload with SSL transport
+  command: pupy --transport ssl -l 0.0.0.0 -p 8443
+- description: Generate Android payload
+  command: pupy --transport ssl -l 0.0.0.0 -p 8443 --platform android
 references:
-  - label: "Pupy GitHub"
-    url: "https://github.com/n1nj4sec/pupy"
+- label: Pupy GitHub
+  url: https://github.com/n1nj4sec/pupy
 phase: exploitation
 techniques:
-  - command-and-control
-  - execution
+- command-and-control
+- execution
 items:
-  - Shell
-  - Hash
+- Shell
+- Hash
 services: []
 attack_types:
-  - Exploitation
-  - Execution
+- Exploitation
+- Execution
 install:
-    - method: git
-      repo_url: "https://github.com/n1nj4sec/pupy.git"
-      commands:
-        - "git clone https://github.com/n1nj4sec/pupy.git"
+- method: git
+  repo_url: https://github.com/n1nj4sec/pupy.git
+  commands:
+  - git clone https://github.com/n1nj4sec/pupy.git
+features:
+- file-system
+- interactive
+- pipes-stdin
+- pipes-stdout
+- remote
 ---
-
 
 # Pupy — Remote Administration C2 Framework
 

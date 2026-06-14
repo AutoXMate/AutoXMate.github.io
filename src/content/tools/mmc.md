@@ -2,7 +2,8 @@
 id: windows-execution-mmc
 namespace: windows:execution:mmc
 name: mmc
-description: 'Load snap-ins to locally and remotely manage Windows systems Located at: C:\Windows\System32\mmc.exe; C:\Windows\SysWOW64\mmc.exe.'
+description: 'Load snap-ins to locally and remotely manage Windows systems Located
+  at: C:\Windows\System32\mmc.exe; C:\Windows\SysWOW64\mmc.exe.'
 author: '@bohops'
 version: 1.0.0
 capabilities:
@@ -45,7 +46,14 @@ resource_profile:
 allowed-tools:
 - mmc
 parameters: []
-features: []
+features:
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- remote
+- requires-root
+- stealth
 execution:
   template: mmc
   sandbox: execFile
@@ -53,9 +61,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch a 'backgrounded' MMC process and invoke a COM payload (Configure a snap-in to load a COM custom class (CLSID) that has been added to the registry)
+- description: Launch a 'backgrounded' MMC process and invoke a COM payload (Configure
+    a snap-in to load a COM custom class (CLSID) that has been added to the registry)
   command: mmc.exe -Embedding {PATH_ABSOLUTE:.msc}
-- description: Load an arbitrary payload DLL by configuring COR Profiler registry settings and launching MMC to bypass UAC. (Modify HKCU\Environment key in Registry with COR profiler values then launch MMC to load the payload DLL.)
+- description: Load an arbitrary payload DLL by configuring COR Profiler registry
+    settings and launching MMC to bypass UAC. (Modify HKCU\Environment key in Registry
+    with COR profiler values then launch MMC to load the payload DLL.)
   command: mmc.exe gpedit.msc
 - description: Download and save an executable to disk (Download file from Internet)
   command: mmc.exe -Embedding {PATH_ABSOLUTE:.msc}
@@ -84,7 +95,6 @@ install:
   commands:
   - choco install mmc
 ---
-
 
 # mmc
 

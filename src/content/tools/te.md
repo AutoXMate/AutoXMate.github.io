@@ -2,7 +2,8 @@
 id: windows-execution-te
 namespace: windows:execution:te
 name: te
-description: 'Testing tool included with Microsoft Test Authoring and Execution Framework (TAEF). Located at: no default.'
+description: 'Testing tool included with Microsoft Test Authoring and Execution Framework
+  (TAEF). Located at: no default.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - te
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: te
   sandbox: execFile
@@ -49,9 +52,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Run COM Scriptlets (e.g. VBScript) by calling a Windows Script Component (WSC) file. (Execute Visual Basic script stored in local Windows Script Component file.)
+- description: Run COM Scriptlets (e.g. VBScript) by calling a Windows Script Component
+    (WSC) file. (Execute Visual Basic script stored in local Windows Script Component
+    file.)
   command: te.exe {PATH:.wsc}
-- description: Execute commands from a DLL file with Test Authoring and Execution Framework (TAEF) tests. See resources section for required structures. (Execute DLL file.)
+- description: Execute commands from a DLL file with Test Authoring and Execution
+    Framework (TAEF) tests. See resources section for required structures. (Execute
+    DLL file.)
   command: te.exe {PATH:.dll}
 references:
 - label: '927680266390384640'
@@ -74,7 +81,6 @@ install:
   commands:
   - choco install te
 ---
-
 
 # te
 

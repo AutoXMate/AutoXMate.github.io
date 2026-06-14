@@ -3,41 +3,44 @@ trust_level: community
 id: windows-dllhijack-secur32
 namespace: windows:dllhijack:secur32
 name: secur32.dll
-description: "secur32.dll — Sideloading, Search Order hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: secur32.dll — Sideloading, Search Order hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "secur32.dll"
+  template: secur32.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://www.secureworks.com/research/shadowpad-malware-analysis"
-  - label: "Reference"
-    url: "https://www.hexacorn.com/blog/2023/02/25/beyond-good-ol-run-key-part-141/"
-  - label: "Reference"
-    url: "https://twitter.com/hackerfantastic/status/1657549979840307203"
-  - label: "Reference"
-    url: "https://github.com/hackerhouse-opensource/CompMgmtLauncher_DLL_UACBypass"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/secur32.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://www.secureworks.com/research/shadowpad-malware-analysis
+- label: Reference
+  url: https://www.hexacorn.com/blog/2023/02/25/beyond-good-ol-run-key-part-141/
+- label: Reference
+  url: https://twitter.com/hackerfantastic/status/1657549979840307203
+- label: Reference
+  url: https://github.com/hackerhouse-opensource/CompMgmtLauncher_DLL_UACBypass
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/secur32.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious secur32.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\secur32.dll\""

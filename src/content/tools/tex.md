@@ -2,7 +2,7 @@
 id: typesetting-tex-tex
 namespace: typesetting:tex:tex
 name: tex
-description: "TeX typesetting system; can read and write files and spawn shells."
+description: TeX typesetting system; can read and write files and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - tex
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- process-manip
+- requires-root
 execution:
   template: tex
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y texlive-base
 ---
-
 
 # tex
 

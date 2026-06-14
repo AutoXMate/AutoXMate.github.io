@@ -2,7 +2,8 @@
 id: windows-bypass-fsianycpu
 namespace: windows:bypass:fsianycpu
 name: fsianycpu
-description: '32/64-bit FSharp (F#) Interpreter included with Visual Studio. Located at: c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\FSharp\fsianycpu.exe.'
+description: '32/64-bit FSharp (F#) Interpreter included with Visual Studio. Located
+  at: c:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\IDE\CommonExtensions\Microsoft\FSharp\fsianycpu.exe.'
 author: Jimmy (@bohops)
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - fsianycpu
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
+- stealth
 execution:
   template: fsianycpu
   sandbox: execFile
@@ -49,9 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute F# code via script file (Execute payload with Microsoft signed binary to bypass WDAC policies)
+- description: Execute F# code via script file (Execute payload with Microsoft signed
+    binary to bypass WDAC policies)
   command: fsianycpu.exe {PATH:.fsscript}
-- description: Execute F# code via interactive command line (Execute payload with Microsoft signed binary to bypass WDAC policies)
+- description: Execute F# code via interactive command line (Execute payload with
+    Microsoft signed binary to bypass WDAC policies)
   command: fsianycpu.exe
 references:
 - label: ''
@@ -74,7 +81,6 @@ install:
   commands:
   - choco install fsianycpu
 ---
-
 
 # fsianycpu
 

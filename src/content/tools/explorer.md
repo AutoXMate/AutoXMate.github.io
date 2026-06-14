@@ -2,7 +2,8 @@
 id: windows-execution-explorer
 namespace: windows:execution:explorer
 name: explorer
-description: 'Binary used for managing files and system components within Windows Located at: C:\Windows\explorer.exe; C:\Windows\SysWOW64\explorer.exe.'
+description: 'Binary used for managing files and system components within Windows
+  Located at: C:\Windows\explorer.exe; C:\Windows\SysWOW64\explorer.exe.'
 author: Jai Minton
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - explorer
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: explorer
   sandbox: execFile
@@ -49,9 +54,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute specified .exe with the parent process spawning from a new instance of explorer.exe (Performs execution of specified file with explorer parent process breaking the process tree, can be used for defense evasion.)
+- description: Execute specified .exe with the parent process spawning from a new
+    instance of explorer.exe (Performs execution of specified file with explorer parent
+    process breaking the process tree, can be used for defense evasion.)
   command: explorer.exe /root,"{PATH_ABSOLUTE:.exe}"
-- description: Execute notepad.exe with the parent process spawning from a new instance of explorer.exe (Performs execution of specified file with explorer parent process breaking the process tree, can be used for defense evasion.)
+- description: Execute notepad.exe with the parent process spawning from a new instance
+    of explorer.exe (Performs execution of specified file with explorer parent process
+    breaking the process tree, can be used for defense evasion.)
   command: explorer.exe {PATH_ABSOLUTE:.exe}
 references:
 - label: 1273597319322058752?s=20
@@ -73,14 +82,14 @@ detections:
 - type: elastic
   url: https://github.com/elastic/detection-rules/blob/f2bc0c685d83db7db395fc3dc4b9729759cd4329/rules/windows/initial_access_via_explorer_suspicious_child_parent_args.toml
 - type: ioc
-  description: Multiple instances of explorer.exe or explorer.exe using the /root command line is suspicious.
+  description: Multiple instances of explorer.exe or explorer.exe using the /root
+    command line is suspicious.
 install:
 - method: choco
   package_name: explorer
   commands:
   - choco install explorer
 ---
-
 
 # explorer
 

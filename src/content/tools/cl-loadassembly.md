@@ -41,7 +41,11 @@ resource_profile:
 allowed-tools:
 - cl-loadassembly
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: cl-loadassembly
   sandbox: execFile
@@ -49,8 +53,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Proxy execute Managed DLL with PowerShell (Execute proxied payload with Microsoft signed binary)
-  command: powershell.exe -ep bypass -command "set-location -path C:\Windows\diagnostics\system\Audio; import-module .\CL_LoadAssembly.ps1; LoadAssemblyFromPath ..\..\..\..\testing\fun.dll;[Program]::Fun()"
+- description: Proxy execute Managed DLL with PowerShell (Execute proxied payload
+    with Microsoft signed binary)
+  command: powershell.exe -ep bypass -command "set-location -path C:\Windows\diagnostics\system\Audio;
+    import-module .\CL_LoadAssembly.ps1; LoadAssemblyFromPath ..\..\..\..\testing\fun.dll;[Program]::Fun()"
 references:
 - label: ''
   url: https://bohops.com/2018/01/07/executing-commands-and-bypassing-applocker-with-powershell-diagnostic-scripts/
@@ -68,7 +74,6 @@ install:
   commands:
   - choco install cl-loadassembly
 ---
-
 
 # cl-loadassembly
 

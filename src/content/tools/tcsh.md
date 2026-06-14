@@ -2,7 +2,7 @@
 id: shell-csh-tcsh
 namespace: shell:csh:tcsh
 name: tcsh
-description: "Enhanced C shell; can execute commands, read/write files, and spawn shells."
+description: Enhanced C shell; can execute commands, read/write files, and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +44,13 @@ resource_profile:
 allowed-tools:
 - tcsh
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: tcsh
   sandbox: execFile
@@ -70,7 +76,6 @@ install:
   commands:
   - apt-get install -y tcsh
 ---
-
 
 # tcsh
 

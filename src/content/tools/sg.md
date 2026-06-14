@@ -2,7 +2,7 @@
 id: system-group-sg
 namespace: system:group:sg
 name: sg
-description: "Execute command with a different group ID; can spawn an interactive shell."
+description: Execute command with a different group ID; can spawn an interactive shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - sg
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: sg
   sandbox: execFile
@@ -65,7 +69,6 @@ install:
   commands:
   - apt-get install -y shadow-utils
 ---
-
 
 # sg
 

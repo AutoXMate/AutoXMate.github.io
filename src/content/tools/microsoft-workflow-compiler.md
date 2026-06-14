@@ -2,7 +2,8 @@
 id: windows-execution-microsoft-workflow-compiler
 namespace: windows:execution:microsoft-workflow-compiler
 name: microsoft-workflow-compiler
-description: 'A utility included with .NET that is capable of compiling and executing C# or VB.net code. Located at: C:\Windows\Microsoft.Net\Framework64\v4.0.30319\Microsoft.Workflow.Compiler.exe.'
+description: 'A utility included with .NET that is capable of compiling and executing
+  C# or VB.net code. Located at: C:\Windows\Microsoft.Net\Framework64\v4.0.30319\Microsoft.Workflow.Compiler.exe.'
 author: Conor Richard
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - microsoft-workflow-compiler
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: microsoft-workflow-compiler
   sandbox: execFile
@@ -50,11 +54,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Compile and execute C# or VB.net code in a XOML file referenced in the first argument (any extension accepted). (Compile and run code)
+- description: Compile and execute C# or VB.net code in a XOML file referenced in
+    the first argument (any extension accepted). (Compile and run code)
   command: Microsoft.Workflow.Compiler.exe {PATH} {PATH:.log}
-- description: Compile and execute C# or VB.net code in a XOML file referenced in the test.txt file. (Compile and run code)
+- description: Compile and execute C# or VB.net code in a XOML file referenced in
+    the test.txt file. (Compile and run code)
   command: Microsoft.Workflow.Compiler.exe {PATH} {PATH:.log}
-- description: Compile and execute C# or VB.net code in a XOML file referenced in the test.txt file. (Compile and run code)
+- description: Compile and execute C# or VB.net code in a XOML file referenced in
+    the test.txt file. (Compile and run code)
   command: Microsoft.Workflow.Compiler.exe {PATH} {PATH:.log}
 references:
 - label: '1030445200475185154'
@@ -101,7 +108,6 @@ install:
   commands:
   - choco install microsoft-workflow-compiler
 ---
-
 
 # microsoft-workflow-compiler
 

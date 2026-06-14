@@ -2,7 +2,11 @@
 id: windows-bypass-visualuiaverifynative
 namespace: windows:bypass:visualuiaverifynative
 name: visualuiaverifynative
-description: 'A Windows SDK binary for manual and automated testing of Microsoft UI Automation implementation and controls. Located at: c:\Program Files (x86)\Windows Kits\10\bin\<version>\arm64\UIAVerify\VisualUiaVerifyNative.exe; c:\Program Files (x86)\Windows Kits\10\bin\<version>\x64\UIAVerify\VisualUiaVerifyNative.exe; c:\Program Files (x86)\Windows Kits\10\bin\<version>\UIAVerify\VisualUiaVerifyNative.exe.'
+description: 'A Windows SDK binary for manual and automated testing of Microsoft UI
+  Automation implementation and controls. Located at: c:\Program Files (x86)\Windows
+  Kits\10\bin\<version>\arm64\UIAVerify\VisualUiaVerifyNative.exe; c:\Program Files
+  (x86)\Windows Kits\10\bin\<version>\x64\UIAVerify\VisualUiaVerifyNative.exe; c:\Program
+  Files (x86)\Windows Kits\10\bin\<version>\UIAVerify\VisualUiaVerifyNative.exe.'
 author: Jimmy (@bohops)
 version: 1.0.0
 capabilities:
@@ -41,7 +45,11 @@ resource_profile:
 allowed-tools:
 - visualuiaverifynative
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
+- stealth
 execution:
   template: visualuiaverifynative
   sandbox: execFile
@@ -49,7 +57,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Generate Serialized gadget and save to - `C:\Users\%USERNAME%\AppData\Roaminguiverify.config` before executing. (Execute proxied payload with Microsoft signed binary to bypass WDAC policies)
+- description: Generate Serialized gadget and save to - `C:\Users\%USERNAME%\AppData\Roaminguiverify.config`
+    before executing. (Execute proxied payload with Microsoft signed binary to bypass
+    WDAC policies)
   command: VisualUiaVerifyNative.exe
 references:
 - label: ''
@@ -73,7 +83,6 @@ install:
   commands:
   - choco install visualuiaverifynative
 ---
-
 
 # visualuiaverifynative
 

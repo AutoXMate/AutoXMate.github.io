@@ -2,7 +2,8 @@
 id: windows-credential-dumpminitool
 namespace: windows:credential:dumpminitool
 name: dumpminitool
-description: 'Dump tool part Visual Studio 2022 Located at: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\Extensions\DumpMinitool.exe.'
+description: 'Dump tool part Visual Studio 2022 Located at: C:\Program Files\Microsoft
+  Visual Studio\2022\Community\Common7\IDE\Extensions\TestPlatform\Extensions\DumpMinitool.exe.'
 author: mr.d0x
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - dumpminitool
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
 execution:
   template: dumpminitool
   sandbox: execFile
@@ -49,7 +53,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Creates a memory dump of the lsass process (Create memory dump and parse it offline)
+- description: Creates a memory dump of the lsass process (Create memory dump and
+    parse it offline)
   command: DumpMinitool.exe --file {PATH_ABSOLUTE} --processId 1132 --dumpType Full
 references:
 - label: '1511415432888131586'
@@ -71,7 +76,6 @@ install:
   commands:
   - choco install dumpminitool
 ---
-
 
 # dumpminitool
 

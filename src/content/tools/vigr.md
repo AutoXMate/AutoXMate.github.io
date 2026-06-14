@@ -2,7 +2,7 @@
 id: system-auth-vigr
 namespace: system:auth:vigr
 name: vigr
-description: "Edit group file with safe locking; can spawn a shell."
+description: Edit group file with safe locking; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - vigr
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- pipes-stdin
+- process-manip
 execution:
   template: vigr
   sandbox: execFile
@@ -64,7 +69,6 @@ install:
   commands:
   - apt-get install -y shadow-utils
 ---
-
 
 # vigr
 

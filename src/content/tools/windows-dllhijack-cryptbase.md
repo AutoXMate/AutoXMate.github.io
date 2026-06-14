@@ -3,39 +3,42 @@ trust_level: community
 id: windows-dllhijack-cryptbase
 namespace: windows:dllhijack:cryptbase
 name: cryptbase.dll
-description: "cryptbase.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: cryptbase.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
-  - security.privilegeescalation.dll-hijack
+- security.defenseevasion.dll-hijack
+- security.privilegeescalation.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
-  - privilege-escalation
+- defense-evasion
+- persistence
+- privilege-escalation
 execution:
-  template: "cryptbase.dll"
+  template: cryptbase.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "Reference"
-    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
-  - label: "Reference"
-    url: "https://github.com/xforcered/WFH"
-  - label: "Reference"
-    url: "https://twitter.com/AndrewOliveau/status/1682185200862625792"
-  - label: "Reference"
-    url: "https://twitter.com/BSummerz/status/1860045985919205645"
-  - label: "Reference"
-    url: "https://ice-wzl.medium.com/mikrotik-winbox-dll-side-loading-vulnerability-x2-413d371ff5f0"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/cryptbase.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: Reference
+  url: https://securityintelligence.com/posts/windows-features-dll-sideloading/
+- label: Reference
+  url: https://github.com/xforcered/WFH
+- label: Reference
+  url: https://twitter.com/AndrewOliveau/status/1682185200862625792
+- label: Reference
+  url: https://twitter.com/BSummerz/status/1860045985919205645
+- label: Reference
+  url: https://ice-wzl.medium.com/mikrotik-winbox-dll-side-loading-vulnerability-x2-413d371ff5f0
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/cryptbase.html
+features:
+- requires-root
 ---
+
 examples:
   - description: "Place malicious cryptbase.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\cryptbase.dll\""

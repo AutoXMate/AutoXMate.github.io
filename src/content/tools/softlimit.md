@@ -2,7 +2,7 @@
 id: system-resource-softlimit
 namespace: system:resource:softlimit
 name: softlimit
-description: "Set soft resource limits for commands; can spawn a shell."
+description: Set soft resource limits for commands; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,10 @@ resource_profile:
 allowed-tools:
 - softlimit
 parameters: []
-features: []
+features:
+- interactive
+- process-manip
+- requires-root
 execution:
   template: softlimit
   sandbox: execFile
@@ -65,7 +68,6 @@ install:
   commands:
   - apt-get install -y daemontools
 ---
-
 
 # softlimit
 

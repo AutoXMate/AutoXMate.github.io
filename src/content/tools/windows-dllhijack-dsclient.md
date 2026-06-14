@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-dsclient
 namespace: windows:dllhijack:dsclient
 name: dsclient.dll
-description: "dsclient.dll — Sideloading hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: dsclient.dll — Sideloading hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "dsclient.dll"
+  template: dsclient.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/dsclient.html"
+- label: Reference
+  url: https://wietze.github.io/blog/hijacking-dlls-in-windows
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/dsclient.html
+features:
+- remote
 ---
+
 examples:
   - description: "Place malicious dsclient.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\dsclient.dll\""

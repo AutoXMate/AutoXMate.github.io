@@ -41,7 +41,9 @@ resource_profile:
 allowed-tools:
 - pcalua
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
 execution:
   template: pcalua
   sandbox: execFile
@@ -49,11 +51,14 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Open the target .EXE using the Program Compatibility Assistant. (Proxy execution of binary)
+- description: Open the target .EXE using the Program Compatibility Assistant. (Proxy
+    execution of binary)
   command: pcalua.exe -a {PATH:.exe}
-- description: Open the target .DLL file with the Program Compatibilty Assistant. (Proxy execution of remote dll file)
+- description: Open the target .DLL file with the Program Compatibilty Assistant.
+    (Proxy execution of remote dll file)
   command: pcalua.exe -a {PATH_SMB:.dll}
-- description: Open the target .CPL file with the Program Compatibility Assistant. (Execution of CPL files)
+- description: Open the target .CPL file with the Program Compatibility Assistant.
+    (Execution of CPL files)
   command: pcalua.exe -a {PATH_ABSOLUTE:.cpl} -c Java
 references:
 - label: '912659279806640128'
@@ -72,7 +77,6 @@ install:
   commands:
   - choco install pcalua
 ---
-
 
 # pcalua
 

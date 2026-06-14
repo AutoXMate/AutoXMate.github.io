@@ -1,32 +1,37 @@
 ---
 id: windows-kernel-winiodrv
 namespace: windows:kernel:winiodrv
-name: "WINIODrv.sys"
-description: "Elevate privileges"
-author: "Michael Haag"
-version: "1.0.0"
+name: WINIODrv.sys
+description: Elevate privileges
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: high
 trust_level: verified
 execution:
-  template: "sc.exe create WINIODrv.sys binPath=C:\\windows\\temp\\WINIODrv.sys type=kernel && sc.exe start WINIODrv.sys"
+  template: sc.exe create WINIODrv.sys binPath=C:\windows\temp\WINIODrv.sys type=kernel
+    && sc.exe start WINIODrv.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load WINIODrv.sys kernel driver"
-    commands:
-      - "sc.exe create WINIODrv.sys binPath=C:\\windows\\temp\\WINIODrv.sys type=kernel && sc.exe start WINIODrv.sys"
+- method: custom
+  description: Load WINIODrv.sys kernel driver
+  commands:
+  - sc.exe create WINIODrv.sys binPath=C:\windows\temp\WINIODrv.sys type=kernel &&
+    sc.exe start WINIODrv.sys
 references:
-  - label: "Reference"
-    url: "https://github.com/namazso/physmem_drivers"
+- label: Reference
+  url: https://github.com/namazso/physmem_drivers
+features:
+- requires-root
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create WINIODrv.sys binPath=C:\\\\windows\\\\temp\\\\WINIODrv.sys type=kernel && sc.exe start WINIODrv.sys"

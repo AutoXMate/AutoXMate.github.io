@@ -2,7 +2,8 @@
 id: network-ssh-ssh-copy-id
 namespace: network:ssh:ssh-copy-id
 name: ssh-copy-id
-description: "Install SSH public keys on remote hosts; can write to authorized_keys and spawn shells."
+description: Install SSH public keys on remote hosts; can write to authorized_keys
+  and spawn shells.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -44,7 +45,13 @@ resource_profile:
 allowed-tools:
 - ssh-copy-id
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- process-manip
+- remote
 execution:
   template: ssh-copy-id
   sandbox: execFile
@@ -68,7 +75,6 @@ install:
   commands:
   - apt-get install -y openssh-client
 ---
-
 
 # ssh-copy-id
 

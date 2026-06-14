@@ -5,126 +5,134 @@ name: BloodHound
 description: Active Directory graph-based enumeration tool that maps relationships
   between users, groups, computers, and permissions to identify attack paths to domain
   privilege escalation.
-author: "Repository Maintainers"
-version: "1.0.0"
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - security.ad.enum.users
-  - security.ad.enum.groups
-  - security.ad.enum.computers
-  - security.ad.enum.gpos
-  - security.ad.enum.ous
-  - security.ad.attackpath
-  - security.ad.kerberosabuse
-  - security.ad.aclanalysis
-  - security.ad.sessioncollection
+- security.ad.enum.users
+- security.ad.enum.groups
+- security.ad.enum.computers
+- security.ad.enum.gpos
+- security.ad.enum.ous
+- security.ad.attackpath
+- security.ad.kerberosabuse
+- security.ad.aclanalysis
+- security.ad.sessioncollection
 platforms:
-  - linux
-  - cross-platform
+- linux
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies:
-  - python3
-  - neo4j
+- python3
+- neo4j
 related_tools:
-  - netexec
-  - impacket
+- netexec
+- impacket
 contract:
   inputs:
-    - type: network.target.ip
-      description: Domain controller or target IP
-    - type: credential.username
-      description: Domain username
-    - type: credential.password
-      description: Domain password
+  - type: network.target.ip
+    description: Domain controller or target IP
+  - type: credential.username
+    description: Domain username
+  - type: credential.password
+    description: Domain password
   outputs:
-    - type: security.ad.graph
-      description: BloodHound JSON files (users/groups/computers/sessions)
+  - type: security.ad.graph
+    description: BloodHound JSON files (users/groups/computers/sessions)
   side_effects:
-    - network_traffic
+  - network_traffic
 resource_profile:
   cpu: low
   memory_mb: 256
   network: medium
   disk_io: medium
 allowed-tools:
-  - bloodhound
+- bloodhound
 parameters:
-  - name: target
-    type: string
-    required: true
-    description: "Target domain controller IP or domain"
-  - name: username
-    type: string
-    required: true
-    description: "Domain username"
-  - name: password
-    type: string
-    required: true
-    description: "Domain password"
-  - name: domain
-    type: string
-    required: false
-    description: "Domain name (auto-detected if omitted)"
-  - name: nameserver
-    type: string
-    required: false
-    description: "DNS server IP for domain resolution"
-  - name: collection-method
-    type: string
-    required: false
-    default_value: "all"
-    description: "Collection method: all, group, session, computeronly, etc."
+- name: target
+  type: string
+  required: true
+  description: Target domain controller IP or domain
+- name: username
+  type: string
+  required: true
+  description: Domain username
+- name: password
+  type: string
+  required: true
+  description: Domain password
+- name: domain
+  type: string
+  required: false
+  description: Domain name (auto-detected if omitted)
+- name: nameserver
+  type: string
+  required: false
+  description: DNS server IP for domain resolution
+- name: collection-method
+  type: string
+  required: false
+  default_value: all
+  description: 'Collection method: all, group, session, computeronly, etc.'
 global_vars:
   target: ip
   domain: domain
   username: user
   nameserver: ip
 execution:
-  template: "bloodhound-python -d {domain} -u {username} -p {password} -ns {nameserver} -c {collection-method}"
+  template: bloodhound-python -d {domain} -u {username} -p {password} -ns {nameserver}
+    -c {collection-method}
   sandbox: execFile
   timeout_seconds: 600
   shell: false
 examples:
-  - description: "Full AD enumeration with all collection methods"
-    command: bloodhound-python -d {{DOMAIN}} -u {{USER}} -p '{{PASSWORD}}' -ns {{IP}} -c all
-  - description: "Kerberos-based enumeration (no password needed on Linux)"
-    command: bloodhound-python -d {{DOMAIN}} -u {{USER}} -k -no-pass -ns {{IP}} -c all
-  - description: "BloodHound.py remote ingestion from LDAP (no credentials)"
-    command: bloodhound.py -c LDAP -d evilcorp.local -dc-ip 10.10.10.1 -ns 10.10.10.1
-  - description: "BloodHound.py with credentials via LDAP"
-    command: bloodhound.py -u john -p password123 -d evilcorp.local -dc-ip 10.10.10.1 -ns 10.10.10.1 -c All
-  - description: "SharpHound.exe PowerShell execution on Windows"
-    command: Invoke-BloodHound -CollectionMethod All -Domain evilcorp.local -ZipFile output.zip
+- description: Full AD enumeration with all collection methods
+  command: bloodhound-python -d {{DOMAIN}} -u {{USER}} -p '{{PASSWORD}}' -ns {{IP}}
+    -c all
+- description: Kerberos-based enumeration (no password needed on Linux)
+  command: bloodhound-python -d {{DOMAIN}} -u {{USER}} -k -no-pass -ns {{IP}} -c all
+- description: BloodHound.py remote ingestion from LDAP (no credentials)
+  command: bloodhound.py -c LDAP -d evilcorp.local -dc-ip 10.10.10.1 -ns 10.10.10.1
+- description: BloodHound.py with credentials via LDAP
+  command: bloodhound.py -u john -p password123 -d evilcorp.local -dc-ip 10.10.10.1
+    -ns 10.10.10.1 -c All
+- description: SharpHound.exe PowerShell execution on Windows
+  command: Invoke-BloodHound -CollectionMethod All -Domain evilcorp.local -ZipFile
+    output.zip
 references:
-  - label: "BloodHound GitHub"
-    url: "https://github.com/BloodHoundAD/BloodHound"
-  - label: "BloodHound.py GitHub"
-    url: "https://github.com/fox-it/BloodHound.py"
+- label: BloodHound GitHub
+  url: https://github.com/BloodHoundAD/BloodHound
+- label: BloodHound.py GitHub
+  url: https://github.com/fox-it/BloodHound.py
 techniques:
-  - discovery
-  - enumeration
-  - privilege-escalation
+- discovery
+- enumeration
+- privilege-escalation
 attack_types:
-  - Enumeration
+- Enumeration
 install:
-    - method: apt
-      package_name: "bloodhound"
-      commands:
-        - "apt-get install -y bloodhound"
+- method: apt
+  package_name: bloodhound
+  commands:
+  - apt-get install -y bloodhound
 items:
-  - NoCreds
-  - Hash
+- NoCreds
+- Hash
 services:
-  - LDAP
-  - SMB
-  - Kerberos
-  - RPC
+- LDAP
+- SMB
+- Kerberos
+- RPC
+features:
+- file-system
+- pipes-stdin
+- process-manip
+- requires-root
 ---
-
 
 # BloodHound — AD Attack Path Mapping
 
@@ -148,4 +156,4 @@ BloodHound is a single-page JavaScript web application that uses graph theory to
 - **DCOM**: DCOM users  
 - **PSRemote**: PowerShell Remote users  
 - **ACL**: Access control entries  
-- **All**: Everything above  
+- **All**: Everything above

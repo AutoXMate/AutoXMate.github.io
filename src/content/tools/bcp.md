@@ -2,7 +2,11 @@
 id: windows-download-bcp
 namespace: windows:download:bcp
 name: bcp
-description: 'Microsoft SQL Server Bulk Copy Program utility for importing and exporting data between SQL Server instances and data files. Located at: C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\bcp.exe; C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\130\Tools\Binn\bcp.exe; C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\110\Tools\Binn\bcp.exe.'
+description: 'Microsoft SQL Server Bulk Copy Program utility for importing and exporting
+  data between SQL Server instances and data files. Located at: C:\Program Files\Microsoft
+  SQL Server\Client SDK\ODBC\170\Tools\Binn\bcp.exe; C:\Program Files\Microsoft SQL
+  Server\Client SDK\ODBC\130\Tools\Binn\bcp.exe; C:\Program Files\Microsoft SQL Server\Client
+  SDK\ODBC\110\Tools\Binn\bcp.exe.'
 author: Mahir Ali Khan
 version: 1.0.0
 capabilities:
@@ -41,7 +45,12 @@ resource_profile:
 allowed-tools:
 - bcp
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- remote
 execution:
   template: bcp
   sandbox: execFile
@@ -49,8 +58,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Export binary payload stored in SQL Server database to file system. (Extract malicious executable from database storage to local file system for execution.)
-  command: bcp "SELECT payload_data FROM database.dbo.payloads WHERE id=1" queryout "C:\Windows\Temp\payload.exe" -S localhost -T -c
+- description: Export binary payload stored in SQL Server database to file system.
+    (Extract malicious executable from database storage to local file system for execution.)
+  command: bcp "SELECT payload_data FROM database.dbo.payloads WHERE id=1" queryout
+    "C:\Windows\Temp\payload.exe" -S localhost -T -c
 references:
 - label: bcp-utility
   url: https://docs.microsoft.com/en-us/sql/tools/bcp-utility
@@ -89,7 +100,6 @@ install:
   commands:
   - choco install bcp
 ---
-
 
 # bcp
 

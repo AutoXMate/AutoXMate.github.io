@@ -2,7 +2,8 @@
 id: dev-vscode-code
 namespace: dev:vscode:code
 name: code
-description: Visual Studio Code editor; can spawn a shell and execute commands via integrated terminal Can also download files, send a reverse shell, upload files.
+description: Visual Studio Code editor; can spawn a shell and execute commands via
+  integrated terminal Can also download files, send a reverse shell, upload files.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -45,7 +46,13 @@ resource_profile:
 allowed-tools:
 - code
 parameters: []
-features: []
+features:
+- file-system
+- interactive
+- local
+- network-intensive
+- pipes-stdin
+- process-manip
 execution:
   template: code
   sandbox: execFile
@@ -73,7 +80,6 @@ install:
   commands:
   - apt-get install -y code
 ---
-
 
 # code
 

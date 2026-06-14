@@ -3,27 +3,30 @@ trust_level: community
 id: windows-dllhijack-defragproxy
 namespace: windows:dllhijack:defragproxy
 name: defragproxy.dll
-description: "defragproxy.dll — Environment Variable hijacking (Microsoft)"
-author: "Wietze Beukema"
-version: "1.0.0"
+description: defragproxy.dll — Environment Variable hijacking (Microsoft)
+author: Wietze Beukema
+version: 1.0.0
 capabilities:
-  - security.defenseevasion.dll-hijack
+- security.defenseevasion.dll-hijack
 platforms:
-  - windows
+- windows
 techniques:
-  - defense-evasion
-  - persistence
+- defense-evasion
+- persistence
 execution:
-  template: "defragproxy.dll"
+  template: defragproxy.dll
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Reference"
-    url: "https://wietze.github.io/blog/save-the-environment-variables"
-  - label: "HijackLibs"
-    url: "https://hijacklibs.net/entries/defragproxy.html"
+- label: Reference
+  url: https://wietze.github.io/blog/save-the-environment-variables
+- label: HijackLibs
+  url: https://hijacklibs.net/entries/defragproxy.html
+features:
+- remote
 ---
+
 examples:
   - description: "Place malicious defragproxy.dll in the search order location"
     command: "copy malicious.dll \"%SYSTEM32%\\defragproxy.dll\""

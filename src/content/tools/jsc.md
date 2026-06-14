@@ -2,7 +2,9 @@
 id: windows-compile-jsc
 namespace: windows:compile:jsc
 name: jsc
-description: 'Binary file used by .NET to compile JavaScript code to .exe or .dll format Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\Jsc.exe; C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Jsc.exe; C:\Windows\Microsoft.NET\Framework\v2.0.50727\Jsc.exe.'
+description: 'Binary file used by .NET to compile JavaScript code to .exe or .dll
+  format Located at: C:\Windows\Microsoft.NET\Framework\v4.0.30319\Jsc.exe; C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Jsc.exe;
+  C:\Windows\Microsoft.NET\Framework\v2.0.50727\Jsc.exe.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - jsc
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: jsc
   sandbox: execFile
@@ -49,9 +55,13 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use jsc.exe to compile JavaScript code stored in the provided .JS file and generate a .EXE file with the same name. (Compile attacker code on system. Bypass defensive counter measures.)
+- description: Use jsc.exe to compile JavaScript code stored in the provided .JS file
+    and generate a .EXE file with the same name. (Compile attacker code on system.
+    Bypass defensive counter measures.)
   command: jsc.exe {PATH:.js}
-- description: Use jsc.exe to compile JavaScript code stored in the .JS file and generate a DLL file with the same name. (Compile attacker code on system. Bypass defensive counter measures.)
+- description: Use jsc.exe to compile JavaScript code stored in the .JS file and generate
+    a DLL file with the same name. (Compile attacker code on system. Bypass defensive
+    counter measures.)
   command: jsc.exe /t:library {PATH:.js}
 references:
 - label: '998797808907046913'
@@ -74,7 +84,6 @@ install:
   commands:
   - choco install jsc
 ---
-
 
 # jsc
 

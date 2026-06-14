@@ -2,7 +2,9 @@
 id: windows-execution-ntsd
 namespace: windows:execution:ntsd
 name: ntsd
-description: 'Symbolic Debugger for Windows. Located at: C:\Program Files (x86)\Windows Kits\10\Debuggers\x64\ntsd.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\ntsd.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\arm\ntsd.exe.'
+description: 'Symbolic Debugger for Windows. Located at: C:\Program Files (x86)\Windows
+  Kits\10\Debuggers\x64\ntsd.exe; C:\Program Files (x86)\Windows Kits\10\Debuggers\x86\ntsd.exe;
+  C:\Program Files (x86)\Windows Kits\10\Debuggers\arm\ntsd.exe.'
 author: Avihay Eldad
 version: 1.0.0
 capabilities:
@@ -41,7 +43,11 @@ resource_profile:
 allowed-tools:
 - ntsd
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
 execution:
   template: ntsd
   sandbox: execFile
@@ -49,7 +55,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Launches command through the debugging process; optionally add `-G` to exit the debugger automatically. (Executes an executable under a trusted microsoft signed binary.)
+- description: Launches command through the debugging process; optionally add `-G`
+    to exit the debugger automatically. (Executes an executable under a trusted microsoft
+    signed binary.)
   command: ntsd.exe -g {CMD}
 references:
 - label: cdb-command-line-options
@@ -68,7 +76,6 @@ install:
   commands:
   - choco install ntsd
 ---
-
 
 # ntsd
 

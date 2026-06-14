@@ -2,7 +2,8 @@
 id: windows-download-ldifde
 namespace: windows:download:ldifde
 name: ldifde
-description: 'Creates, modifies, and deletes LDAP directory objects. Located at: c:\windows\system32\ldifde.exe; c:\windows\syswow64\ldifde.exe.'
+description: 'Creates, modifies, and deletes LDAP directory objects. Located at: c:\windows\system32\ldifde.exe;
+  c:\windows\syswow64\ldifde.exe.'
 author: Grzegorz Tworek
 version: 1.0.0
 capabilities:
@@ -41,7 +42,9 @@ resource_profile:
 allowed-tools:
 - ldifde
 parameters: []
-features: []
+features:
+- network-intensive
+- pipes-stdout
 execution:
   template: ldifde
   sandbox: execFile
@@ -49,7 +52,9 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Import specified .ldf file into LDAP. If the file contains http-based attrval-spec such as `thumbnailPhoto:< http://example.org/somefile.txt`, the file will be downloaded into IE temp folder. (Download file from Internet)
+- description: Import specified .ldf file into LDAP. If the file contains http-based
+    attrval-spec such as `thumbnailPhoto:< http://example.org/somefile.txt`, the file
+    will be downloaded into IE temp folder. (Download file from Internet)
   command: Ldifde -i -f {PATH:.ldf}
 references:
 - label: '1564968845726580736'
@@ -71,7 +76,6 @@ install:
   commands:
   - choco install ldifde
 ---
-
 
 # ldifde
 

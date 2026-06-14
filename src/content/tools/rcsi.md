@@ -2,7 +2,8 @@
 id: windows-execution-rcsi
 namespace: windows:execution:rcsi
 name: rcsi
-description: 'Non-Interactive command line inerface included with Visual Studio. Located at: no default.'
+description: 'Non-Interactive command line inerface included with Visual Studio. Located
+  at: no default.'
 author: Oddvar Moe
 version: 1.0.0
 capabilities:
@@ -42,7 +43,11 @@ resource_profile:
 allowed-tools:
 - rcsi
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- pipes-stdout
+- stealth
 execution:
   template: rcsi
   sandbox: execFile
@@ -50,9 +55,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Use embedded C# within the csx script to execute the code. (Local execution of arbitrary C# code stored in local CSX file.)
+- description: Use embedded C# within the csx script to execute the code. (Local execution
+    of arbitrary C# code stored in local CSX file.)
   command: rcsi.exe {PATH:.csx}
-- description: Use embedded C# within the csx script to execute the code. (Local execution of arbitrary C# code stored in local CSX file.)
+- description: Use embedded C# within the csx script to execute the code. (Local execution
+    of arbitrary C# code stored in local CSX file.)
   command: rcsi.exe {PATH:.csx}
 references:
 - label: ''
@@ -77,7 +84,6 @@ install:
   commands:
   - choco install rcsi
 ---
-
 
 # rcsi
 

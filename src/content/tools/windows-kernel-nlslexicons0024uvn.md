@@ -1,34 +1,46 @@
 ---
 id: windows-kernel-nlslexicons0024uvn
 namespace: windows:kernel:nlslexicons0024uvn
-name: "NlsLexicons0024UvN.sys"
-description: "Cisco Talos has identified multiple versions of an undocumented malicious driver named “RedDriver,” a driver-based browser hijacker that uses the Windows Filtering Platform (WFP) to intercept browser traffic. RedDriver has been active since at least 2021.
-RedDriver utilizes HookSignTool to forge its signature timestamp to bypass Windows driver-signing policies.
-Code from multiple open-source tools has been used in the development of RedDriver's infection chain, including HP-Socket and a custo..."
-author: "Michael Haag"
-version: "1.0.0"
+name: NlsLexicons0024UvN.sys
+description: Cisco Talos has identified multiple versions of an undocumented malicious
+  driver named “RedDriver,” a driver-based browser hijacker that uses the Windows
+  Filtering Platform (WFP) to intercept browser traffic. RedDriver has been active
+  since at least 2021. RedDriver utilizes HookSignTool to forge its signature timestamp
+  to bypass Windows driver-signing policies. Code from multiple open-source tools
+  has been used in the development of RedDriver's infection chain, including HP-Socket
+  and a custo...
+author: Michael Haag
+version: 1.0.0
 capabilities:
-  - security.privilegeescalation.kernel-exploit
+- security.privilegeescalation.kernel-exploit
 platforms:
-  - windows
+- windows
 techniques:
-  - privilege-escalation
+- privilege-escalation
 risk_level: critical
 trust_level: verified
 execution:
-  template: "sc.exe create NlsLexicons0024UvN.sys binPath=C:\\windows\\temp\\NlsLexicons0024UvN.sys type=kernel && sc.exe start NlsLexicons0024UvN.sys"
+  template: sc.exe create NlsLexicons0024UvN.sys binPath=C:\windows\temp\NlsLexicons0024UvN.sys
+    type=kernel && sc.exe start NlsLexicons0024UvN.sys
   sandbox: execFile
   timeout_seconds: 30
   shell: true
 install:
-  - method: custom
-    description: "Load NlsLexicons0024UvN.sys kernel driver"
-    commands:
-      - "sc.exe create NlsLexicons0024UvN.sys binPath=C:\\windows\\temp\\NlsLexicons0024UvN.sys type=kernel && sc.exe start NlsLexicons0024UvN.sys"
+- method: custom
+  description: Load NlsLexicons0024UvN.sys kernel driver
+  commands:
+  - sc.exe create NlsLexicons0024UvN.sys binPath=C:\windows\temp\NlsLexicons0024UvN.sys
+    type=kernel && sc.exe start NlsLexicons0024UvN.sys
 references:
-  - label: "Reference"
-    url: "https://blog.talosintelligence.com/undocumented-reddriver/"
+- label: Reference
+  url: https://blog.talosintelligence.com/undocumented-reddriver/
+features:
+- file-system
+- pipes-stdin
+- requires-root
+- stealth
 ---
+
 examples:
   - description: "Load the kernel driver"
     command: "sc.exe create NlsLexicons0024UvN.sys binPath=C:\\\\windows\\\\temp\\\\NlsLexicons0024UvN.sys type=kernel && sc.exe start NlsLexicons0024UvN.sys"

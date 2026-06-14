@@ -2,7 +2,7 @@
 id: dev-python-uv
 namespace: dev:python:uv
 name: uv
-description: "Fast Python package installer and resolver; can execute arbitrary code."
+description: Fast Python package installer and resolver; can execute arbitrary code.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,11 @@ resource_profile:
 allowed-tools:
 - uv
 parameters: []
-features: []
+features:
+- interactive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: uv
   sandbox: execFile
@@ -65,7 +69,6 @@ install:
   commands:
   - apt-get install -y uv
 ---
-
 
 # uv
 

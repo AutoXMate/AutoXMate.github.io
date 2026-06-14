@@ -2,7 +2,9 @@
 id: windows-execution-vsiisexelauncher
 namespace: windows:execution:vsiisexelauncher
 name: vsiisexelauncher
-description: 'Binary will execute specified binary. Part of VS/VScode installation. Located at: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Web Tools\ProjectSystem\VSIISExeLauncher.exe.'
+description: 'Binary will execute specified binary. Part of VS/VScode installation.
+  Located at: C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\Extensions\Microsoft\Web
+  Tools\ProjectSystem\VSIISExeLauncher.exe.'
 author: timwhite
 version: 1.0.0
 capabilities:
@@ -41,7 +43,12 @@ resource_profile:
 allowed-tools:
 - vsiisexelauncher
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: vsiisexelauncher
   sandbox: execFile
@@ -49,7 +56,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: The above binary will execute other binary. (Execute any binary with given arguments.)
+- description: The above binary will execute other binary. (Execute any binary with
+    given arguments.)
   command: VSIISExeLauncher.exe -p {PATH:.exe} -a "{CMD:args}"
 references:
 - label: timwhitez
@@ -70,7 +78,6 @@ install:
   commands:
   - choco install vsiisexelauncher
 ---
-
 
 # vsiisexelauncher
 

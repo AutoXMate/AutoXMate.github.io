@@ -41,7 +41,12 @@ resource_profile:
 allowed-tools:
 - wt
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdin
+- pipes-stdout
+- process-manip
 execution:
   template: wt
   sandbox: execFile
@@ -49,7 +54,8 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: Execute a command via Windows Terminal. (Use wt.exe as a proxy binary to evade defensive counter-measures)
+- description: Execute a command via Windows Terminal. (Use wt.exe as a proxy binary
+    to evade defensive counter-measures)
   command: wt.exe {CMD}
 references:
 - label: '1552100271668469761'
@@ -68,7 +74,6 @@ install:
   commands:
   - choco install wt
 ---
-
 
 # wt
 

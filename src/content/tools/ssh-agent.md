@@ -2,7 +2,7 @@
 id: network-ssh-ssh-agent
 namespace: network:ssh:ssh-agent
 name: ssh-agent
-description: "SSH authentication agent; can spawn a shell."
+description: SSH authentication agent; can spawn a shell.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - ssh-agent
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdout
+- process-manip
+- requires-root
 execution:
   template: ssh-agent
   sandbox: execFile
@@ -65,7 +70,6 @@ install:
   commands:
   - apt-get install -y openssh-client
 ---
-
 
 # ssh-agent
 

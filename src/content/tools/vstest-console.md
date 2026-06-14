@@ -2,7 +2,9 @@
 id: windows-bypass-vstest-console
 namespace: windows:bypass:vstest-console
 name: vstest-console
-description: 'VSTest.Console.exe is the command-line tool to run tests Located at: C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe; C:\Program Files (x86)\Microsoft Visual Studio\2022\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe.'
+description: 'VSTest.Console.exe is the command-line tool to run tests Located at:
+  C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe;
+  C:\Program Files (x86)\Microsoft Visual Studio\2022\TestAgent\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe.'
 author: Onat Uzunyayla
 version: 1.0.0
 capabilities:
@@ -41,7 +43,12 @@ resource_profile:
 allowed-tools:
 - vstest-console
 parameters: []
-features: []
+features:
+- file-system
+- local
+- pipes-stdout
+- process-manip
+- stealth
 execution:
   template: vstest-console
   sandbox: execFile
@@ -49,7 +56,11 @@ execution:
   shell: false
 global_vars: {}
 examples:
-- description: VSTest functionality may allow an adversary to executes their malware by wrapping it as a test method then build it to a .exe or .dll file to be later run by vstest.console.exe. This may both allow AWL bypass or defense bypass in general (Proxy Execution and AWL bypass, Adversaries may run malicious code embedded inside the test methods of crafted dll/exe)
+- description: VSTest functionality may allow an adversary to executes their malware
+    by wrapping it as a test method then build it to a .exe or .dll file to be later
+    run by vstest.console.exe. This may both allow AWL bypass or defense bypass in
+    general (Proxy Execution and AWL bypass, Adversaries may run malicious code embedded
+    inside the test methods of crafted dll/exe)
   command: vstest.console.exe {PATH:.dll}
 references:
 - label: vstest-console-options?view=vs-2022
@@ -67,7 +78,6 @@ install:
   commands:
   - choco install vstest-console
 ---
-
 
 # vstest-console
 

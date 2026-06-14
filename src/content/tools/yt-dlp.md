@@ -2,7 +2,7 @@
 id: network-download-yt-dlp
 namespace: network:download:yt-dlp
 name: yt-dlp
-description: "Download videos from YouTube and other sites; can execute arbitrary commands."
+description: Download videos from YouTube and other sites; can execute arbitrary commands.
 author: GTFOBins
 version: 1.0.0
 capabilities:
@@ -43,7 +43,12 @@ resource_profile:
 allowed-tools:
 - yt-dlp
 parameters: []
-features: []
+features:
+- interactive
+- network-intensive
+- pipes-stdin
+- process-manip
+- requires-root
 execution:
   template: yt-dlp
   sandbox: execFile
@@ -52,7 +57,8 @@ execution:
 global_vars: {}
 examples:
 - description: Spawn an interactive shell (sudo, unprivileged)
-  command: 'yt-dlp ''https://www.youtube.com/watch?v=xxxxxxxxxxx'' --exec ''/bin/sh #'''
+  command: 'yt-dlp ''https://www.youtube.com/watch?v=xxxxxxxxxxx'' --exec ''/bin/sh
+    #'''
 references:
 - label: GTFOBins
   url: https://gtfobins.github.io/gtfobins/yt-dlp/
@@ -65,7 +71,6 @@ install:
   commands:
   - apt-get install -y yt-dlp
 ---
-
 
 # yt-dlp
 

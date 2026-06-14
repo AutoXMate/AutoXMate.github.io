@@ -2,26 +2,29 @@
 trust_level: community
 id: wtfbin-eset-protection-suite
 namespace: wtf:bin:eset-protection-suite
-name: "ESET Protection Suite"
-description: "Everybody loves a big DNS query!"
-version: "1.0.0"
+name: ESET Protection Suite
+description: Everybody loves a big DNS query!
+version: 1.0.0
 capabilities:
-  - network.exfiltration.dns
+- network.exfiltration.dns
 platforms:
-  - windows
+- windows
 techniques:
-  - exfiltration
+- exfiltration
 execution:
-  template: "ESET Protection Suite"
+  template: ESET Protection Suite
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 references:
-  - label: "Documentation"
-    url: "https://support.eset.com/en/kb332-ports-and-addresses-required-to-use-your-eset-product-with-a-third-party-firewall"
-  - label: "WTFBins"
-    url: "https://wtfbins.netlify.app/wtfbins/eset-protection-suite/"
+- label: Documentation
+  url: https://support.eset.com/en/kb332-ports-and-addresses-required-to-use-your-eset-product-with-a-third-party-firewall
+- label: WTFBins
+  url: https://wtfbins.netlify.app/wtfbins/eset-protection-suite/
+features:
+- network-intensive
 ---
+
 examples:
   - description: "Run the binary and monitor DNS exfiltration"
     command: "ESET Protection Suite"
