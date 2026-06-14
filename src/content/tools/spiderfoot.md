@@ -219,6 +219,9 @@ install:
 features:
 - network-intensive
 - pipes-stdout
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # SpiderFoot — OSINT Automation

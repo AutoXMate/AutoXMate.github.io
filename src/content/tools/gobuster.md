@@ -233,6 +233,9 @@ install:
 features:
 - file-system
 - local
+mitre_ids:
+- T1595
+- T1046
 ---
 
 # Gobuster — Multi-Purpose Brute-Force Tool

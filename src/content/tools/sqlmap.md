@@ -211,6 +211,8 @@ install:
   - apt-get install -y sqlmap
 features:
 - stealth
+mitre_ids:
+- T1190
 ---
 
 # SQLMap — Automatic SQL Injection Tool

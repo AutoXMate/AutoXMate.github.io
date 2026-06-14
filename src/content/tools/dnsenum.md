@@ -235,6 +235,9 @@ features:
 - network-intensive
 - pipes-stdin
 - process-manip
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # dnsenum — DNS Enumeration Tool

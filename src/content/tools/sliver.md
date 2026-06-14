@@ -189,6 +189,10 @@ install:
 features:
 - pipes-stdin
 - pipes-stdout
+mitre_ids:
+- T1071
+- T1573
+- T1059
 ---
 
 # Sliver — Implant-Based C2 Framework

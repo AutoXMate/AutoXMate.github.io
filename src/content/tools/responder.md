@@ -98,6 +98,9 @@ install:
 features:
 - file-system
 - network-intensive
+mitre_ids:
+- T1557
+- T1046
 ---
 
 # Responder — LLMNR/NBT-NS/MDNS Poisoner

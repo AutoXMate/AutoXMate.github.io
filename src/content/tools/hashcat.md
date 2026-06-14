@@ -265,6 +265,8 @@ install:
   - brew install hashcat
 features:
 - pipes-stdout
+mitre_ids:
+- T1110
 ---
 
 # Hashcat — GPU-Accelerated Password Recovery

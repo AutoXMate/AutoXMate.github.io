@@ -179,6 +179,10 @@ install:
   - git clone https://github.com/cobbr/Covenant.git
 features:
 - pipes-stdout
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # Covenant — .NET C2 Framework

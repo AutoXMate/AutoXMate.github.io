@@ -132,6 +132,9 @@ features:
 - pipes-stdin
 - process-manip
 - requires-root
+mitre_ids:
+- T1087
+- T1069
 ---
 
 # BloodHound — AD Attack Path Mapping

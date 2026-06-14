@@ -55,7 +55,11 @@ examples: []
 references: []
 techniques:
 - execution
-mitre_ids: []
+mitre_ids:
+- T1059
+- T1129
+- T1204
+- T1218
 detections: []
 install:
 - method: choco

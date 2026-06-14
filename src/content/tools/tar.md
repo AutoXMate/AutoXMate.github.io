@@ -99,6 +99,8 @@ install:
   package_name: tar
   commands:
   - apt-get install -y tar
+mitre_ids:
+- T1560
 ---
 
 # tar

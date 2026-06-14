@@ -69,6 +69,11 @@ install:
   package_name: tor
   commands:
   - apt-get install -y tor
+mitre_ids:
+- T1071
+- T1090
+- T1572
+- T1573
 ---
 
 # torsocks

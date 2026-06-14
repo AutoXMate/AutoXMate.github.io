@@ -199,6 +199,9 @@ features:
 - network-intensive
 - pipes-stdin
 - pipes-stdout
+mitre_ids:
+- T1021
+- T1046
 ---
 
 # smbmap — SMB Share Enumeration

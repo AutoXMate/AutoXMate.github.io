@@ -420,6 +420,9 @@ features:
 - pipes-stdin
 - pipes-stdout
 - process-manip
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # Nmap — Network Mapper

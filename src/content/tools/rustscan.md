@@ -188,6 +188,9 @@ features:
 - network-intensive
 - pipes-stdout
 - process-manip
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # RustScan — Fast Port Scanner with Nmap Integration

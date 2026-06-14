@@ -115,6 +115,8 @@ features:
 - interactive
 - pipes-stdout
 - remote
+mitre_ids:
+- T1021
 ---
 
 # evil-winrm — WinRM Shell for Pentesting

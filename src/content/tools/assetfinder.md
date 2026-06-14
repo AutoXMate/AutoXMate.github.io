@@ -112,6 +112,9 @@ install:
   - go install github.com/tomnomnom/assetfinder@latest
 features:
 - network-intensive
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # Assetfinder — Domain & Subdomain Discovery

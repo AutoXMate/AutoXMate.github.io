@@ -275,6 +275,8 @@ features:
 - compression
 - file-system
 - network-intensive
+mitre_ids:
+- T1595
 ---
 
 # Subfinder — Passive Subdomain Discovery

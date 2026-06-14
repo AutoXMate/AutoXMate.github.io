@@ -156,6 +156,10 @@ install:
 features:
 - output-json
 - stealth
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # Jdam — JSON Fuzzer

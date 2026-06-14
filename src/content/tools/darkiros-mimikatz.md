@@ -65,6 +65,10 @@ services:
 - SMB
 features:
 - network-intensive
+mitre_ids:
+- T1555
+- T1003
+- T1055
 ---
 
 # mimikatz

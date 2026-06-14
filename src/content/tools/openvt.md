@@ -3,35 +3,35 @@ id: system-terminal-openvt
 namespace: system:terminal:openvt
 name: openvt
 description: Run a program on a new VT, can execute commands.
-author: "GTFOBins"
-version: "1.0.0"
+author: GTFOBins
+version: 1.0.0
 capabilities:
-  - security.execution.command
+- security.execution.command
 platforms:
-  - linux
+- linux
 risk_level: medium
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - chvt
-  - deallocvt
+- chvt
+- deallocvt
 artifacts: []
 workflow_edges:
   produces:
-    - command-execution
+  - command-execution
   consumes:
-    - execution-context
+  - execution-context
 contract:
   inputs: []
   outputs:
-    - type: process.output
-      description: Command execution output
+  - type: process.output
+    description: Command execution output
   side_effects:
-    - process_spawn
+  - process_spawn
   resource_cost:
     cpu: low
     memory_mb: 2
@@ -43,29 +43,33 @@ resource_profile:
   network: none
   disk_io: low
 allowed-tools:
-  - openvt
-  - Bash
-  - execFile
+- openvt
+- Bash
+- execFile
 parameters: []
 features:
-  - process-manip
+- process-manip
 execution:
-  template: "openvt /path/to/command"
+  template: openvt /path/to/command
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 global_vars: {}
 examples:
-  - description: Execute command via openvt
-    command: openvt /path/to/command
+- description: Execute command via openvt
+  command: openvt /path/to/command
 references:
-  - label: "GTFOBins"
-    url: "https://gtfobins.github.io/gtfobins/openvt/"
+- label: GTFOBins
+  url: https://gtfobins.github.io/gtfobins/openvt/
 techniques:
-  - execution
+- execution
 install:
-  - method: apt
-    package_name: "kbd"
-    commands:
-      - "apt-get install -y kbd"
+- method: apt
+  package_name: kbd
+  commands:
+  - apt-get install -y kbd
+mitre_ids:
+- T1059
 ---
+
+

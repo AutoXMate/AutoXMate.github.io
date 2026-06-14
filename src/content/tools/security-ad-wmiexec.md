@@ -140,6 +140,9 @@ features:
 - pipes-stdin
 - process-manip
 - remote
+mitre_ids:
+- T1021
+- T1047
 ---
 
 # wmiexec.py — WMI Remote Command Execution

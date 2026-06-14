@@ -139,6 +139,10 @@ install:
   - cd Mythic && make
 features:
 - pipes-stdout
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # Mythic — Collaborative Red Team C2 Framework

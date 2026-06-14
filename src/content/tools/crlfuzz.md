@@ -133,6 +133,10 @@ features:
 - network-intensive
 - pipes-stdout
 - stealth
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # CRLFuzz — CRLF Injection Scanner

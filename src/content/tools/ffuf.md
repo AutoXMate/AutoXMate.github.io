@@ -260,6 +260,8 @@ install:
   - apt-get install -y ffuf
 features:
 - pipes-stdin
+mitre_ids:
+- T1595
 ---
 
 # FFUF — Fast Web Fuzzer

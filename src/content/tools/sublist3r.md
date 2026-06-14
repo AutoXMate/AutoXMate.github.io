@@ -160,6 +160,9 @@ features:
 - file-system
 - pipes-stdout
 - process-manip
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # Sublist3r — Subdomain Enumeration Tool

@@ -185,6 +185,10 @@ install:
   - cd routersploit && pip install -r requirements.txt
 features:
 - network-intensive
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # RouterSploit — Embedded Device Exploitation Framework

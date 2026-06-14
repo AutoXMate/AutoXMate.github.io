@@ -67,6 +67,8 @@ install:
   package_name: gzip
   commands:
   - apt-get install -y gzip
+mitre_ids:
+- T1560
 ---
 
 # zcat

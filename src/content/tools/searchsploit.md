@@ -179,6 +179,10 @@ install:
 features:
 - file-system
 - interactive
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # SearchSploit — Exploit-DB Command-Line Search Tool

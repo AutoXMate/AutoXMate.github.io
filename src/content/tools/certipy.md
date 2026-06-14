@@ -126,6 +126,9 @@ features:
 - pipes-stdout
 - process-manip
 - requires-root
+mitre_ids:
+- T1558
+- T1649
 ---
 
 # Certipy — AD CS Exploitation

@@ -25,6 +25,8 @@ references:
   url: https://hijacklibs.net/entries/archiveint.html
 features:
 - file-system
+mitre_ids:
+- T1560
 ---
 
 examples:

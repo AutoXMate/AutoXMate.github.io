@@ -37,6 +37,8 @@ services:
 - HTTPS
 features:
 - pipes-stdin
+mitre_ids:
+- T1595
 ---
 
 # ffuf

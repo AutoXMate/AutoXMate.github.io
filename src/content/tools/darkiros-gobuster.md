@@ -33,6 +33,9 @@ services:
 - DNS
 features:
 - pipes-stdin
+mitre_ids:
+- T1595
+- T1046
 ---
 
 # gobuster

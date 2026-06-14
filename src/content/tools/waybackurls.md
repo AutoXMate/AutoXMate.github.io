@@ -119,6 +119,10 @@ install:
 features:
 - compression
 - file-system
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # waybackurls — Wayback Machine URL Fetcher

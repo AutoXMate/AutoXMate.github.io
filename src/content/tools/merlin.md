@@ -161,6 +161,10 @@ features:
 - file-system
 - network-intensive
 - pipes-stdout
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # Merlin — Go-Based C2 Framework

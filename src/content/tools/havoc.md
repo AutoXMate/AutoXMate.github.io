@@ -131,6 +131,9 @@ install:
   - cd Havoc && make
 features:
 - pipes-stdout
+mitre_ids:
+- T1071
+- T1573
 ---
 
 # Havoc — Modern C2 Framework

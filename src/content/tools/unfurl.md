@@ -118,6 +118,9 @@ features:
 - file-system
 - pipes-stdin
 - process-manip
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # Unfurl — URL Extraction and Analysis

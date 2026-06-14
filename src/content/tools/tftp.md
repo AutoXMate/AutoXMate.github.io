@@ -77,6 +77,11 @@ install:
   package_name: tftp-hpa
   commands:
   - apt-get install -y tftp-hpa
+mitre_ids:
+- T1005
+- T1048
+- T1074
+- T1114
 ---
 
 # tftp

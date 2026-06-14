@@ -226,6 +226,10 @@ features:
 - network-intensive
 - pipes-stdout
 - process-manip
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # Aquatone — Visual Website Inspection Tool

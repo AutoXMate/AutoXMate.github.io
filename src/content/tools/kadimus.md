@@ -159,6 +159,10 @@ features:
 - file-system
 - local
 - network-intensive
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # Kadimus — LFI Scanning and Exploitation

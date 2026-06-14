@@ -196,6 +196,10 @@ install:
   - apt-get install -y commix
 features:
 - stealth
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # Commix — Automated Command Injection

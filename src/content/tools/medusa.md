@@ -261,6 +261,8 @@ features:
 - network-intensive
 - pipes-stdout
 - process-manip
+mitre_ids:
+- T1110
 ---
 
 # Medusa — Parallel Network Login Auditor

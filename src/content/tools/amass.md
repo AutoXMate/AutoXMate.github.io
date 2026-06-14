@@ -264,6 +264,8 @@ features:
 - encryption
 - network-intensive
 - pipes-stdout
+mitre_ids:
+- T1595
 ---
 
 # Amass — Attack Surface Mapping & Asset Discovery

@@ -178,6 +178,10 @@ features:
 - interactive
 - pipes-stdin
 - stealth
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # Shellter — Dynamic Shellcode Injection

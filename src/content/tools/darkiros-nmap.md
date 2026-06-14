@@ -43,6 +43,9 @@ services:
 - DNS
 features:
 - network-intensive
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # nmap

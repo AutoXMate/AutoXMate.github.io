@@ -198,6 +198,8 @@ install:
 features:
 - network-intensive
 - pipes-stdin
+mitre_ids:
+- T1595
 ---
 
 # nuclei — Template-Based Vulnerability Scanner

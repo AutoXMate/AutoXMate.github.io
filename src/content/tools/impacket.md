@@ -167,6 +167,10 @@ features:
 - interactive
 - network-intensive
 - process-manip
+mitre_ids:
+- T1021
+- T1558
+- T1550
 ---
 
 # Impacket — AD Exploitation Suite

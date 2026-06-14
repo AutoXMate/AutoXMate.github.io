@@ -209,6 +209,9 @@ features:
 - network-intensive
 - pipes-stdout
 - remote
+mitre_ids:
+- T1595
+- T1046
 ---
 
 # Nikto — Web Server Scanner

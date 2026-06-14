@@ -188,6 +188,8 @@ install:
 features:
 - file-system
 - process-manip
+mitre_ids:
+- T1595
 ---
 
 # dnsrecon — DNS Enumeration Script

@@ -249,6 +249,10 @@ features:
 - file-system
 - local
 - pipes-stdin
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # Feroxbuster — Fast Content Discovery

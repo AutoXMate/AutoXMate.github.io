@@ -100,6 +100,8 @@ install:
   package_name: util-linux
   commands:
   - apt-get install -y util-linux
+mitre_ids:
+- T1059
 ---
 
 # agetty — Alternative Getty

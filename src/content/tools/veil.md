@@ -191,6 +191,10 @@ install:
 features:
 - interactive
 - stealth
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # Veil — Payload Generation Framework

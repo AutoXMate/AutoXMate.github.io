@@ -241,6 +241,10 @@ features:
 - network-intensive
 - pipes-stdout
 - remote
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # Arjun — HTTP Parameter Discovery Tool

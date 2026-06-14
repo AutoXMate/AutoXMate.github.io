@@ -145,6 +145,10 @@ features:
 - file-system
 - local
 - network-intensive
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # LFI Suite — Local File Inclusion Exploitation Suite

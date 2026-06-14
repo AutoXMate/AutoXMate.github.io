@@ -86,6 +86,11 @@ install:
   package_name: ftp
   commands:
   - apt-get install -y ftp
+mitre_ids:
+- T1005
+- T1048
+- T1074
+- T1114
 ---
 
 # ftp

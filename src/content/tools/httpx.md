@@ -205,6 +205,10 @@ features:
 - pipes-stdout
 - process-manip
 - remote
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # httpx — HTTP Probing Toolkit

@@ -175,6 +175,10 @@ features:
 - network-intensive
 - pipes-stdout
 - remote
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # OWASP ZAP — Zed Attack Proxy

@@ -238,6 +238,10 @@ features:
 - file-system
 - pipes-stdin
 - pipes-stdout
+mitre_ids:
+- T1110
+- T1555
+- T1558
 ---
 
 # CeWL — Custom Wordlist Generator

@@ -207,6 +207,9 @@ install:
   - apt-get install -y ldap-utils
 features:
 - process-manip
+mitre_ids:
+- T1087
+- T1069
 ---
 
 # ldapsearch — LDAP Directory Query Tool

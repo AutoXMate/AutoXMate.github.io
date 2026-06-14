@@ -143,6 +143,10 @@ install:
   - go install github.com/lc/gau/v2/cmd/gau@latest
 features:
 - file-system
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # gau — Get All URLs

@@ -192,6 +192,10 @@ install:
   - apt-get install -y beef-xss
 features:
 - remote
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # BeEF — Browser Exploitation Framework

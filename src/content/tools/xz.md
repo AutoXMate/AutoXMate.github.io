@@ -66,6 +66,8 @@ install:
   package_name: xz-utils
   commands:
   - apt-get install -y xz-utils
+mitre_ids:
+- T1560
 ---
 
 # xz

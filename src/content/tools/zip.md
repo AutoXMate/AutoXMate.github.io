@@ -77,6 +77,8 @@ install:
   package_name: zip
   commands:
   - apt-get install -y zip
+mitre_ids:
+- T1560
 ---
 
 # zip

@@ -4,53 +4,53 @@ namespace: network:dns:dig
 name: dig
 description: DNS lookup utility for querying name servers and debugging DNS resolution
   issues.
-author: "Repository Maintainers"
-version: "1.0.0"
+author: Repository Maintainers
+version: 1.0.0
 capabilities:
-  - security.recon.dns
-  - network.dns.query
-  - network.dns.lookup
-  - network.dns.reverse
-  - network.dns.trace
-  - system.file.read
+- security.recon.dns
+- network.dns.query
+- network.dns.lookup
+- network.dns.reverse
+- network.dns.trace
+- system.file.read
 platforms:
-  - linux
-  - macos
-  - cross-platform
+- linux
+- macos
+- cross-platform
 risk_level: low
 trust_level: verified
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
-  - cross-platform
+- amd64
+- arm64
+- cross-platform
 dependencies: []
 related_tools:
-  - nslookup
-  - host
-  - whois
-  - dnsrecon
+- nslookup
+- host
+- whois
+- dnsrecon
 artifacts:
-  - type: network.dns.response
-    description: DNS response data
-    mime: text/plain
-    trust_level: verified
+- type: network.dns.response
+  description: DNS response data
+  mime: text/plain
+  trust_level: verified
 workflow_edges:
   produces:
-    - dns-records
-    - dns-trace
+  - dns-records
+  - dns-trace
   consumes:
-    - domain-name
+  - domain-name
 contract:
   inputs:
-    - type: network.target.domain
-      description: Domain name to query
+  - type: network.target.domain
+    description: Domain name to query
   outputs:
-    - type: network.dns.response
-      description: DNS query results with record details
-      mime: text/plain
+  - type: network.dns.response
+    description: DNS query results with record details
+    mime: text/plain
   side_effects:
-    - network_traffic
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 8
@@ -62,105 +62,105 @@ resource_profile:
   network: low
   disk_io: none
 allowed-tools:
-  - dig
-  - Bash
-  - execFile
+- dig
+- Bash
+- execFile
 parameters:
-  - name: flag-4
-    type: string
-    required: false
-    description: "(use IPv4 query transport only)"
-    aliases:
-      - "-4"
-  - name: flag-6
-    type: string
-    required: false
-    description: "(use IPv6 query transport only)"
-    aliases:
-      - "-6"
-  - name: flag-b
-    type: string
-    required: false
-    description: "(bind to source address/port)"
-    aliases:
-      - -b
-    enum:
-      - bind to source address
-      - port
-  - name: flag-c
-    type: string
-    required: false
-    description: "(specify query class)"
-    aliases:
-      - -c
-  - name: flag-f
-    type: string
-    required: false
-    description: "(batch mode)"
-    aliases:
-      - -f
-  - name: flag-k
-    type: string
-    required: false
-    description: "(specify tsig key file)"
-    aliases:
-      - -k
-  - name: flag-m
-    type: string
-    required: false
-    description: "(enable memory usage debugging)"
-    aliases:
-      - -m
-  - name: flag-p
-    type: integer
-    required: false
-    description: "(specify port number)"
-    aliases:
-      - -p
-  - name: flag-q
-    type: string
-    required: false
-    description: "(specify query name)"
-    aliases:
-      - -q
-  - name: flag-r
-    type: string
-    required: false
-    description: "(do not read ~/.digrc)"
-    aliases:
-      - -r
-    enum:
-      - do not read ~
-      - .digrc
-  - name: flag-t
-    type: string
-    required: false
-    description: "(specify query type)"
-    aliases:
-      - -t
-  - name: flag-u
-    type: string
-    required: false
-    description: "(display times in usec instead of msec)"
-    aliases:
-      - -u
-  - name: flag-x
-    type: string
-    required: false
-    description: "(shortcut for reverse lookups)"
-    aliases:
-      - -x
-      - -n
-  - name: flag-y
-    type: integer
-    required: false
-    description: "d-opt is of the form +keyword[=value], where keyword is: +[no]aaflag
-      (Set AA flag in query (+[no]aaflag)) +[no]aaonly (Set AA flag in query (+[no]aaflag))
-      +[no]additional (Control display of additi..."
-    aliases:
-      - -y
+- name: flag-4
+  type: string
+  required: false
+  description: (use IPv4 query transport only)
+  aliases:
+  - '-4'
+- name: flag-6
+  type: string
+  required: false
+  description: (use IPv6 query transport only)
+  aliases:
+  - '-6'
+- name: flag-b
+  type: string
+  required: false
+  description: (bind to source address/port)
+  aliases:
+  - -b
+  enum:
+  - bind to source address
+  - port
+- name: flag-c
+  type: string
+  required: false
+  description: (specify query class)
+  aliases:
+  - -c
+- name: flag-f
+  type: string
+  required: false
+  description: (batch mode)
+  aliases:
+  - -f
+- name: flag-k
+  type: string
+  required: false
+  description: (specify tsig key file)
+  aliases:
+  - -k
+- name: flag-m
+  type: string
+  required: false
+  description: (enable memory usage debugging)
+  aliases:
+  - -m
+- name: flag-p
+  type: integer
+  required: false
+  description: (specify port number)
+  aliases:
+  - -p
+- name: flag-q
+  type: string
+  required: false
+  description: (specify query name)
+  aliases:
+  - -q
+- name: flag-r
+  type: string
+  required: false
+  description: (do not read ~/.digrc)
+  aliases:
+  - -r
+  enum:
+  - do not read ~
+  - .digrc
+- name: flag-t
+  type: string
+  required: false
+  description: (specify query type)
+  aliases:
+  - -t
+- name: flag-u
+  type: string
+  required: false
+  description: (display times in usec instead of msec)
+  aliases:
+  - -u
+- name: flag-x
+  type: string
+  required: false
+  description: (shortcut for reverse lookups)
+  aliases:
+  - -x
+  - -n
+- name: flag-y
+  type: integer
+  required: false
+  description: 'd-opt is of the form +keyword[=value], where keyword is: +[no]aaflag
+    (Set AA flag in query (+[no]aaflag)) +[no]aaonly (Set AA flag in query (+[no]aaflag))
+    +[no]additional (Control display of additi...'
+  aliases:
+  - -y
 execution:
-  template: "dig {flag-4} {flag-6} {flag-b} {flag-c} {flag-f}"
+  template: dig {flag-4} {flag-6} {flag-b} {flag-c} {flag-f}
   sandbox: execFile
   timeout_seconds: 30
   shell: false
@@ -168,64 +168,69 @@ global_vars:
   target: ip
   domain: domain
 examples:
-  - description: "Standard A record lookup"
-    command: "dig example.com A"
-  - description: "Query MX records for mail servers"
-    command: "dig example.com MX"
-  - description: "Trace full DNS delegation path"
-    command: "dig example.com +trace"
-  - description: "Query a specific nameserver"
-    command: "dig @8.8.8.8 example.com A"
-  - description: "Reverse DNS lookup"
-    command: "dig -x 142.250.80.14"
-  - description: "Bulk domain transfer attempt (often disabled)"
-    command: "dig example.com AXFR"
-  - description: Read an arbitrary file by specifying it as a batch file. Note that
-      this will leak lines of the file read as outbound DNS lookups.
-    command: "dig -f /etc/passwd\n"
-  - description: 'Argument injection: read local file: Read an arbitrary file by specifying
-      it as a batch file. Note that this will leak lines of the file read as outbound
-      DNS lookups.'
-    command: dig -f /etc/passwd
-  - description: Basic A record lookup
-    command: dig example.com
-  - description: Specify DNS server to use for the query
-    command: dig @8.8.8.8 example.com
-  - description: 'cheat.sheets: dig'
-    command: dig example.com AAAA
-  - description: Display only the answer section of the query
-    command: dig +noquestion +noauthority +noadditional +noanswer example.com
-  - description: Perform a reverse DNS lookup for an IP address
-    command: dig -x 192.0.2.1
-  - description: Use verbose output to display entire response
-    command: dig +noall +answer +comment example.com
-  - description: Query whois information using dig
-    command: dig +short txt whois.example.com
-  - description: Query DNS for specific port using SRV record
-    command: dig _sip._tcp.example.com SRV
-  - description: Conduct a trace from root to authoritative DNS server
-    command: dig +trace example.com
-  - description: Measure and display query time
-    command: dig example.com +stats
-  - description: Get list of name servers for a domain
-    command: dig example.com NS
-references:
-  - label: "dig man page"
-    url: "https://linux.die.net/man/1/dig"
-  - label: "BIND documentation"
-    url: "https://www.isc.org/bind/"
-features:
-  - output-json
-  - file-system
-techniques:
-  - collection
-install:
-    - method: apt
-      package_name: "dnsutils"
-      commands:
-        - "apt-get install -y dnsutils"
----
+- description: Standard A record lookup
+  command: dig example.com A
+- description: Query MX records for mail servers
+  command: dig example.com MX
+- description: Trace full DNS delegation path
+  command: dig example.com +trace
+- description: Query a specific nameserver
+  command: dig @8.8.8.8 example.com A
+- description: Reverse DNS lookup
+  command: dig -x 142.250.80.14
+- description: Bulk domain transfer attempt (often disabled)
+  command: dig example.com AXFR
+- description: Read an arbitrary file by specifying it as a batch file. Note that
+    this will leak lines of the file read as outbound DNS lookups.
+  command: 'dig -f /etc/passwd
 
+    '
+- description: 'Argument injection: read local file: Read an arbitrary file by specifying
+    it as a batch file. Note that this will leak lines of the file read as outbound
+    DNS lookups.'
+  command: dig -f /etc/passwd
+- description: Basic A record lookup
+  command: dig example.com
+- description: Specify DNS server to use for the query
+  command: dig @8.8.8.8 example.com
+- description: 'cheat.sheets: dig'
+  command: dig example.com AAAA
+- description: Display only the answer section of the query
+  command: dig +noquestion +noauthority +noadditional +noanswer example.com
+- description: Perform a reverse DNS lookup for an IP address
+  command: dig -x 192.0.2.1
+- description: Use verbose output to display entire response
+  command: dig +noall +answer +comment example.com
+- description: Query whois information using dig
+  command: dig +short txt whois.example.com
+- description: Query DNS for specific port using SRV record
+  command: dig _sip._tcp.example.com SRV
+- description: Conduct a trace from root to authoritative DNS server
+  command: dig +trace example.com
+- description: Measure and display query time
+  command: dig example.com +stats
+- description: Get list of name servers for a domain
+  command: dig example.com NS
+references:
+- label: dig man page
+  url: https://linux.die.net/man/1/dig
+- label: BIND documentation
+  url: https://www.isc.org/bind/
+features:
+- output-json
+- file-system
+techniques:
+- collection
+install:
+- method: apt
+  package_name: dnsutils
+  commands:
+  - apt-get install -y dnsutils
+mitre_ids:
+- T1046
+- T1069
+- T1592
+---
 
 # dig — DNS Lookup Utility
 

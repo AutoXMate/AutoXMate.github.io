@@ -200,6 +200,10 @@ install:
   - pip install wfuzz
 features:
 - pipes-stdout
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # WFuzz — Web Application Bruteforcer

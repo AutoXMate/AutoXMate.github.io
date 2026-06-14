@@ -3,35 +3,35 @@ id: security-recon-bbot
 namespace: security:recon:bbot
 name: bbot
 description: OSINT reconnaissance tool, can read files via debug log output.
-author: "GTFOBins"
-version: "1.0.0"
+author: GTFOBins
+version: 1.0.0
 capabilities:
-  - system.file.read
+- system.file.read
 platforms:
-  - linux
+- linux
 risk_level: low
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools: []
 artifacts: []
 workflow_edges:
   produces:
-    - file-content
+  - file-content
   consumes:
-    - file
+  - file
 contract:
   inputs:
-    - type: system.file.path
-      description: Path to input file
+  - type: system.file.path
+    description: Path to input file
   outputs:
-    - type: process.output
-      description: File content in debug log
+  - type: process.output
+    description: File content in debug log
   side_effects:
-    - process_spawn
+  - process_spawn
   resource_cost:
     cpu: low
     memory_mb: 16
@@ -43,38 +43,43 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - bbot
-  - Bash
-  - execFile
+- bbot
+- Bash
+- execFile
 parameters:
-  - name: input
-    type: file
-    required: false
-    description: "File to read"
+- name: input
+  type: file
+  required: false
+  description: File to read
 features:
-  - file-system
+- file-system
 execution:
-  template: "bbot -d -cy {input}"
+  template: bbot -d -cy {input}
   sandbox: execFile
   timeout_seconds: 30
   shell: false
 global_vars: {}
 examples:
-  - description: Read a file via bbot debug log
-    command: bbot -d -cy /path/to/input-file
+- description: Read a file via bbot debug log
+  command: bbot -d -cy /path/to/input-file
 references:
-  - label: "GTFOBins"
-    url: "https://gtfobins.github.io/gtfobins/bbot/"
+- label: GTFOBins
+  url: https://gtfobins.github.io/gtfobins/bbot/
 techniques:
-  - collection
+- collection
 install:
-  - method: pip
-    package_name: "bbot"
-    commands:
-      - "pip install bbot"
+- method: pip
+  package_name: bbot
+  commands:
+  - pip install bbot
 items:
-  - NoCreds
+- NoCreds
 services:
-  - DNS
-  - HTTP
+- DNS
+- HTTP
+mitre_ids:
+- T1046
+- T1595
 ---
+
+

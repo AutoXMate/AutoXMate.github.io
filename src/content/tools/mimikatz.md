@@ -101,6 +101,10 @@ services:
 - RPC
 features:
 - file-system
+mitre_ids:
+- T1555
+- T1003
+- T1055
 ---
 
 # mimikatz — Windows Credential Extraction

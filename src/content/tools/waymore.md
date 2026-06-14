@@ -142,6 +142,9 @@ install:
 features:
 - file-system
 - pipes-stdin
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # waymore — Wayback Machine URL Enumerator

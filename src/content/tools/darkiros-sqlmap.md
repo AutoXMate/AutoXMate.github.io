@@ -35,6 +35,8 @@ services:
 features:
 - pipes-stdin
 - stealth
+mitre_ids:
+- T1190
 ---
 
 # sqlmap

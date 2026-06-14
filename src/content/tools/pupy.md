@@ -140,6 +140,10 @@ features:
 - pipes-stdin
 - pipes-stdout
 - remote
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
 
 # Pupy — Remote Administration C2 Framework

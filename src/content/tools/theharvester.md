@@ -227,6 +227,8 @@ features:
 - compression
 - file-system
 - network-intensive
+mitre_ids:
+- T1595
 ---
 
 # theHarvester — OSINT Intelligence Gathering

@@ -143,6 +143,9 @@ install:
   - apt-get install -y maltego
 features:
 - network-intensive
+mitre_ids:
+- T1046
+- T1595
 ---
 
 # Maltego — Link Analysis & OSINT

@@ -66,6 +66,8 @@ install:
   package_name: ncurses-bin
   commands:
   - apt-get install -y ncurses-bin
+mitre_ids:
+- T1059
 ---
 
 # tic

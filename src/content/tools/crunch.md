@@ -195,6 +195,10 @@ features:
 - file-system
 - pipes-stdout
 - process-manip
+mitre_ids:
+- T1110
+- T1555
+- T1558
 ---
 
 # Crunch — Wordlist Generator

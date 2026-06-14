@@ -182,6 +182,10 @@ install:
 features:
 - network-intensive
 - pipes-stdout
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # Joomscan — Joomla CMS Vulnerability Scanner

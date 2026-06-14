@@ -235,6 +235,8 @@ install:
   - brew install john
 features:
 - pipes-stdout
+mitre_ids:
+- T1110
 ---
 
 # John the Ripper — Password Cracking

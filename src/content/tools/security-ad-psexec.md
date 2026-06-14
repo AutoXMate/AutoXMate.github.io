@@ -190,6 +190,9 @@ features:
 - pipes-stdin
 - process-manip
 - remote
+mitre_ids:
+- T1021
+- T1569
 ---
 
 # psexec — Remote Command Execution via SMB

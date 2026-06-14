@@ -120,6 +120,10 @@ install:
 features:
 - network-intensive
 - remote
+mitre_ids:
+- T1046
+- T1190
+- T1595
 ---
 
 # h2csmuggler — HTTP/2 Cleartext Smuggling

@@ -66,6 +66,9 @@ services:
 - HTTP
 features:
 - network-intensive
+mitre_ids:
+- T1557
+- T1046
 ---
 
 # responder

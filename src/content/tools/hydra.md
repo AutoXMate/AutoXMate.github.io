@@ -271,6 +271,8 @@ install:
 features:
 - network-intensive
 - pipes-stdout
+mitre_ids:
+- T1110
 ---
 
 # THC-Hydra — Network Logon Cracker

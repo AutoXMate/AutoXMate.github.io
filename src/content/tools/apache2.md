@@ -93,6 +93,14 @@ install:
   package_name: apache2
   commands:
   - apt-get install -y apache2
+mitre_ids:
+- T1005
+- T1046
+- T1048
+- T1074
+- T1114
+- T1190
+- T1595
 ---
 
 # apache2 — Apache HTTP Server

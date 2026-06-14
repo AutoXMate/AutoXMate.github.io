@@ -198,6 +198,9 @@ install:
 features:
 - network-intensive
 - process-manip
+mitre_ids:
+- T1595
+- T1190
 ---
 
 # WPScan — WordPress Vulnerability Scanner

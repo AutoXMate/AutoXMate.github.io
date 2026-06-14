@@ -3,40 +3,40 @@ id: security-exploit-msfconsole
 namespace: security:exploit:msfconsole
 name: msfconsole
 description: Metasploit console, can execute Ruby code and spawn shells.
-author: "GTFOBins"
-version: "1.0.0"
+author: GTFOBins
+version: 1.0.0
 capabilities:
-  - security.privilege-escalation.shell
-  - security.execution.command
+- security.privilege-escalation.shell
+- security.execution.command
 platforms:
-  - linux
-  - macos
-  - bsd
+- linux
+- macos
+- bsd
 risk_level: high
 trust_level: community
 execution_policy: enabled
 architectures:
-  - amd64
-  - arm64
+- amd64
+- arm64
 dependencies: []
 related_tools:
-  - ruby
-  - metasploit
+- ruby
+- metasploit
 artifacts: []
 workflow_edges:
   produces:
-    - shell-access
-    - command-execution
+  - shell-access
+  - command-execution
   consumes:
-    - execution-context
+  - execution-context
 contract:
   inputs: []
   outputs:
-    - type: process.output
-      description: Shell or command output
+  - type: process.output
+    description: Shell or command output
   side_effects:
-    - process_spawn
-    - network_traffic
+  - process_spawn
+  - network_traffic
   resource_cost:
     cpu: low
     memory_mb: 128
@@ -48,48 +48,56 @@ resource_profile:
   network: low
   disk_io: low
 allowed-tools:
-  - msfconsole
-  - ruby
-  - Bash
-  - execFile
+- msfconsole
+- ruby
+- Bash
+- execFile
 parameters: []
 features:
-  - interactive
-  - process-manip
+- interactive
+- process-manip
 execution:
-  template: "msfconsole -q -x 'irb'"
+  template: msfconsole -q -x 'irb'
   sandbox: execFile
   timeout_seconds: 60
   shell: false
 global_vars: {}
 examples:
-  - description: Spawn a shell via msfconsole
-    command: |
-      msfconsole -q -x 'irb'
-      exec "/bin/sh"
+- description: Spawn a shell via msfconsole
+  command: 'msfconsole -q -x ''irb''
+
+    exec "/bin/sh"
+
+    '
 references:
-  - label: "GTFOBins"
-    url: "https://gtfobins.github.io/gtfobins/msfconsole/"
+- label: GTFOBins
+  url: https://gtfobins.github.io/gtfobins/msfconsole/
 techniques:
-  - privilege-escalation
-  - execution
+- privilege-escalation
+- execution
 install:
-  - method: apt
-    package_name: "metasploit-framework"
-    commands:
-      - "apt-get install -y metasploit-framework"
+- method: apt
+  package_name: metasploit-framework
+  commands:
+  - apt-get install -y metasploit-framework
 items:
-  - Password
-  - Hash
-  - Shell
-  - NoCreds
+- Password
+- Hash
+- Shell
+- NoCreds
 services:
-  - HTTP
-  - SMB
-  - Kerberos
-  - LDAP
-  - SSH
-  - FTP
-  - WinRM
-  - DNS
+- HTTP
+- SMB
+- Kerberos
+- LDAP
+- SSH
+- FTP
+- WinRM
+- DNS
+mitre_ids:
+- T1059
+- T1190
+- T1203
 ---
+
+

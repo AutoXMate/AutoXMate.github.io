@@ -263,6 +263,8 @@ features:
 - network-intensive
 - pipes-stdout
 - process-manip
+mitre_ids:
+- T1110
 ---
 
 # Ncrack — High-Speed Network Cracker

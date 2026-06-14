@@ -69,6 +69,8 @@ install:
   package_name: unzip
   commands:
   - apt-get install -y unzip
+mitre_ids:
+- T1560
 ---
 
 # unzip

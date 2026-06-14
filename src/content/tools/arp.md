@@ -89,6 +89,11 @@ install:
   package_name: net-tools
   commands:
   - apt-get install -y net-tools
+mitre_ids:
+- T1012
+- T1046
+- T1082
+- T1087
 ---
 
 # arp — ARP Table Manager
