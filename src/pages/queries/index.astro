@@ -1,0 +1,526 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout title="Command Builder" description="Interactive command builder — fill in target, credentials, and context to get ready-to-run tool commands ranked by relevance">
+  <section class="hero">
+    <h1>⚡ Command Builder</h1>
+    <p>Fill in what you know — we'll find the right tools and build the commands.</p>
+  </section>
+
+  <div id="cb-root" class="cb-layout">
+    <aside class="cb-input-panel" id="input-panel">
+      <!-- Category Filter -->
+      <div class="filter-panel" id="filter-panel">
+        <h2 class="panel-title">Filter by Category</h2>
+        <div class="domain-tabs" id="domain-tabs"></div>
+        <div class="subdomain-bar" id="subdomain-bar" style="display:none"></div>
+        <div class="phase-bar" id="phase-bar"></div>
+      </div>
+
+      <!-- Info Fields -->
+      <h2 class="panel-title" style="margin-top:1rem">What do you have?</h2>
+      <div class="cb-fields" id="cb-fields"></div>
+      <div class="cb-stats" id="cb-stats">
+        <div class="stat-readiness"><span id="stat-filled">0</span>/<span id="stat-total">11</span> fields filled</div>
+        <div class="star-bar" id="star-bar"><span></span></div>
+      </div>
+    </aside>
+
+    <main class="cb-results" id="cb-results">
+      <div class="results-header">
+        <h2>Matched Tools</h2>
+        <span class="match-count" id="match-count">—</span>
+      </div>
+      <div class="results-list" id="results-list">
+        <div class="empty-state">
+          <div class="empty-icon">⎔</div>
+          <p>Fill in fields on the left to see matching tools and their commands.</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</BaseLayout>
+
+<style is:global>
+:root {
+  --green: #34d399;
+  --red: #f87171;
+  --orange: #fb923c;
+  --accent-dim: rgba(108,140,255,0.15);
+}
+.cb-layout { display: flex; gap: 2rem; align-items: flex-start; }
+.cb-input-panel { flex: 0 0 340px; min-width: 280px; position: sticky; top: 1.5rem; }
+.cb-results { flex: 1; min-width: 0; }
+.panel-title { font-size: 1.05rem; margin: 0 0 0.75rem 0; color: var(--fg); }
+
+/* ── Filter Panel ── */
+.filter-panel { background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; padding: 0.85rem 1rem; margin-bottom: 1rem; }
+.domain-tabs { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.domain-tab { background: none; border: 1px solid var(--border); color: var(--fg-muted); padding: 0.3rem 0.6rem; border-radius: 5px; cursor: pointer; font-size: 0.75rem; font-weight: 500; transition: all 0.12s; white-space: nowrap; }
+.domain-tab:hover { border-color: var(--accent); color: var(--accent); }
+.domain-tab.active { background: var(--accent-dim); border-color: var(--accent); color: var(--accent); }
+.domain-tab .tab-count { font-size: 0.65rem; opacity: 0.6; margin-left: 0.2rem; }
+.subdomain-bar { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+.subd-chip { background: none; border: 1px solid var(--border); color: var(--fg-muted); padding: 0.2rem 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.7rem; transition: all 0.1s; }
+.subd-chip:hover { border-color: var(--accent); color: var(--accent); }
+.subd-chip.active { background: rgba(108,140,255,0.1); border-color: var(--accent); color: var(--accent); }
+.phase-bar { display: flex; flex-wrap: wrap; gap: 0.25rem; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+.phase-chip { background: none; border: 1px solid var(--border); color: var(--fg-muted); padding: 0.2rem 0.5rem; border-radius: 4px; cursor: pointer; font-size: 0.7rem; transition: all 0.1s; }
+.phase-chip:hover { border-color: var(--orange); color: var(--orange); }
+.phase-chip.active { background: rgba(251,191,36,0.1); border-color: var(--orange); color: var(--orange); }
+
+.cb-fields { display: flex; flex-direction: column; gap: 0.55rem; }
+.field-row { display: flex; flex-direction: column; gap: 0.2rem; }
+.field-row label { font-size: 0.78rem; font-weight: 600; color: var(--fg-muted); letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.4rem; }
+.field-row label .field-icon { opacity: 0.6; font-size: 0.85rem; }
+.field-row input { padding: 0.5rem 0.7rem; border: 1.5px solid var(--border); border-radius: 6px; background: var(--bg-card); color: var(--fg); font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; transition: border-color 0.15s; }
+.field-row input:focus { outline: none; border-color: var(--accent); }
+.field-row input.filled { border-color: var(--green); }
+.cb-stats { margin-top: 1.25rem; padding: 0.85rem 1rem; background: var(--bg-card); border: 1px solid var(--border); border-radius: 8px; }
+.stat-readiness { font-size: 0.85rem; color: var(--fg-muted); margin-bottom: 0.5rem; }
+.star-bar { height: 6px; background: var(--border); border-radius: 3px; overflow: hidden; }
+.star-bar span { display: block; height: 100%; background: linear-gradient(90deg, var(--orange), var(--green)); border-radius: 3px; transition: width 0.3s ease; width: 0%; }
+.results-header { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 1rem; }
+.results-header h2 { margin: 0; font-size: 1.05rem; }
+.match-count { font-size: 0.82rem; color: var(--fg-muted); }
+.results-list { display: flex; flex-direction: column; gap: 1rem; }
+.empty-state { text-align: center; padding: 3rem 1rem; color: var(--fg-muted); }
+.empty-icon { font-size: 2.5rem; margin-bottom: 0.75rem; opacity: 0.3; }
+.tool-card { background: var(--bg-card); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; transition: border-color 0.15s; cursor: pointer; }
+.tool-card:hover { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent-dim); }
+.tool-card:hover .tool-name { text-decoration: underline; }
+.tool-card-header { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 1rem 0.65rem; }
+.tool-card-header-left { display: flex; align-items: center; gap: 0.65rem; }
+.tool-name { font-weight: 700; font-size: 0.95rem; color: var(--accent); }
+.tool-phase { font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px; background: var(--accent-dim); color: var(--fg-muted); text-transform: uppercase; letter-spacing: 0.04em; }
+.tool-risk { font-size: 0.7rem; padding: 0.15rem 0.45rem; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.04em; }
+.tool-risk.low { background: rgba(52,211,153,0.15); color: var(--green); }
+.tool-risk.medium { background: rgba(251,191,36,0.15); color: var(--orange); }
+.tool-risk.high { background: rgba(248,113,113,0.15); color: var(--red); }
+.stars { font-size: 0.9rem; letter-spacing: 0.05em; }
+.stars .star-on { color: var(--orange); }
+.stars .star-off { color: var(--border); }
+.readiness-pct { font-size: 0.75rem; color: var(--fg-muted); margin-left: 0.3rem; }
+.tool-card-body { padding: 0 1rem 0.85rem; }
+.tool-desc { font-size: 0.82rem; color: var(--fg-muted); margin-bottom: 0.65rem; line-height: 1.45; }
+.cmd-block { background: rgba(0,0,0,0.25); border: 1px solid var(--border); border-radius: 6px; padding: 0.6rem 0.8rem; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; line-height: 1.5; white-space: pre-wrap; word-break: break-all; position: relative; }
+.cmd-block .cmd-missing { color: var(--red); font-style: italic; }
+.cmd-actions { display: flex; gap: 0.4rem; margin-top: 0.4rem; }
+.cmd-actions button { background: none; border: 1px solid var(--border); color: var(--fg-muted); padding: 0.25rem 0.6rem; border-radius: 4px; cursor: pointer; font-size: 0.72rem; transition: all 0.12s; }
+.cmd-actions button:hover { border-color: var(--accent); color: var(--accent); }
+.matched-chips { display: flex; flex-wrap: wrap; gap: 0.3rem; margin-top: 0.5rem; }
+.chip { font-size: 0.68rem; padding: 0.15rem 0.45rem; border-radius: 4px; background: var(--accent-dim); color: var(--fg-muted); }
+.chip.matched { background: rgba(52,211,153,0.12); color: var(--green); }
+.chip.defaulted { background: rgba(148,163,184,0.12); color: var(--fg-muted); }
+.chip.unmatched { background: rgba(248,113,113,0.08); color: var(--red); opacity: 0.6; }
+@media (max-width: 768px) {
+  .cb-layout { flex-direction: column; }
+  .cb-input-panel { flex: auto; position: static; }
+}
+</style>
+
+<script>
+const FIELD_DEFS = [
+  { key: "target",    label: "Target IP / Hostname", icon: "◎", placeholder: "10.10.10.1" },
+  { key: "port",      label: "Port",                  icon: "⇋", placeholder: "443, 80, 1-1000" },
+  { key: "user",      label: "Username",              icon: "◉", placeholder: "admin" },
+  { key: "pass",      label: "Password",              icon: "⚷", placeholder: "P@ssw0rd", type: "password" },
+  { key: "url",       label: "URL",                   icon: "↗", placeholder: "https://example.com" },
+  { key: "lhost",     label: "Attacker IP (LHOST)",   icon: "⏍", placeholder: "10.0.0.5" },
+  { key: "lport",     label: "Attacker Port (LPORT)", icon: "⇌", placeholder: "4444" },
+  { key: "wordlist",  label: "Wordlist",              icon: "≡", placeholder: "/usr/share/wordlists/..." },
+  { key: "hash",      label: "Hash",                  icon: "#",  placeholder: "aad3b4b..." },
+  { key: "domain",    label: "Domain",                icon: "⌂", placeholder: "example.local" },
+  { key: "output",    label: "Output",                icon: "▤", placeholder: "results.txt" },
+];
+
+const ALIAS_KEYS = {
+  target: ["target", "host", "ip", "hostname"],
+  port: ["port", "p"],
+  user: ["user", "username", "u"],
+  pass: ["pass", "password", "pwd"],
+  url: ["url"],
+  lhost: ["lhost", "attacker_ip", "local_host", "lhost_ip"],
+  lport: ["lport", "attacker_port", "local_port", "lport_port"],
+  wordlist: ["wordlist", "word_list", "wordlist_path"],
+  hash: ["hash", "ntlm_hash", "hash_file"],
+  domain: ["domain", "d"],
+  output: ["output", "outfile", "output_file", "o"],
+};
+
+const DOMAIN_ORDER = ["security", "network", "system", "text", "dev", "container", "internal"];
+
+// ── State ──
+let commands = [];
+let taxonomy = null;
+const values = {};
+let selectedDomain = null;
+let selectedSubdomain = null;
+let selectedPhases = new Set();
+
+// Derived indexes (built after data load)
+let domainIndex = {};
+let phaseSet = new Set();
+
+// ── DOM refs ──
+const fieldsEl = document.getElementById("cb-fields");
+const resultsList = document.getElementById("results-list");
+const statFilled = document.getElementById("stat-filled");
+const statTotal = document.getElementById("stat-total");
+const starBar = document.getElementById("star-bar").querySelector("span");
+const matchCount = document.getElementById("match-count");
+const domainTabsEl = document.getElementById("domain-tabs");
+const subdomainBar = document.getElementById("subdomain-bar");
+const phaseBar = document.getElementById("phase-bar");
+
+// ── Filter Panel ──
+function buildDomainIndex() {
+  domainIndex = {};
+  phaseSet = new Set();
+  for (const tool of commands) {
+    const ns = tool.namespace || "";
+    const parts = ns.split(":");
+    const domain = parts[0] || "";
+    const subdomain = parts.length > 1 ? parts[1] : "";
+
+    if (!domainIndex[domain]) {
+      domainIndex[domain] = { count: 0, subdomains: {} };
+    }
+    domainIndex[domain].count++;
+    if (subdomain) {
+      domainIndex[domain].subdomains[subdomain] = (domainIndex[domain].subdomains[subdomain] || 0) + 1;
+    }
+    if (tool.phase) {
+      const p = tool.phase.toLowerCase();
+      phaseSet.add(p);
+    }
+  }
+}
+
+function renderFilters() {
+  // Domain tabs
+  const sortedDomains = DOMAIN_ORDER.filter(d => domainIndex[d]).concat(
+    Object.keys(domainIndex).filter(d => !DOMAIN_ORDER.includes(d)).sort()
+  );
+  domainTabsEl.innerHTML = `<button class="domain-tab${selectedDomain === null ? " active" : ""}" data-domain="">All <span class="tab-count">${commands.length}</span></button>`
+    + sortedDomains.map(d => `<button class="domain-tab${selectedDomain === d ? " active" : ""}" data-domain="${d}">${d} <span class="tab-count">${domainIndex[d].count}</span></button>`).join("");
+
+  domainTabsEl.querySelectorAll(".domain-tab").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const domain = btn.getAttribute("data-domain") || null;
+      selectedDomain = domain;
+      selectedSubdomain = null;
+      renderFilters();
+      onUpdate();
+    });
+  });
+
+  // Subdomain chips
+  if (selectedDomain && domainIndex[selectedDomain]) {
+    const subs = domainIndex[selectedDomain].subdomains;
+    const subKeys = Object.keys(subs).sort((a, b) => subs[b] - subs[a]);
+    subdomainBar.style.display = "flex";
+    subdomainBar.innerHTML = `<button class="subd-chip${selectedSubdomain === null ? " active" : ""}" data-subd="">All</button>`
+      + subKeys.map(s => `<button class="subd-chip${selectedSubdomain === s ? " active" : ""}" data-subd="${s}">${s} <span class="tab-count">${subs[s]}</span></button>`).join("");
+
+    subdomainBar.querySelectorAll(".subd-chip").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedSubdomain = btn.getAttribute("data-subd") || null;
+        renderFilters();
+        onUpdate();
+      });
+    });
+  } else {
+    subdomainBar.style.display = "none";
+  }
+
+  // Phase chips
+  const sortedPhases = Array.from(phaseSet).sort((a, b) => {
+    const order = { recon: 0, enumeration: 1, exploitation: 2, "post-exploitation": 3, discovery: 4 };
+    return (order[a] || 99) - (order[b] || 99);
+  });
+  phaseBar.innerHTML = sortedPhases.map(p =>
+    `<button class="phase-chip${selectedPhases.has(p) ? " active" : ""}" data-phase="${p}">${p}</button>`
+  ).join("");
+
+  phaseBar.querySelectorAll(".phase-chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const phase = btn.getAttribute("data-phase");
+      if (selectedPhases.has(phase)) {
+        selectedPhases.delete(phase);
+      } else {
+        selectedPhases.add(phase);
+      }
+      renderFilters();
+      onUpdate();
+    });
+  });
+}
+
+// ── Init ──
+function buildFields() {
+  fieldsEl.innerHTML = FIELD_DEFS.map(f => {
+    const type = f.type || "text";
+    return `<div class="field-row">
+      <label><span class="field-icon">${f.icon}</span> ${f.label}</label>
+      <input type="${type}" id="field-${f.key}" data-key="${f.key}" placeholder="${f.placeholder}" autocomplete="off" spellcheck="false">
+    </div>`;
+  }).join("");
+
+  FIELD_DEFS.forEach(f => {
+    const el = document.getElementById(`field-${f.key}`);
+    values[f.key] = "";
+    el.addEventListener("input", () => {
+      values[f.key] = el.value.trim();
+      el.classList.toggle("filled", !!values[f.key]);
+      onUpdate();
+    });
+  });
+}
+
+// ── Tool matching ──
+function paramMatchesField(param, fieldKey) {
+  const aliases = ALIAS_KEYS[fieldKey] || [fieldKey];
+  const key = (param.template_key || param.name || "").toLowerCase();
+  return aliases.some(a => key === a);
+}
+
+function toolMatchesFilters(tool) {
+  if (selectedDomain) {
+    const ns = tool.namespace || "";
+    const parts = ns.split(":");
+    if (parts[0] !== selectedDomain) return false;
+    if (selectedSubdomain && parts.length > 1 && parts[1] !== selectedSubdomain) return false;
+  }
+  if (selectedPhases.size > 0) {
+    const tp = (tool.phase || "").toLowerCase();
+    if (!selectedPhases.has(tp)) return false;
+  }
+  return true;
+}
+
+function computeReadiness(tool) {
+  let matchable = 0;
+  let matched = 0;
+
+  for (const param of (tool.parameters || [])) {
+    const fieldKey = FIELD_DEFS.find(f => paramMatchesField(param, f.key));
+    if (fieldKey) {
+      matchable++;
+      if (values[fieldKey.key]) {
+        matched++;
+      } else if (param.default_value !== null && param.default_value !== undefined && param.default_value !== "") {
+        matched++;
+      }
+    }
+  }
+
+  return { matchable, matched, readiness: matchable > 0 ? matched / matchable : 0 };
+}
+
+function renderCommand(tool) {
+  if (!tool.execution || !tool.execution.template) return tool.name;
+  let cmd = tool.execution.template;
+
+  const usedPlaceholders = new Set();
+  const placeholderPattern = /\{([^}]+)\}/g;
+  let m;
+  while ((m = placeholderPattern.exec(tool.execution.template)) !== null) {
+    usedPlaceholders.add(m[1]);
+  }
+
+  for (const param of (tool.parameters || [])) {
+    const key = param.template_key || param.name;
+    const placeholder = `{${key}}`;
+    if (!usedPlaceholders.has(key)) continue;
+
+    const fieldKey = FIELD_DEFS.find(f => paramMatchesField(param, f.key));
+    const userVal = fieldKey ? values[fieldKey.key] : "";
+    const effectiveVal = userVal || (param.default_value !== null && param.default_value !== undefined ? String(param.default_value) : "");
+    const isUserProvided = !!userVal;
+
+    if (param.flag && isUserProvided && param.type === "boolean") {
+      cmd = cmd.replace(placeholder, param.flag);
+    } else if (param.flag && effectiveVal && param.type !== "boolean") {
+      const fmt = param.format || "space";
+      let rendered;
+      switch (fmt) {
+        case "equals": rendered = `${param.flag}=${effectiveVal}`; break;
+        case "joined": rendered = `${param.flag}${effectiveVal}`; break;
+        case "none": rendered = effectiveVal; break;
+        default: rendered = `${param.flag} ${effectiveVal}`;
+      }
+      cmd = cmd.replace(placeholder, rendered);
+    } else if (!param.flag && effectiveVal) {
+      cmd = cmd.replace(placeholder, effectiveVal);
+    } else if (!isUserProvided && param.flag && param.type === "boolean") {
+      cmd = cmd.replace(placeholder, "");
+    } else if (param.required && !effectiveVal) {
+      cmd = cmd.replace(placeholder, `<span class="cmd-missing">[${key}]</span>`);
+    } else {
+      cmd = cmd.replace(placeholder, "");
+    }
+  }
+
+  cmd = cmd.replace(/\s{2,}/g, " ").trim();
+  cmd = cmd.replace(/\{[\w-]+\}/g, "").replace(/\s{2,}/g, " ").trim();
+
+  return cmd;
+}
+
+function buildChips(tool) {
+  const chips = [];
+  for (const param of (tool.parameters || [])) {
+    const fieldKey = FIELD_DEFS.find(f => paramMatchesField(param, f.key));
+    if (!fieldKey) continue;
+    const key = param.template_key || param.name;
+    const userVal = values[fieldKey.key];
+    const hasDefault = param.default_value !== null && param.default_value !== undefined && param.default_value !== "";
+    let cls = "chip unmatched";
+    let label = key;
+    if (userVal) {
+      cls = "chip matched";
+      label = `${key}: ${userVal}`;
+    } else if (hasDefault) {
+      cls = "chip defaulted";
+      label = `${key}: ${String(param.default_value)}`;
+    }
+    chips.push({ cls, label });
+  }
+  return chips;
+}
+
+function starsHTML(readiness) {
+  const full = Math.round(readiness * 5);
+  let html = '';
+  for (let i = 0; i < 5; i++) {
+    html += i < full ? '<span class="star-on">★</span>' : '<span class="star-off">★</span>';
+  }
+  return html;
+}
+
+function onUpdate() {
+  const filled = FIELD_DEFS.filter(f => values[f.key]).length;
+  const total = FIELD_DEFS.length;
+  statFilled.textContent = filled;
+  statTotal.textContent = total;
+  starBar.style.width = `${(filled / total) * 100}%`;
+
+  if (!commands.length) return;
+
+  const scored = commands
+    .filter(toolMatchesFilters)
+    .map(tool => {
+      const { matchable, matched, readiness } = computeReadiness(tool);
+      return { tool, matchable, matched, readiness };
+    })
+    .filter(s => s.matchable > 0 && s.matched > 0)
+    .sort((a, b) => b.readiness - a.readiness || a.tool.name.localeCompare(b.tool.name));
+
+  matchCount.textContent = scored.length > 0 ? `${scored.length} tool${scored.length !== 1 ? "s" : ""}` : "—";
+
+  if (scored.length === 0) {
+    resultsList.innerHTML = filled === 0
+      ? `<div class="empty-state"><div class="empty-icon">⎔</div><p>Fill in fields on the left to see matching tools and their commands.</p></div>`
+      : `<div class="empty-state"><div class="empty-icon">◌</div><p>No tools match the current filters and provided information.</p></div>`;
+    return;
+  }
+
+  resultsList.innerHTML = scored.slice(0, 20).map(s => {
+    const t = s.tool;
+    const cmd = renderCommand(t);
+    const chips = buildChips(t);
+    const riskCls = (t.risk_level || "").toLowerCase();
+    const ns = t.namespace || "";
+    const nsDisplay = ns.split(":").slice(0, 2).join(" › ");
+
+    const toolId = t.id;
+    return `<div class="tool-card" data-id="${toolId}">
+      <div class="tool-card-header">
+        <div class="tool-card-header-left">
+          <span class="tool-name">${t.name}</span>
+          <span style="font-size:0.7rem;color:var(--fg-muted);opacity:0.6">${nsDisplay}</span>
+          ${t.phase ? `<span class="tool-phase">${t.phase}</span>` : ""}
+          ${riskCls ? `<span class="tool-risk ${riskCls}">${riskCls}</span>` : ""}
+        </div>
+        <div>
+          <span class="stars">${starsHTML(s.readiness)}</span>
+          <span class="readiness-pct">${Math.round(s.readiness * 100)}%</span>
+        </div>
+      </div>
+      <div class="tool-card-body">
+        ${t.description ? `<div class="tool-desc">${escapeHtml(t.description)}</div>` : ""}
+        <div class="cmd-block">${cmd}</div>
+        <div class="cmd-actions">
+          <button class="copy-btn" data-cmd="${escapeHtml(cmd)}">📋 Copy</button>
+          <button class="reset-btn" onclick="this.parentElement.parentElement.querySelector('.cmd-block').innerHTML = '${escapeHtml(t.execution.template)}'">⎔ Template</button>
+        </div>
+        <div class="matched-chips">${chips.map(c => `<span class="${c.cls}">${escapeHtml(c.label)}</span>`).join("")}</div>
+      </div>
+    </div>`;
+  }).join("");
+
+  document.querySelectorAll(".copy-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.stopPropagation();
+      const cmd = btn.getAttribute("data-cmd");
+      const text = cmd.replace(/<[^>]*>/g, "");
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = "✓ Copied";
+        setTimeout(() => { btn.textContent = "📋 Copy"; }, 1500);
+      });
+    });
+  });
+
+  // Navigate to tool detail page on card click
+  document.querySelectorAll(".tool-card").forEach(card => {
+    card.addEventListener("click", () => {
+      const id = card.getAttribute("data-id");
+      if (!id) return;
+
+      // Save filled values to Cosmos for the detail page
+      const FIELD_TO_COSMOS = { target: "ip" };
+      const params = [];
+      FIELD_DEFS.forEach(f => {
+        const val = values[f.key];
+        if (!val) return;
+        params.push(encodeURIComponent(f.key) + "=" + encodeURIComponent(val));
+        const cosmosKey = FIELD_TO_COSMOS[f.key] || f.key;
+        if (window.Cosmos) window.Cosmos.set(cosmosKey, val);
+      });
+
+      const qs = params.length ? "?" + params.join("&") : "";
+      window.location.href = `${import.meta.env.BASE_URL}tools/${id}${qs}`;
+    });
+  });
+}
+
+function escapeHtml(s) {
+  if (typeof s !== "string") return "";
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+// ── Data loading ──
+async function loadData() {
+  try {
+    const cResp = await fetch(`${import.meta.env.BASE_URL}api/v1/commands.json`);
+    if (cResp.ok) commands = await cResp.json();
+  } catch (e) { console.warn("Failed to load commands:", e); }
+
+  try {
+    const tResp = await fetch(`${import.meta.env.BASE_URL}action-taxonomy.json`);
+    if (tResp.ok) taxonomy = await tResp.json();
+  } catch (e) { /* optional */ }
+
+  if (commands.length > 0) {
+    buildDomainIndex();
+    renderFilters();
+  }
+  onUpdate();
+}
+
+buildFields();
+loadData();
+</script>

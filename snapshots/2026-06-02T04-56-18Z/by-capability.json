@@ -1,0 +1,4940 @@
+{
+  "adversary.simulation": [
+    "security-exploit-havoc",
+    "security-exploit-merlin",
+    "security-exploit-mythic",
+    "security-exploit-sliver"
+  ],
+  "agent.communication": [
+    "security-exploit-covenant",
+    "security-exploit-empire",
+    "security-exploit-havoc",
+    "security-exploit-merlin",
+    "security-exploit-metasploit",
+    "security-exploit-mythic",
+    "security-exploit-pupy",
+    "security-exploit-sliver"
+  ],
+  "api.discovery.endpoint": [
+    "security-web-jdam"
+  ],
+  "api.fuzz.json": [
+    "security-web-jdam"
+  ],
+  "api.test.validation": [
+    "security-web-jdam"
+  ],
+  "automation.script": [
+    "automation-expect"
+  ],
+  "av.evasion": [
+    "security-exploit-shellter",
+    "security-exploit-veil"
+  ],
+  "binary.analysis": [
+    "security-reverse-pwntools",
+    "security-reverse-ropgadget"
+  ],
+  "binary.forensics": [
+    "security-reverse-binwalk"
+  ],
+  "binary.pattern.match": [
+    "security-malware-yara"
+  ],
+  "binary.security.check": [
+    "security-reverse-checksec"
+  ],
+  "ble.capture": [
+    "security-wireless-btlejack"
+  ],
+  "ble.jam": [
+    "security-wireless-btlejack"
+  ],
+  "ble.scan": [
+    "security-wireless-btlejack"
+  ],
+  "ble.sniff": [
+    "security-wireless-btlejack"
+  ],
+  "bluetooth.discover": [
+    "security-wireless-bluetoothctl"
+  ],
+  "bluetooth.manage": [
+    "security-wireless-bluetoothctl"
+  ],
+  "bluetooth.pair": [
+    "security-wireless-bluetoothctl"
+  ],
+  "bluetooth.scan": [
+    "security-wireless-bluetoothctl"
+  ],
+  "browser.attack": [
+    "security-exploit-beef"
+  ],
+  "browser.exploitation": [
+    "security-exploit-beef"
+  ],
+  "browser.hooking": [
+    "security-exploit-beef"
+  ],
+  "brute.ftp.login": [
+    "security-brute-patator"
+  ],
+  "brute.http.login": [
+    "security-brute-patator"
+  ],
+  "brute.service.login": [
+    "security-brute-patator"
+  ],
+  "brute.smtp.login": [
+    "security-brute-patator"
+  ],
+  "brute.snmp.community": [
+    "security-brute-patator"
+  ],
+  "brute.ssh.login": [
+    "security-brute-patator"
+  ],
+  "build.compile.assembly": [
+    "build-assembler-as"
+  ],
+  "build.compile.c": [
+    "build-compiler-gcc"
+  ],
+  "build.compile.code": [
+    "windows-compile-csc",
+    "windows-compile-ilasm",
+    "windows-compile-jsc",
+    "windows-compile-vbc"
+  ],
+  "build.compile.go": [
+    "build-compiler-go"
+  ],
+  "cloud.aws.ec2": [
+    "cloud-aws-cli"
+  ],
+  "cloud.aws.manage": [
+    "cloud-aws-cli"
+  ],
+  "cloud.aws.s3": [
+    "cloud-aws-cli"
+  ],
+  "collection.data": [
+    "macos-collection-ditto",
+    "macos-collection-osascript",
+    "macos-collection-screencapture",
+    "macos-collection-streamzip",
+    "macos-credential-access-pbpaste",
+    "macos-defense-evasion-mdls",
+    "macos-defense-evasion-say",
+    "macos-defense-evasion-textutil",
+    "macos-discovery-ioreg",
+    "macos-discovery-notifyutil",
+    "macos-execution-hdiutil",
+    "macos-impact-tmutil"
+  ],
+  "command.control.c2": [
+    "security-exploit-havoc",
+    "security-exploit-merlin",
+    "security-exploit-mythic",
+    "security-exploit-pupy"
+  ],
+  "container.image.build": [
+    "container-runtime-docker"
+  ],
+  "container.image.publish": [
+    "container-runtime-docker"
+  ],
+  "container.logs.tail": [
+    "container-orchestrate-compose"
+  ],
+  "container.network.manage": [
+    "container-runtime-docker"
+  ],
+  "container.network.multi": [
+    "container-orchestrate-compose"
+  ],
+  "container.orchestrate.compose": [
+    "container-orchestrate-compose"
+  ],
+  "container.orchestrate.stack": [
+    "container-orchestrate-compose"
+  ],
+  "container.orchestration.compose": [
+    "container-runtime-docker"
+  ],
+  "container.runtime.execute": [
+    "container-runtime-docker"
+  ],
+  "container.service.manage": [
+    "container-orchestrate-compose"
+  ],
+  "container.storage.volume": [
+    "container-orchestrate-compose",
+    "container-runtime-docker"
+  ],
+  "credential.brute-force": [
+    "security-exploit-routersploit"
+  ],
+  "credential.bruteforce.generic": [
+    "darkiros-kerbrute"
+  ],
+  "credential.bruteforce.spray": [
+    "darkiros-netexec"
+  ],
+  "credential.discovery.reconnaissance": [
+    "darkiros-coercer",
+    "darkiros-drupwn",
+    "darkiros-jwttool",
+    "darkiros-masscan",
+    "darkiros-netexec",
+    "darkiros-nmap",
+    "darkiros-responder",
+    "darkiros-wpscan"
+  ],
+  "credential.discovery.whoami": [
+    "wtfbin-arcgisportal-exe",
+    "wtfbin-hostedagent-exe",
+    "wtfbin-pangphip-exe",
+    "wtfbin-skype-exe",
+    "wtfbin-veritas-backup-agent"
+  ],
+  "credential.dump": [
+    "macos-collection-osascript",
+    "macos-credential-access-pbpaste",
+    "macos-credential-access-security",
+    "macos-defense-evasion-log",
+    "macos-defense-evasion-textutil",
+    "windows-ads-findstr",
+    "windows-credential-cmdkey",
+    "windows-credential-comsvcs",
+    "windows-credential-createdump",
+    "windows-credential-dsdbutil",
+    "windows-credential-dump64",
+    "windows-credential-dumpminitool",
+    "windows-credential-ntdsutil",
+    "windows-credential-rdrleakdiag",
+    "windows-credential-reg",
+    "windows-credential-rpcping",
+    "windows-credential-sqldumper",
+    "windows-credential-wbadmin",
+    "windows-execution-adplus",
+    "windows-execution-diskshadow",
+    "windows-execution-tttracer"
+  ],
+  "credential.dump.generic": [
+    "darkiros-mimikatz"
+  ],
+  "credential.dump.kerberos": [
+    "wadcom-targetedkerberoast"
+  ],
+  "credential.dump.lsass": [
+    "wadcom-safetykatz",
+    "wadcom-sharpdump",
+    "wtfbin-adobe-genuine-monitor-service",
+    "wtfbin-securityhealthservice-exe-unprotects-lsa"
+  ],
+  "credential.dumping": [
+    "security-exploit-empire"
+  ],
+  "credential.harvesting": [
+    "security-exploit-beef",
+    "security-exploit-setoolkit"
+  ],
+  "credential.manipulate.pkinit": [
+    "wadcom-pywhisker"
+  ],
+  "data.extract.pattern": [
+    "text-search-grep"
+  ],
+  "data.format.pretty": [
+    "text-process-jq"
+  ],
+  "data.io.duplicate": [
+    "system-io-tee"
+  ],
+  "data.io.split": [
+    "system-io-tee"
+  ],
+  "data.transform.column": [
+    "text-process-awk"
+  ],
+  "debug.memory.inspect": [
+    "security-reverse-gdb"
+  ],
+  "debug.register.inspect": [
+    "security-reverse-gdb"
+  ],
+  "debug.tracing": [
+    "security-reverse-ltrace",
+    "security-reverse-strace"
+  ],
+  "decode.ascii85": [
+    "encode-ascii85"
+  ],
+  "decode.base32": [
+    "encode-base32"
+  ],
+  "defense.ssh.rate-limit": [
+    "security-honeypot-endlessh"
+  ],
+  "dev.build.automate": [
+    "dev-build-make"
+  ],
+  "dev.build.clean": [
+    "dev-build-make"
+  ],
+  "dev.build.compile": [
+    "dev-build-make"
+  ],
+  "dev.build.dependency": [
+    "dev-build-make"
+  ],
+  "dev.build.target": [
+    "dev-build-make"
+  ],
+  "dev.build.test": [
+    "dev-build-make"
+  ],
+  "dev.runtime.execute": [
+    "dev-runtime-python3"
+  ],
+  "dev.runtime.python3": [
+    "dev-runtime-python3"
+  ],
+  "dev.vcs.branch": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.clone": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.commit": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.diff": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.log": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.merge": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.pull": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.push": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.rebase": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.stash": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.status": [
+    "dev-vcs-git"
+  ],
+  "dev.vcs.tag": [
+    "dev-vcs-git"
+  ],
+  "device.fuzzing": [
+    "security-exploit-routersploit"
+  ],
+  "directory.enumerate.ldap": [
+    "wadcom-windapsearch"
+  ],
+  "discovery.enumerate": [
+    "macos-collection-osascript",
+    "macos-defense-evasion-csrutil",
+    "macos-defense-evasion-defaults",
+    "macos-defense-evasion-mdls",
+    "macos-defense-evasion-say",
+    "macos-discovery-dns-sd",
+    "macos-discovery-dscacheutil",
+    "macos-discovery-dscl",
+    "macos-discovery-dsconfigad",
+    "macos-discovery-getfileinfo",
+    "macos-discovery-ioreg",
+    "macos-discovery-kextstat",
+    "macos-discovery-lsregister",
+    "macos-discovery-networksetup",
+    "macos-discovery-notifyutil",
+    "macos-discovery-nvram",
+    "macos-discovery-odutil",
+    "macos-discovery-profiles",
+    "macos-discovery-scutil",
+    "macos-discovery-sfltool",
+    "macos-discovery-softwareupdate",
+    "macos-discovery-sw-vers",
+    "macos-discovery-system-profiler",
+    "macos-recon-dsexport",
+    "macos-recon-mdfind"
+  ],
+  "disk.analysis.image": [
+    "security-forensics-autopsy"
+  ],
+  "disk.recovery.deleted": [
+    "security-forensics-foremost"
+  ],
+  "dns.enum.records": [
+    "security-dns-dnsrecon"
+  ],
+  "dns.enum.reverse": [
+    "security-dns-dnsrecon"
+  ],
+  "dns.enum.subdomain": [
+    "security-dns-dnsrecon",
+    "security-recon-sublist3r"
+  ],
+  "dns.enum.zone-transfer": [
+    "security-dns-dnsrecon"
+  ],
+  "dns.test.dnssec": [
+    "security-dns-dnsrecon"
+  ],
+  "dos.slow-post": [
+    "security-dos-slowhttptest"
+  ],
+  "dos.slow-read": [
+    "security-dos-slowhttptest"
+  ],
+  "dos.slowloris": [
+    "security-dos-slowhttptest"
+  ],
+  "dos.test-resilience": [
+    "security-dos-slowhttptest"
+  ],
+  "embedded.exploitation": [
+    "security-exploit-routersploit"
+  ],
+  "encode.ascii85": [
+    "encode-ascii85"
+  ],
+  "encode.base32": [
+    "encode-base32"
+  ],
+  "exfiltration.data": [
+    "macos-collection-ditto",
+    "macos-collection-streamzip",
+    "macos-command-and-control-safaridriver",
+    "macos-execution-sysadminctl",
+    "macos-lateral-movement-snmptrap"
+  ],
+  "exploit.development": [
+    "security-exploit-metasploit",
+    "security-reverse-pwntools",
+    "security-reverse-ropgadget"
+  ],
+  "exploit.search": [
+    "security-exploit-searchsploit"
+  ],
+  "exploitdb.query": [
+    "security-exploit-searchsploit"
+  ],
+  "file.extraction": [
+    "security-reverse-binwalk"
+  ],
+  "filesystem.archive.compress": [
+    "system-compress-gzip"
+  ],
+  "filesystem.backup": [
+    "system-sync-rsync"
+  ],
+  "filesystem.compress.gzip": [
+    "system-compress-gzip"
+  ],
+  "filesystem.compress.stream": [
+    "system-compress-gzip"
+  ],
+  "filesystem.decompress.gzip": [
+    "system-compress-gzip"
+  ],
+  "filesystem.io.capture": [
+    "system-io-tee"
+  ],
+  "filesystem.sync.archive": [
+    "system-sync-rsync"
+  ],
+  "filesystem.sync.incremental": [
+    "system-sync-rsync"
+  ],
+  "filesystem.sync.local": [
+    "system-sync-rsync"
+  ],
+  "filesystem.sync.remote": [
+    "system-sync-rsync"
+  ],
+  "filesystem.transfer.delta": [
+    "system-sync-rsync"
+  ],
+  "firmware.analysis": [
+    "security-reverse-binwalk"
+  ],
+  "forensics.data.hiding": [
+    "security-forensics-steghide"
+  ],
+  "forensics.file.carving": [
+    "security-forensics-autopsy",
+    "security-forensics-foremost"
+  ],
+  "forensics.hash.analysis": [
+    "security-forensics-autopsy"
+  ],
+  "forensics.header.signature": [
+    "security-forensics-foremost"
+  ],
+  "forensics.keyword.search": [
+    "security-forensics-autopsy"
+  ],
+  "forensics.memory.acquisition": [
+    "security-forensics-volatility"
+  ],
+  "forensics.metadata.extraction": [
+    "security-forensics-exiftool"
+  ],
+  "forensics.scan": [
+    "security-malware-yara"
+  ],
+  "forensics.timeline.generation": [
+    "security-forensics-autopsy"
+  ],
+  "graphql.discovery.field": [
+    "security-graphql-clairvoyance"
+  ],
+  "graphql.enum.schema": [
+    "security-graphql-clairvoyance"
+  ],
+  "graphql.introspection": [
+    "security-graphql-clairvoyance"
+  ],
+  "hardening.analysis": [
+    "security-reverse-checksec"
+  ],
+  "hardware.gpu.accelerate": [
+    "security-crack-hashcat"
+  ],
+  "hash.analyze": [
+    "security-crack-hash-identifier"
+  ],
+  "hash.classify": [
+    "security-crack-hash-identifier"
+  ],
+  "hash.identify": [
+    "security-crack-hash-identifier"
+  ],
+  "honeypot.ssh.attract": [
+    "security-honeypot-endlessh"
+  ],
+  "honeypot.ssh.tarpit": [
+    "security-honeypot-endlessh"
+  ],
+  "impact.destruction": [
+    "macos-defense-evasion-pkill",
+    "macos-discovery-lsregister",
+    "macos-discovery-profiles",
+    "macos-execution-sysadminctl",
+    "macos-impact-tmutil"
+  ],
+  "implant.generation": [
+    "security-exploit-havoc",
+    "security-exploit-merlin",
+    "security-exploit-mythic",
+    "security-exploit-sliver"
+  ],
+  "inmemory.execution": [
+    "security-exploit-pupy"
+  ],
+  "ioc.detect.malware": [
+    "security-ioc-loki"
+  ],
+  "ioc.scan.file": [
+    "security-ioc-loki"
+  ],
+  "ioc.scan.system": [
+    "security-ioc-loki"
+  ],
+  "ioc.threat-intel": [
+    "security-ioc-loki"
+  ],
+  "ioc.yara.match": [
+    "security-ioc-loki"
+  ],
+  "malware.analyze": [
+    "security-malware-yara"
+  ],
+  "malware.classify": [
+    "security-malware-yara"
+  ],
+  "malware.detect": [
+    "security-malware-yara"
+  ],
+  "math.calculate": [
+    "math-bc",
+    "math-dc"
+  ],
+  "memory.analysis.dump": [
+    "security-forensics-volatility"
+  ],
+  "memory.analysis.network": [
+    "security-forensics-volatility"
+  ],
+  "memory.analysis.process": [
+    "security-forensics-volatility"
+  ],
+  "memory.analysis.registry": [
+    "security-forensics-volatility"
+  ],
+  "metadata.read.exif": [
+    "security-forensics-exiftool"
+  ],
+  "metadata.read.iptc": [
+    "security-forensics-exiftool"
+  ],
+  "metadata.read.xmp": [
+    "security-forensics-exiftool"
+  ],
+  "metadata.write": [
+    "security-forensics-exiftool"
+  ],
+  "metasploit.integration": [
+    "security-exploit-veil"
+  ],
+  "mitigation.detection": [
+    "security-reverse-checksec"
+  ],
+  "network.analyze.protocol": [
+    "security-sniff-wireshark"
+  ],
+  "network.arp.manipulate": [
+    "network-arp"
+  ],
+  "network.arp.spoof": [
+    "security-wireless-bettercap"
+  ],
+  "network.attack.arp": [
+    "network-analysis-scapy"
+  ],
+  "network.attack.dhcp": [
+    "network-analysis-scapy"
+  ],
+  "network.attack.dns": [
+    "network-analysis-scapy"
+  ],
+  "network.audit": [
+    "security-wireless-wifite"
+  ],
+  "network.auth.test": [
+    "security-crack-hydra",
+    "security-crack-medusa",
+    "security-crack-ncrack"
+  ],
+  "network.capture.handshake": [
+    "security-wireless-hcxdumptool"
+  ],
+  "network.capture.live": [
+    "security-sniff-wireshark"
+  ],
+  "network.capture.offline": [
+    "security-sniff-wireshark"
+  ],
+  "network.capture.packet": [
+    "network-capture-tcpdump"
+  ],
+  "network.capture.pmkid": [
+    "security-wireless-hcxdumptool"
+  ],
+  "network.capture.sniff": [
+    "network-capture-tcpdump"
+  ],
+  "network.capture.tcpdump": [
+    "network-capture-tcpdump"
+  ],
+  "network.coerce.authentication": [
+    "wadcom-petitpotam"
+  ],
+  "network.commandandcontrol": [
+    "macos-command-and-control-osacompile",
+    "macos-command-and-control-safaridriver",
+    "macos-defense-evasion-nscurl",
+    "macos-discovery-networksetup",
+    "macos-discovery-notifyutil",
+    "macos-lateral-movement-snmptrap"
+  ],
+  "network.config.ifconfig": [
+    "network-config-ifconfig"
+  ],
+  "network.config.ip": [
+    "network-config-ip"
+  ],
+  "network.config.route": [
+    "network-config-route"
+  ],
+  "network.connect.remote": [
+    "darkiros-netexec",
+    "darkiros-rubeus",
+    "darkiros-scshell"
+  ],
+  "network.convert.capture": [
+    "security-wireless-hcxpcaptool"
+  ],
+  "network.crack.wep": [
+    "security-wireless-aircrack-ng",
+    "security-wireless-wifite"
+  ],
+  "network.crack.wpa": [
+    "security-wireless-aircrack-ng",
+    "security-wireless-bully",
+    "security-wireless-reaver",
+    "security-wireless-wifite"
+  ],
+  "network.craft.packet": [
+    "network-hping3"
+  ],
+  "network.deauth": [
+    "security-wireless-aircrack-ng",
+    "security-wireless-bettercap",
+    "security-wireless-wifite"
+  ],
+  "network.detect": [
+    "security-wireless-kismet"
+  ],
+  "network.diagnostic.banner": [
+    "network-socket-nc"
+  ],
+  "network.diagnostic.hop": [
+    "network-diagnostic-traceroute"
+  ],
+  "network.diagnostic.latency": [
+    "network-diagnostic-ping",
+    "network-diagnostic-traceroute"
+  ],
+  "network.diagnostic.packetloss": [
+    "network-diagnostic-ping"
+  ],
+  "network.diagnostic.reachability": [
+    "network-diagnostic-ping"
+  ],
+  "network.diagnostic.route": [
+    "network-diagnostic-traceroute"
+  ],
+  "network.discovery.certificate": [
+    "security-intel-censys"
+  ],
+  "network.discovery.dns": [
+    "security-recon-amass",
+    "security-recon-dnsenum",
+    "security-recon-fierce",
+    "security-recon-subfinder"
+  ],
+  "network.discovery.dns-resolve": [
+    "security-recon-subfinder"
+  ],
+  "network.discovery.domain": [
+    "security-recon-assetfinder"
+  ],
+  "network.discovery.host": [
+    "network-diagnostic-ping",
+    "network-arp",
+    "security-intel-censys",
+    "security-intel-shodan-cli",
+    "security-recon-amass",
+    "security-recon-masscan",
+    "security-recon-nmap",
+    "security-recon-rustscan"
+  ],
+  "network.discovery.iot": [
+    "security-intel-shodan-cli"
+  ],
+  "network.discovery.ip-range": [
+    "security-recon-fierce"
+  ],
+  "network.discovery.path": [
+    "network-diagnostic-traceroute"
+  ],
+  "network.discovery.subdomain": [
+    "security-recon-amass",
+    "security-recon-assetfinder",
+    "security-recon-dnsenum",
+    "security-recon-fierce",
+    "security-recon-recon-ng",
+    "security-recon-spiderfoot",
+    "security-recon-subfinder",
+    "security-recon-theharvester"
+  ],
+  "network.discovery.vulnerability": [
+    "security-web-nuclei"
+  ],
+  "network.dns.lookup": [
+    "network-dns-dig",
+    "security-intel-whois"
+  ],
+  "network.dns.query": [
+    "network-dns-dig"
+  ],
+  "network.dns.reverse": [
+    "network-dns-dig"
+  ],
+  "network.dns.spoof": [
+    "security-wireless-bettercap"
+  ],
+  "network.dns.trace": [
+    "network-dns-dig"
+  ],
+  "network.email.client": [
+    "network-email-alpine",
+    "network-email-mail"
+  ],
+  "network.enumerate": [
+    "security-wireless-kismet"
+  ],
+  "network.enumerate.shares": [
+    "wadcom-finduncommonshares",
+    "wadcom-snaffler"
+  ],
+  "network.exfiltration.dns": [
+    "wtfbin-eset-av-module",
+    "wtfbin-eset-protection-suite",
+    "wtfbin-mcafee-antivirus",
+    "wtfbin-sophos-web-protection"
+  ],
+  "network.filter.capture": [
+    "security-sniff-wireshark"
+  ],
+  "network.filter.display": [
+    "security-sniff-wireshark"
+  ],
+  "network.firewall.iptables": [
+    "network-firewall-iptables"
+  ],
+  "network.forward.port": [
+    "security-tunnel-chisel"
+  ],
+  "network.forward.reverse": [
+    "security-tunnel-chisel"
+  ],
+  "network.hash.eapol": [
+    "security-wireless-hcxpcaptool"
+  ],
+  "network.hash.extract": [
+    "security-wireless-hcxpcaptool"
+  ],
+  "network.hash.pmkid": [
+    "security-wireless-hcxpcaptool"
+  ],
+  "network.http.api": [
+    "network-http-curl"
+  ],
+  "network.http.benchmark": [
+    "network-http-ab"
+  ],
+  "network.http.fetch": [
+    "network-http-curl",
+    "network-http-wget"
+  ],
+  "network.http.inspect": [
+    "network-http-curl"
+  ],
+  "network.http.serve": [
+    "network-http-apache2"
+  ],
+  "network.http.server": [
+    "network-http-apache2"
+  ],
+  "network.http.server.control": [
+    "network-http-apache2ctl"
+  ],
+  "network.intercept.mitm": [
+    "darkiros-responder",
+    "wadcom-mitm6"
+  ],
+  "network.intrusion.detect": [
+    "security-wireless-kismet"
+  ],
+  "network.lateralmovement": [
+    "macos-collection-ditto",
+    "macos-collection-osascript",
+    "macos-lateral-movement-sharing",
+    "macos-lateral-movement-snmptrap",
+    "macos-lateral-movement-systemsetup"
+  ],
+  "network.manipulation.ip": [
+    "network-analysis-scapy"
+  ],
+  "network.manipulation.sniff": [
+    "security-wireless-aircrack-ng"
+  ],
+  "network.mirror.site": [
+    "network-http-wget"
+  ],
+  "network.mitm": [
+    "security-wireless-bettercap"
+  ],
+  "network.monitor": [
+    "security-wireless-aircrack-ng"
+  ],
+  "network.packet.craft": [
+    "network-analysis-scapy"
+  ],
+  "network.pin.attack": [
+    "security-wireless-bully",
+    "security-wireless-reaver"
+  ],
+  "network.pivot.generic": [
+    "darkiros-chisel",
+    "darkiros-mimikatz",
+    "darkiros-socat"
+  ],
+  "network.pmkid": [
+    "security-wireless-wifite"
+  ],
+  "network.port.redirect": [
+    "network-socket-socat"
+  ],
+  "network.protocol.analyze": [
+    "network-analysis-scapy"
+  ],
+  "network.proxy": [
+    "security-wireless-bettercap"
+  ],
+  "network.proxy.relay": [
+    "network-socket-nc"
+  ],
+  "network.proxy.socks": [
+    "security-tunnel-chisel"
+  ],
+  "network.remote.shell": [
+    "network-remote-telnet"
+  ],
+  "network.remote.telnet": [
+    "network-remote-telnet"
+  ],
+  "network.scan.banner": [
+    "security-recon-masscan"
+  ],
+  "network.scan.port": [
+    "network-hping3",
+    "network-socket-nc",
+    "security-recon-masscan",
+    "security-recon-nmap",
+    "security-recon-rustscan"
+  ],
+  "network.scan.service": [
+    "security-recon-nmap"
+  ],
+  "network.serial.connect": [
+    "network-socket-socat"
+  ],
+  "network.sniff": [
+    "security-wireless-bettercap",
+    "security-wireless-hcxdumptool",
+    "security-wireless-kismet"
+  ],
+  "network.sniff.packet": [
+    "security-sniff-wireshark"
+  ],
+  "network.sniff.traffic": [
+    "network-analysis-scapy"
+  ],
+  "network.socket.connect": [
+    "network-socket-nc"
+  ],
+  "network.socket.forward": [
+    "network-socket-socat"
+  ],
+  "network.socket.listen": [
+    "network-socket-nc"
+  ],
+  "network.socket.nc": [
+    "network-socket-nc"
+  ],
+  "network.socket.proxy": [
+    "network-socket-socat"
+  ],
+  "network.socket.relay": [
+    "network-socket-socat"
+  ],
+  "network.socket.ssl": [
+    "network-socket-socat"
+  ],
+  "network.socket.transfer": [
+    "network-socket-nc"
+  ],
+  "network.socket.udp": [
+    "network-socket-socat"
+  ],
+  "network.transfer.download": [
+    "archive-tar-tar",
+    "argument-injection-curl",
+    "argument-injection-ssh",
+    "argument-injection-tar",
+    "argument-injection-wget",
+    "dev-vscode-code",
+    "network-download-aria2c",
+    "network-finger-finger",
+    "network-ftp-ftp",
+    "network-ftp-tftp",
+    "network-http-ab",
+    "network-http-curl",
+    "network-http-wget",
+    "network-ssh-sftp",
+    "network-ssh-ssh",
+    "network-ssh-sshfs",
+    "network-transfer-lftp",
+    "network-transfer-links",
+    "network-transfer-lwpdownload",
+    "network-transfer-lwprequest",
+    "network-transfer-ncftp",
+    "network-transfer-psftp",
+    "network-transfer-scp",
+    "package-yum-yum",
+    "runtime-lua",
+    "shell-bash-bash",
+    "shell-zsh-zsh",
+    "windows-ads-cmd",
+    "windows-ads-esentutl",
+    "windows-ads-extrac32",
+    "windows-ads-findstr",
+    "windows-ads-makecab",
+    "windows-download-appinstaller",
+    "windows-download-bcp",
+    "windows-download-certreq",
+    "windows-download-certutil",
+    "windows-download-cmdl32",
+    "windows-download-configsecuritypolicy",
+    "windows-download-desktopimgdownldr",
+    "windows-download-devtunnel",
+    "windows-download-ecmangen",
+    "windows-download-excel",
+    "windows-download-gfxdownloadwrapper",
+    "windows-download-imewdbld",
+    "windows-download-ldifde",
+    "windows-download-mpcmdrun",
+    "windows-download-msaccess",
+    "windows-download-msedge",
+    "windows-download-msohtmed",
+    "windows-download-mspub",
+    "windows-download-ngen",
+    "windows-download-onedrivestandaloneupdater",
+    "windows-download-photoviewer",
+    "windows-download-powerpnt",
+    "windows-download-printbrm",
+    "windows-download-protocolhandler",
+    "windows-download-replace",
+    "windows-download-scrobj",
+    "windows-download-shimgvw",
+    "windows-download-visio",
+    "windows-download-winproj",
+    "windows-download-winword",
+    "windows-download-xsd",
+    "windows-execution-bitsadmin",
+    "windows-execution-certoc",
+    "windows-execution-diantz",
+    "windows-execution-hh",
+    "windows-execution-ieexec",
+    "windows-execution-installutil",
+    "windows-execution-mmc",
+    "windows-execution-msedge-proxy",
+    "windows-execution-mshta",
+    "windows-execution-msxsl",
+    "windows-execution-presentationhost",
+    "windows-execution-squirrel",
+    "windows-execution-update",
+    "windows-execution-vslaunchbrowser",
+    "windows-execution-winget",
+    "windows-execution-wsl",
+    "windows-execution-xwizard"
+  ],
+  "network.transfer.generic": [
+    "wtfbin-network-detective-data-collector",
+    "wtfbin-windows-tcp-connections-on-high-ports"
+  ],
+  "network.transfer.recursive": [
+    "network-http-wget"
+  ],
+  "network.transfer.resume": [
+    "network-http-wget"
+  ],
+  "network.transfer.scp": [
+    "network-transfer-scp"
+  ],
+  "network.transfer.upload": [
+    "archive-tar-tar",
+    "argument-injection-curl",
+    "argument-injection-hg",
+    "argument-injection-sendmail",
+    "argument-injection-ssh",
+    "argument-injection-tar",
+    "argument-injection-wget",
+    "dev-vscode-code",
+    "network-hping3",
+    "network-finger-finger",
+    "network-ftp-ftp",
+    "network-ftp-tftp",
+    "network-http-ab",
+    "network-http-curl",
+    "network-http-wget",
+    "network-ssh-sftp",
+    "network-ssh-ssh",
+    "network-ssh-sshfs",
+    "network-transfer-lftp",
+    "network-transfer-links",
+    "network-transfer-lwprequest",
+    "network-transfer-ncftp",
+    "network-transfer-psftp",
+    "network-transfer-scp",
+    "network-vpn-tailscale",
+    "orchestration-kubernetes-kubectl",
+    "runtime-lua",
+    "shell-bash-bash",
+    "shell-zsh-zsh",
+    "system-embedded-busybox",
+    "system-print-cancel",
+    "windows-ads-cmd",
+    "windows-download-certreq",
+    "windows-download-configsecuritypolicy",
+    "windows-upload-datasvcutil",
+    "windows-upload-testwindowremoteagent"
+  ],
+  "network.tunnel.http": [
+    "security-tunnel-chisel"
+  ],
+  "network.tunnel.ssh": [
+    "wtfbin-avastsvc-exe"
+  ],
+  "network.wps.bruteforce": [
+    "security-wireless-bully",
+    "security-wireless-reaver",
+    "security-wireless-wifite"
+  ],
+  "orchestration.kubernetes.manage": [
+    "orchestration-kubernetes-kubectl"
+  ],
+  "osint.discovery.subdomain": [
+    "security-recon-sublist3r"
+  ],
+  "osint.discovery.url": [
+    "security-recon-waymore"
+  ],
+  "osint.search.engine": [
+    "security-recon-sublist3r"
+  ],
+  "payload.embedding": [
+    "security-exploit-shellter"
+  ],
+  "payload.generation": [
+    "security-exploit-covenant",
+    "security-exploit-empire",
+    "security-exploit-metasploit",
+    "security-exploit-setoolkit",
+    "security-exploit-veil"
+  ],
+  "pe.backdooring": [
+    "security-exploit-shellter"
+  ],
+  "phishing.campaign": [
+    "security-exploit-setoolkit"
+  ],
+  "post.exploitation": [
+    "security-exploit-covenant",
+    "security-exploit-empire",
+    "security-exploit-havoc",
+    "security-exploit-merlin",
+    "security-exploit-metasploit",
+    "security-exploit-mythic",
+    "security-exploit-pupy",
+    "security-exploit-sliver"
+  ],
+  "privilege.escalation": [
+    "security-exploit-empire"
+  ],
+  "realtime.collaboration": [
+    "security-exploit-covenant"
+  ],
+  "recon.enumeration": [
+    "windows-recon-nmcap",
+    "windows-recon-pktmon",
+    "windows-recon-psr"
+  ],
+  "reconnaissance.enumerate": [
+    "macos-defense-evasion-csrutil",
+    "macos-defense-evasion-say",
+    "macos-recon-dsexport",
+    "macos-recon-mdfind"
+  ],
+  "remote.administration": [
+    "security-exploit-pupy"
+  ],
+  "resource.development": [
+    "macos-command-and-control-osacompile"
+  ],
+  "reverse.analysis": [
+    "security-reverse-cutter",
+    "security-reverse-gdb",
+    "security-reverse-ghidra",
+    "security-reverse-ltrace",
+    "security-reverse-radare2",
+    "security-reverse-strace"
+  ],
+  "reverse.debugging": [
+    "security-reverse-cutter",
+    "security-reverse-gdb",
+    "security-reverse-ghidra",
+    "security-reverse-radare2"
+  ],
+  "reverse.decompilation": [
+    "security-reverse-cutter",
+    "security-reverse-ghidra"
+  ],
+  "reverse.disassembly": [
+    "security-reverse-cutter",
+    "security-reverse-gdb",
+    "security-reverse-ghidra",
+    "security-reverse-radare2"
+  ],
+  "reverse.patching": [
+    "security-reverse-pwntools",
+    "security-reverse-radare2"
+  ],
+  "reverse.scripting": [
+    "security-reverse-ghidra",
+    "security-reverse-radare2"
+  ],
+  "rop.chain": [
+    "security-reverse-pwntools"
+  ],
+  "rop.gadget.find": [
+    "security-reverse-ropgadget"
+  ],
+  "router.scanning": [
+    "security-exploit-routersploit"
+  ],
+  "runtime.java.execute": [
+    "runtime-java"
+  ],
+  "secrets.detect.api-key": [
+    "security-secrets-gitleaks"
+  ],
+  "secrets.detect.password": [
+    "security-secrets-gitleaks"
+  ],
+  "secrets.detect.token": [
+    "security-secrets-gitleaks"
+  ],
+  "secrets.scan.diff": [
+    "security-secrets-gitleaks"
+  ],
+  "secrets.scan.repo": [
+    "security-secrets-gitleaks"
+  ],
+  "security.ad.aclanalysis": [
+    "security-recon-bloodhound"
+  ],
+  "security.ad.asreproast": [
+    "security-framework-impacket",
+    "security-framework-netexec"
+  ],
+  "security.ad.attackpath": [
+    "security-recon-bloodhound"
+  ],
+  "security.ad.cert.enum": [
+    "security-ad-certipy"
+  ],
+  "security.ad.coerce": [
+    "security-framework-impacket",
+    "security-framework-netexec"
+  ],
+  "security.ad.cs.auth": [
+    "security-ad-certipy"
+  ],
+  "security.ad.cs.esc1": [
+    "security-ad-certipy"
+  ],
+  "security.ad.cs.esc4": [
+    "security-ad-certipy"
+  ],
+  "security.ad.cs.find": [
+    "security-ad-certipy"
+  ],
+  "security.ad.dpapi": [
+    "security-framework-netexec"
+  ],
+  "security.ad.enum.acl": [
+    "security-ad-sharphound"
+  ],
+  "security.ad.enum.computers": [
+    "security-ad-ldapsearch",
+    "security-ad-sharphound",
+    "security-recon-bloodhound"
+  ],
+  "security.ad.enum.domain": [
+    "security-ad-rpcclient",
+    "security-ad-sharphound"
+  ],
+  "security.ad.enum.gpos": [
+    "security-ad-ldapsearch",
+    "security-recon-bloodhound"
+  ],
+  "security.ad.enum.groups": [
+    "security-ad-enum4linux-ng",
+    "security-ad-ldapsearch",
+    "security-ad-rpcclient",
+    "security-ad-sharphound",
+    "security-recon-bloodhound"
+  ],
+  "security.ad.enum.osinfo": [
+    "security-ad-enum4linux-ng"
+  ],
+  "security.ad.enum.ous": [
+    "security-ad-ldapsearch",
+    "security-recon-bloodhound"
+  ],
+  "security.ad.enum.passwordpolicy": [
+    "security-ad-enum4linux-ng"
+  ],
+  "security.ad.enum.privileges": [
+    "security-ad-rpcclient"
+  ],
+  "security.ad.enum.sessions": [
+    "security-ad-enum4linux-ng",
+    "security-ad-sharphound"
+  ],
+  "security.ad.enum.shares": [
+    "security-ad-enum4linux-ng",
+    "security-framework-impacket"
+  ],
+  "security.ad.enum.users": [
+    "security-ad-enum4linux-ng",
+    "security-ad-ldapsearch",
+    "security-ad-rpcclient",
+    "security-ad-sharphound",
+    "security-framework-impacket",
+    "security-recon-bloodhound"
+  ],
+  "security.ad.file.transfer": [
+    "security-ad-smbclient"
+  ],
+  "security.ad.gmsa": [
+    "security-framework-netexec"
+  ],
+  "security.ad.goldenticket": [
+    "security-framework-impacket"
+  ],
+  "security.ad.graph": [
+    "security-ad-sharphound"
+  ],
+  "security.ad.kerberoast": [
+    "security-framework-impacket",
+    "security-framework-netexec"
+  ],
+  "security.ad.kerberos.asreproast": [
+    "security-ad-rubeus"
+  ],
+  "security.ad.kerberos.bruteforce": [
+    "security-ad-kerbrute",
+    "security-ad-rubeus"
+  ],
+  "security.ad.kerberos.delegation": [
+    "security-ad-rubeus"
+  ],
+  "security.ad.kerberos.kerberoast": [
+    "security-ad-rubeus"
+  ],
+  "security.ad.kerberos.passkey": [
+    "security-ad-rubeus"
+  ],
+  "security.ad.kerberos.passwordspray": [
+    "security-ad-kerbrute"
+  ],
+  "security.ad.kerberos.preauth": [
+    "security-ad-kerbrute"
+  ],
+  "security.ad.kerberos.userenum": [
+    "security-ad-kerbrute"
+  ],
+  "security.ad.kerberosabuse": [
+    "security-recon-bloodhound"
+  ],
+  "security.ad.krbauth": [
+    "security-exec-evil-winrm"
+  ],
+  "security.ad.laps": [
+    "security-framework-impacket"
+  ],
+  "security.ad.ldap.query": [
+    "security-ad-ldapsearch"
+  ],
+  "security.ad.ntlmrelay": [
+    "security-framework-impacket"
+  ],
+  "security.ad.rbcd": [
+    "security-framework-impacket"
+  ],
+  "security.ad.ridbrute": [
+    "security-framework-netexec"
+  ],
+  "security.ad.rpc.lsarpc": [
+    "security-ad-rpcclient"
+  ],
+  "security.ad.rpc.samr": [
+    "security-ad-rpcclient"
+  ],
+  "security.ad.rpc.srvsvc": [
+    "security-ad-rpcclient"
+  ],
+  "security.ad.rpcdump": [
+    "security-framework-impacket"
+  ],
+  "security.ad.samrdump": [
+    "security-framework-impacket"
+  ],
+  "security.ad.service.control": [
+    "security-ad-psexec",
+    "security-ad-wmiexec"
+  ],
+  "security.ad.sessioncollection": [
+    "security-recon-bloodhound"
+  ],
+  "security.ad.sessions": [
+    "security-framework-netexec"
+  ],
+  "security.ad.share.access": [
+    "security-ad-smbclient"
+  ],
+  "security.ad.share.content": [
+    "security-ad-smbmap"
+  ],
+  "security.ad.share.delete": [
+    "security-ad-smbmap"
+  ],
+  "security.ad.share.download": [
+    "security-ad-smbclient",
+    "security-ad-smbmap"
+  ],
+  "security.ad.share.exec": [
+    "security-ad-smbmap"
+  ],
+  "security.ad.share.list": [
+    "security-ad-smbclient",
+    "security-ad-smbmap"
+  ],
+  "security.ad.share.upload": [
+    "security-ad-smbmap"
+  ],
+  "security.ad.shares": [
+    "security-framework-netexec"
+  ],
+  "security.ad.silverticket": [
+    "security-framework-impacket"
+  ],
+  "security.ad.trusteddelegation": [
+    "security-framework-netexec"
+  ],
+  "security.attack.cdp": [
+    "security-mitm-yersinia"
+  ],
+  "security.attack.dot1q": [
+    "security-mitm-yersinia"
+  ],
+  "security.attack.dot1x": [
+    "security-mitm-yersinia"
+  ],
+  "security.attack.dtp": [
+    "security-mitm-yersinia"
+  ],
+  "security.attack.hsrp": [
+    "security-mitm-yersinia"
+  ],
+  "security.attack.stp": [
+    "security-mitm-yersinia"
+  ],
+  "security.attack.vtp": [
+    "security-mitm-yersinia"
+  ],
+  "security.audit.credential": [
+    "security-crack-hashcat",
+    "security-crack-hydra",
+    "security-crack-john"
+  ],
+  "security.audit.script": [
+    "security-recon-nmap"
+  ],
+  "security.auth.bruteforce": [
+    "security-crack-hydra",
+    "security-crack-medusa",
+    "security-crack-ncrack"
+  ],
+  "security.bruteforce.passwordspray": [
+    "security-framework-netexec"
+  ],
+  "security.capabilities.manage": [
+    "security-capabilities-capsh"
+  ],
+  "security.capture.hash": [
+    "security-mitm-responder"
+  ],
+  "security.crack.hash": [
+    "security-crack-hashcat",
+    "security-crack-john"
+  ],
+  "security.crack.password": [
+    "security-crack-cewl",
+    "security-crack-hashcat",
+    "security-crack-hydra",
+    "security-crack-john",
+    "security-crack-medusa",
+    "security-crack-ncrack"
+  ],
+  "security.credential.dpapi": [
+    "security-credential-mimikatz"
+  ],
+  "security.credential.dump": [
+    "security-framework-netexec"
+  ],
+  "security.credential.dump.kerberos": [
+    "security-ad-secretsdump"
+  ],
+  "security.credential.dump.lsa": [
+    "security-ad-secretsdump",
+    "security-framework-impacket"
+  ],
+  "security.credential.dump.lsass": [
+    "security-credential-mimikatz"
+  ],
+  "security.credential.dump.ntds": [
+    "security-ad-secretsdump",
+    "security-framework-impacket"
+  ],
+  "security.credential.dump.sam": [
+    "security-ad-secretsdump",
+    "security-framework-impacket"
+  ],
+  "security.credential.extract.hash": [
+    "security-ad-secretsdump"
+  ],
+  "security.credential.kerberostickets": [
+    "security-ad-rubeus",
+    "security-credential-mimikatz"
+  ],
+  "security.credential.masterkeys": [
+    "security-credential-mimikatz"
+  ],
+  "security.credential.ntlm": [
+    "security-credential-mimikatz"
+  ],
+  "security.credential.pth": [
+    "security-ad-wmiexec",
+    "security-exec-evil-winrm"
+  ],
+  "security.credential.wdigest": [
+    "security-credential-mimikatz"
+  ],
+  "security.crypto.certificate": [
+    "security-crypto-openssl"
+  ],
+  "security.crypto.csr": [
+    "security-crypto-openssl"
+  ],
+  "security.crypto.decrypt": [
+    "security-crypto-openssl"
+  ],
+  "security.crypto.encrypt": [
+    "security-crypto-openssl"
+  ],
+  "security.crypto.hash": [
+    "security-crypto-openssl"
+  ],
+  "security.crypto.keygen": [
+    "security-crypto-openssl"
+  ],
+  "security.crypto.sign": [
+    "security-crypto-openssl"
+  ],
+  "security.crypto.verify": [
+    "security-crypto-openssl"
+  ],
+  "security.defense-evasion": [
+    "system-file-chattr"
+  ],
+  "security.defense-evasion.bypass": [
+    "windows-bypass-aspnet-compiler",
+    "windows-bypass-dfshim",
+    "windows-bypass-dfsvc",
+    "windows-bypass-fsi",
+    "windows-bypass-fsianycpu",
+    "windows-bypass-msdt",
+    "windows-bypass-visualuiaverifynative",
+    "windows-bypass-vstest-console",
+    "windows-bypass-wfc",
+    "windows-execution-acccheckconsole",
+    "windows-execution-advpack",
+    "windows-execution-bginfo",
+    "windows-execution-cmstp",
+    "windows-execution-coregen",
+    "windows-execution-ieadvpack",
+    "windows-execution-installutil",
+    "windows-execution-microsoft-workflow-compiler",
+    "windows-execution-msbuild",
+    "windows-execution-msdeploy",
+    "windows-execution-msxsl",
+    "windows-execution-rcsi",
+    "windows-execution-regasm",
+    "windows-execution-regsvcs",
+    "windows-execution-regsvr32",
+    "windows-execution-remote",
+    "windows-execution-setupapi",
+    "windows-execution-squirrel",
+    "windows-execution-syssetup",
+    "windows-execution-tracker",
+    "windows-execution-update",
+    "windows-execution-winget",
+    "windows-execution-winrm"
+  ],
+  "security.defense-evasion.conceal": [
+    "windows-conceal-devicecredentialdeployment"
+  ],
+  "security.defense-evasion.tamper": [
+    "windows-tamper-cipher",
+    "windows-tamper-fltmc",
+    "windows-tamper-fsutil"
+  ],
+  "security.defenseevasion.bypass": [
+    "macos-collection-ditto",
+    "macos-collection-osascript",
+    "macos-credential-access-security",
+    "macos-defense-evasion-chflags",
+    "macos-defense-evasion-codesign",
+    "macos-defense-evasion-csrutil",
+    "macos-defense-evasion-defaults",
+    "macos-defense-evasion-log",
+    "macos-defense-evasion-mdls",
+    "macos-defense-evasion-mktemp",
+    "macos-defense-evasion-nscurl",
+    "macos-defense-evasion-pkill",
+    "macos-defense-evasion-plutil",
+    "macos-defense-evasion-say",
+    "macos-defense-evasion-spctl",
+    "macos-defense-evasion-tccutil",
+    "macos-defense-evasion-textutil",
+    "macos-discovery-notifyutil",
+    "macos-discovery-sfltool",
+    "macos-execution-caffeinate",
+    "macos-execution-swift",
+    "macos-execution-xattr",
+    "macos-impact-tmutil",
+    "macos-persistence-setfile",
+    "macos-recon-mdfind"
+  ],
+  "security.defenseevasion.dll-hijack": [
+    "windows-dllhijack-aclui",
+    "windows-dllhijack-acrodistdll",
+    "windows-dllhijack-activeds",
+    "windows-dllhijack-adsldpc",
+    "windows-dllhijack-aepic",
+    "windows-dllhijack-amindpdfcore",
+    "windows-dllhijack-apphelp",
+    "windows-dllhijack-applicationframe",
+    "windows-dllhijack-appvisvsubsystems64",
+    "windows-dllhijack-appvpolicy",
+    "windows-dllhijack-appwiz-cpl",
+    "windows-dllhijack-appxalluserstore",
+    "windows-dllhijack-appxdeploymentclient",
+    "windows-dllhijack-archiveint",
+    "windows-dllhijack-asfbncor",
+    "windows-dllhijack-ashldres",
+    "windows-dllhijack-asio",
+    "windows-dllhijack-asus-wmi",
+    "windows-dllhijack-atl",
+    "windows-dllhijack-atl71",
+    "windows-dllhijack-atltracetoolui",
+    "windows-dllhijack-audioses",
+    "windows-dllhijack-auditpolcore",
+    "windows-dllhijack-authfwcfg",
+    "windows-dllhijack-authz",
+    "windows-dllhijack-avdevice-54",
+    "windows-dllhijack-avkkid",
+    "windows-dllhijack-avrt",
+    "windows-dllhijack-avupdate",
+    "windows-dllhijack-avutil",
+    "windows-dllhijack-axeonoffhelper",
+    "windows-dllhijack-badata-x64",
+    "windows-dllhijack-basicnetutils",
+    "windows-dllhijack-batmeter",
+    "windows-dllhijack-bcd",
+    "windows-dllhijack-bcp47langs",
+    "windows-dllhijack-bcp47mrm",
+    "windows-dllhijack-bcrypt",
+    "windows-dllhijack-bderepair",
+    "windows-dllhijack-bootmenuux",
+    "windows-dllhijack-bootux",
+    "windows-dllhijack-bthprops-cpl",
+    "windows-dllhijack-bugsplat64",
+    "windows-dllhijack-cabinet",
+    "windows-dllhijack-cabview",
+    "windows-dllhijack-calibre-launcher",
+    "windows-dllhijack-cc32290mt",
+    "windows-dllhijack-cc3260mt",
+    "windows-dllhijack-ccleanerreactivator",
+    "windows-dllhijack-cdpsgshims",
+    "windows-dllhijack-certcli",
+    "windows-dllhijack-certenroll",
+    "windows-dllhijack-cfgmgr32",
+    "windows-dllhijack-chrome-frame-helper",
+    "windows-dllhijack-ci",
+    "windows-dllhijack-ciscosparklauncher",
+    "windows-dllhijack-classicexplorer32",
+    "windows-dllhijack-cldapi",
+    "windows-dllhijack-clipc",
+    "windows-dllhijack-clusapi",
+    "windows-dllhijack-cmpbk32",
+    "windows-dllhijack-cmutil",
+    "windows-dllhijack-cnmpaui",
+    "windows-dllhijack-coloradapterclient",
+    "windows-dllhijack-colorui",
+    "windows-dllhijack-comdlg32",
+    "windows-dllhijack-commfunc",
+    "windows-dllhijack-common",
+    "windows-dllhijack-comn",
+    "windows-dllhijack-concrt140",
+    "windows-dllhijack-configmanager2",
+    "windows-dllhijack-connect",
+    "windows-dllhijack-coredplus",
+    "windows-dllhijack-corefoundation",
+    "windows-dllhijack-coremessaging",
+    "windows-dllhijack-coreuicomponents",
+    "windows-dllhijack-crashhandler",
+    "windows-dllhijack-crashrpt",
+    "windows-dllhijack-credui",
+    "windows-dllhijack-cryptbase",
+    "windows-dllhijack-cryptdll",
+    "windows-dllhijack-cryptnet",
+    "windows-dllhijack-cryptsp",
+    "windows-dllhijack-cryptui",
+    "windows-dllhijack-cryptxml",
+    "windows-dllhijack-cscapi",
+    "windows-dllhijack-cscobj",
+    "windows-dllhijack-cscui",
+    "windows-dllhijack-d2d1",
+    "windows-dllhijack-d3d10",
+    "windows-dllhijack-d3d10-1",
+    "windows-dllhijack-d3d10-1core",
+    "windows-dllhijack-d3d10core",
+    "windows-dllhijack-d3d10warp",
+    "windows-dllhijack-d3d11",
+    "windows-dllhijack-d3d12",
+    "windows-dllhijack-d3d9",
+    "windows-dllhijack-d3dcompiler-47",
+    "windows-dllhijack-d3dx9-43",
+    "windows-dllhijack-dal-keepalives",
+    "windows-dllhijack-dataexchange",
+    "windows-dllhijack-davclnt",
+    "windows-dllhijack-dbgcore",
+    "windows-dllhijack-dbgeng",
+    "windows-dllhijack-dbghelp",
+    "windows-dllhijack-dbgmodel",
+    "windows-dllhijack-dcntel",
+    "windows-dllhijack-dcomp",
+    "windows-dllhijack-defragproxy",
+    "windows-dllhijack-desktopshellext",
+    "windows-dllhijack-deviceassociation",
+    "windows-dllhijack-devicecredential",
+    "windows-dllhijack-devicepairing",
+    "windows-dllhijack-devobj",
+    "windows-dllhijack-devrtl",
+    "windows-dllhijack-dhcpcmonitor",
+    "windows-dllhijack-dhcpcsvc",
+    "windows-dllhijack-dhcpcsvc6",
+    "windows-dllhijack-directmanipulation",
+    "windows-dllhijack-dismapi",
+    "windows-dllhijack-dismcore",
+    "windows-dllhijack-dmcfgutils",
+    "windows-dllhijack-dmcmnutils",
+    "windows-dllhijack-dmcommandlineutils",
+    "windows-dllhijack-dmenrollengine",
+    "windows-dllhijack-dmenterprisediagnostics",
+    "windows-dllhijack-dmiso8601utils",
+    "windows-dllhijack-dmoleaututils",
+    "windows-dllhijack-dmprocessxmlfiltered",
+    "windows-dllhijack-dmpushproxy",
+    "windows-dllhijack-dmxmlhelputils",
+    "windows-dllhijack-dnsapi",
+    "windows-dllhijack-dnx-onecore",
+    "windows-dllhijack-dot3api",
+    "windows-dllhijack-dot3cfg",
+    "windows-dllhijack-dpx",
+    "windows-dllhijack-drprov",
+    "windows-dllhijack-drvstore",
+    "windows-dllhijack-dsclient",
+    "windows-dllhijack-dsp-bridge-x64",
+    "windows-dllhijack-dsparse",
+    "windows-dllhijack-dsprop",
+    "windows-dllhijack-dsreg",
+    "windows-dllhijack-dsrole",
+    "windows-dllhijack-dui70",
+    "windows-dllhijack-duilib-u",
+    "windows-dllhijack-duser",
+    "windows-dllhijack-dusmapi",
+    "windows-dllhijack-dwmapi",
+    "windows-dllhijack-dwmcore",
+    "windows-dllhijack-dwrite",
+    "windows-dllhijack-dxcore",
+    "windows-dllhijack-dxgi",
+    "windows-dllhijack-dxva2",
+    "windows-dllhijack-dynamoapi",
+    "windows-dllhijack-eacore",
+    "windows-dllhijack-eappcfg",
+    "windows-dllhijack-eappprxy",
+    "windows-dllhijack-edgeiso",
+    "windows-dllhijack-edputil",
+    "windows-dllhijack-efsadu",
+    "windows-dllhijack-efsutil",
+    "windows-dllhijack-endpointdlp",
+    "windows-dllhijack-epnsm",
+    "windows-dllhijack-esent",
+    "windows-dllhijack-execmodelproxy",
+    "windows-dllhijack-explorerframe",
+    "windows-dllhijack-facesdk",
+    "windows-dllhijack-fastprox",
+    "windows-dllhijack-faultrep",
+    "windows-dllhijack-fddevquery",
+    "windows-dllhijack-feclient",
+    "windows-dllhijack-fhcfg",
+    "windows-dllhijack-fhsvcctl",
+    "windows-dllhijack-firewallapi",
+    "windows-dllhijack-flightsettings",
+    "windows-dllhijack-fltlib",
+    "windows-dllhijack-flutter-gpu-texture-renderer-plugin",
+    "windows-dllhijack-fnp-act-installer",
+    "windows-dllhijack-formdll",
+    "windows-dllhijack-framedynos",
+    "windows-dllhijack-fveapi",
+    "windows-dllhijack-fveskybackup",
+    "windows-dllhijack-fvewiz",
+    "windows-dllhijack-fwbase",
+    "windows-dllhijack-fwcfg",
+    "windows-dllhijack-fwpolicyiomgr",
+    "windows-dllhijack-fwpuclnt",
+    "windows-dllhijack-fxsapi",
+    "windows-dllhijack-fxsst",
+    "windows-dllhijack-fxstiff",
+    "windows-dllhijack-getuname",
+    "windows-dllhijack-gflagsui",
+    "windows-dllhijack-glib-2-0",
+    "windows-dllhijack-goopdate",
+    "windows-dllhijack-gpapi",
+    "windows-dllhijack-hha",
+    "windows-dllhijack-hid",
+    "windows-dllhijack-hnetmon",
+    "windows-dllhijack-hpbprndiloc",
+    "windows-dllhijack-hpcustpartui",
+    "windows-dllhijack-hpqhvsei",
+    "windows-dllhijack-httpapi",
+    "windows-dllhijack-icmp",
+    "windows-dllhijack-idstore",
+    "windows-dllhijack-ieadvpack",
+    "windows-dllhijack-iedkcs32",
+    "windows-dllhijack-iepdf32",
+    "windows-dllhijack-iernonce",
+    "windows-dllhijack-iertutil",
+    "windows-dllhijack-ifmon",
+    "windows-dllhijack-ifsutil",
+    "windows-dllhijack-imjp14k",
+    "windows-dllhijack-inproclogger",
+    "windows-dllhijack-iphlpapi",
+    "windows-dllhijack-iri",
+    "windows-dllhijack-iscsidsc",
+    "windows-dllhijack-iscsiexe",
+    "windows-dllhijack-iscsium",
+    "windows-dllhijack-isv-exe-rsaenh",
+    "windows-dllhijack-iumbase",
+    "windows-dllhijack-iumsdk",
+    "windows-dllhijack-iviewers",
+    "windows-dllhijack-jli",
+    "windows-dllhijack-joinutil",
+    "windows-dllhijack-jrtools",
+    "windows-dllhijack-kdstub",
+    "windows-dllhijack-keyscramblerie",
+    "windows-dllhijack-krpt",
+    "windows-dllhijack-ksuser",
+    "windows-dllhijack-ktmw32",
+    "windows-dllhijack-launcher",
+    "windows-dllhijack-ldvpocx-ocx",
+    "windows-dllhijack-libcares-2",
+    "windows-dllhijack-libcef",
+    "windows-dllhijack-libcurl",
+    "windows-dllhijack-libeay32",
+    "windows-dllhijack-libglib-2-0-0",
+    "windows-dllhijack-libngs",
+    "windows-dllhijack-libsmartscreenn",
+    "windows-dllhijack-libsqlite3-0",
+    "windows-dllhijack-libvlc",
+    "windows-dllhijack-libvlccore",
+    "windows-dllhijack-libwsutil",
+    "windows-dllhijack-libxfont-1",
+    "windows-dllhijack-licensemanagerapi",
+    "windows-dllhijack-licensingdiagspp",
+    "windows-dllhijack-linkinfo",
+    "windows-dllhijack-liteskinutils",
+    "windows-dllhijack-lmiguardiandll",
+    "windows-dllhijack-loadperf",
+    "windows-dllhijack-lockdown",
+    "windows-dllhijack-lockhostingframework",
+    "windows-dllhijack-log",
+    "windows-dllhijack-logoncli",
+    "windows-dllhijack-logoncontroller",
+    "windows-dllhijack-lpksetupproxyserv",
+    "windows-dllhijack-lrwizdll",
+    "windows-dllhijack-madhcnet32",
+    "windows-dllhijack-magnification",
+    "windows-dllhijack-maintenanceui",
+    "windows-dllhijack-mapistub",
+    "windows-dllhijack-mbaexmlparser",
+    "windows-dllhijack-mcutil",
+    "windows-dllhijack-mdmdiagnostics",
+    "windows-dllhijack-mediainfo-i386",
+    "windows-dllhijack-mfc140u",
+    "windows-dllhijack-mfc42u",
+    "windows-dllhijack-mfcore",
+    "windows-dllhijack-mfcu100u",
+    "windows-dllhijack-mfplat",
+    "windows-dllhijack-mi",
+    "windows-dllhijack-microsoft-ui-xaml-xamltypeinfo",
+    "windows-dllhijack-microsoft-windowsappruntime-bootstrap",
+    "windows-dllhijack-midimap",
+    "windows-dllhijack-midlrtmd",
+    "windows-dllhijack-mimetools",
+    "windows-dllhijack-mintdh",
+    "windows-dllhijack-miracastview",
+    "windows-dllhijack-miutils",
+    "windows-dllhijack-mlang",
+    "windows-dllhijack-mmdevapi",
+    "windows-dllhijack-mobilenetworking",
+    "windows-dllhijack-mozglue",
+    "windows-dllhijack-mpclient",
+    "windows-dllhijack-mpgear",
+    "windows-dllhijack-mpr",
+    "windows-dllhijack-mprapi",
+    "windows-dllhijack-mpsvc",
+    "windows-dllhijack-mrmcorer",
+    "windows-dllhijack-msacm32",
+    "windows-dllhijack-msasn1",
+    "windows-dllhijack-mscms",
+    "windows-dllhijack-mscoree",
+    "windows-dllhijack-mscorsvc",
+    "windows-dllhijack-msctf",
+    "windows-dllhijack-msctfmonitor",
+    "windows-dllhijack-msdrm",
+    "windows-dllhijack-msdtctm",
+    "windows-dllhijack-msedge",
+    "windows-dllhijack-msedge-elf",
+    "windows-dllhijack-msedgeupdate",
+    "windows-dllhijack-msftedit",
+    "windows-dllhijack-msi",
+    "windows-dllhijack-msidcrl40",
+    "windows-dllhijack-msimg32",
+    "windows-dllhijack-msiso",
+    "windows-dllhijack-mspgimme",
+    "windows-dllhijack-mstracer",
+    "windows-dllhijack-msutb",
+    "windows-dllhijack-msvcp110-win",
+    "windows-dllhijack-msvcp140",
+    "windows-dllhijack-msvcr100",
+    "windows-dllhijack-mswb7",
+    "windows-dllhijack-mswsock",
+    "windows-dllhijack-msxml3",
+    "windows-dllhijack-mtxclu",
+    "windows-dllhijack-napinsp",
+    "windows-dllhijack-ncrypt",
+    "windows-dllhijack-ndfapi",
+    "windows-dllhijack-netapi32",
+    "windows-dllhijack-nethost",
+    "windows-dllhijack-netid",
+    "windows-dllhijack-netiohlp",
+    "windows-dllhijack-netjoin",
+    "windows-dllhijack-netplwiz",
+    "windows-dllhijack-netprofm",
+    "windows-dllhijack-netprovfw",
+    "windows-dllhijack-netsetupapi",
+    "windows-dllhijack-netshell",
+    "windows-dllhijack-nettrace",
+    "windows-dllhijack-netutils",
+    "windows-dllhijack-networkexplorer",
+    "windows-dllhijack-newdev",
+    "windows-dllhijack-ninput",
+    "windows-dllhijack-nlaapi",
+    "windows-dllhijack-nlansp-c",
+    "windows-dllhijack-npmproxy",
+    "windows-dllhijack-nshhttp",
+    "windows-dllhijack-nshipsec",
+    "windows-dllhijack-nshwfp",
+    "windows-dllhijack-ntdsapi",
+    "windows-dllhijack-ntlanman",
+    "windows-dllhijack-ntlmshared",
+    "windows-dllhijack-ntmarta",
+    "windows-dllhijack-ntprint",
+    "windows-dllhijack-ntshrui",
+    "windows-dllhijack-nvsmartmax",
+    "windows-dllhijack-oci",
+    "windows-dllhijack-offdmpsvc",
+    "windows-dllhijack-oleacc",
+    "windows-dllhijack-omadmapi",
+    "windows-dllhijack-onex",
+    "windows-dllhijack-opcservices",
+    "windows-dllhijack-opera-elf",
+    "windows-dllhijack-osbaseln",
+    "windows-dllhijack-osksupport",
+    "windows-dllhijack-osuninst",
+    "windows-dllhijack-outllib",
+    "windows-dllhijack-p2p",
+    "windows-dllhijack-p2pnetsh",
+    "windows-dllhijack-p9np",
+    "windows-dllhijack-pcaui",
+    "windows-dllhijack-pdh",
+    "windows-dllhijack-peerdistsh",
+    "windows-dllhijack-pkeyhelper",
+    "windows-dllhijack-pla",
+    "windows-dllhijack-playsndsrv",
+    "windows-dllhijack-pnrpnsp",
+    "windows-dllhijack-policymanager",
+    "windows-dllhijack-polstore",
+    "windows-dllhijack-powrprof",
+    "windows-dllhijack-ppcore",
+    "windows-dllhijack-printui",
+    "windows-dllhijack-prntvpt",
+    "windows-dllhijack-profapi",
+    "windows-dllhijack-propsys",
+    "windows-dllhijack-protobuf",
+    "windows-dllhijack-providers",
+    "windows-dllhijack-proximitycommon",
+    "windows-dllhijack-proximityservicepal",
+    "windows-dllhijack-prvdmofcomp",
+    "windows-dllhijack-puiapi",
+    "windows-dllhijack-python310",
+    "windows-dllhijack-python311",
+    "windows-dllhijack-python39",
+    "windows-dllhijack-qrt",
+    "windows-dllhijack-qt5core",
+    "windows-dllhijack-qt5network",
+    "windows-dllhijack-qtcorevbox4",
+    "windows-dllhijack-qtgui4",
+    "windows-dllhijack-quickdeskband",
+    "windows-dllhijack-radcui",
+    "windows-dllhijack-rasapi32",
+    "windows-dllhijack-rasdlg",
+    "windows-dllhijack-rasgcw",
+    "windows-dllhijack-rasman",
+    "windows-dllhijack-rasmontr",
+    "windows-dllhijack-rastls",
+    "windows-dllhijack-rcdll",
+    "windows-dllhijack-reagent",
+    "windows-dllhijack-regapi",
+    "windows-dllhijack-register",
+    "windows-dllhijack-relay",
+    "windows-dllhijack-reseteng",
+    "windows-dllhijack-resetengine",
+    "windows-dllhijack-resutils",
+    "windows-dllhijack-rjvplatform",
+    "windows-dllhijack-rmclient",
+    "windows-dllhijack-roboform",
+    "windows-dllhijack-roboform-x64",
+    "windows-dllhijack-rpcnsh",
+    "windows-dllhijack-rsaenh",
+    "windows-dllhijack-rtl120",
+    "windows-dllhijack-rtutils",
+    "windows-dllhijack-rtworkq",
+    "windows-dllhijack-rzlog4cpp-logger",
+    "windows-dllhijack-safestore32",
+    "windows-dllhijack-samcli",
+    "windows-dllhijack-samlib",
+    "windows-dllhijack-sapi-onecore",
+    "windows-dllhijack-sas",
+    "windows-dllhijack-scansetting",
+    "windows-dllhijack-scecli",
+    "windows-dllhijack-schedcli",
+    "windows-dllhijack-secur32",
+    "windows-dllhijack-security",
+    "windows-dllhijack-sensapi",
+    "windows-dllhijack-sentinelagentcore",
+    "windows-dllhijack-shell32",
+    "windows-dllhijack-shellchromeapi",
+    "windows-dllhijack-shellsel-ocx",
+    "windows-dllhijack-shfolder",
+    "windows-dllhijack-siteadv",
+    "windows-dllhijack-skinutils",
+    "windows-dllhijack-slc",
+    "windows-dllhijack-smadhook32c",
+    "windows-dllhijack-snmpapi",
+    "windows-dllhijack-spectrumsyncclient",
+    "windows-dllhijack-spp",
+    "windows-dllhijack-sppc",
+    "windows-dllhijack-sppcext",
+    "windows-dllhijack-sqlite",
+    "windows-dllhijack-srclient",
+    "windows-dllhijack-srcore",
+    "windows-dllhijack-srmtrace",
+    "windows-dllhijack-srpapi",
+    "windows-dllhijack-srvcli",
+    "windows-dllhijack-ssp-exe-rsaenh",
+    "windows-dllhijack-ssp-isv-exe-rsaenh",
+    "windows-dllhijack-sspicli",
+    "windows-dllhijack-ssshim",
+    "windows-dllhijack-staterepository-core",
+    "windows-dllhijack-sti",
+    "windows-dllhijack-structuredquery",
+    "windows-dllhijack-sxshared",
+    "windows-dllhijack-symsrv",
+    "windows-dllhijack-systemsettingsthresholdadminflowui",
+    "windows-dllhijack-tapi32",
+    "windows-dllhijack-tbb",
+    "windows-dllhijack-tbs",
+    "windows-dllhijack-tdh",
+    "windows-dllhijack-tedutil",
+    "windows-dllhijack-textshaping",
+    "windows-dllhijack-timesync",
+    "windows-dllhijack-tmdbg64",
+    "windows-dllhijack-tmdbglog",
+    "windows-dllhijack-tmtap",
+    "windows-dllhijack-tosbtkbd",
+    "windows-dllhijack-tpmcoreprovisioning",
+    "windows-dllhijack-tpsvc",
+    "windows-dllhijack-tquery",
+    "windows-dllhijack-tsmsisrv",
+    "windows-dllhijack-tsvipsrv",
+    "windows-dllhijack-tsworkspace",
+    "windows-dllhijack-ttdrecord",
+    "windows-dllhijack-tts",
+    "windows-dllhijack-tutil32",
+    "windows-dllhijack-twext",
+    "windows-dllhijack-twinapi",
+    "windows-dllhijack-twinui-appcore",
+    "windows-dllhijack-uianimation",
+    "windows-dllhijack-uiautomationcore",
+    "windows-dllhijack-uireng",
+    "windows-dllhijack-uiribbon",
+    "windows-dllhijack-umpdc",
+    "windows-dllhijack-unattend",
+    "windows-dllhijack-unityplayer",
+    "windows-dllhijack-updatepolicy",
+    "windows-dllhijack-upshared",
+    "windows-dllhijack-urlmon",
+    "windows-dllhijack-userenv",
+    "windows-dllhijack-utildll",
+    "windows-dllhijack-utiluniclient",
+    "windows-dllhijack-uxcore",
+    "windows-dllhijack-uxinit",
+    "windows-dllhijack-uxtheme",
+    "windows-dllhijack-vaultcli",
+    "windows-dllhijack-vboxrt",
+    "windows-dllhijack-vcomp100",
+    "windows-dllhijack-vcruntime140",
+    "windows-dllhijack-vdsutil",
+    "windows-dllhijack-vender",
+    "windows-dllhijack-version",
+    "windows-dllhijack-vftrace",
+    "windows-dllhijack-virtdisk",
+    "windows-dllhijack-vivaldi-elf",
+    "windows-dllhijack-vmtools",
+    "windows-dllhijack-vntfxf32",
+    "windows-dllhijack-vsodscpl",
+    "windows-dllhijack-vssapi",
+    "windows-dllhijack-vsstrace",
+    "windows-dllhijack-vstdlib-s64",
+    "windows-dllhijack-wbemcomn",
+    "windows-dllhijack-wbemprox",
+    "windows-dllhijack-wbemsvc",
+    "windows-dllhijack-wcldll",
+    "windows-dllhijack-wcmapi",
+    "windows-dllhijack-wcnnetsh",
+    "windows-dllhijack-wdi",
+    "windows-dllhijack-wdscore",
+    "windows-dllhijack-webservices",
+    "windows-dllhijack-webui",
+    "windows-dllhijack-wecapi",
+    "windows-dllhijack-wer",
+    "windows-dllhijack-wevtapi",
+    "windows-dllhijack-whhelper",
+    "windows-dllhijack-wimgapi",
+    "windows-dllhijack-winbio",
+    "windows-dllhijack-winbrand",
+    "windows-dllhijack-windows-storage",
+    "windows-dllhijack-windows-storage-search",
+    "windows-dllhijack-windows-ui-immersive",
+    "windows-dllhijack-windowscodecs",
+    "windows-dllhijack-windowscodecsext",
+    "windows-dllhijack-windowsperformancerecordercontrol",
+    "windows-dllhijack-windowsperformancerecorderui",
+    "windows-dllhijack-windowsudk-shellcommon",
+    "windows-dllhijack-winhttp",
+    "windows-dllhijack-wininet",
+    "windows-dllhijack-winipsec",
+    "windows-dllhijack-winmde",
+    "windows-dllhijack-winmm",
+    "windows-dllhijack-winnsi",
+    "windows-dllhijack-winrnr",
+    "windows-dllhijack-winscard",
+    "windows-dllhijack-winsqlite3",
+    "windows-dllhijack-winsta",
+    "windows-dllhijack-winsync",
+    "windows-dllhijack-winutils",
+    "windows-dllhijack-wkscli",
+    "windows-dllhijack-wlanapi",
+    "windows-dllhijack-wlancfg",
+    "windows-dllhijack-wlbsctrl",
+    "windows-dllhijack-wldp",
+    "windows-dllhijack-wlidprov",
+    "windows-dllhijack-wmiclnt",
+    "windows-dllhijack-wmicodegen",
+    "windows-dllhijack-wmidcom",
+    "windows-dllhijack-wmiutils",
+    "windows-dllhijack-wmpdui",
+    "windows-dllhijack-wmsgapi",
+    "windows-dllhijack-wofutil",
+    "windows-dllhijack-wow64log",
+    "windows-dllhijack-wpdshext",
+    "windows-dllhijack-wptsextensions",
+    "windows-dllhijack-wsc",
+    "windows-dllhijack-wscapi",
+    "windows-dllhijack-wsdapi",
+    "windows-dllhijack-wshbth",
+    "windows-dllhijack-wshelper",
+    "windows-dllhijack-wsmsvc",
+    "windows-dllhijack-wtsapi32",
+    "windows-dllhijack-wwancfg",
+    "windows-dllhijack-wwapi",
+    "windows-dllhijack-wxmsw313u-aui-vc-custom",
+    "windows-dllhijack-x32bridge",
+    "windows-dllhijack-xmllite",
+    "windows-dllhijack-xolehlp",
+    "windows-dllhijack-xpsservices",
+    "windows-dllhijack-xwizards",
+    "windows-dllhijack-xwtpw32",
+    "windows-dllhijack-zlibwapi",
+    "wtfbin-startupscan-dll"
+  ],
+  "security.defenseevasion.masquerading": [
+    "wtfbin-noregon-fake-windows-components"
+  ],
+  "security.defenseevasion.process-injection": [
+    "wtfbin-adobe-cc-setup"
+  ],
+  "security.enum.ldap": [
+    "security-framework-netexec"
+  ],
+  "security.enum.smb": [
+    "security-framework-netexec"
+  ],
+  "security.enum.winrm": [
+    "security-framework-netexec"
+  ],
+  "security.evasion.firewall": [
+    "security-recon-masscan",
+    "security-recon-nmap"
+  ],
+  "security.evasion.waf": [
+    "security-web-dalfox",
+    "security-web-xsstrike"
+  ],
+  "security.exec.winrm": [
+    "security-exec-evil-winrm"
+  ],
+  "security.execution.bind-shell": [
+    "build-compiler-go",
+    "runtime-lua",
+    "system-network-socket"
+  ],
+  "security.execution.command": [
+    "archive-zip-unzip",
+    "argument-injection-awk",
+    "argument-injection-chrome",
+    "argument-injection-env",
+    "argument-injection-find",
+    "argument-injection-gcc",
+    "argument-injection-git",
+    "argument-injection-hg",
+    "argument-injection-javac",
+    "argument-injection-lftp",
+    "argument-injection-logrotate",
+    "argument-injection-make",
+    "argument-injection-psql",
+    "argument-injection-qt5",
+    "argument-injection-run-parts",
+    "argument-injection-sendmail",
+    "argument-injection-sftp",
+    "argument-injection-socat",
+    "argument-injection-ssh",
+    "argument-injection-ssh-keygen",
+    "argument-injection-tar",
+    "argument-injection-wget",
+    "argument-injection-zip",
+    "audio-speech-espeak",
+    "automation-config-ansible-playbook",
+    "backup-restic-restic",
+    "boot-plymouth-plymouth",
+    "build-assembler-nasm",
+    "build-automake-acr",
+    "build-compiler-go",
+    "build-compiler-gxx",
+    "build-compiler-rustc",
+    "build-compiler-rustdoc",
+    "build-compiler-rustfmt",
+    "build-compiler-rustup",
+    "cache-redis-redis",
+    "cloud-gcp-gcloud",
+    "cms-backdrop-bee",
+    "communication-fax-efax",
+    "config-chef-knife",
+    "config-puppet-puppet",
+    "crypto-pki-easyrsa",
+    "database-mysql-mysql",
+    "database-postgres-psql",
+    "dev-build-rake",
+    "dev-npm-npm",
+    "dev-opencode-opencode",
+    "dev-perl-perlbug",
+    "dev-python-pdb",
+    "dev-python-poetry",
+    "dev-ruby-byebug",
+    "dev-tcl-wish",
+    "dev-typing-mypy",
+    "dev-typing-pyright",
+    "dev-vcs-git",
+    "dev-vcs-hg",
+    "dev-vm-vagrant",
+    "document-convert-pandoc",
+    "editor-emacs",
+    "hardware-debug-jtag",
+    "image-capture-scrot",
+    "image-edit-gimp",
+    "lang-haskell-ghc",
+    "lang-haskell-ghci",
+    "lang-perl-cpan",
+    "lang-scheme-ginsh",
+    "lang-scheme-guile",
+    "macos-collection-osascript",
+    "macos-defense-evasion-mdls",
+    "macos-execution-caffeinate",
+    "macos-execution-funzip",
+    "macos-execution-hdiutil",
+    "macos-execution-launchctl",
+    "macos-execution-open",
+    "macos-execution-swift",
+    "macos-execution-sysadminctl",
+    "macos-execution-xattr",
+    "math-julia-julia",
+    "math-octave-octave",
+    "math-plot-gnuplot",
+    "math-r-lang",
+    "multimedia-ffmpeg-ffmpeg",
+    "network-bittorrent-rtorrent",
+    "network-diagnostic-fping",
+    "network-dns-dnsmasq",
+    "network-download-aria2c",
+    "network-email-mutt",
+    "network-email-procmail",
+    "network-firewall-iptables-save",
+    "network-firewall-nft",
+    "network-http-nginx",
+    "network-http-wget",
+    "network-mqtt-mosquitto",
+    "network-remote-rlogin",
+    "network-sniff-tshark",
+    "network-socket-socat",
+    "network-ssh-sshfs",
+    "network-time-ntpdate",
+    "network-transfer-lftp",
+    "network-transfer-links",
+    "network-transfer-lwpdownload",
+    "network-transfer-lwprequest",
+    "network-transfer-ncftp",
+    "network-vpn-openvpn",
+    "package-apt-apt-get",
+    "package-dpkg",
+    "package-opkg-opkg",
+    "package-pkg-pkg",
+    "package-python-easy-install",
+    "package-python-pip",
+    "package-python-pipx",
+    "package-rpm-dnf",
+    "package-rpm-rpm",
+    "package-ruby-gem",
+    "package-snap-snap",
+    "package-yum-yum",
+    "process-nohup",
+    "process-runscript",
+    "process-env",
+    "process-exec-pexec",
+    "process-lock-setlock",
+    "runtime-java",
+    "runtime-node-node",
+    "runtime-lua",
+    "security-apparmor-aa-exec",
+    "security-capabilities-setcap",
+    "security-exploit-msfconsole",
+    "security-sandbox-genie",
+    "shell-ash",
+    "storage-iso-genisoimage",
+    "system-arch-setarch",
+    "system-auth-passwd",
+    "system-auth-vigr",
+    "system-auth-vipw",
+    "system-benchmark-multitime",
+    "system-benchmark-perf",
+    "system-daemon-systemd-run",
+    "system-debug-gdb",
+    "system-debug-ltrace",
+    "system-diagnostic-crash",
+    "system-embedded-busybox",
+    "system-file-find",
+    "system-file-install",
+    "system-file-unsquashfs",
+    "system-file-zless",
+    "system-info-facter",
+    "system-info-neofetch",
+    "system-kernel-sysctl",
+    "system-library-ldconfig",
+    "system-library-ldso",
+    "system-log-eb",
+    "system-log-rotate",
+    "system-log-rsyslogd",
+    "system-mime-run-mailcap",
+    "system-monitor-dstat",
+    "system-monitor-pidstat",
+    "system-package-needrestart",
+    "system-resolve-systemd-resolve",
+    "system-scheduler-at",
+    "system-scheduler-crontab",
+    "system-scheduler-run-parts",
+    "system-service-fail2ban",
+    "system-service-loginctl",
+    "system-service-service",
+    "system-terminal-minicom",
+    "system-terminal-mosh",
+    "system-terminal-openvt",
+    "system-terminal-rlwrap",
+    "system-test-gtester",
+    "system-time-timedatectl",
+    "system-timezone-zic",
+    "text-awk-gawk",
+    "text-awk-mawk",
+    "text-awk-nawk",
+    "text-display-cowsay",
+    "text-display-cowthink",
+    "text-display-pg",
+    "text-format-eqn",
+    "text-print-enscript",
+    "text-process-awk",
+    "text-process-m4",
+    "text-process-redcarpet",
+    "text-search-fzf",
+    "text-spell-ispell",
+    "text-tex-latex",
+    "text-tex-latexmk",
+    "text-tex-lualatex",
+    "text-tex-luatex",
+    "text-tex-pdflatex",
+    "text-tex-pdftex",
+    "text-troff-nroff",
+    "text-troff-pic",
+    "virtualization-libvirt-virsh",
+    "windows-ads-makecab",
+    "windows-bypass-msdt",
+    "windows-download-msedge",
+    "windows-execution-acccheckconsole",
+    "windows-execution-addinutil",
+    "windows-execution-adplus",
+    "windows-execution-advpack",
+    "windows-execution-agentexecutor",
+    "windows-execution-appcert",
+    "windows-execution-applauncher",
+    "windows-execution-appvlp",
+    "windows-execution-atbroker",
+    "windows-execution-bginfo",
+    "windows-execution-bitsadmin",
+    "windows-execution-cdb",
+    "windows-execution-certoc",
+    "windows-execution-change",
+    "windows-execution-cl-invocation",
+    "windows-execution-cl-loadassembly",
+    "windows-execution-cl-mutexverifiers",
+    "windows-execution-cmstp",
+    "windows-execution-conhost",
+    "windows-execution-control",
+    "windows-execution-coregen",
+    "windows-execution-csi",
+    "windows-execution-customshellhost",
+    "windows-execution-defaultpack",
+    "windows-execution-desk",
+    "windows-execution-devinit",
+    "windows-execution-devtoolslauncher",
+    "windows-execution-diantz",
+    "windows-execution-diskshadow",
+    "windows-execution-dnscmd",
+    "windows-execution-dnx",
+    "windows-execution-dxcap",
+    "windows-execution-explorer",
+    "windows-execution-extexport",
+    "windows-execution-forfiles",
+    "windows-execution-gpscript",
+    "windows-execution-hh",
+    "windows-execution-ie4uinit",
+    "windows-execution-ieadvpack",
+    "windows-execution-iediagcmd",
+    "windows-execution-ieexec",
+    "windows-execution-ieframe",
+    "windows-execution-infdefaultinstall",
+    "windows-execution-installutil",
+    "windows-execution-intellitrace",
+    "windows-execution-launch-vsdevshell",
+    "windows-execution-logger",
+    "windows-execution-manage-bde",
+    "windows-execution-mavinject",
+    "windows-execution-mftrace",
+    "windows-execution-microsoft-nodejstools-pressanykey",
+    "windows-execution-microsoft-workflow-compiler",
+    "windows-execution-mmc",
+    "windows-execution-mpiexec",
+    "windows-execution-msbuild",
+    "windows-execution-msconfig",
+    "windows-execution-mscopilot",
+    "windows-execution-mscopilot-proxy",
+    "windows-execution-msdeploy",
+    "windows-execution-msedge-proxy",
+    "windows-execution-msedgewebview2",
+    "windows-execution-mshta",
+    "windows-execution-mshtml",
+    "windows-execution-msiexec",
+    "windows-execution-msxsl",
+    "windows-execution-netsh",
+    "windows-execution-ntsd",
+    "windows-execution-odbcconf",
+    "windows-execution-offlinescannershell",
+    "windows-execution-openconsole",
+    "windows-execution-pcalua",
+    "windows-execution-pcwrun",
+    "windows-execution-pcwutl",
+    "windows-execution-pester",
+    "windows-execution-pixtool",
+    "windows-execution-pnputil",
+    "windows-execution-powershell",
+    "windows-execution-presentationhost",
+    "windows-execution-procdump",
+    "windows-execution-provlaunch",
+    "windows-execution-pubprn",
+    "windows-execution-query",
+    "windows-execution-rasautou",
+    "windows-execution-rcsi",
+    "windows-execution-regasm",
+    "windows-execution-register-cimprovider",
+    "windows-execution-regsvcs",
+    "windows-execution-regsvr32",
+    "windows-execution-remote",
+    "windows-execution-reset",
+    "windows-execution-rundll32",
+    "windows-execution-runexehelper",
+    "windows-execution-runonce",
+    "windows-execution-runscripthelper",
+    "windows-execution-schtasks",
+    "windows-execution-scriptrunner",
+    "windows-execution-setres",
+    "windows-execution-settingsynchost",
+    "windows-execution-setupapi",
+    "windows-execution-shdocvw",
+    "windows-execution-shell32",
+    "windows-execution-sigverif",
+    "windows-execution-sqlps",
+    "windows-execution-sqltoolsps",
+    "windows-execution-squirrel",
+    "windows-execution-stordiag",
+    "windows-execution-syncappvpublishingserver",
+    "windows-execution-syssetup",
+    "windows-execution-te",
+    "windows-execution-teams",
+    "windows-execution-tracker",
+    "windows-execution-ttdinject",
+    "windows-execution-tttracer",
+    "windows-execution-unregmp2",
+    "windows-execution-update",
+    "windows-execution-url",
+    "windows-execution-utilityfunctions",
+    "windows-execution-verclsid",
+    "windows-execution-vsdiagnostics",
+    "windows-execution-vshadow",
+    "windows-execution-vsiisexelauncher",
+    "windows-execution-vsjitdebugger",
+    "windows-execution-vslaunchbrowser",
+    "windows-execution-vsls-agent",
+    "windows-execution-wab",
+    "windows-execution-wbemtest",
+    "windows-execution-wfmformat",
+    "windows-execution-windbg",
+    "windows-execution-winfile",
+    "windows-execution-winget",
+    "windows-execution-winrm",
+    "windows-execution-wlrmdr",
+    "windows-execution-wmic",
+    "windows-execution-workfolders",
+    "windows-execution-write",
+    "windows-execution-wsl",
+    "windows-execution-wt",
+    "windows-execution-wuauclt",
+    "windows-execution-xbootmgr",
+    "windows-execution-xbootmgrsleep",
+    "windows-execution-xwizard",
+    "windows-execution-zipfldr",
+    "windows-tamper-fsutil",
+    "wtfbin-adobe-reader",
+    "wtfbin-bloodhound-exe",
+    "wtfbin-draw-io-exe",
+    "wtfbin-edge-chromium-browsers",
+    "wtfbin-explorer-exe",
+    "wtfbin-ibm-s-pcsnp-exe-triggers-system-cmd-exe",
+    "wtfbin-imanage-document-protection",
+    "wtfbin-ivanti-endpoint-manager",
+    "wtfbin-pangphip-exe",
+    "wtfbin-samsung-mobilewips",
+    "wtfbin-sensendr-exe",
+    "wtfbin-skype-exe",
+    "wtfbin-teramind-s-dwm-exe",
+    "wtfbin-windows-terminal"
+  ],
+  "security.execution.exploit": [
+    "darkiros-rubeus"
+  ],
+  "security.execution.fuzzing": [
+    "darkiros-ffuf",
+    "darkiros-gobuster"
+  ],
+  "security.execution.impacket": [
+    "wtfbin-network-detective-data-collector",
+    "wtfbin-openvas-runs-wmiexec"
+  ],
+  "security.execution.injection": [
+    "darkiros-sqlmap"
+  ],
+  "security.execution.nim": [
+    "wtfbin-nim-lang-install-binaries"
+  ],
+  "security.execution.post-exploitation": [
+    "darkiros-netexec",
+    "darkiros-procdump",
+    "darkiros-rubeus"
+  ],
+  "security.execution.powershell": [
+    "wtfbin-ccm-exe",
+    "wtfbin-gc-worker-exe",
+    "wtfbin-microsoft-managed-desktop-agent",
+    "wtfbin-sentinelone",
+    "wtfbin-snow-inventory-agent-for-windows"
+  ],
+  "security.execution.remote": [
+    "security-ad-psexec",
+    "security-ad-wmiexec"
+  ],
+  "security.execution.reverse-shell": [
+    "build-compiler-go",
+    "darkiros-msfvenom",
+    "dev-tcl-tclsh",
+    "dev-vscode-code",
+    "runtime-lua",
+    "shell-bash-bash",
+    "shell-zsh-zsh",
+    "system-embedded-busybox",
+    "system-network-socket"
+  ],
+  "security.execution.script": [
+    "wtfbin-logmein-and-cscript",
+    "wtfbin-ringcentral-exe"
+  ],
+  "security.execution.wmi": [
+    "wadcom-sharpwmi",
+    "wtfbin-endpointbasecamp-exe-riskindexcollector-exe",
+    "wtfbin-ibm-storage-insights-data-collector",
+    "wtfbin-jetbrains-binaries-invoke-wmi"
+  ],
+  "security.exploit.command": [
+    "security-web-commix"
+  ],
+  "security.exploit.layer2": [
+    "security-mitm-yersinia"
+  ],
+  "security.exploit.sqli": [
+    "security-web-sqlmap"
+  ],
+  "security.fingerprint.certificate": [
+    "security-recon-amass"
+  ],
+  "security.fingerprint.http": [
+    "security-web-whatweb"
+  ],
+  "security.fingerprint.os": [
+    "security-recon-nmap"
+  ],
+  "security.fingerprint.service": [
+    "security-intel-censys",
+    "security-intel-shodan-cli",
+    "security-recon-masscan",
+    "security-recon-nmap",
+    "security-recon-rustscan",
+    "security-web-httpx"
+  ],
+  "security.forensics.pcap": [
+    "security-sniff-wireshark"
+  ],
+  "security.hijack.session": [
+    "security-mitm-ettercap"
+  ],
+  "security.intel.breach": [
+    "security-recon-spiderfoot"
+  ],
+  "security.intel.contact": [
+    "security-recon-recon-ng"
+  ],
+  "security.intel.correlation": [
+    "security-recon-maltego"
+  ],
+  "security.intel.domain": [
+    "security-intel-whois"
+  ],
+  "security.intel.email": [
+    "security-recon-recon-ng",
+    "security-recon-spiderfoot",
+    "security-recon-theharvester"
+  ],
+  "security.intel.geolocation": [
+    "security-recon-recon-ng"
+  ],
+  "security.intel.host": [
+    "security-recon-theharvester"
+  ],
+  "security.intel.ip": [
+    "security-intel-whois"
+  ],
+  "security.intel.link-analysis": [
+    "security-recon-maltego"
+  ],
+  "security.intel.osint": [
+    "security-intel-censys",
+    "security-intel-shodan-cli",
+    "security-recon-maltego",
+    "security-recon-recon-ng",
+    "security-recon-spiderfoot",
+    "security-recon-theharvester"
+  ],
+  "security.intel.vulnerability": [
+    "security-intel-shodan-cli",
+    "security-recon-spiderfoot"
+  ],
+  "security.intel.whois": [
+    "security-intel-whois"
+  ],
+  "security.intercept.traffic": [
+    "security-mitm-ettercap"
+  ],
+  "security.lateral.atexec": [
+    "security-framework-impacket"
+  ],
+  "security.lateral.psexec": [
+    "security-ad-psexec",
+    "security-framework-impacket"
+  ],
+  "security.lateral.smbexec": [
+    "security-framework-impacket",
+    "security-framework-netexec"
+  ],
+  "security.lateral.winrm": [
+    "security-exec-evil-winrm"
+  ],
+  "security.lateral.winrmexec": [
+    "security-framework-netexec"
+  ],
+  "security.lateral.wmi": [
+    "security-ad-wmiexec"
+  ],
+  "security.lateral.wmiexec": [
+    "security-framework-impacket"
+  ],
+  "security.mitm.arp": [
+    "security-mitm-ettercap"
+  ],
+  "security.mitm.dns": [
+    "security-mitm-ettercap"
+  ],
+  "security.mitm.responder": [
+    "security-mitm-responder"
+  ],
+  "security.obfuscation.base64": [
+    "wtfbin-nutanix-guest-tools",
+    "wtfbin-senseir-exe"
+  ],
+  "security.persistence.hook": [
+    "macos-collection-ditto",
+    "macos-defense-evasion-defaults",
+    "macos-discovery-dscl",
+    "macos-execution-launchctl",
+    "macos-execution-sysadminctl",
+    "macos-persistence-disown",
+    "macos-persistence-setfile"
+  ],
+  "security.persistence.scheduled-task": [
+    "wtfbin-easeus-spaceman-exe"
+  ],
+  "security.pivot.traffic": [
+    "security-tunnel-chisel"
+  ],
+  "security.poison.arp": [
+    "security-mitm-ettercap"
+  ],
+  "security.poison.llmnr": [
+    "security-mitm-responder"
+  ],
+  "security.poison.mdns": [
+    "security-mitm-responder"
+  ],
+  "security.poison.nbtns": [
+    "security-mitm-responder"
+  ],
+  "security.privilege-escalation.enumerate": [
+    "wadcom-sharpup",
+    "wadcom-winpeas"
+  ],
+  "security.privilege-escalation.shell": [
+    "archive-tar-tar",
+    "audio-oss-aoss",
+    "automation-config-ansible-playbook",
+    "automation-config-ansible-test",
+    "automation-config-cdist",
+    "automation-expect",
+    "backup-bareos-bconsole",
+    "backup-borg-borg",
+    "build-automake-acr",
+    "build-autotools-autoconf",
+    "build-autotools-autoheader",
+    "build-autotools-autoreconf",
+    "build-cmake-cmake",
+    "build-compiler-gcc",
+    "build-compiler-go",
+    "build-compiler-gxx",
+    "build-distcc-distcc",
+    "cloud-gcp-gcloud",
+    "cms-backdrop-bee",
+    "communication-voip-asterisk",
+    "compression-zip-zip",
+    "container-lxd-lxd",
+    "container-podman-podman",
+    "container-runc-ctr",
+    "database-samba-tdbtool",
+    "database-sqlite-sqlite3",
+    "dev-build-make",
+    "dev-debug-valgrind",
+    "dev-dotnet-dotnet",
+    "dev-foundry-forge",
+    "dev-haskell-cabal",
+    "dev-lang-slsh",
+    "dev-nix-codex",
+    "dev-node-yarn",
+    "dev-php-composer",
+    "dev-python-pdb",
+    "dev-python-python",
+    "dev-python-uv",
+    "dev-ruby-bundle",
+    "dev-tcl-tclsh",
+    "editor-emacs",
+    "editor-vi-vi",
+    "lang-cobol-cobc",
+    "lang-haskell-ghc",
+    "lang-haskell-ghci",
+    "lang-lisp-clisp",
+    "math-dc",
+    "math-julia-julia",
+    "monitoring-nagios-check-by-ssh",
+    "monitoring-nagios-check-ssl-cert",
+    "network-hping3",
+    "network-dhcp-dhclient",
+    "network-download-aria2c",
+    "network-download-yt-dlp",
+    "network-email-mail",
+    "network-ftp-ftp",
+    "network-proxy-torify",
+    "network-proxy-torsocks",
+    "network-socket-socat",
+    "network-ssh-sftp",
+    "network-ssh-ssh",
+    "network-ssh-ssh-agent",
+    "network-ssh-sshfs",
+    "network-ssh-sshpass",
+    "network-ssh-tmate",
+    "network-vpn-sshuttle",
+    "network-vpn-wg-quick",
+    "orchestration-kubernetes-kubectl",
+    "package-apt-apt-get",
+    "package-apt-aptitude",
+    "package-dpkg",
+    "package-ruby-gem",
+    "package-zypper-zypper",
+    "process-env",
+    "process-lock-flock",
+    "runtime-jdk-jjs",
+    "runtime-jdk-jrunscript",
+    "runtime-jdk-jshell",
+    "runtime-java",
+    "runtime-node-node",
+    "runtime-perl-perl",
+    "runtime-php-php",
+    "runtime-irb",
+    "runtime-ruby-pry",
+    "runtime-ruby-ruby",
+    "runtime-lua",
+    "security-apparmor-aa-exec",
+    "security-capabilities-capsh",
+    "security-exploit-msfconsole",
+    "security-privilege-doas",
+    "security-privilege-ksu",
+    "security-privilege-pkexec",
+    "security-sandbox-firejail",
+    "security-sandbox-genie",
+    "security-tls-certbot",
+    "shell-ash",
+    "shell-bash-bash",
+    "shell-bashbug",
+    "shell-csh-csh",
+    "shell-csh-tcsh",
+    "shell-dash-dash",
+    "shell-elvish-elvish",
+    "shell-fish",
+    "shell-ksh-ksh",
+    "shell-powershell-posh",
+    "shell-powershell-pwsh",
+    "shell-rc-rc",
+    "shell-sash-sash",
+    "shell-yash-yash",
+    "shell-zsh-zsh",
+    "system-archive-cpio",
+    "system-auth-su",
+    "system-auth-sudo",
+    "system-container-arch-nspawn",
+    "system-container-chroot",
+    "system-container-nsenter",
+    "system-container-unshare",
+    "system-daemon-start-stop-daemon",
+    "system-daemon-systemd-run",
+    "system-dbus-busctl",
+    "system-debug-apport-cli",
+    "system-desktop-xdg-user-dir",
+    "system-devicemapper-dmsetup",
+    "system-documentation-man",
+    "system-embedded-busybox",
+    "system-file-find",
+    "system-file-ranger",
+    "system-file-split",
+    "system-filesystem-debugfs",
+    "system-group-sg",
+    "system-io-stdbuf",
+    "system-kernel-dmesg",
+    "system-pdf-zathura",
+    "system-process-choom",
+    "system-process-chrt",
+    "system-process-cpulimit",
+    "system-resource-softlimit",
+    "system-scheduler-at",
+    "system-scheduler-crontab",
+    "system-scheduler-taskset",
+    "system-taskwarrior-task",
+    "system-taskwarrior-tasksh",
+    "system-terminal-agetty",
+    "system-terminal-screen",
+    "system-terminal-script",
+    "system-time-time",
+    "system-trace-bpftrace",
+    "system-x-xdotool",
+    "text-display-more",
+    "text-editor-ed",
+    "text-editor-ex",
+    "text-editor-joe",
+    "text-editor-nano",
+    "text-editor-nvim",
+    "text-editor-pico",
+    "text-editor-red",
+    "text-editor-rview",
+    "text-editor-rvim",
+    "text-process-awk",
+    "text-process-csvtool",
+    "text-tex-dvips",
+    "typesetting-tex-tex"
+  ],
+  "security.privilege-escalation.sudo": [
+    "argument-injection-logrotate"
+  ],
+  "security.privilege-escalation.uac-bypass": [
+    "windows-execution-mmc",
+    "windows-uacbypass-computerdefaults",
+    "windows-uacbypass-eudcedit",
+    "windows-uacbypass-eventvwr",
+    "windows-uacbypass-iscsicpl",
+    "windows-uacbypass-odbcad32",
+    "windows-uacbypass-wsreset"
+  ],
+  "security.privilegeescalation.dll-hijack": [
+    "windows-dllhijack-appxdeploymentclient",
+    "windows-dllhijack-atl",
+    "windows-dllhijack-authz",
+    "windows-dllhijack-bcd",
+    "windows-dllhijack-bcp47langs",
+    "windows-dllhijack-cabinet",
+    "windows-dllhijack-cdpsgshims",
+    "windows-dllhijack-cldapi",
+    "windows-dllhijack-coloradapterclient",
+    "windows-dllhijack-credui",
+    "windows-dllhijack-cryptbase",
+    "windows-dllhijack-d3d10",
+    "windows-dllhijack-d3d10-1",
+    "windows-dllhijack-d3d10-1core",
+    "windows-dllhijack-d3d10core",
+    "windows-dllhijack-d3d10warp",
+    "windows-dllhijack-d3d11",
+    "windows-dllhijack-d3d12",
+    "windows-dllhijack-dbgcore",
+    "windows-dllhijack-devobj",
+    "windows-dllhijack-devrtl",
+    "windows-dllhijack-dismapi",
+    "windows-dllhijack-dnsapi",
+    "windows-dllhijack-dpx",
+    "windows-dllhijack-dsrole",
+    "windows-dllhijack-dui70",
+    "windows-dllhijack-duser",
+    "windows-dllhijack-dxgi",
+    "windows-dllhijack-dxva2",
+    "windows-dllhijack-edputil",
+    "windows-dllhijack-firewallapi",
+    "windows-dllhijack-fltlib",
+    "windows-dllhijack-fveapi",
+    "windows-dllhijack-fvewiz",
+    "windows-dllhijack-fwbase",
+    "windows-dllhijack-fxsapi",
+    "windows-dllhijack-gflagsui",
+    "windows-dllhijack-inproclogger",
+    "windows-dllhijack-iphlpapi",
+    "windows-dllhijack-iscsidsc",
+    "windows-dllhijack-iscsiexe",
+    "windows-dllhijack-iscsium",
+    "windows-dllhijack-ktmw32",
+    "windows-dllhijack-licensemanagerapi",
+    "windows-dllhijack-logoncli",
+    "windows-dllhijack-maintenanceui",
+    "windows-dllhijack-mlang",
+    "windows-dllhijack-mscms",
+    "windows-dllhijack-msi",
+    "windows-dllhijack-netid",
+    "windows-dllhijack-netplwiz",
+    "windows-dllhijack-netutils",
+    "windows-dllhijack-newdev",
+    "windows-dllhijack-ninput",
+    "windows-dllhijack-oleacc",
+    "windows-dllhijack-osbaseln",
+    "windows-dllhijack-pdh",
+    "windows-dllhijack-policymanager",
+    "windows-dllhijack-printui",
+    "windows-dllhijack-propsys",
+    "windows-dllhijack-puiapi",
+    "windows-dllhijack-reagent",
+    "windows-dllhijack-resetengine",
+    "windows-dllhijack-samcli",
+    "windows-dllhijack-samlib",
+    "windows-dllhijack-secur32",
+    "windows-dllhijack-spp",
+    "windows-dllhijack-srcore",
+    "windows-dllhijack-srvcli",
+    "windows-dllhijack-sspicli",
+    "windows-dllhijack-ssshim",
+    "windows-dllhijack-staterepository-core",
+    "windows-dllhijack-systemsettingsthresholdadminflowui",
+    "windows-dllhijack-tapi32",
+    "windows-dllhijack-tbs",
+    "windows-dllhijack-timesync",
+    "windows-dllhijack-tmtap",
+    "windows-dllhijack-userenv",
+    "windows-dllhijack-utiluniclient",
+    "windows-dllhijack-uxtheme",
+    "windows-dllhijack-vssapi",
+    "windows-dllhijack-vsstrace",
+    "windows-dllhijack-wdscore",
+    "windows-dllhijack-wer",
+    "windows-dllhijack-wevtapi",
+    "windows-dllhijack-wimgapi",
+    "windows-dllhijack-winbrand",
+    "windows-dllhijack-windowsperformancerecorderui",
+    "windows-dllhijack-winhttp",
+    "windows-dllhijack-wininet",
+    "windows-dllhijack-winmm",
+    "windows-dllhijack-winsta",
+    "windows-dllhijack-wkscli",
+    "windows-dllhijack-wldp",
+    "windows-dllhijack-wmiclnt",
+    "windows-dllhijack-wofutil",
+    "windows-dllhijack-wptsextensions",
+    "windows-dllhijack-wtsapi32",
+    "windows-dllhijack-xmllite"
+  ],
+  "security.privilegeescalation.kernel-exploit": [
+    "windows-kernel-1",
+    "windows-kernel-1109",
+    "windows-kernel-1fc7aeeff3ab19004d2e53eae8160ab1",
+    "windows-kernel-2",
+    "windows-kernel-4",
+    "windows-kernel-4118b86e490aed091b1a219dba45f332",
+    "windows-kernel-4748696211bd56c2d93c21cab91e82a5",
+    "windows-kernel-5a4fe297c7d42539303137b6d75b150d",
+    "windows-kernel-6771b13a53b9c7449d4891e427735ea2",
+    "windows-kernel-6c8a",
+    "windows-kernel-7",
+    "windows-kernel-80",
+    "windows-kernel-81",
+    "windows-kernel-834761775",
+    "windows-kernel-8492937-2-driver",
+    "windows-kernel-927e3aef03a8355d236230cace376b3023480a40c5ac08453c07dab343dd1f11",
+    "windows-kernel-a236e7d654cd932b7d11cb604629a2d0",
+    "windows-kernel-a26363e7b02b13f2b8d697abb90cd5c3",
+    "windows-kernel-a9df5964635ef8bd567ae487c3d214c4",
+    "windows-kernel-accellid",
+    "windows-kernel-ace-base",
+    "windows-kernel-acpix86",
+    "windows-kernel-adrmdrvsys",
+    "windows-kernel-adv64drv",
+    "windows-kernel-advcare",
+    "windows-kernel-afd",
+    "windows-kernel-agent64",
+    "windows-kernel-aida64driver",
+    "windows-kernel-air-system10",
+    "windows-kernel-alsysio64",
+    "windows-kernel-amd-rpmc-biostoolcommondriver",
+    "windows-kernel-amdpowerprofiler",
+    "windows-kernel-amdryzenmasterdriver",
+    "windows-kernel-amifldrv64",
+    "windows-kernel-amigendrv64",
+    "windows-kernel-amp",
+    "windows-kernel-ampa",
+    "windows-kernel-amsdk",
+    "windows-kernel-aoddriver",
+    "windows-kernel-appshopdrv103",
+    "windows-kernel-appvkgr",
+    "windows-kernel-argusmonitor",
+    "windows-kernel-asas",
+    "windows-kernel-asio",
+    "windows-kernel-asio32",
+    "windows-kernel-asmio64",
+    "windows-kernel-asmmap64",
+    "windows-kernel-asrautochkupddrv",
+    "windows-kernel-asrautochkupddrv-1-0-32",
+    "windows-kernel-asrcddrv",
+    "windows-kernel-asrdrv",
+    "windows-kernel-asrdrv10",
+    "windows-kernel-asrdrv101",
+    "windows-kernel-asrdrv102",
+    "windows-kernel-asrdrv103",
+    "windows-kernel-asrdrv104",
+    "windows-kernel-asrdrv106",
+    "windows-kernel-asribdrv",
+    "windows-kernel-asromgdrv",
+    "windows-kernel-asrrapidstartdrv",
+    "windows-kernel-asrsetupdrv103",
+    "windows-kernel-asrsmartconnectdrv",
+    "windows-kernel-astra64",
+    "windows-kernel-asupio",
+    "windows-kernel-aswarpot",
+    "windows-kernel-aswvmm",
+    "windows-kernel-athpexnt",
+    "windows-kernel-atillk64",
+    "windows-kernel-atlaccess",
+    "windows-kernel-atomicredteamcapcom",
+    "windows-kernel-atszio",
+    "windows-kernel-avalueio",
+    "windows-kernel-avkiller",
+    "windows-kernel-b",
+    "windows-kernel-b1",
+    "windows-kernel-b3",
+    "windows-kernel-b4",
+    "windows-kernel-bandai",
+    "windows-kernel-bd1f381e5a3db22e88776b7873d4d2835e9a1ec620571d2b1da0c58f81c84a56",
+    "windows-kernel-bdapiutil",
+    "windows-kernel-bdapiutil64",
+    "windows-kernel-be6318413160e589080df02bb3ca6e6a",
+    "windows-kernel-bedaisy",
+    "windows-kernel-bin-intigua-driver64",
+    "windows-kernel-biontdrv",
+    "windows-kernel-biostoolcommondriver",
+    "windows-kernel-black",
+    "windows-kernel-blackbone",
+    "windows-kernel-blackbonedrv10",
+    "windows-kernel-blacklotus-driver",
+    "windows-kernel-bootrepair",
+    "windows-kernel-bs-def",
+    "windows-kernel-bs-def64",
+    "windows-kernel-bs-flash64",
+    "windows-kernel-bs-hwmio64",
+    "windows-kernel-bs-hwmio64-w10",
+    "windows-kernel-bs-i2c64",
+    "windows-kernel-bs-i2cio",
+    "windows-kernel-bs-rcio",
+    "windows-kernel-bs-rcio64",
+    "windows-kernel-bs-rciow1064",
+    "windows-kernel-bs-rvsio64",
+    "windows-kernel-bsitf",
+    "windows-kernel-bsmemx64",
+    "windows-kernel-bsmi",
+    "windows-kernel-bsmix64",
+    "windows-kernel-burntcigar",
+    "windows-kernel-bw",
+    "windows-kernel-bwrs",
+    "windows-kernel-bwrsh",
+    "windows-kernel-c",
+    "windows-kernel-c94f405c5929cfcccc8ad00b42c95083",
+    "windows-kernel-capcom",
+    "windows-kernel-capcom2",
+    "windows-kernel-cardio64",
+    "windows-kernel-cg6kwin2k",
+    "windows-kernel-changsha",
+    "windows-kernel-chaos-rootkit",
+    "windows-kernel-chinese-cheat-driver",
+    "windows-kernel-citmdrv-amd64",
+    "windows-kernel-citmdrv-ia64",
+    "windows-kernel-cmupx",
+    "windows-kernel-computerz",
+    "windows-kernel-controlcenter",
+    "windows-kernel-cormem",
+    "windows-kernel-corsairllaccess64",
+    "windows-kernel-cp2x72c",
+    "windows-kernel-cpqsysio64",
+    "windows-kernel-cpupress",
+    "windows-kernel-cpuz",
+    "windows-kernel-cpuz-x64",
+    "windows-kernel-cpuz141",
+    "windows-kernel-csagent",
+    "windows-kernel-csc",
+    "windows-kernel-ctiio64",
+    "windows-kernel-cupfixerx64",
+    "windows-kernel-cyvrlpc",
+    "windows-kernel-d",
+    "windows-kernel-d2",
+    "windows-kernel-d3",
+    "windows-kernel-d4",
+    "windows-kernel-d591004",
+    "windows-kernel-daxin-blank",
+    "windows-kernel-daxin-blank1",
+    "windows-kernel-daxin-blank2",
+    "windows-kernel-daxin-blank3",
+    "windows-kernel-daxin-blank4",
+    "windows-kernel-daxin-blank5",
+    "windows-kernel-daxin-blank6",
+    "windows-kernel-dbk64",
+    "windows-kernel-dbutil",
+    "windows-kernel-dbutil-2-3",
+    "windows-kernel-dbutildrv2",
+    "windows-kernel-dcprotect",
+    "windows-kernel-dcr",
+    "windows-kernel-dddriver",
+    "windows-kernel-dddriver64dcsa",
+    "windows-kernel-dellbios",
+    "windows-kernel-dellinstrumentation",
+    "windows-kernel-devhost",
+    "windows-kernel-devmemdrv",
+    "windows-kernel-dh-kernel",
+    "windows-kernel-dh-kernel-10",
+    "windows-kernel-directio",
+    "windows-kernel-directio32",
+    "windows-kernel-directio32-legacy",
+    "windows-kernel-directio64",
+    "windows-kernel-ditpio64",
+    "windows-kernel-dkrtk",
+    "windows-kernel-dndrv",
+    "windows-kernel-dpmemio",
+    "windows-kernel-driver-090d409f",
+    "windows-kernel-driver-099ef491",
+    "windows-kernel-driver-0a636606",
+    "windows-kernel-driver-0ffb4081",
+    "windows-kernel-driver-146b8f4f",
+    "windows-kernel-driver-16773074",
+    "windows-kernel-driver-1a74c2bd",
+    "windows-kernel-driver-1afc1d06",
+    "windows-kernel-driver-206006a1",
+    "windows-kernel-driver-290bc782",
+    "windows-kernel-driver-312c83a9",
+    "windows-kernel-driver-4d8bc539",
+    "windows-kernel-driver-4f9b5a2f",
+    "windows-kernel-driver-4fc254af",
+    "windows-kernel-driver-5c308aed",
+    "windows-kernel-driver-5d61e4ea",
+    "windows-kernel-driver-668c5bea",
+    "windows-kernel-driver-77225a99",
+    "windows-kernel-driver-82d928c5",
+    "windows-kernel-driver-85ca0dcd",
+    "windows-kernel-driver-89036534",
+    "windows-kernel-driver-930da474",
+    "windows-kernel-driver-981d03e1",
+    "windows-kernel-driver-a6deeea6",
+    "windows-kernel-driver-ab811ca5",
+    "windows-kernel-driver-b4f33ffe",
+    "windows-kernel-driver-bfcbc010",
+    "windows-kernel-driver-c3d48ddd",
+    "windows-kernel-driver-d1ea9e16",
+    "windows-kernel-driver-d9f15d91",
+    "windows-kernel-driver-e1123b59",
+    "windows-kernel-driver-ef9d653a",
+    "windows-kernel-driver-fdd16a94",
+    "windows-kernel-driver7",
+    "windows-kernel-driver7-x64",
+    "windows-kernel-driver7-x86",
+    "windows-kernel-driver7-x86-withoutdbg",
+    "windows-kernel-driverscloud-amd64",
+    "windows-kernel-dsark64",
+    "windows-kernel-dtr-ec",
+    "windows-kernel-dxiw8ez9ayxqyzgm",
+    "windows-kernel-e29f6311ae87542b3d693c1f38e4e3ad",
+    "windows-kernel-e939448b28a4edc81f1f974cebf6e7d2",
+    "windows-kernel-echo-driver",
+    "windows-kernel-ecsiodriverx64",
+    "windows-kernel-ef0e1725aaf0c6c972593f860531a2ea",
+    "windows-kernel-eio",
+    "windows-kernel-elbycdio",
+    "windows-kernel-elrawdsk",
+    "windows-kernel-ene",
+    "windows-kernel-eneio64",
+    "windows-kernel-energydriver",
+    "windows-kernel-enetechio64",
+    "windows-kernel-etdsupp",
+    "windows-kernel-evga-kernel-driver-x64",
+    "windows-kernel-f",
+    "windows-kernel-fairplaykd",
+    "windows-kernel-fastdumpx64",
+    "windows-kernel-fd3b7234419fafc9bdd533f48896ed73-b816c5cd",
+    "windows-kernel-fdmcjhjyxziti",
+    "windows-kernel-fgme",
+    "windows-kernel-fh-ethercat-dio",
+    "windows-kernel-fiddrv",
+    "windows-kernel-fiddrv64",
+    "windows-kernel-fidpcidrv",
+    "windows-kernel-fidpcidrv64",
+    "windows-kernel-fildds",
+    "windows-kernel-filnk",
+    "windows-kernel-filwfp",
+    "windows-kernel-fjfwupgd",
+    "windows-kernel-foxkedriver64",
+    "windows-kernel-fpcie2com",
+    "windows-kernel-full",
+    "windows-kernel-fur",
+    "windows-kernel-gameink",
+    "windows-kernel-gametersafe",
+    "windows-kernel-gdrv",
+    "windows-kernel-gedevdrv",
+    "windows-kernel-gftkyj64",
+    "windows-kernel-ggprotect64",
+    "windows-kernel-gibepext",
+    "windows-kernel-glckio2",
+    "windows-kernel-globalvistaventures-v3",
+    "windows-kernel-gmer64",
+    "windows-kernel-goad",
+    "windows-kernel-gofly64",
+    "windows-kernel-gpcidrv64",
+    "windows-kernel-gpu-z",
+    "windows-kernel-gtckmdfbs",
+    "windows-kernel-gvcidrv64",
+    "windows-kernel-hardwaremon-x86",
+    "windows-kernel-hostnt",
+    "windows-kernel-hp64vision",
+    "windows-kernel-hpportiox64",
+    "windows-kernel-hw",
+    "windows-kernel-hwauidoos2ec",
+    "windows-kernel-hwdetectng",
+    "windows-kernel-hwinfo32",
+    "windows-kernel-hwinfo64i",
+    "windows-kernel-hwos2ec10x64",
+    "windows-kernel-hwos2ec7x64",
+    "windows-kernel-hwrwdrv",
+    "windows-kernel-idmtdi",
+    "windows-kernel-immunetutildriver",
+    "windows-kernel-inetcache",
+    "windows-kernel-inpout32",
+    "windows-kernel-inpoutx64",
+    "windows-kernel-ioaccess",
+    "windows-kernel-iobios64",
+    "windows-kernel-iobitunlocker",
+    "windows-kernel-iocdrv",
+    "windows-kernel-iomanager",
+    "windows-kernel-iomap64",
+    "windows-kernel-iomem64",
+    "windows-kernel-ipctype",
+    "windows-kernel-iqvw64",
+    "windows-kernel-iqvw64e",
+    "windows-kernel-irec",
+    "windows-kernel-iscflashx64",
+    "windows-kernel-isodrivep64",
+    "windows-kernel-iuforcedelete",
+    "windows-kernel-jnprva",
+    "windows-kernel-jokercontroller",
+    "windows-kernel-k7rkscan",
+    "windows-kernel-kapchelper-x64",
+    "windows-kernel-kavservice-bin",
+    "windows-kernel-kbdcap64",
+    "windows-kernel-kdhacker64-ev",
+    "windows-kernel-kdriver",
+    "windows-kernel-kerneld-amd64",
+    "windows-kernel-kevp64",
+    "windows-kernel-kfeco10x64",
+    "windows-kernel-kfeco11x64",
+    "windows-kernel-khwmon",
+    "windows-kernel-kinkajou",
+    "windows-kernel-kmwpsms",
+    "windows-kernel-kprocesshacker",
+    "windows-kernel-ksapi",
+    "windows-kernel-kt2",
+    "windows-kernel-ktes",
+    "windows-kernel-ktgn",
+    "windows-kernel-ktmutil7odm",
+    "windows-kernel-l1malwarebits",
+    "windows-kernel-lallamon",
+    "windows-kernel-lctka",
+    "windows-kernel-lenovodiagnosticsdriver",
+    "windows-kernel-lgcoretemp",
+    "windows-kernel-lgdatacatcher",
+    "windows-kernel-lgdcatcher",
+    "windows-kernel-lha",
+    "windows-kernel-libnicm",
+    "windows-kernel-lmiinfo",
+    "windows-kernel-lsigetwin-sliffdriver",
+    "windows-kernel-lurker",
+    "windows-kernel-lv561av",
+    "windows-kernel-magdrvamd64",
+    "windows-kernel-malicious",
+    "windows-kernel-mapmom",
+    "windows-kernel-memctl",
+    "windows-kernel-mhyprot2",
+    "windows-kernel-mhyprot3",
+    "windows-kernel-mhyprotect",
+    "windows-kernel-mhyprotnap",
+    "windows-kernel-mhyprotrpg",
+    "windows-kernel-mimidrv",
+    "windows-kernel-mimikatz",
+    "windows-kernel-mjj0ge",
+    "windows-kernel-mlgbbiicaihflrnh",
+    "windows-kernel-mnemosyne",
+    "windows-kernel-monitor-win10-x64",
+    "windows-kernel-msio32",
+    "windows-kernel-msio64",
+    "windows-kernel-msqpq",
+    "windows-kernel-msr",
+    "windows-kernel-msrhook",
+    "windows-kernel-mst",
+    "windows-kernel-mtcbsv64",
+    "windows-kernel-mtxc9cb",
+    "windows-kernel-mtxmem",
+    "windows-kernel-my",
+    "windows-kernel-mydrivers",
+    "windows-kernel-nbiolib-x64",
+    "windows-kernel-nchgbios2x64",
+    "windows-kernel-ncpl",
+    "windows-kernel-ndislan",
+    "windows-kernel-netfilter",
+    "windows-kernel-netfilter2",
+    "windows-kernel-netfilterdrv",
+    "windows-kernel-netflt",
+    "windows-kernel-netproxydriver",
+    "windows-kernel-networklocker-x64",
+    "windows-kernel-ngiodriver",
+    "windows-kernel-ni",
+    "windows-kernel-nicm",
+    "windows-kernel-nipalk",
+    "windows-kernel-nlslexicons0024uvn",
+    "windows-kernel-nodedriver",
+    "windows-kernel-novawave-novabench-novabenchdriverwin10",
+    "windows-kernel-npr0",
+    "windows-kernel-nqrmq",
+    "windows-kernel-nscm",
+    "windows-kernel-nseckrnl",
+    "windows-kernel-nstr",
+    "windows-kernel-nstrwsk",
+    "windows-kernel-nt2",
+    "windows-kernel-nt3",
+    "windows-kernel-nt4",
+    "windows-kernel-nt5",
+    "windows-kernel-nt6",
+    "windows-kernel-ntbios",
+    "windows-kernel-ntbios-2",
+    "windows-kernel-ntiolib",
+    "windows-kernel-ntiolib-x64",
+    "windows-kernel-nvaudio",
+    "windows-kernel-nvflash",
+    "windows-kernel-nvflsh32",
+    "windows-kernel-nvflsh64",
+    "windows-kernel-nvoclock",
+    "windows-kernel-nxeng",
+    "windows-kernel-oatoolx64",
+    "windows-kernel-openlibsys",
+    "windows-kernel-otipcibus",
+    "windows-kernel-p2kghmzsary1",
+    "windows-kernel-panio",
+    "windows-kernel-paniox64",
+    "windows-kernel-panmonflt",
+    "windows-kernel-panmonfltx64",
+    "windows-kernel-pchunter",
+    "windows-kernel-pciecubed",
+    "windows-kernel-pdfwkrnl",
+    "windows-kernel-phlashnt",
+    "windows-kernel-phydmaccx64",
+    "windows-kernel-phydmaccx86",
+    "windows-kernel-phymem-ext64",
+    "windows-kernel-phymem64",
+    "windows-kernel-phymemx64",
+    "windows-kernel-physmem",
+    "windows-kernel-piddrv",
+    "windows-kernel-piddrv64",
+    "windows-kernel-pmad",
+    "windows-kernel-poisonx",
+    "windows-kernel-poortry",
+    "windows-kernel-poortry1",
+    "windows-kernel-poortry2",
+    "windows-kernel-portwell",
+    "windows-kernel-ppa-x64",
+    "windows-kernel-probmon",
+    "windows-kernel-procexp",
+    "windows-kernel-procobsrvesx",
+    "windows-kernel-prokiller64",
+    "windows-kernel-protects",
+    "windows-kernel-proxy32",
+    "windows-kernel-proxy64",
+    "windows-kernel-proxydrv",
+    "windows-kernel-psmounterex",
+    "windows-kernel-pxitrig64",
+    "windows-kernel-radhwmgr",
+    "windows-kernel-realtime-driver",
+    "windows-kernel-reddriver",
+    "windows-kernel-rspot",
+    "windows-kernel-rtcore64",
+    "windows-kernel-rtcoremini64",
+    "windows-kernel-rtif",
+    "windows-kernel-rtkio",
+    "windows-kernel-rtkiow8x64",
+    "windows-kernel-rtport",
+    "windows-kernel-rtsper",
+    "windows-kernel-rtstpx",
+    "windows-kernel-rtsuer",
+    "windows-kernel-rwdrv",
+    "windows-kernel-rzpnk",
+    "windows-kernel-sandra",
+    "windows-kernel-sbiosio64",
+    "windows-kernel-sdrv-win-sliff",
+    "windows-kernel-se64a",
+    "windows-kernel-seasunprotect",
+    "windows-kernel-segwindrvx64",
+    "windows-kernel-semav6msr",
+    "windows-kernel-sense5ext",
+    "windows-kernel-sepdrv3-1",
+    "windows-kernel-sfdrvx32",
+    "windows-kernel-sfdrvx64",
+    "windows-kernel-shimano32",
+    "windows-kernel-signeddrv",
+    "windows-kernel-sioctl",
+    "windows-kernel-sivx64",
+    "windows-kernel-skill",
+    "windows-kernel-smarteio64",
+    "windows-kernel-smep-capcom",
+    "windows-kernel-smep-namco",
+    "windows-kernel-smserl64",
+    "windows-kernel-sonixddrx64",
+    "windows-kernel-sparkio",
+    "windows-kernel-speedfan",
+    "windows-kernel-spf",
+    "windows-kernel-spwizimgvt",
+    "windows-kernel-srswdrv",
+    "windows-kernel-ssport",
+    "windows-kernel-stdcdrv64",
+    "windows-kernel-stdcdrvws64",
+    "windows-kernel-stprocessmonitor",
+    "windows-kernel-superbmc",
+    "windows-kernel-svioctrlx64",
+    "windows-kernel-sysconp",
+    "windows-kernel-sysdrv3s",
+    "windows-kernel-sysfile-x64",
+    "windows-kernel-sysinfo",
+    "windows-kernel-sysinfodetectorx64",
+    "windows-kernel-sysinfox64",
+    "windows-kernel-szkg64",
+    "windows-kernel-t",
+    "windows-kernel-t3",
+    "windows-kernel-t7",
+    "windows-kernel-t8",
+    "windows-kernel-tboflhelper",
+    "windows-kernel-tbt-force-power-control-access64",
+    "windows-kernel-tcio",
+    "windows-kernel-tdeio64",
+    "windows-kernel-tdklib64",
+    "windows-kernel-telephonuafy",
+    "windows-kernel-termdd",
+    "windows-kernel-test2",
+    "windows-kernel-testbone",
+    "windows-kernel-tfbfs3ped",
+    "windows-kernel-tfsysmon",
+    "windows-kernel-tgsafe",
+    "windows-kernel-thelper",
+    "windows-kernel-throttlestop",
+    "windows-kernel-titidrv",
+    "windows-kernel-tm-filter",
+    "windows-kernel-tmcomm",
+    "windows-kernel-tmel",
+    "windows-kernel-tpwsav",
+    "windows-kernel-trixx",
+    "windows-kernel-truesight",
+    "windows-kernel-tsdrvx64",
+    "windows-kernel-tvicport64",
+    "windows-kernel-typelibde",
+    "windows-kernel-ucorew64",
+    "windows-kernel-uddb2b6",
+    "windows-kernel-vboxdrv",
+    "windows-kernel-vboxguest",
+    "windows-kernel-vboxmousent",
+    "windows-kernel-vboxtap",
+    "windows-kernel-vboxusb",
+    "windows-kernel-vboxusbmon",
+    "windows-kernel-vdbsv64",
+    "windows-kernel-viraglt64",
+    "windows-kernel-viragt",
+    "windows-kernel-viragt64",
+    "windows-kernel-viverraudio",
+    "windows-kernel-vmdrv",
+    "windows-kernel-vproeventmonitor",
+    "windows-kernel-vsdatant",
+    "windows-kernel-wamsdk",
+    "windows-kernel-wantd",
+    "windows-kernel-wantd-2",
+    "windows-kernel-wantd-3",
+    "windows-kernel-wantd-4",
+    "windows-kernel-wantd-5",
+    "windows-kernel-wantd-6",
+    "windows-kernel-watabe",
+    "windows-kernel-wcpu",
+    "windows-kernel-wdisvhost",
+    "windows-kernel-wdtkernel",
+    "windows-kernel-wfshbr64",
+    "windows-kernel-whql",
+    "windows-kernel-windbg",
+    "windows-kernel-windivert",
+    "windows-kernel-windows-cpu-temperature-component",
+    "windows-kernel-windows-memory-informer",
+    "windows-kernel-windows-xp-64",
+    "windows-kernel-windows7-32",
+    "windows-kernel-windows8-10-32",
+    "windows-kernel-winflash64",
+    "windows-kernel-winio32",
+    "windows-kernel-winio32a",
+    "windows-kernel-winio32b",
+    "windows-kernel-winio64",
+    "windows-kernel-winio64a",
+    "windows-kernel-winio64b",
+    "windows-kernel-winio64c",
+    "windows-kernel-winiodrv",
+    "windows-kernel-winring0",
+    "windows-kernel-wintapix",
+    "windows-kernel-wirwadrv",
+    "windows-kernel-wiseunlo",
+    "windows-kernel-wnbios",
+    "windows-kernel-wsdkd",
+    "windows-kernel-wsftprm",
+    "windows-kernel-wyproxy64",
+    "windows-kernel-xjokercontroller",
+    "windows-kernel-xlha",
+    "windows-kernel-xyzxbqvb-rdu-gfac-sys-x64",
+    "windows-kernel-yyprotect64",
+    "windows-kernel-zam64"
+  ],
+  "security.privilegeescalation.shell": [
+    "macos-collection-osascript",
+    "macos-discovery-notifyutil",
+    "macos-impact-tmutil"
+  ],
+  "security.pth": [
+    "security-credential-mimikatz"
+  ],
+  "security.ptt": [
+    "security-credential-mimikatz"
+  ],
+  "security.recon.attack-surface": [
+    "security-recon-amass"
+  ],
+  "security.recon.dns": [
+    "network-dns-dig",
+    "security-recon-dnsenum",
+    "security-recon-fierce"
+  ],
+  "security.recon.framework": [
+    "security-recon-recon-ng",
+    "security-recon-spiderfoot"
+  ],
+  "security.recon.graph": [
+    "security-recon-maltego"
+  ],
+  "security.recon.passive": [
+    "security-intel-censys",
+    "security-intel-shodan-cli",
+    "security-intel-whois",
+    "security-recon-assetfinder",
+    "security-recon-maltego",
+    "security-recon-recon-ng",
+    "security-recon-spiderfoot",
+    "security-recon-subfinder",
+    "security-recon-theharvester",
+    "security-web-gau",
+    "security-web-paramspider",
+    "security-web-waybackurls"
+  ],
+  "security.relay.ntlm": [
+    "security-mitm-responder"
+  ],
+  "security.relay.ssl": [
+    "security-mitm-ettercap"
+  ],
+  "security.sandbox.escape": [
+    "security-sandbox-firejail"
+  ],
+  "security.scan.automated": [
+    "security-web-nuclei"
+  ],
+  "security.scan.cve": [
+    "security-web-nuclei"
+  ],
+  "security.shell.remote": [
+    "security-ad-psexec",
+    "security-ad-wmiexec"
+  ],
+  "security.sniff.password": [
+    "security-mitm-ettercap"
+  ],
+  "security.spoof.dns": [
+    "security-mitm-ettercap"
+  ],
+  "security.spoof.protocol": [
+    "security-mitm-yersinia"
+  ],
+  "security.tls.connect": [
+    "security-crypto-openssl"
+  ],
+  "security.tls.inspect": [
+    "security-crypto-openssl"
+  ],
+  "security.vulnerability.scan": [
+    "security-web-wpscan"
+  ],
+  "security.wordlist.generate": [
+    "security-crack-cewl"
+  ],
+  "service.dns.zone-transfer": [
+    "security-recon-dnsenum"
+  ],
+  "shellcode.encoding": [
+    "security-exploit-veil"
+  ],
+  "shellcode.generation": [
+    "security-reverse-pwntools"
+  ],
+  "shellcode.injection": [
+    "security-exploit-shellter"
+  ],
+  "signature.scanning": [
+    "security-reverse-binwalk"
+  ],
+  "social.engineering": [
+    "security-exploit-setoolkit"
+  ],
+  "sqli.blind-exploit": [
+    "security-sqli-sqlninja"
+  ],
+  "sqli.cmd-exec": [
+    "security-sqli-sqlninja"
+  ],
+  "sqli.data-exfil": [
+    "security-sqli-sqlninja"
+  ],
+  "sqli.mssql-inject": [
+    "security-sqli-sqlninja"
+  ],
+  "sqli.privilege-escalation": [
+    "security-sqli-sqlninja"
+  ],
+  "steganography.embed": [
+    "security-forensics-steghide"
+  ],
+  "steganography.extract": [
+    "security-forensics-steghide"
+  ],
+  "steganography.info": [
+    "security-forensics-steghide"
+  ],
+  "system.archive.compress": [
+    "archive-7z",
+    "archive-ar",
+    "archive-arj",
+    "archive-bzip2"
+  ],
+  "system.archive.decompress": [
+    "archive-7z",
+    "archive-ar",
+    "archive-arj",
+    "archive-bzip2"
+  ],
+  "system.datetime.display": [
+    "system-datetime-date"
+  ],
+  "system.enumerate.security": [
+    "wadcom-seatbelt"
+  ],
+  "system.file.alternate-data-stream": [
+    "windows-ads-cmd",
+    "windows-ads-cscript",
+    "windows-ads-esentutl",
+    "windows-ads-extrac32",
+    "windows-ads-findstr",
+    "windows-ads-makecab",
+    "windows-ads-regedit",
+    "windows-ads-regini",
+    "windows-ads-sc",
+    "windows-ads-wscript",
+    "windows-copy-print",
+    "windows-credential-reg",
+    "windows-download-certutil",
+    "windows-download-mpcmdrun",
+    "windows-download-printbrm",
+    "windows-execution-bitsadmin",
+    "windows-execution-control",
+    "windows-execution-diantz",
+    "windows-execution-forfiles",
+    "windows-execution-mavinject",
+    "windows-execution-mshta",
+    "windows-execution-msxsl",
+    "windows-execution-rundll32",
+    "windows-execution-wmic"
+  ],
+  "system.file.base64": [
+    "system-file-base64"
+  ],
+  "system.file.cat": [
+    "system-file-cat"
+  ],
+  "system.file.chmod": [
+    "system-file-chmod"
+  ],
+  "system.file.chown": [
+    "system-file-chown"
+  ],
+  "system.file.comm": [
+    "system-file-comm"
+  ],
+  "system.file.copy": [
+    "system-file-base64",
+    "system-file-cat",
+    "system-file-chmod",
+    "system-file-chown",
+    "system-file-comm",
+    "system-file-cp",
+    "system-file-cut",
+    "system-file-dd",
+    "system-file-diff",
+    "system-file-file",
+    "system-file-find",
+    "system-file-head",
+    "system-file-hexdump",
+    "system-file-less",
+    "system-file-ln",
+    "system-file-md5sum",
+    "system-file-mv",
+    "system-file-od",
+    "system-file-patch",
+    "system-file-rm",
+    "system-file-sha1sum",
+    "system-file-sha256sum",
+    "system-file-sort",
+    "system-file-stat",
+    "system-file-strings",
+    "system-file-tail",
+    "system-file-tr",
+    "system-file-uniq",
+    "system-file-wc",
+    "system-file-xargs",
+    "system-file-xxd",
+    "windows-ads-esentutl",
+    "windows-ads-extrac32",
+    "windows-copy-colorcpl",
+    "windows-copy-dtutil",
+    "windows-copy-print",
+    "windows-download-replace",
+    "windows-execution-bitsadmin",
+    "windows-execution-msdeploy",
+    "windows-execution-wmic"
+  ],
+  "system.file.cp": [
+    "system-file-cp"
+  ],
+  "system.file.cut": [
+    "system-file-cut"
+  ],
+  "system.file.dd": [
+    "system-file-dd"
+  ],
+  "system.file.decode": [
+    "windows-download-certutil"
+  ],
+  "system.file.delete": [
+    "system-file-base64",
+    "system-file-cat",
+    "system-file-chmod",
+    "system-file-chown",
+    "system-file-comm",
+    "system-file-cp",
+    "system-file-cut",
+    "system-file-dd",
+    "system-file-diff",
+    "system-file-file",
+    "system-file-find",
+    "system-file-head",
+    "system-file-hexdump",
+    "system-file-less",
+    "system-file-ln",
+    "system-file-md5sum",
+    "system-file-mv",
+    "system-file-od",
+    "system-file-patch",
+    "system-file-rm",
+    "system-file-sha1sum",
+    "system-file-sha256sum",
+    "system-file-sort",
+    "system-file-stat",
+    "system-file-strings",
+    "system-file-tail",
+    "system-file-tr",
+    "system-file-uniq",
+    "system-file-wc",
+    "system-file-xargs",
+    "system-file-xxd"
+  ],
+  "system.file.diff": [
+    "system-file-diff"
+  ],
+  "system.file.encode": [
+    "windows-download-certutil"
+  ],
+  "system.file.file": [
+    "system-file-file"
+  ],
+  "system.file.find": [
+    "system-file-find"
+  ],
+  "system.file.head": [
+    "system-file-head"
+  ],
+  "system.file.hexdump": [
+    "system-file-hexdump"
+  ],
+  "system.file.less": [
+    "system-file-less"
+  ],
+  "system.file.ln": [
+    "system-file-ln"
+  ],
+  "system.file.md5sum": [
+    "system-file-md5sum"
+  ],
+  "system.file.move": [
+    "system-file-base64",
+    "system-file-cat",
+    "system-file-chmod",
+    "system-file-chown",
+    "system-file-comm",
+    "system-file-cp",
+    "system-file-cut",
+    "system-file-dd",
+    "system-file-diff",
+    "system-file-file",
+    "system-file-find",
+    "system-file-head",
+    "system-file-hexdump",
+    "system-file-less",
+    "system-file-ln",
+    "system-file-md5sum",
+    "system-file-mv",
+    "system-file-od",
+    "system-file-patch",
+    "system-file-rm",
+    "system-file-sha1sum",
+    "system-file-sha256sum",
+    "system-file-sort",
+    "system-file-stat",
+    "system-file-strings",
+    "system-file-tail",
+    "system-file-tr",
+    "system-file-uniq",
+    "system-file-wc",
+    "system-file-xargs",
+    "system-file-xxd"
+  ],
+  "system.file.mv": [
+    "system-file-mv"
+  ],
+  "system.file.od": [
+    "system-file-od"
+  ],
+  "system.file.patch": [
+    "system-file-patch"
+  ],
+  "system.file.process": [
+    "system-file-base64",
+    "system-file-cat",
+    "system-file-chmod",
+    "system-file-chown",
+    "system-file-comm",
+    "system-file-cp",
+    "system-file-cut",
+    "system-file-dd",
+    "system-file-diff",
+    "system-file-file",
+    "system-file-find",
+    "system-file-head",
+    "system-file-hexdump",
+    "system-file-less",
+    "system-file-ln",
+    "system-file-md5sum",
+    "system-file-mv",
+    "system-file-od",
+    "system-file-patch",
+    "system-file-rm",
+    "system-file-sha1sum",
+    "system-file-sha256sum",
+    "system-file-sort",
+    "system-file-stat",
+    "system-file-strings",
+    "system-file-tail",
+    "system-file-tr",
+    "system-file-uniq",
+    "system-file-wc",
+    "system-file-xargs",
+    "system-file-xxd"
+  ],
+  "system.file.read": [
+    "archive-7z",
+    "archive-ar",
+    "archive-arj",
+    "archive-bzip2",
+    "archive-pax-pax",
+    "archive-tar-tar",
+    "argument-injection-awk",
+    "argument-injection-curl",
+    "argument-injection-dig",
+    "argument-injection-file",
+    "argument-injection-find",
+    "argument-injection-git",
+    "argument-injection-lftp",
+    "argument-injection-logrotate",
+    "argument-injection-socat",
+    "argument-injection-ssh",
+    "argument-injection-tar",
+    "argument-injection-unzip",
+    "argument-injection-wget",
+    "audio-speech-espeak",
+    "automation-expect",
+    "backup-bareos-bconsole",
+    "backup-restic-restic",
+    "build-assembler-as",
+    "build-cmake-cmake",
+    "build-compiler-gcc",
+    "build-compiler-go",
+    "cache-redis-redis",
+    "cloud-aws-cli",
+    "compression-gzip-zcat",
+    "compression-xz-xz",
+    "compression-zip-zip",
+    "database-mysql-mysql",
+    "database-postgres-psql",
+    "database-sqlite-sqlite3",
+    "dev-dotnet-dotnet",
+    "dev-infra-terraform",
+    "dev-kickstart-ksshell",
+    "dev-python-python",
+    "dev-rust-cargo",
+    "dev-symbol-nm",
+    "dev-symbol-readelf",
+    "dev-typescript-tsc",
+    "dev-vcs-git",
+    "document-convert-pandoc",
+    "document-pdf-qpdf",
+    "editor-emacs",
+    "editor-vi-vi",
+    "editor-vim-vim",
+    "encode-ascii-atobm",
+    "encode-base-base58",
+    "encode-base-basenc",
+    "encode-base-basez",
+    "encode-ascii85",
+    "encode-base32",
+    "encode-uuencode-uuencode",
+    "lang-scheme-ginsh",
+    "math-bc",
+    "monitoring-nagios-check-cups",
+    "monitoring-nagios-check-log",
+    "monitoring-nagios-check-memory",
+    "monitoring-nagios-check-raid",
+    "monitoring-nagios-check-statusfile",
+    "multimedia-ffmpeg-ffmpeg",
+    "network-bittorrent-rtorrent",
+    "network-config-bridge",
+    "network-diagnostic-mtr",
+    "network-arp",
+    "network-dns-dig",
+    "network-download-aria2c",
+    "network-email-alpine",
+    "network-email-mutt",
+    "network-firewall-iptables-save",
+    "network-firewall-nft",
+    "network-http-apache2",
+    "network-http-apache2ctl",
+    "network-http-curl",
+    "network-http-nginx",
+    "network-http-wget",
+    "network-monitor-iftop",
+    "network-socket-socat",
+    "network-socket-ss",
+    "network-ssh-ssh",
+    "network-ssh-ssh-copy-id",
+    "network-ssh-ssh-keyscan",
+    "network-transfer-ascii-xfr",
+    "network-transfer-urlget",
+    "network-vpn-openvpn",
+    "package-rpm-rpm",
+    "package-rpm-rpmdb",
+    "package-rpm-rpmquery",
+    "package-rpm-rpmverify",
+    "runtime-perl-perl",
+    "runtime-php-php",
+    "runtime-ruby-ruby",
+    "runtime-lua",
+    "security-antivirus-clamscan",
+    "security-recon-bbot",
+    "shell-bash-bash",
+    "shell-zsh-zsh",
+    "storage-iso-genisoimage",
+    "system-archive-cpio",
+    "system-datetime-date",
+    "system-dbus-busctl",
+    "system-debug-apport-cli",
+    "system-debug-gcore",
+    "system-debug-ltrace",
+    "system-debug-scanmem",
+    "system-diagnostic-crash",
+    "system-documentation-man",
+    "system-embedded-busybox",
+    "system-emulator-dosbox",
+    "system-file-batcat",
+    "system-file-cmp",
+    "system-file-csplit",
+    "system-file-expand",
+    "system-file-file",
+    "system-file-find",
+    "system-file-hd",
+    "system-file-install",
+    "system-file-ncdu",
+    "system-file-ranger",
+    "system-file-setfacl",
+    "system-file-split",
+    "system-file-tac",
+    "system-help-yelp",
+    "system-info-fastfetch",
+    "system-info-getent",
+    "system-kernel-dmesg",
+    "system-kernel-sysctl",
+    "system-library-ldconfig",
+    "system-log-logsave",
+    "system-msg-wall",
+    "system-notes-xpad",
+    "system-print-cupsfilter",
+    "system-print-lp",
+    "system-search-egrep",
+    "system-search-fgrep",
+    "system-search-zgrep",
+    "system-session-last",
+    "system-session-lastb",
+    "system-terminal-minicom",
+    "system-terminal-screen",
+    "system-terminal-script",
+    "system-terminal-tic",
+    "system-text-shuf",
+    "system-text-soelim",
+    "system-text-tbl",
+    "system-text-troff",
+    "system-text-ul",
+    "system-text-unexpand",
+    "system-text-zsoelim",
+    "system-tui-dialog",
+    "system-ui-whiptail",
+    "system-x-xmodmap",
+    "system-x-xmore",
+    "text-awk-gawk",
+    "text-awk-mawk",
+    "text-awk-nawk",
+    "text-convert-dos2unix",
+    "text-convert-iconv",
+    "text-display-more",
+    "text-display-pg",
+    "text-editor-ed",
+    "text-editor-ex",
+    "text-editor-joe",
+    "text-editor-nano",
+    "text-editor-nvim",
+    "text-editor-red",
+    "text-editor-rview",
+    "text-format-column",
+    "text-format-eqn",
+    "text-format-fmt",
+    "text-format-fold",
+    "text-format-pr",
+    "text-format-ptx",
+    "text-gettext-msgattrib",
+    "text-gettext-msgcat",
+    "text-gettext-msgconv",
+    "text-gettext-msgfilter",
+    "text-gettext-msgmerge",
+    "text-gettext-msguniq",
+    "text-highlight-highlight",
+    "text-highlight-pygmentize",
+    "text-print-enscript",
+    "text-process-awk",
+    "text-process-csvtool",
+    "text-process-grc",
+    "text-process-join",
+    "text-process-m4",
+    "text-process-nl",
+    "text-process-paste",
+    "text-process-rev",
+    "text-search-fzf",
+    "text-search-look",
+    "text-aspell",
+    "text-spell-ispell",
+    "text-tex-latex",
+    "text-tex-lualatex",
+    "text-tex-luatex",
+    "text-tex-pdflatex",
+    "text-tex-pdftex",
+    "text-troff-nroff",
+    "text-troff-pic",
+    "web-browser-w3m"
+  ],
+  "system.file.rm": [
+    "system-file-rm"
+  ],
+  "system.file.search": [
+    "system-file-base64",
+    "system-file-cat",
+    "system-file-chmod",
+    "system-file-chown",
+    "system-file-comm",
+    "system-file-cp",
+    "system-file-cut",
+    "system-file-dd",
+    "system-file-diff",
+    "system-file-file",
+    "system-file-find",
+    "system-file-head",
+    "system-file-hexdump",
+    "system-file-less",
+    "system-file-ln",
+    "system-file-md5sum",
+    "system-file-mv",
+    "system-file-od",
+    "system-file-patch",
+    "system-file-rm",
+    "system-file-sha1sum",
+    "system-file-sha256sum",
+    "system-file-sort",
+    "system-file-stat",
+    "system-file-strings",
+    "system-file-tail",
+    "system-file-tr",
+    "system-file-uniq",
+    "system-file-wc",
+    "system-file-xargs",
+    "system-file-xxd"
+  ],
+  "system.file.sha1sum": [
+    "system-file-sha1sum"
+  ],
+  "system.file.sha256sum": [
+    "system-file-sha256sum"
+  ],
+  "system.file.sort": [
+    "system-file-sort"
+  ],
+  "system.file.stat": [
+    "system-file-stat"
+  ],
+  "system.file.strings": [
+    "system-file-strings"
+  ],
+  "system.file.tail": [
+    "system-file-tail"
+  ],
+  "system.file.tr": [
+    "system-file-tr"
+  ],
+  "system.file.uniq": [
+    "system-file-uniq"
+  ],
+  "system.file.wc": [
+    "system-file-wc"
+  ],
+  "system.file.write": [
+    "archive-arj",
+    "archive-pax-pax",
+    "archive-tar-tar",
+    "argument-injection-awk",
+    "argument-injection-curl",
+    "argument-injection-find",
+    "argument-injection-git",
+    "argument-injection-lftp",
+    "argument-injection-logrotate",
+    "argument-injection-sendmail",
+    "argument-injection-unzip",
+    "argument-injection-wget",
+    "build-compiler-gcc",
+    "build-compiler-go",
+    "database-sqlite-sqlite3",
+    "dev-python-python",
+    "dev-typescript-tsc",
+    "dev-vcs-git",
+    "document-pdf-qpdf",
+    "editor-emacs",
+    "editor-vi-vi",
+    "monitoring-nagios-check-log",
+    "multimedia-ffmpeg-ffmpeg",
+    "network-download-aria2c",
+    "network-http-curl",
+    "network-http-wget",
+    "network-ssh-ssh-copy-id",
+    "runtime-perl-perl",
+    "runtime-ruby-ruby",
+    "runtime-lua",
+    "shell-ash",
+    "shell-bash-bash",
+    "shell-csh-csh",
+    "shell-csh-tcsh",
+    "shell-dash-dash",
+    "shell-zsh-zsh",
+    "system-alternatives-update-alternatives",
+    "system-archive-cpio",
+    "system-embedded-busybox",
+    "system-emulator-dosbox",
+    "system-file-csplit",
+    "system-file-find",
+    "system-file-install",
+    "system-file-shred",
+    "system-file-split",
+    "system-firmware-dmidecode",
+    "system-log-logsave",
+    "system-print-lp",
+    "system-terminal-script",
+    "system-text-shuf",
+    "text-convert-dos2unix",
+    "text-convert-iconv",
+    "text-process-awk",
+    "text-process-csvtool",
+    "virtualization-libvirt-virsh",
+    "web-cache-varnishncsa",
+    "wtfbin-cisco-jabber"
+  ],
+  "system.file.xargs": [
+    "system-file-xargs"
+  ],
+  "system.file.xxd": [
+    "system-file-xxd"
+  ],
+  "system.kernel.log": [
+    "system-kernel-dmesg"
+  ],
+  "system.library.load": [
+    "dev-tcl-tclsh",
+    "network-ssh-ssh-keygen",
+    "shell-bash-bash"
+  ],
+  "system.package.install": [
+    "package-apt-apt-get",
+    "package-apt-aptitude",
+    "package-dpkg",
+    "package-ruby-gem"
+  ],
+  "system.process.background": [
+    "system-terminal-tmux"
+  ],
+  "system.process.free": [
+    "system-process-free"
+  ],
+  "system.process.ionice": [
+    "system-process-ionice"
+  ],
+  "system.process.kill": [
+    "system-process-kill"
+  ],
+  "system.process.list": [
+    "system-process-free",
+    "system-process-ionice",
+    "system-process-kill",
+    "system-process-nice",
+    "system-process-ps",
+    "system-process-timeout",
+    "system-process-top",
+    "system-process-watch"
+  ],
+  "system.process.monitor": [
+    "system-process-free",
+    "system-process-ionice",
+    "system-process-kill",
+    "system-process-nice",
+    "system-process-ps",
+    "system-process-timeout",
+    "system-process-top",
+    "system-process-watch"
+  ],
+  "system.process.nice": [
+    "system-process-nice"
+  ],
+  "system.process.ps": [
+    "system-process-ps"
+  ],
+  "system.process.signal": [
+    "system-process-free",
+    "system-process-ionice",
+    "system-process-kill",
+    "system-process-nice",
+    "system-process-ps",
+    "system-process-timeout",
+    "system-process-top",
+    "system-process-watch"
+  ],
+  "system.process.timeout": [
+    "system-process-timeout"
+  ],
+  "system.process.top": [
+    "system-process-top"
+  ],
+  "system.process.watch": [
+    "system-process-watch"
+  ],
+  "system.remote.detach": [
+    "system-terminal-tmux"
+  ],
+  "system.scheduler.cron": [
+    "system-scheduler-cron",
+    "system-scheduler-crontab"
+  ],
+  "system.service.journalctl": [
+    "system-service-journalctl"
+  ],
+  "system.service.systemctl": [
+    "system-service-systemctl"
+  ],
+  "system.session.persist": [
+    "system-terminal-tmux"
+  ],
+  "system.storage.df": [
+    "system-storage-df"
+  ],
+  "system.storage.du": [
+    "system-storage-du"
+  ],
+  "system.storage.mount": [
+    "system-storage-df",
+    "system-storage-du",
+    "system-storage-mount"
+  ],
+  "system.storage.usage": [
+    "system-storage-df",
+    "system-storage-du",
+    "system-storage-mount"
+  ],
+  "system.terminal.multiplex": [
+    "system-terminal-tmux"
+  ],
+  "system.terminal.session": [
+    "system-terminal-tmux"
+  ],
+  "system.terminal.split": [
+    "system-terminal-tmux"
+  ],
+  "team.collaboration": [
+    "security-exploit-mythic"
+  ],
+  "text.aggregate.average": [
+    "text-process-awk"
+  ],
+  "text.aggregate.count": [
+    "text-process-awk"
+  ],
+  "text.aggregate.sum": [
+    "text-process-awk"
+  ],
+  "text.convert.encoding": [
+    "text-convert-iconv"
+  ],
+  "text.filter.line": [
+    "text-process-sed"
+  ],
+  "text.process.field": [
+    "text-process-awk"
+  ],
+  "text.process.report": [
+    "text-process-awk"
+  ],
+  "text.process.stream": [
+    "text-process-sed"
+  ],
+  "text.query.jsonpath": [
+    "text-process-jq"
+  ],
+  "text.search.context": [
+    "text-search-grep"
+  ],
+  "text.search.fixed": [
+    "text-search-grep"
+  ],
+  "text.search.invert": [
+    "text-search-grep"
+  ],
+  "text.search.recursive": [
+    "text-search-grep"
+  ],
+  "text.search.regex": [
+    "text-search-grep"
+  ],
+  "text.spellcheck": [
+    "text-aspell"
+  ],
+  "text.transform.append": [
+    "text-process-sed"
+  ],
+  "text.transform.csv": [
+    "text-process-awk"
+  ],
+  "text.transform.delete": [
+    "text-process-sed"
+  ],
+  "text.transform.insert": [
+    "text-process-sed"
+  ],
+  "text.transform.json": [
+    "text-process-jq"
+  ],
+  "text.transform.substitute": [
+    "text-process-sed"
+  ],
+  "tls.scan.certificate": [
+    "security-tls-sslscan",
+    "security-tls-sslyze",
+    "security-tls-testssl-sh"
+  ],
+  "tls.scan.cipher": [
+    "security-tls-sslscan",
+    "security-tls-sslyze",
+    "security-tls-testssl-sh"
+  ],
+  "tls.scan.heartbleed": [
+    "security-tls-testssl-sh"
+  ],
+  "tls.scan.protocol": [
+    "security-tls-sslscan",
+    "security-tls-sslyze",
+    "security-tls-testssl-sh"
+  ],
+  "tls.scan.vulnerability": [
+    "security-tls-sslyze",
+    "security-tls-testssl-sh"
+  ],
+  "trace.library.call": [
+    "security-reverse-ltrace"
+  ],
+  "trace.syscall": [
+    "security-reverse-strace"
+  ],
+  "utility.generic": [
+    "darkiros-responder",
+    "darkiros-rubeus"
+  ],
+  "vulnerability.lookup": [
+    "security-exploit-searchsploit"
+  ],
+  "vulnerability.scanning": [
+    "security-exploit-metasploit"
+  ],
+  "web.analysis.parameter": [
+    "security-web-dalfox"
+  ],
+  "web.api.scan": [
+    "security-web-owasp-zap"
+  ],
+  "web.archive.url": [
+    "security-web-gau",
+    "security-web-paramspider",
+    "security-web-waybackurls"
+  ],
+  "web.attack.sql-injection": [
+    "security-web-ghauri"
+  ],
+  "web.bruteforce.parameters": [
+    "security-web-wfuzz"
+  ],
+  "web.content.brute": [
+    "security-web-dirsearch",
+    "security-web-feroxbuster",
+    "security-web-ffuf",
+    "security-web-gobuster"
+  ],
+  "web.content.discovery": [
+    "security-web-wfuzz"
+  ],
+  "web.crawl.spider": [
+    "security-web-katana"
+  ],
+  "web.crlf.detect": [
+    "security-web-crlfuzz"
+  ],
+  "web.decoder": [
+    "security-web-burpsuite"
+  ],
+  "web.discovery.asset": [
+    "security-web-aquatone",
+    "security-web-cmsmap",
+    "security-web-joomscan"
+  ],
+  "web.discovery.bucket": [
+    "security-web-gobuster"
+  ],
+  "web.discovery.dns": [
+    "security-web-gobuster"
+  ],
+  "web.discovery.endpoint": [
+    "security-web-gau",
+    "security-web-httpx",
+    "security-web-katana",
+    "security-web-paramspider",
+    "security-web-waybackurls"
+  ],
+  "web.discovery.file": [
+    "security-web-dirsearch",
+    "security-web-feroxbuster",
+    "security-web-gobuster"
+  ],
+  "web.discovery.hidden": [
+    "security-web-wfuzz"
+  ],
+  "web.discovery.injection": [
+    "security-web-commix"
+  ],
+  "web.discovery.js-source": [
+    "security-web-katana"
+  ],
+  "web.discovery.parameter": [
+    "security-web-arjun"
+  ],
+  "web.discovery.path": [
+    "security-web-dirsearch",
+    "security-web-feroxbuster",
+    "security-web-gobuster",
+    "security-web-nikto"
+  ],
+  "web.discovery.plugin": [
+    "security-web-wpscan"
+  ],
+  "web.discovery.recursive": [
+    "security-web-feroxbuster"
+  ],
+  "web.discovery.sqli": [
+    "security-web-sqlmap"
+  ],
+  "web.discovery.technology": [
+    "security-web-whatweb"
+  ],
+  "web.discovery.theme": [
+    "security-web-wpscan"
+  ],
+  "web.discovery.user": [
+    "security-web-wpscan"
+  ],
+  "web.discovery.vhost": [
+    "security-web-ffuf",
+    "security-web-gobuster"
+  ],
+  "web.discovery.xss": [
+    "security-web-xsstrike"
+  ],
+  "web.enumeration.asset": [
+    "security-web-httpx",
+    "security-web-katana"
+  ],
+  "web.enumeration.component": [
+    "security-web-cmsmap",
+    "security-web-joomscan"
+  ],
+  "web.enumeration.endpoint": [
+    "security-web-arjun"
+  ],
+  "web.enumeration.parameter": [
+    "security-web-gau",
+    "security-web-paramspider",
+    "security-web-waybackurls"
+  ],
+  "web.enumeration.schema": [
+    "security-web-ghauri"
+  ],
+  "web.enumeration.subdomain": [
+    "security-web-aquatone"
+  ],
+  "web.enumeration.table": [
+    "security-web-ghauri"
+  ],
+  "web.enumeration.user": [
+    "security-web-cmsmap"
+  ],
+  "web.exploit.database": [
+    "security-web-ghauri"
+  ],
+  "web.exploitation.database": [
+    "security-web-sqlmap"
+  ],
+  "web.exploitation.rce": [
+    "security-web-commix"
+  ],
+  "web.filter.response": [
+    "security-web-feroxbuster",
+    "security-web-ffuf"
+  ],
+  "web.fingerprint": [
+    "security-web-whatweb"
+  ],
+  "web.fingerprint.application": [
+    "security-web-arjun"
+  ],
+  "web.fingerprint.cms": [
+    "security-web-cmsmap",
+    "security-web-joomscan"
+  ],
+  "web.fingerprint.directory": [
+    "security-web-dirsearch"
+  ],
+  "web.fingerprint.http": [
+    "security-web-aquatone"
+  ],
+  "web.fingerprint.server": [
+    "security-web-nikto"
+  ],
+  "web.fingerprint.technology": [
+    "security-web-httpx"
+  ],
+  "web.fuzz": [
+    "security-web-wfuzz"
+  ],
+  "web.fuzzing": [
+    "security-web-burpsuite",
+    "security-web-owasp-zap"
+  ],
+  "web.fuzzing.directory": [
+    "security-web-ffuf"
+  ],
+  "web.fuzzing.parameter": [
+    "security-web-ffuf"
+  ],
+  "web.fuzzing.value": [
+    "security-web-ffuf"
+  ],
+  "web.injection.command": [
+    "security-web-commix"
+  ],
+  "web.injection.header": [
+    "security-web-crlfuzz"
+  ],
+  "web.injection.sql": [
+    "security-web-sqlmap"
+  ],
+  "web.injection.xss": [
+    "security-web-dalfox",
+    "security-web-xsstrike"
+  ],
+  "web.intruder": [
+    "security-web-burpsuite"
+  ],
+  "web.lfi.exploit": [
+    "security-web-kadimus",
+    "security-web-lfi-suite"
+  ],
+  "web.lfi.php-wrapper": [
+    "security-web-lfi-suite"
+  ],
+  "web.lfi.rce": [
+    "security-web-kadimus",
+    "security-web-lfi-suite"
+  ],
+  "web.lfi.read-file": [
+    "security-web-kadimus",
+    "security-web-lfi-suite"
+  ],
+  "web.lfi.scan": [
+    "security-web-kadimus",
+    "security-web-lfi-suite"
+  ],
+  "web.probe.http": [
+    "security-web-httpx"
+  ],
+  "web.protocol.h2c-upgrade": [
+    "security-web-h2csmuggler"
+  ],
+  "web.proxy.intercept": [
+    "security-web-burpsuite",
+    "security-web-owasp-zap"
+  ],
+  "web.recon.cms": [
+    "security-web-whatweb"
+  ],
+  "web.recon.data-filter": [
+    "security-recon-unfurl"
+  ],
+  "web.recon.historical-url": [
+    "security-recon-waymore"
+  ],
+  "web.recon.url-extract": [
+    "security-recon-unfurl"
+  ],
+  "web.recon.url-parse": [
+    "security-recon-unfurl"
+  ],
+  "web.recon.wayback": [
+    "security-recon-waymore"
+  ],
+  "web.repeater": [
+    "security-web-burpsuite"
+  ],
+  "web.response.split": [
+    "security-web-crlfuzz"
+  ],
+  "web.scan.active": [
+    "security-web-burpsuite",
+    "security-web-owasp-zap"
+  ],
+  "web.scan.config": [
+    "security-web-nikto"
+  ],
+  "web.scan.dom": [
+    "security-web-xsstrike"
+  ],
+  "web.scan.mass": [
+    "security-web-dalfox"
+  ],
+  "web.scan.misconfiguration": [
+    "security-web-nuclei"
+  ],
+  "web.scan.passive": [
+    "security-web-burpsuite",
+    "security-web-owasp-zap"
+  ],
+  "web.scan.vulnerability": [
+    "security-web-nikto",
+    "security-web-nuclei"
+  ],
+  "web.scan.wordpress": [
+    "security-web-wpscan"
+  ],
+  "web.screenshot.service": [
+    "security-web-aquatone"
+  ],
+  "web.session.handling": [
+    "security-web-burpsuite",
+    "security-web-owasp-zap"
+  ],
+  "web.smuggle.cl-te": [
+    "security-web-smuggler"
+  ],
+  "web.smuggle.detect": [
+    "security-web-h2csmuggler",
+    "security-web-smuggler"
+  ],
+  "web.smuggle.h2c": [
+    "security-web-h2csmuggler"
+  ],
+  "web.smuggle.te-cl": [
+    "security-web-smuggler"
+  ],
+  "web.smuggle.te-te": [
+    "security-web-smuggler"
+  ],
+  "web.spider": [
+    "security-web-owasp-zap"
+  ],
+  "web.spider.content": [
+    "security-crack-cewl"
+  ],
+  "web.ssti.detect": [
+    "security-web-tplmap"
+  ],
+  "web.ssti.exploit": [
+    "security-web-tplmap"
+  ],
+  "web.ssti.rce": [
+    "security-web-tplmap"
+  ],
+  "web.ssti.read-file": [
+    "security-web-tplmap"
+  ],
+  "web.ssti.sandbox-escape": [
+    "security-web-tplmap"
+  ],
+  "web.traversal.detect": [
+    "security-web-dotdotpwn"
+  ],
+  "web.traversal.ftp": [
+    "security-web-dotdotpwn"
+  ],
+  "web.traversal.fuzz": [
+    "security-web-dotdotpwn"
+  ],
+  "web.traversal.http": [
+    "security-web-dotdotpwn"
+  ],
+  "web.traversal.payload": [
+    "security-web-dotdotpwn"
+  ],
+  "web.vulnerability.scanner": [
+    "security-web-cmsmap",
+    "security-web-ghauri",
+    "security-web-joomscan"
+  ],
+  "website.clone": [
+    "security-exploit-setoolkit"
+  ],
+  "wordlist.bruteforce": [
+    "security-crack-crunch"
+  ],
+  "wordlist.combination": [
+    "security-crack-crunch"
+  ],
+  "wordlist.generate": [
+    "security-crack-crunch",
+    "security-crack-cupp",
+    "security-crack-rsmangler"
+  ],
+  "wordlist.mangle": [
+    "security-crack-cupp",
+    "security-crack-rsmangler"
+  ],
+  "wordlist.mutate": [
+    "security-crack-rsmangler"
+  ],
+  "wordlist.permutation": [
+    "security-crack-crunch"
+  ],
+  "wordlist.profile": [
+    "security-crack-cupp"
+  ],
+  "wordlist.social": [
+    "security-crack-cupp"
+  ],
+  "wordlist.transform": [
+    "security-crack-rsmangler"
+  ]
+}

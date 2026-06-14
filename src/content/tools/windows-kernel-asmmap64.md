@@ -1,0 +1,63 @@
+---
+id: windows-kernel-asmmap64
+namespace: windows:kernel:asmmap64
+name: "asmmap64.sys"
+description: "Elevate privileges"
+author: "Michael Haag"
+version: "1.0.0"
+capabilities:
+  - security.privilegeescalation.kernel-exploit
+platforms:
+  - windows
+techniques:
+  - privilege-escalation
+risk_level: high
+trust_level: verified
+execution:
+  template: "sc.exe create asmmap64.sys binPath=C:\\windows\\temp\\asmmap64.sys type=kernel && sc.exe start asmmap64.sys"
+  sandbox: execFile
+  timeout_seconds: 30
+  shell: true
+install:
+  - method: custom
+    description: "Load asmmap64.sys kernel driver"
+    commands:
+      - "sc.exe create asmmap64.sys binPath=C:\\windows\\temp\\asmmap64.sys type=kernel && sc.exe start asmmap64.sys"
+detections:
+  - type: yara
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/yara/025e7be9fcefd6a83f4471bba0c11f1c11bd5047047d26626da24ee9a419cdc4.yara"
+  - type: sigma
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sigma/driver_load_win_vuln_drivers.yml"
+  - type: sigma
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sigma/driver_load_win_vuln_drivers_names.yml"
+  - type: sysmon
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sysmon/sysmon_config_vulnerable_hashes.xml"
+  - type: sysmon
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sysmon/sysmon_config_vulnerable_hashes_block.xml"
+  - type: yara
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/yara/yara-rules_vuln_drivers_strict_renamed.yar"
+  - type: sigma
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sigma/driver_load_win_vuln_drivers.yml"
+  - type: sigma
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sigma/driver_load_win_vuln_drivers_names.yml"
+  - type: sysmon
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sysmon/sysmon_config_vulnerable_hashes.xml"
+  - type: sysmon
+    url: "https://github.com/magicsword-io/LOLDrivers/blob/main/detections/sysmon/sysmon_config_vulnerable_hashes_block.xml"
+references:
+  - label: "Reference"
+    url: "https://github.com/namazso/physmem_drivers"
+---
+examples:
+  - description: "Load the kernel driver"
+    command: "sc.exe create asmmap64.sys binPath=C:\\\\windows\\\\temp\\\\asmmap64.sys type=kernel && sc.exe start asmmap64.sys"
+  - description: "Exploit the driver for privilege escalation"
+    command: "Exploit.exe --driver asmmap64.sys"
+
+# asmmap64.sys
+
+**Use Case:** Elevate privileges
+
+**Required Privileges:** kernel
+
+**MITRE ATT&CK:** T1068

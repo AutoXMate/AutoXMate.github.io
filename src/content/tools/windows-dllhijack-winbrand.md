@@ -1,0 +1,54 @@
+---
+trust_level: community
+id: windows-dllhijack-winbrand
+namespace: windows:dllhijack:winbrand
+name: winbrand.dll
+description: "winbrand.dll — Sideloading hijacking (Microsoft)"
+author: "Wietze Beukema"
+version: "1.0.0"
+capabilities:
+  - security.defenseevasion.dll-hijack
+  - security.privilegeescalation.dll-hijack
+platforms:
+  - windows
+techniques:
+  - defense-evasion
+  - persistence
+  - privilege-escalation
+execution:
+  template: "winbrand.dll"
+  sandbox: execFile
+  timeout_seconds: 30
+  shell: false
+references:
+  - label: "Reference"
+    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
+  - label: "Reference"
+    url: "https://securityintelligence.com/posts/windows-features-dll-sideloading/"
+  - label: "Reference"
+    url: "https://github.com/xforcered/WFH"
+  - label: "HijackLibs"
+    url: "https://hijacklibs.net/entries/winbrand.html"
+---
+examples:
+  - description: "Place malicious winbrand.dll in the search order location"
+    command: "copy malicious.dll \"%SYSTEM32%\\winbrand.dll\""
+  - description: "Execute the vulnerable binary to trigger the hijack"
+    command: "\"%SYSTEM32%\\bdehdcfg.exe\""
+
+# winbrand.dll
+
+**Vendor:** Microsoft
+
+**Expected Location:** %SYSTEM32%
+
+**Vulnerable Executables:**
+- %SYSTEM32%\bdehdcfg.exe (Sideloading)
+- %SYSTEM32%\licensediag.exe (Sideloading)
+- %SYSTEM32%\slui.exe (Sideloading)
+- %SYSTEM32%\systempropertiesadvanced.exe (Sideloading) [AutoElevate]
+- %SYSTEM32%\systemsettingsadminflows.exe (Sideloading) [AutoElevate]
+
+**Acknowledgement:** Wietze
+
+**Acknowledgement:** Chris Spehn

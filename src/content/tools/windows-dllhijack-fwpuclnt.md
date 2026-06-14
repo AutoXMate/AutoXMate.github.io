@@ -1,0 +1,46 @@
+---
+trust_level: community
+id: windows-dllhijack-fwpuclnt
+namespace: windows:dllhijack:fwpuclnt
+name: fwpuclnt.dll
+description: "fwpuclnt.dll — Sideloading, Environment Variable hijacking (Microsoft)"
+author: "Wietze Beukema"
+version: "1.0.0"
+capabilities:
+  - security.defenseevasion.dll-hijack
+platforms:
+  - windows
+techniques:
+  - defense-evasion
+  - persistence
+execution:
+  template: "fwpuclnt.dll"
+  sandbox: execFile
+  timeout_seconds: 30
+  shell: false
+references:
+  - label: "Reference"
+    url: "https://wietze.github.io/blog/hijacking-dlls-in-windows"
+  - label: "Reference"
+    url: "https://wietze.github.io/blog/save-the-environment-variables"
+  - label: "HijackLibs"
+    url: "https://hijacklibs.net/entries/fwpuclnt.html"
+---
+examples:
+  - description: "Place malicious fwpuclnt.dll in the search order location"
+    command: "copy malicious.dll \"%SYSTEM32%\\fwpuclnt.dll\""
+  - description: "Execute the vulnerable binary to trigger the hijack"
+    command: "\"%SYSTEM32%\\checknetisolation.exe\""
+
+# fwpuclnt.dll
+
+**Vendor:** Microsoft
+
+**Expected Location:** %SYSTEM32%
+
+**Vulnerable Executables:**
+- %SYSTEM32%\checknetisolation.exe (Sideloading)
+- %SYSTEM32%\netsh.exe (Sideloading)
+- %SYSTEM32%\stordiag.exe (Environment Variable)
+
+**Acknowledgement:** Wietze

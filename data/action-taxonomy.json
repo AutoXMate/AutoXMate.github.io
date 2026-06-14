@@ -1,0 +1,341 @@
+{
+  "port-scan": {
+    "description": "Scan for open ports on a target",
+    "capabilities": ["network.scan.port", "network.discovery.host", "network.scan"],
+    "default_flags": "-sV -sC",
+    "default_target_param": "target",
+    "keywords": ["port scan", "scan ports", "portscan", "open ports"],
+    "tool_defaults": {
+      "nmap": { "flags": "-sV -sC -p-", "target_param": "target" },
+      "masscan": { "flags": "--rate=1000", "target_param": "target" },
+      "rustscan": { "flags": "-a", "target_param": "target" }
+    }
+  },
+  "service-detect": {
+    "description": "Detect services and versions running on open ports",
+    "capabilities": ["network.scan.service", "network.scan.port", "security.fingerprint"],
+    "default_flags": "-sV",
+    "default_target_param": "target",
+    "keywords": ["service detection", "version detect", "banner grab"],
+    "tool_defaults": {
+      "nmap": { "flags": "-sV --version-intensity 9", "target_param": "target" }
+    }
+  },
+  "os-detect": {
+    "description": "Detect operating system of a target",
+    "capabilities": ["security.fingerprint.os", "network.scan.os"],
+    "default_flags": "-O",
+    "default_target_param": "target",
+    "keywords": ["os detection", "fingerprint os", "os fingerprint", "operating system"],
+    "tool_defaults": {
+      "nmap": { "flags": "-O --osscan-guess", "target_param": "target" }
+    }
+  },
+  "vuln-scan": {
+    "description": "Scan for known vulnerabilities",
+    "capabilities": ["security.scan.vuln", "network.scan.vuln", "web.scan.vuln"],
+    "default_flags": "--script vuln",
+    "default_target_param": "target",
+    "keywords": ["vuln scan", "vulnerability scan", "vulnerability assessment"],
+    "tool_defaults": {
+      "nmap": { "flags": "--script vuln", "target_param": "target" },
+      "nikto": { "flags": "-h", "target_param": "target" }
+    }
+  },
+  "sql-injection": {
+    "description": "Detect and exploit SQL injection vulnerabilities",
+    "capabilities": ["web.injection.sql", "web.exploitation.database", "web.discovery.sqli"],
+    "default_flags": "--batch --level 3 --risk 2",
+    "default_target_param": "target",
+    "keywords": ["sql injection", "sqli", "sqlmap", "sql inject"],
+    "tool_defaults": {
+      "sqlmap": { "flags": "--batch --level 5 --risk 3", "target_param": "target" },
+      "ghauri": { "flags": "-u", "target_param": "target" }
+    }
+  },
+  "xss": {
+    "description": "Detect cross-site scripting vulnerabilities",
+    "capabilities": ["web.injection.xss", "web.scan.xss"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["xss", "cross site scripting", "cross-site"],
+    "tool_defaults": {}
+  },
+  "directory-brute": {
+    "description": "Brute-force directories and files on web servers",
+    "capabilities": ["web.fuzz.directory", "web.discovery.content", "web.enum.directory"],
+    "default_flags": "-w /usr/share/wordlists/dirb/common.txt",
+    "default_target_param": "target",
+    "keywords": ["directory brute", "dirbust", "directory enumeration", "dir brute"],
+    "tool_defaults": {
+      "gobuster": { "flags": "dir -w /usr/share/wordlists/dirb/common.txt -u", "target_param": "target" },
+      "ffuf": { "flags": "-w /usr/share/wordlists/dirb/common.txt -u", "target_param": "target" },
+      "dirb": { "flags": "", "target_param": "target" },
+      "wfuzz": { "flags": "-w /usr/share/wordlists/dirb/common.txt", "target_param": "target" }
+    }
+  },
+  "subdomain-enum": {
+    "description": "Enumerate subdomains of a domain",
+    "capabilities": ["dns.enum.subdomain", "web.discovery.subdomain"],
+    "default_flags": "-w /usr/share/wordlists/subdomains.txt",
+    "default_target_param": "target",
+    "keywords": ["subdomain", "subdomain enum", "dns enum"],
+    "tool_defaults": {
+      "gobuster": { "flags": "dns -w /usr/share/wordlists/subdomains.txt -d", "target_param": "target" },
+      "ffuf": { "flags": "-w /usr/share/wordlists/subdomains.txt -u https://FUZZ.{target}", "target_param": "target" }
+    }
+  },
+  "dns-recon": {
+    "description": "Perform DNS reconnaissance",
+    "capabilities": ["dns.recon", "dns.enum", "dns.discovery"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["dns recon", "dns reconnaissance", "dns lookup"],
+    "tool_defaults": {
+      "dnsrecon": { "flags": "-d", "target_param": "target" },
+      "dnsenum": { "flags": "", "target_param": "target" }
+    }
+  },
+  "user-enum": {
+    "description": "Enumerate valid usernames on a system or service",
+    "capabilities": ["security.enum.user", "security.ad.userenum", "security.enum.smb", "security.enum.ldap"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["user enum", "enumerate users", "username enum"],
+    "tool_defaults": {
+      "netexec": { "flags": "--users", "target_param": "target" },
+      "enum4linux": { "flags": "-U", "target_param": "target" },
+      "kerbrute": { "flags": "userenum -d", "target_param": "target" }
+    }
+  },
+  "bruteforce": {
+    "description": "Brute-force authentication credentials",
+    "capabilities": ["security.crack.password", "security.auth.bruteforce", "security.audit.credential"],
+    "default_flags": "-l admin -P /usr/share/wordlists/rockyou.txt",
+    "default_target_param": "target",
+    "keywords": ["bruteforce", "brute force", "password brute", "crack password"],
+    "tool_defaults": {
+      "hydra": { "flags": "-l admin -P /usr/share/wordlists/rockyou.txt", "target_param": "target" },
+      "netexec": { "flags": "-u admin -p /usr/share/wordlists/rockyou.txt", "target_param": "target" },
+      "john": { "flags": "--wordlist=/usr/share/wordlists/rockyou.txt", "target_param": "target" },
+      "hashcat": { "flags": "-a 0 -m 1000", "target_param": "target" }
+    }
+  },
+  "password-spray": {
+    "description": "Attempt a single password against many usernames",
+    "capabilities": ["security.auth.passwordspray", "security.auth.bruteforce", "security.ad.passwordspray"],
+    "default_flags": "-u users.txt -p 'Password123!'",
+    "default_target_param": "target",
+    "keywords": ["password spray", "spray password", "password spraying"],
+    "tool_defaults": {
+      "netexec": { "flags": "-u users.txt -p 'Password123!'", "target_param": "target" },
+      "kerbrute": { "flags": "passwordspray -d", "target_param": "target" }
+    }
+  },
+  "asreproast": {
+    "description": "Retrieve AS-REP hash for Kerberos pre-authentication disabled accounts",
+    "capabilities": ["security.ad.asreproast"],
+    "default_flags": "--asreproast output.txt",
+    "default_target_param": "target",
+    "keywords": ["asrep", "asreproast", "as-rep", "kerberos asrep"],
+    "tool_defaults": {
+      "netexec": { "flags": "--asreproast output.txt", "target_param": "target" },
+      "impacket": { "flags": "-dc-ip {target} -usersfile users.txt -format hashcat -outputfile output.txt", "target_param": "target", "template_override": "impacket-GetNPUsers {domain}/" }
+    }
+  },
+  "kerberoast": {
+    "description": "Extract Kerberos TGS tickets for offline cracking",
+    "capabilities": ["security.ad.kerberoast"],
+    "default_flags": "--kerberoast output.txt",
+    "default_target_param": "target",
+    "keywords": ["kerberoast", "kerberos roast", "tgsticket", "tgs ticket"],
+    "tool_defaults": {
+      "netexec": { "flags": "--kerberoast output.txt", "target_param": "target" },
+      "impacket": { "flags": "-dc-ip {target} -outputfile output.txt", "target_param": "target", "template_override": "impacket-GetUserSPNs {domain}/{user}:{pass}" }
+    }
+  },
+  "rid-brute": {
+    "description": "Brute-force RIDs to enumerate domain users",
+    "capabilities": ["security.ad.ridbrute"],
+    "default_flags": "--rid-brute",
+    "default_target_param": "target",
+    "keywords": ["rid brute", "ridbrute", "rid cycling"],
+    "tool_defaults": {
+      "netexec": { "flags": "--rid-brute", "target_param": "target" }
+    }
+  },
+  "credential-dump": {
+    "description": "Dump credentials from a compromised system",
+    "capabilities": ["security.credential.dump", "security.credential.extract", "security.ad.dpapi", "security.ad.gmsa"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["credential dump", "dump creds", "dump credentials", "extract creds"],
+    "tool_defaults": {
+      "netexec": { "flags": "--sam --lsa --ntds", "target_param": "target" },
+      "impacket": { "flags": "", "target_param": "target", "template_override": "impacket-secretsdump {domain}/{user}:{pass}@{target}" }
+    }
+  },
+  "lateral-movement": {
+    "description": "Move laterally across a network using compromised credentials",
+    "capabilities": ["security.lateral.smbexec", "security.lateral.wmi", "security.lateral.winrm", "security.lateral.ssh"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["lateral movement", "pivot", "smbexec", "wmi", "winrm"],
+    "tool_defaults": {
+      "netexec": { "flags": "-x whoami", "target_param": "target" },
+      "impacket": { "flags": "", "target_param": "target" },
+      "evil-winrm": { "flags": "-i", "target_param": "target" }
+    }
+  },
+  "smb-enum": {
+    "description": "Enumerate SMB shares, users, and sessions",
+    "capabilities": ["security.enum.smb"],
+    "default_flags": "--shares --users --sessions",
+    "default_target_param": "target",
+    "keywords": ["smb enum", "smb enumeration", "smb shares"],
+    "tool_defaults": {
+      "netexec": { "flags": "--shares --users --sessions", "target_param": "target" },
+      "smbmap": { "flags": "-H", "target_param": "target" },
+      "enum4linux": { "flags": "-S -U", "target_param": "target" }
+    }
+  },
+  "ldap-enum": {
+    "description": "Enumerate LDAP directory services",
+    "capabilities": ["security.enum.ldap"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["ldap enum", "ldap enumeration", "ldapsearch"],
+    "tool_defaults": {
+      "netexec": { "flags": "--users --groups --computers", "target_param": "target" },
+      "ldapsearch": { "flags": "-x -H ldap://", "target_param": "target" }
+    }
+  },
+  "hash-crack": {
+    "description": "Crack password hashes offline",
+    "capabilities": ["security.crack.password", "security.crack.hash"],
+    "default_flags": "--wordlist=/usr/share/wordlists/rockyou.txt",
+    "default_target_param": "target",
+    "keywords": ["crack hash", "hash crack", "password cracking"],
+    "tool_defaults": {
+      "john": { "flags": "--wordlist=/usr/share/wordlists/rockyou.txt", "target_param": "target" },
+      "hashcat": { "flags": "-a 0 -m 1000 /usr/share/wordlists/rockyou.txt", "target_param": "target" }
+    }
+  },
+  "relay": {
+    "description": "Relay authentication challenges (e.g., NTLM relay)",
+    "capabilities": ["security.auth.relay", "network.auth.relay", "security.lateral.relay"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["relay", "ntlm relay", "responder relay"],
+    "tool_defaults": {
+      "responder": { "flags": "-I eth0 -wF", "target_param": "" },
+      "impacket": { "flags": "", "target_param": "target", "template_override": "impacket-ntlmrelayx -tf {target} -smb2support" }
+    }
+  },
+  "mitm": {
+    "description": "Perform man-in-the-middle attacks",
+    "capabilities": ["network.auth.mitm", "network.spoof", "network.sniff"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["mitm", "man in the middle", "arp spoof", "ettercap"],
+    "tool_defaults": {
+      "bettercap": { "flags": "", "target_param": "target" },
+      "ettercap": { "flags": "-T -M arp", "target_param": "target" }
+    }
+  },
+  "osint": {
+    "description": "Gather open-source intelligence",
+    "capabilities": ["osint.recon", "osint.collect", "web.recon.osint"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["osint", "open source intelligence", "recon"],
+    "tool_defaults": {
+      "theharvester": { "flags": "-d", "target_param": "target" },
+      "maltego": { "flags": "", "target_param": "target" }
+    }
+  },
+  "wireless-scan": {
+    "description": "Scan and analyze wireless networks",
+    "capabilities": ["wireless.scan", "ble.scan", "wireless.deauth"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["wireless scan", "wifi scan", "airodump"],
+    "tool_defaults": {
+      "airodump-ng": { "flags": "", "target_param": "" },
+      "kismet": { "flags": "", "target_param": "" }
+    }
+  },
+  "container-scan": {
+    "description": "Scan container images and registries for vulnerabilities",
+    "capabilities": ["container.scan", "container.enum"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["container scan", "docker scan", "container image"],
+    "tool_defaults": {
+      "trivy": { "flags": "image", "target_param": "target" },
+      "grype": { "flags": "", "target_param": "target" }
+    }
+  },
+  "cloud-enum": {
+    "description": "Enumerate cloud infrastructure and services",
+    "capabilities": ["cloud.enum", "cloud.discovery"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["cloud enum", "aws enum", "azure enum", "gcp enum"],
+    "tool_defaults": {}
+  },
+  "payload-gen": {
+    "description": "Generate payloads for exploitation",
+    "capabilities": ["payload.generate", "exploit.payload"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["payload", "generate payload", "msfvenom", "shellcode"],
+    "tool_defaults": {
+      "msfvenom": { "flags": "-p linux/x64/shell_reverse_tcp LHOST={lhost} LPORT={lport} -f elf", "target_param": "" },
+      "msfvenom-other": { "flags": "", "target_param": "target" }
+    }
+  },
+  "reverse-shell": {
+    "description": "Generate or obtain a reverse shell",
+    "capabilities": ["shell.reverse", "payload.shell.reverse"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["reverse shell", "rev shell", "shell"],
+    "tool_defaults": {}
+  },
+  "c2-setup": {
+    "description": "Set up command and control infrastructure",
+    "capabilities": ["command.control.c2", "agent.communication", "adversary.simulation"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["c2", "command and control", "agent", "implant"],
+    "tool_defaults": {}
+  },
+  "log-analysis": {
+    "description": "Analyze log files for patterns and anomalies",
+    "capabilities": ["log.analysis", "forensic.log"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["log analysis", "log review", "parse log"],
+    "tool_defaults": {}
+  },
+  "forensics": {
+    "description": "Perform digital forensics analysis",
+    "capabilities": ["forensic.collect", "forensic.analyze", "forensic.memory", "forensic.disk"],
+    "default_flags": "",
+    "default_target_param": "target",
+    "keywords": ["forensic", "forensics", "memory dump", "disk image"],
+    "tool_defaults": {}
+  },
+  "sniff": {
+    "description": "Capture and analyze network traffic",
+    "capabilities": ["network.sniff", "traffic.capture", "network.analyze"],
+    "default_flags": "-i eth0",
+    "default_target_param": "",
+    "keywords": ["sniff", "packet capture", "tcpdump", "wireshark"],
+    "tool_defaults": {
+      "tcpdump": { "flags": "-i eth0 -w capture.pcap", "target_param": "" },
+      "wireshark": { "flags": "-i eth0 -k", "target_param": "" }
+    }
+  }
+}

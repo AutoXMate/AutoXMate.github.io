@@ -1,0 +1,44 @@
+---
+id: windows-kernel-rspot
+namespace: windows:kernel:rspot
+name: "rspot.sys"
+description: "Rising Antivirus rspot.sys driver with kernel-level process termination capabilities. Identified in ESET EDR killers research (March 2026) as actively abused by threat actors to disable EDR products."
+author: "Michael Haag"
+version: "1.0.0"
+capabilities:
+  - security.privilegeescalation.kernel-exploit
+platforms:
+  - windows
+techniques:
+  - privilege-escalation
+risk_level: high
+trust_level: verified
+execution:
+  template: "sc.exe create rspot.sys binPath=C:\\windows\\temp\\rspot.sys type=kernel && sc.exe start rspot.sys"
+  sandbox: execFile
+  timeout_seconds: 30
+  shell: true
+install:
+  - method: custom
+    description: "Load rspot.sys kernel driver"
+    commands:
+      - "sc.exe create rspot.sys binPath=C:\\windows\\temp\\rspot.sys type=kernel && sc.exe start rspot.sys"
+references:
+  - label: "Reference"
+    url: "https://www.welivesecurity.com/en/eset-research/edr-killers-explained/"
+---
+examples:
+  - description: "Load the kernel driver"
+    command: "sc.exe create rspot.sys binPath=C:\\\\windows\\\\temp\\\\rspot.sys type=kernel && sc.exe start rspot.sys"
+  - description: "Exploit the driver for privilege escalation"
+    command: "Exploit.exe --driver rspot.sys"
+
+# rspot.sys
+
+Rising Antivirus rspot.sys driver with kernel-level process termination capabilities. Identified in ESET EDR killers research (March 2026) as actively abused by threat actors to disable EDR products.
+
+**Use Case:** Elevate privileges
+
+**Required Privileges:** kernel
+
+**MITRE ATT&CK:** T1068

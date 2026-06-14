@@ -1,0 +1,92 @@
+---
+id: editor-vi-vi
+namespace: editor:vi:vi
+name: vi
+description: "Vi text editor; can execute commands, read/write files, and spawn shells."
+author: GTFOBins
+version: 1.0.0
+capabilities:
+- system.file.read
+- system.file.write
+- security.privilege-escalation.shell
+platforms:
+- linux
+risk_level: medium
+trust_level: community
+execution_policy: enabled
+architectures:
+- amd64
+- arm64
+dependencies: []
+related_tools: []
+artifacts: []
+workflow_edges:
+  produces:
+  - shell-access
+  - command-output
+  consumes: []
+contract:
+  inputs: []
+  outputs:
+  - type: process.output
+    description: Command execution output
+  side_effects:
+  - process_spawn
+  resource_cost:
+    cpu: low
+    memory_mb: 16
+    network: none
+    disk_io: low
+resource_profile:
+  cpu: low
+  memory_mb: 16
+  network: none
+  disk_io: low
+allowed-tools:
+- vi
+parameters: []
+features: []
+execution:
+  template: vi
+  sandbox: execFile
+  timeout_seconds: 30
+  shell: false
+global_vars: {}
+examples:
+- description: Read arbitrary files (sudo, suid, unprivileged)
+  command: vi /path/to/input-file
+- description: Write to arbitrary files (sudo, suid, unprivileged)
+  command: 'vi /path/to/output-file
+
+    iDATA
+
+    ^[
+
+    w'
+- description: Spawn an interactive shell (sudo, suid, unprivileged)
+  command: vi -c ':!/bin/sh' /dev/null
+- description: Spawn an interactive shell (sudo, suid, unprivileged)
+  command: vi -c ':shell'
+- description: Spawn an interactive shell (sudo, suid, unprivileged)
+  command: vi -c ':set shell=/bin/sh | shell'
+- description: Spawn an interactive shell (sudo, suid, unprivileged)
+  command: vi -c :terminal /bin/sh
+references:
+- label: GTFOBins
+  url: https://gtfobins.github.io/gtfobins/vi/
+techniques:
+- collection
+- exfiltration
+- privilege-escalation
+- execution
+install:
+- method: apt
+  package_name: vim
+  commands:
+  - apt-get install -y vim
+---
+
+
+# vi
+
+vi is a command-line utility. Visual editor, can execute commands and read/write files; can also read arbitrary files, write to arbitrary files, spawn an interactive shell.
