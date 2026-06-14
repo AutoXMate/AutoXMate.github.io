@@ -2,8 +2,8 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 
 export default defineConfig({
-  site: "https://autoxmate.github.io/AutoXMate",
-  base: "/AutoXMate/",
+  site: "https://autoxmate.github.io",
+  base: "/",
   output: "static",
   integrations: [mdx()],
   markdown: {
