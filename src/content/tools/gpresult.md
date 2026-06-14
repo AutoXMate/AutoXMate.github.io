@@ -1,31 +1,27 @@
 ---
-id: gpresult
+id: cmd-gpresult
 namespace: system:windows:policy
 name: gpresult
-description: Displays the Resultant Set of Policy (RSoP) information for a target user and computer including applied GPOs.
-version: "1.0.0"
+description: Displays the Resultant Set of Policy (RSoP) information for a target
+  user and computer.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        gpresult
-  background_templates: []
+  template: gpresult /?
+  sandbox: execFile
 examples:
-  - cmd: "gpresult /?"
-    description: "Display help and usage information for gpresult"
+- description: Run gpresult with default options
+  command: gpresult /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/gpresult
+- label: gpresult Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/gpresult
 ---

@@ -1,31 +1,31 @@
 ---
-id: nmcli
-namespace: network:linux:manager
+id: net-nmcli
+namespace: network:linux:config
 name: nmcli
-description: Command-line client for NetworkManager. Manages network connections, devices, and Wi-Fi from the terminal.
-version: "1.0.0"
+description: NetworkManager command-line client.
+version: 1.0.0
 capabilities:
-  - network-diagnostics
-  - information-gathering
-  - reconnaissance
+- network.diagnostics
+- network.configuration
+- system.information-gathering
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y network-manager"
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        nmcli
-  background_templates: []
+  template: nmcli --help
+  sandbox: execFile
 examples:
-  - cmd: "nmcli --help"
-    description: "Display help and usage information for nmcli"
+- description: Display help for nmcli
+  command: nmcli --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nmcli
+- label: nmcli Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nmcli
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y network-manager
 ---

@@ -1,31 +1,26 @@
 ---
-id: reagentc
+id: win-reagentc
 namespace: system:windows:recovery
 name: reagentc
-description: Windows Recovery Environment configuration tool for enabling/disabling WinRE and setting recovery image paths.
-version: "1.0.0"
+description: Windows Recovery Environment configuration tool.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        reagentc
-  background_templates: []
+  template: reagentc /?
+  sandbox: execFile
 examples:
-  - cmd: "reagentc /?"
-    description: "Display help and usage information for reagentc"
+- description: Display help for reagentc
+  command: reagentc /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/reagentc
+- label: reagentc Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/reagentc
 ---

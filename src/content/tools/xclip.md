@@ -1,31 +1,31 @@
 ---
-id: xclip
+id: sys-xclip
 namespace: system:linux:clipboard
 name: xclip
-description: Command-line interface to the X11 clipboard. Pipes data to/from the clipboard selection buffers.
-version: "1.0.0"
+description: CLI interface to the X11 clipboard.
+version: 1.0.0
 capabilities:
-  - system-administration
-  - information-gathering
-  - file-system
+- system.information-gathering
+- system.monitoring
+- system.administration
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y xclip"
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        xclip
-  background_templates: []
+  template: xclip --help
+  sandbox: execFile
 examples:
-  - cmd: "xclip --help"
-    description: "Display help and usage information for xclip"
+- description: Display help for xclip
+  command: xclip --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/xclip
+- label: xclip Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/xclip
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y xclip
 ---

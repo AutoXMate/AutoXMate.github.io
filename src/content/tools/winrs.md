@@ -1,31 +1,26 @@
 ---
-id: winrs
-namespace: remote:winrm
+id: win-winrs
+namespace: remote:winrm:shell
 name: winrs
-description: Windows Remote Shell allows running commands on remote Windows machines via WinRM protocol.
-version: "1.0.0"
+description: Windows Remote Shell via WinRM.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        winrs
-  background_templates: []
+  template: winrs /?
+  sandbox: execFile
 examples:
-  - cmd: "winrs /?"
-    description: "Display help and usage information for winrs"
+- description: Display help for winrs
+  command: winrs /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/winrs
+- label: winrs Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/winrs
 ---

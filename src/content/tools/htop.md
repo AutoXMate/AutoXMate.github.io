@@ -1,31 +1,32 @@
 ---
-id: htop
+id: sys-htop
 namespace: system:linux:monitor
 name: htop
-description: Interactive process viewer and manager. An enhanced version of top with color output and mouse support.
-version: "1.0.0"
+description: Interactive process viewer and manager.
+version: 1.0.0
 capabilities:
-  - system-administration
-  - information-gathering
-  - file-system
+- system.information-gathering
+- system.monitoring
+- system.administration
+platforms:
+- linux
+- macos
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y htop"
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        htop
-  background_templates: []
+  template: htop
+  sandbox: execFile
 examples:
-  - cmd: "htop --help"
-    description: "Display help and usage information for htop"
+- description: Interactive process viewer
+  command: htop
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/htop
+- label: htop Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/htop
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y htop
 ---

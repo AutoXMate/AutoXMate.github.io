@@ -1,31 +1,26 @@
 ---
-id: lodctr
+id: win-lodctr
 namespace: system:windows:performance
 name: lodctr
-description: Allows registering or unregistering performance counter names and explanation text for system services.
-version: "1.0.0"
+description: Registers performance counter names for services.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        lodctr
-  background_templates: []
+  template: lodctr /?
+  sandbox: execFile
 examples:
-  - cmd: "lodctr /?"
-    description: "Display help and usage information for lodctr"
+- description: Display help for lodctr
+  command: lodctr /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/lodctr
+- label: lodctr Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/lodctr
 ---

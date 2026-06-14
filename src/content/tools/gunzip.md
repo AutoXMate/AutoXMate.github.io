@@ -1,31 +1,27 @@
 ---
-id: gunzip
-namespace: archive:compression
+id: arc-gunzip
+namespace: archive:linux:compression
 name: gunzip
-description: Decompresses files compressed with gzip (.gz). Equivalent to gzip -d.
-version: "1.0.0"
+description: Decompresses gzip-compressed (.gz) files.
+version: 1.0.0
 capabilities:
-  - compression
-  - file-system
-  - data-transfer
+- filesystem.compression
+- filesystem.management
+- system.commands
+platforms:
+- linux
+- macos
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        gunzip
-  background_templates: []
+  template: gunzip --help
+  sandbox: execFile
 examples:
-  - cmd: "gunzip --help"
-    description: "Display help and usage information for gunzip"
+- description: Display help for gunzip
+  command: gunzip --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/gunzip
+- label: gunzip Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/gunzip
 ---

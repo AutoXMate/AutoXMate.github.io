@@ -1,31 +1,27 @@
 ---
-id: where
+id: cmd-where
 namespace: system:windows:file
 name: where
-description: Displays the location of files that match the search pattern, similar to Unix 'which' but with broader search capabilities.
-version: "1.0.0"
+description: Displays the location of files that match the search pattern, similar
+  to Unix 'which' but with broader search capabilities.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        where
-  background_templates: []
+  template: where /?
+  sandbox: execFile
 examples:
-  - cmd: "where ."
-    description: "Display help and usage information for where"
+- description: Run where with default options
+  command: where /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/where
+- label: where Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/where
 ---

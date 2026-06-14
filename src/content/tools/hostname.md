@@ -1,31 +1,26 @@
 ---
-id: hostname
+id: cmd-hostname
 namespace: system:windows:cmd
 name: hostname
 description: Displays the host name portion of the full computer name of the computer.
-version: "1.0.0"
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        hostname
-  background_templates: []
+  template: hostname /?
+  sandbox: execFile
 examples:
-  - cmd: "hostname /?"
-    description: "Display help and usage information for hostname"
+- description: Run hostname with default options
+  command: hostname /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/hostname
+- label: hostname Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/hostname
 ---

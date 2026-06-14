@@ -1,31 +1,27 @@
 ---
-id: driverquery
+id: cmd-driverquery
 namespace: system:windows:driver
 name: driverquery
-description: Displays a list of all installed device drivers and their properties including driver name, type, and module name.
-version: "1.0.0"
+description: Displays a list of all installed device drivers and their properties
+  including driver name, type, and module name.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        driverquery
-  background_templates: []
+  template: driverquery /?
+  sandbox: execFile
 examples:
-  - cmd: "driverquery /?"
-    description: "Display help and usage information for driverquery"
+- description: Run driverquery with default options
+  command: driverquery /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/driverquery
+- label: driverquery Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/driverquery
 ---

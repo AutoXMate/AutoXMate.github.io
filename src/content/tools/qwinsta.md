@@ -1,31 +1,26 @@
 ---
-id: qwinsta
-namespace: remote:ts
+id: win-qwinsta
+namespace: remote:ts:query
 name: qwinsta
-description: Displays information about Remote Desktop Services sessions on a remote server.
-version: "1.0.0"
+description: Displays Remote Desktop Services sessions on a server.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        qwinsta
-  background_templates: []
+  template: qwinsta /?
+  sandbox: execFile
 examples:
-  - cmd: "qwinsta /?"
-    description: "Display help and usage information for qwinsta"
+- description: Display help for qwinsta
+  command: qwinsta /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/qwinsta
+- label: qwinsta Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/qwinsta
 ---

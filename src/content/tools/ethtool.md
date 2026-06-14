@@ -1,31 +1,33 @@
 ---
-id: ethtool
-namespace: network:interface
+id: net-ethtool
+namespace: network:linux:interface
 name: ethtool
-description: Displays and changes Ethernet device settings including speed, duplex, auto-negotiation, and driver info.
-version: "1.0.0"
+description: Displays and changes Ethernet device settings.
+version: 1.0.0
 capabilities:
-  - network-diagnostics
-  - information-gathering
-  - reconnaissance
+- network.diagnostics
+- network.configuration
+- system.information-gathering
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y ethtool"
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        ethtool
-  background_templates: []
+  template: ethtool --help
+  sandbox: execFile
 examples:
-  - cmd: "ethtool --help"
-    description: "Display help and usage information for ethtool"
+- description: Display help for ethtool
+  command: ethtool --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ethtool
+- label: ethtool Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ethtool
+- label: ethtool manual
+  url: https://man7.org/linux/man-pages/man8/ethtool.8.html
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y ethtool
 ---

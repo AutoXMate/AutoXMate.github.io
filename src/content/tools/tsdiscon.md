@@ -1,31 +1,26 @@
 ---
-id: tsdiscon
-namespace: remote:ts
+id: win-tsdiscon
+namespace: remote:ts:disconnect
 name: tsdiscon
-description: Disconnects a Remote Desktop Services session without ending the session.
-version: "1.0.0"
+description: Disconnects a Remote Desktop Services session.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        tsdiscon
-  background_templates: []
+  template: tsdiscon /?
+  sandbox: execFile
 examples:
-  - cmd: "tsdiscon /?"
-    description: "Display help and usage information for tsdiscon"
+- description: Display help for tsdiscon
+  command: tsdiscon /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tsdiscon
+- label: tsdiscon Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tsdiscon
 ---

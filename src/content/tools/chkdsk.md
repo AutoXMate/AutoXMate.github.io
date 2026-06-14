@@ -1,31 +1,26 @@
 ---
-id: chkdsk
+id: cmd-chkdsk
 namespace: system:windows:disk
 name: chkdsk
-description: Checks a disk for file system errors and bad sectors. Can attempt repairs with appropriate flags.
-version: "1.0.0"
+description: Checks a disk for file system errors and bad sectors.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        chkdsk
-  background_templates: []
+  template: chkdsk /?
+  sandbox: execFile
 examples:
-  - cmd: "chkdsk /?"
-    description: "Display help and usage information for chkdsk"
+- description: Run chkdsk with default options
+  command: chkdsk /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/chkdsk
+- label: chkdsk Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/chkdsk
 ---

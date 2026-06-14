@@ -1,31 +1,26 @@
 ---
-id: typeperf
+id: win-typeperf
 namespace: system:windows:performance
 name: typeperf
-description: Performance monitoring tool that writes performance counter data to the command window or a log file.
-version: "1.0.0"
+description: Writes performance counter data to command line or log.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        typeperf
-  background_templates: []
+  template: typeperf /?
+  sandbox: execFile
 examples:
-  - cmd: "typeperf /?"
-    description: "Display help and usage information for typeperf"
+- description: Display help for typeperf
+  command: typeperf /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf
+- label: typeperf Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/typeperf
 ---

@@ -1,31 +1,26 @@
 ---
-id: getfacl
+id: sys-getfacl
 namespace: system:linux:permissions
 name: getfacl
-description: Gets file access control lists (ACLs). Displays the ACL entries for one or more files.
-version: "1.0.0"
+description: Gets file access control lists (ACLs).
+version: 1.0.0
 capabilities:
-  - system-administration
-  - information-gathering
-  - file-system
+- system.information-gathering
+- system.monitoring
+- system.administration
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        getfacl
-  background_templates: []
+  template: getfacl --help
+  sandbox: execFile
 examples:
-  - cmd: "getfacl --help"
-    description: "Display help and usage information for getfacl"
+- description: Display help for getfacl
+  command: getfacl --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/getfacl
+- label: getfacl Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/getfacl
 ---

@@ -1,31 +1,31 @@
 ---
-id: tcpflow
-namespace: network:capture
+id: net-tcpflow
+namespace: network:capture:traffic
 name: tcpflow
-description: TCP flow recorder that captures TCP connections and reconstructs the data streams for analysis.
-version: "1.0.0"
+description: Captures TCP connections and reconstructs data streams.
+version: 1.0.0
 capabilities:
-  - network-diagnostics
-  - information-gathering
-  - reconnaissance
+- network.diagnostics
+- network.configuration
+- system.information-gathering
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y tcpflow"
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        tcpflow
-  background_templates: []
+  template: tcpflow --help
+  sandbox: execFile
 examples:
-  - cmd: "tcpflow --help"
-    description: "Display help and usage information for tcpflow"
+- description: Display help for tcpflow
+  command: tcpflow --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tcpflow
+- label: tcpflow Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tcpflow
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y tcpflow
 ---

@@ -1,31 +1,27 @@
 ---
-id: net
+id: cmd-net
 namespace: system:windows:networking
 name: net
-description: Comprehensive network and system administration command used for managing users, groups, shares, services, and network connections.
-version: "1.0.0"
+description: Comprehensive network and system administration command used for managing
+  users, groups, shares, services, and network connections.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        net
-  background_templates: []
+  template: net /?
+  sandbox: execFile
 examples:
-  - cmd: "net /?"
-    description: "List user accounts"
+- description: Run net with default options
+  command: net /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/net
+- label: net Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/net
 ---

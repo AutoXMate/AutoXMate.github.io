@@ -1,31 +1,27 @@
 ---
-id: readlink
+id: sys-readlink
 namespace: system:linux:file
 name: readlink
-description: Displays the target of a symbolic link or canonical path. Useful for resolving file paths and following symlinks.
-version: "1.0.0"
+description: Displays the target of a symbolic link.
+version: 1.0.0
 capabilities:
-  - system-administration
-  - information-gathering
-  - file-system
+- system.information-gathering
+- system.monitoring
+- system.administration
+platforms:
+- linux
+- macos
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        readlink
-  background_templates: []
+  template: readlink --help
+  sandbox: execFile
 examples:
-  - cmd: "readlink --help"
-    description: "Display help and usage information for readlink"
+- description: Display help for readlink
+  command: readlink --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/readlink
+- label: readlink Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/readlink
 ---

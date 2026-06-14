@@ -1,31 +1,26 @@
 ---
-id: msg
+id: cmd-msg
 namespace: system:windows:communication
 name: msg
-description: Sends popup messages to users on local or remote machines via the Messenger service.
-version: "1.0.0"
+description: Sends popup messages to users on local or remote machines.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        msg
-  background_templates: []
+  template: msg /?
+  sandbox: execFile
 examples:
-  - cmd: "msg /server:localhost "test message""
-    description: "Display help and usage information for msg"
+- description: Run msg with default options
+  command: msg /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msg
+- label: msg Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/msg
 ---

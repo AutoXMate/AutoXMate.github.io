@@ -1,31 +1,26 @@
 ---
-id: csvde
+id: cmd-csvde
 namespace: security:ad:export
 name: csvde
-description: Imports and exports Active Directory objects using comma-separated-value (CSV) format files.
-version: "1.0.0"
+description: Imports and exports Active Directory objects using CSV format files.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        csvde
-  background_templates: []
+  template: csvde /?
+  sandbox: execFile
 examples:
-  - cmd: "csvde /?"
-    description: "Display help and usage information for csvde"
+- description: Run csvde with default options
+  command: csvde /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/csvde
+- label: csvde Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/csvde
 ---

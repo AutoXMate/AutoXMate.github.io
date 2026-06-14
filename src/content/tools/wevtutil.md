@@ -1,31 +1,27 @@
 ---
-id: wevtutil
+id: cmd-wevtutil
 namespace: system:windows:logging
 name: wevtutil
-description: Retrieves information about event logs and publishers, exports, archives, and clears event logs.
-version: "1.0.0"
+description: Retrieves information about event logs and publishers, exports, archives,
+  and clears event logs.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        wevtutil
-  background_templates: []
+  template: wevtutil /?
+  sandbox: execFile
 examples:
-  - cmd: "wevtutil /?"
-    description: "Display help and usage information for wevtutil"
+- description: Run wevtutil with default options
+  command: wevtutil /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/wevtutil
+- label: wevtutil Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/wevtutil
 ---

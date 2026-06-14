@@ -1,31 +1,26 @@
 ---
-id: useradd
+id: sys-useradd
 namespace: system:linux:user
 name: useradd
-description: Creates a new user account on the system with specified options for home directory, shell, groups, and expiry.
-version: "1.0.0"
+description: Creates a new user account with home directory, shell, and groups.
+version: 1.0.0
 capabilities:
-  - system-administration
-  - information-gathering
-  - file-system
+- system.information-gathering
+- system.monitoring
+- system.administration
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        useradd
-  background_templates: []
+  template: useradd --help
+  sandbox: execFile
 examples:
-  - cmd: "useradd --help"
-    description: "Display help and usage information for useradd"
+- description: Display help for useradd
+  command: useradd --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/useradd
+- label: useradd Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/useradd
 ---

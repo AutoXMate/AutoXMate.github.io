@@ -1,31 +1,26 @@
 ---
-id: nltest
+id: cmd-nltest
 namespace: security:ad:trust
 name: nltest
-description: Network test tool for querying and managing Active Directory trust relationships and secure channels.
-version: "1.0.0"
+description: Network test tool for querying and managing Active Directory trust relationships.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        nltest
-  background_templates: []
+  template: nltest /?
+  sandbox: execFile
 examples:
-  - cmd: "nltest /?"
-    description: "Display help and usage information for nltest"
+- description: Run nltest with default options
+  command: nltest /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nltest
+- label: nltest Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nltest
 ---

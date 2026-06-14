@@ -1,31 +1,34 @@
 ---
-id: lsof
+id: sys-lsof
 namespace: system:linux:process
 name: lsof
-description: Lists open files and the processes that opened them. Useful for finding which processes have specific files or network connections open.
-version: "1.0.0"
+description: Lists open files and the processes that opened them.
+version: 1.0.0
 capabilities:
-  - system-administration
-  - information-gathering
-  - file-system
+- system.information-gathering
+- system.monitoring
+- system.administration
+platforms:
+- linux
+- macos
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y lsof"
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        lsof
-  background_templates: []
+  template: lsof
+  sandbox: execFile
 examples:
-  - cmd: "lsof --help"
-    description: "Display help for lsof"
+- description: List open files
+  command: lsof
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/lsof
+- label: lsof Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/lsof
+- label: lsof manual
+  url: https://man7.org/linux/man-pages/man1/lsof.1.html
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y lsof
 ---

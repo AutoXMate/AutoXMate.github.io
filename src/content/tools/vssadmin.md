@@ -1,31 +1,27 @@
 ---
-id: vssadmin
+id: cmd-vssadmin
 namespace: system:windows:backup
 name: vssadmin
-description: Volume Shadow Copy Service administration tool for managing shadow copies, providers, and volumes.
-version: "1.0.0"
+description: Volume Shadow Copy Service administration tool for managing shadow copies,
+  providers, and volumes.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        vssadmin
-  background_templates: []
+  template: vssadmin /?
+  sandbox: execFile
 examples:
-  - cmd: "vssadmin /?"
-    description: "Display help and usage information for vssadmin"
+- description: Run vssadmin with default options
+  command: vssadmin /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin
+- label: vssadmin Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/vssadmin
 ---

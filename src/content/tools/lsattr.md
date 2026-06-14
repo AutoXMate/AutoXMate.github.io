@@ -1,31 +1,26 @@
 ---
-id: lsattr
+id: sys-lsattr
 namespace: system:linux:file
 name: lsattr
-description: Lists file attributes on a Linux ext2/ext3/ext4 file system.
-version: "1.0.0"
+description: Lists file attributes on ext2/ext3/ext4 filesystems.
+version: 1.0.0
 capabilities:
-  - system-administration
-  - information-gathering
-  - file-system
+- system.information-gathering
+- system.monitoring
+- system.administration
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: shell
-  templates:
-    - template: |
-        lsattr
-  background_templates: []
+  template: lsattr --help
+  sandbox: execFile
 examples:
-  - cmd: "lsattr --help"
-    description: "Display help and usage information for lsattr"
+- description: Display help for lsattr
+  command: lsattr --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/lsattr
+- label: lsattr Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/lsattr
 ---

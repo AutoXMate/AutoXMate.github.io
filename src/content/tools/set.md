@@ -1,31 +1,27 @@
 ---
-id: set
+id: cmd-set
 namespace: system:windows:cmd
 name: set
-description: Displays, sets, or removes environment variables. Used without parameters, displays all current environment variables.
-version: "1.0.0"
+description: Displays, sets, or removes environment variables. Used without parameters,
+  displays all current environment variables.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        set
-  background_templates: []
+  template: set /?
+  sandbox: execFile
 examples:
-  - cmd: "set"
-    description: "Display all environment variables"
+- description: Run set with default options
+  command: set /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set
+- label: set Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/set
 ---

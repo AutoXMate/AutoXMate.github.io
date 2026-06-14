@@ -1,31 +1,26 @@
 ---
-id: repadmin
+id: cmd-repadmin
 namespace: security:ad:replication
 name: repadmin
-description: Active Directory replication diagnostics and management tool for monitoring and troubleshooting AD replication.
-version: "1.0.0"
+description: Active Directory replication diagnostics and management tool.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        repadmin
-  background_templates: []
+  template: repadmin /?
+  sandbox: execFile
 examples:
-  - cmd: "repadmin /?"
-    description: "Display help and usage information for repadmin"
+- description: Run repadmin with default options
+  command: repadmin /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/repadmin
+- label: repadmin Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/repadmin
 ---

@@ -1,31 +1,26 @@
 ---
-id: rwinsta
-namespace: remote:ts
+id: win-rwinsta
+namespace: remote:ts:reset
 name: rwinsta
-description: Resets (logs off) a Remote Desktop Services session on a remote server.
-version: "1.0.0"
+description: Resets a Remote Desktop Services session.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        rwinsta
-  background_templates: []
+  template: rwinsta /?
+  sandbox: execFile
 examples:
-  - cmd: "rwinsta /?"
-    description: "Display help and usage information for rwinsta"
+- description: Display help for rwinsta
+  command: rwinsta /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/rwinsta
+- label: rwinsta Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/rwinsta
 ---

@@ -1,31 +1,26 @@
 ---
-id: dsquery
+id: cmd-dsquery
 namespace: security:ad:query
 name: dsquery
-description: Active Directory query tool that retrieves objects from the directory using specified criteria.
-version: "1.0.0"
+description: Active Directory query tool for retrieving objects from the directory.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        dsquery
-  background_templates: []
+  template: dsquery /?
+  sandbox: execFile
 examples:
-  - cmd: "dsquery /?"
-    description: "Display help and usage information for dsquery"
+- description: Run dsquery with default options
+  command: dsquery /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dsquery
+- label: dsquery Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dsquery
 ---

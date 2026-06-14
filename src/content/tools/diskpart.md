@@ -1,31 +1,27 @@
 ---
-id: diskpart
+id: cmd-diskpart
 namespace: system:windows:disk
 name: diskpart
-description: Command-line disk partitioning utility for managing disks, partitions, volumes, and virtual hard disks.
-version: "1.0.0"
+description: Command-line disk partitioning utility for managing disks, partitions,
+  volumes, and virtual hard disks.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        diskpart
-  background_templates: []
+  template: diskpart /?
+  sandbox: execFile
 examples:
-  - cmd: "diskpart /?"
-    description: "Display help and usage information for diskpart"
+- description: Run diskpart with default options
+  command: diskpart /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/diskpart
+- label: diskpart Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/diskpart
 ---

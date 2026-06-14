@@ -1,31 +1,26 @@
 ---
-id: mstsc
-namespace: remote:rdp
+id: win-mstsc
+namespace: remote:rdp:client
 name: mstsc
-description: Remote Desktop Connection client for connecting to remote Windows desktops and applications.
-version: "1.0.0"
+description: Remote Desktop Connection client.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        mstsc
-  background_templates: []
+  template: mstsc /?
+  sandbox: execFile
 examples:
-  - cmd: "mstsc /?"
-    description: "Display help and usage information for mstsc"
+- description: Display help for mstsc
+  command: mstsc /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/mstsc
+- label: mstsc Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/mstsc
 ---

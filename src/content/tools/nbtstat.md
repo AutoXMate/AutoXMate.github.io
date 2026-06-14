@@ -1,31 +1,26 @@
 ---
-id: nbtstat
-namespace: network:netbios
+id: win-nbtstat
+namespace: network:netbios:stats
 name: nbtstat
-description: Displays NetBIOS over TCP/IP protocol statistics, name tables, and cache information for local and remote machines.
-version: "1.0.0"
+description: Displays NetBIOS over TCP/IP statistics and name tables.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        nbtstat
-  background_templates: []
+  template: nbtstat /?
+  sandbox: execFile
 examples:
-  - cmd: "nbtstat /?"
-    description: "Display help and usage information for nbtstat"
+- description: Display help for nbtstat
+  command: nbtstat /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nbtstat
+- label: nbtstat Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nbtstat
 ---

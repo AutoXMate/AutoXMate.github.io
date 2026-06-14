@@ -1,31 +1,33 @@
 ---
-id: nslookup
-namespace: network:dns
+id: net-nslookup
+namespace: network:dns:lookup
 name: nslookup
-description: Queries DNS servers for domain name or IP address resolution. Supports interactive and non-interactive modes.
-version: "1.0.0"
+description: Queries DNS servers for domain name or IP resolution.
+version: 1.0.0
 capabilities:
-  - network-diagnostics
-  - information-gathering
-  - reconnaissance
+- network.diagnostics
+- network.configuration
+- system.information-gathering
+platforms:
+- linux
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y dnsutils"
-mitre_ids: []
+- local
+mitre_ids:
+- T1590
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        nslookup
-  background_templates: []
+  template: nslookup example.com
+  sandbox: execFile
 examples:
-  - cmd: "nslookup --help"
-    description: "Query DNS for a domain"
+- description: Query DNS for a domain
+  command: nslookup example.com
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup
+- label: nslookup Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/nslookup
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y dnsutils
 ---

@@ -1,31 +1,31 @@
 ---
-id: tcpreplay
-namespace: network:capture
+id: net-tcpreplay
+namespace: network:capture:traffic
 name: tcpreplay
-description: Replays captured network traffic from pcap files, allowing testing of network devices and IDS/IPS systems.
-version: "1.0.0"
+description: Replays pcap network traffic for device testing.
+version: 1.0.0
 capabilities:
-  - network-diagnostics
-  - information-gathering
-  - reconnaissance
+- network.diagnostics
+- network.configuration
+- system.information-gathering
+platforms:
+- linux
 features:
-  - local
-  - batch
-install:
-  - method: apt
-    commands:
-      - "apt-get install -y tcpreplay"
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        tcpreplay
-  background_templates: []
+  template: tcpreplay --help
+  sandbox: execFile
 examples:
-  - cmd: "tcpreplay --help"
-    description: "Display help and usage information for tcpreplay"
+- description: Display help for tcpreplay
+  command: tcpreplay --help
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tcpreplay
+- label: tcpreplay Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tcpreplay
+install:
+- method: custom
+  description: Install via package manager
+  commands:
+  - apt-get install -y tcpreplay
 ---

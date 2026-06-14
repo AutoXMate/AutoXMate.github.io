@@ -1,31 +1,30 @@
 ---
-id: netstat
-namespace: network:monitoring
+id: net-netstat
+namespace: network:monitoring:connections
 name: netstat
-description: Displays active TCP connections, listening ports, routing tables, and network protocol statistics.
-version: "1.0.0"
+description: Displays active connections, listening ports, and routing tables.
+version: 1.0.0
 capabilities:
-  - network-diagnostics
-  - information-gathering
-  - reconnaissance
+- network.diagnostics
+- network.configuration
+- system.information-gathering
+platforms:
+- linux
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
-mitre_ids: []
+- local
+mitre_ids:
+- T1049
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        netstat
-  background_templates: []
+  template: netstat
+  sandbox: execFile
 examples:
-  - cmd: "netstat"
-    description: "Display all active connections and listening ports"
+- description: Display active network connections
+  command: netstat
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat
+- label: netstat Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/netstat
+- label: netstat manual
+  url: https://man7.org/linux/man-pages/man8/netstat.8.html
 ---

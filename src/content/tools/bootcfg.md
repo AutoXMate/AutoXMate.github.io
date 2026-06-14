@@ -1,31 +1,26 @@
 ---
-id: bootcfg
+id: win-bootcfg
 namespace: system:windows:boot
 name: bootcfg
-description: Configures, queries, or changes Boot.ini file settings for multi-boot systems.
-version: "1.0.0"
+description: Configures Boot.ini for multi-boot systems.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        bootcfg
-  background_templates: []
+  template: bootcfg /?
+  sandbox: execFile
 examples:
-  - cmd: "bootcfg /?"
-    description: "Display help and usage information for bootcfg"
+- description: Display help for bootcfg
+  command: bootcfg /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/bootcfg
+- label: bootcfg Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/bootcfg
 ---

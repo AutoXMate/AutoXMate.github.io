@@ -1,31 +1,27 @@
 ---
-id: bcdedit
+id: cmd-bcdedit
 namespace: system:windows:boot
 name: bcdedit
-description: Boot Configuration Data (BCD) editor for managing boot configuration and troubleshooting startup issues.
-version: "1.0.0"
+description: Boot Configuration Data editor for managing boot configuration and troubleshooting
+  startup issues.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        bcdedit
-  background_templates: []
+  template: bcdedit /?
+  sandbox: execFile
 examples:
-  - cmd: "bcdedit /?"
-    description: "Display help and usage information for bcdedit"
+- description: Run bcdedit with default options
+  command: bcdedit /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/bcdedit
+- label: bcdedit Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/bcdedit
 ---

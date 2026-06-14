@@ -1,31 +1,27 @@
 ---
-id: klist
-namespace: security:kerberos
+id: win-klist
+namespace: security:kerberos:tickets
 name: klist
-description: Displays the list of currently cached Kerberos tickets for authentication purposes.
-version: "1.0.0"
+description: Lists cached Kerberos tickets for authentication.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
-mitre_ids: []
+- local
+mitre_ids:
+- T1558
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        klist
-  background_templates: []
+  template: klist /?
+  sandbox: execFile
 examples:
-  - cmd: "klist /?"
-    description: "Display help and usage information for klist"
+- description: Display help for klist
+  command: klist /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/klist
+- label: klist Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/klist
 ---

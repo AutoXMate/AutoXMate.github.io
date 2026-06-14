@@ -1,31 +1,26 @@
 ---
-id: dir
+id: cmd-dir
 namespace: system:windows:file
 name: dir
-description: Displays a list of files and subdirectories in a directory. Supports various sorting and filtering options.
-version: "1.0.0"
+description: Displays a list of files and subdirectories in a directory.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        dir
-  background_templates: []
+  template: dir /?
+  sandbox: execFile
 examples:
-  - cmd: "dir ."
-    description: "List files in bare format"
+- description: Run dir with default options
+  command: dir /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dir
+- label: dir Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/dir
 ---

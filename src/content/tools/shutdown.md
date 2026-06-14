@@ -1,31 +1,26 @@
 ---
-id: shutdown
+id: cmd-shutdown
 namespace: system:windows:admin
 name: shutdown
-description: Allows shutdown, restart, or logoff of local or remote computers with scheduled timing and comment support.
-version: "1.0.0"
+description: Shutdown, restart, or logoff of local or remote computers.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        shutdown
-  background_templates: []
+  template: shutdown /?
+  sandbox: execFile
 examples:
-  - cmd: "shutdown /?"
-    description: "Display help and usage information for shutdown"
+- description: Run shutdown with default options
+  command: shutdown /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/shutdown
+- label: shutdown Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/shutdown
 ---

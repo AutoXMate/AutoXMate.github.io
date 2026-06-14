@@ -1,31 +1,27 @@
 ---
-id: sfc
+id: cmd-sfc
 namespace: system:windows:integrity
 name: sfc
-description: System File Checker scans and verifies protected system files, replacing corrupted versions from the cache.
-version: "1.0.0"
+description: System File Checker scans and verifies protected system files, replacing
+  corrupted versions from the cache.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        sfc
-  background_templates: []
+  template: sfc /?
+  sandbox: execFile
 examples:
-  - cmd: "sfc /?"
-    description: "Display help and usage information for sfc"
+- description: Run sfc with default options
+  command: sfc /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/sfc
+- label: sfc Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/sfc
 ---

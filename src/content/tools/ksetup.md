@@ -1,31 +1,26 @@
 ---
-id: ksetup
-namespace: security:kerberos
+id: win-ksetup
+namespace: security:kerberos:config
 name: ksetup
-description: Configures Kerberos settings including realm mappings, keytab files, and encryption types.
-version: "1.0.0"
+description: Configures Kerberos realm mappings and encryption types.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        ksetup
-  background_templates: []
+  template: ksetup /?
+  sandbox: execFile
 examples:
-  - cmd: "ksetup /?"
-    description: "Display help and usage information for ksetup"
+- description: Display help for ksetup
+  command: ksetup /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ksetup
+- label: ksetup Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/ksetup
 ---

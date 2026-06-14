@@ -1,31 +1,26 @@
 ---
-id: logman
-namespace: system:windows:performance
+id: cmd-logman
+namespace: system:windows:monitor
 name: logman
-description: Manages Performance Monitor logs and traces. Creates, starts, stops, and queries performance data collector sets.
-version: "1.0.0"
+description: Manages Performance Monitor logs and traces for data collector sets.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        logman
-  background_templates: []
+  template: logman /?
+  sandbox: execFile
 examples:
-  - cmd: "logman /?"
-    description: "Display help and usage information for logman"
+- description: Run logman with default options
+  command: logman /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/logman
+- label: logman Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/logman
 ---

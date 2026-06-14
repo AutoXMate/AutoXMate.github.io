@@ -1,31 +1,27 @@
 ---
-id: tracert
-namespace: network:diagnostic
+id: win-tracert
+namespace: network:diagnostic:trace
 name: tracert
-description: Traces the route packets take to a network destination by sending ICMP echo requests with incrementing TTL values.
-version: "1.0.0"
+description: Traces the route packets take to a network destination.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
-mitre_ids: []
+- local
+mitre_ids:
+- T1046
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        tracert
-  background_templates: []
+  template: tracert /?
+  sandbox: execFile
 examples:
-  - cmd: "tracert /?"
-    description: "Display help and usage information for tracert"
+- description: Display help for tracert
+  command: tracert /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tracert
+- label: tracert Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/tracert
 ---

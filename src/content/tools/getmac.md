@@ -1,31 +1,26 @@
 ---
-id: getmac
-namespace: network:interface
+id: win-getmac
+namespace: network:interface:mac
 name: getmac
-description: Returns the MAC address (physical address) of network adapters on the system.
-version: "1.0.0"
+description: Returns MAC addresses of network adapters.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        getmac
-  background_templates: []
+  template: getmac /?
+  sandbox: execFile
 examples:
-  - cmd: "getmac /?"
-    description: "Display help and usage information for getmac"
+- description: Display help for getmac
+  command: getmac /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/getmac
+- label: getmac Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/getmac
 ---

@@ -1,31 +1,26 @@
 ---
-id: pathping
-namespace: network:diagnostic
+id: win-pathping
+namespace: network:diagnostic:latency
 name: pathping
-description: Combines ping and tracert functionality to provide packet loss information and latency at each hop.
-version: "1.0.0"
+description: Combines ping and tracert with packet loss per hop.
+version: 1.0.0
 capabilities:
-  - windows-command
-  - system-administration
-  - information-gathering
+- system.information-gathering
+- system.configuration
+- system.administration
+platforms:
+- windows
 features:
-  - local
-  - batch
-install:
-  - method: native
-    commands:
-      - ""
+- local
 mitre_ids: []
 parameters: []
 execution:
-  method: cmd
-  templates:
-    - template: |
-        pathping
-  background_templates: []
+  template: pathping /?
+  sandbox: execFile
 examples:
-  - cmd: "pathping /?"
-    description: "Display help and usage information for pathping"
+- description: Display help for pathping
+  command: pathping /?
 references:
-  - https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/pathping
+- label: pathping Documentation
+  url: https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/pathping
 ---
