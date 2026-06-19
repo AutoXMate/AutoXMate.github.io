@@ -174,6 +174,16 @@ parameters:
     description: "output version information and exit"
     aliases:
       - --version
+
+  - name: "null"
+    type: string
+    required: false
+    default: null
+    description: "items are separated by a null, not whitespace"
+    aliases:
+      - "-0"
+      - "--null"
+
 execution:
   template: "xargs -0 {null} -a {arg-file} -d {delimiter} -E {flag-e} -e {eof}"
   sandbox: execFile

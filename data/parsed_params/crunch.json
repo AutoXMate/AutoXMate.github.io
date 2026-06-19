@@ -1,23 +1,5 @@
 [
   {
-    "name": "min-len",
-    "template_key": "min-len",
-    "type": "integer",
-    "required": true,
-    "default_value": null,
-    "description": "Minimum length of generated words",
-    "aliases": ["min"]
-  },
-  {
-    "name": "max-len",
-    "template_key": "max-len",
-    "type": "integer",
-    "required": true,
-    "default_value": null,
-    "description": "Maximum length of generated words",
-    "aliases": ["max"]
-  },
-  {
     "name": "charset",
     "template_key": "charset",
     "type": "string",
@@ -27,22 +9,15 @@
     "aliases": []
   },
   {
-    "name": "flag-o",
-    "template_key": "flag-o",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Output file for wordlist",
-    "aliases": ["-o"]
-  },
-  {
     "name": "flag-b",
     "template_key": "flag-b",
     "type": "string",
     "required": false,
     "default_value": null,
     "description": "Size limit for output (e.g. 50MB)",
-    "aliases": ["-b"]
+    "aliases": [
+      "-b"
+    ]
   },
   {
     "name": "flag-c",
@@ -51,7 +26,9 @@
     "required": false,
     "default_value": null,
     "description": "Number of words per output file",
-    "aliases": ["-c"]
+    "aliases": [
+      "-c"
+    ]
   },
   {
     "name": "flag-d",
@@ -60,7 +37,9 @@
     "required": false,
     "default_value": null,
     "description": "Limit duplicate characters (e.g. 2@)",
-    "aliases": ["-d"]
+    "aliases": [
+      "-d"
+    ]
   },
   {
     "name": "flag-e",
@@ -69,7 +48,9 @@
     "required": false,
     "default_value": null,
     "description": "Stop generating at this word",
-    "aliases": ["-e"]
+    "aliases": [
+      "-e"
+    ]
   },
   {
     "name": "flag-f",
@@ -78,7 +59,20 @@
     "required": false,
     "default_value": null,
     "description": "Charset file path and charset name",
-    "aliases": ["-f"]
+    "aliases": [
+      "-f"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for wordlist",
+    "aliases": [
+      "-o"
+    ]
   },
   {
     "name": "flag-p",
@@ -87,7 +81,9 @@
     "required": false,
     "default_value": null,
     "description": "Generate permutations of specified words",
-    "aliases": ["-p"]
+    "aliases": [
+      "-p"
+    ]
   },
   {
     "name": "flag-s",
@@ -96,7 +92,9 @@
     "required": false,
     "default_value": null,
     "description": "Start word for generation",
-    "aliases": ["-s"]
+    "aliases": [
+      "-s"
+    ]
   },
   {
     "name": "flag-t",
@@ -105,6 +103,84 @@
     "required": false,
     "default_value": null,
     "description": "Pattern with @,%^ placeholders",
-    "aliases": ["-t"]
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "i",
+    "type": "boolean",
+    "required": false,
+    "description": "Invert output order",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "l",
+    "type": "boolean",
+    "required": false,
+    "description": "Treat @,%^ as literal characters",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "max-len",
+    "template_key": "max-len",
+    "type": "integer",
+    "required": true,
+    "default_value": null,
+    "description": "Maximum length of generated words",
+    "aliases": [
+      "max"
+    ]
+  },
+  {
+    "name": "min-len",
+    "template_key": "min-len",
+    "type": "integer",
+    "required": true,
+    "default_value": null,
+    "description": "Minimum length of generated words",
+    "aliases": [
+      "min"
+    ]
+  },
+  {
+    "name": "q",
+    "type": "boolean",
+    "required": false,
+    "description": "FILE        Read input file for permutations",
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "r",
+    "type": "boolean",
+    "required": false,
+    "description": "Resume from last generated position",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "u",
+    "type": "boolean",
+    "required": false,
+    "description": "Unique mode (no duplicate lines)",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "z",
+    "type": "boolean",
+    "required": false,
+    "description": "FORMAT      Compress output (gzip, bzip2, lzma)",
+    "aliases": [
+      "-z"
+    ]
   }
 ]

@@ -188,6 +188,88 @@ parameters:
   description: Debug mode with extra output
   aliases:
   - --debug
+
+- name: auth_pass
+  type: boolean
+  required: false
+  description: "PASS        Authentication password"
+  aliases:
+    - "--auth_pass"
+- name: auth_type
+  type: boolean
+  required: false
+  description: "TYPE        Authentication type (basic, digest, ntlm)"
+  aliases:
+    - "--auth_type"
+- name: auth_user
+  type: boolean
+  required: false
+  description: "USER        Authentication username"
+  aliases:
+    - "--auth_user"
+- name: cookie
+  type: boolean
+  required: false
+  description: "COOKIE         Cookie string for session"
+  aliases:
+    - "--cookie"
+- name: cookies
+  type: boolean
+  required: false
+  description: "FILE          File containing cookies"
+  aliases:
+    - "--cookies"
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "-h"
+    - "--help"
+- name: k
+  type: boolean
+  required: false
+  description: "Keep the downloaded file"
+  aliases:
+    - "-k"
+    - "--keep"
+- name: max_retries
+  type: boolean
+  required: false
+  description: "NUM       Maximum retries (default: 3)"
+  aliases:
+    - "--max_retries"
+- name: no_check_certificate
+  type: boolean
+  required: false
+  description: "Don't check SSL certificate validity"
+  aliases:
+    - "--no_check_certificate"
+- name: proxy
+  type: boolean
+  required: false
+  description: "HOST:PORT       Use proxy"
+  aliases:
+    - "--proxy"
+- name: proxy_auth
+  type: boolean
+  required: false
+  description: "CREDS      Proxy authentication credentials"
+  aliases:
+    - "--proxy-auth"
+- name: proxy_protocol
+  type: boolean
+  required: false
+  description: "PROTO  Proxy protocol (http/socks)"
+  aliases:
+    - "--proxy-protocol"
+- name: quiet
+  type: boolean
+  required: false
+  description: "Quiet mode (no banner)"
+  aliases:
+    - "--quiet"
+
 execution:
   template: cewl {url} -w {output}
   sandbox: execFile

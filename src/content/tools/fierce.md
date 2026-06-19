@@ -137,6 +137,22 @@ parameters:
   description: Use TCP instead of UDP for DNS queries
   aliases:
   - --tcp
+
+- name: dns_file
+  type: boolean
+  required: false
+  description: "]"
+  aliases:
+    - "--dns-file"
+    - "--tcp"
+- name: h
+  type: boolean
+  required: false
+  description: "show this help message and exit"
+  aliases:
+    - "-h"
+    - "--help"
+
 execution:
   template: fierce --domain {domain}
   sandbox: execFile

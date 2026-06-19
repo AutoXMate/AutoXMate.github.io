@@ -287,6 +287,125 @@ parameters:
     aliases:
       - -R
       - --dereference-recursive
+
+  - name: NUM
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "-NUM"
+      - "--context"
+  - name: after-context
+    type: integer
+    required: false
+    default: null
+    description: "print NUM lines of trailing context"
+    aliases:
+      - "-A"
+      - "--after-context"
+  - name: before-context
+    type: integer
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "-B"
+      - "--before-context"
+  - name: binary
+    type: string
+    required: false
+    default: null
+    description: "do not strip CR characters at EOL (MSDOS/Windows)"
+    aliases:
+      - "-U"
+      - "--binary"
+  - name: colour
+    type: boolean
+    required: false
+    description: "use markers to highlight the matching strings;"
+    aliases:
+      - "--colour"
+  - name: context
+    type: integer
+    required: false
+    default: null
+    description: "print NUM lines of output context"
+    aliases:
+      - "-C"
+      - "--context"
+  - name: count
+    type: string
+    required: false
+    default: null
+    description: "print only a count of selected lines per FILE"
+    aliases:
+      - "-c"
+      - "--count"
+  - name: exclude_dir
+    type: boolean
+    required: false
+    description: "skip directories that match GLOB"
+    aliases:
+      - "--exclude-dir"
+  - name: exclude_from
+    type: boolean
+    required: false
+    description: "skip files that match any file pattern from FILE"
+    aliases:
+      - "--exclude-from"
+  - name: files-with-matches
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "-l"
+      - "--files-with-matches"
+  - name: files-without-match
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "-L"
+      - "--files-without-match"
+  - name: flag-N
+    type: string
+    required: false
+    default: null
+    description: "same as --context=NUM"
+    aliases:
+      - "-N"
+  - name: group-separator
+    type: string
+    required: false
+    default: null
+    description: "--no-group-separator do not print separator for matches with context --color[=WHEN], --colour[=WHEN] use markers to highlight the matching strings; WHEN is 'always', 'never', or 'auto'"
+    aliases:
+      - "--group-separator"
+  - name: initial-tab
+    type: string
+    required: false
+    default: null
+    description: "make tabs line up (if needed)"
+    aliases:
+      - "-T"
+      - "--initial-tab"
+  - name: no_group_separator
+    type: boolean
+    required: false
+    description: "do not print separator for matches with context"
+    aliases:
+      - "--no-group-separator"
+  - name: "null"
+    type: string
+    required: false
+    default: null
+    description: "print 0 byte after FILE name"
+    aliases:
+      - "-Z"
+      - "--null"
+
 features:
   - local
   - pipes-stdin

@@ -237,6 +237,41 @@ parameters:
   aliases:
   - -V
   - --version
+
+- name: H
+  type: boolean
+  required: false
+  description: "show process hierarchy"
+  aliases:
+    - "-H"
+- name: flag-w
+  type: string
+  required: false
+  default: null
+  description: "unlimited output width"
+  aliases:
+    - "-w"
+- name: help
+  type: string
+  required: false
+  default: null
+  description: "display help and exit"
+  aliases:
+    - "--help <simple|list|output|threads|misc|all>"
+- name: rows
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--rows"
+    - "--lines"
+- name: signames
+  type: boolean
+  required: false
+  description: "display signal masks using signal names"
+  aliases:
+    - "--signames"
+
 execution:
   template: ps -A {flag-a} -a {flag-a} -d {flag-d} -N {deselect} -C {flag-c}
   sandbox: execFile

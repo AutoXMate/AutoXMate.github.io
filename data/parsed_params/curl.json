@@ -11,6 +11,25 @@
     ]
   },
   {
+    "name": "alt_svc",
+    "type": "boolean",
+    "required": false,
+    "description": "with this cache file",
+    "aliases": [
+      "--alt-svc",
+      "-svc"
+    ]
+  },
+  {
+    "name": "anyauth",
+    "type": "boolean",
+    "required": false,
+    "description": "Pick any authentication method",
+    "aliases": [
+      "--anyauth"
+    ]
+  },
+  {
     "name": "append",
     "template_key": "append",
     "type": "string",
@@ -34,6 +53,33 @@
     ]
   },
   {
+    "name": "ca_native",
+    "type": "boolean",
+    "required": false,
+    "description": "Load CA certs from the OS",
+    "aliases": [
+      "--ca-native"
+    ]
+  },
+  {
+    "name": "cacert",
+    "type": "boolean",
+    "required": false,
+    "description": "CA certificate to verify peer against",
+    "aliases": [
+      "--cacert"
+    ]
+  },
+  {
+    "name": "capath",
+    "type": "boolean",
+    "required": false,
+    "description": "CA directory to verify peer against",
+    "aliases": [
+      "--capath"
+    ]
+  },
+  {
     "name": "cert",
     "template_key": "cert",
     "type": "string",
@@ -43,6 +89,52 @@
     "aliases": [
       "-E",
       "--cert <certificate[:password]>"
+    ]
+  },
+  {
+    "name": "cert_status",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--cert-status",
+      "-staple"
+    ]
+  },
+  {
+    "name": "cert_type",
+    "type": "boolean",
+    "required": false,
+    "description": "Certificate type (DER/PEM/ENG/PROV/P12)",
+    "aliases": [
+      "--cert-type"
+    ]
+  },
+  {
+    "name": "ciphers",
+    "type": "boolean",
+    "required": false,
+    "description": "TLS 1.2 (1.1, 1.0) ciphers to use",
+    "aliases": [
+      "--ciphers"
+    ]
+  },
+  {
+    "name": "compressed",
+    "type": "boolean",
+    "required": false,
+    "description": "Request compressed response",
+    "aliases": [
+      "--compressed"
+    ]
+  },
+  {
+    "name": "compressed_ssh",
+    "type": "boolean",
+    "required": false,
+    "description": "Enable SSH compression",
+    "aliases": [
+      "--compressed-ssh"
     ]
   },
   {
@@ -629,6 +721,42 @@
     ]
   },
   {
+    "name": "ftp_create_dirs",
+    "type": "boolean",
+    "required": false,
+    "description": "Create the remote dirs if not present",
+    "aliases": [
+      "--ftp-create-dirs"
+    ]
+  },
+  {
+    "name": "ftp_method",
+    "type": "boolean",
+    "required": false,
+    "description": "Control CWD usage",
+    "aliases": [
+      "--ftp-method"
+    ]
+  },
+  {
+    "name": "ftp_pasv",
+    "type": "boolean",
+    "required": false,
+    "description": "Send PASV/EPSV instead of PORT",
+    "aliases": [
+      "--ftp-pasv"
+    ]
+  },
+  {
+    "name": "ftp_ssl_control",
+    "type": "boolean",
+    "required": false,
+    "description": "Require TLS for login, clear for transfer",
+    "aliases": [
+      "--ftp-ssl-control"
+    ]
+  },
+  {
     "name": "get",
     "template_key": "get",
     "type": "url",
@@ -661,6 +789,24 @@
     "description": "--haproxy-clientip <ip> Set address in HAProxy PROXY --haproxy-protocol Send HAProxy PROXY protocol v1 header",
     "aliases": [
       "--happy-eyeballs-timeout-ms <ms>"
+    ]
+  },
+  {
+    "name": "haproxy_clientip",
+    "type": "boolean",
+    "required": false,
+    "description": "Set address in HAProxy PROXY",
+    "aliases": [
+      "--haproxy-clientip"
+    ]
+  },
+  {
+    "name": "haproxy_protocol",
+    "type": "boolean",
+    "required": false,
+    "description": "Send HAProxy PROXY protocol v1 header",
+    "aliases": [
+      "--haproxy-protocol"
     ]
   },
   {
@@ -1578,6 +1724,258 @@
     ]
   },
   {
+    "name": "proxy1",
+    "type": "boolean",
+    "required": false,
+    "description": ".0 <host[:port]>      Use HTTP/1.0 proxy on given port",
+    "aliases": [
+      "--proxy1"
+    ]
+  },
+  {
+    "name": "proxy_anyauth",
+    "type": "boolean",
+    "required": false,
+    "description": "Pick any proxy authentication method",
+    "aliases": [
+      "--proxy-anyauth"
+    ]
+  },
+  {
+    "name": "proxy_basic",
+    "type": "boolean",
+    "required": false,
+    "description": "Use Basic authentication on the proxy",
+    "aliases": [
+      "--proxy-basic"
+    ]
+  },
+  {
+    "name": "proxy_ca_native",
+    "type": "boolean",
+    "required": false,
+    "description": "Load CA certs from the OS to verify proxy",
+    "aliases": [
+      "--proxy-ca-native"
+    ]
+  },
+  {
+    "name": "proxy_cacert",
+    "type": "boolean",
+    "required": false,
+    "description": "CA certificates to verify proxy against",
+    "aliases": [
+      "--proxy-cacert"
+    ]
+  },
+  {
+    "name": "proxy_capath",
+    "type": "boolean",
+    "required": false,
+    "description": "CA directory to verify proxy against",
+    "aliases": [
+      "--proxy-capath"
+    ]
+  },
+  {
+    "name": "proxy_cert",
+    "type": "boolean",
+    "required": false,
+    "description": "Set client certificate for proxy",
+    "aliases": [
+      "--proxy-cert"
+    ]
+  },
+  {
+    "name": "proxy_cert_type",
+    "type": "boolean",
+    "required": false,
+    "description": "Client certificate type for HTTPS proxy",
+    "aliases": [
+      "--proxy-cert-type"
+    ]
+  },
+  {
+    "name": "proxy_ciphers",
+    "type": "boolean",
+    "required": false,
+    "description": "TLS 1.2 (1.1, 1.0) ciphers to use for proxy",
+    "aliases": [
+      "--proxy-ciphers"
+    ]
+  },
+  {
+    "name": "proxy_crlfile",
+    "type": "boolean",
+    "required": false,
+    "description": "Set a CRL list for proxy",
+    "aliases": [
+      "--proxy-crlfile"
+    ]
+  },
+  {
+    "name": "proxy_digest",
+    "type": "boolean",
+    "required": false,
+    "description": "Digest auth with the proxy",
+    "aliases": [
+      "--proxy-digest"
+    ]
+  },
+  {
+    "name": "proxy_header",
+    "type": "boolean",
+    "required": false,
+    "description": "Pass custom header(s) to proxy",
+    "aliases": [
+      "--proxy-header"
+    ]
+  },
+  {
+    "name": "proxy_http2",
+    "type": "boolean",
+    "required": false,
+    "description": "Use HTTP/2 with HTTPS proxy",
+    "aliases": [
+      "--proxy-http2"
+    ]
+  },
+  {
+    "name": "proxy_insecure",
+    "type": "boolean",
+    "required": false,
+    "description": "Skip HTTPS proxy cert verification",
+    "aliases": [
+      "--proxy-insecure"
+    ]
+  },
+  {
+    "name": "proxy_key",
+    "type": "boolean",
+    "required": false,
+    "description": "Private key for HTTPS proxy",
+    "aliases": [
+      "--proxy-key"
+    ]
+  },
+  {
+    "name": "proxy_key_type",
+    "type": "boolean",
+    "required": false,
+    "description": "Private key file type for proxy",
+    "aliases": [
+      "--proxy-key-type"
+    ]
+  },
+  {
+    "name": "proxy_negotiate",
+    "type": "boolean",
+    "required": false,
+    "description": "HTTP Negotiate (SPNEGO) auth with the proxy",
+    "aliases": [
+      "--proxy-negotiate"
+    ]
+  },
+  {
+    "name": "proxy_ntlm",
+    "type": "boolean",
+    "required": false,
+    "description": "NTLM authentication with the proxy",
+    "aliases": [
+      "--proxy-ntlm"
+    ]
+  },
+  {
+    "name": "proxy_pass",
+    "type": "boolean",
+    "required": false,
+    "description": "Passphrase for private key for HTTPS proxy",
+    "aliases": [
+      "--proxy-pass"
+    ]
+  },
+  {
+    "name": "proxy_pinnedpubkey",
+    "type": "boolean",
+    "required": false,
+    "description": "FILE/HASHES public key to verify proxy with",
+    "aliases": [
+      "--proxy-pinnedpubkey"
+    ]
+  },
+  {
+    "name": "proxy_service_name",
+    "type": "boolean",
+    "required": false,
+    "description": "SPNEGO proxy service name",
+    "aliases": [
+      "--proxy-service-name"
+    ]
+  },
+  {
+    "name": "proxy_ssl_allow_beast",
+    "type": "boolean",
+    "required": false,
+    "description": "Allow this security flaw for HTTPS proxy",
+    "aliases": [
+      "--proxy-ssl-allow-beast"
+    ]
+  },
+  {
+    "name": "proxy_ssl_auto_client_cert",
+    "type": "boolean",
+    "required": false,
+    "description": "Auto client certificate for proxy",
+    "aliases": [
+      "--proxy-ssl-auto-client-cert"
+    ]
+  },
+  {
+    "name": "proxy_tls13_ciphers",
+    "type": "boolean",
+    "required": false,
+    "description": "TLS 1.3 proxy cipher suites",
+    "aliases": [
+      "--proxy-tls13-ciphers"
+    ]
+  },
+  {
+    "name": "proxy_tlsauthtype",
+    "type": "boolean",
+    "required": false,
+    "description": "TLS authentication type for HTTPS proxy",
+    "aliases": [
+      "--proxy-tlsauthtype"
+    ]
+  },
+  {
+    "name": "proxy_tlspassword",
+    "type": "boolean",
+    "required": false,
+    "description": "TLS password for HTTPS proxy",
+    "aliases": [
+      "--proxy-tlspassword"
+    ]
+  },
+  {
+    "name": "proxy_tlsuser",
+    "type": "boolean",
+    "required": false,
+    "description": "TLS username for HTTPS proxy",
+    "aliases": [
+      "--proxy-tlsuser"
+    ]
+  },
+  {
+    "name": "proxy_tlsv1",
+    "type": "boolean",
+    "required": false,
+    "description": "TLSv1 for HTTPS proxy",
+    "aliases": [
+      "--proxy-tlsv1"
+    ]
+  },
+  {
     "name": "proxytunnel",
     "template_key": "proxytunnel",
     "type": "url",
@@ -1762,6 +2160,80 @@
     ]
   },
   {
+    "name": "retry",
+    "type": "boolean",
+    "required": false,
+    "description": "Retry request if transient problems occur",
+    "aliases": [
+      "--retry"
+    ]
+  },
+  {
+    "name": "retry_all_errors",
+    "type": "boolean",
+    "required": false,
+    "description": ")",
+    "aliases": [
+      "--retry-all-errors",
+      "--retry"
+    ]
+  },
+  {
+    "name": "retry_connrefused",
+    "type": "boolean",
+    "required": false,
+    "description": ")",
+    "aliases": [
+      "--retry-connrefused",
+      "--retry"
+    ]
+  },
+  {
+    "name": "retry_delay",
+    "type": "boolean",
+    "required": false,
+    "description": "Wait time between retries",
+    "aliases": [
+      "--retry-delay"
+    ]
+  },
+  {
+    "name": "retry_max_time",
+    "type": "boolean",
+    "required": false,
+    "description": "Retry only within this period",
+    "aliases": [
+      "--retry-max-time"
+    ]
+  },
+  {
+    "name": "sasl_authzid",
+    "type": "boolean",
+    "required": false,
+    "description": "Identity for SASL PLAIN authentication",
+    "aliases": [
+      "--sasl-authzid"
+    ]
+  },
+  {
+    "name": "sasl_ir",
+    "type": "boolean",
+    "required": false,
+    "description": "Initial response in SASL authentication",
+    "aliases": [
+      "--sasl-ir"
+    ]
+  },
+  {
+    "name": "service_name",
+    "type": "boolean",
+    "required": false,
+    "description": "SPNEGO service name",
+    "aliases": [
+      "--service-name"
+    ]
+  },
+  {
     "name": "show-error",
     "template_key": "show-error",
     "type": "string",
@@ -1895,6 +2367,15 @@
     "aliases": [
       "-A",
       "--socks5-gssapi-service <name>"
+    ]
+  },
+  {
+    "name": "socks5_hostname",
+    "type": "boolean",
+    "required": false,
+    "description": "SOCKS5 proxy, pass hostname to proxy",
+    "aliases": [
+      "--socks5-hostname"
     ]
   },
   {

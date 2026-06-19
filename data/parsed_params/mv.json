@@ -11,6 +11,27 @@
     ]
   },
   {
+    "name": "context",
+    "template_key": "context",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "set SELinux security context of destination file to default type --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-Z",
+      "--context"
+    ]
+  },
+  {
+    "name": "exchange",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--exchange"
+    ]
+  },
+  {
     "name": "flag-b",
     "template_key": "flag-b",
     "type": "string",
@@ -19,6 +40,17 @@
     "description": "like --backup but does not accept an argument --debug explain how a file is copied. Implies -v --exchange exchange source and destination",
     "aliases": [
       "-b"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to --update[=older]. See below",
+    "aliases": [
+      "-u"
     ]
   },
   {
@@ -31,6 +63,15 @@
     "aliases": [
       "-f",
       "--force"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
     ]
   },
   {
@@ -69,6 +110,30 @@
     ]
   },
   {
+    "name": "no-target-directory",
+    "template_key": "no-target-directory",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "treat DEST as a normal file --update[=UPDATE] control which existing files are updated; UPDATE={all,none,none-fail,older(default)}",
+    "aliases": [
+      "-T",
+      "--no-target-directory"
+    ],
+    "enum": [
+      "all,none,none-fail,older(default)"
+    ]
+  },
+  {
+    "name": "strip_trailing_slashes",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--strip-trailing-slashes"
+    ]
+  },
+  {
     "name": "suffix",
     "template_key": "suffix",
     "type": "string",
@@ -93,32 +158,6 @@
     ]
   },
   {
-    "name": "no-target-directory",
-    "template_key": "no-target-directory",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "treat DEST as a normal file --update[=UPDATE] control which existing files are updated; UPDATE={all,none,none-fail,older(default)}",
-    "aliases": [
-      "-T",
-      "--no-target-directory"
-    ],
-    "enum": [
-      "all,none,none-fail,older(default)"
-    ]
-  },
-  {
-    "name": "flag-u",
-    "template_key": "flag-u",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "equivalent to --update[=older]. See below",
-    "aliases": [
-      "-u"
-    ]
-  },
-  {
     "name": "verbose",
     "template_key": "verbose",
     "type": "string",
@@ -131,15 +170,12 @@
     ]
   },
   {
-    "name": "context",
-    "template_key": "context",
-    "type": "file",
+    "name": "version",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "set SELinux security context of destination file to default type --help display this help and exit --version output version information and exit",
+    "description": "",
     "aliases": [
-      "-Z",
-      "--context"
+      "--version"
     ]
   }
 ]

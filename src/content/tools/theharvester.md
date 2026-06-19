@@ -179,6 +179,62 @@ parameters:
   aliases:
   - -q
   - --quiet
+
+- name: api_scan
+  type: boolean
+  required: false
+  description: "Scan for API endpoints."
+  aliases:
+    - "--api-scan"
+- name: e
+  type: boolean
+  required: false
+  description: "DNS_SERVER  DNS server to use for lookup."
+  aliases:
+    - "-e"
+    - "--dns-server"
+- name: h
+  type: boolean
+  required: false
+  description: "show this help message and exit"
+  aliases:
+    - "-h"
+    - "--help"
+- name: "n"
+  type: boolean
+  required: false
+  description: "Enable DNS server lookup, default False."
+  aliases:
+    - "-n"
+    - "--dns-lookup"
+- name: p
+  type: boolean
+  required: false
+  description: "Use proxies for requests, enter proxies in proxies.yaml."
+  aliases:
+    - "-p"
+    - "--proxies"
+- name: r
+  type: boolean
+  required: false
+  description: "Perform DNS resolution on subdomains"
+  aliases:
+    - "-r"
+    - "--dns-resolve"
+- name: screenshot
+  type: boolean
+  required: false
+  description: "SCREENSHOT  Take screenshots of resolved domains specify output dir"
+  aliases:
+    - "--screenshot"
+- name: w
+  type: boolean
+  required: false
+  description: "WORDLIST  Specify a wordlist for API endpoint scanning."
+  aliases:
+    - "-w"
+    - "--wordlist"
+
 execution:
   template: theHarvester -d {domain} -b {source} -l {limit}
   sandbox: execFile

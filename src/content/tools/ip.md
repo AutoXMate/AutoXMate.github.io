@@ -47,6 +47,56 @@ parameters:
       - mpls
       - bridge
       - link
+
+  - name: "4"
+    type: boolean
+    required: false
+    description: "|"
+    aliases:
+      - "-4"
+      - "-6"
+      - "-M"
+      - "-B"
+      - "-0"
+  - name: c
+    type: boolean
+    required: false
+    description: "}"
+    aliases:
+      - "-c"
+  - name: f
+    type: boolean
+    required: false
+    description: "{ inet | inet6 | mpls | bridge | link } |"
+    aliases:
+      - "-f"
+  - name: l
+    type: boolean
+    required: false
+    description: "|"
+    aliases:
+      - "-l"
+      - "-addr-flush-attempts"
+      - "-echo"
+      - "-br"
+  - name: o
+    type: boolean
+    required: false
+    description: "[filename] |"
+    aliases:
+      - "-o"
+      - "-t"
+      - "-ts"
+      - "-b"
+  - name: rc
+    type: boolean
+    required: false
+    description: "| -a[ll] |"
+    aliases:
+      - "-rc"
+      - "-n"
+      - "-N"
+
 execution:
   template: "ip -h {flag-h}"
   sandbox: execFile

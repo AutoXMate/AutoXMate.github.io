@@ -80,6 +80,38 @@ parameters:
     aliases:
       - -z
       - --zero-terminated
+
+  - name: M
+    type: boolean
+    required: false
+    description: "from first to M'th (included) byte, character or field"
+    aliases:
+      - "-M"
+  - name: complement
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--complement"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: output_delimiter
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--output-delimiter"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "cut -b {bytes} -c {characters} -d {delimiter} -f {fields} -n {flag-n}"
   sandbox: execFile

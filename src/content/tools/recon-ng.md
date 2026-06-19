@@ -113,6 +113,39 @@ parameters:
   description: Disable all passive requests
   aliases:
   - --stealth
+
+- name: accessible
+  type: boolean
+  required: false
+  description: "Use accessible outputs when available"
+  aliases:
+    - "--accessible"
+- name: h
+  type: boolean
+  required: false
+  description: "show this help message and exit"
+  aliases:
+    - "-h"
+    - "--help"
+- name: no_analytics
+  type: boolean
+  required: false
+  description: "disable analytics reporting"
+  aliases:
+    - "--no-analytics"
+- name: no_version
+  type: boolean
+  required: false
+  description: "disable version check"
+  aliases:
+    - "--no-version"
+- name: version
+  type: boolean
+  required: false
+  description: "displays the current version"
+  aliases:
+    - "--version"
+
 execution:
   template: recon-ng -w {workspace}
   sandbox: execFile

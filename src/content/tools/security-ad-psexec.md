@@ -153,6 +153,20 @@ parameters:
   description: SMB share for file upload
   aliases:
   - --share
+
+- name: nooutput
+  type: boolean
+  required: false
+  description: "Suppress output"
+  aliases:
+    - "--nooutput"
+- name: ts
+  type: boolean
+  required: false
+  description: "Include timestamps"
+  aliases:
+    - "-ts"
+
 execution:
   template: impacket-psexec {domain}/{user}:{password}@{target}
   sandbox: execFile

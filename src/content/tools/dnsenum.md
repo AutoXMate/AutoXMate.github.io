@@ -192,6 +192,63 @@ parameters:
   aliases:
   - -o
   - --output
+
+- name: d
+  type: boolean
+  required: false
+  description: "Max seconds between whois queries (default: 3s)."
+  aliases:
+    - "-d"
+    - "--delay"
+- name: e
+  type: boolean
+  required: false
+  description: "Exclude PTR records matching regexp."
+  aliases:
+    - "-e"
+    - "--exclude"
+- name: h
+  type: boolean
+  required: false
+  description: "Print this help message."
+  aliases:
+    - "-h"
+    - "--help"
+- name: p
+  type: boolean
+  required: false
+  description: "Google search pages to process (default: 5)."
+  aliases:
+    - "-p"
+    - "--pages"
+- name: s
+  type: boolean
+  required: false
+  description: "Max subdomains scraped from Google (default 15)."
+  aliases:
+    - "-s"
+    - "--scrap"
+- name: subfile
+  type: boolean
+  required: false
+  description: "Write all valid subdomains to this file."
+  aliases:
+    - "--subfile"
+- name: u
+  type: boolean
+  required: false
+  description: "Update file with valid subdomains."
+  aliases:
+    - "-u"
+    - "--update"
+- name: w
+  type: boolean
+  required: false
+  description: "Perform whois queries on C class networks."
+  aliases:
+    - "-w"
+    - "--whois"
+
 execution:
   template: dnsenum {domain}
   sandbox: execFile

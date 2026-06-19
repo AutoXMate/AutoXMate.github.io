@@ -140,6 +140,36 @@ parameters:
   aliases:
   - -u
   - --udp
+
+- name: V
+  type: boolean
+  required: false
+  description: "Print version information"
+  aliases:
+    - "-V"
+    - "--version"
+- name: flag-g
+  type: boolean
+  required: false
+  description: "Greppable output"
+  aliases:
+    - "-g"
+    - "--greppable"
+- name: h
+  type: boolean
+  required: false
+  description: "Print help information"
+  aliases:
+    - "-h"
+    - "--help"
+- name: t
+  type: boolean
+  required: false
+  description: "The time in milliseconds before a timeout occurs (default: 1500)"
+  aliases:
+    - "-t"
+    - "--timeout"
+
 execution:
   template: rustscan -a {target} -p {ports} --batch {batch} --timeout {timeout}
   sandbox: execFile

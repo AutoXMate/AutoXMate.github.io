@@ -161,5 +161,23 @@
     "aliases": [
       "-y"
     ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "-h"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "-v"
+    ]
   }
 ]

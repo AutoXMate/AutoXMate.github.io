@@ -154,6 +154,57 @@ parameters:
   description: Enable mining mode (--mining)
   aliases:
   - --mining
+
+- name: custom_payload
+  type: boolean
+  required: false
+  description: "string Custom payload file"
+  aliases:
+    - "--custom-payload"
+- name: follow_redirects
+  type: boolean
+  required: false
+  description: "Follow redirects"
+  aliases:
+    - "--follow-redirects"
+- name: found_action
+  type: boolean
+  required: false
+  description: "string   Command to run on XSS found"
+  aliases:
+    - "--found-action"
+- name: h
+  type: boolean
+  required: false
+  description: "Help for dalfox"
+  aliases:
+    - "-h"
+    - "--help"
+- name: mass_file
+  type: boolean
+  required: false
+  description: "string      File for mass targets"
+  aliases:
+    - "--mass-file"
+- name: not_found_action
+  type: boolean
+  required: false
+  description: "string  Command on not found"
+  aliases:
+    - "--not-found-action"
+- name: only_custom_payload
+  type: boolean
+  required: false
+  description: "Use only custom payloads"
+  aliases:
+    - "--only-custom-payload"
+- name: waf_evasion
+  type: boolean
+  required: false
+  description: "Enable WAF evasion"
+  aliases:
+    - "--waf-evasion"
+
 execution:
   template: dalfox url {target}
   sandbox: execFile

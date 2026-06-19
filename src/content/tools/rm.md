@@ -72,6 +72,44 @@ parameters:
     aliases:
       - -v
       - --verbose
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: interactive
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--interactive"
+  - name: no_preserve_root
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--no-preserve-root"
+  - name: one_file_system
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--one-file-system"
+  - name: preserve_root
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--preserve-root"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "rm -f {force} -i {flag-i} -I {flag-i} -r {recursive} -d {dir}"
   sandbox: execFile

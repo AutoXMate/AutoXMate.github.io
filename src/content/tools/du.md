@@ -174,6 +174,58 @@ parameters:
     aliases:
       - -x
       - --one-file-system
+
+  - name: files0_from
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--files0-from"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: inodes
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--inodes"
+  - name: "null"
+    type: string
+    required: false
+    default: null
+    description: "end each output line with NUL, not newline"
+    aliases:
+      - "-0"
+      - "--null"
+  - name: si
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--si"
+  - name: time
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--time"
+  - name: time_style
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--time-style"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "du -0 {null} -a {all} -A {apparent-size} -B {block-size} -b {bytes}"
   sandbox: execFile

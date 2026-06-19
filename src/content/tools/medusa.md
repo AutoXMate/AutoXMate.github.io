@@ -208,6 +208,68 @@ parameters:
   aliases:
   - -d
   - --debug
+
+- name: C
+  type: boolean
+  required: false
+  description: "File containing colon-separated \"user:pass\" combos"
+  aliases:
+    - "-C"
+- name: W
+  type: boolean
+  required: false
+  description: "Fail wait time in seconds"
+  aliases:
+    - "-W"
+- name: Z
+  type: boolean
+  required: false
+  description: "Number of seconds to wait between retries"
+  aliases:
+    - "-Z"
+- name: b
+  type: boolean
+  required: false
+  description: "Suppress startup banner"
+  aliases:
+    - "-b"
+- name: c
+  type: boolean
+  required: false
+  description: "Connection timeout in seconds"
+  aliases:
+    - "-c"
+- name: d
+  type: boolean
+  required: false
+  description: "Dump all received data to display"
+  aliases:
+    - "-d"
+- name: g
+  type: boolean
+  required: false
+  description: "Group number for connection throttling"
+  aliases:
+    - "-g"
+- name: "n"
+  type: boolean
+  required: false
+  description: "Use numeric UID/GUID for display"
+  aliases:
+    - "-n"
+- name: w
+  type: boolean
+  required: false
+  description: "Error wait time in seconds"
+  aliases:
+    - "-w"
+- name: z
+  type: boolean
+  required: false
+  description: "Number of seconds to wait between connections"
+  aliases:
+    - "-z"
+
 execution:
   template: medusa -h {target} -u {username} -P {password-list} -M {module}
   sandbox: execFile

@@ -16,75 +16,12 @@
     ]
   },
   {
-    "name": "skip-bytes",
-    "template_key": "skip-bytes",
-    "type": "integer",
+    "name": "endian",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "skip BYTES input bytes first",
+    "description": "",
     "aliases": [
-      "-j",
-      "--skip-bytes"
-    ]
-  },
-  {
-    "name": "read-bytes",
-    "template_key": "read-bytes",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "limit dump to BYTES input bytes",
-    "aliases": [
-      "-N",
-      "--read-bytes"
-    ]
-  },
-  {
-    "name": "strings",
-    "template_key": "strings",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "show only NUL terminated strings of at least BYTES (default 3) printable characters",
-    "aliases": [
-      "-S",
-      "--strings"
-    ]
-  },
-  {
-    "name": "format",
-    "template_key": "format",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "select output format or formats",
-    "aliases": [
-      "-t",
-      "--format"
-    ]
-  },
-  {
-    "name": "output-duplicates",
-    "template_key": "output-duplicates",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "do not use * to mark line suppression",
-    "aliases": [
-      "-v",
-      "--output-duplicates"
-    ]
-  },
-  {
-    "name": "width",
-    "template_key": "width",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "output BYTES bytes per output line; 32 is implied when BYTES is not specified --traditional accept arguments in third form above --help display this help and exit --version output version information and exit",
-    "aliases": [
-      "-w",
-      "--width"
+      "--endian"
     ]
   },
   {
@@ -195,6 +132,105 @@
     "description": "same as -t x2, select hexadecimal 2-byte units",
     "aliases": [
       "-x"
+    ]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "select output format or formats",
+    "aliases": [
+      "-t",
+      "--format"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "output-duplicates",
+    "template_key": "output-duplicates",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not use * to mark line suppression",
+    "aliases": [
+      "-v",
+      "--output-duplicates"
+    ]
+  },
+  {
+    "name": "read-bytes",
+    "template_key": "read-bytes",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "limit dump to BYTES input bytes",
+    "aliases": [
+      "-N",
+      "--read-bytes"
+    ]
+  },
+  {
+    "name": "skip-bytes",
+    "template_key": "skip-bytes",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "skip BYTES input bytes first",
+    "aliases": [
+      "-j",
+      "--skip-bytes"
+    ]
+  },
+  {
+    "name": "strings",
+    "template_key": "strings",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show only NUL terminated strings of at least BYTES (default 3) printable characters",
+    "aliases": [
+      "-S",
+      "--strings"
+    ]
+  },
+  {
+    "name": "traditional",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--traditional"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
+    ]
+  },
+  {
+    "name": "width",
+    "template_key": "width",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output BYTES bytes per output line; 32 is implied when BYTES is not specified --traditional accept arguments in third form above --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-w",
+      "--width"
     ]
   }
 ]

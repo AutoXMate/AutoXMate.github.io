@@ -152,6 +152,26 @@ parameters:
     aliases:
       - -z
       - --null-data
+
+  - name: help
+    type: boolean
+    required: false
+    description: "display this help and exit"
+    aliases:
+      - "--help"
+  - name: sandbox
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--sandbox"
+  - name: version
+    type: boolean
+    required: false
+    description: "output version information and exit"
+    aliases:
+      - "--version"
+
 features:
   - local
   - pipes-stdin

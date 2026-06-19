@@ -196,6 +196,52 @@ parameters:
   description: Automatically tune scan parameters
   aliases:
   - --auto-tune
+
+- name: filter_lines
+  type: boolean
+  required: false
+  description: "Filter by line count"
+  aliases:
+    - "--filter-lines"
+- name: filter_regex
+  type: boolean
+  required: false
+  description: "Filter by regex pattern"
+  aliases:
+    - "--filter-regex"
+- name: filter_size
+  type: boolean
+  required: false
+  description: "Filter by response size"
+  aliases:
+    - "--filter-size"
+- name: filter_status
+  type: boolean
+  required: false
+  description: "Filter by status codes"
+  aliases:
+    - "--filter-status"
+- name: filter_words
+  type: boolean
+  required: false
+  description: "Filter by word count"
+  aliases:
+    - "--filter-words"
+- name: user_agent
+  type: boolean
+  required: false
+  description: "string"
+  aliases:
+    - "--user-agent"
+    - "-Agent"
+- name: v
+  type: boolean
+  required: false
+  description: "Verbose output"
+  aliases:
+    - "-v"
+    - "--verbose"
+
 execution:
   template: feroxbuster -u {target} -w {wordlist} -x {extensions}
   sandbox: execFile

@@ -179,6 +179,28 @@ parameters:
   description: Follow HTTP redirects
   aliases:
   - -r
+
+- name: exclude_length
+  type: boolean
+  required: false
+  description: "Exclude results of given content length"
+  aliases:
+    - "--exclude-length"
+- name: r
+  type: boolean
+  required: false
+  description: "Follow HTTP redirects"
+  aliases:
+    - "-r"
+    - "--follow-redirect"
+- name: z
+  type: boolean
+  required: false
+  description: "Do not display progress"
+  aliases:
+    - "-z"
+    - "--no-progress"
+
 execution:
   template: gobuster dir -u {target} -w {wordlist} -t {threads}
   sandbox: execFile

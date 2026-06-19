@@ -1,61 +1,65 @@
 [
   {
-    "name": "archive-headers",
-    "template_key": "archive-headers",
-    "type": "string",
+    "name": "EB",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Display archive header information",
+    "description": "Assume big endian format when disassembling",
     "aliases": [
-      "-a",
-      "--archive-headers"
+      "-EB",
+      "--endian"
     ]
   },
   {
-    "name": "file-headers",
-    "template_key": "file-headers",
-    "type": "string",
+    "name": "EL",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Display the contents of the overall file header",
+    "description": "Assume little endian format when disassembling",
     "aliases": [
-      "-f",
-      "--file-headers"
+      "-EL",
+      "--endian"
     ]
   },
   {
-    "name": "private-headers",
-    "template_key": "private-headers",
-    "type": "string",
+    "name": "WK",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Display object format specific file header contents",
-    "aliases": [
-      "-p",
-      "--private-headers"
-    ]
-  },
-  {
-    "name": "private",
-    "template_key": "private",
-    "type": "string",
-    "required": false,
-    "default_value": null,
     "description": "",
     "aliases": [
-      "-P",
-      "--private"
+      "-WK",
+      "--dwarf",
+      "-links"
     ]
   },
   {
-    "name": "flag-h",
-    "template_key": "flag-h",
+    "name": "WN",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "-WN",
+      "--dwarf",
+      "-follow-links"
+    ]
+  },
+  {
+    "name": "Wk",
+    "type": "boolean",
+    "required": false,
+    "description": "Display the contents of sections that link to",
+    "aliases": [
+      "-Wk",
+      "--dwarf"
+    ]
+  },
+  {
+    "name": "adjust-vma",
+    "template_key": "adjust-vma",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "",
+    "description": "Add OFFSET to all displayed section addresses",
     "aliases": [
-      "-h"
+      "--adjust-vma"
     ]
   },
   {
@@ -71,85 +75,49 @@
     ]
   },
   {
-    "name": "disassemble",
-    "template_key": "disassemble",
+    "name": "architecture",
+    "template_key": "architecture",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Display assembler contents of executable sections",
+    "description": "Specify the target architecture as MACHINE",
     "aliases": [
-      "-d",
-      "--disassemble"
+      "-m",
+      "--architecture"
     ]
   },
   {
-    "name": "disassemble-all",
-    "template_key": "disassemble-all",
+    "name": "archive-headers",
+    "template_key": "archive-headers",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Display assembler contents of all sections",
+    "description": "Display archive header information",
     "aliases": [
-      "-D",
-      "--disassemble-all"
+      "-a",
+      "--archive-headers"
     ]
   },
   {
-    "name": "disassemble-2",
-    "template_key": "disassemble-2",
+    "name": "ctf",
+    "template_key": "ctf",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "",
+    "description": "Display CTF info from SECTION, (default `.ctf')",
     "aliases": [
-      "--disassemble"
+      "--ctf"
     ]
   },
   {
-    "name": "source",
-    "template_key": "source",
+    "name": "ctf-parent",
+    "template_key": "ctf-parent",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Intermix source code with disassembly",
+    "description": "Use CTF archive member NAME as the CTF parent",
     "aliases": [
-      "-S",
-      "--source"
-    ]
-  },
-  {
-    "name": "source-comment",
-    "template_key": "source-comment",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "",
-    "aliases": [
-      "--source-comment"
-    ]
-  },
-  {
-    "name": "full-contents",
-    "template_key": "full-contents",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Display the full contents of all sections requested",
-    "aliases": [
-      "-s",
-      "--full-contents"
-    ]
-  },
-  {
-    "name": "decompress",
-    "template_key": "decompress",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Decompress section(s) before displaying their contents",
-    "aliases": [
-      "-Z",
-      "--decompress"
+      "--ctf-parent"
     ]
   },
   {
@@ -177,15 +145,95 @@
     ]
   },
   {
-    "name": "stabs",
-    "template_key": "stabs",
+    "name": "decompress",
+    "template_key": "decompress",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Display (in raw form) any STABS info in the file",
+    "description": "Decompress section(s) before displaying their contents",
     "aliases": [
-      "-G",
-      "--stabs"
+      "-Z",
+      "--decompress"
+    ]
+  },
+  {
+    "name": "demangle",
+    "template_key": "demangle",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Decode mangled/processed symbol names",
+    "aliases": [
+      "-C",
+      "--demangle"
+    ]
+  },
+  {
+    "name": "disassemble",
+    "template_key": "disassemble",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display assembler contents of executable sections",
+    "aliases": [
+      "-d",
+      "--disassemble"
+    ]
+  },
+  {
+    "name": "disassemble-2",
+    "template_key": "disassemble-2",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--disassemble"
+    ]
+  },
+  {
+    "name": "disassemble-all",
+    "template_key": "disassemble-all",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display assembler contents of all sections",
+    "aliases": [
+      "-D",
+      "--disassemble-all"
+    ]
+  },
+  {
+    "name": "disassemble-zeroes",
+    "template_key": "disassemble-zeroes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not skip blocks of zeroes when disassembling",
+    "aliases": [
+      "-z",
+      "--disassemble-zeroes"
+    ]
+  },
+  {
+    "name": "disassembler-options",
+    "template_key": "disassembler-options",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-M",
+      "--disassembler-options"
+    ]
+  },
+  {
+    "name": "disassembler_color",
+    "type": "boolean",
+    "required": false,
+    "description": "Disable disassembler color output. (default)",
+    "aliases": [
+      "--disassembler-color"
     ]
   },
   {
@@ -240,73 +288,36 @@
     ]
   },
   {
-    "name": "process-links",
-    "template_key": "process-links",
+    "name": "dwarf-check",
+    "template_key": "dwarf-check",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Display the contents of non-debug sections in",
+    "description": "Make additional dwarf consistency checks",
     "aliases": [
-      "-L",
-      "--process-links"
+      "--dwarf-check"
     ]
   },
   {
-    "name": "ctf",
-    "template_key": "ctf",
-    "type": "string",
+    "name": "dwarf-depth",
+    "template_key": "dwarf-depth",
+    "type": "integer",
     "required": false,
     "default_value": null,
-    "description": "Display CTF info from SECTION, (default `.ctf')",
+    "description": "Do not display DIEs at depth N or greater",
     "aliases": [
-      "--ctf"
+      "--dwarf-depth"
     ]
   },
   {
-    "name": "sframe",
-    "template_key": "sframe",
-    "type": "string",
+    "name": "dwarf-start",
+    "template_key": "dwarf-start",
+    "type": "integer",
     "required": false,
     "default_value": null,
-    "description": "Display SFrame info from SECTION, (default '.sframe')",
+    "description": "Display DIEs starting at offset N",
     "aliases": [
-      "--sframe"
-    ]
-  },
-  {
-    "name": "syms",
-    "template_key": "syms",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Display the contents of the symbol table(s)",
-    "aliases": [
-      "-t",
-      "--syms"
-    ]
-  },
-  {
-    "name": "dynamic-syms",
-    "template_key": "dynamic-syms",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Display the contents of the dynamic symbol table",
-    "aliases": [
-      "-T",
-      "--dynamic-syms"
-    ]
-  },
-  {
-    "name": "reloc",
-    "template_key": "reloc",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Display the relocation entries in the file",
-    "aliases": [
-      "-r",
-      "--reloc"
+      "--dwarf-start"
     ]
   },
   {
@@ -322,87 +333,15 @@
     ]
   },
   {
-    "name": "version",
-    "template_key": "version",
+    "name": "dynamic-syms",
+    "template_key": "dynamic-syms",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Display this program's version number",
+    "description": "Display the contents of the dynamic symbol table",
     "aliases": [
-      "-v",
-      "--version"
-    ]
-  },
-  {
-    "name": "info",
-    "template_key": "info",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "List object formats and architectures supported",
-    "aliases": [
-      "-i",
-      "--info"
-    ]
-  },
-  {
-    "name": "help",
-    "template_key": "help",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Display this information",
-    "aliases": [
-      "-H",
-      "--help"
-    ]
-  },
-  {
-    "name": "target",
-    "template_key": "target",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Specify the target object format as BFDNAME",
-    "aliases": [
-      "-b",
-      "--target"
-    ]
-  },
-  {
-    "name": "architecture",
-    "template_key": "architecture",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Specify the target architecture as MACHINE",
-    "aliases": [
-      "-m",
-      "--architecture"
-    ]
-  },
-  {
-    "name": "section",
-    "template_key": "section",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Only display information for section NAME",
-    "aliases": [
-      "-j",
-      "--section"
-    ]
-  },
-  {
-    "name": "disassembler-options",
-    "template_key": "disassembler-options",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "",
-    "aliases": [
-      "-M",
-      "--disassembler-options"
+      "-T",
+      "--dynamic-syms"
     ]
   },
   {
@@ -430,38 +369,15 @@
     ]
   },
   {
-    "name": "file-start-context",
-    "template_key": "file-start-context",
+    "name": "file-headers",
+    "template_key": "file-headers",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Include context from start of file (with -S)",
+    "description": "Display the contents of the overall file header",
     "aliases": [
-      "--file-start-context"
-    ]
-  },
-  {
-    "name": "include",
-    "template_key": "include",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Add DIR to search list for source files",
-    "aliases": [
-      "-I",
-      "--include"
-    ]
-  },
-  {
-    "name": "line-numbers",
-    "template_key": "line-numbers",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Include line numbers and filenames in output",
-    "aliases": [
-      "-l",
-      "--line-numbers"
+      "-f",
+      "--file-headers"
     ]
   },
   {
@@ -477,49 +393,14 @@
     ]
   },
   {
-    "name": "demangle",
-    "template_key": "demangle",
+    "name": "file-start-context",
+    "template_key": "file-start-context",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Decode mangled/processed symbol names",
+    "description": "Include context from start of file (with -S)",
     "aliases": [
-      "-C",
-      "--demangle"
-    ]
-  },
-  {
-    "name": "recurse-limit",
-    "template_key": "recurse-limit",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Enable a limit on recursion whilst demangling",
-    "aliases": [
-      "--recurse-limit"
-    ]
-  },
-  {
-    "name": "no-recurse-limit",
-    "template_key": "no-recurse-limit",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Disable a limit on recursion whilst demangling",
-    "aliases": [
-      "--no-recurse-limit"
-    ]
-  },
-  {
-    "name": "wide",
-    "template_key": "wide",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Format output for more than 80 columns",
-    "aliases": [
-      "-w",
-      "--wide"
+      "--file-start-context"
     ]
   },
   {
@@ -534,26 +415,302 @@
     ]
   },
   {
-    "name": "unicode",
-    "template_key": "unicode",
+    "name": "flag-h",
+    "template_key": "flag-h",
     "type": "string",
     "required": false,
     "default_value": null,
     "description": "",
     "aliases": [
-      "--unicode"
+      "-h"
     ]
   },
   {
-    "name": "disassemble-zeroes",
-    "template_key": "disassemble-zeroes",
+    "name": "flag-r",
+    "template_key": "flag-r",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Do not skip blocks of zeroes when disassembling",
+    "description": "Display hex alongside symbolic disassembly",
     "aliases": [
-      "-z",
-      "--disassemble-zeroes"
+      "-r",
+      "-i"
+    ]
+  },
+  {
+    "name": "full-contents",
+    "template_key": "full-contents",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the full contents of all sections requested",
+    "aliases": [
+      "-s",
+      "--full-contents"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display this information",
+    "aliases": [
+      "-H",
+      "--help"
+    ]
+  },
+  {
+    "name": "include",
+    "template_key": "include",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Add DIR to search list for source files",
+    "aliases": [
+      "-I",
+      "--include"
+    ]
+  },
+  {
+    "name": "info",
+    "template_key": "info",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "List object formats and architectures supported",
+    "aliases": [
+      "-i",
+      "--info"
+    ]
+  },
+  {
+    "name": "inlines",
+    "template_key": "inlines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print all inlines for source line (with -l)",
+    "aliases": [
+      "--inlines"
+    ]
+  },
+  {
+    "name": "insn-width",
+    "template_key": "insn-width",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Display WIDTH bytes on a single line for -d",
+    "aliases": [
+      "--insn-width"
+    ]
+  },
+  {
+    "name": "line-numbers",
+    "template_key": "line-numbers",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Include line numbers and filenames in output",
+    "aliases": [
+      "-l",
+      "--line-numbers"
+    ]
+  },
+  {
+    "name": "no-addresses",
+    "template_key": "no-addresses",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not print address alongside disassembly",
+    "aliases": [
+      "--no-addresses"
+    ]
+  },
+  {
+    "name": "no-recurse-limit",
+    "template_key": "no-recurse-limit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Disable a limit on recursion whilst demangling",
+    "aliases": [
+      "--no-recurse-limit"
+    ]
+  },
+  {
+    "name": "prefix",
+    "template_key": "prefix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Add PREFIX to absolute paths for -S",
+    "aliases": [
+      "--prefix"
+    ]
+  },
+  {
+    "name": "prefix-addresses",
+    "template_key": "prefix-addresses",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print complete address alongside disassembly",
+    "aliases": [
+      "--prefix-addresses"
+    ]
+  },
+  {
+    "name": "prefix-strip",
+    "template_key": "prefix-strip",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Strip initial directory names for -S",
+    "aliases": [
+      "--prefix-strip"
+    ]
+  },
+  {
+    "name": "private",
+    "template_key": "private",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-P",
+      "--private"
+    ]
+  },
+  {
+    "name": "private-headers",
+    "template_key": "private-headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display object format specific file header contents",
+    "aliases": [
+      "-p",
+      "--private-headers"
+    ]
+  },
+  {
+    "name": "process-links",
+    "template_key": "process-links",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the contents of non-debug sections in",
+    "aliases": [
+      "-L",
+      "--process-links"
+    ]
+  },
+  {
+    "name": "recurse-limit",
+    "template_key": "recurse-limit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Enable a limit on recursion whilst demangling",
+    "aliases": [
+      "--recurse-limit"
+    ]
+  },
+  {
+    "name": "reloc",
+    "template_key": "reloc",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display the relocation entries in the file",
+    "aliases": [
+      "-r",
+      "--reloc"
+    ]
+  },
+  {
+    "name": "section",
+    "template_key": "section",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Only display information for section NAME",
+    "aliases": [
+      "-j",
+      "--section"
+    ]
+  },
+  {
+    "name": "sframe",
+    "template_key": "sframe",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display SFrame info from SECTION, (default '.sframe')",
+    "aliases": [
+      "--sframe"
+    ]
+  },
+  {
+    "name": "show-all-symbols",
+    "template_key": "show-all-symbols",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "When disassembling, display all symbols at a given address",
+    "aliases": [
+      "--show-all-symbols"
+    ]
+  },
+  {
+    "name": "source",
+    "template_key": "source",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Intermix source code with disassembly",
+    "aliases": [
+      "-S",
+      "--source"
+    ]
+  },
+  {
+    "name": "source-comment",
+    "template_key": "source-comment",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--source-comment"
+    ]
+  },
+  {
+    "name": "special-syms",
+    "template_key": "special-syms",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Include special symbols in symbol dumps",
+    "aliases": [
+      "--special-syms"
+    ]
+  },
+  {
+    "name": "stabs",
+    "template_key": "stabs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display (in raw form) any STABS info in the file",
+    "aliases": [
+      "-G",
+      "--stabs"
     ]
   },
   {
@@ -579,158 +736,50 @@
     ]
   },
   {
-    "name": "no-addresses",
-    "template_key": "no-addresses",
+    "name": "syms",
+    "template_key": "syms",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Do not print address alongside disassembly",
+    "description": "Display the contents of the symbol table(s)",
     "aliases": [
-      "--no-addresses"
+      "-t",
+      "--syms"
     ]
   },
   {
-    "name": "prefix-addresses",
-    "template_key": "prefix-addresses",
+    "name": "target",
+    "template_key": "target",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Print complete address alongside disassembly",
+    "description": "Specify the target object format as BFDNAME",
     "aliases": [
-      "--prefix-addresses"
+      "-b",
+      "--target"
     ]
   },
   {
-    "name": "flag-r",
-    "template_key": "flag-r",
+    "name": "unicode",
+    "template_key": "unicode",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Display hex alongside symbolic disassembly",
+    "description": "",
     "aliases": [
-      "-r",
-      "-i"
+      "--unicode"
     ]
   },
   {
-    "name": "insn-width",
-    "template_key": "insn-width",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Display WIDTH bytes on a single line for -d",
-    "aliases": [
-      "--insn-width"
-    ]
-  },
-  {
-    "name": "adjust-vma",
-    "template_key": "adjust-vma",
+    "name": "version",
+    "template_key": "version",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Add OFFSET to all displayed section addresses",
+    "description": "Display this program's version number",
     "aliases": [
-      "--adjust-vma"
-    ]
-  },
-  {
-    "name": "show-all-symbols",
-    "template_key": "show-all-symbols",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "When disassembling, display all symbols at a given address",
-    "aliases": [
-      "--show-all-symbols"
-    ]
-  },
-  {
-    "name": "special-syms",
-    "template_key": "special-syms",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Include special symbols in symbol dumps",
-    "aliases": [
-      "--special-syms"
-    ]
-  },
-  {
-    "name": "inlines",
-    "template_key": "inlines",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Print all inlines for source line (with -l)",
-    "aliases": [
-      "--inlines"
-    ]
-  },
-  {
-    "name": "prefix",
-    "template_key": "prefix",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Add PREFIX to absolute paths for -S",
-    "aliases": [
-      "--prefix"
-    ]
-  },
-  {
-    "name": "prefix-strip",
-    "template_key": "prefix-strip",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Strip initial directory names for -S",
-    "aliases": [
-      "--prefix-strip"
-    ]
-  },
-  {
-    "name": "dwarf-depth",
-    "template_key": "dwarf-depth",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Do not display DIEs at depth N or greater",
-    "aliases": [
-      "--dwarf-depth"
-    ]
-  },
-  {
-    "name": "dwarf-start",
-    "template_key": "dwarf-start",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Display DIEs starting at offset N",
-    "aliases": [
-      "--dwarf-start"
-    ]
-  },
-  {
-    "name": "dwarf-check",
-    "template_key": "dwarf-check",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Make additional dwarf consistency checks",
-    "aliases": [
-      "--dwarf-check"
-    ]
-  },
-  {
-    "name": "ctf-parent",
-    "template_key": "ctf-parent",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Use CTF archive member NAME as the CTF parent",
-    "aliases": [
-      "--ctf-parent"
+      "-v",
+      "--version"
     ]
   },
   {
@@ -765,6 +814,18 @@
     "aliases": [
       "-c",
       "--visualize-jumps"
+    ]
+  },
+  {
+    "name": "wide",
+    "template_key": "wide",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Format output for more than 80 columns",
+    "aliases": [
+      "-w",
+      "--wide"
     ]
   }
 ]

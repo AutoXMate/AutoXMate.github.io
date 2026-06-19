@@ -9,5 +9,14 @@
     "aliases": [
       "--help"
     ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
+    ]
   }
 ]

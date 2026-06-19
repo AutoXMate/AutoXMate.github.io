@@ -1,13 +1,34 @@
 [
   {
-    "name": "flag-f",
-    "template_key": "flag-f",
+    "name": "M",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "-M",
+      "--bignum"
+    ]
+  },
+  {
+    "name": "flag-D",
+    "template_key": "flag-d",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "--file=progfile",
+    "description": "--debug[=file]",
     "aliases": [
-      "-f"
+      "-D"
+    ]
+  },
+  {
+    "name": "flag-E",
+    "template_key": "flag-e",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--exec=file",
+    "aliases": [
+      "-E"
     ]
   },
   {
@@ -22,14 +43,15 @@
     ]
   },
   {
-    "name": "flag-v",
-    "template_key": "flag-v",
+    "name": "flag-L",
+    "template_key": "flag-l",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "--assign=var=val",
+    "description": "--lint[=fatal|invalid|no-ext]",
     "aliases": [
-      "-v"
+      "-L",
+      "-e"
     ]
   },
   {
@@ -66,17 +88,6 @@
     ]
   },
   {
-    "name": "flag-D",
-    "template_key": "flag-d",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "--debug[=file]",
-    "aliases": [
-      "-D"
-    ]
-  },
-  {
     "name": "flag-e",
     "template_key": "flag-e",
     "type": "string",
@@ -89,14 +100,14 @@
     ]
   },
   {
-    "name": "flag-E",
-    "template_key": "flag-e",
+    "name": "flag-f",
+    "template_key": "flag-f",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "--exec=file",
+    "description": "--file=progfile",
     "aliases": [
-      "-E"
+      "-f"
     ]
   },
   {
@@ -152,18 +163,6 @@
     "description": "--load=library",
     "aliases": [
       "-l"
-    ]
-  },
-  {
-    "name": "flag-L",
-    "template_key": "flag-l",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "--lint[=fatal|invalid|no-ext]",
-    "aliases": [
-      "-L",
-      "-e"
     ]
   },
   {
@@ -230,6 +229,17 @@
     "description": "--lint-old",
     "aliases": [
       "-t"
+    ]
+  },
+  {
+    "name": "flag-v",
+    "template_key": "flag-v",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--assign=var=val",
+    "aliases": [
+      "-v"
     ]
   }
 ]

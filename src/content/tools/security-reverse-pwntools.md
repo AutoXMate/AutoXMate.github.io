@@ -119,6 +119,15 @@ parameters:
   description: Update pwntools to the latest version
   aliases:
   - update
+
+- name: file
+  type: string
+  required: false
+  default: null
+  description: "Binary file to analyze"
+  aliases:
+    - "--file"
+
 execution:
   template: python3 -c "from pwn import *; {command}"
   sandbox: execFile

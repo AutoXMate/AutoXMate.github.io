@@ -1,14 +1,14 @@
 [
   {
-    "name": "stdout",
-    "template_key": "stdout",
+    "name": "best",
+    "template_key": "best",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "write on standard output, keep original files unchanged",
+    "description": "compress better",
     "aliases": [
-      "-c",
-      "--stdout"
+      "-9",
+      "--best"
     ]
   },
   {
@@ -21,6 +21,18 @@
     "aliases": [
       "-d",
       "--decompress"
+    ]
+  },
+  {
+    "name": "fast",
+    "template_key": "fast",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compress faster",
+    "aliases": [
+      "-1",
+      "--fast"
     ]
   },
   {
@@ -60,18 +72,6 @@
     ]
   },
   {
-    "name": "list",
-    "template_key": "list",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "list compressed file contents",
-    "aliases": [
-      "-l",
-      "--list"
-    ]
-  },
-  {
     "name": "license",
     "template_key": "license",
     "type": "string",
@@ -84,15 +84,15 @@
     ]
   },
   {
-    "name": "no-name",
-    "template_key": "no-name",
+    "name": "list",
+    "template_key": "list",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "do not save or restore the original name and timestamp",
+    "description": "list compressed file contents",
     "aliases": [
-      "-n",
-      "--no-name"
+      "-l",
+      "--list"
     ]
   },
   {
@@ -105,6 +105,18 @@
     "aliases": [
       "-N",
       "--name"
+    ]
+  },
+  {
+    "name": "no-name",
+    "template_key": "no-name",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "do not save or restore the original name and timestamp",
+    "aliases": [
+      "-n",
+      "--no-name"
     ]
   },
   {
@@ -143,6 +155,18 @@
     ]
   },
   {
+    "name": "stdout",
+    "template_key": "stdout",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "write on standard output, keep original files unchanged",
+    "aliases": [
+      "-c",
+      "--stdout"
+    ]
+  },
+  {
     "name": "suffix",
     "template_key": "suffix",
     "type": "string",
@@ -156,6 +180,15 @@
     "enum": [
       "safer if system crashes",
       "but slower"
+    ]
+  },
+  {
+    "name": "synchronous",
+    "type": "boolean",
+    "required": false,
+    "description": "synchronous output (safer if system crashes, but slower)",
+    "aliases": [
+      "--synchronous"
     ]
   },
   {
@@ -192,30 +225,6 @@
     "aliases": [
       "-V",
       "--version"
-    ]
-  },
-  {
-    "name": "fast",
-    "template_key": "fast",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "compress faster",
-    "aliases": [
-      "-1",
-      "--fast"
-    ]
-  },
-  {
-    "name": "best",
-    "template_key": "best",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "compress better",
-    "aliases": [
-      "-9",
-      "--best"
     ]
   }
 ]

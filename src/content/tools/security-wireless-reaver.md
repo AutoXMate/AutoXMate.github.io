@@ -157,6 +157,50 @@ parameters:
     aliases:
       - -X
       - --exhaustive
+
+  - name: "N"
+    type: boolean
+    required: false
+    description: "Ignore NACKs"
+    aliases:
+      - "-N"
+      - "--no-nacks"
+  - name: W
+    type: boolean
+    required: false
+    description: "Windows 7 compatibility"
+    aliases:
+      - "-W"
+      - "--win7-compat"
+  - name: d
+    type: boolean
+    required: false
+    description: "Delay between PIN attempts"
+    aliases:
+      - "-d"
+      - "--delay"
+  - name: f
+    type: boolean
+    required: false
+    description: "Disable channel hopping"
+    aliases:
+      - "-f"
+      - "--fixed"
+  - name: o
+    type: boolean
+    required: false
+    description: "Output to file"
+    aliases:
+      - "-o"
+      - "--output"
+  - name: r
+    type: boolean
+    required: false
+    description: "Recurring delay"
+    aliases:
+      - "-r"
+      - "--recurring-delay"
+
 execution:
   template: "reaver -i {interface} -b {bssid}"
   sandbox: execFile

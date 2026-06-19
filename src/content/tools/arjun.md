@@ -197,6 +197,21 @@ parameters:
   aliases:
   - -q
   - --quiet
+
+- name: disable_redirects
+  type: boolean
+  required: false
+  description: "No redirects"
+  aliases:
+    - "--disable-redirects"
+- name: i
+  type: boolean
+  required: false
+  description: "FILE             Import parameters from file"
+  aliases:
+    - "-i"
+    - "--import"
+
 execution:
   template: arjun -u {target}
   sandbox: execFile

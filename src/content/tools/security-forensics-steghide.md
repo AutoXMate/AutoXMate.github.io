@@ -162,6 +162,14 @@ parameters:
   description: Display information about a stego file
   aliases:
   - --info
+
+- name: algorithm
+  type: boolean
+  required: false
+  description: "ALGO      Embedding algorithm"
+  aliases:
+    - "--algorithm"
+
 execution:
   template: steghide embed -cf {cover} -ef {data} -p {passphrase}
   sandbox: execFile

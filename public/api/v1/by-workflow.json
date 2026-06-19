@@ -42,6 +42,16 @@
       ]
     },
     {
+      "id": "arc-gunzip",
+      "name": "gunzip",
+      "namespace": "archive:linux:compression",
+      "capabilities": [
+        "filesystem.compression",
+        "filesystem.management",
+        "system.commands"
+      ]
+    },
+    {
       "id": "archive-pax-pax",
       "name": "pax",
       "namespace": "archive:pax:pax",
@@ -2031,6 +2041,26 @@
       ]
     },
     {
+      "id": "net-tcpflow",
+      "name": "tcpflow",
+      "namespace": "network:capture:traffic",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
+      "id": "net-tcpreplay",
+      "name": "tcpreplay",
+      "namespace": "network:capture:traffic",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
       "id": "network-config-bridge",
       "name": "bridge",
       "namespace": "network:config:bridge",
@@ -2090,6 +2120,16 @@
       ]
     },
     {
+      "id": "win-pathping",
+      "name": "pathping",
+      "namespace": "network:diagnostic:latency",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
       "id": "network-diagnostic-mtr",
       "name": "mtr",
       "namespace": "network:diagnostic:mtr",
@@ -2106,6 +2146,16 @@
         "network.diagnostic.latency",
         "network.diagnostic.packetloss",
         "network.discovery.host"
+      ]
+    },
+    {
+      "id": "win-tracert",
+      "name": "tracert",
+      "namespace": "network:diagnostic:trace",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
       ]
     },
     {
@@ -2148,6 +2198,26 @@
       "namespace": "network:dns:dnsmasq",
       "capabilities": [
         "security.execution.command"
+      ]
+    },
+    {
+      "id": "net-host",
+      "name": "host",
+      "namespace": "network:dns:lookup",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
+      "id": "net-nslookup",
+      "name": "nslookup",
+      "namespace": "network:dns:lookup",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
       ]
     },
     {
@@ -2328,6 +2398,36 @@
       ]
     },
     {
+      "id": "win-getmac",
+      "name": "getmac",
+      "namespace": "network:interface:mac",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "net-nmcli",
+      "name": "nmcli",
+      "namespace": "network:linux:config",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
+      "id": "net-ethtool",
+      "name": "ethtool",
+      "namespace": "network:linux:interface",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
       "id": "network-monitor-iftop",
       "name": "iftop",
       "namespace": "network:monitor:iftop",
@@ -2336,11 +2436,51 @@
       ]
     },
     {
+      "id": "net-netstat",
+      "name": "netstat",
+      "namespace": "network:monitoring:connections",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
       "id": "network-mqtt-mosquitto",
       "name": "mosquitto",
       "namespace": "network:mqtt:mosquitto",
       "capabilities": [
         "security.execution.command"
+      ]
+    },
+    {
+      "id": "win-nbtstat",
+      "name": "nbtstat",
+      "namespace": "network:netbios:stats",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "net-showmount",
+      "name": "showmount",
+      "namespace": "network:nfs:export",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
+      "id": "net-nfsstat",
+      "name": "nfsstat",
+      "namespace": "network:nfs:stats",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
       ]
     },
     {
@@ -2395,9 +2535,9 @@
       ]
     },
     {
-      "id": "network-socket-nc",
+      "id": "network-socket-netcat",
       "name": "netcat",
-      "namespace": "network:socket:nc",
+      "namespace": "network:socket:netcat",
       "capabilities": [
         "network.socket.listen",
         "network.socket.connect",
@@ -2606,6 +2746,16 @@
       ]
     },
     {
+      "id": "ligolo-ng",
+      "name": "ligolo-ng",
+      "namespace": "network:tunnel:proxy",
+      "capabilities": [
+        "network.diagnostics",
+        "network.configuration",
+        "system.information-gathering"
+      ]
+    },
+    {
       "id": "network-vpn-openvpn",
       "name": "openvpn",
       "namespace": "network:vpn:openvpn",
@@ -2636,6 +2786,16 @@
       "namespace": "network:vpn:wg-quick",
       "capabilities": [
         "security.privilege-escalation.shell"
+      ]
+    },
+    {
+      "id": "cmd-ipconfig",
+      "name": "ipconfig",
+      "namespace": "network:windows:config",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
       ]
     },
     {
@@ -2843,6 +3003,66 @@
       ]
     },
     {
+      "id": "win-mstsc",
+      "name": "mstsc",
+      "namespace": "remote:rdp:client",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-tscon",
+      "name": "tscon",
+      "namespace": "remote:ts:connect",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-tsdiscon",
+      "name": "tsdiscon",
+      "namespace": "remote:ts:disconnect",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-qwinsta",
+      "name": "qwinsta",
+      "namespace": "remote:ts:query",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-rwinsta",
+      "name": "rwinsta",
+      "namespace": "remote:ts:reset",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-winrs",
+      "name": "winrs",
+      "namespace": "remote:winrm:shell",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
       "id": "runtime-jdk-jjs",
       "name": "jjs",
       "namespace": "runtime:jdk:jjs",
@@ -2946,6 +3166,16 @@
       ]
     },
     {
+      "id": "bloodhound-python",
+      "name": "bloodhound-python",
+      "namespace": "security:ad:analyze",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
       "id": "security-ad-certipy",
       "name": "Certipy",
       "namespace": "security:ad:certipy",
@@ -2955,6 +3185,16 @@
         "security.ad.cs.esc4",
         "security.ad.cs.auth",
         "security.ad.cert.enum"
+      ]
+    },
+    {
+      "id": "cmd-dcdiag",
+      "name": "dcdiag",
+      "namespace": "security:ad:diagnostic",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
       ]
     },
     {
@@ -2968,6 +3208,16 @@
         "security.ad.enum.passwordpolicy",
         "security.ad.enum.osinfo",
         "security.ad.enum.sessions"
+      ]
+    },
+    {
+      "id": "cmd-csvde",
+      "name": "csvde",
+      "namespace": "security:ad:export",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
       ]
     },
     {
@@ -3003,6 +3253,26 @@
         "security.shell.remote",
         "security.execution.remote",
         "security.ad.service.control"
+      ]
+    },
+    {
+      "id": "cmd-dsquery",
+      "name": "dsquery",
+      "namespace": "security:ad:query",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-repadmin",
+      "name": "repadmin",
+      "namespace": "security:ad:replication",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
       ]
     },
     {
@@ -3080,6 +3350,16 @@
         "security.ad.share.delete",
         "security.ad.share.exec",
         "security.ad.share.content"
+      ]
+    },
+    {
+      "id": "cmd-nltest",
+      "name": "nltest",
+      "namespace": "security:ad:trust",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
       ]
     },
     {
@@ -3609,6 +3889,136 @@
       ]
     },
     {
+      "id": "impacket-samrdump",
+      "name": "impacket-samrdump",
+      "namespace": "security:impacket:credential",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-secretsdump",
+      "name": "impacket-secretsdump",
+      "namespace": "security:impacket:credential",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-mssqlexec",
+      "name": "impacket-mssqlexec",
+      "namespace": "security:impacket:database",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-rpcdump",
+      "name": "impacket-rpcdump",
+      "namespace": "security:impacket:enumeration",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-atexec",
+      "name": "impacket-atexec",
+      "namespace": "security:impacket:execution",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-dcomexec",
+      "name": "impacket-dcomexec",
+      "namespace": "security:impacket:execution",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-psexec",
+      "name": "impacket-psexec",
+      "namespace": "security:impacket:execution",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-smbexec",
+      "name": "impacket-smbexec",
+      "namespace": "security:impacket:execution",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-wmiexec",
+      "name": "impacket-wmiexec",
+      "namespace": "security:impacket:execution",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-getst",
+      "name": "impacket-getST",
+      "namespace": "security:impacket:kerberos",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-gettgt",
+      "name": "impacket-getTGT",
+      "namespace": "security:impacket:kerberos",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-ticketer",
+      "name": "impacket-ticketer",
+      "namespace": "security:impacket:kerberos",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "impacket-reg",
+      "name": "impacket-reg",
+      "namespace": "security:impacket:registry",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
       "id": "security-intel-censys",
       "name": "censys",
       "namespace": "security:intel:censys",
@@ -3655,6 +4065,76 @@
         "ioc.detect.malware",
         "ioc.yara.match",
         "ioc.threat-intel"
+      ]
+    },
+    {
+      "id": "win-ksetup",
+      "name": "ksetup",
+      "namespace": "security:kerberos:config",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-klist",
+      "name": "klist",
+      "namespace": "security:kerberos:tickets",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sec-ldapdomaindump",
+      "name": "ldapdomaindump",
+      "namespace": "security:ldap:dump",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "sec-ldapsearch",
+      "name": "ldapsearch",
+      "namespace": "security:ldap:query",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "sec-ldapwhoami",
+      "name": "ldapwhoami",
+      "namespace": "security:ldap:query",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "sec-linpeas",
+      "name": "linpeas",
+      "namespace": "security:linux:enumeration",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "sec-pspy",
+      "name": "pspy",
+      "namespace": "security:linux:monitor",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
       ]
     },
     {
@@ -3711,6 +4191,16 @@
         "security.attack.dot1x",
         "security.exploit.layer2",
         "security.spoof.protocol"
+      ]
+    },
+    {
+      "id": "sec-crackmapexec",
+      "name": "crackmapexec",
+      "namespace": "security:network:exploit",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
       ]
     },
     {
@@ -4045,6 +4535,16 @@
       ]
     },
     {
+      "id": "sec-rpcclient",
+      "name": "rpcclient",
+      "namespace": "security:rpc:client",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
       "id": "security-sandbox-firejail",
       "name": "firejail",
       "namespace": "security:sandbox:firejail",
@@ -4072,6 +4572,36 @@
         "secrets.detect.api-key",
         "secrets.detect.password",
         "secrets.detect.token"
+      ]
+    },
+    {
+      "id": "sec-smbclient",
+      "name": "smbclient",
+      "namespace": "security:smb:client",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "sec-enum4linux",
+      "name": "enum4linux",
+      "namespace": "security:smb:enumeration",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
+      "id": "sec-smbmap",
+      "name": "smbmap",
+      "namespace": "security:smb:enumeration",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
       ]
     },
     {
@@ -4533,6 +5063,16 @@
       ]
     },
     {
+      "id": "sec-winpeas",
+      "name": "winpeas",
+      "namespace": "security:windows:enumeration",
+      "capabilities": [
+        "security.authentication",
+        "security.auditing",
+        "security.directory-services"
+      ]
+    },
+    {
       "id": "security-wireless-aircrack-ng",
       "name": "aircrack-ng",
       "namespace": "security:wireless:aircrack-ng",
@@ -4872,6 +5412,16 @@
       ]
     },
     {
+      "id": "sys-az",
+      "name": "az",
+      "namespace": "system:cloud:azure",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
       "id": "system-compress-gzip",
       "name": "gzip",
       "namespace": "system:compress:gzip",
@@ -4929,6 +5479,26 @@
       "capabilities": [
         "security.execution.command",
         "security.privilege-escalation.shell"
+      ]
+    },
+    {
+      "id": "sys-mongosh",
+      "name": "mongosh",
+      "namespace": "system:database:mongodb",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "redis-cli",
+      "name": "redis-cli",
+      "namespace": "system:database:redis",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
       ]
     },
     {
@@ -5700,6 +6270,296 @@
       ]
     },
     {
+      "id": "sys-lastlog",
+      "name": "lastlog",
+      "namespace": "system:linux:auth",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-xclip",
+      "name": "xclip",
+      "namespace": "system:linux:clipboard",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-locale",
+      "name": "locale",
+      "namespace": "system:linux:config",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-lscpu",
+      "name": "lscpu",
+      "namespace": "system:linux:cpu",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-nproc",
+      "name": "nproc",
+      "namespace": "system:linux:cpu",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-eject",
+      "name": "eject",
+      "namespace": "system:linux:device",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-blkid",
+      "name": "blkid",
+      "namespace": "system:linux:disk",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-lsblk",
+      "name": "lsblk",
+      "namespace": "system:linux:disk",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-lsattr",
+      "name": "lsattr",
+      "namespace": "system:linux:file",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-readlink",
+      "name": "readlink",
+      "namespace": "system:linux:file",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-findmnt",
+      "name": "findmnt",
+      "namespace": "system:linux:filesystem",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-mountpoint",
+      "name": "mountpoint",
+      "namespace": "system:linux:filesystem",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-uname",
+      "name": "uname",
+      "namespace": "system:linux:info",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-uptime",
+      "name": "uptime",
+      "namespace": "system:linux:info",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-depmod",
+      "name": "depmod",
+      "namespace": "system:linux:kernel",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-lsmod",
+      "name": "lsmod",
+      "namespace": "system:linux:kernel",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-modinfo",
+      "name": "modinfo",
+      "namespace": "system:linux:kernel",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-modprobe",
+      "name": "modprobe",
+      "namespace": "system:linux:kernel",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-htop",
+      "name": "htop",
+      "namespace": "system:linux:monitor",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-iostat",
+      "name": "iostat",
+      "namespace": "system:linux:monitor",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-vmstat",
+      "name": "vmstat",
+      "namespace": "system:linux:monitor",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-lspci",
+      "name": "lspci",
+      "namespace": "system:linux:pci",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-getfacl",
+      "name": "getfacl",
+      "namespace": "system:linux:permissions",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-fuser",
+      "name": "fuser",
+      "namespace": "system:linux:process",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-lsof",
+      "name": "lsof",
+      "namespace": "system:linux:process",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-strace",
+      "name": "strace",
+      "namespace": "system:linux:trace",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-lsusb",
+      "name": "lsusb",
+      "namespace": "system:linux:usb",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-useradd",
+      "name": "useradd",
+      "namespace": "system:linux:user",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "sys-who",
+      "name": "who",
+      "namespace": "system:linux:user",
+      "capabilities": [
+        "system.information-gathering",
+        "system.monitoring",
+        "system.administration"
+      ]
+    },
+    {
       "id": "system-log-eb",
       "name": "eb",
       "namespace": "system:log:eb",
@@ -6325,6 +7185,246 @@
       "namespace": "system:ui:whiptail",
       "capabilities": [
         "system.file.read"
+      ]
+    },
+    {
+      "id": "cmd-shutdown",
+      "name": "shutdown",
+      "namespace": "system:windows:admin",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-vssadmin",
+      "name": "vssadmin",
+      "namespace": "system:windows:backup",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-bcdedit",
+      "name": "bcdedit",
+      "namespace": "system:windows:boot",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-bootcfg",
+      "name": "bootcfg",
+      "namespace": "system:windows:boot",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-hostname",
+      "name": "hostname",
+      "namespace": "system:windows:cmd",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-set",
+      "name": "set",
+      "namespace": "system:windows:cmd",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-systeminfo",
+      "name": "systeminfo",
+      "namespace": "system:windows:cmd",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-msg",
+      "name": "msg",
+      "namespace": "system:windows:communication",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-chkdsk",
+      "name": "chkdsk",
+      "namespace": "system:windows:disk",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-diskpart",
+      "name": "diskpart",
+      "namespace": "system:windows:disk",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-driverquery",
+      "name": "driverquery",
+      "namespace": "system:windows:driver",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-dir",
+      "name": "dir",
+      "namespace": "system:windows:file",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-where",
+      "name": "where",
+      "namespace": "system:windows:file",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-winver",
+      "name": "winver",
+      "namespace": "system:windows:info",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-sfc",
+      "name": "sfc",
+      "namespace": "system:windows:integrity",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-wevtutil",
+      "name": "wevtutil",
+      "namespace": "system:windows:logging",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-logman",
+      "name": "logman",
+      "namespace": "system:windows:monitor",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-net",
+      "name": "net",
+      "namespace": "system:windows:networking",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-lodctr",
+      "name": "lodctr",
+      "namespace": "system:windows:performance",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-typeperf",
+      "name": "typeperf",
+      "namespace": "system:windows:performance",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-gpresult",
+      "name": "gpresult",
+      "namespace": "system:windows:policy",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "cmd-tasklist",
+      "name": "tasklist",
+      "namespace": "system:windows:process",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-reagentc",
+      "name": "reagentc",
+      "namespace": "system:windows:recovery",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
+      ]
+    },
+    {
+      "id": "win-recdisc",
+      "name": "recdisc",
+      "namespace": "system:windows:recovery",
+      "capabilities": [
+        "system.information-gathering",
+        "system.configuration",
+        "system.administration"
       ]
     },
     {
@@ -20481,22 +21581,22 @@
       "artifact": "command-output"
     },
     {
-      "from": "network-socket-nc",
+      "from": "network-socket-netcat",
       "type": "produces",
       "artifact": "network-data"
     },
     {
-      "from": "network-socket-nc",
+      "from": "network-socket-netcat",
       "type": "produces",
       "artifact": "service-banner"
     },
     {
-      "to": "network-socket-nc",
+      "to": "network-socket-netcat",
       "type": "consumes",
       "artifact": "target-host"
     },
     {
-      "to": "network-socket-nc",
+      "to": "network-socket-netcat",
       "type": "consumes",
       "artifact": "listen-port"
     },

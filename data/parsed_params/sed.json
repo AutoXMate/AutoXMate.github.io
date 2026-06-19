@@ -1,18 +1,5 @@
 [
   {
-    "name": "quiet",
-    "template_key": "quiet",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "suppress automatic printing of pattern space --debug annotate program execution",
-    "aliases": [
-      "-n",
-      "--quiet",
-      "--silent"
-    ]
-  },
-  {
     "name": "expression",
     "template_key": "expression",
     "type": "string",
@@ -50,6 +37,15 @@
     ]
   },
   {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "display this help and exit",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
     "name": "in-place",
     "template_key": "in-place",
     "type": "string",
@@ -74,6 +70,18 @@
     ]
   },
   {
+    "name": "null-data",
+    "template_key": "null-data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "separate lines by NUL characters --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-z",
+      "--null-data"
+    ]
+  },
+  {
     "name": "posix",
     "template_key": "posix",
     "type": "string",
@@ -82,6 +90,19 @@
     "description": "disable all GNU extensions",
     "aliases": [
       "--posix"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress automatic printing of pattern space --debug annotate program execution",
+    "aliases": [
+      "-n",
+      "--quiet",
+      "--silent"
     ]
   },
   {
@@ -95,6 +116,15 @@
       "-E",
       "-r",
       "--regexp-extended"
+    ]
+  },
+  {
+    "name": "sandbox",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--sandbox"
     ]
   },
   {
@@ -122,15 +152,12 @@
     ]
   },
   {
-    "name": "null-data",
-    "template_key": "null-data",
-    "type": "string",
+    "name": "version",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "separate lines by NUL characters --help display this help and exit --version output version information and exit",
+    "description": "output version information and exit",
     "aliases": [
-      "-z",
-      "--null-data"
+      "--version"
     ]
   }
 ]

@@ -1,102 +1,12 @@
 [
   {
-    "name": "url",
-    "template_key": "url",
-    "type": "string",
-    "required": true,
-    "default_value": null,
-    "description": "Target URL",
-    "aliases": ["-u"]
-  },
-  {
-    "name": "data",
-    "template_key": "data",
-    "type": "string",
+    "name": "all",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "POST data string",
-    "aliases": ["--data"]
-  },
-  {
-    "name": "headers",
-    "template_key": "headers",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom HTTP headers",
-    "aliases": ["-H"]
-  },
-  {
-    "name": "cookie",
-    "template_key": "cookie",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "HTTP Cookie header",
-    "aliases": ["--cookie"]
-  },
-  {
-    "name": "user-agent",
-    "template_key": "user-agent",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom User-Agent",
-    "aliases": ["--user-agent"]
-  },
-  {
-    "name": "referer",
-    "template_key": "referer",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "HTTP Referer header",
-    "aliases": ["--referer"]
-  },
-  {
-    "name": "os",
-    "template_key": "os",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Target OS (linux/windows)",
-    "aliases": ["--os"]
-  },
-  {
-    "name": "method",
-    "template_key": "method",
-    "type": "string",
-    "required": false,
-    "default_value": "GET",
-    "description": "HTTP method to use",
-    "aliases": ["--method"]
-  },
-  {
-    "name": "payload",
-    "template_key": "payload",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom injection payload",
-    "aliases": ["--payload"]
-  },
-  {
-    "name": "technique",
-    "template_key": "technique",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Injection technique to use",
-    "aliases": ["--technique"]
-  },
-  {
-    "name": "level",
-    "template_key": "level",
-    "type": "integer",
-    "required": false,
-    "default_value": 1,
-    "description": "Level of tests (1-3)",
-    "aliases": ["--level"]
+    "description": "Retrieve all information",
+    "aliases": [
+      "--all"
+    ]
   },
   {
     "name": "batch",
@@ -105,16 +15,31 @@
     "required": false,
     "default_value": false,
     "description": "Never ask for user input",
-    "aliases": ["--batch"]
+    "aliases": [
+      "--batch"
+    ]
   },
   {
-    "name": "shell",
-    "template_key": "shell",
-    "type": "boolean",
+    "name": "cookie",
+    "template_key": "cookie",
+    "type": "string",
     "required": false,
-    "default_value": false,
-    "description": "Obtain interactive shell",
-    "aliases": ["--shell"]
+    "default_value": null,
+    "description": "HTTP Cookie header",
+    "aliases": [
+      "--cookie"
+    ]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "POST data string",
+    "aliases": [
+      "--data"
+    ]
   },
   {
     "name": "delay",
@@ -123,7 +48,82 @@
     "required": false,
     "default_value": 0,
     "description": "Delay between requests in seconds",
-    "aliases": ["--delay"]
+    "aliases": [
+      "--delay"
+    ]
+  },
+  {
+    "name": "encoding",
+    "type": "boolean",
+    "required": false,
+    "description": "Payload encoding",
+    "aliases": [
+      "--encoding"
+    ]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "level",
+    "template_key": "level",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Level of tests (1-3)",
+    "aliases": [
+      "--level"
+    ]
+  },
+  {
+    "name": "method",
+    "template_key": "method",
+    "type": "string",
+    "required": false,
+    "default_value": "GET",
+    "description": "HTTP method to use",
+    "aliases": [
+      "--method"
+    ]
+  },
+  {
+    "name": "os",
+    "template_key": "os",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target OS (linux/windows)",
+    "aliases": [
+      "--os"
+    ]
+  },
+  {
+    "name": "output_dir",
+    "type": "boolean",
+    "required": false,
+    "description": "Output directory",
+    "aliases": [
+      "--output-dir"
+    ]
+  },
+  {
+    "name": "payload",
+    "template_key": "payload",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom injection payload",
+    "aliases": [
+      "--payload"
+    ]
   },
   {
     "name": "proxy",
@@ -132,6 +132,72 @@
     "required": false,
     "default_value": null,
     "description": "Proxy URL",
-    "aliases": ["--proxy"]
+    "aliases": [
+      "--proxy"
+    ]
+  },
+  {
+    "name": "referer",
+    "template_key": "referer",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP Referer header",
+    "aliases": [
+      "--referer"
+    ]
+  },
+  {
+    "name": "shell",
+    "template_key": "shell",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Obtain interactive shell",
+    "aliases": [
+      "--shell"
+    ]
+  },
+  {
+    "name": "tamper",
+    "type": "boolean",
+    "required": false,
+    "description": "Tamper script",
+    "aliases": [
+      "--tamper"
+    ]
+  },
+  {
+    "name": "technique",
+    "template_key": "technique",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Injection technique to use",
+    "aliases": [
+      "--technique"
+    ]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "user-agent",
+    "template_key": "user-agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom User-Agent",
+    "aliases": [
+      "--user-agent"
+    ]
   }
 ]

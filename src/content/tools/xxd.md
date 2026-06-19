@@ -146,6 +146,14 @@ parameters:
     description: "show version: \"xxd 2026-03-19 by Juergen Weigert et al.\""
     aliases:
       - -v
+
+  - name: ps
+    type: boolean
+    required: false
+    description: "output in postscript plain hexdump style."
+    aliases:
+      - "-ps"
+
 execution:
   template: "xxd -a {flag-a} -b {flag-b} -c {flag-c} -e {flag-e} -g {flag-g}"
   sandbox: execFile

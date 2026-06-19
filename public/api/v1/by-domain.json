@@ -25,6 +25,12 @@
       "description": "File compression utility using Burrows-Wheeler algorithm that can read files via compression pipeline."
     },
     {
+      "id": "arc-gunzip",
+      "name": "gunzip",
+      "namespace": "archive:linux:compression",
+      "description": "Decompresses gzip-compressed (.gz) files."
+    },
+    {
       "id": "archive-pax-pax",
       "name": "pax",
       "namespace": "archive:pax:pax",
@@ -1427,6 +1433,18 @@
       "description": "Dump traffic on a network interface"
     },
     {
+      "id": "net-tcpflow",
+      "name": "tcpflow",
+      "namespace": "network:capture:traffic",
+      "description": "Captures TCP connections and reconstructs data streams."
+    },
+    {
+      "id": "net-tcpreplay",
+      "name": "tcpreplay",
+      "namespace": "network:capture:traffic",
+      "description": "Replays pcap network traffic for device testing."
+    },
+    {
       "id": "network-config-bridge",
       "name": "bridge",
       "namespace": "network:config:bridge",
@@ -1469,6 +1487,12 @@
       "description": "Fast ping tool, can execute commands via crafted packets."
     },
     {
+      "id": "win-pathping",
+      "name": "pathping",
+      "namespace": "network:diagnostic:latency",
+      "description": "Combines ping and tracert with packet loss per hop."
+    },
+    {
       "id": "network-diagnostic-mtr",
       "name": "mtr",
       "namespace": "network:diagnostic:mtr",
@@ -1479,6 +1503,12 @@
       "name": "ping",
       "namespace": "network:diagnostic:ping",
       "description": "Network utility for testing reachability and measuring round-trip latency to a remote host."
+    },
+    {
+      "id": "win-tracert",
+      "name": "tracert",
+      "namespace": "network:diagnostic:trace",
+      "description": "Traces the route packets take to a network destination."
     },
     {
       "id": "network-diagnostic-traceroute",
@@ -1503,6 +1533,18 @@
       "name": "dnsmasq",
       "namespace": "network:dns:dnsmasq",
       "description": "DNS forwarder and DHCP server, can execute commands via --conf-script option."
+    },
+    {
+      "id": "net-host",
+      "name": "host",
+      "namespace": "network:dns:lookup",
+      "description": "Simple DNS lookup for forward and reverse lookups."
+    },
+    {
+      "id": "net-nslookup",
+      "name": "nslookup",
+      "namespace": "network:dns:lookup",
+      "description": "Queries DNS servers for domain name or IP resolution."
     },
     {
       "id": "network-download-aria2c",
@@ -1613,16 +1655,58 @@
       "description": "Non-interactive download utility supporting HTTP, HTTPS, and FTP protocols with recursive download and resume capability."
     },
     {
+      "id": "win-getmac",
+      "name": "getmac",
+      "namespace": "network:interface:mac",
+      "description": "Returns MAC addresses of network adapters."
+    },
+    {
+      "id": "net-nmcli",
+      "name": "nmcli",
+      "namespace": "network:linux:config",
+      "description": "NetworkManager command-line client."
+    },
+    {
+      "id": "net-ethtool",
+      "name": "ethtool",
+      "namespace": "network:linux:interface",
+      "description": "Displays and changes Ethernet device settings."
+    },
+    {
       "id": "network-monitor-iftop",
       "name": "iftop",
       "namespace": "network:monitor:iftop",
       "description": "Network bandwidth monitor, can read files."
     },
     {
+      "id": "net-netstat",
+      "name": "netstat",
+      "namespace": "network:monitoring:connections",
+      "description": "Displays active connections, listening ports, and routing tables."
+    },
+    {
       "id": "network-mqtt-mosquitto",
       "name": "mosquitto",
       "namespace": "network:mqtt:mosquitto",
       "description": "MQTT message broker, can execute commands via config."
+    },
+    {
+      "id": "win-nbtstat",
+      "name": "nbtstat",
+      "namespace": "network:netbios:stats",
+      "description": "Displays NetBIOS over TCP/IP statistics and name tables."
+    },
+    {
+      "id": "net-showmount",
+      "name": "showmount",
+      "namespace": "network:nfs:export",
+      "description": "Shows NFS server export lists and mount information."
+    },
+    {
+      "id": "net-nfsstat",
+      "name": "nfsstat",
+      "namespace": "network:nfs:stats",
+      "description": "Displays NFS statistics about mounts, RPC calls, and server activity."
     },
     {
       "id": "network-proxy-torify",
@@ -1661,9 +1745,9 @@
       "description": "Netcat - arbitrary TCP/UDP connections and listening"
     },
     {
-      "id": "network-socket-nc",
+      "id": "network-socket-netcat",
       "name": "netcat",
-      "namespace": "network:socket:nc",
+      "namespace": "network:socket:netcat",
       "description": "Versatile networking utility for reading/writing data across TCP and UDP connections, port scanning, and network debugging."
     },
     {
@@ -1793,6 +1877,12 @@
       "description": "Fetch URLs using uriparser library; can download and upload files."
     },
     {
+      "id": "ligolo-ng",
+      "name": "ligolo-ng",
+      "namespace": "network:tunnel:proxy",
+      "description": "Tunneling/pivoting proxy for network penetration testing."
+    },
+    {
       "id": "network-vpn-openvpn",
       "name": "openvpn",
       "namespace": "network:vpn:openvpn",
@@ -1815,6 +1905,12 @@
       "name": "wg-quick",
       "namespace": "network:vpn:wg-quick",
       "description": "Quick setup for WireGuard VPN tunnels; can spawn a shell."
+    },
+    {
+      "id": "cmd-ipconfig",
+      "name": "ipconfig",
+      "namespace": "network:windows:config",
+      "description": "Displays all current TCP/IP network configuration values and refreshes DHCP and DNS settings."
     }
   ],
   "orchestration": [
@@ -1967,6 +2063,44 @@
       "description": "Lock file and execute command, can execute commands."
     }
   ],
+  "remote": [
+    {
+      "id": "win-mstsc",
+      "name": "mstsc",
+      "namespace": "remote:rdp:client",
+      "description": "Remote Desktop Connection client."
+    },
+    {
+      "id": "win-tscon",
+      "name": "tscon",
+      "namespace": "remote:ts:connect",
+      "description": "Connects a Remote Desktop session to a different session."
+    },
+    {
+      "id": "win-tsdiscon",
+      "name": "tsdiscon",
+      "namespace": "remote:ts:disconnect",
+      "description": "Disconnects a Remote Desktop Services session."
+    },
+    {
+      "id": "win-qwinsta",
+      "name": "qwinsta",
+      "namespace": "remote:ts:query",
+      "description": "Displays Remote Desktop Services sessions on a server."
+    },
+    {
+      "id": "win-rwinsta",
+      "name": "rwinsta",
+      "namespace": "remote:ts:reset",
+      "description": "Resets a Remote Desktop Services session."
+    },
+    {
+      "id": "win-winrs",
+      "name": "winrs",
+      "namespace": "remote:winrm:shell",
+      "description": "Windows Remote Shell via WinRM."
+    }
+  ],
   "runtime": [
     {
       "id": "runtime-jdk-jjs",
@@ -2037,16 +2171,34 @@
   ],
   "security": [
     {
+      "id": "bloodhound-python",
+      "name": "bloodhound-python",
+      "namespace": "security:ad:analyze",
+      "description": "BloodHound Python ingestor for Active Directory relationships."
+    },
+    {
       "id": "security-ad-certipy",
       "name": "Certipy",
       "namespace": "security:ad:certipy",
       "description": "Active Directory Certificate Services (AD CS) exploitation tool that finds vulnerable certificate templates, escrows, and performs ESC1-ESC8 attacks for domain privilege escalation."
     },
     {
+      "id": "cmd-dcdiag",
+      "name": "dcdiag",
+      "namespace": "security:ad:diagnostic",
+      "description": "Domain Controller diagnostics tool for analyzing AD domain controllers."
+    },
+    {
       "id": "security-ad-enum4linux-ng",
       "name": "enum4linux-ng",
       "namespace": "security:ad:enum4linux-ng",
       "description": "Python reimplementation of enum4linux for comprehensive SMB and NetBIOS enumeration of Windows and Active Directory targets."
+    },
+    {
+      "id": "cmd-csvde",
+      "name": "csvde",
+      "namespace": "security:ad:export",
+      "description": "Imports and exports Active Directory objects using CSV format files."
     },
     {
       "id": "security-ad-kerbrute",
@@ -2065,6 +2217,18 @@
       "name": "psexec",
       "namespace": "security:ad:psexec",
       "description": "Impacket psexec — Windows remote command execution via SMB service control manager for lateral movement in Active Directory environments."
+    },
+    {
+      "id": "cmd-dsquery",
+      "name": "dsquery",
+      "namespace": "security:ad:query",
+      "description": "Active Directory query tool for retrieving objects from the directory."
+    },
+    {
+      "id": "cmd-repadmin",
+      "name": "repadmin",
+      "namespace": "security:ad:replication",
+      "description": "Active Directory replication diagnostics and management tool."
     },
     {
       "id": "security-ad-rpcclient",
@@ -2101,6 +2265,12 @@
       "name": "smbmap",
       "namespace": "security:ad:smbmap",
       "description": "SMB enumeration tool that provides recursive listing, file download/upload, and command execution across SMB shares on Windows networks."
+    },
+    {
+      "id": "cmd-nltest",
+      "name": "nltest",
+      "namespace": "security:ad:trust",
+      "description": "Network test tool for querying and managing Active Directory trust relationships."
     },
     {
       "id": "security-ad-wmiexec",
@@ -2373,6 +2543,84 @@
       "description": "SSH tar pit that slowly sends an endless banner to keep SSH clients connected, consuming their resources and preventing brute force attacks."
     },
     {
+      "id": "impacket-samrdump",
+      "name": "impacket-samrdump",
+      "namespace": "security:impacket:credential",
+      "description": "Dumps SAM (Security Account Manager) information from remote systems."
+    },
+    {
+      "id": "impacket-secretsdump",
+      "name": "impacket-secretsdump",
+      "namespace": "security:impacket:credential",
+      "description": "Impacket secretsdump - extracts secrets from Windows systems."
+    },
+    {
+      "id": "impacket-mssqlexec",
+      "name": "impacket-mssqlexec",
+      "namespace": "security:impacket:database",
+      "description": "Impacket MSSQLexec - executes commands via MSSQL server."
+    },
+    {
+      "id": "impacket-rpcdump",
+      "name": "impacket-rpcdump",
+      "namespace": "security:impacket:enumeration",
+      "description": "Dumps RPC endpoint information from remote systems."
+    },
+    {
+      "id": "impacket-atexec",
+      "name": "impacket-atexec",
+      "namespace": "security:impacket:execution",
+      "description": "Impacket ATexec - executes commands via Windows Task Scheduler."
+    },
+    {
+      "id": "impacket-dcomexec",
+      "name": "impacket-dcomexec",
+      "namespace": "security:impacket:execution",
+      "description": "Impacket DCOMexec - executes commands via DCOM protocol."
+    },
+    {
+      "id": "impacket-psexec",
+      "name": "impacket-psexec",
+      "namespace": "security:impacket:execution",
+      "description": "Impacket PsExec - executes processes on remote Windows systems."
+    },
+    {
+      "id": "impacket-smbexec",
+      "name": "impacket-smbexec",
+      "namespace": "security:impacket:execution",
+      "description": "Impacket SMBexec - executes commands via SMB protocol."
+    },
+    {
+      "id": "impacket-wmiexec",
+      "name": "impacket-wmiexec",
+      "namespace": "security:impacket:execution",
+      "description": "Impacket WMIexec - executes commands via WMI protocol."
+    },
+    {
+      "id": "impacket-getst",
+      "name": "impacket-getST",
+      "namespace": "security:impacket:kerberos",
+      "description": "Gets Kerberos Service Tickets using credentials."
+    },
+    {
+      "id": "impacket-gettgt",
+      "name": "impacket-getTGT",
+      "namespace": "security:impacket:kerberos",
+      "description": "Gets Kerberos Ticket Granting Tickets (TGT) from a KDC."
+    },
+    {
+      "id": "impacket-ticketer",
+      "name": "impacket-ticketer",
+      "namespace": "security:impacket:kerberos",
+      "description": "Creates golden/silver Kerberos tickets."
+    },
+    {
+      "id": "impacket-reg",
+      "name": "impacket-reg",
+      "namespace": "security:impacket:registry",
+      "description": "Remote registry manipulation tool from Impacket."
+    },
+    {
       "id": "security-intel-censys",
       "name": "censys",
       "namespace": "security:intel:censys",
@@ -2397,6 +2645,48 @@
       "description": "IOC (Indicator of Compromise) scanner that checks files and systems against threat intelligence feeds and YARA rules for malware detection."
     },
     {
+      "id": "win-ksetup",
+      "name": "ksetup",
+      "namespace": "security:kerberos:config",
+      "description": "Configures Kerberos realm mappings and encryption types."
+    },
+    {
+      "id": "win-klist",
+      "name": "klist",
+      "namespace": "security:kerberos:tickets",
+      "description": "Lists cached Kerberos tickets for authentication."
+    },
+    {
+      "id": "sec-ldapdomaindump",
+      "name": "ldapdomaindump",
+      "namespace": "security:ldap:dump",
+      "description": "Dumps LDAP domain information from Active Directory."
+    },
+    {
+      "id": "sec-ldapsearch",
+      "name": "ldapsearch",
+      "namespace": "security:ldap:query",
+      "description": "LDAP search tool for querying directory services."
+    },
+    {
+      "id": "sec-ldapwhoami",
+      "name": "ldapwhoami",
+      "namespace": "security:ldap:query",
+      "description": "Sends an LDAP WhoAmI extended operation to a directory server."
+    },
+    {
+      "id": "sec-linpeas",
+      "name": "linpeas",
+      "namespace": "security:linux:enumeration",
+      "description": "Linux local privilege escalation enumeration and auditing script."
+    },
+    {
+      "id": "sec-pspy",
+      "name": "pspy",
+      "namespace": "security:linux:monitor",
+      "description": "Process monitor for Linux privilege escalation detection."
+    },
+    {
       "id": "security-malware-yara",
       "name": "yara",
       "namespace": "security:malware:yara",
@@ -2419,6 +2709,12 @@
       "name": "Yersinia",
       "namespace": "security:mitm:yersinia",
       "description": "Layer 2 network protocol exploitation framework for attacking STP, CDP, DTP, VTP, HSRP, and other switching and routing protocols."
+    },
+    {
+      "id": "sec-crackmapexec",
+      "name": "crackmapexec",
+      "namespace": "security:network:exploit",
+      "description": "Swiss Army knife for network service exploitation (SMB, WinRM, MSSQL, SSH, LDAP)."
     },
     {
       "id": "security-privilege-doas",
@@ -2601,6 +2897,12 @@
       "description": "System call tracer for monitoring syscalls made by a process, useful for debugging and reverse engineering."
     },
     {
+      "id": "sec-rpcclient",
+      "name": "rpcclient",
+      "namespace": "security:rpc:client",
+      "description": "SMB/CIFS RPC client for MS-RPC protocol operations."
+    },
+    {
       "id": "security-sandbox-firejail",
       "name": "firejail",
       "namespace": "security:sandbox:firejail",
@@ -2617,6 +2919,24 @@
       "name": "gitleaks",
       "namespace": "security:secrets:gitleaks",
       "description": "SAST tool for detecting secrets, passwords, API keys, tokens, and other sensitive data in git repositories."
+    },
+    {
+      "id": "sec-smbclient",
+      "name": "smbclient",
+      "namespace": "security:smb:client",
+      "description": "SMB/CIFS client for accessing SMB shares on remote servers."
+    },
+    {
+      "id": "sec-enum4linux",
+      "name": "enum4linux",
+      "namespace": "security:smb:enumeration",
+      "description": "Enumerates SMB/NetBIOS information from Windows systems."
+    },
+    {
+      "id": "sec-smbmap",
+      "name": "smbmap",
+      "namespace": "security:smb:enumeration",
+      "description": "SMB enumeration tool for share drives, permissions, and directory contents."
     },
     {
       "id": "security-sniff-wireshark",
@@ -2859,6 +3179,12 @@
       "description": "OWASP Zed Attack Proxy — open-source web application security scanner for finding vulnerabilities in web applications and APIs."
     },
     {
+      "id": "sec-winpeas",
+      "name": "winpeas",
+      "namespace": "security:windows:enumeration",
+      "description": "Windows local privilege escalation enumeration and auditing script."
+    },
+    {
       "id": "security-wireless-aircrack-ng",
       "name": "aircrack-ng",
       "namespace": "security:wireless:aircrack-ng",
@@ -3081,6 +3407,12 @@
       "description": "Performance analysis tool, can execute commands via probe events."
     },
     {
+      "id": "sys-az",
+      "name": "az",
+      "namespace": "system:cloud:azure",
+      "description": "Azure CLI - manages Azure resources from the command line."
+    },
+    {
       "id": "system-compress-gzip",
       "name": "gzip",
       "namespace": "system:compress:gzip",
@@ -3121,6 +3453,18 @@
       "name": "systemd-run",
       "namespace": "system:daemon:systemd-run",
       "description": "Run commands in transient systemd services; can execute arbitrary commands and spawn shells."
+    },
+    {
+      "id": "sys-mongosh",
+      "name": "mongosh",
+      "namespace": "system:database:mongodb",
+      "description": "MongoDB Shell — interactive JavaScript interface to MongoDB."
+    },
+    {
+      "id": "redis-cli",
+      "name": "redis-cli",
+      "namespace": "system:database:redis",
+      "description": "Redis command line client for querying and managing Redis instances."
     },
     {
       "id": "system-datetime-date",
@@ -3561,6 +3905,180 @@
       "description": "Dynamic linker/loader, can execute arbitrary shared objects."
     },
     {
+      "id": "sys-lastlog",
+      "name": "lastlog",
+      "namespace": "system:linux:auth",
+      "description": "Reports the most recent login of all users or a given user."
+    },
+    {
+      "id": "sys-xclip",
+      "name": "xclip",
+      "namespace": "system:linux:clipboard",
+      "description": "CLI interface to the X11 clipboard."
+    },
+    {
+      "id": "sys-locale",
+      "name": "locale",
+      "namespace": "system:linux:config",
+      "description": "Displays locale-related environment variables and settings."
+    },
+    {
+      "id": "sys-lscpu",
+      "name": "lscpu",
+      "namespace": "system:linux:cpu",
+      "description": "Displays CPU architecture information like cores, threads, model, and flags."
+    },
+    {
+      "id": "sys-nproc",
+      "name": "nproc",
+      "namespace": "system:linux:cpu",
+      "description": "Prints the number of processing units available."
+    },
+    {
+      "id": "sys-eject",
+      "name": "eject",
+      "namespace": "system:linux:device",
+      "description": "Ejects removable media (CD-ROM, USB, etc.) from the system."
+    },
+    {
+      "id": "sys-blkid",
+      "name": "blkid",
+      "namespace": "system:linux:disk",
+      "description": "Locates/prints block device attributes like UUID and filesystem type."
+    },
+    {
+      "id": "sys-lsblk",
+      "name": "lsblk",
+      "namespace": "system:linux:disk",
+      "description": "Lists block devices (disks and partitions) in a tree-like format."
+    },
+    {
+      "id": "sys-lsattr",
+      "name": "lsattr",
+      "namespace": "system:linux:file",
+      "description": "Lists file attributes on ext2/ext3/ext4 filesystems."
+    },
+    {
+      "id": "sys-readlink",
+      "name": "readlink",
+      "namespace": "system:linux:file",
+      "description": "Displays the target of a symbolic link."
+    },
+    {
+      "id": "sys-findmnt",
+      "name": "findmnt",
+      "namespace": "system:linux:filesystem",
+      "description": "Lists all currently mounted filesystems in a tree format."
+    },
+    {
+      "id": "sys-mountpoint",
+      "name": "mountpoint",
+      "namespace": "system:linux:filesystem",
+      "description": "Checks if a directory is a mount point."
+    },
+    {
+      "id": "sys-uname",
+      "name": "uname",
+      "namespace": "system:linux:info",
+      "description": "Prints system information like kernel name, hostname, OS, and architecture."
+    },
+    {
+      "id": "sys-uptime",
+      "name": "uptime",
+      "namespace": "system:linux:info",
+      "description": "Shows how long the system has been running, user count, and load averages."
+    },
+    {
+      "id": "sys-depmod",
+      "name": "depmod",
+      "namespace": "system:linux:kernel",
+      "description": "Generates modules.dep and map files for kernel modules."
+    },
+    {
+      "id": "sys-lsmod",
+      "name": "lsmod",
+      "namespace": "system:linux:kernel",
+      "description": "Lists loaded kernel modules."
+    },
+    {
+      "id": "sys-modinfo",
+      "name": "modinfo",
+      "namespace": "system:linux:kernel",
+      "description": "Displays information about a kernel module."
+    },
+    {
+      "id": "sys-modprobe",
+      "name": "modprobe",
+      "namespace": "system:linux:kernel",
+      "description": "Adds or removes kernel modules from the Linux kernel."
+    },
+    {
+      "id": "sys-htop",
+      "name": "htop",
+      "namespace": "system:linux:monitor",
+      "description": "Interactive process viewer and manager."
+    },
+    {
+      "id": "sys-iostat",
+      "name": "iostat",
+      "namespace": "system:linux:monitor",
+      "description": "Reports CPU and I/O statistics for devices and partitions."
+    },
+    {
+      "id": "sys-vmstat",
+      "name": "vmstat",
+      "namespace": "system:linux:monitor",
+      "description": "Reports virtual memory statistics, processes, CPU, and I/O activity."
+    },
+    {
+      "id": "sys-lspci",
+      "name": "lspci",
+      "namespace": "system:linux:pci",
+      "description": "Lists all PCI devices connected to the system."
+    },
+    {
+      "id": "sys-getfacl",
+      "name": "getfacl",
+      "namespace": "system:linux:permissions",
+      "description": "Gets file access control lists (ACLs)."
+    },
+    {
+      "id": "sys-fuser",
+      "name": "fuser",
+      "namespace": "system:linux:process",
+      "description": "Identifies processes using files or sockets."
+    },
+    {
+      "id": "sys-lsof",
+      "name": "lsof",
+      "namespace": "system:linux:process",
+      "description": "Lists open files and the processes that opened them."
+    },
+    {
+      "id": "sys-strace",
+      "name": "strace",
+      "namespace": "system:linux:trace",
+      "description": "System call tracer for Linux."
+    },
+    {
+      "id": "sys-lsusb",
+      "name": "lsusb",
+      "namespace": "system:linux:usb",
+      "description": "Lists USB buses and connected USB devices."
+    },
+    {
+      "id": "sys-useradd",
+      "name": "useradd",
+      "namespace": "system:linux:user",
+      "description": "Creates a new user account with home directory, shell, and groups."
+    },
+    {
+      "id": "sys-who",
+      "name": "who",
+      "namespace": "system:linux:user",
+      "description": "Displays who is logged in and their session details."
+    },
+    {
       "id": "system-log-eb",
       "name": "eb",
       "namespace": "system:log:eb",
@@ -3991,6 +4509,150 @@
       "name": "whiptail",
       "namespace": "system:ui:whiptail",
       "description": "Display dialog boxes from shell scripts; can spawn a shell."
+    },
+    {
+      "id": "cmd-shutdown",
+      "name": "shutdown",
+      "namespace": "system:windows:admin",
+      "description": "Shutdown, restart, or logoff of local or remote computers."
+    },
+    {
+      "id": "cmd-vssadmin",
+      "name": "vssadmin",
+      "namespace": "system:windows:backup",
+      "description": "Volume Shadow Copy Service administration tool for managing shadow copies, providers, and volumes."
+    },
+    {
+      "id": "cmd-bcdedit",
+      "name": "bcdedit",
+      "namespace": "system:windows:boot",
+      "description": "Boot Configuration Data editor for managing boot configuration and troubleshooting startup issues."
+    },
+    {
+      "id": "win-bootcfg",
+      "name": "bootcfg",
+      "namespace": "system:windows:boot",
+      "description": "Configures Boot.ini for multi-boot systems."
+    },
+    {
+      "id": "cmd-hostname",
+      "name": "hostname",
+      "namespace": "system:windows:cmd",
+      "description": "Displays the host name portion of the full computer name of the computer."
+    },
+    {
+      "id": "cmd-set",
+      "name": "set",
+      "namespace": "system:windows:cmd",
+      "description": "Displays, sets, or removes environment variables. Used without parameters, displays all current environment variables."
+    },
+    {
+      "id": "cmd-systeminfo",
+      "name": "systeminfo",
+      "namespace": "system:windows:cmd",
+      "description": "Displays detailed operating system configuration information including OS version, build number, service pack level, and system hardware specs."
+    },
+    {
+      "id": "cmd-msg",
+      "name": "msg",
+      "namespace": "system:windows:communication",
+      "description": "Sends popup messages to users on local or remote machines."
+    },
+    {
+      "id": "cmd-chkdsk",
+      "name": "chkdsk",
+      "namespace": "system:windows:disk",
+      "description": "Checks a disk for file system errors and bad sectors."
+    },
+    {
+      "id": "cmd-diskpart",
+      "name": "diskpart",
+      "namespace": "system:windows:disk",
+      "description": "Command-line disk partitioning utility for managing disks, partitions, volumes, and virtual hard disks."
+    },
+    {
+      "id": "cmd-driverquery",
+      "name": "driverquery",
+      "namespace": "system:windows:driver",
+      "description": "Displays a list of all installed device drivers and their properties including driver name, type, and module name."
+    },
+    {
+      "id": "cmd-dir",
+      "name": "dir",
+      "namespace": "system:windows:file",
+      "description": "Displays a list of files and subdirectories in a directory."
+    },
+    {
+      "id": "cmd-where",
+      "name": "where",
+      "namespace": "system:windows:file",
+      "description": "Displays the location of files that match the search pattern, similar to Unix 'which' but with broader search capabilities."
+    },
+    {
+      "id": "win-winver",
+      "name": "winver",
+      "namespace": "system:windows:info",
+      "description": "Displays Windows version and build information."
+    },
+    {
+      "id": "cmd-sfc",
+      "name": "sfc",
+      "namespace": "system:windows:integrity",
+      "description": "System File Checker scans and verifies protected system files, replacing corrupted versions from the cache."
+    },
+    {
+      "id": "cmd-wevtutil",
+      "name": "wevtutil",
+      "namespace": "system:windows:logging",
+      "description": "Retrieves information about event logs and publishers, exports, archives, and clears event logs."
+    },
+    {
+      "id": "cmd-logman",
+      "name": "logman",
+      "namespace": "system:windows:monitor",
+      "description": "Manages Performance Monitor logs and traces for data collector sets."
+    },
+    {
+      "id": "cmd-net",
+      "name": "net",
+      "namespace": "system:windows:networking",
+      "description": "Comprehensive network and system administration command used for managing users, groups, shares, services, and network connections."
+    },
+    {
+      "id": "win-lodctr",
+      "name": "lodctr",
+      "namespace": "system:windows:performance",
+      "description": "Registers performance counter names for services."
+    },
+    {
+      "id": "win-typeperf",
+      "name": "typeperf",
+      "namespace": "system:windows:performance",
+      "description": "Writes performance counter data to command line or log."
+    },
+    {
+      "id": "cmd-gpresult",
+      "name": "gpresult",
+      "namespace": "system:windows:policy",
+      "description": "Displays the Resultant Set of Policy (RSoP) information for a target user and computer."
+    },
+    {
+      "id": "cmd-tasklist",
+      "name": "tasklist",
+      "namespace": "system:windows:process",
+      "description": "Displays a list of currently running processes on the local or remote machine with PID, session name, and memory usage."
+    },
+    {
+      "id": "win-reagentc",
+      "name": "reagentc",
+      "namespace": "system:windows:recovery",
+      "description": "Windows Recovery Environment configuration tool."
+    },
+    {
+      "id": "win-recdisc",
+      "name": "recdisc",
+      "namespace": "system:windows:recovery",
+      "description": "Creates a system repair disc."
     },
     {
       "id": "system-x-xdotool",

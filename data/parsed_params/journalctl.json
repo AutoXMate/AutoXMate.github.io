@@ -1,48 +1,83 @@
 [
   {
-    "name": "system",
-    "template_key": "system",
+    "name": "after-cursor",
+    "template_key": "after-cursor",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Show the system journal",
+    "description": "Show entries after the specified cursor",
     "aliases": [
-      "--system"
+      "--after-cursor"
     ]
   },
   {
-    "name": "user",
-    "template_key": "user",
+    "name": "all",
+    "template_key": "all",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Show the user journal for the current user",
+    "description": "Show all fields, including long and unprintable",
     "aliases": [
-      "--user"
+      "-a",
+      "--all"
     ]
   },
   {
-    "name": "machine",
-    "template_key": "machine",
+    "name": "boot",
+    "template_key": "boot",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Operate on local container",
+    "description": "Show current boot or the specified boot",
     "aliases": [
-      "-M",
-      "--machine"
+      "-b",
+      "--boot"
     ]
   },
   {
-    "name": "merge",
-    "template_key": "merge",
+    "name": "case-sensitive",
+    "template_key": "case-sensitive",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Show entries from all available journals",
+    "description": "",
     "aliases": [
-      "-m",
-      "--merge"
+      "--case-sensitive"
+    ]
+  },
+  {
+    "name": "catalog",
+    "template_key": "catalog",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Add message explanations where available",
+    "aliases": [
+      "-x",
+      "--catalog"
+    ]
+  },
+  {
+    "name": "cursor",
+    "template_key": "cursor",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show entries starting at the specified cursor",
+    "aliases": [
+      "-c",
+      "--cursor"
+    ]
+  },
+  {
+    "name": "cursor-file",
+    "template_key": "cursor-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Show entries after cursor in FILE and update FILE",
+    "aliases": [
+      "--cursor-file"
     ]
   },
   {
@@ -58,6 +93,85 @@
     ]
   },
   {
+    "name": "disk-usage",
+    "template_key": "disk-usage",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show total disk usage of all journal files",
+    "aliases": [
+      "--disk-usage"
+    ]
+  },
+  {
+    "name": "dmesg",
+    "template_key": "dmesg",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show kernel message log from the current boot",
+    "aliases": [
+      "-k",
+      "--dmesg"
+    ]
+  },
+  {
+    "name": "dump_catalog",
+    "type": "boolean",
+    "required": false,
+    "description": "Show entries in the message catalog",
+    "aliases": [
+      "--dump-catalog"
+    ]
+  },
+  {
+    "name": "exclude-identifier",
+    "template_key": "exclude-identifier",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Hide entries with the specified syslog identifier",
+    "aliases": [
+      "-T",
+      "--exclude-identifier"
+    ]
+  },
+  {
+    "name": "facility",
+    "template_key": "facility",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "--facility"
+    ]
+  },
+  {
+    "name": "field",
+    "template_key": "field",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "List all values that a specified field takes",
+    "aliases": [
+      "-F",
+      "--field"
+    ]
+  },
+  {
+    "name": "fields",
+    "template_key": "fields",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "List all field names currently used",
+    "aliases": [
+      "-N",
+      "--fields"
+    ]
+  },
+  {
     "name": "file",
     "template_key": "file",
     "type": "file",
@@ -70,14 +184,62 @@
     ]
   },
   {
-    "name": "root",
-    "template_key": "root",
-    "type": "file",
+    "name": "follow",
+    "template_key": "follow",
+    "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Operate on an alternate filesystem root",
+    "description": "Follow the journal",
     "aliases": [
-      "--root"
+      "-f",
+      "--follow"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Override of the FSS key pair with --setup-keys",
+    "aliases": [
+      "--force"
+    ]
+  },
+  {
+    "name": "grep",
+    "template_key": "grep",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show entries with MESSAGE matching PATTERN",
+    "aliases": [
+      "-g",
+      "--grep"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show this help text",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "identifier",
+    "template_key": "identifier",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show entries with the specified syslog identifier",
+    "aliases": [
+      "-t",
+      "--identifier"
     ]
   },
   {
@@ -103,107 +265,14 @@
     ]
   },
   {
-    "name": "namespace",
-    "template_key": "namespace",
-    "type": "string",
+    "name": "interval",
+    "template_key": "interval",
+    "type": "number",
     "required": false,
     "default_value": null,
-    "description": "Show journal data from specified journal namespace",
+    "description": "Time interval for changing the FSS sealing key",
     "aliases": [
-      "--namespace"
-    ]
-  },
-  {
-    "name": "since",
-    "template_key": "since",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries not older than the specified date",
-    "aliases": [
-      "-S",
-      "--since"
-    ]
-  },
-  {
-    "name": "until",
-    "template_key": "until",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries not newer than the specified date",
-    "aliases": [
-      "-U",
-      "--until"
-    ]
-  },
-  {
-    "name": "cursor",
-    "template_key": "cursor",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries starting at the specified cursor",
-    "aliases": [
-      "-c",
-      "--cursor"
-    ]
-  },
-  {
-    "name": "after-cursor",
-    "template_key": "after-cursor",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries after the specified cursor",
-    "aliases": [
-      "--after-cursor"
-    ]
-  },
-  {
-    "name": "cursor-file",
-    "template_key": "cursor-file",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries after cursor in FILE and update FILE",
-    "aliases": [
-      "--cursor-file"
-    ]
-  },
-  {
-    "name": "boot",
-    "template_key": "boot",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show current boot or the specified boot",
-    "aliases": [
-      "-b",
-      "--boot"
-    ]
-  },
-  {
-    "name": "unit",
-    "template_key": "unit",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show logs from the specified unit",
-    "aliases": [
-      "-u",
-      "--unit"
-    ]
-  },
-  {
-    "name": "user-unit",
-    "template_key": "user-unit",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show logs from the specified user unit",
-    "aliases": [
-      "--user-unit"
+      "--interval"
     ]
   },
   {
@@ -218,111 +287,6 @@
     ]
   },
   {
-    "name": "identifier",
-    "template_key": "identifier",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries with the specified syslog identifier",
-    "aliases": [
-      "-t",
-      "--identifier"
-    ]
-  },
-  {
-    "name": "exclude-identifier",
-    "template_key": "exclude-identifier",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Hide entries with the specified syslog identifier",
-    "aliases": [
-      "-T",
-      "--exclude-identifier"
-    ]
-  },
-  {
-    "name": "priority",
-    "template_key": "priority",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries within the specified priority range",
-    "aliases": [
-      "-p",
-      "--priority"
-    ]
-  },
-  {
-    "name": "facility",
-    "template_key": "facility",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "",
-    "aliases": [
-      "--facility"
-    ]
-  },
-  {
-    "name": "grep",
-    "template_key": "grep",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show entries with MESSAGE matching PATTERN",
-    "aliases": [
-      "-g",
-      "--grep"
-    ]
-  },
-  {
-    "name": "case-sensitive",
-    "template_key": "case-sensitive",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "",
-    "aliases": [
-      "--case-sensitive"
-    ]
-  },
-  {
-    "name": "dmesg",
-    "template_key": "dmesg",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show kernel message log from the current boot",
-    "aliases": [
-      "-k",
-      "--dmesg"
-    ]
-  },
-  {
-    "name": "output",
-    "template_key": "output",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Change journal output mode (short, short-precise",
-    "aliases": [
-      "-o",
-      "--output"
-    ]
-  },
-  {
-    "name": "output-fields",
-    "template_key": "output-fields",
-    "type": "array",
-    "required": false,
-    "default_value": null,
-    "description": "Select fields to print in verbose/export/json modes",
-    "aliases": [
-      "--output-fields"
-    ]
-  },
-  {
     "name": "lines",
     "template_key": "lines",
     "type": "integer",
@@ -332,247 +296,6 @@
     "aliases": [
       "-n",
       "--lines"
-    ]
-  },
-  {
-    "name": "reverse",
-    "template_key": "reverse",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show the newest entries first",
-    "aliases": [
-      "-r",
-      "--reverse"
-    ]
-  },
-  {
-    "name": "show-cursor",
-    "template_key": "show-cursor",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Print the cursor after all the entries",
-    "aliases": [
-      "--show-cursor"
-    ]
-  },
-  {
-    "name": "utc",
-    "template_key": "utc",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Express time in Coordinated Universal Time (UTC)",
-    "aliases": [
-      "--utc"
-    ]
-  },
-  {
-    "name": "catalog",
-    "template_key": "catalog",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Add message explanations where available",
-    "aliases": [
-      "-x",
-      "--catalog"
-    ]
-  },
-  {
-    "name": "no-hostname",
-    "template_key": "no-hostname",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Suppress output of hostname field",
-    "aliases": [
-      "-W",
-      "--no-hostname"
-    ]
-  },
-  {
-    "name": "no-full",
-    "template_key": "no-full",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Ellipsize fields",
-    "aliases": [
-      "--no-full"
-    ]
-  },
-  {
-    "name": "all",
-    "template_key": "all",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show all fields, including long and unprintable",
-    "aliases": [
-      "-a",
-      "--all"
-    ]
-  },
-  {
-    "name": "follow",
-    "template_key": "follow",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Follow the journal",
-    "aliases": [
-      "-f",
-      "--follow"
-    ]
-  },
-  {
-    "name": "no-tail",
-    "template_key": "no-tail",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show all lines, even in follow mode",
-    "aliases": [
-      "--no-tail"
-    ]
-  },
-  {
-    "name": "truncate-newline",
-    "template_key": "truncate-newline",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Truncate entries by first newline character",
-    "aliases": [
-      "--truncate-newline"
-    ]
-  },
-  {
-    "name": "quiet",
-    "template_key": "quiet",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Do not show info messages and privilege warning",
-    "aliases": [
-      "-q",
-      "--quiet"
-    ]
-  },
-  {
-    "name": "synchronize-on-exit",
-    "template_key": "synchronize-on-exit",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Wait for Journal synchronization before exiting",
-    "aliases": [
-      "--synchronize-on-exit"
-    ]
-  },
-  {
-    "name": "no-pager",
-    "template_key": "no-pager",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Do not pipe output into a pager",
-    "aliases": [
-      "--no-pager"
-    ]
-  },
-  {
-    "name": "pager-end",
-    "template_key": "pager-end",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Immediately jump to the end in the pager",
-    "aliases": [
-      "-e",
-      "--pager-end"
-    ]
-  },
-  {
-    "name": "interval",
-    "template_key": "interval",
-    "type": "number",
-    "required": false,
-    "default_value": null,
-    "description": "Time interval for changing the FSS sealing key",
-    "aliases": [
-      "--interval"
-    ]
-  },
-  {
-    "name": "verify-key",
-    "template_key": "verify-key",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Specify FSS verification key",
-    "aliases": [
-      "--verify-key"
-    ]
-  },
-  {
-    "name": "force",
-    "template_key": "force",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Override of the FSS key pair with --setup-keys",
-    "aliases": [
-      "--force"
-    ]
-  },
-  {
-    "name": "help",
-    "template_key": "help",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show this help text",
-    "aliases": [
-      "-h",
-      "--help"
-    ]
-  },
-  {
-    "name": "version",
-    "template_key": "version",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Show package version",
-    "aliases": [
-      "--version"
-    ]
-  },
-  {
-    "name": "fields",
-    "template_key": "fields",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "List all field names currently used",
-    "aliases": [
-      "-N",
-      "--fields"
-    ]
-  },
-  {
-    "name": "field",
-    "template_key": "field",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "List all values that a specified field takes",
-    "aliases": [
-      "-F",
-      "--field"
     ]
   },
   {
@@ -609,25 +332,338 @@
     ]
   },
   {
-    "name": "disk-usage",
-    "template_key": "disk-usage",
-    "type": "string",
+    "name": "list_catalog",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Show total disk usage of all journal files",
+    "description": "Show all message IDs in the catalog",
     "aliases": [
-      "--disk-usage"
+      "--list-catalog"
     ]
   },
   {
-    "name": "vacuum-size",
-    "template_key": "vacuum-size",
+    "name": "machine",
+    "template_key": "machine",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Operate on local container",
+    "aliases": [
+      "-M",
+      "--machine"
+    ]
+  },
+  {
+    "name": "merge",
+    "template_key": "merge",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show entries from all available journals",
+    "aliases": [
+      "-m",
+      "--merge"
+    ]
+  },
+  {
+    "name": "namespace",
+    "template_key": "namespace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show journal data from specified journal namespace",
+    "aliases": [
+      "--namespace"
+    ]
+  },
+  {
+    "name": "no-full",
+    "template_key": "no-full",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ellipsize fields",
+    "aliases": [
+      "--no-full"
+    ]
+  },
+  {
+    "name": "no-hostname",
+    "template_key": "no-hostname",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Suppress output of hostname field",
+    "aliases": [
+      "-W",
+      "--no-hostname"
+    ]
+  },
+  {
+    "name": "no-pager",
+    "template_key": "no-pager",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not pipe output into a pager",
+    "aliases": [
+      "--no-pager"
+    ]
+  },
+  {
+    "name": "no-tail",
+    "template_key": "no-tail",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show all lines, even in follow mode",
+    "aliases": [
+      "--no-tail"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Change journal output mode (short, short-precise",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "output-fields",
+    "template_key": "output-fields",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "Select fields to print in verbose/export/json modes",
+    "aliases": [
+      "--output-fields"
+    ]
+  },
+  {
+    "name": "pager-end",
+    "template_key": "pager-end",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Immediately jump to the end in the pager",
+    "aliases": [
+      "-e",
+      "--pager-end"
+    ]
+  },
+  {
+    "name": "priority",
+    "template_key": "priority",
     "type": "integer",
     "required": false,
     "default_value": null,
-    "description": "Reduce disk usage below specified size",
+    "description": "Show entries within the specified priority range",
     "aliases": [
-      "--vacuum-size"
+      "-p",
+      "--priority"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Do not show info messages and privilege warning",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "relinquish-var",
+    "template_key": "relinquish-var",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Stop logging to disk, log to temporary file system",
+    "aliases": [
+      "--relinquish-var"
+    ]
+  },
+  {
+    "name": "reverse",
+    "template_key": "reverse",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show the newest entries first",
+    "aliases": [
+      "-r",
+      "--reverse"
+    ]
+  },
+  {
+    "name": "root",
+    "template_key": "root",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Operate on an alternate filesystem root",
+    "aliases": [
+      "--root"
+    ]
+  },
+  {
+    "name": "setup_keys",
+    "type": "boolean",
+    "required": false,
+    "description": "Generate a new FSS key pair",
+    "aliases": [
+      "--setup-keys"
+    ]
+  },
+  {
+    "name": "show-cursor",
+    "template_key": "show-cursor",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the cursor after all the entries",
+    "aliases": [
+      "--show-cursor"
+    ]
+  },
+  {
+    "name": "since",
+    "template_key": "since",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show entries not older than the specified date",
+    "aliases": [
+      "-S",
+      "--since"
+    ]
+  },
+  {
+    "name": "smart-relinquish-var",
+    "template_key": "smart-relinquish-var",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--flush Flush all journal data from /run into /var --rotate Request immediate rotation of the journal files --header Show journal header information --list-catalog Show all message IDs in the catalog --dump-catalog Show entries in the message catalog --update-catalog Update the message catalog database --setup-keys Generate a new FSS key pair",
+    "aliases": [
+      "--smart-relinquish-var"
+    ]
+  },
+  {
+    "name": "sync",
+    "template_key": "sync",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Synchronize unwritten journal messages to disk",
+    "aliases": [
+      "--sync"
+    ]
+  },
+  {
+    "name": "synchronize-on-exit",
+    "template_key": "synchronize-on-exit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Wait for Journal synchronization before exiting",
+    "aliases": [
+      "--synchronize-on-exit"
+    ]
+  },
+  {
+    "name": "system",
+    "template_key": "system",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show the system journal",
+    "aliases": [
+      "--system"
+    ]
+  },
+  {
+    "name": "truncate-newline",
+    "template_key": "truncate-newline",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Truncate entries by first newline character",
+    "aliases": [
+      "--truncate-newline"
+    ]
+  },
+  {
+    "name": "unit",
+    "template_key": "unit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show logs from the specified unit",
+    "aliases": [
+      "-u",
+      "--unit"
+    ]
+  },
+  {
+    "name": "until",
+    "template_key": "until",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show entries not newer than the specified date",
+    "aliases": [
+      "-U",
+      "--until"
+    ]
+  },
+  {
+    "name": "update_catalog",
+    "type": "boolean",
+    "required": false,
+    "description": "Update the message catalog database",
+    "aliases": [
+      "--update-catalog"
+    ]
+  },
+  {
+    "name": "user",
+    "template_key": "user",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show the user journal for the current user",
+    "aliases": [
+      "--user"
+    ]
+  },
+  {
+    "name": "user-unit",
+    "template_key": "user-unit",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Show logs from the specified user unit",
+    "aliases": [
+      "--user-unit"
+    ]
+  },
+  {
+    "name": "utc",
+    "template_key": "utc",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Express time in Coordinated Universal Time (UTC)",
+    "aliases": [
+      "--utc"
     ]
   },
   {
@@ -639,6 +675,17 @@
     "description": "Leave only the specified number of journal files",
     "aliases": [
       "--vacuum-files"
+    ]
+  },
+  {
+    "name": "vacuum-size",
+    "template_key": "vacuum-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Reduce disk usage below specified size",
+    "aliases": [
+      "--vacuum-size"
     ]
   },
   {
@@ -664,36 +711,25 @@
     ]
   },
   {
-    "name": "sync",
-    "template_key": "sync",
+    "name": "verify-key",
+    "template_key": "verify-key",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Synchronize unwritten journal messages to disk",
+    "description": "Specify FSS verification key",
     "aliases": [
-      "--sync"
+      "--verify-key"
     ]
   },
   {
-    "name": "relinquish-var",
-    "template_key": "relinquish-var",
+    "name": "version",
+    "template_key": "version",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Stop logging to disk, log to temporary file system",
+    "description": "Show package version",
     "aliases": [
-      "--relinquish-var"
-    ]
-  },
-  {
-    "name": "smart-relinquish-var",
-    "template_key": "smart-relinquish-var",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "--flush Flush all journal data from /run into /var --rotate Request immediate rotation of the journal files --header Show journal header information --list-catalog Show all message IDs in the catalog --dump-catalog Show entries in the message catalog --update-catalog Update the message catalog database --setup-keys Generate a new FSS key pair",
-    "aliases": [
-      "--smart-relinquish-var"
+      "--version"
     ]
   }
 ]

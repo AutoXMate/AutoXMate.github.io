@@ -140,6 +140,14 @@ parameters:
   description: Set the terminal for GDB I/O
   aliases:
   - --tty
+
+- name: args
+  type: boolean
+  required: false
+  description: "pass remaining args to program"
+  aliases:
+    - "--args"
+
 execution:
   template: gdb -q -ex "{command}" {binary}
   sandbox: execFile

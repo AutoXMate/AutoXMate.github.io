@@ -1,21 +1,14 @@
 [
   {
-    "name": "flag-g",
-    "template_key": "flag-g",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Open graph file",
-    "aliases": ["-g"]
-  },
-  {
     "name": "flag-c",
     "template_key": "flag-c",
     "type": "string",
     "required": false,
     "default_value": null,
     "description": "Run transform from command line",
-    "aliases": ["-c"]
+    "aliases": [
+      "-c"
+    ]
   },
   {
     "name": "flag-e",
@@ -24,6 +17,48 @@
     "required": false,
     "default_value": null,
     "description": "Export graph to file",
-    "aliases": ["-e"]
+    "aliases": [
+      "-e"
+    ]
+  },
+  {
+    "name": "flag-g",
+    "template_key": "flag-g",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Open graph file",
+    "aliases": [
+      "-g"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "Show help message",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "i",
+    "type": "boolean",
+    "required": false,
+    "description": "Import configuration",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "Show version",
+    "aliases": [
+      "-v",
+      "--version"
+    ]
   }
 ]

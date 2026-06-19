@@ -74,7 +74,7 @@ parameters:
   aliases:
   - -p
   - --post-file
-- name: n
+- name: "n"
   type: integer
   required: false
   description: Number of requests

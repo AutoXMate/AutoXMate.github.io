@@ -12,52 +12,12 @@
     ]
   },
   {
-    "name": "silent",
-    "template_key": "silent",
-    "type": "string",
+    "name": "dereference",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "suppress most error messages",
+    "description": "",
     "aliases": [
-      "-f",
-      "--silent",
-      "--quiet"
-    ]
-  },
-  {
-    "name": "verbose",
-    "template_key": "verbose",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "output a diagnostic for every file processed --dereference affect the referent of each symbolic link, rather than the symbolic link itself",
-    "aliases": [
-      "-v",
-      "--verbose"
-    ]
-  },
-  {
-    "name": "no-dereference",
-    "template_key": "no-dereference",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "affect each symbolic link, rather than the referent --no-preserve-root do not treat '/' specially (the default) --preserve-root fail to operate recursively on '/' --reference=RFILE use RFILE's mode instead of specifying MODE values. RFILE is always dereferenced if a symbolic link",
-    "aliases": [
-      "-h",
-      "--no-dereference"
-    ]
-  },
-  {
-    "name": "recursive",
-    "template_key": "recursive",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "change files and directories recursively",
-    "aliases": [
-      "-R",
-      "--recursive"
+      "--dereference"
     ]
   },
   {
@@ -102,6 +62,91 @@
     "description": "display this help and exit --version output version information and exit",
     "aliases": [
       "--help"
+    ]
+  },
+  {
+    "name": "no-dereference",
+    "template_key": "no-dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "affect each symbolic link, rather than the referent --no-preserve-root do not treat '/' specially (the default) --preserve-root fail to operate recursively on '/' --reference=RFILE use RFILE's mode instead of specifying MODE values. RFILE is always dereferenced if a symbolic link",
+    "aliases": [
+      "-h",
+      "--no-dereference"
+    ]
+  },
+  {
+    "name": "no_preserve_root",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-preserve-root"
+    ]
+  },
+  {
+    "name": "preserve_root",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--preserve-root"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "change files and directories recursively",
+    "aliases": [
+      "-R",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "reference",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--reference"
+    ]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress most error messages",
+    "aliases": [
+      "-f",
+      "--silent",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output a diagnostic for every file processed --dereference affect the referent of each symbolic link, rather than the symbolic link itself",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

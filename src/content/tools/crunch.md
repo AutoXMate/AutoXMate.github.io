@@ -147,6 +147,44 @@ parameters:
   description: Compress output (gzip, bzip2, lzma)
   aliases:
   - -z
+
+- name: i
+  type: boolean
+  required: false
+  description: "Invert output order"
+  aliases:
+    - "-i"
+- name: l
+  type: boolean
+  required: false
+  description: "Treat @,%^ as literal characters"
+  aliases:
+    - "-l"
+- name: q
+  type: boolean
+  required: false
+  description: "FILE        Read input file for permutations"
+  aliases:
+    - "-q"
+- name: r
+  type: boolean
+  required: false
+  description: "Resume from last generated position"
+  aliases:
+    - "-r"
+- name: u
+  type: boolean
+  required: false
+  description: "Unique mode (no duplicate lines)"
+  aliases:
+    - "-u"
+- name: z
+  type: boolean
+  required: false
+  description: "FORMAT      Compress output (gzip, bzip2, lzma)"
+  aliases:
+    - "-z"
+
 execution:
   template: crunch {min} {max} {charset} -o {output}
   sandbox: execFile

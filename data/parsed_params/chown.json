@@ -12,52 +12,12 @@
     ]
   },
   {
-    "name": "silent",
-    "template_key": "silent",
-    "type": "string",
+    "name": "dereference",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "suppress most error messages",
+    "description": "",
     "aliases": [
-      "-f",
-      "--silent",
-      "--quiet"
-    ]
-  },
-  {
-    "name": "verbose",
-    "template_key": "verbose",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "output a diagnostic for every file processed --dereference affect the referent of each symbolic link (this is the default), rather than the symbolic link itself",
-    "aliases": [
-      "-v",
-      "--verbose"
-    ]
-  },
-  {
-    "name": "no-dereference",
-    "template_key": "no-dereference",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "affect symbolic links instead of any referenced file; useful only on systems that can change the ownership of a symlink --from=CURRENT_OWNER:CURRENT_GROUP change the ownership of each file only if its current owner and/or group match those specified here. Either may be omitted, in which case a match is not required for the omitted attribute --no-preserve-root do not treat '/' specially (the default) --preserve-root fail to operate recursively on '/' --reference=RFILE use RFILE's ownership rather than specifying values. RFILE is always dereferenced if a symbolic link",
-    "aliases": [
-      "-h",
-      "--no-dereference"
-    ]
-  },
-  {
-    "name": "recursive",
-    "template_key": "recursive",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "operate on files and directories recursively",
-    "aliases": [
-      "-R",
-      "--recursive"
+      "--dereference"
     ]
   },
   {
@@ -94,6 +54,15 @@
     ]
   },
   {
+    "name": "from",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--from"
+    ]
+  },
+  {
     "name": "help",
     "template_key": "help",
     "type": "string",
@@ -102,6 +71,91 @@
     "description": "display this help and exit --version output version information and exit",
     "aliases": [
       "--help"
+    ]
+  },
+  {
+    "name": "no-dereference",
+    "template_key": "no-dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "affect symbolic links instead of any referenced file; useful only on systems that can change the ownership of a symlink --from=CURRENT_OWNER:CURRENT_GROUP change the ownership of each file only if its current owner and/or group match those specified here. Either may be omitted, in which case a match is not required for the omitted attribute --no-preserve-root do not treat '/' specially (the default) --preserve-root fail to operate recursively on '/' --reference=RFILE use RFILE's ownership rather than specifying values. RFILE is always dereferenced if a symbolic link",
+    "aliases": [
+      "-h",
+      "--no-dereference"
+    ]
+  },
+  {
+    "name": "no_preserve_root",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-preserve-root"
+    ]
+  },
+  {
+    "name": "preserve_root",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--preserve-root"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "operate on files and directories recursively",
+    "aliases": [
+      "-R",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "reference",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--reference"
+    ]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress most error messages",
+    "aliases": [
+      "-f",
+      "--silent",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output a diagnostic for every file processed --dereference affect the referent of each symbolic link (this is the default), rather than the symbolic link itself",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

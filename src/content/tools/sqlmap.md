@@ -168,6 +168,107 @@ parameters:
   default_value: '1'
   aliases:
   - --threads
+
+- name: C
+  type: boolean
+  required: false
+  description: "COL                   DBMS database table column to enumerate"
+  aliases:
+    - "-C"
+- name: D
+  type: boolean
+  required: false
+  description: "DB                    DBMS database to enumerate"
+  aliases:
+    - "-D"
+- name: T
+  type: boolean
+  required: false
+  description: "TBL                   DBMS database table to enumerate"
+  aliases:
+    - "-T"
+- name: banner
+  type: boolean
+  required: false
+  description: "Retrieve DBMS banner"
+  aliases:
+    - "--banner"
+- name: current_db
+  type: boolean
+  required: false
+  description: "Retrieve DBMS current database"
+  aliases:
+    - "--current-db"
+- name: current_user
+  type: boolean
+  required: false
+  description: "Retrieve DBMS current user"
+  aliases:
+    - "--current-user"
+- name: file_read
+  type: boolean
+  required: false
+  description: "Read file from DBMS file system"
+  aliases:
+    - "--file-read"
+- name: file_write
+  type: boolean
+  required: false
+  description: "Write file to DBMS file system"
+  aliases:
+    - "--file-write"
+- name: flush_session
+  type: boolean
+  required: false
+  description: "Flush session files for current target"
+  aliases:
+    - "--flush-session"
+- name: fresh_queries
+  type: boolean
+  required: false
+  description: "Ignore query results stored in session file"
+  aliases:
+    - "--fresh-queries"
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help"
+  aliases:
+    - "-h"
+    - "--help"
+- name: headers
+  type: boolean
+  required: false
+  description: "127.0.0.1\")"
+  aliases:
+    - "--headers"
+    - "-Forwarded-For"
+- name: os_cmd
+  type: boolean
+  required: false
+  description: "Execute OS command"
+  aliases:
+    - "--os-cmd"
+- name: passwords
+  type: boolean
+  required: false
+  description: "Enumerate DBMS users password hashes"
+  aliases:
+    - "--passwords"
+- name: random_agent
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--random-agent"
+    - "-Agent"
+- name: tamper
+  type: boolean
+  required: false
+  description: "Tamper script to bypass WAF"
+  aliases:
+    - "--tamper"
+
 execution:
   template: sqlmap -u {target} --batch --level {level} --risk {risk}
   sandbox: execFile

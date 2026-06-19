@@ -156,6 +156,32 @@ parameters:
   description: Proxy URL (--proxy)
   aliases:
   - --proxy
+
+- name: all
+  type: boolean
+  required: false
+  description: "Retrieve all information"
+  aliases:
+    - "--all"
+- name: encoding
+  type: boolean
+  required: false
+  description: "Payload encoding"
+  aliases:
+    - "--encoding"
+- name: output_dir
+  type: boolean
+  required: false
+  description: "Output directory"
+  aliases:
+    - "--output-dir"
+- name: tamper
+  type: boolean
+  required: false
+  description: "Tamper script"
+  aliases:
+    - "--tamper"
+
 execution:
   template: commix -u {target} --batch
   sandbox: execFile

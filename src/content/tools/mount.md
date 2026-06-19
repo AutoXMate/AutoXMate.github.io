@@ -238,6 +238,74 @@ parameters:
     description: "mark a subtree as slave"
     aliases:
       - --make-slave
+
+  - name: make-private
+    type: string
+    required: false
+    default: null
+    description: "mark a subtree as private"
+    aliases:
+      - "--make-private"
+  - name: make-rprivate
+    type: string
+    required: false
+    default: null
+    description: "recursively mark a whole subtree as private"
+    aliases:
+      - "--make-rprivate"
+  - name: make-rshared
+    type: string
+    required: false
+    default: null
+    description: "recursively mark a whole subtree as shared"
+    aliases:
+      - "--make-rshared"
+  - name: make-rslave
+    type: string
+    required: false
+    default: null
+    description: "recursively mark a whole subtree as slave"
+    aliases:
+      - "--make-rslave"
+  - name: make-runbindable
+    type: string
+    required: false
+    default: null
+    description: "recursively mark a whole subtree as unbindable"
+    aliases:
+      - "--make-runbindable"
+  - name: make-unbindable
+    type: string
+    required: false
+    default: null
+    description: "mark a subtree as unbindable"
+    aliases:
+      - "--make-unbindable"
+  - name: map_users
+    type: boolean
+    required: false
+    description: "<outer>:<count>"
+    aliases:
+      - "--map-users"
+  - name: onlyonce
+    type: boolean
+    required: false
+    description: "check if filesystem is already mounted"
+    aliases:
+      - "--onlyonce"
+  - name: options_source
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--options-source"
+  - name: options_source_force
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--options-source-force"
+
 execution:
   template: "mount -a {all} -c {no-canonicalize} -f {fake} -F {fork} -T {fstab}"
   sandbox: execFile

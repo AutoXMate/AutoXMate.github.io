@@ -1,0 +1,123 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+const base = import.meta.env.BASE_URL;
+const dl = `${base}downloads`;
+---
+
+<BaseLayout title="Downloads">
+  <main class="content">
+    <section class="hero">
+      <h1>Download AutoXMate CLI</h1>
+      <p>Pre-built binaries for Linux, macOS, and Windows. Choose your platform below.</p>
+    </section>
+
+    <section class="section">
+      <h2>Quick Install (Linux / macOS)</h2>
+      <div class="code-block">
+        <pre><code>curl -fsSL https://autoxmate.github.io/downloads/install.sh | bash</code></pre>
+      </div>
+      <p>Or <a href="/downloads/install.sh">download install.sh</a> and run it manually.</p>
+    </section>
+
+    <section class="section">
+      <h2>Pre-built Binaries</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>Platform</th><th>Architecture</th><th>Download</th><th>Size</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Linux</td><td>amd64</td>
+              <td><a href="/downloads/autoxmate-linux-amd64">autoxmate-linux-amd64</a></td>
+              <td>16 MB</td>
+            </tr>
+            <tr>
+              <td>Linux</td><td>arm64</td>
+              <td><a href="/downloads/autoxmate-linux-arm64">autoxmate-linux-arm64</a></td>
+              <td>14 MB</td>
+            </tr>
+            <tr>
+              <td>macOS</td><td>amd64 (Intel)</td>
+              <td><a href="/downloads/autoxmate-darwin-amd64">autoxmate-darwin-amd64</a></td>
+              <td>15 MB</td>
+            </tr>
+            <tr>
+              <td>macOS</td><td>arm64 (Apple Silicon)</td>
+              <td><a href="/downloads/autoxmate-darwin-arm64">autoxmate-darwin-arm64</a></td>
+              <td>14 MB</td>
+            </tr>
+            <tr>
+              <td>Windows</td><td>amd64</td>
+              <td><a href="/downloads/autoxmate-windows-amd64.exe">autoxmate-windows-amd64.exe</a></td>
+              <td>15 MB</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p><a href="/downloads/checksums.txt">SHA-256 checksums</a></p>
+    </section>
+
+    <section class="section">
+      <h2>Install via Go</h2>
+      <div class="code-block">
+        <pre><code>go install github.com/AutoXMate/AutoXmate@latest</code></pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Build from Source</h2>
+      <div class="code-block">
+        <pre><code>git clone https://github.com/AutoXMate/AutoXmate.git
+cd AutoXmate
+go build -o autoxmate -ldflags="-s -w" .
+./autoxmate --help</code></pre>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Usage</h2>
+      <div class="code-block">
+        <pre><code>  autoxmate sync        Sync tool definitions from the site
+  autoxmate list        List all available tools
+  autoxmate status      Check which tools are installed
+  autoxmate install     Install tools
+  autoxmate search      Search tools by name/capability/domain
+  autoxmate query       Structured query for exact commands
+  autoxmate run         Execute a tool with parameters
+  autoxmate exec        Open interactive terminal session
+  autoxmate mcp         Start MCP server for AI integration
+  autoxmate tui         Launch interactive TUI</code></pre>
+      </div>
+    </section>
+  </main>
+</BaseLayout>
+
+<style>
+  .code-block pre {
+    background: #1a1a2e;
+    border: 1px solid #2a2a4a;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  .table-wrap {
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  th, td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #2a2a4a;
+  }
+  th {
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .section {
+    margin-bottom: 2rem;
+  }
+</style>

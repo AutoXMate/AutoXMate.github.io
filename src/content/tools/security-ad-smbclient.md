@@ -159,6 +159,35 @@ parameters:
   aliases:
   - -d
   - --debug
+
+- name: O
+  type: boolean
+  required: false
+  description: "Socket options"
+  aliases:
+    - "-O"
+    - "--options"
+- name: auth_file
+  type: boolean
+  required: false
+  description: "Credentials file"
+  aliases:
+    - "--auth-file"
+- name: s
+  type: boolean
+  required: false
+  description: "Config file path"
+  aliases:
+    - "-s"
+    - "--config"
+- name: t
+  type: boolean
+  required: false
+  description: "Connection timeout"
+  aliases:
+    - "-t"
+    - "--timeout"
+
 execution:
   template: smbclient -L {target} -U {username}
   sandbox: execFile

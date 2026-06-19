@@ -133,6 +133,15 @@ parameters:
   aliases:
   - -v
   - --verbose
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help"
+  aliases:
+    - "-h"
+    - "--help"
+
 execution:
   template: hcxpcaptool -z {pmkid-output} {capture-file}
   sandbox: execFile

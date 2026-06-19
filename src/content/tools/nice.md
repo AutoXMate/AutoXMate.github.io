@@ -44,6 +44,20 @@ parameters:
   aliases:
   - -n
   - --adjustment
+
+- name: help
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--help"
+- name: version
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--version"
+
 execution:
   template: nice -2 {flag-2} -n {adjustment}
   sandbox: execFile

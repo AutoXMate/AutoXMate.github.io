@@ -70,6 +70,20 @@ parameters:
     aliases:
       - -z
       - --zero-terminated
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "head -c {bytes} -n {lines} -q {quiet} -v {verbose} -z {zero-terminated}"
   sandbox: execFile

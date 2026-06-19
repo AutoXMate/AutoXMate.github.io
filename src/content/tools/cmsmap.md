@@ -183,6 +183,15 @@ parameters:
   aliases:
   - -r
   - --recursive
+
+- name: s
+  type: boolean
+  required: false
+  description: "Force SSL/HTTPS connection"
+  aliases:
+    - "-s"
+    - "--ssl"
+
 execution:
   template: cmsmap -t {target}
   sandbox: execFile

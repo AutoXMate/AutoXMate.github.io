@@ -108,6 +108,14 @@ parameters:
       and exit"
     aliases:
       - --help
+
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "cat -A {show-all} -b {number-nonblank} -e {flag-e} -E {show-ends} -n
     {number}"

@@ -157,6 +157,29 @@ parameters:
     aliases:
       - -S
       - --step
+
+  - name: o
+    type: boolean
+    required: false
+    description: "Output to file"
+    aliases:
+      - "-o"
+      - "--output"
+  - name: q
+    type: boolean
+    required: false
+    description: "Quiet output"
+    aliases:
+      - "-q"
+      - "--quiet"
+  - name: w
+    type: boolean
+    required: false
+    description: "Work delay between cycles"
+    aliases:
+      - "-w"
+      - "--workdelay"
+
 execution:
   template: "bully -i {interface} -b {bssid}"
   sandbox: execFile

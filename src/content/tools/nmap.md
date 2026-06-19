@@ -272,6 +272,505 @@ parameters:
   description: Set the version-light parameter
   aliases:
   - --version-light
+
+- name: PE
+  type: boolean
+  required: false
+  description: "/PP/PM: ICMP echo, timestamp, and netmask request discovery probes"
+  aliases:
+    - "-PE"
+- name: PO
+  type: boolean
+  required: false
+  description: "IP Protocol Ping"
+  aliases:
+    - "-PO"
+- name: PS
+  type: boolean
+  required: false
+  description: "/PA/PU/PY[portlist]: TCP SYN, TCP ACK, UDP or SCTP discovery to given ports"
+  aliases:
+    - "-PS"
+- name: Pn
+  type: boolean
+  required: false
+  description: "Treat all hosts as online -- skip host discovery"
+  aliases:
+    - "-Pn"
+- name: append-output
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--append-output"
+- name: badsum
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--badsum"
+- name: data
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--data <hex string>"
+- name: data-length
+  type: integer
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--data-length <num>"
+- name: data-string
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--data-string <string>"
+- name: datadir
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--datadir <dirname>"
+- name: flag-6
+  type: string
+  required: false
+  default: null
+  description: "Enable IPv6 scanning"
+  aliases:
+    - "-6"
+- name: flag-D
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-D"
+- name: flag-S
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-S"
+- name: flag-T
+  type: string
+  required: false
+  default: null
+  description: "Set timing template (higher is faster)"
+  aliases:
+    - "-T"
+    - "-5"
+- name: flag-d
+  type: string
+  required: false
+  default: null
+  description: "Increase debugging level (use -dd or more for greater effect)"
+  aliases:
+    - "-d"
+- name: flag-e
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-e"
+- name: flag-h
+  type: string
+  required: false
+  default: null
+  description: "Print this help summary page"
+  aliases:
+    - "-h"
+- name: flag-o
+  type: file
+  required: false
+  default: null
+  description: "and Grepable format, respectively, to the given filename"
+  aliases:
+    - "-o"
+    - "-o"
+    - "-o"
+    - "-o"
+- name: flag-o-2
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-o"
+- name: flag-s-10
+  type: string
+  required: false
+  default: null
+  description: "equivalent to --script=default"
+  aliases:
+    - "-s"
+- name: flag-v
+  type: string
+  required: false
+  default: null
+  description: "Increase verbosity level (use -vv or more for greater effect)"
+  aliases:
+    - "-v"
+- name: host-timeout
+  type: number
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--host-timeout <time>"
+- name: iL
+  type: boolean
+  required: false
+  description: "Input from list of hosts/networks"
+  aliases:
+    - "-iL"
+- name: iR
+  type: boolean
+  required: false
+  description: "Choose random targets"
+  aliases:
+    - "-iR"
+- name: iflist
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--iflist"
+- name: ip-options
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--ip-options <options>"
+- name: max-rate
+  type: integer
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--max-rate <number>"
+- name: max-retries
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--max-retries <tries>"
+- name: min-hostgroup
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-h"
+    - "--min-hostgroup"
+- name: min-parallelism
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-p"
+    - "--min-parallelism"
+- name: min-rate
+  type: integer
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--min-rate <number>"
+- name: min-rtt-timeout
+  type: string
+  required: false
+  default: null
+  description: "probe round trip time"
+  aliases:
+    - "-r"
+    - "-t"
+    - "-r"
+    - "-t"
+    - "--min-rtt-timeout"
+- name: mtu
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-f"
+    - "--mtu <val>"
+- name: no-stylesheet
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--no-stylesheet"
+- name: noninteractive
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--noninteractive"
+- name: oA
+  type: boolean
+  required: false
+  description: "Output in the three major formats at once"
+  aliases:
+    - "-oA"
+- name: oX
+  type: boolean
+  required: false
+  description: "Output scan in normal, XML, s|<rIpt kIddi3,"
+  aliases:
+    - "-oX"
+    - "-oS"
+    - "-oG"
+- name: open
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--open"
+- name: osscan-guess
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--osscan-guess"
+- name: osscan-limit
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--osscan-limit"
+- name: packet-trace
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--packet-trace"
+- name: privileged
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--privileged"
+- name: proxies
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--proxies <url1,[url2],...>"
+- name: reason
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--reason"
+- name: resume
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--resume <filename>"
+- name: sC
+  type: boolean
+  required: false
+  description: "equivalent to --script=default"
+  aliases:
+    - "-sC"
+- name: sI
+  type: boolean
+  required: false
+  description: "Idle scan"
+  aliases:
+    - "-sI"
+- name: sL
+  type: boolean
+  required: false
+  description: "List Scan - simply list targets to scan"
+  aliases:
+    - "-sL"
+- name: sN
+  type: boolean
+  required: false
+  description: "/sF/sX: TCP Null, FIN, and Xmas scans"
+  aliases:
+    - "-sN"
+- name: sO
+  type: boolean
+  required: false
+  description: "IP protocol scan"
+  aliases:
+    - "-sO"
+- name: sS
+  type: boolean
+  required: false
+  description: "/sT/sA/sW/sM: TCP SYN/Connect()/ACK/Window/Maimon scans"
+  aliases:
+    - "-sS"
+- name: sU
+  type: boolean
+  required: false
+  description: "UDP Scan"
+  aliases:
+    - "-sU"
+- name: sV
+  type: boolean
+  required: false
+  description: "Probe open ports to determine service/version info"
+  aliases:
+    - "-sV"
+- name: sY
+  type: boolean
+  required: false
+  description: "/sZ: SCTP INIT/COOKIE-ECHO scans"
+  aliases:
+    - "-sY"
+- name: scan-delay
+  type: number
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--scan-delay"
+    - "--max-scan-delay <time>"
+- name: script
+  type: string
+  required: false
+  default: null
+  description: "directories, script-files or script-categories"
+  aliases:
+    - "--script"
+- name: script-args
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--script-args"
+- name: script-args-file
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--script-args-file"
+- name: script-help
+  type: array
+  required: false
+  default: null
+  description: "<Lua scripts> is a comma-separated list of script-files or script-categories"
+  aliases:
+    - "--script-help"
+- name: script-trace
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--script-trace"
+- name: script-updatedb
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--script-updatedb"
+- name: send-eth
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--send-eth"
+    - "--send-ip"
+- name: sn
+  type: boolean
+  required: false
+  description: "Ping Scan - disable port scan"
+  aliases:
+    - "-sn"
+- name: source-port
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-g"
+    - "--source-port <portnum>"
+- name: spoof-mac
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--spoof-mac <mac address/prefix/vendor name>"
+- name: stylesheet
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--stylesheet <path/URL>"
+- name: ttl
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-t"
+    - "-l"
+    - "--ttl <val>"
+- name: unprivileged
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--unprivileged"
+- name: version-all
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--version-all"
+- name: version-trace
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--version-trace"
+- name: webxml
+  type: string
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "--webxml"
+
 execution:
   template: nmap {flag-i} {flag-i-2} {exclude} {excludefile} {flag-s}
   sandbox: execFile

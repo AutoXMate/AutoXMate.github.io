@@ -122,6 +122,33 @@ parameters:
   description: Max string display size
   aliases:
   - -s
+
+- name: indent
+  type: integer
+  required: false
+  default: null
+  description: "Indent output by nesting depth"
+  aliases:
+    - "-n"
+- name: relative
+  type: boolean
+  required: false
+  description: "Show relative timestamps"
+  aliases:
+    - "-r"
+- name: tt
+  type: boolean
+  required: false
+  description: "prefix with full timestamp (usec)"
+  aliases:
+    - "-tt"
+- name: u
+  type: boolean
+  required: false
+  description: "run command as user"
+  aliases:
+    - "-u"
+
 execution:
   template: ltrace -c {binary}
   sandbox: execFile

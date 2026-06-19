@@ -1,5 +1,46 @@
 [
   {
+    "name": "amin",
+    "type": "boolean",
+    "required": false,
+    "description": "CONTEXT",
+    "aliases": [
+      "-amin",
+      "-anewer",
+      "-atime",
+      "-cmin",
+      "-cnewer",
+      "-context"
+    ]
+  },
+  {
+    "name": "exec",
+    "type": "boolean",
+    "required": false,
+    "description": "COMMAND ;",
+    "aliases": [
+      "-exec",
+      "-exec",
+      "-ok"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname PATTERN -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN -readable -writable -executable -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N -used N -user NAME -xtype [bcdpfls]",
+    "aliases": [
+      "-a",
+      "-a",
+      "-a",
+      "-c",
+      "-c",
+      "-c"
+    ]
+  },
+  {
     "name": "flag-d",
     "template_key": "flag-d",
     "type": "string",
@@ -30,22 +71,6 @@
     ]
   },
   {
-    "name": "flag-a",
-    "template_key": "flag-a",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "-ctime N -empty -false -fstype TYPE -gid N -group NAME -ilname PATTERN -iname PATTERN -inum N -iwholename PATTERN -iregex PATTERN -links N -lname PATTERN -mmin N -mtime N -name PATTERN -newer FILE -nouser -nogroup -path PATTERN -perm [-/]MODE -regex PATTERN -readable -writable -executable -wholename PATTERN -size N[bcwkMG] -true -type [bcdpflsD] -uid N -used N -user NAME -xtype [bcdpfls]",
-    "aliases": [
-      "-a",
-      "-a",
-      "-a",
-      "-c",
-      "-c",
-      "-c"
-    ]
-  },
-  {
     "name": "flag-d-3",
     "template_key": "flag-d-3",
     "type": "string",
@@ -69,6 +94,16 @@
     "description": "display this help and exit",
     "aliases": [
       "--help"
+    ]
+  },
+  {
+    "name": "used",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "-used",
+      "-xtype"
     ]
   },
   {

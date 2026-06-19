@@ -139,6 +139,21 @@ parameters:
   description: Evasion technique
   aliases:
   - --evasion
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "-h"
+    - "--help"
+- name: no_msfvenom
+  type: boolean
+  required: false
+  description: "Disable msfvenom payload generation"
+  aliases:
+    - "--no-msfvenom"
+
 execution:
   template: veil -t {tool} -p {payload} --ip {lhost} --port {lport}
   sandbox: execFile

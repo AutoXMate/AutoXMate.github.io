@@ -216,6 +216,94 @@ parameters:
   aliases:
   - -q
   - --quiet
+
+- name: "4"
+  type: boolean
+  required: false
+  description: "prefer IPv4 or IPv6 (default: auto)"
+  aliases:
+    - "-4"
+    - "-6"
+- name: C
+  type: boolean
+  required: false
+  description: "FILE                 colon separated \"login:pass\" format file"
+  aliases:
+    - "-C"
+- name: H
+  type: boolean
+  required: false
+  description: "print extended help screen"
+  aliases:
+    - "-H"
+- name: I
+  type: boolean
+  required: false
+  description: "ignore restore file (don't wait 3s)"
+  aliases:
+    - "-I"
+- name: R
+  type: boolean
+  required: false
+  description: "restore a previous aborted session"
+  aliases:
+    - "-R"
+- name: U
+  type: boolean
+  required: false
+  description: "TASKS                run TASKS login attempts in parallel (per module)"
+  aliases:
+    - "-U"
+- name: b
+  type: boolean
+  required: false
+  description: "TEXT|JSON|CSV        output format (default: text)"
+  aliases:
+    - "-b"
+- name: d
+  type: boolean
+  required: false
+  description: "debug mode"
+  aliases:
+    - "-d"
+- name: h
+  type: boolean
+  required: false
+  description: "print help screen"
+  aliases:
+    - "-h"
+- name: q
+  type: boolean
+  required: false
+  description: "do not print connection messages"
+  aliases:
+    - "-q"
+- name: r
+  type: boolean
+  required: false
+  description: "no reset of connection after each attempt"
+  aliases:
+    - "-r"
+- name: u
+  type: boolean
+  required: false
+  description: "loop around users, not passwords"
+  aliases:
+    - "-u"
+- name: "y"
+  type: boolean
+  required: false
+  description: "generation"
+  aliases:
+    - "-y"
+    - "-x"
+- name: z
+  type: boolean
+  required: false
+  description: "display comprehensive module information"
+  aliases:
+    - "-z"
+
 execution:
   template: hydra -l {username} -P {password-list} {target} {service}
   sandbox: execFile

@@ -219,6 +219,258 @@ parameters:
     aliases:
       - -r
       - --reverse
+
+  - name: all
+    type: string
+    required: false
+    default: null
+    description: "Show all fields, including long and unprintable"
+    aliases:
+      - "-a"
+      - "--all"
+  - name: catalog
+    type: string
+    required: false
+    default: null
+    description: "Add message explanations where available"
+    aliases:
+      - "-x"
+      - "--catalog"
+  - name: disk-usage
+    type: string
+    required: false
+    default: null
+    description: "Show total disk usage of all journal files"
+    aliases:
+      - "--disk-usage"
+  - name: dump_catalog
+    type: boolean
+    required: false
+    description: "Show entries in the message catalog"
+    aliases:
+      - "--dump-catalog"
+  - name: field
+    type: string
+    required: false
+    default: null
+    description: "List all values that a specified field takes"
+    aliases:
+      - "-F"
+      - "--field"
+  - name: fields
+    type: string
+    required: false
+    default: null
+    description: "List all field names currently used"
+    aliases:
+      - "-N"
+      - "--fields"
+  - name: follow
+    type: string
+    required: false
+    default: null
+    description: "Follow the journal"
+    aliases:
+      - "-f"
+      - "--follow"
+  - name: force
+    type: string
+    required: false
+    default: null
+    description: "Override of the FSS key pair with --setup-keys"
+    aliases:
+      - "--force"
+  - name: help
+    type: string
+    required: false
+    default: null
+    description: "Show this help text"
+    aliases:
+      - "-h"
+      - "--help"
+  - name: interval
+    type: number
+    required: false
+    default: null
+    description: "Time interval for changing the FSS sealing key"
+    aliases:
+      - "--interval"
+  - name: list-boots
+    type: string
+    required: false
+    default: null
+    description: "Show terse information about recorded boots"
+    aliases:
+      - "--list-boots"
+  - name: list-invocations
+    type: string
+    required: false
+    default: null
+    description: "Show invocation IDs of specified unit"
+    aliases:
+      - "--list-invocations"
+  - name: list-namespaces
+    type: array
+    required: false
+    default: null
+    description: "Show list of journal namespaces"
+    aliases:
+      - "--list-namespaces"
+  - name: list_catalog
+    type: boolean
+    required: false
+    description: "Show all message IDs in the catalog"
+    aliases:
+      - "--list-catalog"
+  - name: no-full
+    type: string
+    required: false
+    default: null
+    description: "Ellipsize fields"
+    aliases:
+      - "--no-full"
+  - name: no-hostname
+    type: string
+    required: false
+    default: null
+    description: "Suppress output of hostname field"
+    aliases:
+      - "-W"
+      - "--no-hostname"
+  - name: no-pager
+    type: string
+    required: false
+    default: null
+    description: "Do not pipe output into a pager"
+    aliases:
+      - "--no-pager"
+  - name: no-tail
+    type: string
+    required: false
+    default: null
+    description: "Show all lines, even in follow mode"
+    aliases:
+      - "--no-tail"
+  - name: pager-end
+    type: string
+    required: false
+    default: null
+    description: "Immediately jump to the end in the pager"
+    aliases:
+      - "-e"
+      - "--pager-end"
+  - name: quiet
+    type: string
+    required: false
+    default: null
+    description: "Do not show info messages and privilege warning"
+    aliases:
+      - "-q"
+      - "--quiet"
+  - name: relinquish-var
+    type: string
+    required: false
+    default: null
+    description: "Stop logging to disk, log to temporary file system"
+    aliases:
+      - "--relinquish-var"
+  - name: setup_keys
+    type: boolean
+    required: false
+    description: "Generate a new FSS key pair"
+    aliases:
+      - "--setup-keys"
+  - name: show-cursor
+    type: string
+    required: false
+    default: null
+    description: "Print the cursor after all the entries"
+    aliases:
+      - "--show-cursor"
+  - name: smart-relinquish-var
+    type: string
+    required: false
+    default: null
+    description: "--flush Flush all journal data from /run into /var --rotate Request immediate rotation of the journal files --header Show journal header information --list-catalog Show all message IDs in the catalog --dump-catalog Show entries in the message catalog --update-catalog Update the message catalog database --setup-keys Generate a new FSS key pair"
+    aliases:
+      - "--smart-relinquish-var"
+  - name: sync
+    type: string
+    required: false
+    default: null
+    description: "Synchronize unwritten journal messages to disk"
+    aliases:
+      - "--sync"
+  - name: synchronize-on-exit
+    type: string
+    required: false
+    default: null
+    description: "Wait for Journal synchronization before exiting"
+    aliases:
+      - "--synchronize-on-exit"
+  - name: truncate-newline
+    type: string
+    required: false
+    default: null
+    description: "Truncate entries by first newline character"
+    aliases:
+      - "--truncate-newline"
+  - name: update_catalog
+    type: boolean
+    required: false
+    description: "Update the message catalog database"
+    aliases:
+      - "--update-catalog"
+  - name: utc
+    type: string
+    required: false
+    default: null
+    description: "Express time in Coordinated Universal Time (UTC)"
+    aliases:
+      - "--utc"
+  - name: vacuum-files
+    type: integer
+    required: false
+    default: null
+    description: "Leave only the specified number of journal files"
+    aliases:
+      - "--vacuum-files"
+  - name: vacuum-size
+    type: integer
+    required: false
+    default: null
+    description: "Reduce disk usage below specified size"
+    aliases:
+      - "--vacuum-size"
+  - name: vacuum-time
+    type: number
+    required: false
+    default: null
+    description: "Remove journal files older than specified time"
+    aliases:
+      - "--vacuum-time"
+  - name: verify
+    type: string
+    required: false
+    default: null
+    description: "Verify journal file consistency"
+    aliases:
+      - "--verify"
+  - name: verify-key
+    type: string
+    required: false
+    default: null
+    description: "Specify FSS verification key"
+    aliases:
+      - "--verify-key"
+  - name: version
+    type: string
+    required: false
+    default: null
+    description: "Show package version"
+    aliases:
+      - "--version"
+
 execution:
   template: "journalctl --system {system} --user {user} -M {machine} -m {merge} -D
     {directory}"

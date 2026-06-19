@@ -164,6 +164,43 @@ parameters:
   description: Timeout in seconds for network operations
   aliases:
   - --timeout
+
+- name: "N"
+  type: boolean
+  required: false
+  description: "Disable SMBv1 protocol"
+  aliases:
+    - "-N"
+    - "--no-smb1"
+- name: R
+  type: boolean
+  required: false
+  description: "Recursive share listing"
+  aliases:
+    - "-R"
+    - "--recursive-listing"
+- name: q
+  type: boolean
+  required: false
+  description: "Quiet mode (suppress banner)"
+  aliases:
+    - "-q"
+    - "--quiet"
+- name: v
+  type: boolean
+  required: false
+  description: "Verbose output"
+  aliases:
+    - "-v"
+    - "--verbose"
+- name: w
+  type: boolean
+  required: false
+  description: "string    Workgroup (default WORKGROUP)"
+  aliases:
+    - "-w"
+    - "--workgroup"
+
 execution:
   template: enum4linux-ng -A {target}
   sandbox: execFile

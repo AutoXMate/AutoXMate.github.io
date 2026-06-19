@@ -1,5 +1,140 @@
 [
   {
+    "name": "0",
+    "type": "boolean",
+    "required": false,
+    "description": "do not prefer an IP version",
+    "aliases": [
+      "-0"
+    ]
+  },
+  {
+    "name": "4",
+    "type": "boolean",
+    "required": false,
+    "description": "prefer IPv4 if version is not explicitly specified",
+    "aliases": [
+      "-4"
+    ]
+  },
+  {
+    "name": "6",
+    "type": "boolean",
+    "required": false,
+    "description": "prefer IPv6 if version is not explicitly specified",
+    "aliases": [
+      "-6"
+    ]
+  },
+  {
+    "name": "D",
+    "type": "boolean",
+    "required": false,
+    "description": "analyze file descriptors before loop",
+    "aliases": [
+      "-D"
+    ]
+  },
+  {
+    "name": "L",
+    "type": "boolean",
+    "required": false,
+    "description": "try to obtain lock, or fail",
+    "aliases": [
+      "-L"
+    ]
+  },
+  {
+    "name": "R",
+    "type": "boolean",
+    "required": false,
+    "description": "raw dump of data flowing from right to left",
+    "aliases": [
+      "-R"
+    ]
+  },
+  {
+    "name": "S",
+    "type": "boolean",
+    "required": false,
+    "description": "log these signals, override default",
+    "aliases": [
+      "-S"
+    ]
+  },
+  {
+    "name": "T",
+    "type": "boolean",
+    "required": false,
+    "description": "total inactivity timeout in seconds",
+    "aliases": [
+      "-T"
+    ]
+  },
+  {
+    "name": "U",
+    "type": "boolean",
+    "required": false,
+    "description": "unidirectional mode (right to left)",
+    "aliases": [
+      "-U"
+    ]
+  },
+  {
+    "name": "V",
+    "type": "boolean",
+    "required": false,
+    "description": "print version and feature information to stdout, and exit",
+    "aliases": [
+      "-V"
+    ]
+  },
+  {
+    "name": "W",
+    "type": "boolean",
+    "required": false,
+    "description": "try to obtain lock, or wait",
+    "aliases": [
+      "-W"
+    ]
+  },
+  {
+    "name": "b",
+    "type": "boolean",
+    "required": false,
+    "description": "set data buffer size (8192)",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
+    "name": "d",
+    "type": "boolean",
+    "required": false,
+    "description": "increase verbosity (use up to 4 times; 2 are recommended)",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "d0",
+    "type": "boolean",
+    "required": false,
+    "description": "|1|2|3|4    set verbosity level (0: Errors; 4 all including Debug)",
+    "aliases": [
+      "-d0"
+    ]
+  },
+  {
+    "name": "experimental",
+    "type": "boolean",
+    "required": false,
+    "description": "enable experimental features",
+    "aliases": [
+      "--experimental"
+    ]
+  },
+  {
     "name": "flag-h",
     "template_key": "flag-h",
     "type": "array",
@@ -9,6 +144,152 @@
     "aliases": [
       "-h",
       "-?"
+    ]
+  },
+  {
+    "name": "g",
+    "type": "boolean",
+    "required": false,
+    "description": "do not check option groups",
+    "aliases": [
+      "-g"
+    ]
+  },
+  {
+    "name": "hh",
+    "type": "boolean",
+    "required": false,
+    "description": "plus a list of all common address option names",
+    "aliases": [
+      "-hh",
+      "-h"
+    ]
+  },
+  {
+    "name": "hhh",
+    "type": "boolean",
+    "required": false,
+    "description": "plus a list of all available address option names",
+    "aliases": [
+      "-hhh",
+      "-hh"
+    ]
+  },
+  {
+    "name": "lf",
+    "type": "boolean",
+    "required": false,
+    "description": "log to file",
+    "aliases": [
+      "-lf"
+    ]
+  },
+  {
+    "name": "lh",
+    "type": "boolean",
+    "required": false,
+    "description": "add hostname to log messages",
+    "aliases": [
+      "-lh"
+    ]
+  },
+  {
+    "name": "lm",
+    "type": "boolean",
+    "required": false,
+    "description": "mixed log mode (stderr during initialization, then syslog)",
+    "aliases": [
+      "-lm"
+    ]
+  },
+  {
+    "name": "lp",
+    "type": "boolean",
+    "required": false,
+    "description": "set the program name used for logging and vars",
+    "aliases": [
+      "-lp"
+    ]
+  },
+  {
+    "name": "ls",
+    "type": "boolean",
+    "required": false,
+    "description": "log to stderr (default if no other log)",
+    "aliases": [
+      "-ls"
+    ]
+  },
+  {
+    "name": "lu",
+    "type": "boolean",
+    "required": false,
+    "description": "use microseconds for logging timestamps",
+    "aliases": [
+      "-lu"
+    ]
+  },
+  {
+    "name": "ly",
+    "type": "boolean",
+    "required": false,
+    "description": "log to syslog, using facility (default is daemon)",
+    "aliases": [
+      "-ly"
+    ]
+  },
+  {
+    "name": "r",
+    "type": "boolean",
+    "required": false,
+    "description": "raw dump of data flowing from left to right",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "s",
+    "type": "boolean",
+    "required": false,
+    "description": "sloppy",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "t",
+    "type": "boolean",
+    "required": false,
+    "description": "wait seconds before closing second channel",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "u",
+    "type": "boolean",
+    "required": false,
+    "description": "unidirectional mode (left to right)",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "verbose text dump of data traffic",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "x",
+    "type": "boolean",
+    "required": false,
+    "description": "verbose hexadecimal dump of data traffic",
+    "aliases": [
+      "-x"
     ]
   }
 ]

@@ -158,6 +158,46 @@ parameters:
   description: Proxy URL (e.g. http://127.0.0.1:8080)
   aliases:
   - --proxy
+
+- name: exclude_sizes
+  type: boolean
+  required: false
+  description: "Exclude response sizes"
+  aliases:
+    - "--exclude-sizes"
+- name: exclude_texts
+  type: boolean
+  required: false
+  description: "Exclude response texts"
+  aliases:
+    - "--exclude-texts"
+- name: f
+  type: boolean
+  required: false
+  description: "Force extensions on all words"
+  aliases:
+    - "-f"
+    - "--force-extensions"
+- name: l
+  type: boolean
+  required: false
+  description: "URL list file"
+  aliases:
+    - "-l"
+    - "--url-list"
+- name: max_response_size
+  type: boolean
+  required: false
+  description: "Maximum response length"
+  aliases:
+    - "--max-response-size"
+- name: min_response_size
+  type: boolean
+  required: false
+  description: "Minimum response length"
+  aliases:
+    - "--min-response-size"
+
 execution:
   template: dirsearch -u {target} -w {wordlist} -t {threads}
   sandbox: execFile

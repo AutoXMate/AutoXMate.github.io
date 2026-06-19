@@ -272,6 +272,922 @@ parameters:
   description: don't use conditional if-modified-since get
   aliases:
   - --no-if-modified-since
+
+- name: accept
+  type: array
+  required: false
+  default: null
+  description: "comma-separated list of accepted extensions"
+  aliases:
+    - "-A"
+    - "--accept"
+- name: accept-regex
+  type: string
+  required: false
+  default: null
+  description: "regex matching accepted URLs"
+  aliases:
+    - "--accept-regex"
+- name: adjust-extension
+  type: string
+  required: false
+  default: null
+  description: "save HTML/CSS documents with proper extensions"
+  aliases:
+    - "-E"
+    - "--adjust-extension"
+- name: ask-password
+  type: string
+  required: false
+  default: null
+  description: "prompt for passwords"
+  aliases:
+    - "--ask-password"
+- name: auth-no-challenge
+  type: url
+  required: false
+  default: null
+  description: "send Basic HTTP authentication information"
+  aliases:
+    - "--auth-no-challenge"
+- name: backup-converted
+  type: string
+  required: false
+  default: null
+  description: "before converting file X, back up as X.orig"
+  aliases:
+    - "-K"
+    - "--backup-converted"
+- name: backups
+  type: integer
+  required: false
+  default: null
+  description: "before writing file X, rotate up to N backup files"
+  aliases:
+    - "--backups"
+- name: bind-address
+  type: string
+  required: false
+  default: null
+  description: "bind to ADDRESS (hostname or IP) on local host"
+  aliases:
+    - "--bind-address"
+- name: body-data
+  type: string
+  required: false
+  default: null
+  description: "send STRING as data. --method MUST be set"
+  aliases:
+    - "--body-data"
+- name: body-file
+  type: file
+  required: false
+  default: null
+  description: "send contents of FILE. --method MUST be set"
+  aliases:
+    - "--body-file"
+- name: ca-certificate
+  type: file
+  required: false
+  default: null
+  description: "file with the bundle of CAs"
+  aliases:
+    - "--ca-certificate"
+- name: ca-directory
+  type: file
+  required: false
+  default: null
+  description: "directory where hash list of CAs is stored"
+  aliases:
+    - "--ca-directory"
+- name: certificate
+  type: file
+  required: false
+  default: null
+  description: "client certificate file"
+  aliases:
+    - "--certificate"
+- name: certificate-type
+  type: string
+  required: false
+  default: null
+  description: "client certificate type, PEM or DER"
+  aliases:
+    - "--certificate-type"
+- name: ciphers
+  type: string
+  required: false
+  default: null
+  description: "Set the priority string (GnuTLS) or cipher list string (OpenSSL) directly"
+  aliases:
+    - "--ciphers"
+- name: compression
+  type: string
+  required: false
+  default: none
+  description: "choose compression, one of auto, gzip and none"
+  aliases:
+    - "--compression"
+- name: connect-timeout
+  type: number
+  required: false
+  default: null
+  description: "set the connect timeout to SECS"
+  aliases:
+    - "--connect-timeout"
+- name: content-disposition
+  type: string
+  required: false
+  default: null
+  description: "honor the Content-Disposition header when"
+  aliases:
+    - "--content-disposition"
+- name: content-on-error
+  type: string
+  required: false
+  default: null
+  description: "output the received content on server errors"
+  aliases:
+    - "--content-on-error"
+- name: convert-file-only
+  type: string
+  required: false
+  default: null
+  description: "convert the file part of the URLs only (usually known as the basename)"
+  aliases:
+    - "--convert-file-only"
+- name: convert-links
+  type: string
+  required: false
+  default: null
+  description: "make links in downloaded HTML or CSS point to"
+  aliases:
+    - "-k"
+    - "--convert-links"
+- name: crl-file
+  type: file
+  required: false
+  default: null
+  description: "file with bundle of CRLs"
+  aliases:
+    - "--crl-file"
+- name: cut-dirs
+  type: integer
+  required: false
+  default: null
+  description: "ignore NUMBER remote directory components"
+  aliases:
+    - "--cut-dirs"
+- name: default-page
+  type: string
+  required: false
+  default: null
+  description: "change the default page name (normally"
+  aliases:
+    - "--default-page"
+- name: delete-after
+  type: string
+  required: false
+  default: null
+  description: "delete files locally after downloading them"
+  aliases:
+    - "--delete-after"
+- name: directory-prefix
+  type: string
+  required: false
+  default: null
+  description: "save files to PREFIX/"
+  aliases:
+    - "-P"
+    - "--directory-prefix"
+- name: dns-timeout
+  type: number
+  required: false
+  default: null
+  description: "set the DNS lookup timeout to SECS"
+  aliases:
+    - "--dns-timeout"
+- name: domains
+  type: array
+  required: false
+  default: null
+  description: "comma-separated list of accepted domains"
+  aliases:
+    - "-D"
+    - "--domains"
+- name: exclude-directories
+  type: array
+  required: false
+  default: null
+  description: ""
+  aliases:
+    - "-X"
+    - "--exclude-directories"
+- name: exclude-domains
+  type: array
+  required: false
+  default: null
+  description: "comma-separated list of rejected domains"
+  aliases:
+    - "--exclude-domains"
+- name: follow-ftp
+  type: string
+  required: false
+  default: null
+  description: "follow FTP links from HTML documents"
+  aliases:
+    - "--follow-ftp"
+- name: follow-tags
+  type: array
+  required: false
+  default: null
+  description: "comma-separated list of followed HTML tags"
+  aliases:
+    - "--follow-tags"
+- name: force-directories
+  type: string
+  required: false
+  default: null
+  description: "force creation of directories"
+  aliases:
+    - "-x"
+    - "--force-directories"
+- name: ftp-password
+  type: string
+  required: false
+  default: null
+  description: "set ftp password to PASS"
+  aliases:
+    - "--ftp-password"
+- name: ftp-user
+  type: string
+  required: false
+  default: null
+  description: "set ftp user to USER"
+  aliases:
+    - "--ftp-user"
+- name: ftps-clear-data-connection
+  type: string
+  required: false
+  default: null
+  description: "cipher the control channel only; all the data will be in plaintext"
+  aliases:
+    - "--ftps-clear-data-connection"
+- name: ftps-fallback-to-ftp
+  type: string
+  required: false
+  default: null
+  description: "fall back to FTP if FTPS is not supported in the target server"
+  aliases:
+    - "--ftps-fallback-to-ftp"
+- name: ftps-implicit
+  type: string
+  required: false
+  default: null
+  description: "use implicit FTPS (default port is 990)"
+  aliases:
+    - "--ftps-implicit"
+- name: ftps-resume-ssl
+  type: string
+  required: false
+  default: null
+  description: "resume the SSL/TLS session started in the control connection when"
+  aliases:
+    - "--ftps-resume-ssl"
+- name: header
+  type: string
+  required: false
+  default: null
+  description: "insert STRING among the headers"
+  aliases:
+    - "--header"
+- name: hsts-file
+  type: string
+  required: false
+  default: null
+  description: "path of HSTS database (will override default)"
+  aliases:
+    - "--hsts-file"
+- name: http-password
+  type: url
+  required: false
+  default: null
+  description: "set http password to PASS"
+  aliases:
+    - "--http-password"
+- name: http-user
+  type: url
+  required: false
+  default: null
+  description: "set http user to USER"
+  aliases:
+    - "--http-user"
+- name: https-only
+  type: url
+  required: false
+  default: null
+  description: "only follow secure HTTPS links"
+  aliases:
+    - "--https-only"
+- name: ignore-case
+  type: string
+  required: false
+  default: null
+  description: "ignore case when matching files/directories"
+  aliases:
+    - "--ignore-case"
+- name: ignore-length
+  type: string
+  required: false
+  default: null
+  description: "ignore 'Content-Length' header field"
+  aliases:
+    - "--ignore-length"
+- name: ignore-tags
+  type: array
+  required: false
+  default: null
+  description: "comma-separated list of ignored HTML tags"
+  aliases:
+    - "--ignore-tags"
+- name: include-directories
+  type: array
+  required: false
+  default: null
+  description: "--trust-server-names use the name specified by the redirection URL's last component"
+  aliases:
+    - "-I"
+    - "--include-directories"
+- name: inet4-only
+  type: string
+  required: false
+  default: null
+  description: "connect only to IPv4 addresses"
+  aliases:
+    - "-4"
+    - "--inet4-only"
+- name: inet6-only
+  type: string
+  required: false
+  default: null
+  description: "connect only to IPv6 addresses"
+  aliases:
+    - "-6"
+    - "--inet6-only"
+- name: keep-session-cookies
+  type: string
+  required: false
+  default: null
+  description: "load and save session (non-permanent) cookies"
+  aliases:
+    - "--keep-session-cookies"
+- name: level
+  type: integer
+  required: false
+  default: null
+  description: "maximum recursion depth (inf or 0 for infinite)"
+  aliases:
+    - "-l"
+    - "--level"
+- name: limit-rate
+  type: number
+  required: false
+  default: null
+  description: "limit download rate to RATE"
+  aliases:
+    - "--limit-rate"
+- name: load-cookies
+  type: file
+  required: false
+  default: null
+  description: "load cookies from FILE before session"
+  aliases:
+    - "--load-cookies"
+- name: local-encoding
+  type: string
+  required: false
+  default: null
+  description: "use ENC as the local encoding for IRIs"
+  aliases:
+    - "--local-encoding"
+- name: max-redirect
+  type: string
+  required: false
+  default: null
+  description: "maximum redirections allowed per page"
+  aliases:
+    - "--max-redirect"
+- name: method
+  type: url
+  required: false
+  default: null
+  description: "use method \"HTTPMethod\" in the request"
+  aliases:
+    - "--method"
+- name: mirror
+  type: string
+  required: false
+  default: null
+  description: "shortcut for -N -r -l inf --no-remove-listing"
+  aliases:
+    - "-m"
+    - "--mirror"
+- name: nH
+  type: boolean
+  required: false
+  description: "don't create host directories"
+  aliases:
+    - "-nH"
+    - "--no-host-directories"
+- name: nc
+  type: boolean
+  required: false
+  description: "skip downloads that would download to"
+  aliases:
+    - "-nc"
+    - "--no-clobber"
+- name: nd
+  type: boolean
+  required: false
+  description: "don't create directories"
+  aliases:
+    - "-nd"
+    - "--no-directories"
+- name: no-cache
+  type: string
+  required: false
+  default: null
+  description: "disallow server-cached data"
+  aliases:
+    - "--no-cache"
+- name: no-check-certificate
+  type: string
+  required: false
+  default: null
+  description: "don't validate the server's certificate"
+  aliases:
+    - "--no-check-certificate"
+- name: no-cookies
+  type: string
+  required: false
+  default: null
+  description: "don't use cookies"
+  aliases:
+    - "--no-cookies"
+- name: no-directories
+  type: string
+  required: false
+  default: null
+  description: "don't create directories"
+  aliases:
+    - "-n"
+    - "--no-directories"
+- name: no-dns-cache
+  type: string
+  required: false
+  default: null
+  description: "disable caching DNS lookups"
+  aliases:
+    - "--no-dns-cache"
+- name: no-glob
+  type: string
+  required: false
+  default: null
+  description: "turn off FTP file name globbing"
+  aliases:
+    - "--no-glob"
+- name: no-host-directories
+  type: string
+  required: false
+  default: null
+  description: "don't create host directories"
+  aliases:
+    - "-n"
+    - "--no-host-directories"
+- name: no-hsts
+  type: string
+  required: false
+  default: null
+  description: "disable HSTS"
+  aliases:
+    - "--no-hsts"
+- name: no-http-keep-alive
+  type: url
+  required: false
+  default: null
+  description: "disable HTTP keep-alive (persistent connections)"
+  aliases:
+    - "--no-http-keep-alive"
+- name: no-iri
+  type: string
+  required: false
+  default: null
+  description: "turn off IRI support"
+  aliases:
+    - "--no-iri"
+- name: no-parent
+  type: file
+  required: false
+  default: null
+  description: "don't ascend to the parent directory"
+  aliases:
+    - "-n"
+    - "--no-parent"
+- name: no-passive-ftp
+  type: string
+  required: false
+  default: null
+  description: "disable the \"passive\" transfer mode"
+  aliases:
+    - "--no-passive-ftp"
+- name: no-proxy
+  type: string
+  required: false
+  default: null
+  description: "explicitly turn off proxy"
+  aliases:
+    - "--no-proxy"
+- name: no-remove-listing
+  type: string
+  required: false
+  default: null
+  description: "don't remove '.listing' files"
+  aliases:
+    - "--no-remove-listing"
+- name: no-use-server-timestamps
+  type: string
+  required: false
+  default: null
+  description: "the one on the server"
+  aliases:
+    - "--no-use-server-timestamps"
+- name: no-warc-compression
+  type: string
+  required: false
+  default: null
+  description: "do not compress WARC files with GZIP"
+  aliases:
+    - "--no-warc-compression"
+- name: no-warc-digests
+  type: string
+  required: false
+  default: null
+  description: "do not calculate SHA1 digests"
+  aliases:
+    - "--no-warc-digests"
+- name: no-warc-keep-log
+  type: string
+  required: false
+  default: null
+  description: "do not store the log file in a WARC record"
+  aliases:
+    - "--no-warc-keep-log"
+- name: np
+  type: boolean
+  required: false
+  description: "don't ascend to the parent directory"
+  aliases:
+    - "-np"
+    - "--no-parent"
+- name: nv
+  type: boolean
+  required: false
+  description: "turn off verboseness, without being quiet"
+  aliases:
+    - "-nv"
+    - "--no-verbose"
+- name: page-requisites
+  type: string
+  required: false
+  default: null
+  description: "get all images, etc. needed to display HTML page"
+  aliases:
+    - "-p"
+    - "--page-requisites"
+- name: password
+  type: url
+  required: false
+  default: null
+  description: "set both ftp and http password to PASS"
+  aliases:
+    - "--password"
+- name: pinnedpubkey
+  type: file
+  required: false
+  default: null
+  description: "of base64 encoded sha256 hashes preceded by 'sha256//' and separated by ';', to verify peer against"
+  aliases:
+    - "--pinnedpubkey"
+- name: post-data
+  type: string
+  required: false
+  default: null
+  description: "use the POST method; send STRING as the data"
+  aliases:
+    - "--post-data"
+- name: post-file
+  type: file
+  required: false
+  default: null
+  description: "use the POST method; send contents of FILE"
+  aliases:
+    - "--post-file"
+- name: prefer-family
+  type: string
+  required: false
+  default: null
+  description: "connect first to addresses of specified family"
+  aliases:
+    - "--prefer-family"
+- name: preserve-permissions
+  type: string
+  required: false
+  default: null
+  description: "preserve remote file permissions"
+  aliases:
+    - "--preserve-permissions"
+- name: private-key
+  type: file
+  required: false
+  default: null
+  description: "private key file"
+  aliases:
+    - "--private-key"
+- name: private-key-type
+  type: string
+  required: false
+  default: null
+  description: "private key type, PEM or DER"
+  aliases:
+    - "--private-key-type"
+- name: protocol-directories
+  type: string
+  required: false
+  default: null
+  description: "use protocol name in directories"
+  aliases:
+    - "--protocol-directories"
+- name: proxy-password
+  type: string
+  required: false
+  default: null
+  description: "set PASS as proxy password"
+  aliases:
+    - "--proxy-password"
+- name: proxy-user
+  type: string
+  required: false
+  default: null
+  description: "set USER as proxy username"
+  aliases:
+    - "--proxy-user"
+- name: quota
+  type: integer
+  required: false
+  default: null
+  description: "set retrieval quota to NUMBER"
+  aliases:
+    - "-Q"
+    - "--quota"
+- name: random-wait
+  type: string
+  required: false
+  default: null
+  description: "wait from 0.5*WAIT...1.5*WAIT secs between retrievals"
+  aliases:
+    - "--random-wait"
+- name: read-timeout
+  type: number
+  required: false
+  default: null
+  description: "set the read timeout to SECS"
+  aliases:
+    - "--read-timeout"
+- name: recursive
+  type: string
+  required: false
+  default: null
+  description: "specify recursive download"
+  aliases:
+    - "-r"
+    - "--recursive"
+- name: referer
+  type: url
+  required: false
+  default: null
+  description: "include 'Referer: URL' header in HTTP request"
+  aliases:
+    - "--referer"
+- name: regex-type
+  type: string
+  required: false
+  default: null
+  description: "regex type (posix|pcre)"
+  aliases:
+    - "--regex-type"
+- name: reject
+  type: array
+  required: false
+  default: null
+  description: "comma-separated list of rejected extensions"
+  aliases:
+    - "-R"
+    - "--reject"
+- name: reject-regex
+  type: string
+  required: false
+  default: null
+  description: "regex matching rejected URLs"
+  aliases:
+    - "--reject-regex"
+- name: relative
+  type: string
+  required: false
+  default: null
+  description: "follow relative links only"
+  aliases:
+    - "-L"
+    - "--relative"
+- name: remote-encoding
+  type: string
+  required: false
+  default: null
+  description: "use ENC as the default remote encoding"
+  aliases:
+    - "--remote-encoding"
+- name: restrict-file-names
+  type: string
+  required: false
+  default: null
+  description: "restrict chars in file names to ones OS allows"
+  aliases:
+    - "--restrict-file-names"
+- name: retr-symlinks
+  type: string
+  required: false
+  default: null
+  description: "when recursing, get linked-to files (not dir)"
+  aliases:
+    - "--retr-symlinks"
+- name: save-cookies
+  type: file
+  required: false
+  default: null
+  description: "save cookies to FILE after session"
+  aliases:
+    - "--save-cookies"
+- name: save-headers
+  type: url
+  required: false
+  default: null
+  description: "save the HTTP headers to file"
+  aliases:
+    - "--save-headers"
+- name: secure-protocol
+  type: string
+  required: false
+  default: null
+  description: "choose secure protocol, one of auto, SSLv2"
+  aliases:
+    - "--secure-protocol"
+- name: server-response
+  type: string
+  required: false
+  default: null
+  description: "print server response"
+  aliases:
+    - "-S"
+    - "--server-response"
+- name: span-hosts
+  type: string
+  required: false
+  default: null
+  description: "go to foreign hosts when recursive"
+  aliases:
+    - "-H"
+    - "--span-hosts"
+- name: spider
+  type: string
+  required: false
+  default: null
+  description: "don't download anything"
+  aliases:
+    - "--spider"
+- name: strict-comments
+  type: string
+  required: false
+  default: null
+  description: "turn on strict (SGML) handling of HTML comments"
+  aliases:
+    - "--strict-comments"
+- name: timeout
+  type: integer
+  required: false
+  default: null
+  description: "set all timeout values to SECONDS"
+  aliases:
+    - "-T"
+    - "--timeout"
+- name: trust_server_names
+  type: boolean
+  required: false
+  description: "use the name specified by the redirection"
+  aliases:
+    - "--trust-server-names"
+- name: unlink
+  type: string
+  required: false
+  default: null
+  description: "remove file before clobber"
+  aliases:
+    - "--unlink"
+- name: use-askpass
+  type: string
+  required: false
+  default: null
+  description: "specify credential handler for requesting"
+  aliases:
+    - "--use-askpass"
+- name: user
+  type: url
+  required: false
+  default: null
+  description: "set both ftp and http user to USER"
+  aliases:
+    - "--user"
+- name: user-agent
+  type: string
+  required: false
+  default: null
+  description: "identify as AGENT instead of Wget/VERSION"
+  aliases:
+    - "-U"
+    - "--user-agent"
+- name: wait
+  type: integer
+  required: false
+  default: null
+  description: "wait SECONDS between retrievals"
+  aliases:
+    - "-w"
+    - "--wait"
+- name: waitretry
+  type: integer
+  required: false
+  default: null
+  description: "wait 1..SECONDS between retries of a retrieval"
+  aliases:
+    - "--waitretry"
+- name: warc-cdx
+  type: string
+  required: false
+  default: null
+  description: "write CDX index files"
+  aliases:
+    - "--warc-cdx"
+- name: warc-dedup
+  type: string
+  required: false
+  default: null
+  description: "do not store records listed in this CDX file"
+  aliases:
+    - "--warc-dedup"
+- name: warc-file
+  type: string
+  required: false
+  default: null
+  description: "save request/response data to a .warc.gz file"
+  aliases:
+    - "--warc-file"
+- name: warc-header
+  type: string
+  required: false
+  default: null
+  description: "insert STRING into the warcinfo record"
+  aliases:
+    - "--warc-header"
+- name: warc-max-size
+  type: integer
+  required: false
+  default: null
+  description: "set maximum size of WARC files to NUMBER"
+  aliases:
+    - "--warc-max-size"
+- name: warc-tempdir
+  type: file
+  required: false
+  default: null
+  description: "location for temporary files created by the"
+  aliases:
+    - "--warc-tempdir"
+- name: xattr
+  type: string
+  required: false
+  default: null
+  description: "turn on storage of metadata in extended file attributes"
+  aliases:
+    - "--xattr"
+
 execution:
   template: wget {version} {help} {background} {execute} {output-file}
   sandbox: execFile

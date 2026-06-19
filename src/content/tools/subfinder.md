@@ -216,6 +216,65 @@ parameters:
   default_value: '10'
   aliases:
   - -max-time
+
+- name: es
+  type: boolean
+  required: false
+  description: "string[]  sources to exclude from enumeration"
+  aliases:
+    - "-es"
+    - "-exclude-sources"
+- name: f
+  type: boolean
+  required: false
+  description: "string[]   subdomain or list of subdomain to filter"
+  aliases:
+    - "-f"
+    - "-filter"
+- name: ls
+  type: boolean
+  required: false
+  description: "list all available sources"
+  aliases:
+    - "-ls"
+    - "-list-sources"
+- name: m
+  type: boolean
+  required: false
+  description: "string[]   subdomain or list of subdomain to match"
+  aliases:
+    - "-m"
+    - "-match"
+- name: oD
+  type: boolean
+  required: false
+  description: "only)"
+  aliases:
+    - "-oD"
+    - "-output-dir"
+    - "-dL"
+- name: r
+  type: boolean
+  required: false
+  description: "string[]                   comma separated list of resolvers to use"
+  aliases:
+    - "-r"
+- name: s
+  type: boolean
+  required: false
+  description: "to display all available sources."
+  aliases:
+    - "-s"
+    - "-sources"
+    - "-s"
+    - "-ls"
+- name: v
+  type: boolean
+  required: false
+  description: "show verbose output"
+  aliases:
+    - "-v"
+
 execution:
   template: subfinder -d {domain} -o {output}
   sandbox: execFile

@@ -1,12 +1,24 @@
 [
   {
-    "name": "url",
-    "template_key": "url",
-    "type": "string",
-    "required": true,
-    "default_value": null,
-    "description": "Target URL to crawl",
-    "aliases": ["-u", "--url"]
+    "name": "aff",
+    "type": "boolean",
+    "required": false,
+    "description": "forms",
+    "aliases": [
+      "-aff",
+      "--automatic-form-fill",
+      "-fill"
+    ]
+  },
+  {
+    "name": "ct",
+    "type": "boolean",
+    "required": false,
+    "description": "TYPE      Content type filter",
+    "aliases": [
+      "-ct",
+      "--content-type"
+    ]
   },
   {
     "name": "depth",
@@ -15,25 +27,10 @@
     "required": false,
     "default_value": 3,
     "description": "Maximum crawl depth",
-    "aliases": ["-d", "--depth"]
-  },
-  {
-    "name": "js-crawl",
-    "template_key": "js-crawl",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enable JavaScript parsing and crawling",
-    "aliases": ["-jc", "--js-crawl"]
-  },
-  {
-    "name": "extension-match",
-    "template_key": "extension-match",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Only crawl URLs matching extensions",
-    "aliases": ["-em", "--extension-match"]
+    "aliases": [
+      "-d",
+      "--depth"
+    ]
   },
   {
     "name": "extension-filter",
@@ -42,79 +39,22 @@
     "required": false,
     "default_value": null,
     "description": "Filter out URLs matching extensions",
-    "aliases": ["-ef", "--extension-filter"]
+    "aliases": [
+      "-ef",
+      "--extension-filter"
+    ]
   },
   {
-    "name": "known-files",
-    "template_key": "known-files",
+    "name": "extension-match",
+    "template_key": "extension-match",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Check for known files (robots.txt, sitemap.xml)",
-    "aliases": ["-kf", "--known-files"]
-  },
-  {
-    "name": "output",
-    "template_key": "output",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Write output to file",
-    "aliases": ["-o", "--output"]
-  },
-  {
-    "name": "json",
-    "template_key": "json",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Write output in JSON lines format",
-    "aliases": ["-oJ", "--json"]
-  },
-  {
-    "name": "status-code",
-    "template_key": "status-code",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Filter by status code",
-    "aliases": ["-sc", "--status-code"]
-  },
-  {
-    "name": "headers",
-    "template_key": "headers",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom HTTP headers",
-    "aliases": ["-H", "--headers"]
-  },
-  {
-    "name": "proxy",
-    "template_key": "proxy",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "HTTP proxy address",
-    "aliases": ["-p", "--proxy"]
-  },
-  {
-    "name": "threads",
-    "template_key": "threads",
-    "type": "integer",
-    "required": false,
-    "default_value": 10,
-    "description": "Number of concurrent threads",
-    "aliases": ["-t", "--threads"]
-  },
-  {
-    "name": "rate-limit",
-    "template_key": "rate-limit",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Maximum requests per second",
-    "aliases": ["-rl", "--rate-limit"]
+    "description": "Only crawl URLs matching extensions",
+    "aliases": [
+      "-em",
+      "--extension-match"
+    ]
   },
   {
     "name": "field",
@@ -123,7 +63,22 @@
     "required": false,
     "default_value": "url",
     "description": "Fields to display in output",
-    "aliases": ["-f", "--field"]
+    "aliases": [
+      "-f",
+      "--field"
+    ]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": [
+      "-H",
+      "--headers"
+    ]
   },
   {
     "name": "insecure",
@@ -132,6 +87,147 @@
     "required": false,
     "default_value": false,
     "description": "Skip TLS certificate verification",
-    "aliases": ["-k", "--insecure"]
+    "aliases": [
+      "-k",
+      "--insecure"
+    ]
+  },
+  {
+    "name": "js-crawl",
+    "template_key": "js-crawl",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable JavaScript parsing and crawling",
+    "aliases": [
+      "-jc",
+      "--js-crawl"
+    ]
+  },
+  {
+    "name": "json",
+    "template_key": "json",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Write output in JSON lines format",
+    "aliases": [
+      "-oJ",
+      "--json"
+    ]
+  },
+  {
+    "name": "known-files",
+    "template_key": "known-files",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Check for known files (robots.txt, sitemap.xml)",
+    "aliases": [
+      "-kf",
+      "--known-files"
+    ]
+  },
+  {
+    "name": "mrs",
+    "type": "boolean",
+    "required": false,
+    "description": "N   Max response size (default: 5242880)",
+    "aliases": [
+      "-mrs",
+      "--max-response-size"
+    ]
+  },
+  {
+    "name": "nh",
+    "type": "boolean",
+    "required": false,
+    "description": "Disable headless",
+    "aliases": [
+      "-nh",
+      "--no-headless"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write output to file",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP proxy address",
+    "aliases": [
+      "-p",
+      "--proxy"
+    ]
+  },
+  {
+    "name": "rate-limit",
+    "template_key": "rate-limit",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum requests per second",
+    "aliases": [
+      "-rl",
+      "--rate-limit"
+    ]
+  },
+  {
+    "name": "status-code",
+    "template_key": "status-code",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by status code",
+    "aliases": [
+      "-sc",
+      "--status-code"
+    ]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Number of concurrent threads",
+    "aliases": [
+      "-t",
+      "--threads"
+    ]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL to crawl",
+    "aliases": [
+      "-u",
+      "--url"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "Verbose mode",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
   }
 ]

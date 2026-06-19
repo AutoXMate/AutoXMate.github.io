@@ -229,6 +229,151 @@ parameters:
     description: "compare all operands to FILE2"
     aliases:
       - --to-file
+
+  - name: GTYPE-group-format
+    type: string
+    required: false
+    default: null
+    description: "format GTYPE input groups with GFMT"
+    aliases:
+      - "--GTYPE-group-format"
+  - name: LTYPE-line-format
+    type: string
+    required: false
+    default: null
+    description: "format LTYPE input lines with LFMT"
+    aliases:
+      - "--LTYPE-line-format"
+  - name: help
+    type: string
+    required: false
+    default: null
+    description: "display this help and exit"
+    aliases:
+      - "--help"
+  - name: horizon-lines
+    type: integer
+    required: false
+    default: null
+    description: "--speed-large-files assume large files and many scattered small changes --color[=WHEN] color output; WHEN is 'never', 'always', or 'auto'; plain --color means --color='auto' --palette=PALETTE the colors to use when --color is active; PALETTE is a colon-separated list of terminfo capabilities"
+    aliases:
+      - "--horizon-lines"
+  - name: ifdef
+    type: string
+    required: false
+    default: null
+    description: "output merged file with '#ifdef NAME' diffs"
+    aliases:
+      - "-D"
+      - "--ifdef"
+  - name: ignore-all-space
+    type: string
+    required: false
+    default: null
+    description: "ignore all white space"
+    aliases:
+      - "-w"
+      - "--ignore-all-space"
+  - name: ignore-blank-lines
+    type: string
+    required: false
+    default: null
+    description: "ignore changes where lines are all blank"
+    aliases:
+      - "-B"
+      - "--ignore-blank-lines"
+  - name: ignore-case
+    type: string
+    required: false
+    default: null
+    description: "ignore case differences in file contents"
+    aliases:
+      - "-i"
+      - "--ignore-case"
+  - name: ignore-matching-lines
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "-I"
+      - "--ignore-matching-lines"
+  - name: ignore-space-change
+    type: string
+    required: false
+    default: null
+    description: "ignore changes in the amount of white space"
+    aliases:
+      - "-b"
+      - "--ignore-space-change"
+  - name: ignore-tab-expansion
+    type: string
+    required: false
+    default: null
+    description: "ignore changes due to tab expansion"
+    aliases:
+      - "-E"
+      - "--ignore-tab-expansion"
+  - name: ignore-trailing-space
+    type: string
+    required: false
+    default: null
+    description: "ignore white space at line end"
+    aliases:
+      - "-Z"
+      - "--ignore-trailing-space"
+  - name: line-format
+    type: string
+    required: false
+    default: null
+    description: "format all input lines with LFMT"
+    aliases:
+      - "--line-format"
+  - name: minimal
+    type: string
+    required: false
+    default: null
+    description: "try hard to find a smaller set of changes"
+    aliases:
+      - "-d"
+      - "--minimal"
+  - name: palette
+    type: boolean
+    required: false
+    description: "is active; PALETTE is"
+    aliases:
+      - "--palette"
+      - "--color"
+  - name: speed_large_files
+    type: boolean
+    required: false
+    description: "assume large files and many scattered small changes"
+    aliases:
+      - "--speed-large-files"
+  - name: strip-trailing-cr
+    type: string
+    required: false
+    default: null
+    description: "strip trailing carriage return on input"
+    aliases:
+      - "--strip-trailing-cr"
+  - name: text
+    type: string
+    required: false
+    default: null
+    description: "treat all files as text"
+    aliases:
+      - "-a"
+      - "--text"
+  - name: version
+    type: string
+    required: false
+    default: null
+    description: "output version information and exit"
+    aliases:
+      - "-v"
+      - "--version"
+
 execution:
   template: "diff --normal {normal} -q {brief} -s {report-identical-files} -c {context}
     -u {unified}"

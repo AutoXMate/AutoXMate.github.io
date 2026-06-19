@@ -230,6 +230,38 @@ parameters:
   description: Enumerate all databases
   aliases:
   - --dbs
+
+- name: C
+  type: boolean
+  required: false
+  description: "COL                        Target column(s)"
+  aliases:
+    - "-C"
+- name: current_db
+  type: boolean
+  required: false
+  description: "Current database"
+  aliases:
+    - "--current-db"
+- name: current_user
+  type: boolean
+  required: false
+  description: "Current DBMS user"
+  aliases:
+    - "--current-user"
+- name: os_shell
+  type: boolean
+  required: false
+  description: "OS shell"
+  aliases:
+    - "--os-shell"
+- name: sql_shell
+  type: boolean
+  required: false
+  description: "SQL shell"
+  aliases:
+    - "--sql-shell"
+
 execution:
   template: ghauri -u {target} --batch
   sandbox: execFile

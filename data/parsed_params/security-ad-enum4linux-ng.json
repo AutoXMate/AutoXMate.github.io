@@ -1,12 +1,23 @@
 [
   {
-    "name": "target",
-    "template_key": "target",
-    "type": "string",
-    "required": true,
-    "default_value": null,
-    "description": "Target IP address or hostname",
-    "aliases": ["-t", "--target"]
+    "name": "N",
+    "type": "boolean",
+    "required": false,
+    "description": "Disable SMBv1 protocol",
+    "aliases": [
+      "-N",
+      "--no-smb1"
+    ]
+  },
+  {
+    "name": "R",
+    "type": "boolean",
+    "required": false,
+    "description": "Recursive share listing",
+    "aliases": [
+      "-R",
+      "--recursive-listing"
+    ]
   },
   {
     "name": "all",
@@ -15,61 +26,10 @@
     "required": false,
     "default_value": false,
     "description": "Run all enumeration modules",
-    "aliases": ["-A", "--all"]
-  },
-  {
-    "name": "users",
-    "template_key": "users",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enumerate users",
-    "aliases": ["-U", "--users"]
-  },
-  {
-    "name": "shares",
-    "template_key": "shares",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enumerate shares",
-    "aliases": ["-S", "--shares"]
-  },
-  {
-    "name": "password-policy",
-    "template_key": "password-policy",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enumerate password policy",
-    "aliases": ["-P", "--password-policy"]
-  },
-  {
-    "name": "groups",
-    "template_key": "groups",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enumerate groups",
-    "aliases": ["-G", "--groups"]
-  },
-  {
-    "name": "username",
-    "template_key": "username",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Username for authenticated enumeration",
-    "aliases": ["-u", "--username"]
-  },
-  {
-    "name": "password",
-    "template_key": "password",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Password for authenticated enumeration",
-    "aliases": ["-p", "--password"]
+    "aliases": [
+      "-A",
+      "--all"
+    ]
   },
   {
     "name": "domain",
@@ -78,7 +38,22 @@
     "required": false,
     "default_value": null,
     "description": "Domain name for authentication",
-    "aliases": ["-d", "--domain"]
+    "aliases": [
+      "-d",
+      "--domain"
+    ]
+  },
+  {
+    "name": "groups",
+    "template_key": "groups",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate groups",
+    "aliases": [
+      "-G",
+      "--groups"
+    ]
   },
   {
     "name": "output",
@@ -87,7 +62,68 @@
     "required": false,
     "default_value": null,
     "description": "Output directory for results",
-    "aliases": ["-o", "--output"]
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password for authenticated enumeration",
+    "aliases": [
+      "-p",
+      "--password"
+    ]
+  },
+  {
+    "name": "password-policy",
+    "template_key": "password-policy",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate password policy",
+    "aliases": [
+      "-P",
+      "--password-policy"
+    ]
+  },
+  {
+    "name": "q",
+    "type": "boolean",
+    "required": false,
+    "description": "Quiet mode (suppress banner)",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "shares",
+    "template_key": "shares",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate shares",
+    "aliases": [
+      "-S",
+      "--shares"
+    ]
+  },
+  {
+    "name": "target",
+    "template_key": "target",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target IP address or hostname",
+    "aliases": [
+      "-t",
+      "--target"
+    ]
   },
   {
     "name": "timeout",
@@ -96,6 +132,52 @@
     "required": false,
     "default_value": 5,
     "description": "Timeout in seconds for network operations",
-    "aliases": ["--timeout"]
+    "aliases": [
+      "--timeout"
+    ]
+  },
+  {
+    "name": "username",
+    "template_key": "username",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Username for authenticated enumeration",
+    "aliases": [
+      "-u",
+      "--username"
+    ]
+  },
+  {
+    "name": "users",
+    "template_key": "users",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enumerate users",
+    "aliases": [
+      "-U",
+      "--users"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "Verbose output",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "w",
+    "type": "boolean",
+    "required": false,
+    "description": "string    Workgroup (default WORKGROUP)",
+    "aliases": [
+      "-w",
+      "--workgroup"
+    ]
   }
 ]

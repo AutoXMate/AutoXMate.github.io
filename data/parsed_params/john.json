@@ -1,93 +1,31 @@
 [
   {
-    "name": "wordlist",
-    "template_key": "wordlist",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Wordlist file for dictionary attack",
-    "aliases": ["--wordlist"]
-  },
-  {
-    "name": "rules",
-    "template_key": "rules",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Wordlist mangling rules section",
-    "aliases": ["--rules"]
-  },
-  {
-    "name": "format",
-    "template_key": "format",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Hash format (e.g. raw-md5, bcrypt, sha512crypt)",
-    "aliases": ["--format"]
-  },
-  {
-    "name": "incremental",
-    "template_key": "incremental",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Incremental (brute-force) mode with optional charset",
-    "aliases": ["--incremental"]
-  },
-  {
-    "name": "mask",
-    "template_key": "mask",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Mask for brute-force attack (e.g. ?l?l?l?d?d)",
-    "aliases": ["--mask"]
-  },
-  {
-    "name": "session",
-    "template_key": "session",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Session name for save/restore",
-    "aliases": ["--session"]
-  },
-  {
-    "name": "restore",
-    "template_key": "restore",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Restore a previous cracking session",
-    "aliases": ["--restore"]
-  },
-  {
-    "name": "show",
-    "template_key": "show",
+    "name": "config",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Show cracked passwords from pot file",
-    "aliases": ["--show"]
+    "description": "use FILE instead of john.conf or john.ini",
+    "aliases": [
+      "--config"
+    ]
   },
   {
-    "name": "pot",
-    "template_key": "pot",
-    "type": "string",
+    "name": "encoding",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Pot file path for cracked passwords",
-    "aliases": ["--pot"]
+    "description": "cp1251)",
+    "aliases": [
+      "--encoding",
+      "-8"
+    ]
   },
   {
-    "name": "node",
-    "template_key": "node",
-    "type": "string",
+    "name": "external",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Node/distribution for cluster cracking",
-    "aliases": ["--node"]
+    "description": "external mode or word filter",
+    "aliases": [
+      "--external"
+    ]
   },
   {
     "name": "fork",
@@ -96,16 +34,78 @@
     "required": false,
     "default_value": 1,
     "description": "Number of forked processes",
-    "aliases": ["--fork"]
+    "aliases": [
+      "--fork"
+    ]
   },
   {
-    "name": "mem-file-size",
-    "template_key": "mem-file-size",
-    "type": "integer",
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Max memory per file buffer in MB",
-    "aliases": ["--mem-file-size"]
+    "description": "Hash format (e.g. raw-md5, bcrypt, sha512crypt)",
+    "aliases": [
+      "--format"
+    ]
+  },
+  {
+    "name": "groups",
+    "type": "boolean",
+    "required": false,
+    "description": "crack specific group(s) only",
+    "aliases": [
+      "--groups"
+    ]
+  },
+  {
+    "name": "incremental",
+    "template_key": "incremental",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Incremental (brute-force) mode with optional charset",
+    "aliases": [
+      "--incremental"
+    ]
+  },
+  {
+    "name": "list",
+    "type": "boolean",
+    "required": false,
+    "description": "list capabilities (formats, modes, etc)",
+    "aliases": [
+      "--list"
+    ]
+  },
+  {
+    "name": "make_charset",
+    "type": "boolean",
+    "required": false,
+    "description": "generate charset file",
+    "aliases": [
+      "--make-charset"
+    ]
+  },
+  {
+    "name": "markov",
+    "type": "boolean",
+    "required": false,
+    "description": "Markov mode",
+    "aliases": [
+      "--markov"
+    ]
+  },
+  {
+    "name": "mask",
+    "template_key": "mask",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Mask for brute-force attack (e.g. ?l?l?l?d?d)",
+    "aliases": [
+      "--mask"
+    ]
   },
   {
     "name": "max-candidates",
@@ -114,7 +114,131 @@
     "required": false,
     "default_value": null,
     "description": "Max candidates per second per thread",
-    "aliases": ["--max-candidates"]
+    "aliases": [
+      "--max-candidates"
+    ]
+  },
+  {
+    "name": "max_run_time",
+    "type": "boolean",
+    "required": false,
+    "description": "max runtime in seconds",
+    "aliases": [
+      "--max-run-time"
+    ]
+  },
+  {
+    "name": "mem-file-size",
+    "template_key": "mem-file-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Max memory per file buffer in MB",
+    "aliases": [
+      "--mem-file-size"
+    ]
+  },
+  {
+    "name": "node",
+    "template_key": "node",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Node/distribution for cluster cracking",
+    "aliases": [
+      "--node"
+    ]
+  },
+  {
+    "name": "pot",
+    "template_key": "pot",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Pot file path for cracked passwords",
+    "aliases": [
+      "--pot"
+    ]
+  },
+  {
+    "name": "prince",
+    "type": "boolean",
+    "required": false,
+    "description": "PRINCE mode (read candidates from FILE)",
+    "aliases": [
+      "--prince"
+    ]
+  },
+  {
+    "name": "progress_every",
+    "type": "boolean",
+    "required": false,
+    "description": "emit status line every N seconds",
+    "aliases": [
+      "--progress-every"
+    ]
+  },
+  {
+    "name": "restore",
+    "template_key": "restore",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Restore a previous cracking session",
+    "aliases": [
+      "--restore"
+    ]
+  },
+  {
+    "name": "rules",
+    "template_key": "rules",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Wordlist mangling rules section",
+    "aliases": [
+      "--rules"
+    ]
+  },
+  {
+    "name": "rules_logic",
+    "type": "boolean",
+    "required": false,
+    "description": "apply logic rules",
+    "aliases": [
+      "--rules-logic"
+    ]
+  },
+  {
+    "name": "rules_stack",
+    "type": "boolean",
+    "required": false,
+    "description": "stack additional rule(s)",
+    "aliases": [
+      "--rules-stack"
+    ]
+  },
+  {
+    "name": "session",
+    "template_key": "session",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Session name for save/restore",
+    "aliases": [
+      "--session"
+    ]
+  },
+  {
+    "name": "show",
+    "template_key": "show",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show cracked passwords from pot file",
+    "aliases": [
+      "--show"
+    ]
   },
   {
     "name": "single",
@@ -123,7 +247,9 @@
     "required": false,
     "default_value": false,
     "description": "Single crack mode using login/GECOS info",
-    "aliases": ["--single"]
+    "aliases": [
+      "--single"
+    ]
   },
   {
     "name": "stdin",
@@ -132,6 +258,28 @@
     "required": false,
     "default_value": false,
     "description": "Read password candidates from stdin",
-    "aliases": ["--stdin"]
+    "aliases": [
+      "--stdin"
+    ]
+  },
+  {
+    "name": "user",
+    "type": "boolean",
+    "required": false,
+    "description": "crack specific user(s) only",
+    "aliases": [
+      "--user"
+    ]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Wordlist file for dictionary attack",
+    "aliases": [
+      "--wordlist"
+    ]
   }
 ]

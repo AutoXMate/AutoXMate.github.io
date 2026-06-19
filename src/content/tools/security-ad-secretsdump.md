@@ -172,6 +172,14 @@ parameters:
   description: Enable debug output
   aliases:
   - --debug
+
+- name: ts
+  type: boolean
+  required: false
+  description: "Include timestamps in output"
+  aliases:
+    - "-ts"
+
 execution:
   template: impacket-secretsdump -just-dc {domain}/{user}:{password}@{target}
   sandbox: execFile

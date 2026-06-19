@@ -119,6 +119,46 @@ parameters:
     description: "Use interactive console"
     aliases:
       - --console
+
+  - name: nojop
+    type: boolean
+    required: false
+    description: "exclude JOP gadgets"
+    aliases:
+      - "--nojop"
+  - name: nosys
+    type: boolean
+    required: false
+    description: "exclude SYS gadgets"
+    aliases:
+      - "--nosys"
+  - name: output
+    type: string
+    required: false
+    default: null
+    description: "Write results to file"
+    aliases:
+      - "--output"
+  - name: range
+    type: string
+    required: false
+    default: null
+    description: "Limit search to address range start-end"
+    aliases:
+      - "--range"
+  - name: rawEndian
+    type: boolean
+    required: false
+    description: "set endianness (big/little)"
+    aliases:
+      - "--rawEndian"
+  - name: rawVendor
+    type: boolean
+    required: false
+    description: "set CPU vendor"
+    aliases:
+      - "--rawVendor"
+
 execution:
   template: "ROPgadget --binary {binary}"
   sandbox: execFile

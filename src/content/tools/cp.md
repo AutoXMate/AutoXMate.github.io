@@ -180,6 +180,80 @@ parameters:
       security context to CTX --help display this help and e..."
     aliases:
       - -Z
+
+  - name: attributes_only
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--attributes-only"
+  - name: backup
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--backup"
+  - name: copy_contents
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--copy-contents"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: keep_directory_symlink
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--keep-directory-symlink"
+  - name: no_preserve
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--no-preserve"
+  - name: parents
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--parents"
+  - name: reflink
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--reflink"
+  - name: remove_destination
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--remove-destination"
+  - name: sparse
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--sparse"
+  - name: strip_trailing_slashes
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--strip-trailing-slashes"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "cp -a {archive} -b {flag-b} -d {flag-d} -f {force} -i {interactive}"
   sandbox: execFile

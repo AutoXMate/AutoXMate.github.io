@@ -134,6 +134,32 @@ parameters:
   description: Print instruction pointer
   aliases:
   - -i
+
+- name: q
+  type: boolean
+  required: false
+  description: "quiet"
+  aliases:
+    - "-q"
+- name: tt
+  type: boolean
+  required: false
+  description: "prefix with full timestamp (usec)"
+  aliases:
+    - "-tt"
+- name: ttt
+  type: boolean
+  required: false
+  description: "prefix with epoch timestamp"
+  aliases:
+    - "-ttt"
+- name: xx
+  type: boolean
+  required: false
+  description: "print all strings in hex"
+  aliases:
+    - "-xx"
+
 execution:
   template: strace -c {binary}
   sandbox: execFile

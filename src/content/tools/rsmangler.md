@@ -139,6 +139,26 @@ parameters:
   description: Number of threads to use
   aliases:
   - -t
+
+- name: f
+  type: boolean
+  required: false
+  description: "FORMAT      Output format (txt, csv)"
+  aliases:
+    - "-f"
+- name: q
+  type: boolean
+  required: false
+  description: "Quiet mode (suppress warnings)"
+  aliases:
+    - "-q"
+- name: r
+  type: boolean
+  required: false
+  description: "FILE        Load mangle rules from a file"
+  aliases:
+    - "-r"
+
 execution:
   template: rsmangler -i {wordlist} -o {output}
   sandbox: execFile

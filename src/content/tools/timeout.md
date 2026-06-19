@@ -65,6 +65,20 @@ parameters:
   aliases:
   - -v
   - --verbose
+
+- name: help
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--help"
+- name: version
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--version"
+
 execution:
   template: timeout -f {foreground} -k {kill-after} -p {preserve-status} -s {signal}
     -v {verbose}

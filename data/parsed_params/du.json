@@ -1,17 +1,5 @@
 [
   {
-    "name": "null",
-    "template_key": "null",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "end each output line with NUL, not newline",
-    "aliases": [
-      "-0",
-      "--null"
-    ]
-  },
-  {
     "name": "all",
     "template_key": "all",
     "type": "string",
@@ -60,73 +48,15 @@
     ]
   },
   {
-    "name": "total",
-    "template_key": "total",
+    "name": "count-links",
+    "template_key": "count-links",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "produce a grand total",
+    "description": "count sizes many times if hard linked",
     "aliases": [
-      "-c",
-      "--total"
-    ]
-  },
-  {
-    "name": "dereference-args",
-    "template_key": "dereference-args",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "dereference only symlinks that are listed on the command line",
-    "aliases": [
-      "-D",
-      "--dereference-args"
-    ]
-  },
-  {
-    "name": "max-depth",
-    "template_key": "max-depth",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "print the total for a directory (or file, with --all) only if it is N or fewer levels below the command line argument; --max-depth=0 is the same as --summarize --files0-from=F summarize device usage of the NUL-terminated file names specified in file F; if F is -, read names from standard input",
-    "aliases": [
-      "-d",
-      "--max-depth"
-    ]
-  },
-  {
-    "name": "flag-H",
-    "template_key": "flag-h",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "equivalent to --dereference-args (-D)",
-    "aliases": [
-      "-H"
-    ]
-  },
-  {
-    "name": "human-readable",
-    "template_key": "human-readable",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "print sizes in human readable format (e.g., 1K 234M 2G) --inodes list inode usage information instead of block usage",
-    "aliases": [
-      "-h",
-      "--human-readable"
-    ]
-  },
-  {
-    "name": "flag-k",
-    "template_key": "flag-k",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "like --block-size=1K",
-    "aliases": [
-      "-k"
+      "-l",
+      "--count-links"
     ]
   },
   {
@@ -142,15 +72,58 @@
     ]
   },
   {
-    "name": "count-links",
-    "template_key": "count-links",
+    "name": "dereference-args",
+    "template_key": "dereference-args",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "count sizes many times if hard linked",
+    "description": "dereference only symlinks that are listed on the command line",
     "aliases": [
-      "-l",
-      "--count-links"
+      "-D",
+      "--dereference-args"
+    ]
+  },
+  {
+    "name": "exclude-from",
+    "template_key": "exclude-from",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "exclude files that match any pattern in FILE --exclude=PATTERN exclude files that match PATTERN",
+    "aliases": [
+      "-X",
+      "--exclude-from"
+    ]
+  },
+  {
+    "name": "files0_from",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--files0-from"
+    ]
+  },
+  {
+    "name": "flag-H",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to --dereference-args (-D)",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "flag-k",
+    "template_key": "flag-k",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --block-size=1K",
+    "aliases": [
+      "-k"
     ]
   },
   {
@@ -162,6 +135,48 @@
     "description": "like --block-size=1M",
     "aliases": [
       "-m"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "human-readable",
+    "template_key": "human-readable",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print sizes in human readable format (e.g., 1K 234M 2G) --inodes list inode usage information instead of block usage",
+    "aliases": [
+      "-h",
+      "--human-readable"
+    ]
+  },
+  {
+    "name": "inodes",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--inodes"
+    ]
+  },
+  {
+    "name": "max-depth",
+    "template_key": "max-depth",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "print the total for a directory (or file, with --all) only if it is N or fewer levels below the command line argument; --max-depth=0 is the same as --summarize --files0-from=F summarize device usage of the NUL-terminated file names specified in file F; if F is -, read names from standard input",
+    "aliases": [
+      "-d",
+      "--max-depth"
     ]
   },
   {
@@ -177,6 +192,30 @@
     ]
   },
   {
+    "name": "null",
+    "template_key": "null",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "end each output line with NUL, not newline",
+    "aliases": [
+      "-0",
+      "--null"
+    ]
+  },
+  {
+    "name": "one-file-system",
+    "template_key": "one-file-system",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "skip directories on different file systems --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-x",
+      "--one-file-system"
+    ]
+  },
+  {
     "name": "separate-dirs",
     "template_key": "separate-dirs",
     "type": "string",
@@ -186,6 +225,15 @@
     "aliases": [
       "-S",
       "--separate-dirs"
+    ]
+  },
+  {
+    "name": "si",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--si"
     ]
   },
   {
@@ -213,27 +261,42 @@
     ]
   },
   {
-    "name": "exclude-from",
-    "template_key": "exclude-from",
-    "type": "file",
+    "name": "time",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "exclude files that match any pattern in FILE --exclude=PATTERN exclude files that match PATTERN",
+    "description": "",
     "aliases": [
-      "-X",
-      "--exclude-from"
+      "--time"
     ]
   },
   {
-    "name": "one-file-system",
-    "template_key": "one-file-system",
+    "name": "time_style",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--time-style"
+    ]
+  },
+  {
+    "name": "total",
+    "template_key": "total",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "skip directories on different file systems --help display this help and exit --version output version information and exit",
+    "description": "produce a grand total",
     "aliases": [
-      "-x",
-      "--one-file-system"
+      "-c",
+      "--total"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

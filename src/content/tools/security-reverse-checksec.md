@@ -106,6 +106,20 @@ parameters:
     description: "List all available checks"
     aliases:
       - --list-check
+
+  - name: help
+    type: boolean
+    required: false
+    description: "Show help message"
+    aliases:
+      - "--help"
+  - name: version
+    type: boolean
+    required: false
+    description: "Show version information"
+    aliases:
+      - "--version"
+
 execution:
   template: "checksec --file={binary}"
   sandbox: execFile

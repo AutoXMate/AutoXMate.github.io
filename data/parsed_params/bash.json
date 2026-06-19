@@ -11,6 +11,45 @@
     ]
   },
   {
+    "name": "debugger",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--debugger"
+    ]
+  },
+  {
+    "name": "dump_po_strings",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--dump-po-strings"
+    ]
+  },
+  {
+    "name": "dump_strings",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--dump-strings"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-a",
+      "-o"
+    ]
+  },
+  {
     "name": "flag-i",
     "template_key": "flag-i",
     "type": "string",
@@ -24,15 +63,102 @@
     ]
   },
   {
-    "name": "flag-a",
-    "template_key": "flag-a",
-    "type": "string",
+    "name": "help",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
     "description": "",
     "aliases": [
-      "-a",
-      "-o"
+      "--help"
+    ]
+  },
+  {
+    "name": "init_file",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--init-file"
+    ]
+  },
+  {
+    "name": "noediting",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--noediting"
+    ]
+  },
+  {
+    "name": "noprofile",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--noprofile"
+    ]
+  },
+  {
+    "name": "norc",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--norc"
+    ]
+  },
+  {
+    "name": "posix",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--posix"
+    ]
+  },
+  {
+    "name": "pretty_print",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--pretty-print"
+    ]
+  },
+  {
+    "name": "rcfile",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--rcfile"
+    ]
+  },
+  {
+    "name": "restricted",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--restricted"
+    ]
+  },
+  {
+    "name": "verbose",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

@@ -132,6 +132,44 @@ parameters:
   description: Update exploit database
   aliases:
   - --update
+
+- name: flag-v
+  type: boolean
+  required: false
+  description: "Verbose output"
+  aliases:
+    - "-v"
+    - "--verbose"
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "-h"
+    - "--help"
+- name: o
+  type: boolean
+  required: false
+  description: "Display exploit title with overflow indicator"
+  aliases:
+    - "-o"
+    - "--overflow"
+- name: s
+  type: boolean
+  required: false
+  description: "Show screenshot path"
+  aliases:
+    - "-s"
+    - "--screenshot"
+- name: url
+  type: boolean
+  required: false
+  description: ")"
+  aliases:
+    - "--url"
+    - "-DB"
+    - "-w"
+
 execution:
   template: searchsploit {search-term}
   sandbox: execFile

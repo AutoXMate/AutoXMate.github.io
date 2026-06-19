@@ -1,39 +1,79 @@
 [
   {
-    "name": "flag-s",
-    "template_key": "flag-s",
-    "type": "string",
+    "name": "C",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Target for the scan",
-    "aliases": ["-s"]
+    "description": "scanID  Run correlation rules against a scan ID.",
+    "aliases": [
+      "-C",
+      "--correlate"
+    ]
   },
   {
-    "name": "flag-u",
-    "template_key": "flag-u",
-    "type": "string",
+    "name": "D",
+    "type": "boolean",
     "required": false,
-    "default_value": "passive",
-    "description": "Use case (all, footprint, investigate, passive)",
-    "aliases": ["-u"]
+    "description": "DELIMITER          Delimiter for CSV output.",
+    "aliases": [
+      "-D"
+    ]
   },
   {
-    "name": "flag-t",
-    "template_key": "flag-t",
-    "type": "string",
+    "name": "F",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Event types to collect",
-    "aliases": ["-t"]
+    "description": "type1,type2,...    Show only a set of event types.",
+    "aliases": [
+      "-F"
+    ]
   },
   {
-    "name": "flag-o",
-    "template_key": "flag-o",
-    "type": "string",
+    "name": "H",
+    "type": "boolean",
     "required": false,
-    "default_value": "tab",
-    "description": "Output format (tab, csv, json)",
-    "aliases": ["-o"]
+    "description": "Don't print field headers.",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "M",
+    "type": "boolean",
+    "required": false,
+    "description": "List available modules.",
+    "aliases": [
+      "-M",
+      "--modules"
+    ]
+  },
+  {
+    "name": "V",
+    "type": "boolean",
+    "required": false,
+    "description": "Display the version.",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "d",
+    "type": "boolean",
+    "required": false,
+    "description": "Enable debug output.",
+    "aliases": [
+      "-d",
+      "--debug"
+    ]
+  },
+  {
+    "name": "f",
+    "type": "boolean",
+    "required": false,
+    "description": "Filter out other event types.",
+    "aliases": [
+      "-f"
+    ]
   },
   {
     "name": "flag-l",
@@ -42,7 +82,20 @@
     "required": false,
     "default_value": null,
     "description": "IP and port for web UI",
-    "aliases": ["-l"]
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": "tab",
+    "description": "Output format (tab, csv, json)",
+    "aliases": [
+      "-o"
+    ]
   },
   {
     "name": "flag-q",
@@ -51,16 +104,42 @@
     "required": false,
     "default_value": false,
     "description": "Disable logging",
-    "aliases": ["-q"]
+    "aliases": [
+      "-q"
+    ]
   },
   {
-    "name": "max-threads",
-    "template_key": "max-threads",
-    "type": "integer",
+    "name": "flag-s",
+    "template_key": "flag-s",
+    "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Max modules to run concurrently",
-    "aliases": ["-max-threads"]
+    "description": "Target for the scan",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Event types to collect",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": "passive",
+    "description": "Use case (all, footprint, investigate, passive)",
+    "aliases": [
+      "-u"
+    ]
   },
   {
     "name": "flag-x",
@@ -69,6 +148,56 @@
     "required": false,
     "default_value": false,
     "description": "Strict mode",
-    "aliases": ["-x"]
+    "aliases": [
+      "-x"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "show this help message and exit",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "m",
+    "type": "boolean",
+    "required": false,
+    "description": "mod1,mod2,...      Modules to enable.",
+    "aliases": [
+      "-m"
+    ]
+  },
+  {
+    "name": "max-threads",
+    "template_key": "max-threads",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Max modules to run concurrently",
+    "aliases": [
+      "-max-threads"
+    ]
+  },
+  {
+    "name": "n",
+    "type": "boolean",
+    "required": false,
+    "description": "Strip newlines from data.",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "r",
+    "type": "boolean",
+    "required": false,
+    "description": "Include the source data field.",
+    "aliases": [
+      "-r"
+    ]
   }
 ]

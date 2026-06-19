@@ -12,6 +12,15 @@
     ]
   },
   {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
     "name": "ignore-garbage",
     "template_key": "ignore-garbage",
     "type": "string",
@@ -21,6 +30,15 @@
     "aliases": [
       "-i",
       "--ignore-garbage"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   },
   {

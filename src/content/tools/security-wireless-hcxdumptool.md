@@ -152,6 +152,15 @@ parameters:
     aliases:
       - -r
       - --read
+
+  - name: v
+    type: boolean
+    required: false
+    description: "Verbose output"
+    aliases:
+      - "-v"
+      - "--verbose"
+
 execution:
   template: "hcxdumptool -i {interface} -o {output}"
   sandbox: execFile

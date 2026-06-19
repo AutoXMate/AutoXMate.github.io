@@ -1,5 +1,14 @@
 [
   {
+    "name": "M",
+    "type": "boolean",
+    "required": false,
+    "description": "from first to M'th (included) byte, character or field",
+    "aliases": [
+      "-M"
+    ]
+  },
+  {
     "name": "bytes",
     "template_key": "bytes",
     "type": "array",
@@ -21,6 +30,15 @@
     "aliases": [
       "-c",
       "--characters"
+    ]
+  },
+  {
+    "name": "complement",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--complement"
     ]
   },
   {
@@ -59,6 +77,15 @@
     ]
   },
   {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
     "name": "only-delimited",
     "template_key": "only-delimited",
     "type": "string",
@@ -68,6 +95,24 @@
     "aliases": [
       "-s",
       "--only-delimited"
+    ]
+  },
+  {
+    "name": "output_delimiter",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--output-delimiter"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   },
   {

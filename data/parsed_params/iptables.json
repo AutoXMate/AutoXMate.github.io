@@ -1,5 +1,26 @@
 [
   {
+    "name": "E",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "-E",
+      "-chain",
+      "-chain"
+    ]
+  },
+  {
+    "name": "X",
+    "type": "boolean",
+    "required": false,
+    "description": "chain",
+    "aliases": [
+      "-X",
+      "-defined"
+    ]
+  },
+  {
     "name": "append",
     "template_key": "append",
     "type": "string",
@@ -48,50 +69,25 @@
     ]
   },
   {
-    "name": "insert",
-    "template_key": "insert",
+    "name": "delete-chain",
+    "template_key": "delete-chain",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Insert in chain as rulenum (default 1=first)",
+    "description": "-X [chain] Delete a user-defined chain",
     "aliases": [
-      "-I",
-      "--insert"
+      "--delete-chain"
     ]
   },
   {
-    "name": "replace",
-    "template_key": "replace",
+    "name": "exact",
+    "template_key": "exact",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Replace rule rulenum (1 = first) in chain",
+    "description": "-x expand numbers (display exact values)",
     "aliases": [
-      "-R",
-      "--replace"
-    ]
-  },
-  {
-    "name": "list",
-    "template_key": "list",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "-L [chain [rulenum]]",
-    "aliases": [
-      "--list"
-    ]
-  },
-  {
-    "name": "list-rules",
-    "template_key": "list-rules",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Print the rules in a chain or all chains",
-    "aliases": [
-      "-S",
-      "--list-rules"
+      "--exact"
     ]
   },
   {
@@ -107,59 +103,26 @@
     ]
   },
   {
-    "name": "zero",
-    "template_key": "zero",
+    "name": "goto",
+    "template_key": "goto",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "-Z [chain [rulenum]]",
+    "description": "-g chain",
     "aliases": [
-      "--zero"
+      "--goto"
     ]
   },
   {
-    "name": "new",
-    "template_key": "new",
+    "name": "insert",
+    "template_key": "insert",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "-N chain Create a new user-defined chain",
+    "description": "Insert in chain as rulenum (default 1=first)",
     "aliases": [
-      "--new"
-    ]
-  },
-  {
-    "name": "delete-chain",
-    "template_key": "delete-chain",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "-X [chain] Delete a user-defined chain",
-    "aliases": [
-      "--delete-chain"
-    ]
-  },
-  {
-    "name": "policy",
-    "template_key": "policy",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Change policy on chain to target",
-    "aliases": [
-      "-P",
-      "--policy"
-    ]
-  },
-  {
-    "name": "rename-chain",
-    "template_key": "rename-chain",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "-E old-chain new-chain Change chain name, (moving any references)",
-    "aliases": [
-      "--rename-chain"
+      "-I",
+      "--insert"
     ]
   },
   {
@@ -196,14 +159,37 @@
     ]
   },
   {
-    "name": "goto",
-    "template_key": "goto",
+    "name": "line-numbers",
+    "template_key": "line-numbers",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "-g chain",
+    "description": "print line numbers when listing",
     "aliases": [
-      "--goto"
+      "--line-numbers"
+    ]
+  },
+  {
+    "name": "list",
+    "template_key": "list",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-L [chain [rulenum]]",
+    "aliases": [
+      "--list"
+    ]
+  },
+  {
+    "name": "list-rules",
+    "template_key": "list-rules",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Print the rules in a chain or all chains",
+    "aliases": [
+      "-S",
+      "--list-rules"
     ]
   },
   {
@@ -218,6 +204,28 @@
     ]
   },
   {
+    "name": "modprobe",
+    "template_key": "modprobe",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "try to insert modules using this command",
+    "aliases": [
+      "--modprobe"
+    ]
+  },
+  {
+    "name": "new",
+    "template_key": "new",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-N chain Create a new user-defined chain",
+    "aliases": [
+      "--new"
+    ]
+  },
+  {
     "name": "numeric",
     "template_key": "numeric",
     "type": "integer",
@@ -226,6 +234,53 @@
     "description": "-n numeric output of addresses and ports",
     "aliases": [
       "--numeric"
+    ]
+  },
+  {
+    "name": "policy",
+    "template_key": "policy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Change policy on chain to target",
+    "aliases": [
+      "-P",
+      "--policy"
+    ]
+  },
+  {
+    "name": "rename-chain",
+    "template_key": "rename-chain",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "-E old-chain new-chain Change chain name, (moving any references)",
+    "aliases": [
+      "--rename-chain"
+    ]
+  },
+  {
+    "name": "replace",
+    "template_key": "replace",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Replace rule rulenum (1 = first) in chain",
+    "aliases": [
+      "-R",
+      "--replace"
+    ]
+  },
+  {
+    "name": "set-counters",
+    "template_key": "set-counters",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set the counter during insert/append",
+    "aliases": [
+      "-c",
+      "--set-counters"
     ]
   },
   {
@@ -262,48 +317,14 @@
     ]
   },
   {
-    "name": "line-numbers",
-    "template_key": "line-numbers",
+    "name": "zero",
+    "template_key": "zero",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "print line numbers when listing",
+    "description": "-Z [chain [rulenum]]",
     "aliases": [
-      "--line-numbers"
-    ]
-  },
-  {
-    "name": "exact",
-    "template_key": "exact",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "-x expand numbers (display exact values)",
-    "aliases": [
-      "--exact"
-    ]
-  },
-  {
-    "name": "modprobe",
-    "template_key": "modprobe",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "try to insert modules using this command",
-    "aliases": [
-      "--modprobe"
-    ]
-  },
-  {
-    "name": "set-counters",
-    "template_key": "set-counters",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "set the counter during insert/append",
-    "aliases": [
-      "-c",
-      "--set-counters"
+      "--zero"
     ]
   }
 ]

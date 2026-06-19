@@ -1,39 +1,14 @@
 [
   {
-    "name": "url",
-    "template_key": "url",
-    "type": "string",
-    "required": true,
-    "default_value": null,
-    "description": "Target URL with FUZZ keyword",
-    "aliases": ["-u"]
-  },
-  {
-    "name": "wordlist",
-    "template_key": "wordlist",
-    "type": "file",
-    "required": true,
-    "default_value": null,
-    "description": "Path to wordlist file",
-    "aliases": ["-w"]
-  },
-  {
-    "name": "method",
-    "template_key": "method",
-    "type": "string",
+    "name": "auto-calibration",
+    "template_key": "auto-calibration",
+    "type": "boolean",
     "required": false,
-    "default_value": "GET",
-    "description": "HTTP method (GET, POST, PUT, etc.)",
-    "aliases": ["-X"]
-  },
-  {
-    "name": "headers",
-    "template_key": "headers",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom HTTP headers",
-    "aliases": ["-H"]
+    "default_value": false,
+    "description": "Auto-calibrate filtering",
+    "aliases": [
+      "-ac"
+    ]
   },
   {
     "name": "data",
@@ -42,43 +17,19 @@
     "required": false,
     "default_value": null,
     "description": "POST request body",
-    "aliases": ["-d"]
+    "aliases": [
+      "-d"
+    ]
   },
   {
-    "name": "proxy",
-    "template_key": "proxy",
-    "type": "string",
+    "name": "e",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Proxy URL",
-    "aliases": ["-p"]
-  },
-  {
-    "name": "threads",
-    "template_key": "threads",
-    "type": "integer",
-    "required": false,
-    "default_value": 40,
-    "description": "Number of concurrent threads",
-    "aliases": ["-t"]
-  },
-  {
-    "name": "output",
-    "template_key": "output",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Output file path",
-    "aliases": ["-o"]
-  },
-  {
-    "name": "output-format",
-    "template_key": "output-format",
-    "type": "string",
-    "required": false,
-    "default_value": "json",
-    "description": "Output format: json, csv, html, md",
-    "aliases": ["-of"]
+    "description": "File extension to append",
+    "aliases": [
+      "-e",
+      "--extension"
+    ]
   },
   {
     "name": "filter-code",
@@ -87,25 +38,9 @@
     "required": false,
     "default_value": null,
     "description": "Filter by HTTP status codes",
-    "aliases": ["-fc"]
-  },
-  {
-    "name": "filter-size",
-    "template_key": "filter-size",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Filter by response size",
-    "aliases": ["-fs"]
-  },
-  {
-    "name": "filter-words",
-    "template_key": "filter-words",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Filter by word count",
-    "aliases": ["-fw"]
+    "aliases": [
+      "-fc"
+    ]
   },
   {
     "name": "filter-lines",
@@ -114,7 +49,31 @@
     "required": false,
     "default_value": null,
     "description": "Filter by line count",
-    "aliases": ["-fl"]
+    "aliases": [
+      "-fl"
+    ]
+  },
+  {
+    "name": "filter-size",
+    "template_key": "filter-size",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by response size",
+    "aliases": [
+      "-fs"
+    ]
+  },
+  {
+    "name": "filter-words",
+    "template_key": "filter-words",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Filter by word count",
+    "aliases": [
+      "-fw"
+    ]
   },
   {
     "name": "follow-redirect",
@@ -123,7 +82,73 @@
     "required": false,
     "default_value": false,
     "description": "Follow HTTP redirects",
-    "aliases": ["-r"]
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "method",
+    "template_key": "method",
+    "type": "string",
+    "required": false,
+    "default_value": "GET",
+    "description": "HTTP method (GET, POST, PUT, etc.)",
+    "aliases": [
+      "-X"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Output file path",
+    "aliases": [
+      "-o"
+    ]
+  },
+  {
+    "name": "output-format",
+    "template_key": "output-format",
+    "type": "string",
+    "required": false,
+    "default_value": "json",
+    "description": "Output format: json, csv, html, md",
+    "aliases": [
+      "-of"
+    ]
+  },
+  {
+    "name": "output_format",
+    "type": "boolean",
+    "required": false,
+    "description": "Output format (json, csv, html, md)",
+    "aliases": [
+      "--output-format"
+    ]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy URL",
+    "aliases": [
+      "-p"
+    ]
   },
   {
     "name": "recursion",
@@ -132,15 +157,61 @@
     "required": false,
     "default_value": false,
     "description": "Enable recursion",
-    "aliases": ["-recursion"]
+    "aliases": [
+      "-recursion"
+    ]
   },
   {
-    "name": "auto-calibration",
-    "template_key": "auto-calibration",
+    "name": "s",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Auto-calibrate filtering",
-    "aliases": ["-ac"]
+    "description": "Silent mode",
+    "aliases": [
+      "-s",
+      "--silent"
+    ]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 40,
+    "description": "Number of concurrent threads",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL with FUZZ keyword",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "Verbose output",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": true,
+    "default_value": null,
+    "description": "Path to wordlist file",
+    "aliases": [
+      "-w"
+    ]
   }
 ]

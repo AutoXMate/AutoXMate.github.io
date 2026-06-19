@@ -277,6 +277,36 @@ parameters:
   description: Discover MTU along the path being traced. Implies
   aliases:
   - --mtu
+
+- name: UL
+  type: boolean
+  required: false
+  description: "Use UDPLITE for tracerouting (default dest port"
+  aliases:
+    - "-UL"
+- name: back
+  type: integer
+  required: false
+  default: null
+  description: "Guess the number of hops in the backward path and"
+  aliases:
+    - "--back"
+- name: help
+  type: string
+  required: false
+  default: null
+  description: "Read this help and exit"
+  aliases:
+    - "--help"
+- name: version
+  type: string
+  required: false
+  default: null
+  description: "Print version info and exit"
+  aliases:
+    - "-V"
+    - "--version"
+
 execution:
   template: traceroute {flag-4} {flag-6} {debug} {dont-fragment} {first}
   sandbox: execFile

@@ -84,6 +84,26 @@ parameters:
     --version output version information and exit
   aliases:
   - -p
+
+- name: help
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--help"
+- name: output_error
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--output-error"
+- name: version
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--version"
+
 execution:
   template: tee {append} {ignore-interrupts} {flag-p}
   sandbox: execFile

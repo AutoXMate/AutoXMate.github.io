@@ -66,6 +66,20 @@ parameters:
     description: "Set the flag-t parameter"
     aliases:
       - -t
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "tr -c {complement} -d {delete} -s {squeeze-repeats} -t {truncate-set1}
     -t {flag-t}"

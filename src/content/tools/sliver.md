@@ -142,6 +142,40 @@ parameters:
   description: Enable armory for community extensions
   aliases:
   - --armory
+
+- name: d
+  type: boolean
+  required: false
+  description: "Debug mode"
+  aliases:
+    - "-d"
+    - "--debug"
+- name: help
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "--help"
+- name: named_pipe
+  type: boolean
+  required: false
+  description: "Named pipe listener"
+  aliases:
+    - "--named-pipe"
+- name: tcp
+  type: boolean
+  required: false
+  description: "TCP listener"
+  aliases:
+    - "--tcp"
+- name: v
+  type: boolean
+  required: false
+  description: "Verbose output"
+  aliases:
+    - "-v"
+    - "--verbose"
+
 execution:
   template: sliver-client
   sandbox: execFile

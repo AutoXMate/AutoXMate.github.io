@@ -1,61 +1,11 @@
 [
   {
-    "name": "help",
-    "template_key": "help",
-    "type": "string",
+    "name": "apple",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "display this help and exit",
+    "description": "output the Apple CREATOR/TYPE",
     "aliases": [
-      "--help"
-    ]
-  },
-  {
-    "name": "version",
-    "template_key": "version",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "output version information and exit",
-    "aliases": [
-      "-v",
-      "--version"
-    ]
-  },
-  {
-    "name": "magic-file LIST",
-    "template_key": "magic-file-list",
-    "type": "array",
-    "required": false,
-    "default_value": null,
-    "description": "use LIST as a colon-separated list of magic",
-    "aliases": [
-      "-m",
-      "--magic-file LIST"
-    ]
-  },
-  {
-    "name": "uncompress",
-    "template_key": "uncompress",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "try to look inside compressed files",
-    "aliases": [
-      "-z",
-      "--uncompress"
-    ]
-  },
-  {
-    "name": "uncompress-noreport",
-    "template_key": "uncompress-noreport",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "",
-    "aliases": [
-      "-Z",
-      "--uncompress-noreport"
+      "--apple"
     ]
   },
   {
@@ -83,6 +33,42 @@
     ]
   },
   {
+    "name": "compile",
+    "template_key": "compile",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compile file specified by -m",
+    "aliases": [
+      "-C",
+      "--compile"
+    ]
+  },
+  {
+    "name": "debug",
+    "template_key": "debug",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print debugging messages",
+    "aliases": [
+      "-d",
+      "--debug"
+    ]
+  },
+  {
+    "name": "dereference",
+    "template_key": "dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "follow symlinks (default if POSIXLY_CORRECT is set)",
+    "aliases": [
+      "-L",
+      "--dereference"
+    ]
+  },
+  {
     "name": "exclude TEST",
     "template_key": "exclude-test",
     "type": "array",
@@ -106,6 +92,15 @@
     ]
   },
   {
+    "name": "extension",
+    "type": "boolean",
+    "required": false,
+    "description": "output a slash-separated list of extensions",
+    "aliases": [
+      "--extension"
+    ]
+  },
+  {
     "name": "files-from FILE",
     "template_key": "files-from-file",
     "type": "file",
@@ -118,38 +113,14 @@
     ]
   },
   {
-    "name": "separator STRING",
-    "template_key": "separator-string",
+    "name": "help",
+    "template_key": "help",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "use string as separator instead of `:'",
+    "description": "display this help and exit",
     "aliases": [
-      "-F",
-      "--separator STRING"
-    ]
-  },
-  {
-    "name": "mime",
-    "template_key": "mime",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "output MIME type strings (--mime-type and",
-    "aliases": [
-      "-i",
-      "--mime"
-    ]
-  },
-  {
-    "name": "mime-encoding",
-    "template_key": "mime-encoding",
-    "type": "array",
-    "required": false,
-    "default_value": null,
-    "description": "--apple output the Apple CREATOR/TYPE --extension output a slash-separated list of extensions --mime-type output the MIME type --mime-encoding output the MIME encoding",
-    "aliases": [
-      "--mime-encoding"
+      "--help"
     ]
   },
   {
@@ -177,27 +148,47 @@
     ]
   },
   {
-    "name": "dereference",
-    "template_key": "dereference",
-    "type": "string",
+    "name": "magic-file LIST",
+    "template_key": "magic-file-list",
+    "type": "array",
     "required": false,
     "default_value": null,
-    "description": "follow symlinks (default if POSIXLY_CORRECT is set)",
+    "description": "use LIST as a colon-separated list of magic",
     "aliases": [
-      "-L",
-      "--dereference"
+      "-m",
+      "--magic-file LIST"
     ]
   },
   {
-    "name": "no-dereference",
-    "template_key": "no-dereference",
+    "name": "mime",
+    "template_key": "mime",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "don't follow symlinks (default if POSIXLY_CORRECT is not set) (default)",
+    "description": "output MIME type strings (--mime-type and",
     "aliases": [
-      "-h",
-      "--no-dereference"
+      "-i",
+      "--mime"
+    ]
+  },
+  {
+    "name": "mime-encoding",
+    "template_key": "mime-encoding",
+    "type": "array",
+    "required": false,
+    "default_value": null,
+    "description": "--apple output the Apple CREATOR/TYPE --extension output a slash-separated list of extensions --mime-type output the MIME type --mime-encoding output the MIME encoding",
+    "aliases": [
+      "--mime-encoding"
+    ]
+  },
+  {
+    "name": "mime_type",
+    "type": "boolean",
+    "required": false,
+    "description": "output the MIME type",
+    "aliases": [
+      "--mime-type"
     ]
   },
   {
@@ -213,6 +204,18 @@
     ]
   },
   {
+    "name": "no-dereference",
+    "template_key": "no-dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't follow symlinks (default if POSIXLY_CORRECT is not set) (default)",
+    "aliases": [
+      "-h",
+      "--no-dereference"
+    ]
+  },
+  {
     "name": "no-pad",
     "template_key": "no-pad",
     "type": "string",
@@ -222,66 +225,6 @@
     "aliases": [
       "-N",
       "--no-pad"
-    ]
-  },
-  {
-    "name": "print0",
-    "template_key": "print0",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "terminate filenames with ASCII NUL",
-    "aliases": [
-      "-0",
-      "--print0"
-    ]
-  },
-  {
-    "name": "preserve-date",
-    "template_key": "preserve-date",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "preserve access times on files",
-    "aliases": [
-      "-p",
-      "--preserve-date"
-    ]
-  },
-  {
-    "name": "parameter",
-    "template_key": "parameter",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "set file engine parameter limits",
-    "aliases": [
-      "-P",
-      "--parameter"
-    ]
-  },
-  {
-    "name": "raw",
-    "template_key": "raw",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "don't translate unprintable chars to \\ooo",
-    "aliases": [
-      "-r",
-      "--raw"
-    ]
-  },
-  {
-    "name": "special-files",
-    "template_key": "special-files",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "treat special (block/char devices) files as",
-    "aliases": [
-      "-s",
-      "--special-files"
     ]
   },
   {
@@ -297,27 +240,111 @@
     ]
   },
   {
-    "name": "compile",
-    "template_key": "compile",
+    "name": "parameter",
+    "template_key": "parameter",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "compile file specified by -m",
+    "description": "set file engine parameter limits",
     "aliases": [
-      "-C",
-      "--compile"
+      "-P",
+      "--parameter"
     ]
   },
   {
-    "name": "debug",
-    "template_key": "debug",
+    "name": "preserve-date",
+    "template_key": "preserve-date",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "print debugging messages",
+    "description": "preserve access times on files",
     "aliases": [
-      "-d",
-      "--debug"
+      "-p",
+      "--preserve-date"
+    ]
+  },
+  {
+    "name": "print0",
+    "template_key": "print0",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "terminate filenames with ASCII NUL",
+    "aliases": [
+      "-0",
+      "--print0"
+    ]
+  },
+  {
+    "name": "raw",
+    "template_key": "raw",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "don't translate unprintable chars to \\ooo",
+    "aliases": [
+      "-r",
+      "--raw"
+    ]
+  },
+  {
+    "name": "separator STRING",
+    "template_key": "separator-string",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use string as separator instead of `:'",
+    "aliases": [
+      "-F",
+      "--separator STRING"
+    ]
+  },
+  {
+    "name": "special-files",
+    "template_key": "special-files",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "treat special (block/char devices) files as",
+    "aliases": [
+      "-s",
+      "--special-files"
+    ]
+  },
+  {
+    "name": "uncompress",
+    "template_key": "uncompress",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "try to look inside compressed files",
+    "aliases": [
+      "-z",
+      "--uncompress"
+    ]
+  },
+  {
+    "name": "uncompress-noreport",
+    "template_key": "uncompress-noreport",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-Z",
+      "--uncompress-noreport"
+    ]
+  },
+  {
+    "name": "version",
+    "template_key": "version",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output version information and exit",
+    "aliases": [
+      "-v",
+      "--version"
     ]
   }
 ]

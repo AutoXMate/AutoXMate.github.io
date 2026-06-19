@@ -1,48 +1,14 @@
 [
   {
-    "name": "binary",
-    "template_key": "binary",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Binary file to analyze for gadgets",
-    "aliases": ["--binary"]
-  },
-  {
-    "name": "rawArch",
-    "template_key": "rawArch",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Raw architecture (x86, arm, mips)",
-    "aliases": ["--rawArch"]
-  },
-  {
-    "name": "rawMode",
-    "template_key": "rawMode",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Raw mode (32, 64)",
-    "aliases": ["--rawMode"]
-  },
-  {
-    "name": "opcode",
-    "template_key": "opcode",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Only search for specific opcodes",
-    "aliases": ["--opcode"]
-  },
-  {
     "name": "all",
     "template_key": "all",
     "type": "boolean",
     "required": false,
     "default_value": false,
     "description": "Show all gadgets (not just unique)",
-    "aliases": ["--all"]
+    "aliases": [
+      "--all"
+    ]
   },
   {
     "name": "badbytes",
@@ -51,34 +17,20 @@
     "required": false,
     "default_value": null,
     "description": "Bytes to exclude from gadgets",
-    "aliases": ["--badbytes"]
+    "aliases": [
+      "--badbytes"
+    ]
   },
   {
-    "name": "depth",
-    "template_key": "depth",
-    "type": "integer",
+    "name": "binary",
+    "template_key": "binary",
+    "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Maximum gadget depth in instructions",
-    "aliases": ["--depth"]
-  },
-  {
-    "name": "thumb",
-    "template_key": "thumb",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Use ARM Thumb mode",
-    "aliases": ["--thumb"]
-  },
-  {
-    "name": "json",
-    "template_key": "json",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Output in JSON format",
-    "aliases": ["--json"]
+    "description": "Binary file to analyze for gadgets",
+    "aliases": [
+      "--binary"
+    ]
   },
   {
     "name": "console",
@@ -87,7 +39,60 @@
     "required": false,
     "default_value": false,
     "description": "Use interactive console",
-    "aliases": ["--console"]
+    "aliases": [
+      "--console"
+    ]
+  },
+  {
+    "name": "depth",
+    "template_key": "depth",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum gadget depth in instructions",
+    "aliases": [
+      "--depth"
+    ]
+  },
+  {
+    "name": "json",
+    "template_key": "json",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Output in JSON format",
+    "aliases": [
+      "--json"
+    ]
+  },
+  {
+    "name": "nojop",
+    "type": "boolean",
+    "required": false,
+    "description": "exclude JOP gadgets",
+    "aliases": [
+      "--nojop"
+    ]
+  },
+  {
+    "name": "nosys",
+    "type": "boolean",
+    "required": false,
+    "description": "exclude SYS gadgets",
+    "aliases": [
+      "--nosys"
+    ]
+  },
+  {
+    "name": "opcode",
+    "template_key": "opcode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Only search for specific opcodes",
+    "aliases": [
+      "--opcode"
+    ]
   },
   {
     "name": "output",
@@ -96,7 +101,9 @@
     "required": false,
     "default_value": null,
     "description": "Write results to file",
-    "aliases": ["--output"]
+    "aliases": [
+      "--output"
+    ]
   },
   {
     "name": "range",
@@ -105,6 +112,59 @@
     "required": false,
     "default_value": null,
     "description": "Limit search to address range start-end",
-    "aliases": ["--range"]
+    "aliases": [
+      "--range"
+    ]
+  },
+  {
+    "name": "rawArch",
+    "template_key": "rawArch",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Raw architecture (x86, arm, mips)",
+    "aliases": [
+      "--rawArch"
+    ]
+  },
+  {
+    "name": "rawEndian",
+    "type": "boolean",
+    "required": false,
+    "description": "set endianness (big/little)",
+    "aliases": [
+      "--rawEndian"
+    ]
+  },
+  {
+    "name": "rawMode",
+    "template_key": "rawMode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Raw mode (32, 64)",
+    "aliases": [
+      "--rawMode"
+    ]
+  },
+  {
+    "name": "rawVendor",
+    "type": "boolean",
+    "required": false,
+    "description": "set CPU vendor",
+    "aliases": [
+      "--rawVendor"
+    ]
+  },
+  {
+    "name": "thumb",
+    "template_key": "thumb",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use ARM Thumb mode",
+    "aliases": [
+      "--thumb"
+    ]
   }
 ]

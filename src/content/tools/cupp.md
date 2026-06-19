@@ -139,6 +139,56 @@ parameters:
   description: Target company name
   aliases:
   - --company
+
+- name: car
+  type: boolean
+  required: false
+  description: "Target favourite car"
+  aliases:
+    - "--car"
+- name: charset
+  type: boolean
+  required: false
+  description: "Custom charset for mutations"
+  aliases:
+    - "--charset"
+- name: kids
+  type: boolean
+  required: false
+  description: "Target children names"
+  aliases:
+    - "--kids"
+- name: movie
+  type: boolean
+  required: false
+  description: "Target favourite movie"
+  aliases:
+    - "--movie"
+- name: music
+  type: boolean
+  required: false
+  description: "Target favourite music"
+  aliases:
+    - "--music"
+- name: partner
+  type: boolean
+  required: false
+  description: "Target partner name"
+  aliases:
+    - "--partner"
+- name: school
+  type: boolean
+  required: false
+  description: "Target school name"
+  aliases:
+    - "--school"
+- name: sports
+  type: boolean
+  required: false
+  description: "Target favourite sport"
+  aliases:
+    - "--sports"
+
 execution:
   template: cupp -i
   sandbox: execFile

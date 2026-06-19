@@ -62,6 +62,32 @@ parameters:
     aliases:
       - -z
       - --zero-terminated
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: nocheck_order
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--nocheck-order"
+  - name: output_delimiter
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--output-delimiter"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "comm -1 {flag-1} -2 {flag-2} -3 {flag-3} --check-order {check-order}
     -z {zero-terminated}"

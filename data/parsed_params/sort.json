@@ -1,137 +1,5 @@
 [
   {
-    "name": "ignore-leading-blanks",
-    "template_key": "ignore-leading-blanks",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "ignore leading blanks when finding sort keys in each line",
-    "aliases": [
-      "-b",
-      "--ignore-leading-blanks"
-    ]
-  },
-  {
-    "name": "dictionary-order",
-    "template_key": "dictionary-order",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "consider only blanks and alphanumeric characters",
-    "aliases": [
-      "-d",
-      "--dictionary-order"
-    ]
-  },
-  {
-    "name": "ignore-case",
-    "template_key": "ignore-case",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "fold lower case to upper case characters",
-    "aliases": [
-      "-f",
-      "--ignore-case"
-    ]
-  },
-  {
-    "name": "general-numeric-sort",
-    "template_key": "general-numeric-sort",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "compare according to general numerical value",
-    "aliases": [
-      "-g",
-      "--general-numeric-sort"
-    ]
-  },
-  {
-    "name": "ignore-nonprinting",
-    "template_key": "ignore-nonprinting",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "consider only printable characters",
-    "aliases": [
-      "-i",
-      "--ignore-nonprinting"
-    ]
-  },
-  {
-    "name": "month-sort",
-    "template_key": "month-sort",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "compare (unknown) < 'JAN' < ... < 'DEC'",
-    "aliases": [
-      "-M",
-      "--month-sort"
-    ]
-  },
-  {
-    "name": "human-numeric-sort",
-    "template_key": "human-numeric-sort",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "compare human readable numbers (e.g., 2K 1G)",
-    "aliases": [
-      "-h",
-      "--human-numeric-sort"
-    ]
-  },
-  {
-    "name": "numeric-sort",
-    "template_key": "numeric-sort",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "compare according to string numerical value; see full documentation for supported strings",
-    "aliases": [
-      "-n",
-      "--numeric-sort"
-    ]
-  },
-  {
-    "name": "random-sort",
-    "template_key": "random-sort",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "shuffle, but group identical keys. See also shuf(1) --random-source=FILE get random bytes from FILE",
-    "aliases": [
-      "-R",
-      "--random-sort"
-    ]
-  },
-  {
-    "name": "reverse",
-    "template_key": "reverse",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "reverse the result of comparisons --sort=WORD sort according to WORD: general-numeric -g, human-numeric -h, month -M, numeric -n, random -R, version -V",
-    "aliases": [
-      "-r",
-      "--reverse"
-    ]
-  },
-  {
-    "name": "version-sort",
-    "template_key": "version-sort",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "natural sort of (version) numbers within text",
-    "aliases": [
-      "-V",
-      "--version-sort"
-    ]
-  },
-  {
     "name": "batch-size",
     "template_key": "batch-size",
     "type": "string",
@@ -140,6 +8,18 @@
     "description": "merge at most NMERGE inputs at once; for more use temp files",
     "aliases": [
       "--batch-size"
+    ]
+  },
+  {
+    "name": "buffer-size",
+    "template_key": "buffer-size",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "use SIZE for main memory buffer",
+    "aliases": [
+      "-S",
+      "--buffer-size"
     ]
   },
   {
@@ -170,6 +50,117 @@
     ]
   },
   {
+    "name": "compress_program",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--compress-program"
+    ]
+  },
+  {
+    "name": "dictionary-order",
+    "template_key": "dictionary-order",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "consider only blanks and alphanumeric characters",
+    "aliases": [
+      "-d",
+      "--dictionary-order"
+    ]
+  },
+  {
+    "name": "field-separator",
+    "template_key": "field-separator",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use SEP instead of non-blank to blank transition",
+    "aliases": [
+      "-t",
+      "--field-separator"
+    ]
+  },
+  {
+    "name": "files0_from",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--files0-from"
+    ]
+  },
+  {
+    "name": "general-numeric-sort",
+    "template_key": "general-numeric-sort",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "compare according to general numerical value",
+    "aliases": [
+      "-g",
+      "--general-numeric-sort"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "human-numeric-sort",
+    "template_key": "human-numeric-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compare human readable numbers (e.g., 2K 1G)",
+    "aliases": [
+      "-h",
+      "--human-numeric-sort"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "fold lower case to upper case characters",
+    "aliases": [
+      "-f",
+      "--ignore-case"
+    ]
+  },
+  {
+    "name": "ignore-leading-blanks",
+    "template_key": "ignore-leading-blanks",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore leading blanks when finding sort keys in each line",
+    "aliases": [
+      "-b",
+      "--ignore-leading-blanks"
+    ]
+  },
+  {
+    "name": "ignore-nonprinting",
+    "template_key": "ignore-nonprinting",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "consider only printable characters",
+    "aliases": [
+      "-i",
+      "--ignore-nonprinting"
+    ]
+  },
+  {
     "name": "key",
     "template_key": "key",
     "type": "string",
@@ -194,6 +185,30 @@
     ]
   },
   {
+    "name": "month-sort",
+    "template_key": "month-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compare (unknown) < 'JAN' < ... < 'DEC'",
+    "aliases": [
+      "-M",
+      "--month-sort"
+    ]
+  },
+  {
+    "name": "numeric-sort",
+    "template_key": "numeric-sort",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "compare according to string numerical value; see full documentation for supported strings",
+    "aliases": [
+      "-n",
+      "--numeric-sort"
+    ]
+  },
+  {
     "name": "output",
     "template_key": "output",
     "type": "file",
@@ -206,6 +221,48 @@
     ]
   },
   {
+    "name": "parallel",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--parallel"
+    ]
+  },
+  {
+    "name": "random-sort",
+    "template_key": "random-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "shuffle, but group identical keys. See also shuf(1) --random-source=FILE get random bytes from FILE",
+    "aliases": [
+      "-R",
+      "--random-sort"
+    ]
+  },
+  {
+    "name": "random_source",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--random-source"
+    ]
+  },
+  {
+    "name": "reverse",
+    "template_key": "reverse",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "reverse the result of comparisons --sort=WORD sort according to WORD: general-numeric -g, human-numeric -h, month -M, numeric -n, random -R, version -V",
+    "aliases": [
+      "-r",
+      "--reverse"
+    ]
+  },
+  {
     "name": "stable",
     "template_key": "stable",
     "type": "string",
@@ -215,30 +272,6 @@
     "aliases": [
       "-s",
       "--stable"
-    ]
-  },
-  {
-    "name": "buffer-size",
-    "template_key": "buffer-size",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "use SIZE for main memory buffer",
-    "aliases": [
-      "-S",
-      "--buffer-size"
-    ]
-  },
-  {
-    "name": "field-separator",
-    "template_key": "field-separator",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "use SEP instead of non-blank to blank transition",
-    "aliases": [
-      "-t",
-      "--field-separator"
     ]
   },
   {
@@ -263,6 +296,27 @@
     "aliases": [
       "-u",
       "--unique"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
+    ]
+  },
+  {
+    "name": "version-sort",
+    "template_key": "version-sort",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "natural sort of (version) numbers within text",
+    "aliases": [
+      "-V",
+      "--version-sort"
     ]
   },
   {

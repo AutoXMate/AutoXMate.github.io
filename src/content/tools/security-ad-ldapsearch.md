@@ -167,6 +167,49 @@ parameters:
   aliases:
   - -Z
   - --starttls
+
+- name: E
+  type: boolean
+  required: false
+  description: "LDAP extensions"
+  aliases:
+    - "-E"
+    - "--extensions"
+- name: LLL
+  type: boolean
+  required: false
+  description: "LDIF format (no comments/version)"
+  aliases:
+    - "-LLL"
+- name: O
+  type: boolean
+  required: false
+  description: "Security properties"
+  aliases:
+    - "-O"
+    - "--security"
+- name: "Y"
+  type: boolean
+  required: false
+  description: "SASL authorization identity"
+  aliases:
+    - "-Y"
+    - "--authzid"
+- name: o
+  type: boolean
+  required: false
+  description: "General options"
+  aliases:
+    - "-o"
+    - "--options"
+- name: v
+  type: boolean
+  required: false
+  description: "Verbose output"
+  aliases:
+    - "-v"
+    - "--verbose"
+
 execution:
   template: ldapsearch -x -H {uri} -b {base-dn}
   sandbox: execFile

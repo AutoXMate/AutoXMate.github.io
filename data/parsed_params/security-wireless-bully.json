@@ -1,12 +1,15 @@
 [
   {
-    "name": "interface",
-    "template_key": "interface",
-    "type": "string",
-    "required": true,
+    "name": "bruteforce",
+    "template_key": "bruteforce",
+    "type": "boolean",
+    "required": false,
     "default_value": null,
-    "description": "Wireless interface in monitor mode",
-    "aliases": ["-i", "--interface"]
+    "description": "Brute-force full PIN space",
+    "aliases": [
+      "-B",
+      "--bruteforce"
+    ]
   },
   {
     "name": "bssid",
@@ -15,7 +18,10 @@
     "required": true,
     "default_value": null,
     "description": "Target AP BSSID",
-    "aliases": ["-b", "--bssid"]
+    "aliases": [
+      "-b",
+      "--bssid"
+    ]
   },
   {
     "name": "channel",
@@ -24,34 +30,10 @@
     "required": false,
     "default_value": null,
     "description": "Set the wireless channel",
-    "aliases": ["-c", "--channel"]
-  },
-  {
-    "name": "pin",
-    "template_key": "pin",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "WPS PIN to test",
-    "aliases": ["-p", "--pin"]
-  },
-  {
-    "name": "lock-delay",
-    "template_key": "lock-delay",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Delay after WPS lockout",
-    "aliases": ["-l", "--lock-delay"]
-  },
-  {
-    "name": "timeout",
-    "template_key": "timeout",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Receive timeout period",
-    "aliases": ["-t", "--timeout"]
+    "aliases": [
+      "-c",
+      "--channel"
+    ]
   },
   {
     "name": "delay",
@@ -60,25 +42,10 @@
     "required": false,
     "default_value": null,
     "description": "Delay between PIN attempts",
-    "aliases": ["-d", "--delay"]
-  },
-  {
-    "name": "session",
-    "template_key": "session",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Restore session from file",
-    "aliases": ["-s", "--session"]
-  },
-  {
-    "name": "verbose",
-    "template_key": "verbose",
-    "type": "boolean",
-    "required": false,
-    "default_value": null,
-    "description": "Verbose output",
-    "aliases": ["-v", "--verbose"]
+    "aliases": [
+      "-d",
+      "--delay"
+    ]
   },
   {
     "name": "force",
@@ -87,16 +54,78 @@
     "required": false,
     "default_value": null,
     "description": "Force attack when locked",
-    "aliases": ["-F", "--force"]
+    "aliases": [
+      "-F",
+      "--force"
+    ]
   },
   {
-    "name": "bruteforce",
-    "template_key": "bruteforce",
-    "type": "boolean",
+    "name": "interface",
+    "template_key": "interface",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Wireless interface in monitor mode",
+    "aliases": [
+      "-i",
+      "--interface"
+    ]
+  },
+  {
+    "name": "lock-delay",
+    "template_key": "lock-delay",
+    "type": "integer",
     "required": false,
     "default_value": null,
-    "description": "Brute-force full PIN space",
-    "aliases": ["-B", "--bruteforce"]
+    "description": "Delay after WPS lockout",
+    "aliases": [
+      "-l",
+      "--lock-delay"
+    ]
+  },
+  {
+    "name": "o",
+    "type": "boolean",
+    "required": false,
+    "description": "Output to file",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "pin",
+    "template_key": "pin",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "WPS PIN to test",
+    "aliases": [
+      "-p",
+      "--pin"
+    ]
+  },
+  {
+    "name": "q",
+    "type": "boolean",
+    "required": false,
+    "description": "Quiet output",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "session",
+    "template_key": "session",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Restore session from file",
+    "aliases": [
+      "-s",
+      "--session"
+    ]
   },
   {
     "name": "step",
@@ -105,6 +134,43 @@
     "required": false,
     "default_value": null,
     "description": "PIN increment step value",
-    "aliases": ["-S", "--step"]
+    "aliases": [
+      "-S",
+      "--step"
+    ]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Receive timeout period",
+    "aliases": [
+      "-t",
+      "--timeout"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Verbose output",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "w",
+    "type": "boolean",
+    "required": false,
+    "description": "Work delay between cycles",
+    "aliases": [
+      "-w",
+      "--workdelay"
+    ]
   }
 ]

@@ -144,6 +144,32 @@ parameters:
     description: "same as -t x2, select hexadecimal 2-byte units"
     aliases:
       - -x
+
+  - name: endian
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--endian"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: traditional
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--traditional"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "od -A {address-radix} -j {skip-bytes} -N {read-bytes} -S {strings} -t
     {format}"

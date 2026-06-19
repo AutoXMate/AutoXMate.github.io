@@ -145,6 +145,20 @@ parameters:
       iour. The valid options are:"
     aliases:
       - -X
+
+  - name: B
+    type: boolean
+    required: false
+    description: "Selects   batch   mode   (prevents   asking   for  passwords  or"
+    aliases:
+      - "-B"
+  - name: T
+    type: boolean
+    required: false
+    description: "Disable strict filename checking.  By default when copying files"
+    aliases:
+      - "-T"
+
 execution:
   template: "scp -3 {flag-3} -4 {flag-4} -6 {flag-6} -c {flag-c} -D {flag-d}"
   sandbox: execFile

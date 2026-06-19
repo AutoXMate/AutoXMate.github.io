@@ -154,6 +154,22 @@ parameters:
   description: Enable color output (--color)
   aliases:
   - --color
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help"
+  aliases:
+    - "-h"
+    - "--help"
+- name: q
+  type: boolean
+  required: false
+  description: "Quick scan mode"
+  aliases:
+    - "-q"
+    - "--quick"
+
 execution:
   template: whatweb {target} -v
   sandbox: execFile

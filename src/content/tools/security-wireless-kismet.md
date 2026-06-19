@@ -127,6 +127,16 @@ parameters:
     description: "Additional arguments for kismet server"
     aliases:
       - --server-args
+
+  - name: file
+    type: file
+    required: false
+    default: null
+    description: "Write logs to file"
+    aliases:
+      - "-f"
+      - "--file"
+
 execution:
   template: "kismet"
   sandbox: execFile

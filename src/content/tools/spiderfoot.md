@@ -169,6 +169,85 @@ parameters:
   description: Max number of modules to run concurrently
   aliases:
   - -max-threads
+
+- name: C
+  type: boolean
+  required: false
+  description: "scanID  Run correlation rules against a scan ID."
+  aliases:
+    - "-C"
+    - "--correlate"
+- name: D
+  type: boolean
+  required: false
+  description: "DELIMITER          Delimiter for CSV output."
+  aliases:
+    - "-D"
+- name: F
+  type: boolean
+  required: false
+  description: "type1,type2,...    Show only a set of event types."
+  aliases:
+    - "-F"
+- name: H
+  type: boolean
+  required: false
+  description: "Don't print field headers."
+  aliases:
+    - "-H"
+- name: M
+  type: boolean
+  required: false
+  description: "List available modules."
+  aliases:
+    - "-M"
+    - "--modules"
+- name: V
+  type: boolean
+  required: false
+  description: "Display the version."
+  aliases:
+    - "-V"
+    - "--version"
+- name: d
+  type: boolean
+  required: false
+  description: "Enable debug output."
+  aliases:
+    - "-d"
+    - "--debug"
+- name: f
+  type: boolean
+  required: false
+  description: "Filter out other event types."
+  aliases:
+    - "-f"
+- name: h
+  type: boolean
+  required: false
+  description: "show this help message and exit"
+  aliases:
+    - "-h"
+    - "--help"
+- name: m
+  type: boolean
+  required: false
+  description: "mod1,mod2,...      Modules to enable."
+  aliases:
+    - "-m"
+- name: "n"
+  type: boolean
+  required: false
+  description: "Strip newlines from data."
+  aliases:
+    - "-n"
+- name: r
+  type: boolean
+  required: false
+  description: "Include the source data field."
+  aliases:
+    - "-r"
+
 execution:
   template: spiderfoot -s {target}
   sandbox: execFile

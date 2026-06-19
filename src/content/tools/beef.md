@@ -146,6 +146,15 @@ parameters:
   description: UI server bind address
   aliases:
   - --ui-host
+
+- name: r
+  type: boolean
+  required: false
+  description: "Enable RESTful API"
+  aliases:
+    - "-r"
+    - "--restful"
+
 execution:
   template: beef -x config.yaml
   sandbox: execFile

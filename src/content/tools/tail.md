@@ -94,6 +94,38 @@ parameters:
     aliases:
       - -z
       - --zero-terminated
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: max_unchanged_stats
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--max-unchanged-stats"
+  - name: pid
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--pid"
+  - name: retry
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--retry"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "tail -c {bytes} -f {follow} -F {flag-f} -n {lines} -q {quiet}"
   sandbox: execFile

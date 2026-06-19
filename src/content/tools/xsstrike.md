@@ -157,6 +157,53 @@ parameters:
   description: Suppress output banner (-s)
   aliases:
   - -s
+
+- name: console_log_level
+  type: boolean
+  required: false
+  description: "Console log level"
+  aliases:
+    - "--console-log-level"
+- name: e
+  type: boolean
+  required: false
+  description: "Encode payloads"
+  aliases:
+    - "-e"
+    - "--encode"
+- name: file_log_level
+  type: boolean
+  required: false
+  description: "File log level"
+  aliases:
+    - "--file-log-level"
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help"
+  aliases:
+    - "-h"
+    - "--help"
+- name: log_file
+  type: boolean
+  required: false
+  description: "Log file path"
+  aliases:
+    - "--log-file"
+- name: s
+  type: boolean
+  required: false
+  description: "Suppress banner"
+  aliases:
+    - "-s"
+    - "--silent"
+- name: seed
+  type: boolean
+  required: false
+  description: "Seed for payload generation"
+  aliases:
+    - "--seed"
+
 execution:
   template: python3 xsstrike.py -u {target}
   sandbox: execFile

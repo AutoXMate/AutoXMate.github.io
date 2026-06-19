@@ -447,11 +447,17 @@
   "filesystem.compress.stream": [
     "system-compress-gzip"
   ],
+  "filesystem.compression": [
+    "arc-gunzip"
+  ],
   "filesystem.decompress.gzip": [
     "system-compress-gzip"
   ],
   "filesystem.io.capture": [
     "system-io-tee"
+  ],
+  "filesystem.management": [
+    "arc-gunzip"
   ],
   "filesystem.sync.archive": [
     "system-sync-rsync"
@@ -670,6 +676,18 @@
   "network.config.route": [
     "network-config-route"
   ],
+  "network.configuration": [
+    "net-tcpflow",
+    "net-tcpreplay",
+    "net-host",
+    "net-nslookup",
+    "net-nmcli",
+    "net-ethtool",
+    "net-netstat",
+    "net-showmount",
+    "net-nfsstat",
+    "ligolo-ng"
+  ],
   "network.connect.remote": [
     "darkiros-netexec",
     "darkiros-rubeus",
@@ -700,7 +718,7 @@
     "security-wireless-kismet"
   ],
   "network.diagnostic.banner": [
-    "network-socket-nc"
+    "network-socket-netcat"
   ],
   "network.diagnostic.hop": [
     "network-diagnostic-traceroute"
@@ -717,6 +735,18 @@
   ],
   "network.diagnostic.route": [
     "network-diagnostic-traceroute"
+  ],
+  "network.diagnostics": [
+    "net-tcpflow",
+    "net-tcpreplay",
+    "net-host",
+    "net-nslookup",
+    "net-nmcli",
+    "net-ethtool",
+    "net-netstat",
+    "net-showmount",
+    "net-nfsstat",
+    "ligolo-ng"
   ],
   "network.discovery.certificate": [
     "security-intel-censys"
@@ -898,7 +928,7 @@
     "security-wireless-bettercap"
   ],
   "network.proxy.relay": [
-    "network-socket-nc"
+    "network-socket-netcat"
   ],
   "network.proxy.socks": [
     "security-tunnel-chisel"
@@ -914,7 +944,7 @@
   ],
   "network.scan.port": [
     "network-hping3",
-    "network-socket-nc",
+    "network-socket-netcat",
     "security-recon-masscan",
     "security-recon-nmap",
     "security-recon-rustscan"
@@ -937,13 +967,15 @@
     "network-analysis-scapy"
   ],
   "network.socket.connect": [
-    "network-socket-nc"
+    "network-socket-nc",
+    "network-socket-netcat"
   ],
   "network.socket.forward": [
     "network-socket-socat"
   ],
   "network.socket.listen": [
-    "network-socket-nc"
+    "network-socket-nc",
+    "network-socket-netcat"
   ],
   "network.socket.nc": [
     "network-socket-nc"
@@ -958,7 +990,7 @@
     "network-socket-socat"
   ],
   "network.socket.transfer": [
-    "network-socket-nc"
+    "network-socket-netcat"
   ],
   "network.socket.udp": [
     "network-socket-socat"
@@ -1459,10 +1491,64 @@
   "security.audit.script": [
     "security-recon-nmap"
   ],
+  "security.auditing": [
+    "bloodhound-python",
+    "impacket-samrdump",
+    "impacket-secretsdump",
+    "impacket-mssqlexec",
+    "impacket-rpcdump",
+    "impacket-atexec",
+    "impacket-dcomexec",
+    "impacket-psexec",
+    "impacket-smbexec",
+    "impacket-wmiexec",
+    "impacket-getst",
+    "impacket-gettgt",
+    "impacket-ticketer",
+    "impacket-reg",
+    "sec-ldapdomaindump",
+    "sec-ldapsearch",
+    "sec-ldapwhoami",
+    "sec-linpeas",
+    "sec-pspy",
+    "sec-crackmapexec",
+    "sec-rpcclient",
+    "sec-smbclient",
+    "sec-enum4linux",
+    "sec-smbmap",
+    "sec-winpeas"
+  ],
   "security.auth.bruteforce": [
     "security-crack-hydra",
     "security-crack-medusa",
     "security-crack-ncrack"
+  ],
+  "security.authentication": [
+    "bloodhound-python",
+    "impacket-samrdump",
+    "impacket-secretsdump",
+    "impacket-mssqlexec",
+    "impacket-rpcdump",
+    "impacket-atexec",
+    "impacket-dcomexec",
+    "impacket-psexec",
+    "impacket-smbexec",
+    "impacket-wmiexec",
+    "impacket-getst",
+    "impacket-gettgt",
+    "impacket-ticketer",
+    "impacket-reg",
+    "sec-ldapdomaindump",
+    "sec-ldapsearch",
+    "sec-ldapwhoami",
+    "sec-linpeas",
+    "sec-pspy",
+    "sec-crackmapexec",
+    "sec-rpcclient",
+    "sec-smbclient",
+    "sec-enum4linux",
+    "sec-smbmap",
+    "sec-winpeas"
   ],
   "security.bruteforce.passwordspray": [
     "security-framework-netexec"
@@ -2216,6 +2302,33 @@
   ],
   "security.defenseevasion.process-injection": [
     "wtfbin-adobe-cc-setup"
+  ],
+  "security.directory-services": [
+    "bloodhound-python",
+    "impacket-samrdump",
+    "impacket-secretsdump",
+    "impacket-mssqlexec",
+    "impacket-rpcdump",
+    "impacket-atexec",
+    "impacket-dcomexec",
+    "impacket-psexec",
+    "impacket-smbexec",
+    "impacket-wmiexec",
+    "impacket-getst",
+    "impacket-gettgt",
+    "impacket-ticketer",
+    "impacket-reg",
+    "sec-ldapdomaindump",
+    "sec-ldapsearch",
+    "sec-ldapwhoami",
+    "sec-linpeas",
+    "sec-pspy",
+    "sec-crackmapexec",
+    "sec-rpcclient",
+    "sec-smbclient",
+    "sec-enum4linux",
+    "sec-smbmap",
+    "sec-winpeas"
   ],
   "security.enum.ldap": [
     "security-framework-netexec"
@@ -3765,6 +3878,82 @@
   "steganography.info": [
     "security-forensics-steghide"
   ],
+  "system.administration": [
+    "win-pathping",
+    "win-tracert",
+    "win-getmac",
+    "win-nbtstat",
+    "cmd-ipconfig",
+    "win-mstsc",
+    "win-tscon",
+    "win-tsdiscon",
+    "win-qwinsta",
+    "win-rwinsta",
+    "win-winrs",
+    "cmd-dcdiag",
+    "cmd-csvde",
+    "cmd-dsquery",
+    "cmd-repadmin",
+    "cmd-nltest",
+    "win-ksetup",
+    "win-klist",
+    "sys-az",
+    "sys-mongosh",
+    "redis-cli",
+    "sys-lastlog",
+    "sys-xclip",
+    "sys-locale",
+    "sys-lscpu",
+    "sys-nproc",
+    "sys-eject",
+    "sys-blkid",
+    "sys-lsblk",
+    "sys-lsattr",
+    "sys-readlink",
+    "sys-findmnt",
+    "sys-mountpoint",
+    "sys-uname",
+    "sys-uptime",
+    "sys-depmod",
+    "sys-lsmod",
+    "sys-modinfo",
+    "sys-modprobe",
+    "sys-htop",
+    "sys-iostat",
+    "sys-vmstat",
+    "sys-lspci",
+    "sys-getfacl",
+    "sys-fuser",
+    "sys-lsof",
+    "sys-strace",
+    "sys-lsusb",
+    "sys-useradd",
+    "sys-who",
+    "cmd-shutdown",
+    "cmd-vssadmin",
+    "cmd-bcdedit",
+    "win-bootcfg",
+    "cmd-hostname",
+    "cmd-set",
+    "cmd-systeminfo",
+    "cmd-msg",
+    "cmd-chkdsk",
+    "cmd-diskpart",
+    "cmd-driverquery",
+    "cmd-dir",
+    "cmd-where",
+    "win-winver",
+    "cmd-sfc",
+    "cmd-wevtutil",
+    "cmd-logman",
+    "cmd-net",
+    "win-lodctr",
+    "win-typeperf",
+    "cmd-gpresult",
+    "cmd-tasklist",
+    "win-reagentc",
+    "win-recdisc"
+  ],
   "system.archive.compress": [
     "archive-7z",
     "archive-ar",
@@ -3776,6 +3965,53 @@
     "archive-ar",
     "archive-arj",
     "archive-bzip2"
+  ],
+  "system.commands": [
+    "arc-gunzip"
+  ],
+  "system.configuration": [
+    "win-pathping",
+    "win-tracert",
+    "win-getmac",
+    "win-nbtstat",
+    "cmd-ipconfig",
+    "win-mstsc",
+    "win-tscon",
+    "win-tsdiscon",
+    "win-qwinsta",
+    "win-rwinsta",
+    "win-winrs",
+    "cmd-dcdiag",
+    "cmd-csvde",
+    "cmd-dsquery",
+    "cmd-repadmin",
+    "cmd-nltest",
+    "win-ksetup",
+    "win-klist",
+    "cmd-shutdown",
+    "cmd-vssadmin",
+    "cmd-bcdedit",
+    "win-bootcfg",
+    "cmd-hostname",
+    "cmd-set",
+    "cmd-systeminfo",
+    "cmd-msg",
+    "cmd-chkdsk",
+    "cmd-diskpart",
+    "cmd-driverquery",
+    "cmd-dir",
+    "cmd-where",
+    "win-winver",
+    "cmd-sfc",
+    "cmd-wevtutil",
+    "cmd-logman",
+    "cmd-net",
+    "win-lodctr",
+    "win-typeperf",
+    "cmd-gpresult",
+    "cmd-tasklist",
+    "win-reagentc",
+    "win-recdisc"
   ],
   "system.datetime.display": [
     "system-datetime-date"
@@ -4348,6 +4584,92 @@
   "system.file.xxd": [
     "system-file-xxd"
   ],
+  "system.information-gathering": [
+    "net-tcpflow",
+    "net-tcpreplay",
+    "win-pathping",
+    "win-tracert",
+    "net-host",
+    "net-nslookup",
+    "win-getmac",
+    "net-nmcli",
+    "net-ethtool",
+    "net-netstat",
+    "win-nbtstat",
+    "net-showmount",
+    "net-nfsstat",
+    "ligolo-ng",
+    "cmd-ipconfig",
+    "win-mstsc",
+    "win-tscon",
+    "win-tsdiscon",
+    "win-qwinsta",
+    "win-rwinsta",
+    "win-winrs",
+    "cmd-dcdiag",
+    "cmd-csvde",
+    "cmd-dsquery",
+    "cmd-repadmin",
+    "cmd-nltest",
+    "win-ksetup",
+    "win-klist",
+    "sys-az",
+    "sys-mongosh",
+    "redis-cli",
+    "sys-lastlog",
+    "sys-xclip",
+    "sys-locale",
+    "sys-lscpu",
+    "sys-nproc",
+    "sys-eject",
+    "sys-blkid",
+    "sys-lsblk",
+    "sys-lsattr",
+    "sys-readlink",
+    "sys-findmnt",
+    "sys-mountpoint",
+    "sys-uname",
+    "sys-uptime",
+    "sys-depmod",
+    "sys-lsmod",
+    "sys-modinfo",
+    "sys-modprobe",
+    "sys-htop",
+    "sys-iostat",
+    "sys-vmstat",
+    "sys-lspci",
+    "sys-getfacl",
+    "sys-fuser",
+    "sys-lsof",
+    "sys-strace",
+    "sys-lsusb",
+    "sys-useradd",
+    "sys-who",
+    "cmd-shutdown",
+    "cmd-vssadmin",
+    "cmd-bcdedit",
+    "win-bootcfg",
+    "cmd-hostname",
+    "cmd-set",
+    "cmd-systeminfo",
+    "cmd-msg",
+    "cmd-chkdsk",
+    "cmd-diskpart",
+    "cmd-driverquery",
+    "cmd-dir",
+    "cmd-where",
+    "win-winver",
+    "cmd-sfc",
+    "cmd-wevtutil",
+    "cmd-logman",
+    "cmd-net",
+    "win-lodctr",
+    "win-typeperf",
+    "cmd-gpresult",
+    "cmd-tasklist",
+    "win-reagentc",
+    "win-recdisc"
+  ],
   "system.kernel.log": [
     "system-kernel-dmesg"
   ],
@@ -4355,6 +4677,40 @@
     "dev-tcl-tclsh",
     "network-ssh-ssh-keygen",
     "shell-bash-bash"
+  ],
+  "system.monitoring": [
+    "sys-az",
+    "sys-mongosh",
+    "redis-cli",
+    "sys-lastlog",
+    "sys-xclip",
+    "sys-locale",
+    "sys-lscpu",
+    "sys-nproc",
+    "sys-eject",
+    "sys-blkid",
+    "sys-lsblk",
+    "sys-lsattr",
+    "sys-readlink",
+    "sys-findmnt",
+    "sys-mountpoint",
+    "sys-uname",
+    "sys-uptime",
+    "sys-depmod",
+    "sys-lsmod",
+    "sys-modinfo",
+    "sys-modprobe",
+    "sys-htop",
+    "sys-iostat",
+    "sys-vmstat",
+    "sys-lspci",
+    "sys-getfacl",
+    "sys-fuser",
+    "sys-lsof",
+    "sys-strace",
+    "sys-lsusb",
+    "sys-useradd",
+    "sys-who"
   ],
   "system.package.install": [
     "package-apt-apt-get",

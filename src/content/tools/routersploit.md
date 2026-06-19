@@ -138,6 +138,15 @@ parameters:
   aliases:
   - -o
   - --output
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "-h"
+    - "--help"
+
 execution:
   template: routersploit -t {target}
   sandbox: execFile

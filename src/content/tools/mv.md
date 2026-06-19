@@ -116,6 +116,32 @@ parameters:
     aliases:
       - -Z
       - --context
+
+  - name: exchange
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--exchange"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: strip_trailing_slashes
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--strip-trailing-slashes"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "mv --backup {backup} -b {flag-b} -f {force} -i {interactive} -n {no-clobber}"
   sandbox: execFile

@@ -205,6 +205,35 @@ parameters:
   description: HTTP request timeout in seconds
   aliases:
   - -timeout
+
+- name: e
+  type: boolean
+  required: false
+  description: "File extension to append"
+  aliases:
+    - "-e"
+    - "--extension"
+- name: output_format
+  type: boolean
+  required: false
+  description: "Output format (json, csv, html, md)"
+  aliases:
+    - "--output-format"
+- name: s
+  type: boolean
+  required: false
+  description: "Silent mode"
+  aliases:
+    - "-s"
+    - "--silent"
+- name: v
+  type: boolean
+  required: false
+  description: "Verbose output"
+  aliases:
+    - "-v"
+    - "--verbose"
+
 execution:
   template: ffuf -u {target} -w {wordlist} -t {threads}
   sandbox: execFile

@@ -147,6 +147,14 @@ parameters:
   description: Listener profile name
   aliases:
   - --profile
+
+- name: help
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "--help"
+
 execution:
   template: empire server
   sandbox: execFile

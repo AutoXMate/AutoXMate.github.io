@@ -144,6 +144,56 @@ parameters:
     aliases:
       - -f
       - --fudge
+
+  - name: g
+    type: boolean
+    required: false
+    description: "GUI mode"
+    aliases:
+      - "-g"
+  - name: h
+    type: boolean
+    required: false
+    description: "Display help"
+    aliases:
+      - "-h"
+  - name: i
+    type: boolean
+    required: false
+    description: "WEP key index"
+    aliases:
+      - "-i"
+  - name: j
+    type: boolean
+    required: false
+    description: "Output hash in hccapx format"
+    aliases:
+      - "-j"
+  - name: l
+    type: boolean
+    required: false
+    description: "Write key to file"
+    aliases:
+      - "-l"
+  - name: "n"
+    type: boolean
+    required: false
+    description: "Use PTW attack"
+    aliases:
+      - "-n"
+  - name: t
+    type: boolean
+    required: false
+    description: "WEP40/WEP104 selection"
+    aliases:
+      - "-t"
+  - name: z
+    type: boolean
+    required: false
+    description: "Use 64-bit WEP attack"
+    aliases:
+      - "-z"
+
 execution:
   template: "aircrack-ng -w {wordlist} {capture-file}"
   sandbox: execFile

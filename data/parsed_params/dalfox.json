@@ -1,5 +1,202 @@
 [
   {
+    "name": "blind",
+    "template_key": "blind",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Blind XSS detection",
+    "aliases": [
+      "--blind"
+    ]
+  },
+  {
+    "name": "cookie",
+    "template_key": "cookie",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Cookie for request",
+    "aliases": [
+      "--cookie"
+    ]
+  },
+  {
+    "name": "custom_payload",
+    "type": "boolean",
+    "required": false,
+    "description": "string Custom payload file",
+    "aliases": [
+      "--custom-payload"
+    ]
+  },
+  {
+    "name": "data",
+    "template_key": "data",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "POST data",
+    "aliases": [
+      "--data"
+    ]
+  },
+  {
+    "name": "delay",
+    "template_key": "delay",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Delay between requests in ms",
+    "aliases": [
+      "--delay"
+    ]
+  },
+  {
+    "name": "follow_redirects",
+    "type": "boolean",
+    "required": false,
+    "description": "Follow redirects",
+    "aliases": [
+      "--follow-redirects"
+    ]
+  },
+  {
+    "name": "format",
+    "template_key": "format",
+    "type": "string",
+    "required": false,
+    "default_value": "plain",
+    "description": "Output format (json/xml/plain)",
+    "aliases": [
+      "--format"
+    ]
+  },
+  {
+    "name": "found_action",
+    "type": "boolean",
+    "required": false,
+    "description": "string   Command to run on XSS found",
+    "aliases": [
+      "--found-action"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "Help for dalfox",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "header",
+    "template_key": "header",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": [
+      "--header"
+    ]
+  },
+  {
+    "name": "mass",
+    "template_key": "mass",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Mass scan mode",
+    "aliases": [
+      "--mass"
+    ]
+  },
+  {
+    "name": "mass_file",
+    "type": "boolean",
+    "required": false,
+    "description": "string      File for mass targets",
+    "aliases": [
+      "--mass-file"
+    ]
+  },
+  {
+    "name": "mining",
+    "template_key": "mining",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable mining mode",
+    "aliases": [
+      "--mining"
+    ]
+  },
+  {
+    "name": "not_found_action",
+    "type": "boolean",
+    "required": false,
+    "description": "string  Command on not found",
+    "aliases": [
+      "--not-found-action"
+    ]
+  },
+  {
+    "name": "only_custom_payload",
+    "type": "boolean",
+    "required": false,
+    "description": "Use only custom payloads",
+    "aliases": [
+      "--only-custom-payload"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy URL",
+    "aliases": [
+      "--proxy"
+    ]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Silent mode",
+    "aliases": [
+      "--silent"
+    ]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Request timeout in seconds",
+    "aliases": [
+      "--timeout"
+    ]
+  },
+  {
     "name": "url",
     "template_key": "url",
     "type": "string",
@@ -9,76 +206,24 @@
     "aliases": []
   },
   {
-    "name": "cookie",
-    "template_key": "cookie",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Cookie for request",
-    "aliases": ["--cookie"]
-  },
-  {
-    "name": "header",
-    "template_key": "header",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom HTTP headers",
-    "aliases": ["--header"]
-  },
-  {
-    "name": "data",
-    "template_key": "data",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "POST data",
-    "aliases": ["--data"]
-  },
-  {
     "name": "user-agent",
     "template_key": "user-agent",
     "type": "string",
     "required": false,
     "default_value": null,
     "description": "Custom User-Agent",
-    "aliases": ["--user-agent"]
+    "aliases": [
+      "--user-agent"
+    ]
   },
   {
-    "name": "proxy",
-    "template_key": "proxy",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Proxy URL",
-    "aliases": ["--proxy"]
-  },
-  {
-    "name": "output",
-    "template_key": "output",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Output file",
-    "aliases": ["-o", "--output"]
-  },
-  {
-    "name": "format",
-    "template_key": "format",
-    "type": "string",
-    "required": false,
-    "default_value": "plain",
-    "description": "Output format (json/xml/plain)",
-    "aliases": ["--format"]
-  },
-  {
-    "name": "silent",
-    "template_key": "silent",
+    "name": "waf_evasion",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Silent mode",
-    "aliases": ["--silent"]
+    "description": "Enable WAF evasion",
+    "aliases": [
+      "--waf-evasion"
+    ]
   },
   {
     "name": "worker",
@@ -87,51 +232,8 @@
     "required": false,
     "default_value": 10,
     "description": "Number of workers",
-    "aliases": ["-w"]
-  },
-  {
-    "name": "mass",
-    "template_key": "mass",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Mass scan mode",
-    "aliases": ["--mass"]
-  },
-  {
-    "name": "timeout",
-    "template_key": "timeout",
-    "type": "integer",
-    "required": false,
-    "default_value": 10,
-    "description": "Request timeout in seconds",
-    "aliases": ["--timeout"]
-  },
-  {
-    "name": "delay",
-    "template_key": "delay",
-    "type": "integer",
-    "required": false,
-    "default_value": 0,
-    "description": "Delay between requests in ms",
-    "aliases": ["--delay"]
-  },
-  {
-    "name": "blind",
-    "template_key": "blind",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Blind XSS detection",
-    "aliases": ["--blind"]
-  },
-  {
-    "name": "mining",
-    "template_key": "mining",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enable mining mode",
-    "aliases": ["--mining"]
+    "aliases": [
+      "-w"
+    ]
   }
 ]

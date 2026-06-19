@@ -243,6 +243,67 @@ parameters:
     description: "Set the verbose parameter"
     aliases:
       - --verbose
+
+  - name: dry-run
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "--dry-run"
+  - name: posix
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "--posix"
+  - name: directory
+    type: file
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "-d"
+      - "--directory"
+  - name: reject-format
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "--reject-format"
+  - name: binary
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "--binary"
+  - name: read-only
+    type: string
+    required: false
+    default: null
+    description: "are read-only, 'warn' (default), or 'fail'"
+    aliases:
+      - "-o"
+      - "--read-only"
+  - name: version
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "-v"
+      - "--version"
+  - name: help
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "--help"
+
 execution:
   template: "patch -p {strip} -F {fuzz-lines} -l {ignore-whitespace} -c {context}
     -e {ed}"

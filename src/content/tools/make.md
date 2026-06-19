@@ -292,6 +292,40 @@ parameters:
   - name: include-file
     description: Include an arbitrary file into the Makefile parse
     type: string
+
+  - name: print-directory
+    type: file
+    required: false
+    default: null
+    description: "Print the current directory"
+    aliases:
+      - "-w"
+      - "--print-directory"
+  - name: no-print-directory
+    type: string
+    required: false
+    default: null
+    description: "Turn off -w, even if it was turned on implicitly"
+    aliases:
+      - "--no-print-directory"
+  - name: what-if
+    type: file
+    required: false
+    default: null
+    description: "Consider FILE to be infinitely new"
+    aliases:
+      - "-W"
+      - "--what-if"
+      - "--new-file"
+      - "--assume-new"
+  - name: warn-undefined-variables
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "--warn-undefined-variables"
+
 features:
   - local
   - batch

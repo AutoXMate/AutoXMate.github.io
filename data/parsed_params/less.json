@@ -1,151 +1,5 @@
 [
   {
-    "name": "help",
-    "template_key": "help",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Display help (from command line)",
-    "aliases": [
-      "-?",
-      "--help"
-    ]
-  },
-  {
-    "name": "search-skip-screen",
-    "template_key": "search-skip-screen",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Search skips current screen",
-    "aliases": [
-      "-a",
-      "--search-skip-screen"
-    ]
-  },
-  {
-    "name": "SEARCH-SKIP-SCREEN",
-    "template_key": "search-skip-screen",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Search starts just after target line",
-    "aliases": [
-      "-A",
-      "--SEARCH-SKIP-SCREEN"
-    ]
-  },
-  {
-    "name": "buffers",
-    "template_key": "buffers",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Number of buffers",
-    "aliases": [
-      "-b",
-      "--buffers"
-    ]
-  },
-  {
-    "name": "auto-buffers",
-    "template_key": "auto-buffers",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Don't automatically allocate buffers for pipes",
-    "aliases": [
-      "-B",
-      "--auto-buffers"
-    ]
-  },
-  {
-    "name": "clear-screen",
-    "template_key": "clear-screen",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Repaint by clearing rather than scrolling",
-    "aliases": [
-      "-c",
-      "--clear-screen"
-    ]
-  },
-  {
-    "name": "dumb",
-    "template_key": "dumb",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Dumb terminal",
-    "aliases": [
-      "-d",
-      "--dumb"
-    ]
-  },
-  {
-    "name": "color",
-    "template_key": "color",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Set screen colors",
-    "aliases": [
-      "-D",
-      "--color"
-    ]
-  },
-  {
-    "name": "quit-at-eof",
-    "template_key": "quit-at-eof",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Quit at end of file",
-    "aliases": [
-      "-e",
-      "-E",
-      "--quit-at-eof",
-      "--QUIT-AT-EOF"
-    ]
-  },
-  {
-    "name": "force",
-    "template_key": "force",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Force open non-regular files",
-    "aliases": [
-      "-f",
-      "--force"
-    ]
-  },
-  {
-    "name": "quit-if-one-screen",
-    "template_key": "quit-if-one-screen",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Quit if entire file fits on first screen",
-    "aliases": [
-      "-F",
-      "--quit-if-one-screen"
-    ]
-  },
-  {
-    "name": "hilite-search",
-    "template_key": "hilite-search",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Highlight only last match for searches",
-    "aliases": [
-      "-g",
-      "--hilite-search"
-    ]
-  },
-  {
     "name": "HILITE-SEARCH",
     "template_key": "hilite-search",
     "type": "string",
@@ -158,27 +12,15 @@
     ]
   },
   {
-    "name": "max-back-scroll",
-    "template_key": "max-back-scroll",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Backward scroll limit",
-    "aliases": [
-      "-h",
-      "--max-back-scroll"
-    ]
-  },
-  {
-    "name": "ignore-case",
-    "template_key": "ignore-case",
+    "name": "HILITE-UNREAD",
+    "template_key": "hilite-unread",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Ignore case in searches that do not contain uppercase",
+    "description": "Highlight first new line after any forward movement",
     "aliases": [
-      "-i",
-      "--ignore-case"
+      "-W",
+      "--HILITE-UNREAD"
     ]
   },
   {
@@ -194,6 +36,232 @@
     ]
   },
   {
+    "name": "LINE-NUMBERS",
+    "template_key": "line-numbers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display line number at start of each line",
+    "aliases": [
+      "-N",
+      "--LINE-NUMBERS"
+    ]
+  },
+  {
+    "name": "LOG-FILE",
+    "template_key": "log-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Copy to log file (unconditionally overwrite)",
+    "aliases": [
+      "-O",
+      "--LOG-FILE"
+    ]
+  },
+  {
+    "name": "SEARCH-SKIP-SCREEN",
+    "template_key": "search-skip-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Search starts just after target line",
+    "aliases": [
+      "-A",
+      "--SEARCH-SKIP-SCREEN"
+    ]
+  },
+  {
+    "name": "auto-buffers",
+    "template_key": "auto-buffers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't automatically allocate buffers for pipes",
+    "aliases": [
+      "-B",
+      "--auto-buffers"
+    ]
+  },
+  {
+    "name": "buffers",
+    "template_key": "buffers",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Number of buffers",
+    "aliases": [
+      "-b",
+      "--buffers"
+    ]
+  },
+  {
+    "name": "chop-long-lines",
+    "template_key": "chop-long-lines",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Chop (truncate) long lines rather than wrapping",
+    "aliases": [
+      "-S",
+      "--chop-long-lines"
+    ]
+  },
+  {
+    "name": "clear-screen",
+    "template_key": "clear-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Repaint by clearing rather than scrolling",
+    "aliases": [
+      "-c",
+      "--clear-screen"
+    ]
+  },
+  {
+    "name": "color",
+    "template_key": "color",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set screen colors",
+    "aliases": [
+      "-D",
+      "--color"
+    ]
+  },
+  {
+    "name": "dumb",
+    "template_key": "dumb",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dumb terminal",
+    "aliases": [
+      "-d",
+      "--dumb"
+    ]
+  },
+  {
+    "name": "exit-follow-on-close",
+    "template_key": "exit-follow-on-close",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Exit F command on a pipe when writer closes pipe. --file-size Automatically determine the size of the input file. --follow-name The F command changes files if the input file is renamed. --header=[L[,C[,N]]] Use L lines (starting at line N) and C columns as headers. --incsearch Search file as each pattern character is typed in. --intr=[C] Use C instead of ^X to interrupt a read. --lesskey-context=text Use lesskey source file contents. --lesskey-src=file Use a lesskey source file. --line-num-width=[N] Set the width of the -N line number field to N characters. --match-shift=[N] Show at least N characters to the left of a search match. --modelines=[N] Read N lines from the input file and look for vim modelines. --mouse Enable mouse input. --no-keypad Don't send termcap keypad init/deinit strings. --no-histdups Remove duplicates from command history. --no-number-headers Don't give line numbers to header lines. --no-search-header-lines Searches do not include header lines. --no-search-header-columns Searches do not include header columns. --no-search-headers Searches do not include header lines or columns. --no-vbell Disable the terminal's visual bell. --redraw-on-quit Redraw final screen when quitting. --rscroll=[C] Set the character used to mark truncated lines. --save-marks Retain marks across invocations of less. --search-options=[EFKNRW-] Set default options for every search. --show-preproc-errors Display a message if preprocessor exits with an error status. --proc-backspace Process backspaces for bold/underline. --PROC-BACKSPACE Treat backspaces as control characters. --proc-return Delete carriage returns before newline. --PROC-RETURN Treat carriage returns as control characters. --proc-tab Expand tabs to spaces. --PROC-TAB Treat tabs as control characters. --status-col-width=[N] Set the width of the -J status column to N characters. --status-line Highlight or color the entire line containing a mark. --use-backslash Subsequent options use backslash as escape char. --use-color Enables colored text. --wheel-lines=[N] Each click of the mouse wheel moves N lines. --wordwrap Wrap lines at spaces",
+    "aliases": [
+      "--exit-follow-on-close"
+    ]
+  },
+  {
+    "name": "file_size",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--file-size"
+    ]
+  },
+  {
+    "name": "flag-P",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--prompt=[prompt]",
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "follow_name",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--follow-name"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Force open non-regular files",
+    "aliases": [
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Display help (from command line)",
+    "aliases": [
+      "-?",
+      "--help"
+    ]
+  },
+  {
+    "name": "hilite-search",
+    "template_key": "hilite-search",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Highlight only last match for searches",
+    "aliases": [
+      "-g",
+      "--hilite-search"
+    ]
+  },
+  {
+    "name": "hilite-unread",
+    "template_key": "hilite-unread",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Highlight first new line after forward-screen",
+    "aliases": [
+      "-w",
+      "--hilite-unread"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Ignore case in searches that do not contain uppercase",
+    "aliases": [
+      "-i",
+      "--ignore-case"
+    ]
+  },
+  {
+    "name": "incsearch",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--incsearch"
+    ]
+  },
+  {
+    "name": "intr",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--intr"
+    ]
+  },
+  {
     "name": "jump-target",
     "template_key": "jump-target",
     "type": "integer",
@@ -203,18 +271,6 @@
     "aliases": [
       "-j",
       "--jump-target"
-    ]
-  },
-  {
-    "name": "status-column",
-    "template_key": "status-column",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Display a status column at left edge of screen",
-    "aliases": [
-      "-J",
-      "--status-column"
     ]
   },
   {
@@ -230,27 +286,54 @@
     ]
   },
   {
-    "name": "quit-on-intr",
-    "template_key": "quit-on-intr",
-    "type": "string",
+    "name": "lesskey_context",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Exit less in response to ctrl-C",
+    "description": "",
     "aliases": [
-      "-K",
-      "--quit-on-intr"
+      "--lesskey-context"
     ]
   },
   {
-    "name": "no-lessopen",
-    "template_key": "no-lessopen",
+    "name": "lesskey_src",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--lesskey-src"
+    ]
+  },
+  {
+    "name": "line-numbers",
+    "template_key": "line-numbers",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Ignore the LESSOPEN environment variable",
+    "description": "Suppress line numbers in prompts and messages",
     "aliases": [
-      "-L",
-      "--no-lessopen"
+      "-n",
+      "--line-numbers"
+    ]
+  },
+  {
+    "name": "line_num_width",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--line-num-width"
+    ]
+  },
+  {
+    "name": "log-file",
+    "template_key": "log-file",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Copy to log file (standard input only)",
+    "aliases": [
+      "-o",
+      "--log-file"
     ]
   },
   {
@@ -268,51 +351,132 @@
     ]
   },
   {
-    "name": "line-numbers",
-    "template_key": "line-numbers",
+    "name": "match_shift",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--match-shift"
+    ]
+  },
+  {
+    "name": "max-back-scroll",
+    "template_key": "max-back-scroll",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Backward scroll limit",
+    "aliases": [
+      "-h",
+      "--max-back-scroll"
+    ]
+  },
+  {
+    "name": "max-forw-scroll",
+    "template_key": "max-forw-scroll",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Forward scroll limit",
+    "aliases": [
+      "-y",
+      "--max-forw-scroll"
+    ]
+  },
+  {
+    "name": "modelines",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--modelines"
+    ]
+  },
+  {
+    "name": "no-init",
+    "template_key": "no-init",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Suppress line numbers in prompts and messages",
+    "description": "Don't use termcap init/deinit strings",
     "aliases": [
-      "-n",
-      "--line-numbers"
+      "-X",
+      "--no-init"
     ]
   },
   {
-    "name": "LINE-NUMBERS",
-    "template_key": "line-numbers",
+    "name": "no-lessopen",
+    "template_key": "no-lessopen",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Display line number at start of each line",
+    "description": "Ignore the LESSOPEN environment variable",
     "aliases": [
-      "-N",
-      "--LINE-NUMBERS"
+      "-L",
+      "--no-lessopen"
     ]
   },
   {
-    "name": "log-file",
-    "template_key": "log-file",
-    "type": "file",
+    "name": "no_histdups",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Copy to log file (standard input only)",
+    "description": "",
     "aliases": [
-      "-o",
-      "--log-file"
+      "--no-histdups"
     ]
   },
   {
-    "name": "LOG-FILE",
-    "template_key": "log-file",
-    "type": "file",
+    "name": "no_keypad",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Copy to log file (unconditionally overwrite)",
+    "description": "",
     "aliases": [
-      "-O",
-      "--LOG-FILE"
+      "--no-keypad"
+    ]
+  },
+  {
+    "name": "no_number_headers",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-number-headers"
+    ]
+  },
+  {
+    "name": "no_search_header_columns",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-search-header-columns"
+    ]
+  },
+  {
+    "name": "no_search_header_lines",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-search-header-lines"
+    ]
+  },
+  {
+    "name": "no_search_headers",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-search-headers"
+    ]
+  },
+  {
+    "name": "no_vbell",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-vbell"
     ]
   },
   {
@@ -328,14 +492,30 @@
     ]
   },
   {
-    "name": "flag-P",
-    "template_key": "flag-p",
-    "type": "string",
+    "name": "proc_backspace",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "--prompt=[prompt]",
+    "description": "",
     "aliases": [
-      "-P"
+      "--proc-backspace"
+    ]
+  },
+  {
+    "name": "proc_return",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--proc-return"
+    ]
+  },
+  {
+    "name": "proc_tab",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--proc-tab"
     ]
   },
   {
@@ -355,6 +535,55 @@
     ]
   },
   {
+    "name": "quit-at-eof",
+    "template_key": "quit-at-eof",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Quit at end of file",
+    "aliases": [
+      "-e",
+      "-E",
+      "--quit-at-eof",
+      "--QUIT-AT-EOF"
+    ]
+  },
+  {
+    "name": "quit-if-one-screen",
+    "template_key": "quit-if-one-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Quit if entire file fits on first screen",
+    "aliases": [
+      "-F",
+      "--quit-if-one-screen"
+    ]
+  },
+  {
+    "name": "quit-on-intr",
+    "template_key": "quit-on-intr",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Exit less in response to ctrl-C",
+    "aliases": [
+      "-K",
+      "--quit-on-intr"
+    ]
+  },
+  {
+    "name": "quotes",
+    "template_key": "quotes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set shell quote characters",
+    "aliases": [
+      "--quotes"
+    ]
+  },
+  {
     "name": "raw-control-chars",
     "template_key": "raw-control-chars",
     "type": "string",
@@ -366,6 +595,74 @@
       "-R",
       "--raw-control-chars",
       "--RAW-CONTROL-CHARS"
+    ]
+  },
+  {
+    "name": "redraw_on_quit",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--redraw-on-quit"
+    ]
+  },
+  {
+    "name": "rscroll",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--rscroll"
+    ]
+  },
+  {
+    "name": "save_marks",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--save-marks"
+    ]
+  },
+  {
+    "name": "search-skip-screen",
+    "template_key": "search-skip-screen",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Search skips current screen",
+    "aliases": [
+      "-a",
+      "--search-skip-screen"
+    ]
+  },
+  {
+    "name": "search_options",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--search-options"
+    ]
+  },
+  {
+    "name": "shift",
+    "template_key": "shift",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Set horizontal scroll amount (0 = one half screen width)",
+    "aliases": [
+      "--shift"
+    ]
+  },
+  {
+    "name": "show_preproc_errors",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--show-preproc-errors"
     ]
   },
   {
@@ -381,15 +678,45 @@
     ]
   },
   {
-    "name": "chop-long-lines",
-    "template_key": "chop-long-lines",
+    "name": "status-column",
+    "template_key": "status-column",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "Chop (truncate) long lines rather than wrapping",
+    "description": "Display a status column at left edge of screen",
     "aliases": [
-      "-S",
-      "--chop-long-lines"
+      "-J",
+      "--status-column"
+    ]
+  },
+  {
+    "name": "status_col_width",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--status-col-width"
+    ]
+  },
+  {
+    "name": "status_line",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--status-line"
+    ]
+  },
+  {
+    "name": "tabs",
+    "template_key": "tabs",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set tab stops",
+    "aliases": [
+      "-x",
+      "--tabs"
     ]
   },
   {
@@ -417,6 +744,17 @@
     ]
   },
   {
+    "name": "tilde",
+    "template_key": "tilde",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Don't display tildes after end of file",
+    "aliases": [
+      "--tilde"
+    ]
+  },
+  {
     "name": "underline-special",
     "template_key": "underline-special",
     "type": "string",
@@ -428,6 +766,24 @@
       "-U",
       "--underline-special",
       "--UNDERLINE-SPECIAL"
+    ]
+  },
+  {
+    "name": "use_backslash",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--use-backslash"
+    ]
+  },
+  {
+    "name": "use_color",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--use-color"
     ]
   },
   {
@@ -443,63 +799,12 @@
     ]
   },
   {
-    "name": "hilite-unread",
-    "template_key": "hilite-unread",
-    "type": "string",
+    "name": "wheel_lines",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Highlight first new line after forward-screen",
+    "description": "",
     "aliases": [
-      "-w",
-      "--hilite-unread"
-    ]
-  },
-  {
-    "name": "HILITE-UNREAD",
-    "template_key": "hilite-unread",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Highlight first new line after any forward movement",
-    "aliases": [
-      "-W",
-      "--HILITE-UNREAD"
-    ]
-  },
-  {
-    "name": "tabs",
-    "template_key": "tabs",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Set tab stops",
-    "aliases": [
-      "-x",
-      "--tabs"
-    ]
-  },
-  {
-    "name": "no-init",
-    "template_key": "no-init",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Don't use termcap init/deinit strings",
-    "aliases": [
-      "-X",
-      "--no-init"
-    ]
-  },
-  {
-    "name": "max-forw-scroll",
-    "template_key": "max-forw-scroll",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Forward scroll limit",
-    "aliases": [
-      "-y",
-      "--max-forw-scroll"
+      "--wheel-lines"
     ]
   },
   {
@@ -515,47 +820,12 @@
     ]
   },
   {
-    "name": "quotes",
-    "template_key": "quotes",
-    "type": "string",
+    "name": "wordwrap",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Set shell quote characters",
+    "description": "",
     "aliases": [
-      "--quotes"
-    ]
-  },
-  {
-    "name": "tilde",
-    "template_key": "tilde",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Don't display tildes after end of file",
-    "aliases": [
-      "--tilde"
-    ]
-  },
-  {
-    "name": "shift",
-    "template_key": "shift",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Set horizontal scroll amount (0 = one half screen width)",
-    "aliases": [
-      "--shift"
-    ]
-  },
-  {
-    "name": "exit-follow-on-close",
-    "template_key": "exit-follow-on-close",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Exit F command on a pipe when writer closes pipe. --file-size Automatically determine the size of the input file. --follow-name The F command changes files if the input file is renamed. --header=[L[,C[,N]]] Use L lines (starting at line N) and C columns as headers. --incsearch Search file as each pattern character is typed in. --intr=[C] Use C instead of ^X to interrupt a read. --lesskey-context=text Use lesskey source file contents. --lesskey-src=file Use a lesskey source file. --line-num-width=[N] Set the width of the -N line number field to N characters. --match-shift=[N] Show at least N characters to the left of a search match. --modelines=[N] Read N lines from the input file and look for vim modelines. --mouse Enable mouse input. --no-keypad Don't send termcap keypad init/deinit strings. --no-histdups Remove duplicates from command history. --no-number-headers Don't give line numbers to header lines. --no-search-header-lines Searches do not include header lines. --no-search-header-columns Searches do not include header columns. --no-search-headers Searches do not include header lines or columns. --no-vbell Disable the terminal's visual bell. --redraw-on-quit Redraw final screen when quitting. --rscroll=[C] Set the character used to mark truncated lines. --save-marks Retain marks across invocations of less. --search-options=[EFKNRW-] Set default options for every search. --show-preproc-errors Display a message if preprocessor exits with an error status. --proc-backspace Process backspaces for bold/underline. --PROC-BACKSPACE Treat backspaces as control characters. --proc-return Delete carriage returns before newline. --PROC-RETURN Treat carriage returns as control characters. --proc-tab Expand tabs to spaces. --PROC-TAB Treat tabs as control characters. --status-col-width=[N] Set the width of the -J status column to N characters. --status-line Highlight or color the entire line containing a mark. --use-backslash Subsequent options use backslash as escape char. --use-color Enables colored text. --wheel-lines=[N] Each click of the mouse wheel moves N lines. --wordwrap Wrap lines at spaces",
-    "aliases": [
-      "--exit-follow-on-close"
+      "--wordwrap"
     ]
   }
 ]

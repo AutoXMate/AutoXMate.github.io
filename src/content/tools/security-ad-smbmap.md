@@ -164,6 +164,41 @@ parameters:
   description: Network timeout in seconds
   aliases:
   - --timeout
+
+- name: S
+  type: boolean
+  required: false
+  description: "Force SMB over SSL"
+  aliases:
+    - "-S"
+    - "--ssl"
+- name: no_banner
+  type: boolean
+  required: false
+  description: "Suppress banner"
+  aliases:
+    - "--no-banner"
+- name: no_color
+  type: boolean
+  required: false
+  description: "Disable color output"
+  aliases:
+    - "--no-color"
+- name: q
+  type: boolean
+  required: false
+  description: "Quiet mode"
+  aliases:
+    - "-q"
+    - "--quiet"
+- name: s
+  type: boolean
+  required: false
+  description: "Specify a share"
+  aliases:
+    - "-s"
+    - "--share"
+
 execution:
   template: smbmap -H {target} -u {username} -p {password}
   sandbox: execFile

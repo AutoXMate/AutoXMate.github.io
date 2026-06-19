@@ -67,6 +67,26 @@ parameters:
     aliases:
       - -w
       - --words
+
+  - name: files0_from
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--files0-from"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "wc -c {bytes} -m {chars} -l {lines} -L {max-line-length} -w {words}"
   sandbox: execFile

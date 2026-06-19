@@ -165,6 +165,21 @@ parameters:
   aliases:
   - -e
   - --encrypt
+
+- name: auth_file
+  type: boolean
+  required: false
+  description: "Credentials file"
+  aliases:
+    - "--auth-file"
+- name: s
+  type: boolean
+  required: false
+  description: "Config file path"
+  aliases:
+    - "-s"
+    - "--config"
+
 execution:
   template: rpcclient -U {username} {target}
   sandbox: execFile

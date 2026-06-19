@@ -12,6 +12,17 @@
     ]
   },
   {
+    "name": "flag-F",
+    "template_key": "flag-f",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "same as --follow=name --retry",
+    "aliases": [
+      "-F"
+    ]
+  },
+  {
     "name": "follow",
     "template_key": "follow",
     "type": "string",
@@ -24,14 +35,12 @@
     ]
   },
   {
-    "name": "flag-F",
-    "template_key": "flag-f",
-    "type": "string",
+    "name": "help",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "same as --follow=name --retry",
+    "description": "",
     "aliases": [
-      "-F"
+      "--help"
     ]
   },
   {
@@ -47,6 +56,24 @@
     ]
   },
   {
+    "name": "max_unchanged_stats",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--max-unchanged-stats"
+    ]
+  },
+  {
+    "name": "pid",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--pid"
+    ]
+  },
+  {
     "name": "quiet",
     "template_key": "quiet",
     "type": "string",
@@ -57,6 +84,15 @@
       "-q",
       "--quiet",
       "--silent"
+    ]
+  },
+  {
+    "name": "retry",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--retry"
     ]
   },
   {
@@ -81,6 +117,15 @@
     "aliases": [
       "-v",
       "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   },
   {

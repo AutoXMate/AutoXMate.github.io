@@ -1,57 +1,23 @@
 [
   {
-    "name": "flag-pe",
-    "template_key": "flag-pe",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Target PE file path",
-    "aliases": ["--pe"]
-  },
-  {
-    "name": "flag-shellcode",
-    "template_key": "flag-shellcode",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom shellcode file",
-    "aliases": ["--shellcode"]
-  },
-  {
-    "name": "reverse-ip",
-    "template_key": "reverse-ip",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Reverse shell IP",
-    "aliases": ["--reverse-ip"]
-  },
-  {
-    "name": "reverse-port",
-    "template_key": "reverse-port",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Reverse shell port",
-    "aliases": ["--reverse-port"]
-  },
-  {
     "name": "bind-port",
     "template_key": "bind-port",
     "type": "integer",
     "required": false,
     "default_value": null,
     "description": "Bind shell port",
-    "aliases": ["--bind-port"]
+    "aliases": [
+      "--bind-port"
+    ]
   },
   {
-    "name": "flag-o",
-    "template_key": "flag-o",
-    "type": "string",
+    "name": "bind_ip",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Output file path",
-    "aliases": ["-o", "--output"]
+    "description": "Bind shell bind IP",
+    "aliases": [
+      "--bind-ip"
+    ]
   },
   {
     "name": "flag-m",
@@ -60,7 +26,10 @@
     "required": false,
     "default_value": "auto",
     "description": "Mode (auto/manual)",
-    "aliases": ["-m", "--mode"]
+    "aliases": [
+      "-m",
+      "--mode"
+    ]
   },
   {
     "name": "flag-no-amsi",
@@ -69,7 +38,32 @@
     "required": false,
     "default_value": false,
     "description": "Disable AMSI bypass",
-    "aliases": ["--no-amsi"]
+    "aliases": [
+      "--no-amsi"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file path",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "flag-pe",
+    "template_key": "flag-pe",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target PE file path",
+    "aliases": [
+      "--pe"
+    ]
   },
   {
     "name": "flag-quiet",
@@ -78,7 +72,20 @@
     "required": false,
     "default_value": false,
     "description": "Quiet output mode",
-    "aliases": ["--quiet"]
+    "aliases": [
+      "--quiet"
+    ]
+  },
+  {
+    "name": "flag-shellcode",
+    "template_key": "flag-shellcode",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom shellcode file",
+    "aliases": [
+      "--shellcode"
+    ]
   },
   {
     "name": "flag-v",
@@ -87,6 +94,50 @@
     "required": false,
     "default_value": false,
     "description": "Verbose output",
-    "aliases": ["-v", "--verbose"]
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "Show this help message",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "no_etc",
+    "type": "boolean",
+    "required": false,
+    "description": "Disable ETW patching",
+    "aliases": [
+      "--no-etc"
+    ]
+  },
+  {
+    "name": "reverse-ip",
+    "template_key": "reverse-ip",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Reverse shell IP",
+    "aliases": [
+      "--reverse-ip"
+    ]
+  },
+  {
+    "name": "reverse-port",
+    "template_key": "reverse-port",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Reverse shell port",
+    "aliases": [
+      "--reverse-port"
+    ]
   }
 ]

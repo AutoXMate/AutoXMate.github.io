@@ -110,6 +110,32 @@ parameters:
       information and exit"
     aliases:
       - -v
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: no_sync
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--no-sync"
+  - name: output
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--output"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "df -a {all} -B {block-size} -h {human-readable} -H {si} -i {inodes}"
   sandbox: execFile

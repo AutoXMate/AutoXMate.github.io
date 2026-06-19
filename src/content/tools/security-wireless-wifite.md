@@ -154,6 +154,72 @@ parameters:
     description: "Dictionary file for cracking"
     aliases:
       - --wordlist
+
+  - name: "2"
+    type: boolean
+    required: false
+    description: "Scan 2.4GHz networks"
+    aliases:
+      - "-2"
+      - "--2ghz"
+  - name: "5"
+    type: boolean
+    required: false
+    description: "Scan 5GHz networks"
+    aliases:
+      - "-5"
+      - "--5ghz"
+  - name: cloaking
+    type: boolean
+    required: false
+    description: "Enable cloaking"
+    aliases:
+      - "--cloaking"
+  - name: dict
+    type: boolean
+    required: false
+    description: "Use dictionary attack"
+    aliases:
+      - "--dict"
+  - name: mac
+    type: boolean
+    required: false
+    description: "MAC address to use"
+    aliases:
+      - "--mac"
+  - name: no_wep
+    type: boolean
+    required: false
+    description: "Skip WEP attacks"
+    aliases:
+      - "--no-wep"
+  - name: no_wpa
+    type: boolean
+    required: false
+    description: "Skip WPA attacks"
+    aliases:
+      - "--no-wpa"
+  - name: p
+    type: boolean
+    required: false
+    description: "Min signal power threshold"
+    aliases:
+      - "-p"
+      - "--power"
+  - name: random_mac
+    type: boolean
+    required: false
+    description: "Randomize MAC address"
+    aliases:
+      - "--random-mac"
+  - name: s
+    type: boolean
+    required: false
+    description: "Attack only WPS networks"
+    aliases:
+      - "-s"
+      - "--wps"
+
 execution:
   template: "wifite -i {interface}"
   sandbox: execFile

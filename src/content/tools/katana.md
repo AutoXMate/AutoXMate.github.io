@@ -236,6 +236,44 @@ parameters:
   aliases:
   - -nh
   - --no-headless
+
+- name: aff
+  type: boolean
+  required: false
+  description: "forms"
+  aliases:
+    - "-aff"
+    - "--automatic-form-fill"
+    - "-fill"
+- name: ct
+  type: boolean
+  required: false
+  description: "TYPE      Content type filter"
+  aliases:
+    - "-ct"
+    - "--content-type"
+- name: mrs
+  type: boolean
+  required: false
+  description: "N   Max response size (default: 5242880)"
+  aliases:
+    - "-mrs"
+    - "--max-response-size"
+- name: nh
+  type: boolean
+  required: false
+  description: "Disable headless"
+  aliases:
+    - "-nh"
+    - "--no-headless"
+- name: v
+  type: boolean
+  required: false
+  description: "Verbose mode"
+  aliases:
+    - "-v"
+    - "--verbose"
+
 execution:
   template: katana -u {target} -d {depth}
   sandbox: execFile

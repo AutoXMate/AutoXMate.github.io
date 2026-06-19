@@ -132,6 +132,14 @@ parameters:
   description: Open browser on startup
   aliases:
   - --open-browser
+
+- name: help
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "--help"
+
 execution:
   template: covenant
   sandbox: execFile

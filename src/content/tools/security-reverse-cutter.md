@@ -96,6 +96,20 @@ parameters:
   type: string
   required: false
   description: Binary file to open
+
+- name: help
+  type: boolean
+  required: false
+  description: "Display help message"
+  aliases:
+    - "-h"
+- name: version
+  type: boolean
+  required: false
+  description: "Show version information"
+  aliases:
+    - "-v"
+
 execution:
   template: cutter {binary}
   sandbox: execFile

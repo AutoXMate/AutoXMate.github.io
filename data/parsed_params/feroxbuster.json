@@ -1,39 +1,14 @@
 [
   {
-    "name": "url",
-    "template_key": "url",
-    "type": "string",
-    "required": true,
-    "default_value": null,
-    "description": "Target URL",
-    "aliases": ["-u"]
-  },
-  {
-    "name": "wordlist",
-    "template_key": "wordlist",
-    "type": "file",
-    "required": true,
-    "default_value": null,
-    "description": "Path to wordlist file",
-    "aliases": ["-w"]
-  },
-  {
-    "name": "extensions",
-    "template_key": "extensions",
-    "type": "string",
+    "name": "auto-tune",
+    "template_key": "auto-tune",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "File extensions to scan (comma-separated)",
-    "aliases": ["-x"]
-  },
-  {
-    "name": "threads",
-    "template_key": "threads",
-    "type": "integer",
-    "required": false,
-    "default_value": 50,
-    "description": "Number of concurrent threads",
-    "aliases": ["-t"]
+    "default_value": false,
+    "description": "Automatically tune scan parameters",
+    "aliases": [
+      "--auto-tune"
+    ]
   },
   {
     "name": "depth",
@@ -42,7 +17,65 @@
     "required": false,
     "default_value": null,
     "description": "Maximum recursion depth",
-    "aliases": ["-d"]
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "extensions",
+    "template_key": "extensions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File extensions to scan (comma-separated)",
+    "aliases": [
+      "-x"
+    ]
+  },
+  {
+    "name": "filter_lines",
+    "type": "boolean",
+    "required": false,
+    "description": "Filter by line count",
+    "aliases": [
+      "--filter-lines"
+    ]
+  },
+  {
+    "name": "filter_regex",
+    "type": "boolean",
+    "required": false,
+    "description": "Filter by regex pattern",
+    "aliases": [
+      "--filter-regex"
+    ]
+  },
+  {
+    "name": "filter_size",
+    "type": "boolean",
+    "required": false,
+    "description": "Filter by response size",
+    "aliases": [
+      "--filter-size"
+    ]
+  },
+  {
+    "name": "filter_status",
+    "type": "boolean",
+    "required": false,
+    "description": "Filter by status codes",
+    "aliases": [
+      "--filter-status"
+    ]
+  },
+  {
+    "name": "filter_words",
+    "type": "boolean",
+    "required": false,
+    "description": "Filter by word count",
+    "aliases": [
+      "--filter-words"
+    ]
   },
   {
     "name": "follow-redirect",
@@ -51,43 +84,9 @@
     "required": false,
     "default_value": false,
     "description": "Follow HTTP redirects",
-    "aliases": ["-r"]
-  },
-  {
-    "name": "status-codes",
-    "template_key": "status-codes",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Status codes to include",
-    "aliases": ["-s"]
-  },
-  {
-    "name": "output",
-    "template_key": "output",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Output file path",
-    "aliases": ["-o"]
-  },
-  {
-    "name": "json",
-    "template_key": "json",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enable JSON output",
-    "aliases": ["--json"]
-  },
-  {
-    "name": "silent",
-    "template_key": "silent",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Silent mode (only output results)",
-    "aliases": ["--silent"]
+    "aliases": [
+      "-r"
+    ]
   },
   {
     "name": "headers",
@@ -96,16 +95,31 @@
     "required": false,
     "default_value": null,
     "description": "Custom HTTP headers",
-    "aliases": ["-H"]
+    "aliases": [
+      "-H"
+    ]
   },
   {
-    "name": "user-agent",
-    "template_key": "user-agent",
-    "type": "string",
+    "name": "json",
+    "template_key": "json",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable JSON output",
+    "aliases": [
+      "--json"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "file",
     "required": false,
     "default_value": null,
-    "description": "Custom User-Agent string",
-    "aliases": ["-a"]
+    "description": "Output file path",
+    "aliases": [
+      "-o"
+    ]
   },
   {
     "name": "proxy",
@@ -114,7 +128,42 @@
     "required": false,
     "default_value": null,
     "description": "Proxy URL",
-    "aliases": ["-P"]
+    "aliases": [
+      "-P"
+    ]
+  },
+  {
+    "name": "silent",
+    "template_key": "silent",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Silent mode (only output results)",
+    "aliases": [
+      "--silent"
+    ]
+  },
+  {
+    "name": "status-codes",
+    "template_key": "status-codes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Status codes to include",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 50,
+    "description": "Number of concurrent threads",
+    "aliases": [
+      "-t"
+    ]
   },
   {
     "name": "timeout",
@@ -123,15 +172,61 @@
     "required": false,
     "default_value": null,
     "description": "Request timeout in seconds",
-    "aliases": ["-T"]
+    "aliases": [
+      "-T"
+    ]
   },
   {
-    "name": "auto-tune",
-    "template_key": "auto-tune",
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target URL",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "user-agent",
+    "template_key": "user-agent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom User-Agent string",
+    "aliases": [
+      "-a"
+    ]
+  },
+  {
+    "name": "user_agent",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Automatically tune scan parameters",
-    "aliases": ["--auto-tune"]
+    "description": "string",
+    "aliases": [
+      "--user-agent",
+      "-Agent"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "Verbose output",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": true,
+    "default_value": null,
+    "description": "Path to wordlist file",
+    "aliases": [
+      "-w"
+    ]
   }
 ]

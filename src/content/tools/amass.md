@@ -209,6 +209,20 @@ parameters:
   description: Maximum DNS queries per minute
   aliases:
   - -max-dns-queries
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show the program usage message"
+  aliases:
+    - "-h"
+- name: help
+  type: boolean
+  required: false
+  description: "Show the program usage message"
+  aliases:
+    - "-help"
+
 execution:
   template: amass enum -d {domain} -o {output}
   sandbox: execFile

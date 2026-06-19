@@ -196,6 +196,35 @@ parameters:
   - linux.bash
   - linux.pslist
   - mac.pslist
+
+- name: output_dir
+  type: boolean
+  required: false
+  description: "DIR           Directory for output files"
+  aliases:
+    - "--output-dir"
+- name: r
+  type: boolean
+  required: false
+  description: "N        Recursion depth (default: 0)"
+  aliases:
+    - "-r"
+    - "--recursion"
+- name: s
+  type: boolean
+  required: false
+  description: "ID       Session management"
+  aliases:
+    - "-s"
+    - "--sessions"
+- name: "y"
+  type: boolean
+  required: false
+  description: "FILE       YARA rule file"
+  aliases:
+    - "-y"
+    - "--yara"
+
 execution:
   template: volatility -f {memory-dump} {plugin}
   sandbox: execFile

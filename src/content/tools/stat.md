@@ -73,6 +73,32 @@ parameters:
     aliases:
       - --terse
       - --file-system
+
+  - name: cached
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--cached"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: printf
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--printf"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "stat -L {dereference} -f {file-system} -c {format} -t {terse} --terse
     {terse-2}"

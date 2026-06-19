@@ -204,6 +204,14 @@ parameters:
   aliases:
   - '-9'
   - --best
+
+- name: synchronous
+  type: boolean
+  required: false
+  description: "synchronous output (safer if system crashes, but slower)"
+  aliases:
+    - "--synchronous"
+
 execution:
   template: gzip {stdout} {decompress} {force} {help} {keep}
   sandbox: execFile

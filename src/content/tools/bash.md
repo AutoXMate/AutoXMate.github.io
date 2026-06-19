@@ -51,7 +51,117 @@ resource_profile:
   disk_io: low
 allowed-tools:
 - bash
-parameters: []
+parameters:
+
+  - name: debug
+    type: string
+    required: false
+    default: null
+    description: "--debugger --dump-po-strings --dump-strings --help --init-file --login --noediting --noprofile --norc --posix --pretty-print --rcfile --restricted --verbose --version"
+    aliases:
+      - "--debug"
+  - name: debugger
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--debugger"
+  - name: dump_po_strings
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--dump-po-strings"
+  - name: dump_strings
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--dump-strings"
+  - name: flag-a
+    type: string
+    required: false
+    default: null
+    description: ""
+    aliases:
+      - "-a"
+      - "-o"
+  - name: flag-i
+    type: string
+    required: false
+    default: null
+    description: "(invocation only)"
+    aliases:
+      - "-i"
+      - "-c"
+      - "-O"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: init_file
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--init-file"
+  - name: noediting
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--noediting"
+  - name: noprofile
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--noprofile"
+  - name: norc
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--norc"
+  - name: posix
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--posix"
+  - name: pretty_print
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--pretty-print"
+  - name: rcfile
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--rcfile"
+  - name: restricted
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--restricted"
+  - name: verbose
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--verbose"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 features:
 - file-system
 - interactive

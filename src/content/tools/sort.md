@@ -204,6 +204,44 @@ parameters:
     aliases:
       - -z
       - --zero-terminated
+
+  - name: compress_program
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--compress-program"
+  - name: files0_from
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--files0-from"
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: parallel
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--parallel"
+  - name: random_source
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--random-source"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "sort -b {ignore-leading-blanks} -d {dictionary-order} -f {ignore-case}
     -g {general-numeric-sort} -i {ignore-nonprinting}"

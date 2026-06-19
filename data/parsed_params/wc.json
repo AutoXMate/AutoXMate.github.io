@@ -24,6 +24,24 @@
     ]
   },
   {
+    "name": "files0_from",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--files0-from"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
     "name": "lines",
     "template_key": "lines",
     "type": "string",
@@ -45,6 +63,15 @@
     "aliases": [
       "-L",
       "--max-line-length"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   },
   {

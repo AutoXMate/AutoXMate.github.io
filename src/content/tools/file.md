@@ -233,6 +233,26 @@ parameters:
     aliases:
       - -d
       - --debug
+
+  - name: apple
+    type: boolean
+    required: false
+    description: "output the Apple CREATOR/TYPE"
+    aliases:
+      - "--apple"
+  - name: extension
+    type: boolean
+    required: false
+    description: "output a slash-separated list of extensions"
+    aliases:
+      - "--extension"
+  - name: mime_type
+    type: boolean
+    required: false
+    description: "output the MIME type"
+    aliases:
+      - "--mime-type"
+
 execution:
   template: "file --help {help} -v {version} -m {magic-file-list} -z {uncompress}
     -Z {uncompress-noreport}"

@@ -1,5 +1,14 @@
 [
   {
+    "name": "cached",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--cached"
+    ]
+  },
+  {
     "name": "dereference",
     "template_key": "dereference",
     "type": "string",
@@ -36,6 +45,24 @@
     ]
   },
   {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "printf",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--printf"
+    ]
+  },
+  {
     "name": "terse",
     "template_key": "terse",
     "type": "string",
@@ -68,6 +95,15 @@
     "aliases": [
       "--terse",
       "--file-system"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

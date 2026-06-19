@@ -85,6 +85,15 @@ parameters:
   type: string
   required: false
   description: Arguments for the subcommand
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show this message and exit."
+  aliases:
+    - "-h"
+    - "--help"
+
 execution:
   template: shodan {command} {args}
   sandbox: execFile

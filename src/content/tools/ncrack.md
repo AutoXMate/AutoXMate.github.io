@@ -211,6 +211,55 @@ parameters:
   description: Log file path
   aliases:
   - --log
+
+- name: "6"
+  type: boolean
+  required: false
+  description: "Use IPv6"
+  aliases:
+    - "-6"
+    - "--ipv6"
+- name: "N"
+  type: boolean
+  required: false
+  description: "Suppress Ncrack banner"
+  aliases:
+    - "-N"
+    - "--no-banner"
+- name: m
+  type: boolean
+  required: false
+  description: "options"
+  aliases:
+    - "-m"
+    - "--module-options"
+    - "-specific"
+- name: proxy
+  type: boolean
+  required: false
+  description: "Use proxy (proto://host:port)"
+  aliases:
+    - "--proxy"
+- name: proxy_auth
+  type: boolean
+  required: false
+  description: "Proxy authentication credentials"
+  aliases:
+    - "--proxy-auth"
+- name: spec
+  type: boolean
+  required: false
+  description: "Service specific options"
+  aliases:
+    - "--spec"
+- name: x
+  type: boolean
+  required: false
+  description: "Password generation pattern"
+  aliases:
+    - "-x"
+    - "--generate-password"
+
 execution:
   template: ncrack -u {username} -P {password-list} {target}:{service}
   sandbox: execFile

@@ -1,21 +1,34 @@
 [
   {
+    "name": "V",
+    "type": "boolean",
+    "required": false,
+    "description": "Print version information",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "accessible",
+    "type": "boolean",
+    "required": false,
+    "description": "Only show accessible ports",
+    "aliases": [
+      "--accessible"
+    ]
+  },
+  {
     "name": "flag-a",
     "template_key": "flag-a",
     "type": "string",
     "required": true,
     "default_value": null,
     "description": "Target IP address, hostname, or CIDR range",
-    "aliases": ["-a", "--address"]
-  },
-  {
-    "name": "flag-p",
-    "template_key": "flag-p",
-    "type": "string",
-    "required": false,
-    "default_value": "1-65535",
-    "description": "Ports to scan",
-    "aliases": ["-p", "--ports"]
+    "aliases": [
+      "-a",
+      "--address"
+    ]
   },
   {
     "name": "flag-b",
@@ -24,34 +37,10 @@
     "required": false,
     "default_value": 4500,
     "description": "Batch size for port scanning",
-    "aliases": ["-b", "--batch"]
-  },
-  {
-    "name": "timeout",
-    "template_key": "timeout",
-    "type": "integer",
-    "required": false,
-    "default_value": 1500,
-    "description": "Timeout in milliseconds",
-    "aliases": ["--timeout"]
-  },
-  {
-    "name": "tries",
-    "template_key": "tries",
-    "type": "integer",
-    "required": false,
-    "default_value": 1,
-    "description": "Number of tries before giving up",
-    "aliases": ["--tries"]
-  },
-  {
-    "name": "flag-n",
-    "template_key": "flag-n",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Do not run Nmap automatically",
-    "aliases": ["-n", "--no-nmap"]
+    "aliases": [
+      "-b",
+      "--batch"
+    ]
   },
   {
     "name": "flag-g",
@@ -60,7 +49,34 @@
     "required": false,
     "default_value": false,
     "description": "Greppable output",
-    "aliases": ["-g", "--greppable"]
+    "aliases": [
+      "-g",
+      "--greppable"
+    ]
+  },
+  {
+    "name": "flag-n",
+    "template_key": "flag-n",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Do not run Nmap automatically",
+    "aliases": [
+      "-n",
+      "--no-nmap"
+    ]
+  },
+  {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "string",
+    "required": false,
+    "default_value": "1-65535",
+    "description": "Ports to scan",
+    "aliases": [
+      "-p",
+      "--ports"
+    ]
   },
   {
     "name": "flag-u",
@@ -69,6 +85,51 @@
     "required": false,
     "default_value": false,
     "description": "Scan UDP ports",
-    "aliases": ["-u", "--udp"]
+    "aliases": [
+      "-u",
+      "--udp"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "Print help information",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "t",
+    "type": "boolean",
+    "required": false,
+    "description": "The time in milliseconds before a timeout occurs (default: 1500)",
+    "aliases": [
+      "-t",
+      "--timeout"
+    ]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 1500,
+    "description": "Timeout in milliseconds",
+    "aliases": [
+      "--timeout"
+    ]
+  },
+  {
+    "name": "tries",
+    "template_key": "tries",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Number of tries before giving up",
+    "aliases": [
+      "--tries"
+    ]
   }
 ]

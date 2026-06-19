@@ -1,66 +1,86 @@
 [
   {
-    "name": "flag-m",
-    "template_key": "flag-m",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Hash type number (e.g. 0=MD5, 1000=NTLM, 3200=bcrypt)",
-    "aliases": ["-m", "--hash-type"]
-  },
-  {
-    "name": "flag-a",
-    "template_key": "flag-a",
-    "type": "integer",
-    "required": false,
-    "default_value": 0,
-    "description": "Attack mode (0=Straight, 1=Combination, 3=Brute-force, 6=Hybrid, 7=PRINCE)",
-    "aliases": ["-a", "--attack-mode"]
-  },
-  {
-    "name": "flag-o",
-    "template_key": "flag-o",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Output file for cracked passwords",
-    "aliases": ["-o", "--output"]
-  },
-  {
-    "name": "outfile-format",
-    "template_key": "outfile-format",
-    "type": "integer",
-    "required": false,
-    "default_value": 1,
-    "description": "Output format for cracked passwords",
-    "aliases": ["--outfile-format"]
-  },
-  {
-    "name": "potfile-path",
-    "template_key": "potfile-path",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom potfile path",
-    "aliases": ["--potfile-path"]
-  },
-  {
-    "name": "force",
-    "template_key": "force",
+    "name": "1",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Ignore warnings and force startup",
-    "aliases": ["--force"]
+    "description": "charset ?1",
+    "aliases": [
+      "-1",
+      "--custom-charset1",
+      "-defined"
+    ]
   },
   {
-    "name": "show",
-    "template_key": "show",
+    "name": "2",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Show cracked passwords from potfile",
-    "aliases": ["--show"]
+    "description": "charset ?2",
+    "aliases": [
+      "-2",
+      "--custom-charset2",
+      "-defined"
+    ]
+  },
+  {
+    "name": "3",
+    "type": "boolean",
+    "required": false,
+    "description": "charset ?3",
+    "aliases": [
+      "-3",
+      "--custom-charset3",
+      "-defined"
+    ]
+  },
+  {
+    "name": "4",
+    "type": "boolean",
+    "required": false,
+    "description": "charset ?4",
+    "aliases": [
+      "-4",
+      "--custom-charset4",
+      "-defined"
+    ]
+  },
+  {
+    "name": "V",
+    "type": "boolean",
+    "required": false,
+    "description": "Print version",
+    "aliases": [
+      "-V",
+      "--version"
+    ]
+  },
+  {
+    "name": "b",
+    "type": "boolean",
+    "required": false,
+    "description": "Run benchmark",
+    "aliases": [
+      "-b",
+      "--benchmark"
+    ]
+  },
+  {
+    "name": "backend_devices",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--backend-devices",
+      "-device"
+    ]
+  },
+  {
+    "name": "backend_vector_width",
+    "type": "boolean",
+    "required": false,
+    "description": "Backend vector width",
+    "aliases": [
+      "--backend-vector-width"
+    ]
   },
   {
     "name": "benchmark",
@@ -69,70 +89,18 @@
     "required": false,
     "default_value": false,
     "description": "Run benchmark for all hash modes",
-    "aliases": ["--benchmark"]
+    "aliases": [
+      "--benchmark"
+    ]
   },
   {
-    "name": "status",
-    "template_key": "status",
+    "name": "benchmark_all",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Enable automatic status screen updates",
-    "aliases": ["--status"]
-  },
-  {
-    "name": "session",
-    "template_key": "session",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Session name for save/restore",
-    "aliases": ["--session"]
-  },
-  {
-    "name": "flag-r",
-    "template_key": "flag-r",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Rule file for wordlist attack",
-    "aliases": ["-r", "--rule-file"]
-  },
-  {
-    "name": "flag-i",
-    "template_key": "flag-i",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enable incremental mask mode",
-    "aliases": ["-i", "--increment"]
-  },
-  {
-    "name": "flag-w",
-    "template_key": "flag-w",
-    "type": "integer",
-    "required": false,
-    "default_value": 2,
-    "description": "Workload profile (1=Low, 2=Default, 3=High, 4=Nightmare)",
-    "aliases": ["-w", "--workload-profile"]
-  },
-  {
-    "name": "flag-O",
-    "template_key": "flag-O",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Enable optimized kernel (limits password length)",
-    "aliases": ["-O", "--optimized-kernel"]
-  },
-  {
-    "name": "flag-d",
-    "template_key": "flag-d",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "OpenCL device to use",
-    "aliases": ["-d", "--device"]
+    "description": "Run benchmark for all modes",
+    "aliases": [
+      "--benchmark-all"
+    ]
   },
   {
     "name": "example-hashes",
@@ -141,6 +109,302 @@
     "required": false,
     "default_value": false,
     "description": "Print example hashes for all hash modes",
-    "aliases": ["--example-hashes"]
+    "aliases": [
+      "--example-hashes"
+    ]
+  },
+  {
+    "name": "flag-O",
+    "template_key": "flag-O",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable optimized kernel (limits password length)",
+    "aliases": [
+      "-O",
+      "--optimized-kernel"
+    ]
+  },
+  {
+    "name": "flag-a",
+    "template_key": "flag-a",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Attack mode (0=Straight, 1=Combination, 3=Brute-force, 6=Hybrid, 7=PRINCE)",
+    "aliases": [
+      "-a",
+      "--attack-mode"
+    ]
+  },
+  {
+    "name": "flag-d",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "OpenCL device to use",
+    "aliases": [
+      "-d",
+      "--device"
+    ]
+  },
+  {
+    "name": "flag-i",
+    "template_key": "flag-i",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable incremental mask mode",
+    "aliases": [
+      "-i",
+      "--increment"
+    ]
+  },
+  {
+    "name": "flag-m",
+    "template_key": "flag-m",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Hash type number (e.g. 0=MD5, 1000=NTLM, 3200=bcrypt)",
+    "aliases": [
+      "-m",
+      "--hash-type"
+    ]
+  },
+  {
+    "name": "flag-o",
+    "template_key": "flag-o",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Output file for cracked passwords",
+    "aliases": [
+      "-o",
+      "--output"
+    ]
+  },
+  {
+    "name": "flag-r",
+    "template_key": "flag-r",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Rule file for wordlist attack",
+    "aliases": [
+      "-r",
+      "--rule-file"
+    ]
+  },
+  {
+    "name": "flag-w",
+    "template_key": "flag-w",
+    "type": "integer",
+    "required": false,
+    "default_value": 2,
+    "description": "Workload profile (1=Low, 2=Default, 3=High, 4=Nightmare)",
+    "aliases": [
+      "-w",
+      "--workload-profile"
+    ]
+  },
+  {
+    "name": "force",
+    "template_key": "force",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Ignore warnings and force startup",
+    "aliases": [
+      "--force"
+    ]
+  },
+  {
+    "name": "g",
+    "type": "boolean",
+    "required": false,
+    "description": "Generate N random rules",
+    "aliases": [
+      "-g",
+      "--generate-rules"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "Print help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "increment_max",
+    "type": "boolean",
+    "required": false,
+    "description": "Stop mask at length NUM",
+    "aliases": [
+      "--increment-max"
+    ]
+  },
+  {
+    "name": "increment_min",
+    "type": "boolean",
+    "required": false,
+    "description": "Start mask at length NUM",
+    "aliases": [
+      "--increment-min"
+    ]
+  },
+  {
+    "name": "j",
+    "type": "boolean",
+    "required": false,
+    "description": "Single rule applied to left word",
+    "aliases": [
+      "-j",
+      "--rule-left"
+    ]
+  },
+  {
+    "name": "k",
+    "type": "boolean",
+    "required": false,
+    "description": "Single rule applied to right word",
+    "aliases": [
+      "-k",
+      "--rule-right"
+    ]
+  },
+  {
+    "name": "keyspace",
+    "type": "boolean",
+    "required": false,
+    "description": "Show keyspace for current attack",
+    "aliases": [
+      "--keyspace"
+    ]
+  },
+  {
+    "name": "n",
+    "type": "boolean",
+    "required": false,
+    "description": "Threads per GPU device",
+    "aliases": [
+      "-n",
+      "--threads"
+    ]
+  },
+  {
+    "name": "outfile-format",
+    "template_key": "outfile-format",
+    "type": "integer",
+    "required": false,
+    "default_value": 1,
+    "description": "Output format for cracked passwords",
+    "aliases": [
+      "--outfile-format"
+    ]
+  },
+  {
+    "name": "outfile_autohex_disable",
+    "type": "boolean",
+    "required": false,
+    "description": "Disable auto hex encode of plaintext",
+    "aliases": [
+      "--outfile-autohex-disable"
+    ]
+  },
+  {
+    "name": "p",
+    "type": "boolean",
+    "required": false,
+    "description": "Separator for hashlist",
+    "aliases": [
+      "-p",
+      "--separator"
+    ]
+  },
+  {
+    "name": "potfile-path",
+    "template_key": "potfile-path",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom potfile path",
+    "aliases": [
+      "--potfile-path"
+    ]
+  },
+  {
+    "name": "quiet",
+    "type": "boolean",
+    "required": false,
+    "description": "Suppress output",
+    "aliases": [
+      "--quiet"
+    ]
+  },
+  {
+    "name": "runtime",
+    "type": "boolean",
+    "required": false,
+    "description": "Runtime limit in seconds",
+    "aliases": [
+      "--runtime"
+    ]
+  },
+  {
+    "name": "session",
+    "template_key": "session",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Session name for save/restore",
+    "aliases": [
+      "--session"
+    ]
+  },
+  {
+    "name": "show",
+    "template_key": "show",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show cracked passwords from potfile",
+    "aliases": [
+      "--show"
+    ]
+  },
+  {
+    "name": "status",
+    "template_key": "status",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Enable automatic status screen updates",
+    "aliases": [
+      "--status"
+    ]
+  },
+  {
+    "name": "stdout",
+    "type": "boolean",
+    "required": false,
+    "description": "Print candidates to stdout (not cracking)",
+    "aliases": [
+      "--stdout"
+    ]
+  },
+  {
+    "name": "username",
+    "type": "boolean",
+    "required": false,
+    "description": "Enable ignoring usernames in hashfile",
+    "aliases": [
+      "--username"
+    ]
   }
 ]

@@ -183,6 +183,81 @@ parameters:
   description: Read candidates from stdin
   aliases:
   - --stdin
+
+- name: config
+  type: boolean
+  required: false
+  description: "use FILE instead of john.conf or john.ini"
+  aliases:
+    - "--config"
+- name: encoding
+  type: boolean
+  required: false
+  description: "cp1251)"
+  aliases:
+    - "--encoding"
+    - "-8"
+- name: groups
+  type: boolean
+  required: false
+  description: "crack specific group(s) only"
+  aliases:
+    - "--groups"
+- name: list
+  type: boolean
+  required: false
+  description: "list capabilities (formats, modes, etc)"
+  aliases:
+    - "--list"
+- name: make_charset
+  type: boolean
+  required: false
+  description: "generate charset file"
+  aliases:
+    - "--make-charset"
+- name: markov
+  type: boolean
+  required: false
+  description: "Markov mode"
+  aliases:
+    - "--markov"
+- name: max_run_time
+  type: boolean
+  required: false
+  description: "max runtime in seconds"
+  aliases:
+    - "--max-run-time"
+- name: prince
+  type: boolean
+  required: false
+  description: "PRINCE mode (read candidates from FILE)"
+  aliases:
+    - "--prince"
+- name: progress_every
+  type: boolean
+  required: false
+  description: "emit status line every N seconds"
+  aliases:
+    - "--progress-every"
+- name: rules_logic
+  type: boolean
+  required: false
+  description: "apply logic rules"
+  aliases:
+    - "--rules-logic"
+- name: rules_stack
+  type: boolean
+  required: false
+  description: "stack additional rule(s)"
+  aliases:
+    - "--rules-stack"
+- name: user
+  type: boolean
+  required: false
+  description: "crack specific user(s) only"
+  aliases:
+    - "--user"
+
 execution:
   template: john --wordlist={wordlist} {hash-file}
   sandbox: execFile

@@ -145,6 +145,26 @@ parameters:
     aliases:
       - info
       - --info
+
+  - name: list
+    type: boolean
+    required: false
+    description: "List available adapters"
+    aliases:
+      - "--list"
+  - name: show
+    type: boolean
+    required: false
+    description: "Show adapter info"
+    aliases:
+      - "--show"
+  - name: version
+    type: boolean
+    required: false
+    description: "Show version"
+    aliases:
+      - "--version"
+
 execution:
   template: "bluetoothctl"
   sandbox: execFile

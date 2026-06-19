@@ -6,16 +6,9 @@
     "required": false,
     "default_value": false,
     "description": "Count syscalls and print summary",
-    "aliases": ["-c"]
-  },
-  {
-    "name": "follow",
-    "template_key": "follow",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Trace child processes (fork, vfork)",
-    "aliases": ["-f"]
+    "aliases": [
+      "-c"
+    ]
   },
   {
     "name": "expr",
@@ -24,61 +17,20 @@
     "required": false,
     "default_value": null,
     "description": "Filter syscalls by expression (e.g. trace=open,read)",
-    "aliases": ["-e"]
+    "aliases": [
+      "-e"
+    ]
   },
   {
-    "name": "output",
-    "template_key": "output",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Write trace to file",
-    "aliases": ["-o"]
-  },
-  {
-    "name": "pid",
-    "template_key": "pid",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Attach to running process by PID",
-    "aliases": ["-p"]
-  },
-  {
-    "name": "strsize",
-    "template_key": "strsize",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Maximum string size to print",
-    "aliases": ["-s"]
-  },
-  {
-    "name": "timestamp",
-    "template_key": "timestamp",
+    "name": "follow",
+    "template_key": "follow",
     "type": "boolean",
     "required": false,
     "default_value": false,
-    "description": "Prefix each line with timestamp",
-    "aliases": ["-t"]
-  },
-  {
-    "name": "timecalls",
-    "template_key": "timecalls",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Show time spent in each syscall",
-    "aliases": ["-T"]
-  },
-  {
-    "name": "verbose",
-    "template_key": "verbose",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Verbose mode (decode structures)",
-    "aliases": ["-v"]
+    "description": "Trace child processes (fork, vfork)",
+    "aliases": [
+      "-f"
+    ]
   },
   {
     "name": "hex",
@@ -87,16 +39,9 @@
     "required": false,
     "default_value": false,
     "description": "Print non-ASCII strings in hex",
-    "aliases": ["-x"]
-  },
-  {
-    "name": "relative",
-    "template_key": "relative",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Show relative timestamps",
-    "aliases": ["-r"]
+    "aliases": [
+      "-x"
+    ]
   },
   {
     "name": "instrPointer",
@@ -105,6 +50,121 @@
     "required": false,
     "default_value": false,
     "description": "Print instruction pointer with each syscall",
-    "aliases": ["-i"]
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "output",
+    "template_key": "output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Write trace to file",
+    "aliases": [
+      "-o"
+    ]
+  },
+  {
+    "name": "pid",
+    "template_key": "pid",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Attach to running process by PID",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "q",
+    "type": "boolean",
+    "required": false,
+    "description": "quiet",
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "relative",
+    "template_key": "relative",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show relative timestamps",
+    "aliases": [
+      "-r"
+    ]
+  },
+  {
+    "name": "strsize",
+    "template_key": "strsize",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum string size to print",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "timecalls",
+    "template_key": "timecalls",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Show time spent in each syscall",
+    "aliases": [
+      "-T"
+    ]
+  },
+  {
+    "name": "timestamp",
+    "template_key": "timestamp",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Prefix each line with timestamp",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "tt",
+    "type": "boolean",
+    "required": false,
+    "description": "prefix with full timestamp (usec)",
+    "aliases": [
+      "-tt"
+    ]
+  },
+  {
+    "name": "ttt",
+    "type": "boolean",
+    "required": false,
+    "description": "prefix with epoch timestamp",
+    "aliases": [
+      "-ttt"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose mode (decode structures)",
+    "aliases": [
+      "-v"
+    ]
+  },
+  {
+    "name": "xx",
+    "type": "boolean",
+    "required": false,
+    "description": "print all strings in hex",
+    "aliases": [
+      "-xx"
+    ]
   }
 ]

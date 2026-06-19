@@ -222,6 +222,227 @@ parameters:
     description: "Do not wait until operation finished"
     aliases:
       - --no-block
+
+  - name: boot-loader-menu
+    type: number
+    required: false
+    default: null
+    description: "Boot into boot loader menu on next boot --boot-loader-entry=NAME Boot into a specific boot loader entry on next boot --reboot-argument=ARG Specify argument string to pass to reboot() --plain Print unit dependencies as a list instead of a tree --timestamp=FORMAT Change format of printed timestamps (pretty, unix, us, utc, us+utc) --read-only Create read-only bind mount --mkdir Create directory before mounting, if missing --marked Restart/reload previously marked units --drop-in=NAME Edit unit files using the specified drop-in file name --when=TIME Schedule halt/power-off/reboot/kexec action after a certain timestamp --stdin Read new contents of edited file from stdin"
+    aliases:
+      - "--boot-loader-menu"
+  - name: boot_loader_entry
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--boot-loader-entry"
+  - name: check_inhibitors
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--check-inhibitors"
+  - name: drop_in
+    type: boolean
+    required: false
+    description: "Edit unit files using the specified drop-in file name"
+    aliases:
+      - "--drop-in"
+  - name: dry_run
+    type: boolean
+    required: false
+    description: "Only print what would be done"
+    aliases:
+      - "--dry-run"
+  - name: firmware-setup
+    type: string
+    required: false
+    default: null
+    description: "Tell the firmware to show the setup menu on next boot"
+    aliases:
+      - "--firmware-setup"
+  - name: force
+    type: string
+    required: false
+    default: null
+    description: "When enabling unit files, override existing symlinks"
+    aliases:
+      - "-f"
+      - "--force"
+  - name: global
+    type: string
+    required: false
+    default: null
+    description: "Edit/enable/disable/mask default user unit files"
+    aliases:
+      - "--global"
+  - name: image
+    type: file
+    required: false
+    default: null
+    description: "Edit/enable/disable/mask unit files in the specified"
+    aliases:
+      - "--image"
+  - name: image-policy
+    type: string
+    required: false
+    default: null
+    description: "Specify disk image dissection policy"
+    aliases:
+      - "--image-policy"
+  - name: job_mode
+    type: boolean
+    required: false
+    description: "Specify how to deal with already queued jobs, when"
+    aliases:
+      - "--job-mode"
+  - name: legend
+    type: string
+    required: false
+    default: null
+    description: "Enable/disable the legend (column headers and hints)"
+    aliases:
+      - "--legend"
+  - name: lines
+    type: integer
+    required: false
+    default: null
+    description: "Number of journal entries to show"
+    aliases:
+      - "-n"
+      - "--lines"
+  - name: marked
+    type: boolean
+    required: false
+    description: "Restart/reload previously marked units"
+    aliases:
+      - "--marked"
+  - name: message
+    type: string
+    required: false
+    default: null
+    description: "Specify human-readable reason for system shutdown"
+    aliases:
+      - "--message"
+  - name: mkdir
+    type: boolean
+    required: false
+    description: "Create directory before mounting, if missing"
+    aliases:
+      - "--mkdir"
+  - name: no-ask-password
+    type: string
+    required: false
+    default: null
+    description: "Do not ask for system passwords"
+    aliases:
+      - "--no-ask-password"
+  - name: no-pager
+    type: string
+    required: false
+    default: null
+    description: "Do not pipe output into a pager"
+    aliases:
+      - "--no-pager"
+  - name: no-reload
+    type: string
+    required: false
+    default: null
+    description: "Don't reload daemon after en-/dis-abling unit files"
+    aliases:
+      - "--no-reload"
+  - name: no-wall
+    type: string
+    required: false
+    default: null
+    description: "Don't send wall message before halt/power-off/reboot"
+    aliases:
+      - "--no-wall"
+  - name: now
+    type: boolean
+    required: false
+    description: "Start or stop unit after enabling or disabling it"
+    aliases:
+      - "--now"
+  - name: output
+    type: string
+    required: false
+    default: null
+    description: "Change journal output mode (short, short-precise"
+    aliases:
+      - "-o"
+      - "--output"
+  - name: plain
+    type: boolean
+    required: false
+    description: "Print unit dependencies as a list instead of a tree"
+    aliases:
+      - "--plain"
+  - name: preset-mode
+    type: string
+    required: false
+    default: null
+    description: "Apply only enable, only disable, or all presets"
+    aliases:
+      - "--preset-mode"
+  - name: read_only
+    type: boolean
+    required: false
+    description: "Create read-only bind mount"
+    aliases:
+      - "--read-only"
+  - name: reboot_argument
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--reboot-argument"
+  - name: root
+    type: file
+    required: false
+    default: null
+    description: "Edit/enable/disable/mask unit files in the specified"
+    aliases:
+      - "--root"
+  - name: runtime
+    type: string
+    required: false
+    default: null
+    description: "Edit/enable/disable/mask unit files temporarily until"
+    aliases:
+      - "--runtime"
+  - name: show_types
+    type: boolean
+    required: false
+    description: "When showing sockets, explicitly show their type"
+    aliases:
+      - "--show-types"
+  - name: stdin
+    type: boolean
+    required: false
+    description: "Read new contents of edited file from stdin"
+    aliases:
+      - "--stdin"
+  - name: value
+    type: boolean
+    required: false
+    description: "When showing properties, only print the value"
+    aliases:
+      - "--value"
+  - name: what
+    type: boolean
+    required: false
+    description: "Which types of resources to remove"
+    aliases:
+      - "--what"
+  - name: when
+    type: boolean
+    required: false
+    description: "/reboot/kexec action after"
+    aliases:
+      - "--when"
+      - "-off"
+
 execution:
   template: "systemctl -h {help} --version {version} --system {system} --user {user}
     -C {capsule}"

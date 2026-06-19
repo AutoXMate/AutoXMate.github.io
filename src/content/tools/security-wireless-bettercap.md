@@ -158,6 +158,55 @@ parameters:
     description: "Disable HTTPS server"
     aliases:
       - --no-https
+
+  - name: D
+    type: boolean
+    required: false
+    description: "Enable debug mode"
+    aliases:
+      - "-D"
+      - "--debug"
+  - name: M
+    type: boolean
+    required: false
+    description: "Start specific module"
+    aliases:
+      - "-M"
+      - "--module"
+  - name: dns
+    type: boolean
+    required: false
+    description: "Spoof DNS record"
+    aliases:
+      - "--dns"
+  - name: eval-command
+    type: string
+    required: false
+    default: null
+    description: "Evaluate a command"
+    aliases:
+      - "-eval"
+      - "--eval"
+  - name: no_color
+    type: boolean
+    required: false
+    description: "Disable colored output"
+    aliases:
+      - "--no-color"
+  - name: proxy_port
+    type: boolean
+    required: false
+    description: "Proxy listen port"
+    aliases:
+      - "--proxy-port"
+  - name: v
+    type: boolean
+    required: false
+    description: "Verbose output"
+    aliases:
+      - "-v"
+      - "--verbose"
+
 execution:
   template: "bettercap -I {interface} -X"
   sandbox: execFile

@@ -12,6 +12,67 @@
     ]
   },
   {
+    "name": "attributes_only",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--attributes-only"
+    ]
+  },
+  {
+    "name": "backup",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--backup"
+    ]
+  },
+  {
+    "name": "copy_contents",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--copy-contents"
+    ]
+  },
+  {
+    "name": "dereference",
+    "template_key": "dereference",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "always follow symbolic links in SOURCE",
+    "aliases": [
+      "-L",
+      "--dereference"
+    ]
+  },
+  {
+    "name": "flag-H",
+    "template_key": "flag-h",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "follow command-line symbolic links in SOURCE",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "flag-Z",
+    "template_key": "flag-z",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "set SELinux security context of destination file to default type --context[=CTX] like -Z, or if CTX is specified then set the SELinux or SMACK security context to CTX --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-Z"
+    ]
+  },
+  {
     "name": "flag-b",
     "template_key": "flag-b",
     "type": "string",
@@ -34,6 +95,28 @@
     ]
   },
   {
+    "name": "flag-p",
+    "template_key": "flag-p",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "same as --preserve=mode,ownership,timestamps --preserve[=ATTR_LIST] preserve the specified attributes --no-preserve=ATTR_LIST don't preserve the specified attributes --parents use full source file name under DIRECTORY",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "equivalent to --update[=older]. See below",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
     "name": "force",
     "template_key": "force",
     "type": "string",
@@ -43,6 +126,15 @@
     "aliases": [
       "-f",
       "--force"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
     ]
   },
   {
@@ -58,38 +150,12 @@
     ]
   },
   {
-    "name": "flag-H",
-    "template_key": "flag-h",
-    "type": "string",
+    "name": "keep_directory_symlink",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "follow command-line symbolic links in SOURCE",
+    "description": "",
     "aliases": [
-      "-H"
-    ]
-  },
-  {
-    "name": "dereference",
-    "template_key": "dereference",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "always follow symbolic links in SOURCE",
-    "aliases": [
-      "-L",
-      "--dereference"
-    ]
-  },
-  {
-    "name": "no-dereference",
-    "template_key": "no-dereference",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "never follow symbolic links in SOURCE --keep-directory-symlink follow existing symlinks to directories",
-    "aliases": [
-      "-P",
-      "--no-dereference"
+      "--keep-directory-symlink"
     ]
   },
   {
@@ -117,63 +183,15 @@
     ]
   },
   {
-    "name": "flag-p",
-    "template_key": "flag-p",
+    "name": "no-dereference",
+    "template_key": "no-dereference",
     "type": "file",
     "required": false,
     "default_value": null,
-    "description": "same as --preserve=mode,ownership,timestamps --preserve[=ATTR_LIST] preserve the specified attributes --no-preserve=ATTR_LIST don't preserve the specified attributes --parents use full source file name under DIRECTORY",
+    "description": "never follow symbolic links in SOURCE --keep-directory-symlink follow existing symlinks to directories",
     "aliases": [
-      "-p"
-    ]
-  },
-  {
-    "name": "recursive",
-    "template_key": "recursive",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "copy directories recursively --reflink[=WHEN] control clone/CoW copies. See below --remove-destination remove each existing destination file before attempting to open it (contrast with --force) --sparse=WHEN control creation of sparse files. See below --strip-trailing-slashes remove any trailing slashes from each SOURCE argument",
-    "aliases": [
-      "-R",
-      "-r",
-      "--recursive"
-    ]
-  },
-  {
-    "name": "symbolic-link",
-    "template_key": "symbolic-link",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "make symbolic links instead of copying",
-    "aliases": [
-      "-s",
-      "--symbolic-link"
-    ]
-  },
-  {
-    "name": "suffix",
-    "template_key": "suffix",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "override the usual backup suffix",
-    "aliases": [
-      "-S",
-      "--suffix"
-    ]
-  },
-  {
-    "name": "target-directory",
-    "template_key": "target-directory",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "copy all SOURCE arguments into DIRECTORY",
-    "aliases": [
-      "-t",
-      "--target-directory"
+      "-P",
+      "--no-dereference"
     ]
   },
   {
@@ -192,26 +210,12 @@
     ]
   },
   {
-    "name": "flag-u",
-    "template_key": "flag-u",
-    "type": "string",
+    "name": "no_preserve",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "equivalent to --update[=older]. See below",
+    "description": "",
     "aliases": [
-      "-u"
-    ]
-  },
-  {
-    "name": "verbose",
-    "template_key": "verbose",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "explain what is being done",
-    "aliases": [
-      "-v",
-      "--verbose"
+      "--no-preserve"
     ]
   },
   {
@@ -227,14 +231,118 @@
     ]
   },
   {
-    "name": "flag-Z",
-    "template_key": "flag-z",
+    "name": "parents",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--parents"
+    ]
+  },
+  {
+    "name": "recursive",
+    "template_key": "recursive",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "copy directories recursively --reflink[=WHEN] control clone/CoW copies. See below --remove-destination remove each existing destination file before attempting to open it (contrast with --force) --sparse=WHEN control creation of sparse files. See below --strip-trailing-slashes remove any trailing slashes from each SOURCE argument",
+    "aliases": [
+      "-R",
+      "-r",
+      "--recursive"
+    ]
+  },
+  {
+    "name": "reflink",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--reflink"
+    ]
+  },
+  {
+    "name": "remove_destination",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--remove-destination"
+    ]
+  },
+  {
+    "name": "sparse",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--sparse"
+    ]
+  },
+  {
+    "name": "strip_trailing_slashes",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--strip-trailing-slashes"
+    ]
+  },
+  {
+    "name": "suffix",
+    "template_key": "suffix",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "override the usual backup suffix",
+    "aliases": [
+      "-S",
+      "--suffix"
+    ]
+  },
+  {
+    "name": "symbolic-link",
+    "template_key": "symbolic-link",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make symbolic links instead of copying",
+    "aliases": [
+      "-s",
+      "--symbolic-link"
+    ]
+  },
+  {
+    "name": "target-directory",
+    "template_key": "target-directory",
     "type": "file",
     "required": false,
     "default_value": null,
-    "description": "set SELinux security context of destination file to default type --context[=CTX] like -Z, or if CTX is specified then set the SELinux or SMACK security context to CTX --help display this help and exit --version output version information and exit",
+    "description": "copy all SOURCE arguments into DIRECTORY",
     "aliases": [
-      "-Z"
+      "-t",
+      "--target-directory"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "explain what is being done",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

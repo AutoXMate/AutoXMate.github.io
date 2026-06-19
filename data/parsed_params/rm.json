@@ -1,14 +1,25 @@
 [
   {
-    "name": "force",
-    "template_key": "force",
+    "name": "dir",
+    "template_key": "dir",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "ignore nonexistent files and arguments, never prompt",
+    "description": "remove empty directories",
     "aliases": [
-      "-f",
-      "--force"
+      "-d",
+      "--dir"
+    ]
+  },
+  {
+    "name": "flag-I",
+    "template_key": "flag-i",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "prompt once before removing more than three files, or when removing recursively; less intrusive than -i, while still giving protection against most mistakes --interactive[=WHEN] prompt according to WHEN: never, once (-I), or always (-i); without WHEN, prompt always --one-file-system when removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument --no-preserve-root do not treat '/' specially --preserve-root[=all] do not remove '/' (default); with 'all', reject any command line argument on a separate device from its parent",
+    "aliases": [
+      "-I"
     ]
   },
   {
@@ -23,14 +34,60 @@
     ]
   },
   {
-    "name": "flag-I",
-    "template_key": "flag-i",
-    "type": "file",
+    "name": "force",
+    "template_key": "force",
+    "type": "string",
     "required": false,
     "default_value": null,
-    "description": "prompt once before removing more than three files, or when removing recursively; less intrusive than -i, while still giving protection against most mistakes --interactive[=WHEN] prompt according to WHEN: never, once (-I), or always (-i); without WHEN, prompt always --one-file-system when removing a hierarchy recursively, skip any directory that is on a file system different from that of the corresponding command line argument --no-preserve-root do not treat '/' specially --preserve-root[=all] do not remove '/' (default); with 'all', reject any command line argument on a separate device from its parent",
+    "description": "ignore nonexistent files and arguments, never prompt",
     "aliases": [
-      "-I"
+      "-f",
+      "--force"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "interactive",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--interactive"
+    ]
+  },
+  {
+    "name": "no_preserve_root",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--no-preserve-root"
+    ]
+  },
+  {
+    "name": "one_file_system",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--one-file-system"
+    ]
+  },
+  {
+    "name": "preserve_root",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--preserve-root"
     ]
   },
   {
@@ -47,18 +104,6 @@
     ]
   },
   {
-    "name": "dir",
-    "template_key": "dir",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "remove empty directories",
-    "aliases": [
-      "-d",
-      "--dir"
-    ]
-  },
-  {
     "name": "verbose",
     "template_key": "verbose",
     "type": "string",
@@ -68,6 +113,15 @@
     "aliases": [
       "-v",
       "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

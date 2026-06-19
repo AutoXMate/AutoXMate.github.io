@@ -244,6 +244,27 @@ parameters:
   description: Set the flag-N parameter
   aliases:
   - -N
+
+- name: O
+  type: boolean
+  required: false
+  description: "report outstanding replies"
+  aliases:
+    - "-O"
+- name: R
+  type: boolean
+  required: false
+  description: "record route"
+  aliases:
+    - "-R"
+- name: U
+  type: boolean
+  required: false
+  description: "latency"
+  aliases:
+    - "-U"
+    - "-to-user"
+
 execution:
   template: ping {flag-3} {flag-a} {flag-c} {flag-d} {flag-e}
   sandbox: execFile

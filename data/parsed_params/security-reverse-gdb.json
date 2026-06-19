@@ -1,39 +1,12 @@
 [
   {
-    "name": "quiet",
-    "template_key": "quiet",
+    "name": "args",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Suppress introductory banner and warnings",
-    "aliases": ["-q"]
-  },
-  {
-    "name": "ex",
-    "template_key": "ex",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Execute a single GDB command",
-    "aliases": ["-ex"]
-  },
-  {
-    "name": "x",
-    "template_key": "x",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Execute GDB commands from file",
-    "aliases": ["-x"]
-  },
-  {
-    "name": "pid",
-    "template_key": "pid",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Attach to a running process by PID",
-    "aliases": ["-p"]
+    "description": "pass remaining args to program",
+    "aliases": [
+      "--args"
+    ]
   },
   {
     "name": "batch",
@@ -42,61 +15,9 @@
     "required": false,
     "default_value": false,
     "description": "Run in batch mode (no interactive shell)",
-    "aliases": ["-batch"]
-  },
-  {
-    "name": "symbols",
-    "template_key": "symbols",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Read symbol table from file",
-    "aliases": ["-s", "--symbols"]
-  },
-  {
-    "name": "exec",
-    "template_key": "exec",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Use specified file as the executable",
-    "aliases": ["--exec"]
-  },
-  {
-    "name": "core",
-    "template_key": "core",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Use specified file as the core dump",
-    "aliases": ["--core"]
-  },
-  {
-    "name": "nx",
-    "template_key": "nx",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Do not read .gdbinit file",
-    "aliases": ["-nx"]
-  },
-  {
-    "name": "tty",
-    "template_key": "tty",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Set the terminal for GDB I/O",
-    "aliases": ["--tty"]
-  },
-  {
-    "name": "nh",
-    "template_key": "nh",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Do not read .gdbearlyinit file",
-    "aliases": ["-nh"]
+    "aliases": [
+      "-batch"
+    ]
   },
   {
     "name": "cd",
@@ -105,6 +26,119 @@
     "required": false,
     "default_value": null,
     "description": "Change to directory before starting",
-    "aliases": ["--cd"]
+    "aliases": [
+      "--cd"
+    ]
+  },
+  {
+    "name": "core",
+    "template_key": "core",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use specified file as the core dump",
+    "aliases": [
+      "--core"
+    ]
+  },
+  {
+    "name": "ex",
+    "template_key": "ex",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Execute a single GDB command",
+    "aliases": [
+      "-ex"
+    ]
+  },
+  {
+    "name": "exec",
+    "template_key": "exec",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Use specified file as the executable",
+    "aliases": [
+      "--exec"
+    ]
+  },
+  {
+    "name": "nh",
+    "template_key": "nh",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Do not read .gdbearlyinit file",
+    "aliases": [
+      "-nh"
+    ]
+  },
+  {
+    "name": "nx",
+    "template_key": "nx",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Do not read .gdbinit file",
+    "aliases": [
+      "-nx"
+    ]
+  },
+  {
+    "name": "pid",
+    "template_key": "pid",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Attach to a running process by PID",
+    "aliases": [
+      "-p"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Suppress introductory banner and warnings",
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "symbols",
+    "template_key": "symbols",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Read symbol table from file",
+    "aliases": [
+      "-s",
+      "--symbols"
+    ]
+  },
+  {
+    "name": "tty",
+    "template_key": "tty",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Set the terminal for GDB I/O",
+    "aliases": [
+      "--tty"
+    ]
+  },
+  {
+    "name": "x",
+    "template_key": "x",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Execute GDB commands from file",
+    "aliases": [
+      "-x"
+    ]
   }
 ]

@@ -126,6 +126,20 @@ parameters:
     aliases:
       - -v
       - --verbose
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "ln --backup {backup} -b {flag-b} -d {directory} -f {force} -i {interactive}"
   sandbox: execFile

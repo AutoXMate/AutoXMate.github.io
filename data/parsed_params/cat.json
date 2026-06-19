@@ -1,29 +1,5 @@
 [
   {
-    "name": "show-all",
-    "template_key": "show-all",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "equivalent to -vET",
-    "aliases": [
-      "-A",
-      "--show-all"
-    ]
-  },
-  {
-    "name": "number-nonblank",
-    "template_key": "number-nonblank",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "number nonempty output lines, overrides -n",
-    "aliases": [
-      "-b",
-      "--number-nonblank"
-    ]
-  },
-  {
     "name": "flag-e",
     "template_key": "flag-e",
     "type": "string",
@@ -35,15 +11,36 @@
     ]
   },
   {
-    "name": "show-ends",
-    "template_key": "show-ends",
+    "name": "flag-t",
+    "template_key": "flag-t",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "display $ or ^M$ at end of each line",
+    "description": "equivalent to -vT",
     "aliases": [
-      "-E",
-      "--show-ends"
+      "-t"
+    ]
+  },
+  {
+    "name": "flag-u",
+    "template_key": "flag-u",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "(ignored)",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "display this help and exit --version output version information and exit",
+    "aliases": [
+      "--help"
     ]
   },
   {
@@ -59,49 +56,39 @@
     ]
   },
   {
-    "name": "squeeze-blank",
-    "template_key": "squeeze-blank",
+    "name": "number-nonblank",
+    "template_key": "number-nonblank",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "suppress repeated empty output lines",
+    "description": "number nonempty output lines, overrides -n",
     "aliases": [
-      "-s",
-      "--squeeze-blank"
+      "-b",
+      "--number-nonblank"
     ]
   },
   {
-    "name": "flag-t",
-    "template_key": "flag-t",
+    "name": "show-all",
+    "template_key": "show-all",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "equivalent to -vT",
+    "description": "equivalent to -vET",
     "aliases": [
-      "-t"
+      "-A",
+      "--show-all"
     ]
   },
   {
-    "name": "show-tabs",
-    "template_key": "show-tabs",
+    "name": "show-ends",
+    "template_key": "show-ends",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "display TAB characters as ^I",
+    "description": "display $ or ^M$ at end of each line",
     "aliases": [
-      "-T",
-      "--show-tabs"
-    ]
-  },
-  {
-    "name": "flag-u",
-    "template_key": "flag-u",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "(ignored)",
-    "aliases": [
-      "-u"
+      "-E",
+      "--show-ends"
     ]
   },
   {
@@ -117,14 +104,36 @@
     ]
   },
   {
-    "name": "help",
-    "template_key": "help",
+    "name": "show-tabs",
+    "template_key": "show-tabs",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "display this help and exit --version output version information and exit",
+    "description": "display TAB characters as ^I",
     "aliases": [
-      "--help"
+      "-T",
+      "--show-tabs"
+    ]
+  },
+  {
+    "name": "squeeze-blank",
+    "template_key": "squeeze-blank",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "suppress repeated empty output lines",
+    "aliases": [
+      "-s",
+      "--squeeze-blank"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

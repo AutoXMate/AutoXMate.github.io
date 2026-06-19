@@ -131,6 +131,26 @@ parameters:
     aliases:
       - -D
       - --list-interfaces
+
+  - name: S
+    type: boolean
+    required: false
+    description: "Update packet display as capture progresses."
+    aliases:
+      - "-S"
+  - name: b
+    type: boolean
+    required: false
+    description: "ringbuf      Set ring buffer options."
+    aliases:
+      - "-b"
+  - name: h
+    type: boolean
+    required: false
+    description: "Display help and exit."
+    aliases:
+      - "-h"
+
 execution:
   template: "wireshark -i {interface} -k"
   sandbox: execFile

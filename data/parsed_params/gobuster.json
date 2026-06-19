@@ -1,5 +1,69 @@
 [
   {
+    "name": "cookies",
+    "template_key": "cookies",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Cookies to include in requests",
+    "aliases": [
+      "-c"
+    ]
+  },
+  {
+    "name": "domain",
+    "template_key": "domain",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target domain (dns mode)",
+    "aliases": [
+      "-d"
+    ]
+  },
+  {
+    "name": "exclude_length",
+    "type": "boolean",
+    "required": false,
+    "description": "Exclude results of given content length",
+    "aliases": [
+      "--exclude-length"
+    ]
+  },
+  {
+    "name": "extensions",
+    "template_key": "extensions",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "File extensions to search (dir mode)",
+    "aliases": [
+      "-x"
+    ]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": [
+      "-H"
+    ]
+  },
+  {
+    "name": "insecure",
+    "template_key": "insecure",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Skip TLS certificate verification",
+    "aliases": [
+      "-k"
+    ]
+  },
+  {
     "name": "mode",
     "template_key": "mode",
     "type": "string",
@@ -9,49 +73,15 @@
     "aliases": []
   },
   {
-    "name": "url",
-    "template_key": "url",
-    "type": "string",
+    "name": "no-redirect",
+    "template_key": "no-redirect",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Target URL (dir, vhost modes)",
-    "aliases": ["-u"]
-  },
-  {
-    "name": "domain",
-    "template_key": "domain",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Target domain (dns mode)",
-    "aliases": ["-d"]
-  },
-  {
-    "name": "wordlist",
-    "template_key": "wordlist",
-    "type": "file",
-    "required": true,
-    "default_value": null,
-    "description": "Path to wordlist file",
-    "aliases": ["-w"]
-  },
-  {
-    "name": "threads",
-    "template_key": "threads",
-    "type": "integer",
-    "required": false,
-    "default_value": 10,
-    "description": "Number of concurrent threads",
-    "aliases": ["-t"]
-  },
-  {
-    "name": "extensions",
-    "template_key": "extensions",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "File extensions to search (dir mode)",
-    "aliases": ["-x"]
+    "default_value": false,
+    "description": "Do not follow redirects",
+    "aliases": [
+      "-n"
+    ]
   },
   {
     "name": "output",
@@ -60,70 +90,9 @@
     "required": false,
     "default_value": null,
     "description": "Output file path",
-    "aliases": ["-o"]
-  },
-  {
-    "name": "status-codes",
-    "template_key": "status-codes",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Status codes to include (positive)",
-    "aliases": ["-s"]
-  },
-  {
-    "name": "insecure",
-    "template_key": "insecure",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Skip TLS certificate verification",
-    "aliases": ["-k"]
-  },
-  {
-    "name": "no-redirect",
-    "template_key": "no-redirect",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Do not follow redirects",
-    "aliases": ["-n"]
-  },
-  {
-    "name": "cookies",
-    "template_key": "cookies",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Cookies to include in requests",
-    "aliases": ["-c"]
-  },
-  {
-    "name": "headers",
-    "template_key": "headers",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom HTTP headers",
-    "aliases": ["-H"]
-  },
-  {
-    "name": "timeout",
-    "template_key": "timeout",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "HTTP request timeout in seconds",
-    "aliases": ["--timeout"]
-  },
-  {
-    "name": "wildcard",
-    "template_key": "wildcard",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Force wildcard detection",
-    "aliases": ["--wildcard"]
+    "aliases": [
+      "-o"
+    ]
   },
   {
     "name": "quiet",
@@ -132,6 +101,94 @@
     "required": false,
     "default_value": false,
     "description": "Quiet mode (no banner or progress)",
-    "aliases": ["-q"]
+    "aliases": [
+      "-q"
+    ]
+  },
+  {
+    "name": "r",
+    "type": "boolean",
+    "required": false,
+    "description": "Follow HTTP redirects",
+    "aliases": [
+      "-r",
+      "--follow-redirect"
+    ]
+  },
+  {
+    "name": "status-codes",
+    "template_key": "status-codes",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Status codes to include (positive)",
+    "aliases": [
+      "-s"
+    ]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Number of concurrent threads",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "timeout",
+    "template_key": "timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP request timeout in seconds",
+    "aliases": [
+      "--timeout"
+    ]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Target URL (dir, vhost modes)",
+    "aliases": [
+      "-u"
+    ]
+  },
+  {
+    "name": "wildcard",
+    "template_key": "wildcard",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Force wildcard detection",
+    "aliases": [
+      "--wildcard"
+    ]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": true,
+    "default_value": null,
+    "description": "Path to wordlist file",
+    "aliases": [
+      "-w"
+    ]
+  },
+  {
+    "name": "z",
+    "type": "boolean",
+    "required": false,
+    "description": "Do not display progress",
+    "aliases": [
+      "-z",
+      "--no-progress"
+    ]
   }
 ]

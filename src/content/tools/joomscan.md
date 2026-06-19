@@ -141,6 +141,20 @@ parameters:
   description: Skip SSL certificate validation
   aliases:
   - --no-check-certificate
+
+- name: help
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "--help"
+- name: version
+  type: boolean
+  required: false
+  description: "Show version information"
+  aliases:
+    - "--version"
+
 execution:
   template: joomscan -u {target}
   sandbox: execFile

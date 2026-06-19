@@ -1,39 +1,42 @@
 [
   {
-    "name": "simple",
-    "template_key": "simple",
+    "name": "E",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Use simple authentication (not SASL)",
-    "aliases": ["-x", "--simple"]
+    "description": "LDAP extensions",
+    "aliases": [
+      "-E",
+      "--extensions"
+    ]
   },
   {
-    "name": "uri",
-    "template_key": "uri",
-    "type": "string",
+    "name": "LLL",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "LDAP server URI (ldap://host:port)",
-    "aliases": ["-H", "--uri"]
+    "description": "LDIF format (no comments/version)",
+    "aliases": [
+      "-LLL"
+    ]
   },
   {
-    "name": "bind-dn",
-    "template_key": "bind-dn",
-    "type": "string",
+    "name": "O",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Distinguished name to bind as",
-    "aliases": ["-D", "--bind-dn"]
+    "description": "Security properties",
+    "aliases": [
+      "-O",
+      "--security"
+    ]
   },
   {
-    "name": "password",
-    "template_key": "password",
-    "type": "string",
+    "name": "Y",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Password for LDAP bind",
-    "aliases": ["-w", "--password"]
+    "description": "SASL authorization identity",
+    "aliases": [
+      "-Y",
+      "--authzid"
+    ]
   },
   {
     "name": "base-dn",
@@ -42,16 +45,22 @@
     "required": false,
     "default_value": null,
     "description": "Base DN for search",
-    "aliases": ["-b", "--base-dn"]
+    "aliases": [
+      "-b",
+      "--base-dn"
+    ]
   },
   {
-    "name": "scope",
-    "template_key": "scope",
+    "name": "bind-dn",
+    "template_key": "bind-dn",
     "type": "string",
     "required": false,
-    "default_value": "sub",
-    "description": "Search scope (base, one, sub, children)",
-    "aliases": ["-s", "--scope"]
+    "default_value": null,
+    "description": "Distinguished name to bind as",
+    "aliases": [
+      "-D",
+      "--bind-dn"
+    ]
   },
   {
     "name": "filter",
@@ -60,25 +69,10 @@
     "required": false,
     "default_value": "(objectClass=*)",
     "description": "LDAP search filter",
-    "aliases": ["-f", "--filter"]
-  },
-  {
-    "name": "time-limit",
-    "template_key": "time-limit",
-    "type": "integer",
-    "required": false,
-    "default_value": 0,
-    "description": "Time limit in seconds for search",
-    "aliases": ["-l", "--time-limit"]
-  },
-  {
-    "name": "size-limit",
-    "template_key": "size-limit",
-    "type": "integer",
-    "required": false,
-    "default_value": 0,
-    "description": "Maximum number of entries to return",
-    "aliases": ["-z", "--size-limit"]
+    "aliases": [
+      "-f",
+      "--filter"
+    ]
   },
   {
     "name": "host",
@@ -87,7 +81,32 @@
     "required": false,
     "default_value": null,
     "description": "LDAP server hostname",
-    "aliases": ["-h", "--host"]
+    "aliases": [
+      "-h",
+      "--host"
+    ]
+  },
+  {
+    "name": "o",
+    "type": "boolean",
+    "required": false,
+    "description": "General options",
+    "aliases": [
+      "-o",
+      "--options"
+    ]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password for LDAP bind",
+    "aliases": [
+      "-w",
+      "--password"
+    ]
   },
   {
     "name": "port",
@@ -96,7 +115,46 @@
     "required": false,
     "default_value": 389,
     "description": "LDAP server port",
-    "aliases": ["-p", "--port"]
+    "aliases": [
+      "-p",
+      "--port"
+    ]
+  },
+  {
+    "name": "scope",
+    "template_key": "scope",
+    "type": "string",
+    "required": false,
+    "default_value": "sub",
+    "description": "Search scope (base, one, sub, children)",
+    "aliases": [
+      "-s",
+      "--scope"
+    ]
+  },
+  {
+    "name": "simple",
+    "template_key": "simple",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Use simple authentication (not SASL)",
+    "aliases": [
+      "-x",
+      "--simple"
+    ]
+  },
+  {
+    "name": "size-limit",
+    "template_key": "size-limit",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Maximum number of entries to return",
+    "aliases": [
+      "-z",
+      "--size-limit"
+    ]
   },
   {
     "name": "starttls",
@@ -105,6 +163,43 @@
     "required": false,
     "default_value": false,
     "description": "Use STARTTLS to upgrade to TLS",
-    "aliases": ["-Z", "--starttls"]
+    "aliases": [
+      "-Z",
+      "--starttls"
+    ]
+  },
+  {
+    "name": "time-limit",
+    "template_key": "time-limit",
+    "type": "integer",
+    "required": false,
+    "default_value": 0,
+    "description": "Time limit in seconds for search",
+    "aliases": [
+      "-l",
+      "--time-limit"
+    ]
+  },
+  {
+    "name": "uri",
+    "template_key": "uri",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "LDAP server URI (ldap://host:port)",
+    "aliases": [
+      "-H",
+      "--uri"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "Verbose output",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
   }
 ]

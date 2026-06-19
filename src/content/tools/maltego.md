@@ -106,6 +106,28 @@ parameters:
   description: Export graph to file
   aliases:
   - -e
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show help message"
+  aliases:
+    - "-h"
+    - "--help"
+- name: i
+  type: boolean
+  required: false
+  description: "Import configuration"
+  aliases:
+    - "-i"
+- name: v
+  type: boolean
+  required: false
+  description: "Show version"
+  aliases:
+    - "-v"
+    - "--version"
+
 execution:
   template: maltego
   sandbox: execFile

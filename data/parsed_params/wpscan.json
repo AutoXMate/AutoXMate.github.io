@@ -1,75 +1,14 @@
 [
   {
-    "name": "url",
-    "template_key": "url",
-    "type": "string",
-    "required": true,
-    "default_value": null,
-    "description": "Target WordPress URL",
-    "aliases": ["--url"]
-  },
-  {
-    "name": "enumerate",
-    "template_key": "enumerate",
-    "type": "string",
-    "required": false,
-    "default_value": "vp,vt",
-    "description": "Enumeration options (vp,vt,u,ap,at,cb,dbe,tt)",
-    "aliases": ["-e"]
-  },
-  {
-    "name": "plugins-detection",
-    "template_key": "plugins-detection",
-    "type": "string",
-    "required": false,
-    "default_value": "passive",
-    "description": "Plugin detection mode (passive/aggressive/mixed)",
-    "aliases": ["--plugins-detection"]
-  },
-  {
     "name": "api-token",
     "template_key": "api-token",
     "type": "string",
     "required": false,
     "default_value": null,
     "description": "API token for vulnerability database",
-    "aliases": ["--api-token"]
-  },
-  {
-    "name": "passwords",
-    "template_key": "passwords",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Password file for brute force",
-    "aliases": ["--passwords"]
-  },
-  {
-    "name": "usernames",
-    "template_key": "usernames",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Username file",
-    "aliases": ["--usernames"]
-  },
-  {
-    "name": "threads",
-    "template_key": "threads",
-    "type": "integer",
-    "required": false,
-    "default_value": 5,
-    "description": "Number of threads",
-    "aliases": ["-t"]
-  },
-  {
-    "name": "verbose",
-    "template_key": "verbose",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Verbose output",
-    "aliases": ["-v"]
+    "aliases": [
+      "--api-token"
+    ]
   },
   {
     "name": "batch",
@@ -78,25 +17,9 @@
     "required": false,
     "default_value": false,
     "description": "Never ask for user input",
-    "aliases": ["--batch"]
-  },
-  {
-    "name": "random-user-agent",
-    "template_key": "random-user-agent",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Random User-Agent header",
-    "aliases": ["--random-user-agent"]
-  },
-  {
-    "name": "proxy",
-    "template_key": "proxy",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Proxy URL",
-    "aliases": ["--proxy"]
+    "aliases": [
+      "--batch"
+    ]
   },
   {
     "name": "cookie",
@@ -105,16 +28,9 @@
     "required": false,
     "default_value": null,
     "description": "Cookie string",
-    "aliases": ["--cookie"]
-  },
-  {
-    "name": "headers",
-    "template_key": "headers",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Custom HTTP headers",
-    "aliases": ["--headers"]
+    "aliases": [
+      "--cookie"
+    ]
   },
   {
     "name": "detection-mode",
@@ -123,7 +39,29 @@
     "required": false,
     "default_value": "mixed",
     "description": "Detection mode (passive/aggressive/mixed)",
-    "aliases": ["--detection-mode"]
+    "aliases": [
+      "--detection-mode"
+    ]
+  },
+  {
+    "name": "enumerate",
+    "template_key": "enumerate",
+    "type": "string",
+    "required": false,
+    "default_value": "vp,vt",
+    "description": "Enumeration options (vp,vt,u,ap,at,cb,dbe,tt)",
+    "aliases": [
+      "-e"
+    ]
+  },
+  {
+    "name": "exclude_content_based",
+    "type": "boolean",
+    "required": false,
+    "description": "Exclude by content regex",
+    "aliases": [
+      "--exclude-content-based"
+    ]
   },
   {
     "name": "force",
@@ -132,6 +70,154 @@
     "required": false,
     "default_value": false,
     "description": "Force scan even if not WordPress",
-    "aliases": ["--force"]
+    "aliases": [
+      "--force"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "Show this help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "headers",
+    "template_key": "headers",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Custom HTTP headers",
+    "aliases": [
+      "--headers"
+    ]
+  },
+  {
+    "name": "ignore_main_redirect",
+    "type": "boolean",
+    "required": false,
+    "description": "Ignore redirect to main site",
+    "aliases": [
+      "--ignore-main-redirect"
+    ]
+  },
+  {
+    "name": "passwords",
+    "template_key": "passwords",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Password file for brute force",
+    "aliases": [
+      "--passwords"
+    ]
+  },
+  {
+    "name": "plugins-detection",
+    "template_key": "plugins-detection",
+    "type": "string",
+    "required": false,
+    "default_value": "passive",
+    "description": "Plugin detection mode (passive/aggressive/mixed)",
+    "aliases": [
+      "--plugins-detection"
+    ]
+  },
+  {
+    "name": "plugins_version_detection",
+    "type": "boolean",
+    "required": false,
+    "description": "Plugin version detection mode",
+    "aliases": [
+      "--plugins-version-detection"
+    ]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Proxy URL",
+    "aliases": [
+      "--proxy"
+    ]
+  },
+  {
+    "name": "random-user-agent",
+    "template_key": "random-user-agent",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Random User-Agent header",
+    "aliases": [
+      "--random-user-agent"
+    ]
+  },
+  {
+    "name": "stealthy",
+    "type": "boolean",
+    "required": false,
+    "description": "Stealthy mode (low and slow)",
+    "aliases": [
+      "--stealthy"
+    ]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 5,
+    "description": "Number of threads",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "url",
+    "template_key": "url",
+    "type": "string",
+    "required": true,
+    "default_value": null,
+    "description": "Target WordPress URL",
+    "aliases": [
+      "--url"
+    ]
+  },
+  {
+    "name": "user_agent",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--user-agent",
+      "-Agent"
+    ]
+  },
+  {
+    "name": "usernames",
+    "template_key": "usernames",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Username file",
+    "aliases": [
+      "--usernames"
+    ]
+  },
+  {
+    "name": "verbose",
+    "template_key": "verbose",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Verbose output",
+    "aliases": [
+      "-v"
+    ]
   }
 ]

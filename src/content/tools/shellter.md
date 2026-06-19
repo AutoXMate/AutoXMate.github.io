@@ -130,6 +130,27 @@ parameters:
   aliases:
   - -v
   - --verbose
+
+- name: bind_ip
+  type: boolean
+  required: false
+  description: "Bind shell bind IP"
+  aliases:
+    - "--bind-ip"
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "-h"
+    - "--help"
+- name: no_etc
+  type: boolean
+  required: false
+  description: "Disable ETW patching"
+  aliases:
+    - "--no-etc"
+
 execution:
   template: shellter --pe {target-exe}
   sandbox: execFile

@@ -1,93 +1,25 @@
 [
   {
-    "name": "domains",
-    "template_key": "domains",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "List of domains to scan (space/comma-separated)",
-    "aliases": ["--domains"]
-  },
-  {
-    "name": "screenshot-timeout",
-    "template_key": "screenshot-timeout",
-    "type": "integer",
-    "required": false,
-    "default_value": 30,
-    "description": "Timeout for taking screenshots in seconds",
-    "aliases": ["--screenshot-timeout"]
-  },
-  {
-    "name": "scan-timeout",
-    "template_key": "scan-timeout",
-    "type": "integer",
-    "required": false,
-    "default_value": 10,
-    "description": "Timeout for HTTP requests in seconds",
-    "aliases": ["--scan-timeout"]
-  },
-  {
-    "name": "resolve-timeout",
-    "template_key": "resolve-timeout",
-    "type": "integer",
-    "required": false,
-    "default_value": 5,
-    "description": "Timeout for DNS resolution in seconds",
-    "aliases": ["--resolve-timeout"]
-  },
-  {
-    "name": "threads",
-    "template_key": "threads",
-    "type": "integer",
-    "required": false,
-    "default_value": 5,
-    "description": "Number of concurrent threads",
-    "aliases": ["--threads"]
-  },
-  {
     "name": "chrome-path",
     "template_key": "chrome-path",
     "type": "string",
     "required": false,
     "default_value": null,
     "description": "Path to Chrome/Chromium executable",
-    "aliases": ["--chrome-path"]
+    "aliases": [
+      "--chrome-path"
+    ]
   },
   {
-    "name": "proxy",
-    "template_key": "proxy",
+    "name": "domains",
+    "template_key": "domains",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "HTTP proxy address",
-    "aliases": ["--proxy"]
-  },
-  {
-    "name": "ports",
-    "template_key": "ports",
-    "type": "string",
-    "required": false,
-    "default_value": "80,443",
-    "description": "Ports to scan (comma-separated)",
-    "aliases": ["--ports"]
-  },
-  {
-    "name": "http-port",
-    "template_key": "http-port",
-    "type": "string",
-    "required": false,
-    "default_value": "80",
-    "description": "HTTP ports to check",
-    "aliases": ["--http-port"]
-  },
-  {
-    "name": "https-port",
-    "template_key": "https-port",
-    "type": "string",
-    "required": false,
-    "default_value": "443",
-    "description": "HTTPS ports to check",
-    "aliases": ["--https-port"]
+    "description": "List of domains to scan (space/comma-separated)",
+    "aliases": [
+      "--domains"
+    ]
   },
   {
     "name": "fallback-http",
@@ -96,7 +28,31 @@
     "required": false,
     "default_value": false,
     "description": "Fall back to HTTP when HTTPS fails",
-    "aliases": ["--fallback-http"]
+    "aliases": [
+      "--fallback-http"
+    ]
+  },
+  {
+    "name": "http-port",
+    "template_key": "http-port",
+    "type": "string",
+    "required": false,
+    "default_value": "80",
+    "description": "HTTP ports to check",
+    "aliases": [
+      "--http-port"
+    ]
+  },
+  {
+    "name": "https-port",
+    "template_key": "https-port",
+    "type": "string",
+    "required": false,
+    "default_value": "443",
+    "description": "HTTPS ports to check",
+    "aliases": [
+      "--https-port"
+    ]
   },
   {
     "name": "output-dir",
@@ -105,7 +61,32 @@
     "required": false,
     "default_value": "aquatone",
     "description": "Directory to write output files",
-    "aliases": ["--output-dir", "-out"]
+    "aliases": [
+      "--output-dir",
+      "-out"
+    ]
+  },
+  {
+    "name": "ports",
+    "template_key": "ports",
+    "type": "string",
+    "required": false,
+    "default_value": "80,443",
+    "description": "Ports to scan (comma-separated)",
+    "aliases": [
+      "--ports"
+    ]
+  },
+  {
+    "name": "proxy",
+    "template_key": "proxy",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "HTTP proxy address",
+    "aliases": [
+      "--proxy"
+    ]
   },
   {
     "name": "quiet",
@@ -114,7 +95,42 @@
     "required": false,
     "default_value": false,
     "description": "Suppress verbose output",
-    "aliases": ["--quiet"]
+    "aliases": [
+      "--quiet"
+    ]
+  },
+  {
+    "name": "resolve-timeout",
+    "template_key": "resolve-timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 5,
+    "description": "Timeout for DNS resolution in seconds",
+    "aliases": [
+      "--resolve-timeout"
+    ]
+  },
+  {
+    "name": "scan-timeout",
+    "template_key": "scan-timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 10,
+    "description": "Timeout for HTTP requests in seconds",
+    "aliases": [
+      "--scan-timeout"
+    ]
+  },
+  {
+    "name": "screenshot-timeout",
+    "template_key": "screenshot-timeout",
+    "type": "integer",
+    "required": false,
+    "default_value": 30,
+    "description": "Timeout for taking screenshots in seconds",
+    "aliases": [
+      "--screenshot-timeout"
+    ]
   },
   {
     "name": "sites",
@@ -123,6 +139,28 @@
     "required": false,
     "default_value": null,
     "description": "File containing list of sites (one per line)",
-    "aliases": ["--sites"]
+    "aliases": [
+      "--sites"
+    ]
+  },
+  {
+    "name": "threads",
+    "template_key": "threads",
+    "type": "integer",
+    "required": false,
+    "default_value": 5,
+    "description": "Number of concurrent threads",
+    "aliases": [
+      "--threads"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "Show version",
+    "aliases": [
+      "--version"
+    ]
   }
 ]

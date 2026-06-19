@@ -122,6 +122,26 @@ parameters:
   - name: size
     description: Find files of a specific size
     type: string
+
+  - name: amin
+    type: boolean
+    required: false
+    description: "CONTEXT"
+    aliases:
+      - "-amin"
+      - "-anewer"
+      - "-atime"
+      - "-cmin"
+      - "-cnewer"
+      - "-context"
+  - name: used
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "-used"
+      - "-xtype"
+
 execution:
   template: "find -d {flag-d} -d {flag-d-2} -a {flag-a} -d {flag-d-3} --help {help}"
   sandbox: execFile

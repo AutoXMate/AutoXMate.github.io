@@ -25,6 +25,26 @@
     ]
   },
   {
+    "name": "flag-t",
+    "template_key": "flag-t",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
     "name": "squeeze-repeats",
     "template_key": "squeeze-repeats",
     "type": "string",
@@ -49,14 +69,12 @@
     ]
   },
   {
-    "name": "flag-t",
-    "template_key": "flag-t",
-    "type": "string",
+    "name": "version",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
     "description": "",
     "aliases": [
-      "-t"
+      "--version"
     ]
   }
 ]

@@ -24,27 +24,12 @@
     ]
   },
   {
-    "name": "text",
-    "template_key": "text",
-    "type": "string",
+    "name": "help",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "read in text mode (default)",
+    "description": "",
     "aliases": [
-      "-t",
-      "--text"
-    ]
-  },
-  {
-    "name": "zero",
-    "template_key": "zero",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "end each output line with NUL, not newline, and disable file name escaping",
-    "aliases": [
-      "-z",
-      "--zero"
+      "--help"
     ]
   },
   {
@@ -59,6 +44,36 @@
     ]
   },
   {
+    "name": "quiet",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--quiet"
+    ]
+  },
+  {
+    "name": "text",
+    "template_key": "text",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "read in text mode (default)",
+    "aliases": [
+      "-t",
+      "--text"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
+    ]
+  },
+  {
     "name": "warn",
     "template_key": "warn",
     "type": "string",
@@ -68,6 +83,18 @@
     "aliases": [
       "-w",
       "--warn"
+    ]
+  },
+  {
+    "name": "zero",
+    "template_key": "zero",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "end each output line with NUL, not newline, and disable file name escaping",
+    "aliases": [
+      "-z",
+      "--zero"
     ]
   }
 ]

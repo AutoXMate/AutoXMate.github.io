@@ -159,6 +159,20 @@ parameters:
     +[no]additional (Control display of additi...'
   aliases:
   - -y
+
+- name: h
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "-h"
+- name: v
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "-v"
+
 execution:
   template: dig {flag-4} {flag-6} {flag-b} {flag-c} {flag-f}
   sandbox: execFile

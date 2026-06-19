@@ -96,6 +96,44 @@ parameters:
       and exit"
     aliases:
       - --help
+
+  - name: dereference
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--dereference"
+  - name: from
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--from"
+  - name: no_preserve_root
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--no-preserve-root"
+  - name: preserve_root
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--preserve-root"
+  - name: reference
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--reference"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "chown -c {changes} -f {silent} -v {verbose} -h {no-dereference} -R {recursive}"
   sandbox: execFile

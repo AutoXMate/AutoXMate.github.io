@@ -1,5 +1,26 @@
 [
   {
+    "name": "all_repeated",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--all-repeated"
+    ]
+  },
+  {
+    "name": "check-chars",
+    "template_key": "check-chars",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "compare no more than N characters in lines --help display this help and exit --version output version information and exit",
+    "aliases": [
+      "-w",
+      "--check-chars"
+    ]
+  },
+  {
     "name": "count",
     "template_key": "count",
     "type": "integer",
@@ -9,6 +30,50 @@
     "aliases": [
       "-c",
       "--count"
+    ]
+  },
+  {
+    "name": "flag-D",
+    "template_key": "flag-d",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "print all duplicate lines --all-repeated[=METHOD] like -D, but allow separating groups with an empty line; METHOD={none(default),prepend,separate}",
+    "aliases": [
+      "-D"
+    ],
+    "enum": [
+      "none(default),prepend,separate"
+    ]
+  },
+  {
+    "name": "group",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--group"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
+    ]
+  },
+  {
+    "name": "ignore-case",
+    "template_key": "ignore-case",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "ignore differences in case when comparing",
+    "aliases": [
+      "-i",
+      "--ignore-case"
     ]
   },
   {
@@ -24,17 +89,15 @@
     ]
   },
   {
-    "name": "flag-D",
-    "template_key": "flag-d",
-    "type": "string",
+    "name": "skip-chars",
+    "template_key": "skip-chars",
+    "type": "integer",
     "required": false,
     "default_value": null,
-    "description": "print all duplicate lines --all-repeated[=METHOD] like -D, but allow separating groups with an empty line; METHOD={none(default),prepend,separate}",
+    "description": "avoid comparing the first N characters",
     "aliases": [
-      "-D"
-    ],
-    "enum": [
-      "none(default),prepend,separate"
+      "-s",
+      "--skip-chars"
     ]
   },
   {
@@ -53,30 +116,6 @@
     ]
   },
   {
-    "name": "ignore-case",
-    "template_key": "ignore-case",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "ignore differences in case when comparing",
-    "aliases": [
-      "-i",
-      "--ignore-case"
-    ]
-  },
-  {
-    "name": "skip-chars",
-    "template_key": "skip-chars",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "avoid comparing the first N characters",
-    "aliases": [
-      "-s",
-      "--skip-chars"
-    ]
-  },
-  {
     "name": "unique",
     "template_key": "unique",
     "type": "string",
@@ -89,6 +128,15 @@
     ]
   },
   {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
+    ]
+  },
+  {
     "name": "zero-terminated",
     "template_key": "zero-terminated",
     "type": "string",
@@ -98,18 +146,6 @@
     "aliases": [
       "-z",
       "--zero-terminated"
-    ]
-  },
-  {
-    "name": "check-chars",
-    "template_key": "check-chars",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "compare no more than N characters in lines --help display this help and exit --version output version information and exit",
-    "aliases": [
-      "-w",
-      "--check-chars"
     ]
   }
 ]

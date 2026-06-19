@@ -211,6 +211,157 @@ parameters:
   description: Print example hashes for all hash modes
   aliases:
   - --example-hashes
+
+- name: "1"
+  type: boolean
+  required: false
+  description: "charset ?1"
+  aliases:
+    - "-1"
+    - "--custom-charset1"
+    - "-defined"
+- name: "2"
+  type: boolean
+  required: false
+  description: "charset ?2"
+  aliases:
+    - "-2"
+    - "--custom-charset2"
+    - "-defined"
+- name: "3"
+  type: boolean
+  required: false
+  description: "charset ?3"
+  aliases:
+    - "-3"
+    - "--custom-charset3"
+    - "-defined"
+- name: "4"
+  type: boolean
+  required: false
+  description: "charset ?4"
+  aliases:
+    - "-4"
+    - "--custom-charset4"
+    - "-defined"
+- name: V
+  type: boolean
+  required: false
+  description: "Print version"
+  aliases:
+    - "-V"
+    - "--version"
+- name: b
+  type: boolean
+  required: false
+  description: "Run benchmark"
+  aliases:
+    - "-b"
+    - "--benchmark"
+- name: backend_devices
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--backend-devices"
+    - "-device"
+- name: backend_vector_width
+  type: boolean
+  required: false
+  description: "Backend vector width"
+  aliases:
+    - "--backend-vector-width"
+- name: benchmark_all
+  type: boolean
+  required: false
+  description: "Run benchmark for all modes"
+  aliases:
+    - "--benchmark-all"
+- name: g
+  type: boolean
+  required: false
+  description: "Generate N random rules"
+  aliases:
+    - "-g"
+    - "--generate-rules"
+- name: h
+  type: boolean
+  required: false
+  description: "Print help"
+  aliases:
+    - "-h"
+    - "--help"
+- name: increment_max
+  type: boolean
+  required: false
+  description: "Stop mask at length NUM"
+  aliases:
+    - "--increment-max"
+- name: increment_min
+  type: boolean
+  required: false
+  description: "Start mask at length NUM"
+  aliases:
+    - "--increment-min"
+- name: j
+  type: boolean
+  required: false
+  description: "Single rule applied to left word"
+  aliases:
+    - "-j"
+    - "--rule-left"
+- name: k
+  type: boolean
+  required: false
+  description: "Single rule applied to right word"
+  aliases:
+    - "-k"
+    - "--rule-right"
+- name: "n"
+  type: boolean
+  required: false
+  description: "Threads per GPU device"
+  aliases:
+    - "-n"
+    - "--threads"
+- name: outfile_autohex_disable
+  type: boolean
+  required: false
+  description: "Disable auto hex encode of plaintext"
+  aliases:
+    - "--outfile-autohex-disable"
+- name: p
+  type: boolean
+  required: false
+  description: "Separator for hashlist"
+  aliases:
+    - "-p"
+    - "--separator"
+- name: quiet
+  type: boolean
+  required: false
+  description: "Suppress output"
+  aliases:
+    - "--quiet"
+- name: runtime
+  type: boolean
+  required: false
+  description: "Runtime limit in seconds"
+  aliases:
+    - "--runtime"
+- name: stdout
+  type: boolean
+  required: false
+  description: "Print candidates to stdout (not cracking)"
+  aliases:
+    - "--stdout"
+- name: username
+  type: boolean
+  required: false
+  description: "Enable ignoring usernames in hashfile"
+  aliases:
+    - "--username"
+
 execution:
   template: hashcat -m {hash-type} -a {attack-mode} {hash-file} {wordlist}
   sandbox: execFile

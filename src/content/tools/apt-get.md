@@ -55,7 +55,7 @@ allowed-tools:
   - Bash
   - execFile
 parameters:
-  - name: y
+  - name: "y"
     type: string
     required: false
     description: "Assume yes to prompts"

@@ -221,6 +221,15 @@ parameters:
   - name: getline-variable
     description: Read file content into variable via getline < file
     type: string
+
+  - name: M
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "-M"
+      - "--bignum"
+
 features:
   - batch
   - pipes-stdout

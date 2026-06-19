@@ -129,6 +129,43 @@ parameters:
     description: "Evaluate a configuration variable"
     aliases:
       - -e
+
+  - name: H
+    type: boolean
+    required: false
+    description: "display help"
+    aliases:
+      - "-H"
+  - name: L
+    type: boolean
+    required: false
+    description: "list supported plugins/architectures"
+    aliases:
+      - "-L"
+  - name: file
+    type: string
+    required: false
+    default: null
+    description: "Binary file to analyze"
+  - name: "n"
+    type: boolean
+    required: false
+    description: "no analysis (raw mode)"
+    aliases:
+      - "-n"
+  - name: r
+    type: boolean
+    required: false
+    description: "use ragui (web/gtk)"
+    aliases:
+      - "-r"
+  - name: v
+    type: boolean
+    required: false
+    description: "show version"
+    aliases:
+      - "-v"
+
 execution:
   template: "radare2 -A {binary}"
   sandbox: execFile

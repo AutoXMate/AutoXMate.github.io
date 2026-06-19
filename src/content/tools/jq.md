@@ -232,6 +232,32 @@ parameters:
     aliases:
       - -h
       - --help
+
+  - name: args
+    type: boolean
+    required: false
+    description: "consume remaining arguments as positional"
+    aliases:
+      - "--args"
+  - name: jsonargs
+    type: boolean
+    required: false
+    description: "consume remaining arguments as positional"
+    aliases:
+      - "--jsonargs"
+  - name: rawfile
+    type: boolean
+    required: false
+    description: "name file   set $name to string contents of file;"
+    aliases:
+      - "--rawfile"
+  - name: slurpfile
+    type: boolean
+    required: false
+    description: "name file set $name to an array of JSON values read"
+    aliases:
+      - "--slurpfile"
+
 features:
   - local
   - pipes-stdin

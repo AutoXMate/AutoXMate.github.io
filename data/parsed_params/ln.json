@@ -11,17 +11,6 @@
     ]
   },
   {
-    "name": "flag-b",
-    "template_key": "flag-b",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "like --backup but does not accept an argument",
-    "aliases": [
-      "-b"
-    ]
-  },
-  {
     "name": "directory",
     "template_key": "directory",
     "type": "string",
@@ -35,6 +24,17 @@
     ]
   },
   {
+    "name": "flag-b",
+    "template_key": "flag-b",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "like --backup but does not accept an argument",
+    "aliases": [
+      "-b"
+    ]
+  },
+  {
     "name": "force",
     "template_key": "force",
     "type": "string",
@@ -44,6 +44,15 @@
     "aliases": [
       "-f",
       "--force"
+    ]
+  },
+  {
+    "name": "help",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--help"
     ]
   },
   {
@@ -83,6 +92,18 @@
     ]
   },
   {
+    "name": "no-target-directory",
+    "template_key": "no-target-directory",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "treat LINK_NAME as a normal file always",
+    "aliases": [
+      "-T",
+      "--no-target-directory"
+    ]
+  },
+  {
     "name": "physical",
     "template_key": "physical",
     "type": "string",
@@ -107,18 +128,6 @@
     ]
   },
   {
-    "name": "symbolic",
-    "template_key": "symbolic",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "make symbolic links instead of hard links",
-    "aliases": [
-      "-s",
-      "--symbolic"
-    ]
-  },
-  {
     "name": "suffix",
     "template_key": "suffix",
     "type": "string",
@@ -128,6 +137,18 @@
     "aliases": [
       "-S",
       "--suffix"
+    ]
+  },
+  {
+    "name": "symbolic",
+    "template_key": "symbolic",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "make symbolic links instead of hard links",
+    "aliases": [
+      "-s",
+      "--symbolic"
     ]
   },
   {
@@ -143,18 +164,6 @@
     ]
   },
   {
-    "name": "no-target-directory",
-    "template_key": "no-target-directory",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "treat LINK_NAME as a normal file always",
-    "aliases": [
-      "-T",
-      "--no-target-directory"
-    ]
-  },
-  {
     "name": "verbose",
     "template_key": "verbose",
     "type": "string",
@@ -164,6 +173,15 @@
     "aliases": [
       "-v",
       "--verbose"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   }
 ]

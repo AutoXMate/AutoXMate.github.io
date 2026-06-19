@@ -137,6 +137,48 @@ parameters:
   description: Output in JSON format
   aliases:
   - -j
+
+- name: I
+  type: boolean
+  required: false
+  description: "show invalid/partial results"
+  aliases:
+    - "-I"
+    - "--invalid"
+- name: T
+  type: boolean
+  required: false
+  description: "only show results of given type"
+  aliases:
+    - "-T"
+- name: W
+  type: boolean
+  required: false
+  description: "warn about suspicious signatures"
+  aliases:
+    - "-W"
+    - "--warn"
+- name: l
+  type: boolean
+  required: false
+  description: "limit scanning to length bytes"
+  aliases:
+    - "-l"
+- name: q
+  type: boolean
+  required: false
+  description: "suppress banner"
+  aliases:
+    - "-q"
+    - "--quiet"
+- name: v
+  type: boolean
+  required: false
+  description: "verbose output"
+  aliases:
+    - "-v"
+    - "--verbose"
+
 execution:
   template: binwalk -e {firmware-file}
   sandbox: execFile

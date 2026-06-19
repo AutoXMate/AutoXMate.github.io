@@ -1,5 +1,16 @@
 [
   {
+    "name": "check-order",
+    "template_key": "check-order",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "check that the input is correctly sorted, even if all input lines are pairable --nocheck-order do not check that the input is correctly sorted --output-delimiter=STR separate columns with STR --total output a summary",
+    "aliases": [
+      "--check-order"
+    ]
+  },
+  {
     "name": "flag-1",
     "template_key": "flag-1",
     "type": "string",
@@ -33,14 +44,39 @@
     ]
   },
   {
-    "name": "check-order",
-    "template_key": "check-order",
-    "type": "string",
+    "name": "help",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "check that the input is correctly sorted, even if all input lines are pairable --nocheck-order do not check that the input is correctly sorted --output-delimiter=STR separate columns with STR --total output a summary",
+    "description": "",
     "aliases": [
-      "--check-order"
+      "--help"
+    ]
+  },
+  {
+    "name": "nocheck_order",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--nocheck-order"
+    ]
+  },
+  {
+    "name": "output_delimiter",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--output-delimiter"
+    ]
+  },
+  {
+    "name": "version",
+    "type": "boolean",
+    "required": false,
+    "description": "",
+    "aliases": [
+      "--version"
     ]
   },
   {

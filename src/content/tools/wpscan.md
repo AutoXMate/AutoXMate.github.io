@@ -157,6 +157,46 @@ parameters:
   description: Force scan even if not WordPress (--force)
   aliases:
   - --force
+
+- name: exclude_content_based
+  type: boolean
+  required: false
+  description: "Exclude by content regex"
+  aliases:
+    - "--exclude-content-based"
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help"
+  aliases:
+    - "-h"
+    - "--help"
+- name: ignore_main_redirect
+  type: boolean
+  required: false
+  description: "Ignore redirect to main site"
+  aliases:
+    - "--ignore-main-redirect"
+- name: plugins_version_detection
+  type: boolean
+  required: false
+  description: "Plugin version detection mode"
+  aliases:
+    - "--plugins-version-detection"
+- name: stealthy
+  type: boolean
+  required: false
+  description: "Stealthy mode (low and slow)"
+  aliases:
+    - "--stealthy"
+- name: user_agent
+  type: boolean
+  required: false
+  description: ""
+  aliases:
+    - "--user-agent"
+    - "-Agent"
+
 execution:
   template: wpscan --url {target} -e
   sandbox: execFile

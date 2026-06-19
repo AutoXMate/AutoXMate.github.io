@@ -1,5 +1,14 @@
 [
   {
+    "name": "args",
+    "template_key": "args",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Arguments for the subcommand",
+    "aliases": []
+  },
+  {
     "name": "command",
     "template_key": "command",
     "type": "string",
@@ -9,12 +18,13 @@
     "aliases": []
   },
   {
-    "name": "args",
-    "template_key": "args",
-    "type": "string",
+    "name": "h",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "Arguments for the subcommand",
-    "aliases": []
+    "description": "Show this message and exit.",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
   }
 ]

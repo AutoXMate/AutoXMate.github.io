@@ -1,5 +1,175 @@
 [
   {
+    "name": "arg",
+    "template_key": "arg",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set $name to the string value",
+    "aliases": [
+      "--arg"
+    ]
+  },
+  {
+    "name": "argjson",
+    "template_key": "argjson",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "--slurpfile name file set $name to an array of JSON values read from the file; --rawfile name file set $name to string contents of file; --args consume remaining arguments as positional string values; --jsonargs consume remaining arguments as positional JSON values",
+    "aliases": [
+      "--argjson"
+    ]
+  },
+  {
+    "name": "args",
+    "type": "boolean",
+    "required": false,
+    "description": "consume remaining arguments as positional",
+    "aliases": [
+      "--args"
+    ]
+  },
+  {
+    "name": "ascii-output",
+    "template_key": "ascii-output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "output strings by only ASCII characters",
+    "aliases": [
+      "-a",
+      "--ascii-output"
+    ]
+  },
+  {
+    "name": "build-configuration",
+    "template_key": "build-configuration",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show jq's build configuration",
+    "aliases": [
+      "--build-configuration"
+    ]
+  },
+  {
+    "name": "color-output",
+    "template_key": "color-output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "colorize JSON output",
+    "aliases": [
+      "-C",
+      "--color-output"
+    ]
+  },
+  {
+    "name": "compact-output",
+    "template_key": "compact-output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "compact instead of pretty-printed output",
+    "aliases": [
+      "-c",
+      "--compact-output"
+    ]
+  },
+  {
+    "name": "exit-status",
+    "template_key": "exit-status",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "set exit status code based on the output",
+    "aliases": [
+      "-e",
+      "--exit-status"
+    ]
+  },
+  {
+    "name": "from-file",
+    "template_key": "from-file",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "load the filter from a file",
+    "aliases": [
+      "-f",
+      "--from-file"
+    ]
+  },
+  {
+    "name": "help",
+    "template_key": "help",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "show the help",
+    "aliases": [
+      "-h",
+      "--help"
+    ]
+  },
+  {
+    "name": "indent",
+    "template_key": "indent",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "use n spaces for indentation (max 7 spaces)",
+    "aliases": [
+      "--indent"
+    ]
+  },
+  {
+    "name": "join-output",
+    "template_key": "join-output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "implies -r and output without newline after",
+    "aliases": [
+      "-j",
+      "--join-output"
+    ]
+  },
+  {
+    "name": "jsonargs",
+    "type": "boolean",
+    "required": false,
+    "description": "consume remaining arguments as positional",
+    "aliases": [
+      "--jsonargs"
+    ]
+  },
+  {
+    "name": "library-path",
+    "template_key": "library-path",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "search modules from the directory",
+    "aliases": [
+      "-L",
+      "--library-path"
+    ]
+  },
+  {
+    "name": "monochrome-output",
+    "template_key": "monochrome-output",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "disable colored output",
+    "aliases": [
+      "-M",
+      "--monochrome-output"
+    ]
+  },
+  {
     "name": "null-input",
     "template_key": "null-input",
     "type": "string",
@@ -21,30 +191,6 @@
     "aliases": [
       "-R",
       "--raw-input"
-    ]
-  },
-  {
-    "name": "slurp",
-    "template_key": "slurp",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "read all inputs into an array and use it as",
-    "aliases": [
-      "-s",
-      "--slurp"
-    ]
-  },
-  {
-    "name": "compact-output",
-    "template_key": "compact-output",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "compact instead of pretty-printed output",
-    "aliases": [
-      "-c",
-      "--compact-output"
     ]
   },
   {
@@ -71,27 +217,44 @@
     ]
   },
   {
-    "name": "join-output",
-    "template_key": "join-output",
-    "type": "string",
+    "name": "rawfile",
+    "type": "boolean",
     "required": false,
-    "default_value": null,
-    "description": "implies -r and output without newline after",
+    "description": "name file   set $name to string contents of file;",
     "aliases": [
-      "-j",
-      "--join-output"
+      "--rawfile"
     ]
   },
   {
-    "name": "ascii-output",
-    "template_key": "ascii-output",
+    "name": "seq",
+    "template_key": "seq",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "output strings by only ASCII characters",
+    "description": "parse input/output as application/json-seq",
     "aliases": [
-      "-a",
-      "--ascii-output"
+      "--seq"
+    ]
+  },
+  {
+    "name": "slurp",
+    "template_key": "slurp",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "read all inputs into an array and use it as",
+    "aliases": [
+      "-s",
+      "--slurp"
+    ]
+  },
+  {
+    "name": "slurpfile",
+    "type": "boolean",
+    "required": false,
+    "description": "name file set $name to an array of JSON values read",
+    "aliases": [
+      "--slurpfile"
     ]
   },
   {
@@ -104,63 +267,6 @@
     "aliases": [
       "-S",
       "--sort-keys"
-    ]
-  },
-  {
-    "name": "color-output",
-    "template_key": "color-output",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "colorize JSON output",
-    "aliases": [
-      "-C",
-      "--color-output"
-    ]
-  },
-  {
-    "name": "monochrome-output",
-    "template_key": "monochrome-output",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "disable colored output",
-    "aliases": [
-      "-M",
-      "--monochrome-output"
-    ]
-  },
-  {
-    "name": "tab",
-    "template_key": "tab",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "use tabs for indentation",
-    "aliases": [
-      "--tab"
-    ]
-  },
-  {
-    "name": "indent",
-    "template_key": "indent",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "use n spaces for indentation (max 7 spaces)",
-    "aliases": [
-      "--indent"
-    ]
-  },
-  {
-    "name": "unbuffered",
-    "template_key": "unbuffered",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "flush output stream after each output",
-    "aliases": [
-      "--unbuffered"
     ]
   },
   {
@@ -186,72 +292,25 @@
     ]
   },
   {
-    "name": "seq",
-    "template_key": "seq",
+    "name": "tab",
+    "template_key": "tab",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "parse input/output as application/json-seq",
+    "description": "use tabs for indentation",
     "aliases": [
-      "--seq"
+      "--tab"
     ]
   },
   {
-    "name": "from-file",
-    "template_key": "from-file",
+    "name": "unbuffered",
+    "template_key": "unbuffered",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "load the filter from a file",
+    "description": "flush output stream after each output",
     "aliases": [
-      "-f",
-      "--from-file"
-    ]
-  },
-  {
-    "name": "library-path",
-    "template_key": "library-path",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "search modules from the directory",
-    "aliases": [
-      "-L",
-      "--library-path"
-    ]
-  },
-  {
-    "name": "arg",
-    "template_key": "arg",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "set $name to the string value",
-    "aliases": [
-      "--arg"
-    ]
-  },
-  {
-    "name": "argjson",
-    "template_key": "argjson",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "--slurpfile name file set $name to an array of JSON values read from the file; --rawfile name file set $name to string contents of file; --args consume remaining arguments as positional string values; --jsonargs consume remaining arguments as positional JSON values",
-    "aliases": [
-      "--argjson"
-    ]
-  },
-  {
-    "name": "exit-status",
-    "template_key": "exit-status",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "set exit status code based on the output",
-    "aliases": [
-      "-e",
-      "--exit-status"
+      "--unbuffered"
     ]
   },
   {
@@ -264,29 +323,6 @@
     "aliases": [
       "-V",
       "--version"
-    ]
-  },
-  {
-    "name": "build-configuration",
-    "template_key": "build-configuration",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "show jq's build configuration",
-    "aliases": [
-      "--build-configuration"
-    ]
-  },
-  {
-    "name": "help",
-    "template_key": "help",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "show the help",
-    "aliases": [
-      "-h",
-      "--help"
     ]
   }
 ]

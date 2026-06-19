@@ -129,6 +129,45 @@ parameters:
     description: "Suppress packet display"
     aliases:
       - -q
+
+  - name: "N"
+    type: boolean
+    required: false
+    description: "Do not perform DNS spoofing."
+    aliases:
+      - "-N"
+      - "--no-dns"
+  - name: O
+    type: boolean
+    required: false
+    description: "file             Output captured passwords to file."
+    aliases:
+      - "-O"
+  - name: j
+    type: boolean
+    required: false
+    description: "file             Log traffic in JSON format."
+    aliases:
+      - "-j"
+  - name: l
+    type: boolean
+    required: false
+    description: "logfile          Log all captured traffic."
+    aliases:
+      - "-l"
+  - name: u
+    type: boolean
+    required: false
+    description: "Unoffensive mode (no packet forwarding)."
+    aliases:
+      - "-u"
+  - name: x
+    type: boolean
+    required: false
+    description: "Display hex dump of packets."
+    aliases:
+      - "-x"
+
 execution:
   template: "ettercap -T -i {interface} -M arp:remote"
   sandbox: execFile

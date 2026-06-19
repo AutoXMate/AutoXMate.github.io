@@ -216,6 +216,44 @@ parameters:
   aliases:
   - -charset
   - --charset
+
+- name: d
+  type: boolean
+  required: false
+  description: "FMT  Date format (strftime syntax)"
+  aliases:
+    - "-d"
+    - "--date-format"
+- name: ext
+  type: boolean
+  required: false
+  description: "EXT  Process only files with extension"
+  aliases:
+    - "-ext"
+    - "--extension"
+- name: p
+  type: boolean
+  required: false
+  description: "Custom print format string"
+  aliases:
+    - "-p"
+    - "--print-format"
+- name: u
+  type: boolean
+  required: false
+  description: "Include unknown tags"
+  aliases:
+    - "-u"
+    - "--unknown"
+- name: v
+  type: boolean
+  required: false
+  description: ")"
+  aliases:
+    - "-v"
+    - "--verbose"
+    - "-5"
+
 execution:
   template: exiftool {file}
   sandbox: execFile

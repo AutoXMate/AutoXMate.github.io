@@ -155,6 +155,28 @@ parameters:
   aliases:
   - -s
   - --safe
+
+- name: hash_file
+  type: boolean
+  required: false
+  description: "hashes to file"
+  aliases:
+    - "--hash-file"
+    - "-REP"
+- name: no_save
+  type: boolean
+  required: false
+  description: "Do not save results to file"
+  aliases:
+    - "--no-save"
+- name: s
+  type: boolean
+  required: false
+  description: "Safe mode — stop on lockout"
+  aliases:
+    - "-s"
+    - "--safe"
+
 execution:
   template: kerbrute userenum -d {domain} -U {userlist} --dc {dc-ip}
   sandbox: execFile

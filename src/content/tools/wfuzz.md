@@ -157,6 +157,38 @@ parameters:
   description: Output file (-o)
   aliases:
   - -o
+
+- name: b
+  type: boolean
+  required: false
+  description: "cookie        HTTP Cookie header"
+  aliases:
+    - "-b"
+- name: f
+  type: boolean
+  required: false
+  description: "filter        Filter by response code, lines, words"
+  aliases:
+    - "-f"
+- name: req_delay
+  type: boolean
+  required: false
+  description: "Delay between requests in seconds"
+  aliases:
+    - "--req-delay"
+- name: s
+  type: boolean
+  required: false
+  description: "Silent mode (suppress banner)"
+  aliases:
+    - "-s"
+- name: z
+  type: boolean
+  required: false
+  description: "type          Payload type (file, list, range, etc.)"
+  aliases:
+    - "-z"
+
 execution:
   template: wfuzz -w {wordlist} -u {target}
   sandbox: execFile

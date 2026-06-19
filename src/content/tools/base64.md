@@ -60,6 +60,20 @@ parameters:
     aliases:
       - -w
       - --wrap
+
+  - name: help
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--help"
+  - name: version
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "--version"
+
 execution:
   template: "base64 -d {decode} -i {ignore-garbage} -w {wrap}"
   sandbox: execFile

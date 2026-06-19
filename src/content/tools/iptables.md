@@ -198,6 +198,23 @@ parameters:
     aliases:
       - -c
       - --set-counters
+
+  - name: E
+    type: boolean
+    required: false
+    description: ""
+    aliases:
+      - "-E"
+      - "-chain"
+      - "-chain"
+  - name: X
+    type: boolean
+    required: false
+    description: "chain"
+    aliases:
+      - "-X"
+      - "-defined"
+
 execution:
   template: "iptables -A {append} -C {check} -D {delete} -D {delete-2} -I {insert}"
   sandbox: execFile

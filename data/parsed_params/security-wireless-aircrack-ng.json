@@ -1,30 +1,15 @@
 [
   {
-    "name": "wordlist",
-    "template_key": "wordlist",
-    "type": "file",
-    "required": false,
-    "default_value": null,
-    "description": "Path to dictionary file for WPA/WPA2-PSK cracking",
-    "aliases": ["-w", "--wordlist"]
-  },
-  {
     "name": "attack-mode",
     "template_key": "attack-mode",
     "type": "enum",
     "required": false,
     "default_value": null,
     "description": "Attack mode (1=WEP, 2=WPA-PSK)",
-    "aliases": ["-a", "--attack-mode"]
-  },
-  {
-    "name": "essid",
-    "template_key": "essid",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Target network ESSID",
-    "aliases": ["-e", "--essid"]
+    "aliases": [
+      "-a",
+      "--attack-mode"
+    ]
   },
   {
     "name": "bssid",
@@ -33,52 +18,22 @@
     "required": false,
     "default_value": null,
     "description": "Target network BSSID",
-    "aliases": ["-b", "--bssid"]
+    "aliases": [
+      "-b",
+      "--bssid"
+    ]
   },
   {
-    "name": "password",
-    "template_key": "password",
+    "name": "essid",
+    "template_key": "essid",
     "type": "string",
     "required": false,
     "default_value": null,
-    "description": "WPA password to test",
-    "aliases": ["-p", "--password"]
-  },
-  {
-    "name": "show",
-    "template_key": "show",
-    "type": "boolean",
-    "required": false,
-    "default_value": null,
-    "description": "Show known keys in capture",
-    "aliases": ["-s", "--show"]
-  },
-  {
-    "name": "quiet",
-    "template_key": "quiet",
-    "type": "boolean",
-    "required": false,
-    "default_value": null,
-    "description": "Quiet mode",
-    "aliases": ["-q", "--quiet"]
-  },
-  {
-    "name": "korps",
-    "template_key": "korps",
-    "type": "boolean",
-    "required": false,
-    "default_value": null,
-    "description": "KoreK attacks for WEP",
-    "aliases": ["-K", "--korps"]
-  },
-  {
-    "name": "strength",
-    "template_key": "strength",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "WEP key strength (40/104)",
-    "aliases": ["-S", "--strength"]
+    "description": "Target network ESSID",
+    "aliases": [
+      "-e",
+      "--essid"
+    ]
   },
   {
     "name": "fudge",
@@ -87,6 +42,153 @@
     "required": false,
     "default_value": "2",
     "description": "PTW fudge factor",
-    "aliases": ["-f", "--fudge"]
+    "aliases": [
+      "-f",
+      "--fudge"
+    ]
+  },
+  {
+    "name": "g",
+    "type": "boolean",
+    "required": false,
+    "description": "GUI mode",
+    "aliases": [
+      "-g"
+    ]
+  },
+  {
+    "name": "h",
+    "type": "boolean",
+    "required": false,
+    "description": "Display help",
+    "aliases": [
+      "-h"
+    ]
+  },
+  {
+    "name": "i",
+    "type": "boolean",
+    "required": false,
+    "description": "WEP key index",
+    "aliases": [
+      "-i"
+    ]
+  },
+  {
+    "name": "j",
+    "type": "boolean",
+    "required": false,
+    "description": "Output hash in hccapx format",
+    "aliases": [
+      "-j"
+    ]
+  },
+  {
+    "name": "korps",
+    "template_key": "korps",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "KoreK attacks for WEP",
+    "aliases": [
+      "-K",
+      "--korps"
+    ]
+  },
+  {
+    "name": "l",
+    "type": "boolean",
+    "required": false,
+    "description": "Write key to file",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "n",
+    "type": "boolean",
+    "required": false,
+    "description": "Use PTW attack",
+    "aliases": [
+      "-n"
+    ]
+  },
+  {
+    "name": "password",
+    "template_key": "password",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "WPA password to test",
+    "aliases": [
+      "-p",
+      "--password"
+    ]
+  },
+  {
+    "name": "quiet",
+    "template_key": "quiet",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Quiet mode",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "show",
+    "template_key": "show",
+    "type": "boolean",
+    "required": false,
+    "default_value": null,
+    "description": "Show known keys in capture",
+    "aliases": [
+      "-s",
+      "--show"
+    ]
+  },
+  {
+    "name": "strength",
+    "template_key": "strength",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "WEP key strength (40/104)",
+    "aliases": [
+      "-S",
+      "--strength"
+    ]
+  },
+  {
+    "name": "t",
+    "type": "boolean",
+    "required": false,
+    "description": "WEP40/WEP104 selection",
+    "aliases": [
+      "-t"
+    ]
+  },
+  {
+    "name": "wordlist",
+    "template_key": "wordlist",
+    "type": "file",
+    "required": false,
+    "default_value": null,
+    "description": "Path to dictionary file for WPA/WPA2-PSK cracking",
+    "aliases": [
+      "-w",
+      "--wordlist"
+    ]
+  },
+  {
+    "name": "z",
+    "type": "boolean",
+    "required": false,
+    "description": "Use 64-bit WEP attack",
+    "aliases": [
+      "-z"
+    ]
   }
 ]

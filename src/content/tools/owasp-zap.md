@@ -128,6 +128,15 @@ parameters:
   description: Open existing session file
   aliases:
   - -session
+
+- name: h
+  type: boolean
+  required: false
+  description: "Show this help message"
+  aliases:
+    - "-h"
+    - "-help"
+
 execution:
   template: zap -daemon -port {port} -host {host}
   sandbox: execFile

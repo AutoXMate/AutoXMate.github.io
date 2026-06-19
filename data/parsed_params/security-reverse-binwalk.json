@@ -1,84 +1,32 @@
 [
   {
-    "name": "extract",
-    "template_key": "extract",
+    "name": "I",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Extract files automatically",
-    "aliases": ["-e", "--extract"]
+    "description": "show invalid/partial results",
+    "aliases": [
+      "-I",
+      "--invalid"
+    ]
   },
   {
-    "name": "matryoshka",
-    "template_key": "matryoshka",
+    "name": "T",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Recursively extract embedded filesystems",
-    "aliases": ["-M", "--matryoshka"]
+    "description": "only show results of given type",
+    "aliases": [
+      "-T"
+    ]
   },
   {
-    "name": "remove",
-    "template_key": "remove",
+    "name": "W",
     "type": "boolean",
     "required": false,
-    "default_value": false,
-    "description": "Remove extracted file after scanning",
-    "aliases": ["-r", "--remove"]
-  },
-  {
-    "name": "depth",
-    "template_key": "depth",
-    "type": "integer",
-    "required": false,
-    "default_value": null,
-    "description": "Maximum recursion depth",
-    "aliases": ["-d", "--depth"]
-  },
-  {
-    "name": "include",
-    "template_key": "include",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Only scan for matching signatures",
-    "aliases": ["-y", "--include"]
-  },
-  {
-    "name": "exclude",
-    "template_key": "exclude",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Exclude matching signatures",
-    "aliases": ["-x", "--exclude"]
-  },
-  {
-    "name": "entropy",
-    "template_key": "entropy",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Calculate file entropy",
-    "aliases": ["--entropy"]
-  },
-  {
-    "name": "opcodes",
-    "template_key": "opcodes",
-    "type": "boolean",
-    "required": false,
-    "default_value": false,
-    "description": "Identify CPU opcodes in firmware",
-    "aliases": ["--opcodes"]
-  },
-  {
-    "name": "dd",
-    "template_key": "dd",
-    "type": "string",
-    "required": false,
-    "default_value": null,
-    "description": "Dump region to file (type:offset:size)",
-    "aliases": ["--dd"]
+    "description": "warn about suspicious signatures",
+    "aliases": [
+      "-W",
+      "--warn"
+    ]
   },
   {
     "name": "csv",
@@ -87,7 +35,80 @@
     "required": false,
     "default_value": false,
     "description": "Output in CSV format",
-    "aliases": ["-c", "--csv"]
+    "aliases": [
+      "-c",
+      "--csv"
+    ]
+  },
+  {
+    "name": "dd",
+    "template_key": "dd",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Dump region to file (type:offset:size)",
+    "aliases": [
+      "--dd"
+    ]
+  },
+  {
+    "name": "depth",
+    "template_key": "depth",
+    "type": "integer",
+    "required": false,
+    "default_value": null,
+    "description": "Maximum recursion depth",
+    "aliases": [
+      "-d",
+      "--depth"
+    ]
+  },
+  {
+    "name": "entropy",
+    "template_key": "entropy",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Calculate file entropy",
+    "aliases": [
+      "--entropy"
+    ]
+  },
+  {
+    "name": "exclude",
+    "template_key": "exclude",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Exclude matching signatures",
+    "aliases": [
+      "-x",
+      "--exclude"
+    ]
+  },
+  {
+    "name": "extract",
+    "template_key": "extract",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Extract files automatically",
+    "aliases": [
+      "-e",
+      "--extract"
+    ]
+  },
+  {
+    "name": "include",
+    "template_key": "include",
+    "type": "string",
+    "required": false,
+    "default_value": null,
+    "description": "Only scan for matching signatures",
+    "aliases": [
+      "-y",
+      "--include"
+    ]
   },
   {
     "name": "json",
@@ -96,7 +117,64 @@
     "required": false,
     "default_value": false,
     "description": "Output in JSON format",
-    "aliases": ["-j", "--json"]
+    "aliases": [
+      "-j",
+      "--json"
+    ]
+  },
+  {
+    "name": "l",
+    "type": "boolean",
+    "required": false,
+    "description": "limit scanning to length bytes",
+    "aliases": [
+      "-l"
+    ]
+  },
+  {
+    "name": "matryoshka",
+    "template_key": "matryoshka",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Recursively extract embedded filesystems",
+    "aliases": [
+      "-M",
+      "--matryoshka"
+    ]
+  },
+  {
+    "name": "opcodes",
+    "template_key": "opcodes",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Identify CPU opcodes in firmware",
+    "aliases": [
+      "--opcodes"
+    ]
+  },
+  {
+    "name": "q",
+    "type": "boolean",
+    "required": false,
+    "description": "suppress banner",
+    "aliases": [
+      "-q",
+      "--quiet"
+    ]
+  },
+  {
+    "name": "remove",
+    "template_key": "remove",
+    "type": "boolean",
+    "required": false,
+    "default_value": false,
+    "description": "Remove extracted file after scanning",
+    "aliases": [
+      "-r",
+      "--remove"
+    ]
   },
   {
     "name": "signature",
@@ -105,6 +183,19 @@
     "required": false,
     "default_value": false,
     "description": "Perform signature scanning",
-    "aliases": ["-B", "--signature"]
+    "aliases": [
+      "-B",
+      "--signature"
+    ]
+  },
+  {
+    "name": "v",
+    "type": "boolean",
+    "required": false,
+    "description": "verbose output",
+    "aliases": [
+      "-v",
+      "--verbose"
+    ]
   }
 ]
